@@ -37,13 +37,13 @@ auto char signed(*table) = ("0123456789ABCDEF");
 
 if(!(si)) {
 // Error
-printf("\n%s", ("<< A error to put the NIL at argument SI of fn. cv_ltrs()."));
+printf("\n%s", ("<< An error to put the NIL at argument SI of fn. cv_ltrs()."));
 return(char signed) (~(NIL));
 }
 
 if(!(di)) {
 // Error
-printf("\n%s", ("<< A error to put the NIL at argument DI of fn. cv_ltrs()."));
+printf("\n%s", ("<< An error to put the NIL at argument DI of fn. cv_ltrs()."));
 return(char signed) (~(NIL));
 }
 
