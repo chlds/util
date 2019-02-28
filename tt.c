@@ -103,6 +103,7 @@ and more for an extensible code..
 # define COUNT_POS (4)
 # define COUNT_DC (3)
 
+# define DEFAULT_SECS (10)
 # define BUFF (0x200)
 
 # define SHR(A, B) ((A)>>(B))
@@ -140,12 +141,14 @@ X, Y, OFFSET_X, OFFSET_Y
 };
 
 
-auto const int signed(DELAY) = (int signed) (16);
-auto const int signed(SECS) = (int signed) (15);
+auto const int signed(LIMIT) = (int signed) (3600);
+auto const int signed(DELAY) = (int signed) (20);
 
+// Default
+auto int signed(secs) = (int signed) (DEFAULT_SECS);
+auto time_t(t), (deadline);
 
 auto int unsigned(SOLIDBRUSH) = (int signed) (0xC09070);
-
 
 auto int signed(old_bkmode), (old_bkcolor), (old_textcolor);
 auto int unsigned(old_textalign);
@@ -175,6 +178,7 @@ auto char signed(buff[BUFF]) = {
 };
 
 
+auto char signed(c);
 auto int signed(i), (j), (l), (r), (z);
 
 
@@ -231,6 +235,31 @@ auto char signed(facename_font[]) = ("Tahoma");
 
 
 /* **** **** TEXT/CODE */
+
+
+printf("\n%s%s", ("(*(argv+(argc+(~(NIL))))): "), (*(argv+(argc+(~(NIL))))));
+printf("\n%s%d", ("argc: "), (argc));
+
+if(argc<(2)) {
+}
+
+else {
+p = (char signed(*)) (*(argv+(argc+(~(NIL)))));
+c = (char signed) cv_ltrs(&i, (p));
+if(!(c^(~(NIL)))) {
+// Error
+printf("\n%s", ("<< Error at fn. cv_ltrs()."));
+return(char signed) (~(NIL));
+}
+secs = (int signed) (i);
+if(!(secs)) {
+secs = (int signed) (DEFAULT_SECS);
+}
+else {
+secs = (secs%(LIMIT));
+}}
+
+
 
 
 (*(scr+(X))) = GetSystemMetrics(SM_CXSCREEN);
@@ -500,27 +529,33 @@ return(char signed) (~(NIL));
 
 /* **** **** A loop */
 
-r = printf("\n\n%s%d%s\n", ("Please wait for about "), (SECS), (" seconds or press <Ctrl-C> to stop."));
+r = printf("\n\n%s%d%s\n", ("Please wait for about "), (secs), (" seconds or press <Ctrl-C> to stop."));
 
 z = (z^(z));
-l = (int signed) (33*(SECS));
 
-while(--l) {
+time(&t);
+deadline = (time_t) (t+((time_t) (secs)));
+
+/* **** Monitoring
+printf("\n%s%zd", ("deadline is: "), (deadline));
+printf("\n%s%zd", ("Now this is: "), (t));
+//*/
+
+while(t<(deadline)) {
 
 
-/* **** CPU idling
-if(z<(1)) {
+/* **** CPU idling */
+Sleep(DELAY);
+
+
+/* **** Saving..? */
+if(z<(3)) {
 (z++);
 }
 else {
-//*/
-
-Sleep(DELAY);
-
-/*
+time(&t);
 z = (z^(z));
 }
-//*/
 
 
 //* **** **** Fill

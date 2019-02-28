@@ -42,7 +42,8 @@ EXE = $(T).exe
 SRCS = ./*.c
 OBJS =
 LIBS = ./incl/lib/*.lib user32.lib gdi32.lib
-# LIBS = ./incl/lib/*.lib
+
+MYLIBS = ./incl/lib/*.lib
 
 AS = /Fa"$(T).s"
 C = -c
@@ -54,7 +55,7 @@ LILFLAGS = -map # -e
 LIL = link.exe
 
 
-$(EXE): $(OBJ)
+$(EXE): $(OBJ) $(OBJS) $(MYLIBS)
 	$(LIL) $(LILFLAGS) $(OBJ) $(OBJS) $(LIBS)
 
 
