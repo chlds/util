@@ -4,6 +4,9 @@
 //*/
 
 
+typedef void(__cdecl*(SIGHDR_T)) (int);
+
+
 struct mthrd {
 void(*securityattributes);
 int unsigned(stacksize);
