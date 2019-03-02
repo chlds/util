@@ -22,7 +22,9 @@ auto const int signed(DELAY) = (int signed) (100);
 
 auto const int signed(SECS) = (int signed) (5);
 
-auto int signed(i), (j), (l);
+auto int signed(i), (j), (l), (r);
+
+auto char signed(c);
 auto char signed(*p);
 
 auto struct tm(*tp);

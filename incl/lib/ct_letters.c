@@ -12,15 +12,21 @@ Count the letters.
 # include "./../decl/config.h"
 
 
-short int signed(__cdecl ct_letters(char signed(*argp))) {
+char signed(__cdecl ct_letters(int signed(*di), char signed(*si))) {
 
 
 // auto const int signed(DELAY) = (int signed) (100);
 
-auto short int signed(i);
+auto int signed(i);
+auto char signed(c);
 
 
-if(!(argp)) {
+if(!(si)) {
+// Error
+return(short int signed) (~(NIL));
+}
+
+if(!(di)) {
 // Error
 return(short int signed) (~(NIL));
 }
@@ -29,12 +35,16 @@ return(short int signed) (~(NIL));
 i = (i^(i));
 
 
-while(*(argp+(i))) {
+while(*(si+(i))) {
 (i++);
 // CPU idling
 // Sleep(DELAY);
 }
 
 
-return(short int signed) (i);
+(*di) = (int signed) (i);
+
+c = (c^(c));
+
+return(short int signed) (c);
 }

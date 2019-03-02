@@ -601,12 +601,19 @@ printf("\n%s", ("<< Error at SetTextColor()."));
 return(char signed) (~(NIL));
 }
 
-r = TextOut(*(dc+(DI)), (SHADE_XPOS+(*(pos+(X)))), (SHADE_YPOS+(*(pos+(Y)))), (buff), (ct_letters(buff)));
 
+c = (char signed) ct_letters(&r, (buff));
+if(!(c^(~(NIL)))) {
+printf("\n%s", ("<< Error at ct_letters()."));
+// return(char signed) (~(NIL));
+}
+else {
+r = TextOut(*(dc+(DI)), (SHADE_XPOS+(*(pos+(X)))), (SHADE_YPOS+(*(pos+(Y)))), (buff), (r));
 if(!(r)) {
 printf("\n%s", ("<< Error at fn. TextOut()."));
-return(char signed) (~(NIL));
-}
+// return(char signed) (~(NIL));
+}}
+
 
 old_textcolor = SetTextColor(*(dc+(DI)), (old_textcolor));
 
@@ -625,12 +632,19 @@ printf("\n%s", ("<< Error at SetTextColor()."));
 return(char signed) (~(NIL));
 }
 
-r = TextOut(*(dc+(DI)), (*(pos+(X))), (*(pos+(Y))), (buff), (ct_letters(buff)));
 
+c = (char signed) ct_letters(&r, (buff));
+if(!(c^(~(NIL)))) {
+printf("\n%s", ("<< Error at ct_letters()."));
+// return(char signed) (~(NIL));
+}
+else {
+r = TextOut(*(dc+(DI)), (*(pos+(X))), (*(pos+(Y))), (buff), (r));
 if(!(r)) {
 printf("\n%s", ("<< Error at fn. TextOut()."));
-return(char signed) (~(NIL));
-}
+// return(char signed) (~(NIL));
+}}
+
 
 old_textcolor = SetTextColor(*(dc+(DI)), (old_textcolor));
 

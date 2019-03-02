@@ -12,28 +12,34 @@ Count the arguments.
 # include "./../decl/config.h"
 
 
-short int signed(__cdecl ct_args(char signed(*argp))) {
+char signed(__cdecl ct_args(int signed(*di), char signed(*si))) {
 
 
 // auto const int signed(DELAY) = (int signed) (100);
 
-auto short int signed(count);
-auto int signed(i), (j);
+auto int signed(i), (j), (l), (r);
+auto int signed(count);
+auto char signed(c);
 
 
-if(!(argp)) {
+if(!(si)) {
+// Error
+return(short int signed) (~(NIL));
+}
+
+if(!(di)) {
 // Error
 return(short int signed) (~(NIL));
 }
 
 
 count = (count^(count));
-i = (count);
-j = (i);
+// l = (l^(l));
+j = (j^(j));
+i = (i^(i));
 
-
-while(*(argp+(i))) {
-if(!(' '^(*(argp+(i))))) {
+while(*(si+(i))) {
+if(!(' '^(*(si+(i++))))) {
 j = (j^(j));
 }
 else {
@@ -41,11 +47,15 @@ if(!(j)) {
 (count++);
 (j++);
 }}
-(i++);
+// (i++);
 // CPU idling
 // Sleep(DELAY);
 }
 
 
-return(short int signed) (count);
+(*(di)) = (int signed) (count);
+
+c = (c^(c));
+
+return(short int signed) (c);
 }

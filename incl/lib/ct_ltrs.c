@@ -12,37 +12,46 @@ Count the letters except the blanks.
 # include "./../decl/config.h"
 
 
-short int signed(__cdecl ct_ltrs(char signed(*argp))) {
+char signed(__cdecl ct_ltrs(int signed(*di), char signed(*si))) {
 
 
 // auto const int signed(DELAY) = (int signed) (100);
 
-auto short int signed(count);
-auto int signed(i), (j);
+auto int signed(count);
+auto int signed(i), (j), (l), (r);
+auto char signed(c);
 
 
-if(!(argp)) {
+if(!(si)) {
+// Error
+return(short int signed) (~(NIL));
+}
+
+if(!(di)) {
 // Error
 return(short int signed) (~(NIL));
 }
 
 
-count = (count^(count));
-i = (count);
-j = (i);
+count = (int signed) (count^(count));
+j = (int signed) (j^(j));
+i = (int signed) (i^(i));
 
-
-while(*(argp+(i))) {
-if(!(' '^(*(argp+(i))))) {
+while(*(si+(i))) {
+if(!(' '^(*(si+(i++))))) {
 }
 else {
 (count++);
 }
-(i++);
+// (i++);
 // CPU idling
 // Sleep(DELAY);
 }
 
 
-return(short int signed) (count);
+(*di) = (int signed) (count);
+
+c = (char signed) (c^(c));
+
+return(short int signed) (c);
 }
