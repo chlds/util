@@ -12,7 +12,7 @@ to duplicate/copy to file <di> out of file <si> in the binary format
 /* declaration */
 
 # define C_CODE_STDS
-# define C_MT
+# define C_AS
 
 # include "./incl/decl/config.h"
 

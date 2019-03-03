@@ -8,19 +8,18 @@
 // # include <sys/types.h>
 # include <sys/utime.h>
 # include "./las.h"
-# define NIL (0)
 # endif
 
 
-# ifdef C_CALEND
+# ifdef C_AS
 # include "./calend.h"
+# include "./datatype.h"
+# include "./fn.h"
 # endif
 
 
 # ifdef C_MT
 # include <process.h>
-# include "./datatype.h"
-# include "./fn.h"
 # endif
 
 

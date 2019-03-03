@@ -10,7 +10,7 @@ nmake T=t
 
 
 # define C_CODE_STDS
-# define C_CALEND
+# define C_AS
 
 # include "./incl/decl/config.h"
 

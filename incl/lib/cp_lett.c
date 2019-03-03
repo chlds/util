@@ -1,8 +1,8 @@
 /* **** **** **** **** Refer on
 
-./incl/lib/cmp_lett.c
+./incl/lib/cp_lett.c
 
-Compare strings
+Copy to the <di> out of the <si>
 
 //*/
 
@@ -12,7 +12,7 @@ Compare strings
 # include "./../decl/config.h"
 
 
-char signed(__cdecl cmp_lett(int signed(*cache), char signed(*di), char signed(*si))) {
+char signed(__cdecl cp_lett(int signed(*cache), char signed(*di), char signed(*si))) {
 
 
 // auto const int signed(DELAY) = (int signed) (100);
@@ -40,19 +40,17 @@ i = (i^(i));
 
 
 while(*(si+(i))) {
-c = (char signed) (*(di+(i)));
-if(!(c^(*(si+(i))))) {
-}
-else {
-break;
-}
+c = (char signed) (*(si+(i)));
+(*(di+(i))) = (char signed) (c);
 (i++);
 // CPU idling
 // Sleep(DELAY);
 }
 
-c = (char signed) (*(di+(i)));
-(*cache) = (int signed) (-c+(*(si+(i))));
+
+(*(di+(i))) = (char signed) (NIL);
+
+(*cache) = (int signed) (i);
 
 c = (char signed) (c^(c));
 
