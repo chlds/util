@@ -1,6 +1,6 @@
 /* **** **** **** **** Refer on
 
-./incl/lib/cv_ltrs.c
+./incl/lib/cv_lett.c
 
 Convert to an interger out of the letters.
 
@@ -14,7 +14,7 @@ Convert to an interger out of the letters.
 
 
 
-char signed(__cdecl cv_ltrs(int signed(*di), char signed(*si))) {
+char signed(__cdecl cv_lett(int signed(*di), char signed(*si))) {
 
 
 // auto const int signed(LIMIT) = (int signed) (3600);

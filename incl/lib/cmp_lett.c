@@ -1,6 +1,6 @@
 /* **** **** **** **** Refer on
 
-./incl/lib/compar.c
+./incl/lib/cmp_lett.c
 
 Compare file A and B
 
@@ -12,7 +12,7 @@ Compare file A and B
 # include "./../decl/config.h"
 
 
-char signed(__cdecl compar(int signed(*cache), char signed(*di), char signed(*si))) {
+char signed(__cdecl cmp_lett(int signed(*cache), char signed(*di), char signed(*si))) {
 
 
 // auto const int signed(DELAY) = (int signed) (100);

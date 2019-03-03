@@ -1,8 +1,8 @@
 /* **** **** **** **** Refer on
 
-./incl/lib/ct_ltrs.c
+./incl/lib/ct_lett_except.c
 
-Count the letters except the blanks.
+Count the letters except a letter you select.
 
 //*/
 
@@ -12,7 +12,9 @@ Count the letters except the blanks.
 # include "./../decl/config.h"
 
 
-char signed(__cdecl ct_ltrs(int signed(*di), char signed(*si))) {
+
+
+char signed(__cdecl ct_lett_except(int signed(*cache), char signed(*di), char signed(si))) {
 
 
 // auto const int signed(DELAY) = (int signed) (100);
@@ -22,23 +24,31 @@ auto int signed(i), (j), (l), (r);
 auto char signed(c);
 
 
+/*
 if(!(si)) {
 // Error
-return(short int signed) (~(NIL));
+return(char signed) (~(NIL));
 }
+//*/
 
 if(!(di)) {
 // Error
-return(short int signed) (~(NIL));
+return(char signed) (~(NIL));
+}
+
+if(!(cache)) {
+// Error
+return(char signed) (~(NIL));
 }
 
 
 count = (int signed) (count^(count));
 j = (int signed) (j^(j));
 i = (int signed) (i^(i));
+c = (char signed) (si);
 
-while(*(si+(i))) {
-if(!(' '^(*(si+(i++))))) {
+while(*(di+(i))) {
+if(!(c^(*(di+(i++))))) {
 }
 else {
 (count++);
@@ -49,9 +59,9 @@ else {
 }
 
 
-(*di) = (int signed) (count);
+(*cache) = (int signed) (count);
 
 c = (char signed) (c^(c));
 
-return(short int signed) (c);
+return(char signed) (c);
 }

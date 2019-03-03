@@ -245,10 +245,10 @@ if(argc<(2)) {
 
 else {
 p = (char signed(*)) (*(argv+(argc+(~(NIL)))));
-c = (char signed) cv_ltrs(&i, (p));
+c = (char signed) cv_lett(&i, (p));
 if(!(c^(~(NIL)))) {
 // Error
-printf("\n%s", ("<< Error at fn. cv_ltrs()."));
+printf("\n%s", ("<< Error at fn. cv_lett()."));
 return(char signed) (~(NIL));
 }
 secs = (int signed) (i);
@@ -602,9 +602,9 @@ return(char signed) (~(NIL));
 }
 
 
-c = (char signed) ct_letters(&r, (buff));
+c = (char signed) ct_lett(&r, (buff));
 if(!(c^(~(NIL)))) {
-printf("\n%s", ("<< Error at ct_letters()."));
+printf("\n%s", ("<< Error at ct_lett()."));
 // return(char signed) (~(NIL));
 }
 else {
@@ -633,9 +633,9 @@ return(char signed) (~(NIL));
 }
 
 
-c = (char signed) ct_letters(&r, (buff));
+c = (char signed) ct_lett(&r, (buff));
 if(!(c^(~(NIL)))) {
-printf("\n%s", ("<< Error at ct_letters()."));
+printf("\n%s", ("<< Error at ct_lett()."));
 // return(char signed) (~(NIL));
 }
 else {

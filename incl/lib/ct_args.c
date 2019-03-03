@@ -24,12 +24,12 @@ auto char signed(c);
 
 if(!(si)) {
 // Error
-return(short int signed) (~(NIL));
+return(char signed) (~(NIL));
 }
 
 if(!(di)) {
 // Error
-return(short int signed) (~(NIL));
+return(char signed) (~(NIL));
 }
 
 
@@ -57,5 +57,5 @@ if(!(j)) {
 
 c = (c^(c));
 
-return(short int signed) (c);
+return(char signed) (c);
 }

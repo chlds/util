@@ -1,6 +1,6 @@
 /* **** **** **** **** Refer on
 
-./incl/lib/ct_letters.c
+./incl/lib/ct_lett.c
 
 Count the letters.
 
@@ -12,7 +12,7 @@ Count the letters.
 # include "./../decl/config.h"
 
 
-char signed(__cdecl ct_letters(int signed(*di), char signed(*si))) {
+char signed(__cdecl ct_lett(int signed(*di), char signed(*si))) {
 
 
 // auto const int signed(DELAY) = (int signed) (100);
@@ -23,12 +23,12 @@ auto char signed(c);
 
 if(!(si)) {
 // Error
-return(short int signed) (~(NIL));
+return(char signed) (~(NIL));
 }
 
 if(!(di)) {
 // Error
-return(short int signed) (~(NIL));
+return(char signed) (~(NIL));
 }
 
 
@@ -46,5 +46,5 @@ while(*(si+(i))) {
 
 c = (c^(c));
 
-return(short int signed) (c);
+return(char signed) (c);
 }
