@@ -7,6 +7,15 @@
 typedef void(__cdecl*(SIGHDR_T)) (int);
 
 
+struct commandlet {
+char signed(*p);
+char signed(__cdecl*(f)) (void(*argp));
+void(*argp);
+int signed(uid);
+void(*optl);
+};
+
+
 struct knot {
 struct knot(*s);
 struct knot(*d);
