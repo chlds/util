@@ -14,6 +14,7 @@
 # ifdef C_AS
 # include "./calend.h"
 # include "./datatype.h"
+# include "./cmdl_fn.h"
 # include "./fn.h"
 # endif
 

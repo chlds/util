@@ -19,6 +19,7 @@ void(*optl);
 struct knot {
 struct knot(*s);
 struct knot(*d);
+short int signed(flag);
 char signed(*p);
 int signed(uid);
 void(*optl);
@@ -28,17 +29,8 @@ void(*optl);
 struct yarn {
 struct knot(*b);
 struct knot(*l);
+short int signed(flag);
 char signed(*p);
 int signed(uid);
 void(*optl);
-};
-
-
-struct mthrd {
-void(*securityattributes);
-int unsigned(stacksize);
-int unsigned(__cdecl*(f)) (void(*));
-void(*argp);
-int unsigned(initialflags);
-int unsigned(*threadidentifier);
 };
