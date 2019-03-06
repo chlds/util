@@ -1,5 +1,7 @@
 /* **** **** Making a small shell
 
+on branch develop
+
 */
 
 
@@ -20,8 +22,25 @@
 # define global
 
 
-global int signed(Announcements) = (int signed) (NIL);
-global int signed(Running) = (int signed) (NIL);
+
+
+global char signed(Announcements) = (int signed) (NIL);
+global int signed(Running) = (int signed) (1);
+// fn. cmdl_exit() to subtract the value.
+
+global struct knot(*base);
+global struct knot(*lead);
+
+/*
+global struct yarn(yarn) = {
+(struct knot(*)) (NIL),
+(struct knot(*)) (NIL),
+(char signed(*)) (NIL),
+(char signed) (NIL),
+(int signed) (NIL),
+(void(*)) (NIL)
+};
+//*/
 
 
 
@@ -31,13 +50,7 @@ global int signed(Running) = (int signed) (NIL);
 char signed(__cdecl main(char signed(argc), char signed(**argv), char signed(**envp))) {
 
 
-// Deprecate
-auto struct knot(*base), (*lead), (*cache);
-
-
-auto struct yarn(yarn) = {
-(struct knot(*)) (NIL)
-};
+auto struct knot(*cache);
 
 
 auto char signed(__cdecl*(fn[COUNT_FUNCTIONS])) (void(*argp)) = {

@@ -11,8 +11,12 @@
 # endif
 
 
-# ifdef C_AS
+# ifdef C_CALEND
 # include "./calend.h"
+# endif
+
+
+# ifdef C_AS
 # include "./datatype.h"
 # include "./cmdl_fn.h"
 # include "./fn.h"

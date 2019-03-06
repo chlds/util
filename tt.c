@@ -91,6 +91,7 @@ and more for an extensible code..
 
 
 # define C_CODE_STDS
+# define C_CALEND
 # define C_AS
 # define C_W32API
 
