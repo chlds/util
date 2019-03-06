@@ -14,13 +14,13 @@ to exit
 char signed(__cdecl cmdl_exit(void(*argp))) {
 
 
-external int signed(alltheflags);
+external char signed(Announcements);
 
 
 printf("%s\n", ("<< cmdl_exit runs."));
 printf("%s\n", (char signed(*)) (argp));
 
-alltheflags = (int signed) (alltheflags^(alltheflags));
+(Announcements++);
 
 return(char signed) (NIL);
 }

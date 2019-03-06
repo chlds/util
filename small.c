@@ -20,7 +20,8 @@
 # define global
 
 
-global int signed(alltheflags) = (int signed) (NIL);
+global int signed(Announcements) = (int signed) (NIL);
+global int signed(Running) = (int signed) (NIL);
 
 
 
@@ -69,10 +70,6 @@ auto char signed(buff[BUFF]) = {
 (char signed) (NIL)
 };
 
-auto char signed(arg_buff[BUFF]) = {
-(char signed) (NIL)
-};
-
 
 auto int unsigned(stacksize) = (int unsigned) (NIL);
 auto int unsigned(createdflags) = (int unsigned) (NIL);
@@ -80,8 +77,8 @@ auto int unsigned(createdflags) = (int unsigned) (NIL);
 auto int signed(i), (j), (l), (r);
 auto int signed(count), (total);
 auto int signed(length);
-auto int signed(flag);
 
+auto char signed(flag);
 auto char signed(c);
 
 auto char signed(*p) = (char signed(*)) (NIL);
@@ -90,11 +87,6 @@ auto char signed(*p) = (char signed(*)) (NIL);
 
 
 /* **** **** **** **** CODE/TEXT */
-/* **** **** Initialize */
-
-(alltheflags++);
-
-
 /* **** Notification */
 
 printf("\n%s", ("Please type --exit or press <Ctrl-C> to stop."));
@@ -115,24 +107,11 @@ j = (j^(j));
 i = (i^(i));
 
 flag = (flag^(flag));
-(flag++);
 
 while(2) {
 
-/* **** CPU idling */
-Sleep(100);
-
-/* **** Terminate */
-
-if(!(alltheflags)) {
-break;
-}
-
-/* **** Initialize */
-i = (i^(i));
-
-
 /* **** reading */
+i = (i^(i));
 
 while(1) {
 
@@ -245,23 +224,13 @@ printf("\n%s", ("<< Error at fn. cmp_lett_partially()."));
 return(char signed) (~(NIL));
 }
 
-if(!(r)) {
-
-//* **** store the string
-c = (char signed) cp_lett(&count, (arg_buff), (buff));
-if(!(c^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. cp_lett()."));
-// e.g., unmap the rest..
-return(char signed) (~(NIL));
-}
-//*/
-
 /* **** Run a multi-threading program or more */
+if(!(r)) {
 (*(thread+(l))) = (void(*)) _beginthreadex(
 (void(*)) (NIL),
 (int unsigned) (stacksize),
 (int unsigned(__cdecl*) (void(*))) (*(fn+(i))),
-(void(*)) (arg_buff), // e.g., (*(argp+(i))),
+(void(*)) (*lead).p, // e.g., (*(argp+(i))),
 (int unsigned) (createdflags),
 (int unsigned(*)) (thread_id+(j++))
 );
@@ -269,11 +238,33 @@ if(!(*(thread+(l++)))) {
 printf("\n%s", ("<< Error at fn. _beginthreadex()."));
 // e.g., unmap the rest..
 return(char signed) (~(NIL));
-}}
+}
+break;
+}
+else {
 (i++);
 }}
 
+/* **** Terminate */
+if(!(i)) {
+break;
+}}
 
+
+
+
+/* **** **** Check all the sub-threads */
+
+printf("\n");
+
+while(1) {
+if(!(Running)) {
+break;
+}
+printf(" ..");
+/* **** CPU idling */
+Sleep(100);
+}
 
 
 

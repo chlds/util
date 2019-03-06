@@ -14,12 +14,16 @@ to output the local time
 char signed(__cdecl cmdl_time(void(*argp))) {
 
 
-external int signed(alltheflags);
+external char signed(Announcements);
+external int signed(Running);
 
+
+(Running++);
 
 printf("%s\n", ("<< cmdl_time runs."));
+printf("%s\n", (char signed(*)) (argp));
 
-// alltheflags = (int signed) (alltheflags^(alltheflags));
+(--Running);
 
 return(char signed) (NIL);
 }

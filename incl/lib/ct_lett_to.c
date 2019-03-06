@@ -1,8 +1,8 @@
 /* **** **** **** **** Refer on
 
-./incl/lib/ct_lett_except.c
+./incl/lib/ct_lett_to.c
 
-Count the letters except a letter you select.
+Count the letters to a letter you select.
 
 //*/
 
@@ -14,7 +14,7 @@ Count the letters except a letter you select.
 
 
 
-char signed(__cdecl ct_lett_except(int signed(*cache), char signed(*di), char signed(si))) {
+char signed(__cdecl ct_lett_to(int signed(*cache), char signed(*di), char signed(si))) {
 
 
 // auto const int signed(DELAY) = (int signed) (100);
@@ -50,6 +50,7 @@ c = (char signed) (si);
 
 while(*(di+(i))) {
 if(!(c^(*(di+(i++))))) {
+break;
 }
 else {
 (count++);
