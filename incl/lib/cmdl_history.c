@@ -1,7 +1,7 @@
 /* **** **** a commandlet for all the commandlets
 
 
-to output
+to output the history
 
 
 Attention:
@@ -27,7 +27,7 @@ is for a doubly LL i.e.,
 
 
 
-char signed(__cdecl cmdl_output(void(*argp))) {
+char signed(__cdecl cmdl_history(void(*argp))) {
 
 
 /* **** **** DATA */
@@ -57,13 +57,8 @@ if(Announcements) {
 break;
 }
 Sleep(DELAY);
-// Check the command flag i.e., CMDFLAG to be set
-if((*cache).flag) {
-}
-else {
 printf("%6d%s", (i++), (".  "));
 printf("%s\n", (*cache).p);
-}
 cache = (struct knot(*)) (*cache).d;
 }
 

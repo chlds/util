@@ -7,11 +7,16 @@ If the function fails, the return value is (~(0)).
 //*/
 
 
-char signed(__cdecl splt(char signed(**di), char signed(*si)));
+
+
+char signed(__cdecl spl(char signed(***cache), int signed(*di), char signed(*si)));
+char signed(__cdecl spl_free(char signed(**argp)));
 
 char signed(__cdecl cmp_lett(int signed(*cache), char signed(*di), char signed(*si)));
 char signed(__cdecl cp_lett(int signed(*cache), char signed(*di), char signed(*si)));
+
 char signed(__cdecl ct_lett_except(int signed(*cache), char signed(*di), char signed(si)));
+char signed(__cdecl ct_lett_to(int signed(*cache), char signed(*di), char signed(si)));
 
 char signed(__cdecl dbug(char signed(*argp)));
 char signed(__cdecl cats(char signed(*argp)));

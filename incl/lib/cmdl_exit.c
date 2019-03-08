@@ -24,8 +24,12 @@ external char signed(Running);
 
 // (Running++);
 
+
+/* **** Monitoring
 printf("%s\n", ("<< cmdl_exit runs."));
 printf("%s\n", (char signed(*)) (argp));
+//*/
+
 
 (Announcements++);
 

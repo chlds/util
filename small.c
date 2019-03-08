@@ -16,15 +16,18 @@ on branch develop
 # define BUFF (0x400)
 # define DELAY (25)
 
-# define COUNT_FUNCTIONS (1+(3))
+# define COUNT_FUNCTIONS (1+(4))
 # define COUNT_THREADS (0x100)
+# define CMDFLAG (1)
 
 # define global
 
 
 
 
-global char signed(Announcements) = (int signed) (NIL);
+global char signed(Announcements) = (char signed) (NIL);
+
+global char signed(cmdl_time_Toggle) = (char signed) (NIL);
 global int signed(Running) = (int signed) (1);
 // fn. cmdl_exit() to subtract the value.
 
@@ -57,6 +60,7 @@ auto char signed(__cdecl*(fn[COUNT_FUNCTIONS])) (void(*argp)) = {
 (char signed(__cdecl*) (void(*))) (cmdl_exit),
 (char signed(__cdecl*) (void(*))) (cmdl_time),
 (char signed(__cdecl*) (void(*))) (cmdl_output),
+(char signed(__cdecl*) (void(*))) (cmdl_history),
 (char signed(__cdecl*) (void(*))) (NIL)
 };
 
@@ -65,6 +69,7 @@ auto char signed(*(term[COUNT_FUNCTIONS])) = {
 (char signed(*)) ("--exit"),
 (char signed(*)) ("--time"),
 (char signed(*)) ("--output"),
+(char signed(*)) ("--history"),
 (char signed(*)) (NIL)
 };
 
@@ -104,7 +109,7 @@ auto char signed(*p) = (char signed(*)) (NIL);
 
 printf("\n%s", ("Please type --exit or press <Ctrl-C> to stop."));
 printf("\n%s", ("Command or text:"));
-printf("\n");
+printf("\n\n");
 
 
 /* **** **** Initialize */
@@ -225,6 +230,7 @@ return(char signed) (~(NIL));
 
 /* **** Is it a command or text */
 
+(*lead).flag = (short int signed) (*lead).flag&(NIL);
 i = (i^(i));
 
 while(*(term+(i))) {
@@ -239,6 +245,7 @@ return(char signed) (~(NIL));
 
 /* **** Run a multi-threading program or more */
 if(!(r)) {
+(*lead).flag = (short int signed) (*lead).flag|(CMDFLAG);
 (*(thread+(l))) = (void(*)) _beginthreadex(
 (void(*)) (NIL),
 (int unsigned) (stacksize),
@@ -274,7 +281,8 @@ while(1) {
 if(!(Running)) {
 break;
 }
-printf(" ..");
+// Monitoring
+// printf(" ..");
 /* **** CPU idling */
 Sleep(100);
 }
