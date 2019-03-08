@@ -16,7 +16,7 @@ on branch develop
 # define BUFF (0x400)
 # define DELAY (25)
 
-# define COUNT_FUNCTIONS (1+(4))
+# define COUNT_FUNCTIONS (1+(5))
 # define COUNT_THREADS (0x100)
 # define CMDFLAG (1)
 
@@ -58,6 +58,7 @@ auto struct knot(*cache);
 
 auto char signed(__cdecl*(fn[COUNT_FUNCTIONS])) (void(*argp)) = {
 (char signed(__cdecl*) (void(*))) (cmdl_exit),
+(char signed(__cdecl*) (void(*))) (cmdl_help),
 (char signed(__cdecl*) (void(*))) (cmdl_time),
 (char signed(__cdecl*) (void(*))) (cmdl_output),
 (char signed(__cdecl*) (void(*))) (cmdl_history),
@@ -67,6 +68,7 @@ auto char signed(__cdecl*(fn[COUNT_FUNCTIONS])) (void(*argp)) = {
 
 auto char signed(*(term[COUNT_FUNCTIONS])) = {
 (char signed(*)) ("--exit"),
+(char signed(*)) ("--help"),
 (char signed(*)) ("--time"),
 (char signed(*)) ("--output"),
 (char signed(*)) ("--history"),
@@ -282,7 +284,8 @@ if(!(Running)) {
 break;
 }
 // Monitoring
-// printf(" ..");
+// printf("\n%s", ("Waiting for all the sub-threads to stop"));
+printf(" ..");
 /* **** CPU idling */
 Sleep(100);
 }
@@ -315,6 +318,7 @@ printf("%s%d\n", ("The number of the unmapped thread handlers: "), (i));
 /* **** **** Outputting */
 
 printf("\n%s", ("<< Auxiliaries: Outputting"));
+printf("\n");
 
 cache = (struct knot(*)) (base);
 i = (i^(i));
