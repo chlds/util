@@ -105,8 +105,6 @@ and more for an extensible code..
 # define DEFAULT_SECS (10)
 # define BUFF (0x200)
 
-# define SHR(A, B) ((A)>>(B))
-
 # include "./incl/decl/config.h"
 
 

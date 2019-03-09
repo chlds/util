@@ -7,20 +7,30 @@ Count the arguments.
 //*/
 
 
+
 # define C_CODE_STDS
 
 # include "./../decl/config.h"
 
 
+
 char signed(__cdecl ct_args(int signed(*di), char signed(*si))) {
 
 
-// auto const int signed(DELAY) = (int signed) (100);
+/* **** **** DATA */
+
+auto const int signed(SNOOZE) = (int signed) (255);
+auto const int signed(DELAY) = (int signed) (25);
 
 auto int signed(i), (j), (l), (r);
 auto int signed(count);
+
 auto char signed(c);
 
+auto const char signed(delimiter) = (char signed) (' ');
+
+
+/* **** **** CODE/TEXT */
 
 if(!(si)) {
 // Error
@@ -33,29 +43,33 @@ return(char signed) (~(NIL));
 }
 
 
-count = (count^(count));
-// l = (l^(l));
-j = (j^(j));
-i = (i^(i));
+XOR(count, count);
+XOR(l, l);
+XOR(j, j);
+XOR(i, i);
 
 while(*(si+(i))) {
-if(!(' '^(*(si+(i++))))) {
-j = (j^(j));
+if(!(delimiter^(*(si+(i++))))) {
+XOR(j, j);
 }
 else {
 if(!(j)) {
 (count++);
 (j++);
 }}
-// (i++);
 // CPU idling
-// Sleep(DELAY);
+if(l<(SNOOZE)) {
+(l++);
 }
+else {
+XOR(l, l);
+Sleep(DELAY);
+}}
 
 
 (*(di)) = (int signed) (count);
 
-c = (c^(c));
+XOR(c, c);
 
 return(char signed) (c);
 }

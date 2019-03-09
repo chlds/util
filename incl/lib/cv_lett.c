@@ -50,13 +50,13 @@ return(char signed) (~(NIL));
 
 /* **** **** Initialize */
 
-l = (l^(l));
-i = (i^(i));
-d = (d^(d));
+XOR(l, l);
+XOR(i, i);
+XOR(d, d);
 
 while(*(si+(l))) {
 c = (char signed) (*(si+(l++)));
-i = (i^(i));
+XOR(i, i);
 while(i<(TABLE)) {
 if(!(c^(*(table+(i))))) {
 d = (int signed) (i+RADIX*(d)) /* % (LIMIT) */ ;
@@ -75,5 +75,7 @@ Sleep(DELAY);
 (*(di)) = (int signed) (d);
 
 
-return(char signed) (NIL);
+XOR(c, c);
+
+return(char signed) (c);
 }

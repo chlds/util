@@ -15,9 +15,12 @@ Count the letters.
 char signed(__cdecl ct_lett(int signed(*di), char signed(*si))) {
 
 
-// auto const int signed(DELAY) = (int signed) (100);
+auto const int signed(SNOOZE) = (int signed) (255);
+auto const int signed(DELAY) = (int signed) (25);
 
+auto int signed(j);
 auto int signed(i);
+
 auto char signed(c);
 
 
@@ -32,19 +35,24 @@ return(char signed) (~(NIL));
 }
 
 
-i = (i^(i));
-
+XOR(j, j);
+XOR(i, i);
 
 while(*(si+(i))) {
 (i++);
 // CPU idling
-// Sleep(DELAY);
+if(j<(SNOOZE)) {
+(j++);
 }
+else {
+XOR(j, j);
+Sleep(DELAY);
+}}
 
 
 (*di) = (int signed) (i);
 
-c = (c^(c));
+XOR(c, c);
 
 return(char signed) (c);
 }
