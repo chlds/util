@@ -7,18 +7,22 @@ Compare strings
 //*/
 
 
+
 # define C_CODE_STDS
 
 # include "./../decl/config.h"
 
 
+
 char signed(__cdecl cmp_lett(int signed(*cache), char signed(*di), char signed(*si))) {
 
 
-// auto const int signed(DELAY) = (int signed) (100);
+auto const int signed(SNOOZE) = (int signed) (255);
+auto const int signed(DELAY) = (int signed) (25);
 
 auto int signed(i), (j), (l), (r);
 auto char signed(c);
+
 
 if(!(si)) {
 // Error
@@ -36,8 +40,8 @@ return(char signed) (~(NIL));
 }
 
 
-i = (i^(i));
-
+XOR(l, l);
+XOR(i, i);
 
 while(*(si+(i))) {
 c = (char signed) (*(di+(i)));
@@ -48,13 +52,19 @@ break;
 }
 (i++);
 // CPU idling
-// Sleep(DELAY);
+if(l<(SNOOZE)) {
+(l++);
 }
+else {
+XOR(l, l);
+Sleep(DELAY);
+}}
 
 c = (char signed) (*(di+(i)));
 (*cache) = (int signed) (-c+(*(si+(i))));
 
-c = (char signed) (c^(c));
+
+XOR(c, c);
 
 return(char signed) (c);
 }

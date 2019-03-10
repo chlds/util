@@ -16,7 +16,7 @@ on branch develop
 # define BUFF (0x400)
 # define DELAY (25)
 
-# define COUNT_FUNCTIONS (1+(5))
+# define COUNT_FUNCTIONS (1+(7))
 # define COUNT_THREADS (0x100)
 # define CMDFLAG (1)
 
@@ -59,7 +59,9 @@ auto struct knot(*cache);
 auto char signed(__cdecl*(fn[COUNT_FUNCTIONS])) (void(*argp)) = {
 (char signed(__cdecl*) (void(*))) (cmdl_exit),
 (char signed(__cdecl*) (void(*))) (cmdl_help),
+(char signed(__cdecl*) (void(*))) (cmdl_clear),
 (char signed(__cdecl*) (void(*))) (cmdl_time),
+(char signed(__cdecl*) (void(*))) (cmdl_save),
 (char signed(__cdecl*) (void(*))) (cmdl_output),
 (char signed(__cdecl*) (void(*))) (cmdl_history),
 (char signed(__cdecl*) (void(*))) (NIL)
@@ -69,7 +71,9 @@ auto char signed(__cdecl*(fn[COUNT_FUNCTIONS])) (void(*argp)) = {
 auto char signed(*(term[COUNT_FUNCTIONS])) = {
 (char signed(*)) ("--exit"),
 (char signed(*)) ("--help"),
+(char signed(*)) ("--clear"),
 (char signed(*)) ("--time"),
+(char signed(*)) ("--save"),
 (char signed(*)) ("--output"),
 (char signed(*)) ("--history"),
 (char signed(*)) (NIL)
