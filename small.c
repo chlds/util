@@ -6,7 +6,6 @@ on branch develop
 
 
 
-
 # define C_CODE_STDS
 # define C_AS
 # define C_MT
@@ -16,12 +15,11 @@ on branch develop
 # define BUFF (0x400)
 # define DELAY (25)
 
-# define COUNT_FUNCTIONS (1+(7))
+# define COUNT_FUNCTIONS (1+(8))
 # define COUNT_THREADS (0x100)
 # define CMDFLAG (1)
 
 # define global
-
 
 
 
@@ -47,7 +45,6 @@ global struct yarn(yarn) = {
 
 
 
-
 /* **** **** entry point */
 
 char signed(__cdecl main(char signed(argc), char signed(**argv), char signed(**envp))) {
@@ -56,28 +53,142 @@ char signed(__cdecl main(char signed(argc), char signed(**argv), char signed(**e
 auto struct knot(*cache);
 
 
+/* **** commandlets
+
+auto struct card(card_exit) = {
+(char signed(*)) ("--exit"),
+(short int signed) (NIL),
+(char signed(__cdecl*) (void(*))) (cmdl_exit),
+(void(*)) (NIL),
+(int unsigned) (NIL), // thread_id i.e., a thread id
+(void(*)) (NIL), // hdl i.e., a tread handle
+(int signed) (NIL),
+(void(*)) (NIL)
+};
+
+auto struct card(card_help) = {
+(char signed(*)) ("--help"),
+(short int signed) (NIL),
+(char signed(__cdecl*) (void(*))) (cmdl_help),
+(void(*)) (NIL),
+(int unsigned) (NIL),
+(void(*)) (NIL),
+(int signed) (NIL),
+(void(*)) (NIL)
+};
+
+auto struct card(card_clear) = {
+(char signed(*)) ("--clear"),
+(short int signed) (NIL),
+(char signed(__cdecl*) (void(*))) (cmdl_clear),
+(void(*)) (NIL),
+(int unsigned) (NIL),
+(void(*)) (NIL),
+(int signed) (NIL),
+(void(*)) (NIL)
+};
+
+auto struct card(card_time) = {
+(char signed(*)) ("--time"),
+(short int signed) (NIL),
+(char signed(__cdecl*) (void(*))) (cmdl_time),
+(void(*)) (NIL),
+(int unsigned) (NIL),
+(void(*)) (NIL),
+(int signed) (NIL),
+(void(*)) (NIL)
+};
+
+auto struct card(card_open) = {
+(char signed(*)) ("--open"),
+(short int signed) (NIL),
+(char signed(__cdecl*) (void(*))) (cmdl_open),
+(void(*)) (NIL),
+(int unsigned) (NIL),
+(void(*)) (NIL),
+(int signed) (NIL),
+(void(*)) (NIL)
+};
+
+auto struct card(card_save) = {
+(char signed(*)) ("--save"),
+(short int signed) (NIL),
+(char signed(__cdecl*) (void(*))) (cmdl_save),
+(void(*)) (NIL),
+(int unsigned) (NIL),
+(void(*)) (NIL),
+(int signed) (NIL),
+(void(*)) (NIL)
+};
+
+auto struct card(card_output) = {
+(char signed(*)) ("--output"),
+(short int signed) (NIL),
+(char signed(__cdecl*) (void(*))) (cmdl_output),
+(void(*)) (NIL),
+(int unsigned) (NIL),
+(void(*)) (NIL),
+(int signed) (NIL),
+(void(*)) (NIL)
+};
+
+auto struct card(card_history) = {
+(char signed(*)) ("--history"),
+(short int signed) (NIL),
+(char signed(__cdecl*) (void(*))) (cmdl_history),
+(void(*)) (NIL),
+(int unsigned) (NIL),
+(void(*)) (NIL),
+(int signed) (NIL),
+(void(*)) (NIL)
+};
+
+auto struct card(*(arr[COUNT_FUNCTIONS])) = {
+(struct card(*)) (&card_exit),
+(struct card(*)) (&card_help),
+(struct card(*)) (&card_clear),
+(struct card(*)) (&card_time),
+(struct card(*)) (&card_save),
+(struct card(*)) (&card_output),
+(struct card(*)) (&card_history),
+(struct card(*)) (NIL)
+};
+//*/
+
+
+
+//* **** aux. 1/2
+
 auto char signed(__cdecl*(fn[COUNT_FUNCTIONS])) (void(*argp)) = {
 (char signed(__cdecl*) (void(*))) (cmdl_exit),
 (char signed(__cdecl*) (void(*))) (cmdl_help),
 (char signed(__cdecl*) (void(*))) (cmdl_clear),
 (char signed(__cdecl*) (void(*))) (cmdl_time),
+(char signed(__cdecl*) (void(*))) (cmdl_open),
 (char signed(__cdecl*) (void(*))) (cmdl_save),
 (char signed(__cdecl*) (void(*))) (cmdl_output),
 (char signed(__cdecl*) (void(*))) (cmdl_history),
 (char signed(__cdecl*) (void(*))) (NIL)
 };
+//*/
 
+
+
+//* **** aux. 2/2
 
 auto char signed(*(term[COUNT_FUNCTIONS])) = {
 (char signed(*)) ("--exit"),
 (char signed(*)) ("--help"),
 (char signed(*)) ("--clear"),
 (char signed(*)) ("--time"),
+(char signed(*)) ("--open"),
 (char signed(*)) ("--save"),
 (char signed(*)) ("--output"),
 (char signed(*)) ("--history"),
 (char signed(*)) (NIL)
 };
+//*/
+
 
 
 auto int signed(thread_id[COUNT_THREADS]) = {
