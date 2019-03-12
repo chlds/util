@@ -39,7 +39,7 @@ enum {
 SI, DI, CACHE
 };
 
-auto const int signed(QUANTUM) = (int signed) (0x0F);
+auto const int signed(QUANTUM) = (int signed) (0x10);
 auto const int signed(COLUMN) = (int signed) (0x10);
 auto const int signed(LIMIT) = (int signed) (0x02);
 auto const int signed(DELAY) = (int signed) (2*(QUANTUM));
