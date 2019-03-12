@@ -63,6 +63,7 @@ auto struct card(card_exit) = {
 (int unsigned) (NIL), // thread_id i.e., a thread id
 (void(*)) (NIL), // hdl i.e., a tread handle
 (int signed) (NIL),
+(int signed) (NIL),
 (void(*)) (NIL)
 };
 
@@ -73,6 +74,7 @@ auto struct card(card_help) = {
 (void(*)) (NIL),
 (int unsigned) (NIL),
 (void(*)) (NIL),
+(int signed) (NIL),
 (int signed) (NIL),
 (void(*)) (NIL)
 };
@@ -85,6 +87,7 @@ auto struct card(card_clear) = {
 (int unsigned) (NIL),
 (void(*)) (NIL),
 (int signed) (NIL),
+(int signed) (NIL),
 (void(*)) (NIL)
 };
 
@@ -95,6 +98,7 @@ auto struct card(card_time) = {
 (void(*)) (NIL),
 (int unsigned) (NIL),
 (void(*)) (NIL),
+(int signed) (NIL),
 (int signed) (NIL),
 (void(*)) (NIL)
 };
@@ -107,6 +111,7 @@ auto struct card(card_open) = {
 (int unsigned) (NIL),
 (void(*)) (NIL),
 (int signed) (NIL),
+(int signed) (NIL),
 (void(*)) (NIL)
 };
 
@@ -117,6 +122,7 @@ auto struct card(card_save) = {
 (void(*)) (NIL),
 (int unsigned) (NIL),
 (void(*)) (NIL),
+(int signed) (NIL),
 (int signed) (NIL),
 (void(*)) (NIL)
 };
@@ -129,6 +135,7 @@ auto struct card(card_output) = {
 (int unsigned) (NIL),
 (void(*)) (NIL),
 (int signed) (NIL),
+(int signed) (NIL),
 (void(*)) (NIL)
 };
 
@@ -139,6 +146,7 @@ auto struct card(card_history) = {
 (void(*)) (NIL),
 (int unsigned) (NIL),
 (void(*)) (NIL),
+(int signed) (NIL),
 (int signed) (NIL),
 (void(*)) (NIL)
 };

@@ -70,7 +70,8 @@ X, Y, OFFSET_X, OFFSET_Y
 
 
 auto const int signed(LIMIT) = (int signed) (3600);
-auto const int signed(DELAY) = (int signed) (20);
+auto const int signed(QUANTUM) = (int signed) (0x10);
+auto const int signed(DELAY) = (int signed) (2*(QUANTUM));
 
 // Default
 auto int signed(secs) = (int signed) (DEFAULT_SECS);

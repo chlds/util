@@ -1,0 +1,14 @@
+# Executable files
+/**/*.exe
+
+# Static library files
+/**/*.lib
+
+# Map files
+/**/*.map
+
+# Object files
+/**/*.obj
+
+# Assembly files
+/**/*.s
