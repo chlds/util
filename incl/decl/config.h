@@ -1,6 +1,7 @@
 # ifdef C_CODE_STDS
 # include <io.h>
 # include <stdio.h>
+# include <stdarg.h>
 # include <stdlib.h>
 # include <time.h>
 # include <fcntl.h>

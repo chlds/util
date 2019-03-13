@@ -12,6 +12,8 @@ If the function fails, the return value is (~(0)).
 char signed(__cdecl spl(char signed(***cache), int signed(*di), char signed(*si)));
 char signed(__cdecl spl_free(char signed(**argp)));
 
+char signed(__cdecl concat(char signed(**argp), ...));
+
 char signed(__cdecl cmp_lett(int signed(*cache), char signed(*di), char signed(*si)));
 char signed(__cdecl cp_lett(int signed(*cache), char signed(*di), char signed(*si)));
 
