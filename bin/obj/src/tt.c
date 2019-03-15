@@ -1,18 +1,7 @@
 /* **** **** **** **** Notes
 
 
-Please verify the code and use it if you like.
-
-
-Please type the following commands to
-make the (tt.exe) executable file to
-run on the (CMD.exe) console in Windows 10 64-bit OS using Windows Kit.
-
-cd incl/lib/
-nmake L=<library-name-you-like>
-cd ..
-cd ..
-nmake T=tt
+Please review the code and use it if you like.
 
 
 Once you have created the library file, you
@@ -24,77 +13,51 @@ nmake T=tt
 
 Appendix I:
 
-Or to build an (e.g., my.lib) library file on the (./incl/lib) directory, type the following command:
-
-cd incl/lib/
-cl -c *.c
-lib -out:my.lib *.obj
-
-and to build an (e.g., tt.exe) executable file from an (i.e., tt.c) C source file on the (util/) directory, type the following command:
-
-cd ..
-cd ..
-cl -c tt.c
-cl tt.obj ./incl/lib/*.lib user32.lib gdi32.lib
-
-Or
-
-cd ..
-cd ..
-cl -c tt.c
-link tt.obj ./incl/lib/*.lib user32.lib gdi32.lib
-
-
-Appendix II:
-
 Please type like this when you want to overwrite the value of that LIBS, for example:
 
 nmake T=tt LIBS="./incl/lib/*.lib user32.lib gdi32.lib"
 
 
-Remarks:
-
-Refer at path "./incl/decl/config.h", at <corecrt_wtime.h> or..
-
-
 Flow:
+
 ----
 ----
 Create/map all the Objects on the RAM
 ----
-Select all the handlers of the created, loaded or mapped objects to the handlers of the memory device context
+Select all the handles of the created, loaded or mapped objects to the handles of the memory device context
 ----
-Get a handler of the common device context
+Get a handle of the common device context
 Bit Block Transfer to the common DC
-Release the handler of the common device context
+Release the handle of the common device context
 ----
-Get a handler of the common device context
+Get a handle of the common device context
 Bit Block Transfer to the common DC
-Release the handler of the common device context
+Release the handle of the common device context
 ----
-De-select all the handlers of the created, loaded or mapped objects out of the handlers of the memory device context
+De-select all the handles of the created, loaded or mapped objects out of the handles of the memory device context
 ----
 Delete/unmap all the Objects on the RAM
 ----
 ----
 
 
+Remarks:
+
 Design and Implementation e.g.,
 double buffering(, off-screen or sprite),
 alpha blending,
 directly access using a vector table of the offset pointers,
-dynamically secure an array of the offset pointers e.g., p = (char signed(*(*))) malloc(N*(sizeof(char signed(*))));,
-cpu_idle
-and more for an extensible code..
+dynamically secure an array of the offset pointers e.g., p = (char signed(**)) malloc(N*(sizeof(char signed(*))));,
+label cpu_idle, cpu_freq and more for an extensible code..
 
 //*/
+
 
 
 # define C_CODE_STDS
 # define C_CALEND
 # define C_AS
 # define C_W32API
-
 
 # define COUNT_MODULES (1)
 # define COUNT_WINDOWS (1)
@@ -105,29 +68,30 @@ and more for an extensible code..
 # define DEFAULT_SECS (10)
 # define BUFF (0x200)
 
-# include "./incl/decl/config.h"
+# include "./../../../incl/config.h"
+
 
 
 char signed(__cdecl main(char signed(argc), char signed(**argv), char signed(**envp))) {
 
 
-// for the module handlers
+// for the module handles
 enum {
 INSTANCE
 };
 
-// for the window handlers
+// for the window handles
 enum {
 ACTIVE
 };
 
-// for the object handlers
+// for the object handles
 // Be careful in the order (with fn. SelectOject() to de-select the 3 objects from and fn. DeleteObject() to delete the 4 ones from the bottom.)
 enum {
 FONT, BRUSH, BITMAP, REGION, LOADEDBITMAP
 };
 
-// for the handlers of the memory device context
+// for the handles of the memory device context
 enum {
 SI, DI, CACHE
 };
@@ -303,7 +267,7 @@ return(char signed) (~(NIL));
 }
 else {
 // Monitoring
-printf("\n%s%p", ("The handler of a region object created/mapped on the RAM will be on offset "), (*(obj+(REGION))));
+printf("\n%s%p", ("The handle of a region object created/mapped on the RAM will be on offset "), (*(obj+(REGION))));
 }
 
 
@@ -315,7 +279,7 @@ return(char signed) (~(NIL));
 }
 else {
 // Monitoring
-printf("\n%s%p", ("The handler of a brush object created/mapped on the RAM will be on offset "), (*(obj+(BRUSH))));
+printf("\n%s%p", ("The handle of a brush object created/mapped on the RAM will be on offset "), (*(obj+(BRUSH))));
 }
 
 
@@ -331,7 +295,7 @@ return(char signed) (~(NIL));
 }
 else {
 // Monitoring
-printf("\n%s%p", ("The handler of a font object created/mapped on the RAM will be on offset "), (*(obj+(FONT))));
+printf("\n%s%p", ("The handle of a font object created/mapped on the RAM will be on offset "), (*(obj+(FONT))));
 }
 
 
@@ -345,7 +309,7 @@ return(char signed) (~(NIL));
 }
 else {
 // Monitoring
-// printf("\n%s%p", ("The handler of the common device context mapped on the RAM will be on offset "), (*(dc+(CACHE))));
+// printf("\n%s%p", ("The handle of the common device context mapped on the RAM will be on offset "), (*(dc+(CACHE))));
 }
 
 i = (int signed) (-1+(COUNT_DC));
@@ -358,7 +322,7 @@ return(char signed) (~(NIL));
 }
 else {
 // Monitoring
-printf("\n%s%p", ("The handler of a memory device context created/mapped on the RAM will be on offset "), (*(dc+(i))));
+printf("\n%s%p", ("The handle of a memory device context created/mapped on the RAM will be on offset "), (*(dc+(i))));
 }}
 
 (*(obj+(BITMAP))) = (void(*)) CreateCompatibleBitmap(*(dc+(CACHE)), (*(region+(X))), (*(region+(Y))));
@@ -369,7 +333,7 @@ return(char signed) (~(NIL));
 }
 else {
 // Monitoring
-printf("\n%s%p", ("The handler of a compatible bitmap object created/mapped on the RAM will be on offset "), (*(obj+(BITMAP))));
+printf("\n%s%p", ("The handle of a compatible bitmap object created/mapped on the RAM will be on offset "), (*(obj+(BITMAP))));
 }
 
 r = (int signed) ReleaseDC(*(window+(ACTIVE)), (*(dc+(CACHE))));
@@ -380,7 +344,7 @@ return(char signed) (~(NIL));
 }
 
 
-/* **** **** Get a handler of the module object (to load a bitmap file) */
+/* **** **** Get a handle of the module object (to load a bitmap file) */
 
 (*(module+(INSTANCE))) = (void(*)) GetModuleHandle((char signed(*)) (NIL));
 
@@ -390,7 +354,7 @@ return(char signed) (~(NIL));
 }
 else {
 // Monitoring
-printf("\n%s%p", ("The handler of a module object created/mapped on the RAM will be on offset "), (*(module+(INSTANCE))));
+printf("\n%s%p", ("The handle of a module object created/mapped on the RAM will be on offset "), (*(module+(INSTANCE))));
 }
 
 
@@ -437,7 +401,7 @@ printf("\n%s", ("<< Error at fn. LoadImage()."));
 return(char signed) (~(NIL));
 }
 else {
-printf("\n%s%p", ("The handler of a loaded bitmap object created/mapped on the RAM will be on offset "), (*(obj+(LOADEDBITMAP))));
+printf("\n%s%p", ("The handle of a loaded bitmap object created/mapped on the RAM will be on offset "), (*(obj+(LOADEDBITMAP))));
 }
 
 //*/
@@ -653,7 +617,7 @@ return(char signed) (~(NIL));
 
 
 
-/* **** **** Getting and releasing a handler of the common Dedive Context to use in fn. BitBlt() */
+/* **** **** Getting and releasing a handle of the common Dedive Context to use in fn. BitBlt() */
 
 (*(dc+(CACHE))) = (void(*)) GetDC((void(*)) (*(window+(ACTIVE))));
 
@@ -663,7 +627,7 @@ return(char signed) (~(NIL));
 }
 else {
 // Monitoring
-// printf("\n%s%p", ("The handler of the common device context mapped on the RAM will be on offset "), (*(dc+(CACHE))));
+// printf("\n%s%p", ("The handle of the common device context mapped on the RAM will be on offset "), (*(dc+(CACHE))));
 }
 
 r = (int signed) BitBlt(*(dc+(CACHE)), 0, 0, (*(region+(X))), (*(region+(Y))), (*(dc+(DI))), 0, 0, SRCCOPY);
@@ -710,7 +674,7 @@ return(char signed) (~(NIL));
 
 
 
-/* **** **** De-selecting the handler of the loaded bitmap objects to a memory Device Context.
+/* **** **** De-selecting the handle of the loaded bitmap objects to a memory Device Context.
 
 (*(old_obj+(LOADEDBITMAP))) = (void(*)) SelectObject(*(dc+(SI)), (void(*)) (*(old_obj+(LOADEDBITMAP))));
 if(!(*(old_obj+(LOADEDBITMAP)))) {
@@ -761,8 +725,8 @@ else {
 
 
 /* **** **** **** **** Delete(, unload or unmap) all the objects mapped on the RAM */
-/* **** **** Except a handler of the module object of the process to currently run on */
-/* **** **** Release a handler of the current <module> object returned by fn. GetModuleHandle()..? */
+/* **** **** Except a handle of the module object of the process to currently run on */
+/* **** **** Release a handle of the current <module> object returned by fn. GetModuleHandle()..? */
 /* Aux., except an <un-loaded> bitmap object: (-1) */
 
 i = (int signed) (-1+(COUNT_OBJS));

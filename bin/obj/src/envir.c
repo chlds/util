@@ -8,7 +8,7 @@ Check the environment variables
 
 # define C_CODE_STDS
 
-# include "./incl/decl/config.h"
+# include "./../../../incl/config.h"
 
 /*
 #ifdef _WIN32

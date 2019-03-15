@@ -10,7 +10,7 @@ on branch develop
 # define C_AS
 # define C_MT
 
-# include "./incl/decl/config.h"
+# include "./../../../incl/config.h"
 
 # define BUFF (0x400)
 # define DELAY (25)

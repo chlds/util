@@ -8,7 +8,7 @@ A program to check the size of each data type
 
 # define C_CODE_STDS
 
-# include "incl/decl/config.h"
+# include "./../../../incl/config.h"
 
 /*
 #ifdef _WIN32

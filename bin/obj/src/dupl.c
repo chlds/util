@@ -14,7 +14,7 @@ to duplicate/copy to file <di> out of file <si> in the binary format
 # define C_CODE_STDS
 # define C_AS
 
-# include "./incl/decl/config.h"
+# include "./../../../incl/config.h"
 
 /*
 # ifdef _WIN32

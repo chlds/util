@@ -11,7 +11,7 @@ Implemented with a flag to be added for code to run as far as possible to the en
 # define C_CODE_STDS
 # define BUFF (0x400)
 
-# include "./incl/decl/config.h"
+# include "./../../../incl/config.h"
 
 # define MONITORING
 

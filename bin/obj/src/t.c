@@ -1,19 +1,21 @@
 /* **** **** **** **** Notes
 
-Refer at path "./incl/decl/config.h", at <corecrt_wtime.h> or..
+Refer at <corecrt_wtime.h>
 
-Please enter the following command to make an executable file (t.exe) to run on the (CMD.exe) console for Windows 10 64-bit OS:
+Please type e.g., the following command on directory ../../../ to make the (t.exe) executable file to run on the (CMD.exe) console for Windows 10 64-bit OS:
 
-nmake T=t
+nmake T=t MYLIBS= LIBS=
 
 //*/
+
 
 
 # define C_CODE_STDS
 # define C_CALEND
 # define C_AS
 
-# include "./incl/decl/config.h"
+# include "./../../../incl/config.h"
+
 
 
 char signed(__cdecl main(char signed(argc), char signed(**argv), char signed(**envp))) {

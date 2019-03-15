@@ -8,7 +8,7 @@ A program to use a variadic function
 
 # define C_CODE_STDS
 
-# include "./incl/decl/config.h"
+# include "./../../../incl/config.h"
 
 /*
 #ifdef _WIN32
