@@ -14,10 +14,7 @@ The executable file here will run on the (CMD.exe) console in Windows 10 64-bit 
 
 ### Type the following command on directory util/ to make a library file on directory util/lib/.
 
-> nmake lb L=<a-library-file-name-you-like>
-
-e.g.,
-> nmake lb L=my
+> nmake lb
 
 
 ### After making the library file, type the following command on directory util/ to make the executable file on directory util/bin/ out of a C source file on directory util/bin/obj/src/.

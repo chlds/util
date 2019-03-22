@@ -10,7 +10,7 @@
 # link.exe [-map] *.obj [*.obj..] [*.lib..] (to make an executable file)
 #
 # To make a library file:
-# nmake lb L=<a-library-file-name-you-like>
+# nmake lb [L=<a-library-file-name-you-like>]
 #
 # To make an executable file:
 # nmake T=<target> [OBJS="*.obj [*.obj.."]] [LIBS="*.lib [*.lib.."]]
@@ -25,7 +25,7 @@
 # Refer on site https://stackoverflow.com/questions/4477043/c-link-exe-fails-from-makefile-but-not-from-the-command-line
 
 
-L =
+L = cui # Please put a library file name you like
 T =
 
 HDR = ./incl/config.h
