@@ -1,8 +1,6 @@
 /* **** **** **** **** Refer on
 
-./incl/lib/cv_lett.c
-
-Convert to an interger out of the letters.
+Convert to an signed interger out of the letters.
 
 //*/
 
@@ -72,7 +70,12 @@ Sleep(DELAY);
 
 /* **** **** Set to argument DI */
 
+if(!('-'^(*(si+(NIL))))) {
+(*(di)) = (int signed) (1+(~(d)));
+}
+else {
 (*(di)) = (int signed) (d);
+}
 
 
 XOR(c, c);
