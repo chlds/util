@@ -7,8 +7,10 @@
 # include <time.h>
 # include <fcntl.h>
 # include <sys/stat.h>
-// # include <sys/types.h>
+# include <sys/types.h>
 # include <sys/utime.h>
+# include <locale.h>
+# include <wchar.h>
 # include "./las.h"
 # endif
 
@@ -22,6 +24,7 @@
 # include "./datatype.h"
 # include "./cmdl_fn.h"
 # include "./fn.h"
+# include "./recur.h"
 # endif
 
 
