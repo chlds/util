@@ -17,18 +17,16 @@ auto int signed const(SNOOZE) = (0x08);
 auto int signed const(DELAY) = (0x02*(QUANTUM));
 //*/
 
-auto char signed(**(p[])) = {
-(char signed(**)) (argv),
-(char signed(**)) (envp),
-(char signed(**)) (NIL)
-};
-
 auto char signed(c);
 
 /* **** **** CODE/TEXT */
 printf("\n");
 
-catppp(p);
+c = catpp(argv);
+printf("%s%d\n", ("The numbre: "), (c));
+
+c = catpp(envp);
+printf("%s%d\n", ("The numbre: "), (c));
 
 return(NIL);
 }
