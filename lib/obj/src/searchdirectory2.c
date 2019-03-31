@@ -2,7 +2,7 @@
 
 Depth-first searching
 
-Make a structure to measure a part of code to overflow a stack
+Make a structure to measure a part of code that overflows
 
 */
 
@@ -62,6 +62,9 @@ if(!(ERROR_NO_MORE_FILES^(r = GetLastError()))) return(NIL);
 else {
 printf("%s", ("<< Error at fn. FindFirstFile()."));
 printf("%s%Xh\n", ("with error no. "), (GetLastError()));
+// Monitor
+printf("%s%s\n", ("and the dis.parent_dir: "), (dis.parent_dir));
+printf("%s%s\n", ("and the argp: "), (argp));
 return(NIL);
 }}
 

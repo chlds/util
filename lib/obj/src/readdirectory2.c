@@ -33,7 +33,7 @@ enum {
 SI, DI, CACHE
 };
 
-auto int signed(attrib[]) = {
+static int signed(attrib[]) = {
 (int signed) (FILE_ATTRIBUTE_ARCHIVE),
 (int signed) (FILE_ATTRIBUTE_COMPRESSED),
 (int signed) (FILE_ATTRIBUTE_DEVICE),
@@ -56,7 +56,7 @@ auto int signed(attrib[]) = {
 (int signed) (NIL)
 };
 
-auto char signed(*(attribp[])) = {
+static char signed(*(attribp[])) = {
 (char signed(*)) ("Archive"),
 (char signed(*)) ("Compressed"),
 (char signed(*)) ("Device"),
@@ -79,15 +79,9 @@ auto char signed(*(attribp[])) = {
 (char signed(*)) (NIL)
 };
 
-auto int signed const(QUANTUM) = (0x10);
-auto int signed const(SNOOZE) = (0x08);
-auto int signed const(DELAY) = (0x02*(QUANTUM));
-
 auto char signed const(CURRENT_DIRECTORY) = ('.');
 
 auto WIN32_FIND_DATA(wfd);
-
-auto void(*(search[N]));
 
 auto char signed(craft[BUFF]);
 auto char signed(buff[BUFF]);
@@ -97,6 +91,7 @@ auto char signed(*p);
 auto SYSTEMTIME(st);
 
 auto int signed(i), (l), (r);
+auto short signed(attrib_flag) = (0x01);
 auto short signed(flag);
 auto char signed(c);
 
@@ -152,7 +147,7 @@ if(!(flag^(0x01))) {
 c = cp_lett(&i, (craft), (*argp).parent_dir);
 (*(craft+(i+(~(NIL))))) = (NIL);
 sprintf(buff, ("%s%s%s"), (craft), (p), ("/*"));
-searchdirectory(buff);
+searchdirectory2(buff);
 printf("\n");
 printf("%s\n", (*argp).parent_dir);
 }
@@ -162,23 +157,30 @@ if(!flag) {
 c = cp_lett(&i, (craft), (*argp).parent_dir);
 (*(craft+(i+(~(NIL))))) = (NIL);
 sprintf(buff, ("%s%s%s"), (craft), (p), ("/*"));
-searchdirectory(buff);
+searchdirectory2(buff);
 printf("\n");
 printf("%s\n", (*argp).parent_dir);
 }
 
 // Output a directory name
 printf("%s", (" d "));
-printf("%s\n", (p));
+printf("%s", (p));
 (TheNumbreOfTheDirectories++);
+/* Check the attributes of a directory or of a file */
+if(attrib_flag) c = attributes_of((*argp).wfd.dwFileAttributes, (attrib), (attribp));
 }
 
 else {
 // Output a file name
 printf("%s", (" - "));
-printf("%s\n", (p));
+printf("%s", (p));
 (TheNumbreOfTheFiles++);
+/* Check the attributes of a directory or of a file */
+if(attrib_flag) c = attributes_of((*argp).wfd.dwFileAttributes, (attrib), (attribp));
 }
+
+/* To go to the next step */
+printf("\n");
 
 /* Update the search handle */
 r = FindNextFile((*argp).search, (&(dis.wfd)));
