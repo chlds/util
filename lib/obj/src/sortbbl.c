@@ -2,6 +2,10 @@
 
 Bubbly sort
 
+cache: Put the leading address of an array of values at.
+di: Put the numbre for elements of an array of values at.
+si: Put the same value as <di> at.
+
 */
 
 
@@ -18,7 +22,6 @@ auto int unsigned const(SNOOZE) = (int signed) (0x04);
 auto int unsigned const(DELAY) = (int signed) (0x02*(QUANTUM));
 //*/
 
-auto int signed(limit);
 auto char signed(c);
 
 /* **** **** CODE/TEXT */

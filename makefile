@@ -57,7 +57,7 @@ LIBS = ./lib/*.lib user32.lib gdi32.lib
 
 CFLAGS = -c -Fo$(OBJ) -Fa$(S)
 CC = cl.exe
-LILFLAGS = -out:$(EXE) -map:$(MAP) -stack:16384000
+LILFLAGS = -out:$(EXE) -map:$(MAP) -stack:128000000
 LIL = link.exe
 
 

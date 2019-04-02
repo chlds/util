@@ -31,6 +31,11 @@ if(!(--si)) return(NIL);
 
 craft = (*(cache+(si)));
 if(craft<(*(cache+(si+(~(NIL)))))) {
+/* Monitor
+printf("%s%d\n", ("craft: "), (craft));
+printf("%s%d\n", ("*(cache+(si+(~(NIL)))): "), (*(cache+(si+(~(NIL))))));
+printf("%s%d\n", ("*(cache+(si)): "), (*(cache+(si))));
+//*/
 c = sw(cache+(si), (cache+(si+(~(NIL)))));
 /* Monitor
 printf("%s%d\n", ("craft: "), (craft));
@@ -38,11 +43,6 @@ printf("%s%d\n", ("*(cache+(si+(~(NIL)))): "), (*(cache+(si+(~(NIL))))));
 printf("%s%d\n", ("*(cache+(si)): "), (*(cache+(si))));
 //*/
 if(!c) return(NIL);
-/* Monitor
-printf("%s%d\n", ("craft: "), (craft));
-printf("%s%d\n", ("*(cache+(si+(~(NIL)))): "), (*(cache+(si+(~(NIL))))));
-printf("%s%d\n", ("*(cache+(si)): "), (*(cache+(si))));
-//*/
 }
 
 return(1+(sortb(cache, (di), (si))));
