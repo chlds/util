@@ -14,6 +14,14 @@ Depth-first searching
 # define BUFF (0x300)
 # define N (0x03)
 
+# define FILE (0x01)
+# define DOT_FILE (0x02)
+# define DIR (0x04)
+# define DOT_DIR (0x08)
+# define CURR_DIR (0x10)
+# define P_DIR (0x20)
+# define DIRS (DIR+(DOT_DIR+(CURR_DIR+(P_DIR))))
+
 //* To measure a part of code to overflow a stack frame
 struct dir_info_stored {
 void(*search);
@@ -120,49 +128,35 @@ printf("%s%s\n", ("p is: "), (p));
 //*/
 
 // Directory Check!
-if(FILE_ATTRIBUTE_DIRECTORY&((*argp).wfd.dwFileAttributes)) {
+flag = (short signed) dir_or_file(&((*argp).wfd));
 
-if(!(CURRENT_DIRECTORY^(*(p+(NIL))))) OR(flag, 0x01);
-
-if(flag) {
-if(!(CURRENT_DIRECTORY^(*(p+(1))))) {
-if(!(*(p+(2)))) (flag++);
-}}
-
-if(flag) {
-if(!(*(p+(1)))) (flag++);
-}
+// Monitor
+// printf("%s%d\n", ("flag after using fn. dir_or_file() is: "), (flag));
 
 /* Commentary
-flag 0: directories
-flag 1: hidden directories
-flag 2: the current directory or the parent directory
+# define FILE (0x01)
+# define DOT_FILE (0x02)
+# define DIR (0x04)
+# define DOT_DIR (0x08)
+# define CURR_DIR (0x10)
+# define P_DIR (0x20)
+# define DIRS (DIR+(DOT_DIR+(CURR_DIR+(P_DIR))))
+rf. at fn. dir_or_file()
 //*/
 
-if(!(flag^(0x02))) {
-}
-
-if(!(flag^(0x01))) {
+if(flag&(DIR+(DOT_DIR))) {
 // call after crafting the parent path
 c = cp_lett(&i, (craft), (*argp).parent_dir);
 (*(craft+(i+(~(NIL))))) = (NIL);
 sprintf(buff, ("%s%s%s"), (craft), (p), ("/*"));
-searchdirectory2(buff);
-printf("\n");
-printf("%s\n", (*argp).parent_dir);
-}
-
-if(!flag) {
-// call after crafting the parent path
-c = cp_lett(&i, (craft), (*argp).parent_dir);
-(*(craft+(i+(~(NIL))))) = (NIL);
-sprintf(buff, ("%s%s%s"), (craft), (p), ("/*"));
+// printf("%s%s\n", ("The buff is: "), (buff));
 searchdirectory2(buff);
 printf("\n");
 printf("%s\n", (*argp).parent_dir);
 }
 
 // Output a directory name
+if(flag&(DIRS)) {
 printf("%s", (" d "));
 printf("%s", (p));
 (TheNumbreOfTheDirectories++);
@@ -171,6 +165,7 @@ if(attrib_flag) c = attributes_of((*argp).wfd.dwFileAttributes, (attrib), (attri
 }
 
 else {
+// printf("%s%d\n", ("The flag value when outputting a file name is: "), (flag));
 // Output a file name
 printf("%s", (" - "));
 printf("%s", (p));
