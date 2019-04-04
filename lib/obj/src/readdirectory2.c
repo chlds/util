@@ -22,7 +22,7 @@ Depth-first searching
 # define P_DIR (0x20)
 # define DIRS (DIR+(DOT_DIR+(CURR_DIR+(P_DIR))))
 
-//* To measure a part of code to overflow a stack frame
+//* To measure a part of code that overflows
 struct dir_info_stored {
 void(*search);
 WIN32_FIND_DATA(wfd);

@@ -15,7 +15,7 @@ Make a structure to measure a part of code that overflows
 # define BUFF (0x300)
 # define N (0x03)
 
-//* To measure a part of code to overflow a stack frame
+//* To measure a part of code that overflows
 struct dir_info_stored {
 void(*search);
 WIN32_FIND_DATA(wfd);
