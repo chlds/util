@@ -19,7 +19,11 @@ static short signed(flag) = (NIL);
 
 /* **** **** CODE/TEXT */
 if(!argp) return(NIL);
-if(!(*argp)) return(NIL);
+
+if(!(*argp)) {
+XOR(flag, flag);
+return(NIL);
+}
 
 if(!(delimiter^(*argp))) {
 XOR(flag, flag);
