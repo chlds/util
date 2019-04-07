@@ -13,10 +13,10 @@ base: Put the leading address of an array of values at.
 
 
 /* **** **** entry point */
-char signed(__cdecl bubblysort(int signed(count), int signed(*base))) {
+int signed(__cdecl bubblysort(int signed(count), int signed(*base))) {
 
 auto int signed(craft);
-auto char signed(c);
+auto int signed(r);
 
 /* **** **** CODE/TEXT */
 if(!count) return(NIL);
@@ -24,9 +24,9 @@ if(!base) return(NIL);
 
 if(!(count+(~(NIL)))) return(NIL);
 
-c = nsort(count, base);
+r = nsort(count, base);
 
-if(!c) return(NIL);
+if(!r) return(NIL);
 
 return(1+(bubblysort(--count, base)));
 }

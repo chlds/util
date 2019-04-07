@@ -13,7 +13,7 @@ base: Put the leading address of an array of values at.
 
 
 /* **** **** entry point */
-char signed(__cdecl nsort(int signed(count), int signed(*base))) {
+int signed(__cdecl nsort(int signed(count), int signed(*base))) {
 
 /* **** **** DATA, BSS, STACK */
 // static int signed(cache) = (NIL);
