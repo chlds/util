@@ -1,6 +1,8 @@
-/* **** **** **** **** Refer on
+/* **** **** **** **** Notes
 
 Convert to an signed interger out of the letters.
+
+Not using fn. spl() and fn. spl_free().
 
 //*/
 
@@ -70,9 +72,14 @@ Sleep(DELAY);
 
 /* **** **** Set to argument DI */
 
-if(!('-'^(*(si+(NIL))))) {
-(*(di)) = (int signed) (1+(~(d)));
+if(!('-'^(*(si)))) {
+if(!('-'^(*(si+(1))))) {
+(*(di)) = (int signed) (d);
 }
+else {
+(*(di)) = (int signed) (1+(~(d)));
+}}
+
 else {
 (*(di)) = (int signed) (d);
 }

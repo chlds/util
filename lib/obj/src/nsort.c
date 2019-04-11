@@ -1,25 +1,25 @@
 /* **** Notes
 
-For fn. bubblysort()
+Sort e.g., using with fn. bsort()
 
 count: Put the numbre of the elements for an array of values at.
 base: Put the leading address of an array of values at.
 
+Remarks:
+Refer at fn. n_sort (and fn. b_sort).
 */
 
 
-# define C_CODE_STDS
 # include "./../../../incl/config.h"
 
 
-/* **** **** entry point */
 int signed(__cdecl nsort(int signed(count), int signed(*base))) {
 
-/* **** **** DATA, BSS, STACK */
-// static int signed(cache) = (NIL);
-static int signed(flag) = (NIL);
+/* **** DATA, BSS, STACK */
 static int signed(*di) = (NIL);
 static int signed(*si) = (NIL);
+static short signed(flag) = (NIL);
+
 auto int signed(craft);
 auto char signed(c);
 
@@ -42,16 +42,14 @@ di = (base);
 si = (base);
 }
 
-(di++);
+di++;
 craft = (*di);
 
 if(craft<(*si)) {
-c = sw(di, si);
-if(!c) {
-XOR(flag, flag);
-return(NIL);
-}}
+*di = (*si);
+STR(si,craft) ; //*si = (craft);
+}
 
-(si++);
+si++;
 return(1+(nsort(count, base)));
 }

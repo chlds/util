@@ -1,3 +1,5 @@
+# include "./las.h"
+
 # ifdef C_CODE_STDS
 # include <io.h>
 # include <conio.h>
@@ -11,7 +13,6 @@
 # include <sys/utime.h>
 # include <locale.h>
 # include <wchar.h>
-# include "./las.h"
 # endif
 
 

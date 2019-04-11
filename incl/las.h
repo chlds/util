@@ -1,13 +1,11 @@
 /* **** **** light
 
+Circ. XNOR, XOR, NOR, OR, NAND, AND and/or NOT
+
 STDIN, STDOUT and STDERR
 
-//*/
+*/
 
-
-
-
-# define NIL (0)
 
 # define XOR(A, B) A = ((A)^(B))
 # define OR(A, B) A = ((A)|(B))
@@ -17,6 +15,7 @@ STDIN, STDOUT and STDERR
 # define SHL(A, B) A = ((A)<<(B))
 # define SHR(A, B) A = ((A)>>(B))
 
+# define NIL (0)
 
 enum {
 CIN, COUT, CERR

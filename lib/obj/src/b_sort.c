@@ -2,19 +2,16 @@
 
 A bubble sort
 
-fn. bsort() implemented with fn. nsort().
+fn. b_sort() implemented with fn. n_sort().
 
 count: Put the numbre of the elements for an array of values at.
 base: Put the leading address of an array of values at.
-
-Remarks:
-Refer at fn. b_sort (and fn. n_sort).
 */
 
 
 # include "./../../../incl/config.h"
 
-int signed(__cdecl bsort(int signed(count), int signed(*base))) {
+int signed(__cdecl b_sort(int signed(count), int signed(*base))) {
 
 /* **** DATA, BSS and STACK */
 auto int signed(r);
@@ -23,9 +20,9 @@ auto int signed(r);
 if(!count) return(NIL);
 if(!base) return(NIL);
 
-r = nsort(count, base);
+r = n_sort(count, base);
 
 if(!r) return(NIL);
 
-return(1+(bsort(--count, base)));
+return(1+(b_sort(--count, base)));
 }

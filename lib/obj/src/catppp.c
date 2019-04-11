@@ -1,28 +1,23 @@
-/* **** **** **** **** Refer on
+/* **** Notes
 
-Recursively Output
+Call fn. catpp
 
-//*/
+*/
 
 
-# define C_CODE_STDS
 # include "./../../../incl/config.h"
 
+int signed(__cdecl catppp(char signed(***argp))) {
 
-char signed(__cdecl catppp(char signed(***argp))) {
-
-/* **** DATA
-auto const int signed(QUANTUM) = (int signed) (0x10);
-auto const int signed(SNOOZE) = (int signed) (0x08);
-auto const int signed(DELAY) = (int signed) (2*(QUANTUM));
-//*/
+/* **** DATA, BSS and STACK */
+auto int signed(r);
 
 /* **** CODE/TEXT */
+if(!argp) return(0);
+if(!(*argp)) return(0);
 
-if(!argp) return(NIL);
-if(!(*argp)) return(NIL);
+catpp(*argp);
 
-catpp(*(argp++));
-
+argp++;
 return(1+(catppp(argp)));
 }
