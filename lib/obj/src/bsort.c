@@ -2,13 +2,10 @@
 
 A bubble sort
 
-fn. bsort() implemented with fn. nsort().
+implemented with fn. nsort().
 
 count: Put the numbre of the elements for an array of values at.
 base: Put the leading address of an array of values at.
-
-Remarks:
-Refer at fn. b_sort (and fn. n_sort).
 */
 
 
