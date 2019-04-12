@@ -9,11 +9,10 @@ base: Put the leading address of an array of values at.
 
 # include "./../../../incl/config.h"
 
-int signed(__cdecl nsort(int signed(count), int signed(*base))) {
+signed int(__cdecl nsort(signed int(count), signed int(*base))) {
 
 /* **** DATA, BSS, STACK */
-auto int signed(cache);
-auto int signed(craft);
+auto signed int(cache);
 
 /* **** **** CODE/TEXT */
 if(!count) return(NIL);
@@ -21,13 +20,12 @@ if(!base) return(NIL);
 
 if(!(--count)) return(NIL);
 
-craft = (*base++);
-if(craft<(*base)) {
+cache = (*base++);
+if(cache<(*base)) {
 }
 else {
-cache = (*base);
-*base = (craft);
-*(base+(~(NIL))) = (cache);
+*(base+(~(NIL))) = (*base);
+*base = (cache);
 }
 
 return(1+(nsort(count, base)));
