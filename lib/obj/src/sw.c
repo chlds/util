@@ -1,28 +1,22 @@
 /* **** Notes
 
 Exchange the DI and the SI
-
 */
 
 
-# define C_CODE_STDS
-# include "./../../../incl/config.h"
+signed int(__cdecl sw(signed int(*di), signed int(*si))) {
 
-
-/* **** **** entry point */
-char signed(__cdecl sw(int signed(*di), int signed(*si))) {
-
-/* **** **** DATA
-auto int unsigned const(QUANTUM) = (int signed) (0x10);
-auto int unsigned const(SNOOZE) = (int signed) (0x04);
-auto int unsigned const(DELAY) = (int signed) (0x02*(QUANTUM));
+/* **** DATA
+auto signed int const(QUANTUM) = (0x10);
+auto signed int const(SNOOZE) = (0x04);
+auto signed int const(DELAY) = (0x02*(QUANTUM));
 //*/
 
-auto int signed(cache);
+auto signed int(cache);
 
-/* **** **** CODE/TEXT */
-if(!di) return(NIL);
-if(!si) return(NIL);
+/* **** CODE/TEXT */
+if(!di) return(0x00);
+if(!si) return(0x00);
 
 cache = (*di);
 *di = (*si);
