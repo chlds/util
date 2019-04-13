@@ -1,22 +1,19 @@
 /* **** Notes
 
 Call fn. catpp
-
 */
 
 
-# include "./../../../incl/config.h"
-
-int signed(__cdecl catppp(char signed(***argp))) {
+signed int(__cdecl catppp(signed char(***argp))) {
 
 /* **** DATA, BSS and STACK */
-auto int signed(r);
+auto signed int(r);
 
 /* **** CODE/TEXT */
 if(!argp) return(0);
 if(!(*argp)) return(0);
 
-catpp(*argp);
+r = catpp(*argp);
 
 argp++;
 return(1+(catppp(argp)));

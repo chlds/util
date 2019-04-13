@@ -1,13 +1,12 @@
 /* **** Notes
 
 Output character lines out of the argument
-
 */
 
 
-# include "./../../../incl/config.h"
+# include <stdio.h>
 
-int signed(__cdecl catpp(char signed(**argp))) {
+signed int(__cdecl catpp(signed char(**argp))) {
 
 /* **** CODE/TEXT */
 if(!argp) return(0);

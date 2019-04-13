@@ -1,41 +1,31 @@
 /* **** **** a commandlet for all the commandlets
 
-to exit
+Commandlet to exit
+
+Remarks:
+unsigned int(__stdcall fn(void(*argp))) for fn. _beginthreadex
 
 */
 
 
-
-# define C_CODE_STDS
 # define external extern
-
-# include "./../../../incl/config.h"
-
-
+# include <stdio.h>
 
 char signed(__cdecl cmdl_exit(void(*argp))) {
 
+/* **** DATA */
+external signed char(Announcements);
+external signed char(Running);
 
-/* **** **** DATA */
-
-external char signed(Announcements);
-external char signed(Running);
-
-
-/* **** **** CODE/TEXT */
-
+/* **** CODE/TEXT */
 // (Running++);
-
 
 /* **** Monitoring
 printf("%s\n", ("<< cmdl_exit runs."));
 printf("%s\n", (char signed(*)) (argp));
 //*/
 
-
-(Announcements++);
-
-(--Running);
-
-return(char signed) (NIL);
+Announcements++;
+--Running;
+return(0x00);
 }
