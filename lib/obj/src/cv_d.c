@@ -1,11 +1,12 @@
 /* **** Notes
 
-Convert to an unsigned or signed long long.
+Convert to the (unsigned or) signed double word.
 
 radix: Put the radix at.
 di: Put the address to retrieve the unsigned or signed number at.
 base: Put the leading address for the letters at.
 
+Remarks:
 Now not implemented..
 commentary of the flag:
 signed: 0x0100 e.g., signed hexa-decimal 0x0110, signed decimal 0x010A, signed octal 0x0108, signed binary 0x0102
@@ -13,10 +14,10 @@ unsigned: 0x0000 e.g., unsigned hexa-decimal 0x0010, unsigned decimal 0x000A, un
 //*/
 
 
-signed int(__cdecl cv_ll(signed short(radix), signed long long(*di), signed char(*base))) {
+signed int(__cdecl cv_d(signed short(radix), signed int(*di), signed char(*base))) {
 
 /* **** DATA, BSS and STACK */
-static signed long long(d) = (0x00);
+static signed int(d) = (0x00);
 static signed short(flag) = (0x00);
 
 auto signed int const(LIMIT) = (3600);
@@ -66,5 +67,5 @@ r = tablescan(c, table);
 if(r<(radix)) d = (r+radix*(d)) /* % LIMIT */ ;
 
 base++;
-return(1+(cv_ll(radix, di, base)));
+return(1+(cv_d(radix, di, base)));
 }
