@@ -10,10 +10,10 @@ Please look at util/incl/ll.h
 
 
 # define C_AS
-# include <stdlib.h>
 # include "../../../incl/config.h"
+# include <stdlib.h>
 
-signed int(__cdecl unmap_ll2(struct knot(*argp))) {
+signed int(__cdecl unmap2_ll(struct knot(*argp))) {
 
 /* **** DATA */
 auto struct knot(*cache);
@@ -26,5 +26,5 @@ argp = (*argp).s;
 free((*cache).p);
 free(cache);
 
-return(1+(unmap_ll2(argp)));
+return(1+(unmap2_ll(argp)));
 }

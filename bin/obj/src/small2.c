@@ -306,21 +306,18 @@ cache = (struct knot(*)) malloc(sizeof(struct knot));
 
 if(!(cache)) {
 printf("\n%s", ("<< Error at fn. malloc()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 
 /* **** concatenate */
 
-if(!(lead)) {
-base = (struct knot(*)) (cache);
+r = concat_ll(cache);
+
+if(!r) {
+printf("%s\n", ("Error at fn. concat_ll()."));
+return(~(NIL));
 }
-else {
-(*lead).d = (struct knot(*)) (cache);
-}
-(*cache).s = (struct knot(*)) (lead);
-lead = (struct knot(*)) (cache);
-(*lead).d = (struct knot(*)) (NIL);
 
 
 /* **** allocate at the (*cache).p */
@@ -460,8 +457,8 @@ cache = (struct knot(*)) (*cache).d;
 
 printf("\n");
 
-r = unmap_ll2(lead);
-printf("%s%d%s\n", ("Unmapped "), (r), (" times."));
+r = unmap2_ll(lead);
+printf("%s%d%s\n", ("Unmapped the "), (r), (" knots."));
 
 
 printf("\n%s", ("All DONE!"));

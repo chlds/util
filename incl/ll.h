@@ -1,35 +1,48 @@
 /* **** **** Data types
 
 Building a linked list (in C)
+
+Remarks:
+Based on a doubly linked list (i.e., not a circular linked list).
 //*/
 
 
 struct card {
-char signed(*p);
-short int signed(flag);
-char signed(__cdecl*(fn)) (void(*argp));
+signed char(*p);
+signed short(flag);
+signed int(uid);
+signed int(numbering);
+signed int(curr_order);
+signed int(__cdecl*(fn)) (void(*argp));
 void(*argp);
-int unsigned(thread_id);
 void(*hdl);
-int signed(numbering);
-int signed(uid);
-void(*optl);
-};
-
-struct knot {
-struct knot(*s);
-struct knot(*d);
-char signed(*p);
-short int signed(flag);
-int signed(uid);
+unsigned int(thread_id);
 void(*optl);
 };
 
 struct yarn {
-struct knot(*b);
+signed char(*p);
+signed short(flag);
+signed int(uid);
+struct knot(*d);
+struct knot(*s);
+void(*optl);
+};
+
+struct knot {
+signed char(*p);
+signed short(flag);
+signed int(uid);
+struct knot(*d);
+struct knot(*s);
+void(*optl);
+};
+
+struct pknot {
+signed char(*p);
+signed short(flag);
+signed int(uid);
 struct knot(*l);
-char signed(*p);
-short int signed(flag);
-int signed(uid);
+struct knot(*b);
 void(*optl);
 };
