@@ -22,9 +22,9 @@ Commandlet to output the local time
 
 # include "./../../../incl/config.h"
 
-signed char(__cdecl cmdl_time(void(*argp))) {
+unsigned int(__stdcall cmdl2_time(void(*argp))) {
 
-/* **** DATA, BSS and STACK */
+/* **** DATA */
 external signed char(cmdl_time_Toggle);
 external signed char(Announcements);
 external signed int(Running);
@@ -58,27 +58,27 @@ enum {
 X, Y, OFFSET_X, OFFSET_Y
 };
 
-
-auto const int signed(LIMIT) = (int signed) (3600);
-auto const int signed(QUANTUM) = (int signed) (0x10);
-auto const int signed(DELAY) = (int signed) (2*(QUANTUM));
+auto signed int const(LIMIT) = (3600);
+auto signed int const(QUANTUM) = (0x10);
+auto signed int const(SNOOZE) = (0x04);
+auto signed int const(DELAY) = (0x02*(QUANTUM));
 
 // Default
-auto int signed(secs) = (int signed) (DEFAULT_SECS);
+auto signed int(secs) = (DEFAULT_SECS);
 auto time_t(t), (deadline);
 
-auto int unsigned(SOLIDBRUSH) = (int signed) (0xC09070);
+auto unsigned int(SOLIDBRUSH) = (0xC09070);
 
-auto int signed(old_bkmode), (old_bkcolor), (old_textcolor);
-auto int unsigned(old_textalign);
+auto signed int(old_bkmode), (old_bkcolor), (old_textcolor);
+auto unsigned int(old_textalign);
 
-auto const int signed(BKMODE) = (int signed) (TRANSPARENT);
-auto const int signed(BKCOLOR) = (int signed) (0x000000);
-auto const int signed(TEXTCOLOR) = (int signed) (0xF0F0F0);
+auto signed int const(BKMODE) = (TRANSPARENT);
+auto signed int const(BKCOLOR) = (0x000000);
+auto signed int const(TEXTCOLOR) = (0xF0F0F0);
 
-auto const int signed(SHADE_TEXTCOLOR) = (int signed) (0x606060);
-auto const int signed(SHADE_XPOS) = (int signed) (0x02);
-auto const int signed(SHADE_YPOS) = (int signed) (0x02);
+auto signed int const(SHADE_TEXTCOLOR) = (0x606060);
+auto signed int const(SHADE_XPOS) = (0x02);
+auto signed int const(SHADE_YPOS) = (0x02);
 
 
 auto SYSTEMTIME(st);
@@ -88,58 +88,48 @@ auto RECT(rect) = {
 };
 
 
-auto char signed(*p);
-
-auto char signed(bmp_filename[]) = ("./resource/bg.bmp");
-
-auto char signed(buff[BUFF]) = {
-(char signed) (NIL)
+auto signed char(*p);
+auto signed char(bmp_filename[]) = ("./resource/bg.bmp");
+auto signed char(buff[BUFF]) = {
+(signed char) (NIL)
 };
 
-
-auto char signed(c);
-auto int signed(i), (j), (l), (r), (z);
-
+auto signed char(c);
+auto signed int(i), (j), (l), (r), (z);
 
 auto void(*(module[COUNT_MODULES])) = {
 (void(*)) (NIL)
 };
-
 auto void(*(window[COUNT_WINDOWS])) = {
 (void(*)) (NIL)
 };
-
 auto void(*(old_obj[COUNT_OBJS])) = {
 (void(*)) (NIL)
 };
-
 auto void(*(obj[COUNT_OBJS])) = {
 (void(*)) (NIL)
 };
-
 auto void(*(dc[COUNT_DC])) = {
 (void(*)) (NIL)
 };
 
-
-auto int unsigned(region[2]) = {
-(int unsigned) (NIL)
+auto unsigned int(region[2]) = {
+(unsigned int) (NIL)
 };
 
-auto int unsigned(scr[2]) = {
-(int unsigned) (NIL)
+auto unsigned int(scr[2]) = {
+(unsigned int) (NIL)
 };
 
-auto int unsigned(pos[COUNT_POS]) = {
-(int unsigned) (NIL)
+auto unsigned int(pos[COUNT_POS]) = {
+(unsigned int) (NIL)
 };
 
-
-auto int signed(height_font) = (36);
-auto int signed(width_font) = (9);
-auto int signed(escapement_font) = (NIL);
-auto int signed(orientation_font) = (NIL);
-auto int signed(weight_font) = (FW_REGULAR);
+auto signed int(height_font) = (36);
+auto signed int(width_font) = (9);
+auto signed int(escapement_font) = (NIL);
+auto signed int(orientation_font) = (NIL);
+auto signed int(weight_font) = (FW_REGULAR);
 auto int unsigned(italic_font) = (NIL);
 auto int unsigned(underline_font) = (NIL);
 auto int unsigned(strikeout_font) = (NIL);
@@ -148,24 +138,19 @@ auto int unsigned(outprecision_font) = (OUT_TT_ONLY_PRECIS);
 auto int unsigned(clipprecision_font) = (NIL);
 auto int unsigned(quality_font) = (NIL);
 auto int unsigned(pitchandfamily_font) = (NIL);
-auto char signed(facename_font[]) = ("Tahoma");
+auto signed char(facename_font[]) = ("Tahoma");
 
+/* **** CODE/TEXT */
+Running++;
 
-
-
-/* **** **** CODE/TEXT */
-
-(Running++);
-
-if(!(cmdl_time_Toggle)) {
-(cmdl_time_Toggle++);
+if(!cmdl_time_Toggle) {
+cmdl_time_Toggle++;
 }
 
 else {
 XOR(cmdl_time_Toggle, cmdl_time_Toggle);
-(--Running);
-XOR(c, c);
-return(char signed) (c);
+--Running;
+return(0x00);
 }
 
 
@@ -175,27 +160,19 @@ printf("%s\n", (char signed(*)) (argp));
 //*/
 
 
-
-
-
-
-/* **** **** Count the arguments */
-
-c = (char signed) ct_args(&i, (argp));
+/* **** Count the arguments */
+c = ct_args(&i, (argp));
 
 if(!(c^(~(NIL)))) {
 printf("\n%s", ("<< Error at fn. ct_args()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 // Monitoring
 // printf("\n%s%d", ("i after fn. ct_args() is: "), (i));
 
 
-
-
-/* **** **** Set the time */
-
+/* **** Set the time */
 if(i<(2)) {
 }
 
@@ -205,26 +182,24 @@ c = (char signed) cv_lett(&i, (argp));
 if(!(c^(~(NIL)))) {
 // Error
 printf("\n%s", ("<< Error at fn. cv_lett()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 // Monitoring
 // printf("\n%s%d", ("i after fn. cv_lett() is: "), (i));
-secs = (int signed) (i);
-if(!(secs)) {
-secs = (int signed) (DEFAULT_SECS);
+secs = (i);
+if(!secs) {
+secs = (DEFAULT_SECS);
 }
 else {
 secs = (secs%(LIMIT));
 }}
 
 
-
-
 (*(scr+(X))) = GetSystemMetrics(SM_CXSCREEN);
 
 if(!(*(scr+(X)))) {
 printf("\n%s", ("<< Error at GetSystemMetrics(SM_CXSCREEN)."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 else {
 // printf("\n%s%d", ("x pixels : "), (int unsigned) (*(scr+(X))));
@@ -235,32 +210,26 @@ else {
 
 if(!(*(scr+(Y)))) {
 printf("\n%s", ("<< Error at GetSystemMetrics(SM_CYSCREEN)."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 else {
 // printf("\n%s%d", ("y pixels : "), (int unsigned) (*(scr+(Y))));
 }
 
 
+(*(region+(X))) = (*(scr+(X)));
+(*(region+(Y))) = (SHADE_YPOS+(height_font));
+
+(*(pos+(X))) = (NIL);
+(*(pos+(Y))) = (NIL);
 
 
-(*(region+(X))) = (int unsigned) (*(scr+(X)));
-(*(region+(Y))) = (int unsigned) (SHADE_YPOS+(height_font));
-
-(*(pos+(X))) = (int unsigned) (NIL);
-(*(pos+(Y))) = (int unsigned) (NIL);
-
-
-
-
-/* **** **** Create/map the objects on the RAM */
-
-
+/* **** Create/map the objects on the RAM */
 (*(obj+(REGION))) = (void(*)) CreateRectRgn(0, (0), (*(region+(X))), (*(region+(Y))));
 
 if(!(*(obj+(REGION)))) {
 printf("\n%s", ("<< Error at CreateRectRgn()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 else {
 // Monitoring
@@ -272,7 +241,7 @@ else {
 
 if(!(*(obj+(BRUSH)))) {
 printf("\n%s", ("<< Error at CreateSolidBrush()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 else {
 // Monitoring
@@ -288,7 +257,7 @@ quality_font, pitchandfamily_font, (char signed*) (facename_font)
 
 if(!(*(obj+(FONT)))) {
 printf("\n%s", ("<< Error at fn. CreateFont()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 else {
 // Monitoring
@@ -302,20 +271,20 @@ else {
 
 if(!(*(dc+(CACHE)))) {
 printf("\n%s", ("<< Error at GetDC()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 else {
 // Monitoring
 // printf("\n%s%p", ("The handle of the common device context mapped on the RAM will be on offset "), (*(dc+(CACHE))));
 }
 
-i = (int signed) (-1+(COUNT_DC));
+i = (-1+(COUNT_DC));
 
 while(i) {
 (*(dc+(--i))) = (void(*)) CreateCompatibleDC(*(dc+(CACHE)));
 if(!(*(dc+(i)))) {
 printf("\n%s", ("<< Error at fn. CreateCompatibleDC()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 else {
 // Monitoring
@@ -326,28 +295,26 @@ else {
 
 if(!(*(obj+(BITMAP)))) {
 printf("\n%s", ("<< Error at fn. CreateCompatibleBitmap()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 else {
 // Monitoring
 // printf("\n%s%p", ("The handle of a compatible bitmap object created/mapped on the RAM will be on offset "), (*(obj+(BITMAP))));
 }
 
-r = (int signed) ReleaseDC(*(window+(ACTIVE)), (*(dc+(CACHE))));
+r = ReleaseDC(*(window+(ACTIVE)), (*(dc+(CACHE))));
 
 if(!(r)) {
 printf("\n%s", ("<< Error at ReleaseDC()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
-
-/* **** **** Get a handle of the module object (to load a bitmap file) */
-
+/* **** Get a handle of the module object (to load a bitmap file) */
 (*(module+(INSTANCE))) = (void(*)) GetModuleHandle((char signed(*)) (NIL));
 
 if(!(*(module+(INSTANCE)))) {
 printf("\n%s", ("<< Error at fn. GetModuleHandle()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 else {
 // Monitoring
@@ -355,12 +322,12 @@ else {
 }
 
 
-//* **** **** Optional
+//* **** Optional
+r = GetModuleFileName(*(module+(INSTANCE)), (buff), (BUFF));
 
-r = (int signed) GetModuleFileName(*(module+(INSTANCE)), (buff), (BUFF));
 if(!(r)) {
 printf("\n%s", ("<< Error at fn. GetModuleFileName()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 else {
 // Monitoring
@@ -371,13 +338,12 @@ else {
 
 
 /* **** Get the file name of the desktop wallpaper to convert into the bitmap file format..
-
-r = (int signed) SystemParametersInfo(SPI_GETDESKWALLPAPER, BUFF, buff, (NIL));
+r = SystemParametersInfo(SPI_GETDESKWALLPAPER, BUFF, buff, (NIL));
 
 if(!(r)) {
 printf("\n%s", ("<< Error at fn. SystemParametersInfo()."));
 printf("\n%s%d", ("<< the r is: "), (r));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 else {
 printf("\n%s%s", ("The path of the desktop wallpaper is "), (buff));
@@ -387,8 +353,7 @@ printf("\n%s%s", ("The path of the desktop wallpaper is "), (buff));
 
 
 
-/* **** **** Retrieve a handle of the object loaded (or mapped (or stored on the RAM)) from a bitmap file. */
-
+/* **** Retrieve a handle of the object loaded (or mapped (or stored on the RAM)) from a bitmap file. */
 /* **** e.g., the loaded, created or mapped objects ..are deleted.
 
 (*(obj+(LOADEDBITMAP))) = (void(*)) LoadImage(*(module+(INSTANCE)), (bmp_filename), (IMAGE_BITMAP), (0), (0), (LR_LOADFROMFILE));
@@ -410,11 +375,11 @@ printf("\n%s%p", ("The handle of a loaded bitmap object created/mapped on the RA
 
 if(!(*(old_obj+(BRUSH)))) {
 printf("\n%s", ("<< Error at fn. SelectObject() of the Brush with the NULL."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 if(!((int long long signed)HGDI_ERROR^ (int long long signed) (*(old_obj+(BRUSH))))) {
 printf("\n%s", ("<< Error at fn. SelectObject() of the Brush with the HGDI_ERROR"));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 
@@ -422,11 +387,11 @@ return(char signed) (~(NIL));
 
 if(!(*(old_obj+(FONT)))) {
 printf("\n%s", ("<< Error at fn. SelectObject(FONT) with the NULL."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 if(!((int long long signed)HGDI_ERROR^ (int long long signed) (*(old_obj+(FONT))))) {
 printf("\n%s", ("<< Error at fn. SelectObject(FONT) with the HGDI_ERROR"));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 
@@ -434,11 +399,11 @@ return(char signed) (~(NIL));
 
 if(!(*(old_obj+(BITMAP)))) {
 printf("\n%s", ("<< Error at fn. SelectObject(BITMAP) with the NULL."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 if(!((int long long signed)HGDI_ERROR^ (int long long signed) (*(old_obj+(BITMAP))))) {
 printf("\n%s", ("<< Error at fn. SelectObject(BITMAP) with the HGDI_ERROR"));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 
@@ -448,50 +413,46 @@ return(char signed) (~(NIL));
 
 if(!(*(old_obj+(LOADEDBITMAP)))) {
 printf("\n%s", ("<< Error at fn. SelectObject(LOADEDBITMAP) with the NULL."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 if(!((int long long signed)HGDI_ERROR^ (int long long signed) (*(old_obj+(LOADEDBITMAP))))) {
 printf("\n%s", ("<< Error at fn. SelectObject(LOADEDBITMAP) with the HGDI_ERROR"));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
-
 //*/
 
 
-
-
-/* **** **** Selecting before a loop */
-
+/* **** Selecting before a loop */
 old_bkcolor = SetBkColor(*(dc+(DI)), (BKCOLOR));
+
 if(!(old_bkcolor^(CLR_INVALID))) {
 printf("\n%s", ("<< Error at SetBkColor()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 old_bkmode = SetBkMode(*(dc+(DI)), (BKMODE));
+
 if(!(old_bkmode)) {
 printf("\n%s", ("<< Error at SetBkMode()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 /* **** !?
 old_textalign = SetBkMode(*(dc+(DI)), (TA_RIGHT));
 if(!(old_textalign^(GDI_ERROR))) {
 printf("\n%s", ("<< Error at SetTextAlign()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 //*/
 
 
-
-
-/* **** **** A loop */
-
+/* **** A loop */
 // r = printf("\n%s%d%s\n", ("Please wait for about "), (secs), (" seconds or type --time to stop."));
 
 z = (z^(z));
 
 time(&t);
+
 deadline = (time_t) (t+((time_t) (secs)));
 
 /* **** Monitoring
@@ -501,10 +462,8 @@ printf("\n%s%zd", ("Now this is: "), (t));
 
 while(t<(deadline)) {
 
-
 /* **** CPU idling */
 Sleep(DELAY);
-
 
 /* **** Saving */
 if(z<(3)) {
@@ -521,9 +480,8 @@ if(!(cmdl_time_Toggle)) {
 break;
 }
 
-
 /* **** Check the announcements to stop */
-if(!(Announcements)) {
+if(!Announcements) {
 }
 
 else {
@@ -531,30 +489,26 @@ break;
 }
 
 
-//* **** **** Fill
-
+//* **** Fill
 r = FillRgn(*(dc+(DI)), (void(*)) (*(obj+(REGION))), (void(*)) (*(obj+(BRUSH))));
 
 if(!(r)) {
 printf("\n%s", ("<< Error at FillRgn()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 else {
 }
-
 //*/
 
 
 /* **** Use the Bit Block Transfer to map the loaded bitmap image on an off-screen buffer
+r = BitBlt(*(dc+(DI)), 0, 0, (*(region+(X))), (*(region+(Y))), (*(dc+(SI))), 0, 0, SRCCOPY);
 
-r = (int signed) BitBlt(*(dc+(DI)), 0, 0, (*(region+(X))), (*(region+(Y))), (*(dc+(SI))), 0, 0, SRCCOPY);
 if(!(r)) {
 printf("\n%s", ("<< Error at fn. BitBlt()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
-
 //*/
-
 
 GetLocalTime(&(st));
 
@@ -566,94 +520,87 @@ buff, ("%2d:%02d:%02d %03d %s %d %s %d"), \
 
 
 // 1st outputting
-
 old_textcolor = SetTextColor(*(dc+(DI)), (SHADE_TEXTCOLOR));
 
 if(!(old_textcolor^(CLR_INVALID))) {
 printf("\n%s", ("<< Error at SetTextColor()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
-
 c = (char signed) ct_lett(&r, (buff));
+
 if(!(c^(~(NIL)))) {
 printf("\n%s", ("<< Error at ct_lett()."));
-// return(char signed) (~(NIL));
+// return(~(NIL));
 }
 else {
 r = TextOut(*(dc+(DI)), (SHADE_XPOS+(*(pos+(X)))), (SHADE_YPOS+(*(pos+(Y)))), (buff), (r));
 if(!(r)) {
 printf("\n%s", ("<< Error at fn. TextOut()."));
-// return(char signed) (~(NIL));
+// return(~(NIL));
 }}
-
 
 old_textcolor = SetTextColor(*(dc+(DI)), (old_textcolor));
 
 if(!(old_textcolor^(CLR_INVALID))) {
 printf("\n%s", ("<< Error at SetTextColor()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 
 // 2nd outputting
-
 old_textcolor = SetTextColor(*(dc+(DI)), (TEXTCOLOR));
 
 if(!(old_textcolor^(CLR_INVALID))) {
 printf("\n%s", ("<< Error at SetTextColor()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
+c = ct_lett(&r, (buff));
 
-c = (char signed) ct_lett(&r, (buff));
 if(!(c^(~(NIL)))) {
 printf("\n%s", ("<< Error at ct_lett()."));
-// return(char signed) (~(NIL));
+// return(~(NIL));
 }
 else {
 r = TextOut(*(dc+(DI)), (*(pos+(X))), (*(pos+(Y))), (buff), (r));
 if(!(r)) {
 printf("\n%s", ("<< Error at fn. TextOut()."));
-// return(char signed) (~(NIL));
+// return(~(NIL));
 }}
-
 
 old_textcolor = SetTextColor(*(dc+(DI)), (old_textcolor));
 
 if(!(old_textcolor^(CLR_INVALID))) {
 printf("\n%s", ("<< Error at SetTextColor()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 
-
-
-/* **** **** Getting and releasing a handle of the common Dedive Context to use in fn. BitBlt() */
-
+/* **** Getting and releasing a handle of the common Dedive Context to use in fn. BitBlt() */
 (*(dc+(CACHE))) = (void(*)) GetDC((void(*)) (*(window+(ACTIVE))));
 
 if(!(*(dc+(CACHE)))) {
 printf("\n%s", ("<< Error at GetDC()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 else {
 // Monitoring
 // printf("\n%s%p", ("The handle of the common device context mapped on the RAM will be on offset "), (*(dc+(CACHE))));
 }
 
-r = (int signed) BitBlt(*(dc+(CACHE)), 0, 0, (*(region+(X))), (*(region+(Y))), (*(dc+(DI))), 0, 0, SRCCOPY);
+r = BitBlt(*(dc+(CACHE)), 0, 0, (*(region+(X))), (*(region+(Y))), (*(dc+(DI))), 0, 0, SRCCOPY);
 
 if(!(r)) {
 printf("\n%s", ("<< Error at fn. BitBlt()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 r = (int signed) ReleaseDC(*(window+(ACTIVE)), (*(dc+(CACHE))));
 
 if(!(r)) {
 printf("\n%s", ("<< Error at ReleaseDC()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }}
 
 
@@ -667,35 +614,34 @@ return(char signed) (~(NIL));
 old_textalign = SetBkMode(*(dc+(DI)), (old_textalign));
 if(!(old_textalign^(GDI_ERROR))) {
 printf("\n%s", ("<< Error at SetTextAlign()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 //*/
 
 old_bkmode = SetBkMode(*(dc+(DI)), (old_bkmode));
 if(!(old_bkmode)) {
 printf("\n%s", ("<< Error at SetBkMode()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 old_bkcolor = SetBkColor(*(dc+(DI)), (old_bkcolor));
 if(!(old_bkcolor^(CLR_INVALID))) {
 printf("\n%s", ("<< Error at SetBkColor()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 
-
-
-/* **** **** De-selecting the handle of the loaded bitmap objects to a memory Device Context.
-
+/* **** De-selecting the handle of the loaded bitmap objects to a memory Device Context.
 (*(old_obj+(LOADEDBITMAP))) = (void(*)) SelectObject(*(dc+(SI)), (void(*)) (*(old_obj+(LOADEDBITMAP))));
+
 if(!(*(old_obj+(LOADEDBITMAP)))) {
 printf("\n%s", ("<< Error at fn. SelectObject to de-select a loaded bitmap to (*(dc+(SI)))."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
+
 if(!((int long long signed) HGDI_ERROR^ (int long long signed) (*(old_obj+(LOADEDBITMAP))))) {
 printf("\n%s", ("<< Error at fn. SelectObject to de-select a loaded bitmap to (*(dc+(SI))) with HGDI_ERROR."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 //*/
@@ -703,69 +649,54 @@ return(char signed) (~(NIL));
 
 // Except the two objects i.e., a region object and a bitmap object loaded on (*(dc+(SI))) ---- Please look at the above process.
 
-i = (int signed) (-2+(COUNT_OBJS));
+i = (-2+(COUNT_OBJS));
 
 while(i) {
 (*(old_obj+(i))) = (void(*)) SelectObject(*(dc+(DI)), (void(*)) (*(old_obj+(--i))));
 if(!(*(old_obj+(i)))) {
 printf("\n%s%d", ("<< Error at fn. SelectObject to de-select and the i is: "), (i));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 if(!((int long long signed) HGDI_ERROR^ (int long long signed) (*(old_obj+(i))))) {
 printf("\n%s%d", ("<< Error at fn. SelectObject to de-select with HGDI_ERROR and the i is: "), (i));
-return(char signed) (~(NIL));
+return(~(NIL));
 }}
 
 
-
-
-/* **** **** Deleting/unmapping two memory Device Contexts on the RAM */
-
-i = (int signed) (-1+(COUNT_DC));
+/* **** Deleting/unmapping two memory Device Contexts on the RAM */
+i = (-1+(COUNT_DC));
 
 while(i) {
-r = (int signed) DeleteDC(*(dc+(--i)));
+r = DeleteDC(*(dc+(--i)));
 if(!(r)) {
 printf("\n%s%d", ("<< Error at fn. DeleteDC() and the r is: "), (r));
 printf("\n%s%d", ("<< Error at fn. DeleteDC() and the i is: "), (i));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 else {
 }}
 
 
-
-
-/* **** **** **** **** Delete(, unload or unmap) all the objects mapped on the RAM */
-/* **** **** Except a handle of the module object of the process to currently run on */
-/* **** **** Release a handle of the current <module> object returned by fn. GetModuleHandle()..? */
+/* **** **** Delete(, unload or unmap) all the objects mapped on the RAM */
+/* **** Except a handle of the module object of the process to currently run on */
+/* **** Should <an offset handle of the current module object returned by fn. GetModuleHandle()> be released..? */
 /* Aux., except an <un-loaded> bitmap object: (-1) */
 
-i = (int signed) (-1+(COUNT_OBJS));
+i = (-1+(COUNT_OBJS));
 
 while(i) {
-r = (int signed) DeleteObject(*(obj+(--i)));
+r = DeleteObject(*(obj+(--i)));
 if(!(r)) {
 printf("\n%s%d", ("<< Error at fn. DeleteObject() and the i is: "), (i));
-return(char signed) (~(NIL));
+return(~(NIL));
 }}
-
-
-
 
 /* Monitoring
 printf("\nAll DONE!");
 //*/
 
-
-
-
-
-
 XOR(cmdl_time_Toggle, cmdl_time_Toggle);
-(--Running);
 
-XOR(c, c);
-
-return(char signed) (c);
+--Running;
+return(0x00);
 }

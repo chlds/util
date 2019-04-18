@@ -1,10 +1,11 @@
-/* **** **** Calendar
+/* **** Calendar
 
-
+Remarks:
+Not a good design and/or implementation..
 //*/
 
 
-char signed(*(dayoftheweek[])) = {
+static signed char const(*(dayoftheweek[])) = {
 (char signed(*)) ("Sunday"),
 (char signed(*)) ("Monday"),
 (char signed(*)) ("Tuesday"),
@@ -15,8 +16,7 @@ char signed(*(dayoftheweek[])) = {
 (char signed(*)) (NIL)
 };
 
-
-char signed(*(month[])) = {
+static signed char const(*(month[])) = {
 (char signed(*)) ("January"),
 (char signed(*)) ("February"),
 (char signed(*)) ("March"),

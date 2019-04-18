@@ -1,15 +1,12 @@
 /* **** **** Making a small shell
 
 on branch develop
-
 */
-
 
 
 # define C_CODE_STDS
 # define C_AS
 # define C_MT
-
 # include "./../../../incl/config.h"
 
 # define BUFF (0x400)
@@ -21,13 +18,11 @@ on branch develop
 
 # define global
 
+global signed char(Announcements) = (NIL);
+global signed char(cmdl_time_Toggle) = (NIL);
 
-
-global char signed(Announcements) = (char signed) (NIL);
-
-global char signed(cmdl_time_Toggle) = (char signed) (NIL);
-global int signed(Running) = (int signed) (1);
-// fn. cmdl_exit() to subtract the value.
+global signed int(Running) = (0x01);
+// fn. cmdl_exit() to finally subtract the value.
 
 global struct knot(*base);
 global struct knot(*lead);
@@ -44,17 +39,12 @@ global struct yarn(yarn) = {
 //*/
 
 
-
-/* **** **** entry point */
-
-char signed(__cdecl main(char signed(argc), char signed(**argv), char signed(**envp))) {
-
+/* **** entry point */
+signed int(__cdecl main(signed int(argc), signed char(**argv), signed char(**envp))) {
 
 auto struct knot(*cache);
 
-
 /* **** commandlets
-
 auto struct card(card_exit) = {
 (char signed(*)) ("--exit"),
 (short int signed) (NIL),
@@ -167,24 +157,23 @@ auto struct card(*(arr[COUNT_FUNCTIONS])) = {
 
 //* **** aux. 1/2
 
-auto char signed(__cdecl*(fn[COUNT_FUNCTIONS])) (void(*argp)) = {
-(char signed(__cdecl*) (void(*))) (cmdl_exit),
-(char signed(__cdecl*) (void(*))) (cmdl_help),
-(char signed(__cdecl*) (void(*))) (cmdl_clear),
-(char signed(__cdecl*) (void(*))) (cmdl_time),
-(char signed(__cdecl*) (void(*))) (cmdl_open),
-(char signed(__cdecl*) (void(*))) (cmdl_save),
-(char signed(__cdecl*) (void(*))) (cmdl_output),
-(char signed(__cdecl*) (void(*))) (cmdl_history),
-(char signed(__cdecl*) (void(*))) (NIL)
+auto unsigned int(__stdcall*(fn[COUNT_FUNCTIONS])) (void(*argp)) = {
+(unsigned int(__stdcall*) (void(*))) (cmdl2_exit),
+(unsigned int(__stdcall*) (void(*))) (cmdl2_help),
+(unsigned int(__stdcall*) (void(*))) (cmdl2_clear),
+(unsigned int(__stdcall*) (void(*))) (cmdl2_time),
+(unsigned int(__stdcall*) (void(*))) (cmdl2_open),
+(unsigned int(__stdcall*) (void(*))) (cmdl2_save),
+(unsigned int(__stdcall*) (void(*))) (cmdl2_output),
+(unsigned int(__stdcall*) (void(*))) (cmdl2_history),
+(unsigned int(__stdcall*) (void(*))) (NIL)
 };
 //*/
 
 
 
 //* **** aux. 2/2
-
-auto char signed(*(term[COUNT_FUNCTIONS])) = {
+auto signed char(*(term[COUNT_FUNCTIONS])) = {
 (char signed(*)) ("--exit"),
 (char signed(*)) ("--help"),
 (char signed(*)) ("--clear"),
@@ -199,8 +188,8 @@ auto char signed(*(term[COUNT_FUNCTIONS])) = {
 
 
 
-auto int signed(thread_id[COUNT_THREADS]) = {
-(int signed) (NIL)
+auto unsigned int(thread_id[COUNT_THREADS]) = {
+(unsigned int) (NIL)
 };
 
 
@@ -209,20 +198,19 @@ auto void(*thread[COUNT_THREADS]) = {
 };
 
 
-auto char signed(buff[BUFF]) = {
-(char signed) (NIL)
+auto signed char(buff[BUFF]) = {
+(signed char) (NIL)
 };
 
-
-auto int unsigned(stacksize) = (int unsigned) (NIL);
-auto int unsigned(createdflags) = (int unsigned) (NIL);
+auto unsigned int(stacksize) = (NIL);
+auto unsigned int(createdflags) = (NIL);
 
 auto signed int(i), (j), (l), (r);
-auto int signed(count), (total);
-auto int signed(length);
+auto signed int(count), (total);
+auto signed int(length);
 
-auto char signed(flag);
-auto char signed(c);
+auto signed short(flag);
+auto signed char(c);
 
 auto char signed(*p) = (char signed(*)) (NIL);
 
@@ -322,29 +310,29 @@ return(~(NIL));
 
 /* **** allocate at the (*cache).p */
 
-c = (char signed) ct_lett(&length, (buff));
+c = ct_lett(&length, (buff));
 
 if(!(c^(~(NIL)))) {
 printf("\n%s", ("<< Error at fn. ct_lett()."));
 // e.g., unmap the rest..
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 (*cache).p = (char signed(*)) malloc(length+(sizeof(c)));
 if(!((*cache).p)) {
 printf("\n%s", ("<< Error at fn. malloc() of the ((*(cache)).p)."));
 // e.g., unmap the rest..
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 
 /* **** Copy at (*cache).p */
 
-c = (char signed) cp_lett(&length, (*cache).p, (buff));
+c = cp_lett(&length, (*cache).p, (buff));
 
 if(!(c^(~(NIL)))) {
 printf("\n%s", ("<< Error at fn. cp_lett()."));
 // e.g., unmap the rest..
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 
@@ -352,34 +340,37 @@ return(char signed) (~(NIL));
 
 /* **** Is it a command or text */
 
-(*lead).flag = (short int signed) (*lead).flag&(NIL);
-i = (i^(i));
+AND((*lead).flag, NIL);
+XOR(i, i);
 
 while(*(term+(i))) {
 
-c = (char signed) cmp_lett_partially(&r, (buff), (*(term+(i))));
+c = cmp_lett_partially(&r, (buff), (*(term+(i))));
 
 if(!(c^(~(NIL)))) {
 printf("\n%s", ("<< Error at fn. cmp_lett_partially()."));
 // e.g., unmap the rest..
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 /* **** Run a multi-threading program or more */
 if(!(r)) {
-(*lead).flag = (short int signed) (*lead).flag|(CMDFLAG);
+
+OR((*lead).flag, CMDFLAG);
+
 (*(thread+(l))) = (void(*)) _beginthreadex(
 (void(*)) (NIL),
-(int unsigned) (stacksize),
-(int unsigned(__cdecl*) (void(*))) (*(fn+(i))),
+(unsigned int) (stacksize),
+(unsigned int(__stdcall*) (void(*))) (*(fn+(i))),
 (void(*)) (*lead).p, // e.g., (*(argp+(i))),
-(int unsigned) (createdflags),
-(int unsigned(*)) (thread_id+(j++))
+(unsigned int) (createdflags),
+(unsigned int(*)) (thread_id+(j++))
 );
+
 if(!(*(thread+(l++)))) {
 printf("\n%s", ("<< Error at fn. _beginthreadex()."));
 // e.g., unmap the rest..
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 break;
 }
@@ -400,31 +391,26 @@ break;
 printf("\n");
 
 while(1) {
-if(!(Running)) {
+if(!Running) {
 break;
 }
 // Monitoring
 // printf("\n%s", ("Waiting for all the sub-threads to stop"));
 printf(" ..");
 /* **** CPU idling */
-Sleep(100);
+Sleep(3*(DELAY));
 }
 
-
-
-
-/* **** **** Close/unmap the thread handlers */
-
+/* **** Close/unmap the thread handlers */
 printf("\n");
 
 i = (i^(i));
-
 while(l) {
-r = (int signed) CloseHandle(*(thread+(--l)));
+r = CloseHandle(*(thread+(--l)));
 if(!(r)) {
 printf("\n%s", ("<< Error at fn. CloseHandle()."));
 // e.g., unmap the rest..
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 (i++);
 }
@@ -433,10 +419,7 @@ return(char signed) (~(NIL));
 printf("%s%d\n", ("The number of the unmapped thread handlers: "), (i));
 
 
-
-
-/* **** **** Outputting */
-
+/* **** Outputting */
 printf("\n%s", ("<< Auxiliaries: Outputting"));
 printf("\n");
 
@@ -447,21 +430,15 @@ while(cache) {
 printf("\n%d%s%s", (i++), (". "), (*cache).p);
 cache = (struct knot(*)) (*cache).d;
 }
-
 //*/
 
 
-
-
-/* **** **** unmap at */
-
+/* **** unmap at */
 printf("\n");
 
 r = unmap2_ll(lead);
 printf("%s%d%s\n", ("Unmapped the "), (r), (" knots."));
 
-
 printf("\n%s", ("All DONE!"));
-
-return(NIL);
+return(0x00);
 }
