@@ -3,6 +3,21 @@
 Commandlet to output the local time
 */
 
+/* **** Enhanced Metafiles for Device Independency
+fn. CreateEnhMetaFile()
+creates a device context for an enhanced-format metafile. This device context
+can be used to store a device-independent picture.
+i.e., Map an enhmeta device context.
+----
+fn. CloseEnhMetaFile()
+closes an enhanced-metafile device context
+and returns a handle that identifies an enhanced-format metafile.
+i.e., Unmap the enhmeta device context and return a handle for enhmeta file.
+----
+fn. DeleteEnhMetaFile()
+Unmap an enhmeta object on the RAM but not delete an enhmeta file if the one is on the storage device.
+i.e., delete the enhmeta file.
+*/
 
 # define C_CODE_STDS
 # define C_CALEND
@@ -22,6 +37,46 @@ Commandlet to output the local time
 
 # include "./../../../incl/config.h"
 
+# include <objbase.h> // for combaseapi.h
+# include <wincodec.h>
+# include <wincodecsdk.h>
+# pragma comment(lib, "windowscodecs.lib")
+
+/* **** The Windows Imaging Component (WIC)
+provides a Component Object Model (COM) based API for use in C and C++.
+Reference: on site docs.microsoft.com and/or more..
+e.g.,
+Instance Creation Helper Functions
+CreateInstance()
+----
+1.
+Create an IWICImagingFactory object to create Windows Imaging Component (WIC) objects.
+r = CoCreateInstance(CLSID_WICImagingFactory, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&m_pIWICFactory));
+----
+2.
+CreateDecoderFromFilename() to create IWICBitmapDecoder from an image file.
+r = S_OK;
+IWICBitmapDecoder(*pI_decoder) = (NULL);
+IWICBitmapFrameDecode(*pI_decoder_frame) = (NULL);
+r = m_pIWICFactory->CreateDecoderFromFilename(L"turtle.jpg", NULL, GENERIC_READ, WICDecodeMetadateCacheOnDemand, (&pI_decoder));
+----
+3.
+Get the first IWICBitmapFrameDecode of the image.
+// Retrieve the 1st bitmap frame.
+if(SUCCEEDED(r)) r = pIDecoder->GetFrame(0, &pIDecoder_frame);
+----
+The JPEG file format
+only supports a single frame. Because the file in this example
+is a JPEG file, the 1st frame (0)
+is used. For image formats that have multiple frames,
+see <How to retrieve the Frames of an Image> for accessing each frame of the image.
+4.
+Process the image frame. For additional information about IWICBitmapSource object,
+see the Bitmap Sources Overview.
+----
+Refer on site docs.microsoft.com <How to create a decoder using an image filename>
+*/
+
 unsigned int(__stdcall cmdl2_time(void(*argp))) {
 
 /* **** DATA */
@@ -31,6 +86,16 @@ external signed int(Running);
 
 external signed char const(*(dayoftheweek[]));
 external signed char const(*(month[]));
+
+// for the WIC
+auto double(xres_dpi);
+auto double(yres_dpi);
+auto UINT(bmp_width);
+auto UINT(bmp_height);
+auto WICPixelFormatGUID(pixel_format);
+auto WICRect(wic_rect);
+auto UINT(stride);
+auto IWICPalette(palette);
 
 // for the module handles
 enum {

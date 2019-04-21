@@ -1,7 +1,7 @@
 # util
 
 
-## Please verify the code and use it if you like.
+## Please verify the code and use it if you'd like.
 
 
 ### I have created these files on Windows 10 64-bit OS using Windows Kit.
