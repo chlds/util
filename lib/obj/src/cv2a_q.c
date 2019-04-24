@@ -45,5 +45,5 @@ di = (di+(r));
 r = cv2a_q_internal(radix, di, si);
 if(!r) return(0x00);
 
-return(0x01);
+return(r);
 }
