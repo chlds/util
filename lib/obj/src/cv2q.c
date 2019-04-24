@@ -11,7 +11,7 @@ determine the presence or absense of a sign.
 //*/
 
 
-signed(__cdecl cv2_q(signed short(radix), signed long long(*di), signed char(*base))) {
+signed(__cdecl cv2q(signed short(radix), signed long long(*di), signed char(*base))) {
 
 /* **** DATA, BSS and STACK */
 auto signed const(LIMIT) = (3600);
@@ -30,7 +30,7 @@ if(HEXA<(radix)) radix = (HEXA);
 if(!(MINUS^(*base))) flag++;
 if(*di) *di = (*di^(*di));
 
-r = cv2_q_internal(radix, di, base);
+r = cv2q_internal(radix, di, base);
 
 if(!r) return(0x00);
 // else printf("%s%d\n", "r is: ", r);

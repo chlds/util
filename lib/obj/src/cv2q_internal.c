@@ -12,7 +12,7 @@ to determine the presence or absense of a sign.
 //*/
 
 
-signed(__cdecl cv2_q_internal(signed short(radix), signed long long(*di), signed char(*base))) {
+signed(__cdecl cv2q_internal(signed short(radix), signed long long(*di), signed char(*base))) {
 
 /* **** DATA, BSS and STACK */
 auto signed const(LIMIT) = (3600);
@@ -30,5 +30,5 @@ r = tablescan(*base, table);
 if(r<(radix)) *di = (r+radix*(*di)) /* % LIMIT */ ;
 
 base++;
-return(1+(cv2_q_internal(radix, di, base)));
+return(1+(cv2q_internal(radix, di, base)));
 }
