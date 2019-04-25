@@ -23,6 +23,8 @@ auto signed short const(BINA) = (0x02);
 if(radix<(BINA)) radix = (BINA);
 if(HEXA<(radix)) radix = (HEXA);
 
+if(base<(0x00)) base = (1+(~(base)));
+
 base = base/(radix);
 if(!base) return(0x01);
 

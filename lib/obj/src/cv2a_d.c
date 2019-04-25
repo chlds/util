@@ -7,8 +7,7 @@ di: Put the leading address of a buffer to retrieve out of an unsigned or signed
 si: Put the address for an unsigned or signed double word at.
 
 Remarks:
-Consider how to check the buffer size.
-Consider how to check the presence or absence of a sign.
+Consider how to check the buffer size of a pointer put on arguments..
 //*/
 
 
@@ -27,17 +26,21 @@ if(!di) return(0x00);
 if(radix<(BINA)) radix = (BINA);
 if(HEXA<(radix)) radix = (HEXA);
 
-r = col_d(radix, si);
-if(!r) return(0x00);
-// else printf("%s%d\n", "r = col_d(si) is: ", r);
-
-r = (0x01+(r));
-// Does it have a sign or unsign, and in ascii, in utf-8 or..
-
 /* **** Pending..
 if(r<(sizeof(di))) di = (di+(r));
 else return(0x00);
 //*/
+
+r = col_d(radix, si);
+if(!r) return(0x00);
+// else printf("%s%d\n", "r = col_d(si) is: ", r);
+
+if(si<(0x00)) {
+*di = ('-');
+si = (1+(~(si)));
+r = (0x02+(r));
+}
+else r = (0x01+(r));
 
 di = (di+(r));
 --di;
