@@ -1,42 +1,27 @@
-/* **** **** **** **** Notes
+/* **** Notes
 
 Count the arguments (to the terminating null character).
 
 argp: the leading address of an array of letters
 
-//*/
+Remarks:
+Using along with fn. count_arguments_internal.
+Being deprecated..
+Can not know the depth of recursion with.
+Please use fn. ct_args, fn. ct_ars2 or fn. ct_ars.
+*/
 
 
-# define C_CODE_STDS
-# include "./../../../incl/config.h"
+signed(__cdecl count_arguments(signed char(*argp))) {
 
+/* **** DATA, BSS and STACK */
+auto signed short(flag) = (0x00);
+auto signed(r);
 
-short signed(__cdecl count_arguments(char signed(*argp))) {
+/* **** CODE/TEXT */
+if(!argp) return(0x00);
 
-/* **** **** DATA */
-auto char signed const(delimiter) = (char signed) (' ');
-static short signed(flag) = (NIL);
+r = count_arguments_internal(flag, argp);
 
-/* **** **** CODE/TEXT */
-if(!argp) return(NIL);
-
-if(!(*argp)) {
-XOR(flag, flag);
-return(NIL);
-}
-
-if(!(delimiter^(*argp))) {
-XOR(flag, flag);
-(argp++);
-return(count_arguments(argp));
-}
-
-if(flag) {
-(argp++);
-return(count_arguments(argp));
-}
-
-OR(flag, 0x01);
-(argp++);
-return(1+(count_arguments(argp)));
+return(r);
 }

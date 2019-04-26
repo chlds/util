@@ -4,18 +4,17 @@ Count the arguments to the terminating null character.
 
 Remarks:
 Using along with fn. ct_ars2 or with fn. ct_ars.
-//*/
+*/
 
 
 # include "../../../incl/config.h"
 
 signed(__cdecl ct_ars_internal(signed short(flag), signed(*retv), signed char(*base))) {
 
-/* **** DATA */
+/* **** DATA, BSS and STACK */
 auto signed char const(WS) = (' ');
 
 /* **** CODE/TEXT */
-// if(flag) return(0x00);
 if(!retv) return(0x00);
 if(!base) return(0x00);
 if(!(*base)) return(0x00);
