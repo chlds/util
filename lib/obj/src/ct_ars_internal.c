@@ -1,9 +1,9 @@
 /* **** Notes
 
-Count the arguments.
+Count the arguments to the terminating null character.
 
 Remarks:
-Using along with fn. ct_ars.
+Using along with fn. ct_ars2 or with fn. ct_ars.
 //*/
 
 
@@ -20,14 +20,14 @@ if(!retv) return(0x00);
 if(!base) return(0x00);
 if(!(*base)) return(0x00);
 
-if(!(WS^(*(base)))) {
+if(!(WS^(*base))) {
 XOR(flag, flag);
 }
 
 else {
 if(!flag) {
-OR(flag, 0x01);
-*retv = (1+(*retv));
+flag++;
+(*retv)++;
 }}
 
 base++;

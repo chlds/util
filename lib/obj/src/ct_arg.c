@@ -1,9 +1,13 @@
 /* **** Notes
 
-Count the arguments (to the terminating null character).
+Count the arguments with the static variables to the terminating null character.
 
 di: Put the address to retrieve the numbre of the arguments at.
 base: Put the leading address of an array for letters at.
+
+Remarks:
+Being Deprecated..
+Please use fn. ct_args, fn. ct_ars2 or fn. ct_ars.
 //*/
 
 
@@ -12,23 +16,23 @@ base: Put the leading address of an array for letters at.
 signed int(__cdecl ct_arg(signed int(*di), signed char(*base))) {
 
 /* **** DATA */
-static signed char const(WS) = (' ');
 static signed short(flag) = (0x00);
 static signed short(init) = (0x00);
+auto signed char const(WS) = (' ');
 
 /* **** CODE/TEXT */
-if(!di) return(NIL);
-if(!base) return(NIL);
+if(!di) return(0x00);
+if(!base) return(0x00);
 
 if(!(*base)) {
-XOR(flag,flag);
-XOR(init,init);
-return(NIL);
+XOR(flag, flag);
+XOR(init, init);
+return(0x00);
 }
 
 if(!init) {
 init++;
-*di = (NIL);
+*di = (0x00);
 }
 
 if(!(WS^(*base))) {
@@ -38,7 +42,7 @@ return(1+(ct_arg(di, base)));
 }
 
 if(!flag) {
-OR(flag, 0x01);
+flag++;
 (*di)++;
 }
 

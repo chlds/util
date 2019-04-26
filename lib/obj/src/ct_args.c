@@ -1,75 +1,51 @@
-/* **** **** **** **** Refer on
+/* **** Notes
 
-./incl/lib/ct_args.c
+Count the arguments with a loop to the terminating null character.
 
-Count the arguments.
-
-//*/
-
+argp: Put the leading address of an array for letters at.
+*/
 
 
 # define C_CODE_STDS
-
 # include "./../../../incl/config.h"
 
+signed int(__cdecl ct_args(signed char(*argp))) {
 
+/* **** DATA */
+auto signed int const(QUANTUM) = (0x10);
+auto signed int const(SNOOZE) = (0x04);
+auto signed int const(DELAY) = (0x02*(QUANTUM));
 
-char signed(__cdecl ct_args(int signed(*di), char signed(*si))) {
+auto signed char const(delimiter) = (' ');
 
+auto signed int(i), (l), (r);
+auto signed short(flag);
 
-/* **** **** DATA */
+/* **** CODE/TEXT */
+if(!argp) return(0x00);
 
-auto const int signed(SNOOZE) = (int signed) (255);
-auto const int signed(DELAY) = (int signed) (25);
-
-auto int signed(i), (j), (l), (r);
-auto int signed(count);
-
-auto char signed(c);
-
-auto const char signed(delimiter) = (char signed) (' ');
-
-
-/* **** **** CODE/TEXT */
-
-if(!(si)) {
-// Error
-return(char signed) (~(NIL));
-}
-
-if(!(di)) {
-// Error
-return(char signed) (~(NIL));
-}
-
-
-XOR(count, count);
+XOR(flag, flag);
+XOR(r, r);
 XOR(l, l);
-XOR(j, j);
 XOR(i, i);
 
-while(*(si+(i))) {
-if(!(delimiter^(*(si+(i++))))) {
-XOR(j, j);
+while(*(argp+(i))) {
+if(!(delimiter^(*(argp+(i++))))) {
+XOR(flag, flag);
 }
 else {
-if(!(j)) {
-(count++);
-(j++);
+if(!flag) {
+flag++;
+r++;
 }}
 // CPU idling
 if(l<(SNOOZE)) {
-(l++);
+l++;
 }
 else {
 XOR(l, l);
 Sleep(DELAY);
 }}
 
-
-(*(di)) = (int signed) (count);
-
-XOR(c, c);
-
-return(char signed) (c);
+return(r);
 }
