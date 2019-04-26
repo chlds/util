@@ -180,23 +180,15 @@ printf("%s\n", (char signed(*)) (argp));
 
 
 /* **** **** Count the arguments */
+r = ct_args(argp);
 
-c = (char signed) ct_args(&i, (argp));
-
-if(!(c^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. ct_args()."));
-return(char signed) (~(NIL));
+if(!r) {
+printf("\n%s", ("<< Error at fn. ct_args() in fn. cmdl_time()."));
+return(~(NIL));
 }
 
-// Monitoring
-// printf("\n%s%d", ("i after fn. ct_args() is: "), (i));
-
-
-
-
 /* **** **** Set the time */
-
-if(i<(2)) {
+if(r<(2)) {
 }
 
 else {
@@ -205,7 +197,7 @@ c = (char signed) cv_lett(&i, (argp));
 if(!(c^(~(NIL)))) {
 // Error
 printf("\n%s", ("<< Error at fn. cv_lett()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 // Monitoring
 // printf("\n%s%d", ("i after fn. cv_lett() is: "), (i));

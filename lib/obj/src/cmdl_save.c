@@ -62,19 +62,19 @@ auto char signed(uncmpltflag);
 
 /* **** Check the arguments */
 
-c = (char signed) ct_args(&i, (argp));
+r = ct_args(argp);
 
-if(!(c^(~(NIL)))) {
+if(!r) {
 printf("\n%s", ("<< Error at fn. ct_args() on fn. cmdl_save()."));
-(--Running);
-return(char signed) (~(NIL));
+--Running;
+return(~(NIL));
 }
 
-if(!(i^(1))) {
+if(!(r^(1))) {
 printf("\n%s", ("--save <file>"));
 printf("\n");
-(--Running);
-return(char signed) (~(NIL));
+--Running;
+return(~(NIL));
 }
 
 

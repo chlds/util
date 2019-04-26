@@ -44,15 +44,15 @@ auto signed char(uncmpltflag);
 Running++;
 
 /* **** Check the arguments */
-c = ct_args(&i, (argp));
+r = ct_args(argp);
 
-if(!(c^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. ct_args() on fn. cmdl_save()."));
+if(!r) {
+printf("\n%s", ("<< Error at fn. ct_args() on fn. cmdl2_save()."));
 --Running;
 return(~(NIL));
 }
 
-if(!(i^(1))) {
+if(!(r^(1))) {
 printf("\n%s", ("--save <file>"));
 printf("\n");
 --Running;

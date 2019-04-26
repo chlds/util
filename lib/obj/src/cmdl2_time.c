@@ -226,19 +226,15 @@ printf("%s\n", (char signed(*)) (argp));
 
 
 /* **** Count the arguments */
-c = ct_args(&i, (argp));
+r = ct_args(argp);
 
-if(!(c^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. ct_args()."));
+if(!r) {
+printf("\n%s", ("<< Error at fn. ct_args() in fn. cmdl2_time()."));
 return(~(NIL));
 }
 
-// Monitoring
-// printf("\n%s%d", ("i after fn. ct_args() is: "), (i));
-
-
 /* **** Set the time */
-if(i<(2)) {
+if(r<(2)) {
 }
 
 else {

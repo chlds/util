@@ -51,15 +51,15 @@ Running++;
 XOR(errorflag, errorflag);
 
 /* **** Check the arguments */
-c = ct_args(&i, (argp));
+r = ct_args(argp);
 
-if(!(c^(~(NIL)))) {
+if(!r) {
 printf("\n%s", ("<< Error at fn. ct_args() on fn. cmdl_open()."));
 --Running;
 return(~(NIL));
 }
 
-if(!(i^(1))) {
+if(!(r^(1))) {
 printf("\n%s", ("--open <file>"));
 printf("\n");
 --Running;
