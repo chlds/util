@@ -2,90 +2,66 @@
 
 Convert to an signed interger out of the letters.
 
+Remarks:
+Being deprecated..
 Not using fn. spl() and fn. spl_free().
-
-//*/
-
+*/
 
 
 # define C_CODE_STDS
-
 # include "./../../../incl/config.h"
 
+signed char(__cdecl cv_lett(signed(*di), signed char(*si))) {
 
+/* **** DATA, BSS and STACK */
+// auto signed const(LIMIT) = (3600);
+auto signed const(RADIX) = (0x0A);
+auto signed const(TABLE) = (0x0A);
 
-char signed(__cdecl cv_lett(int signed(*di), char signed(*si))) {
+auto signed const(QUANTUM) = (0x10);
+auto signed const(DELAY) = (0x02*(QUANTUM));
 
+auto signed char const(*table) = ("0123456789ABCDEF");
 
-// auto const int signed(LIMIT) = (int signed) (3600);
-auto const int signed(RADIX) = (int signed) (0x0A);
-auto const int signed(TABLE) = (int signed) (0x0A);
+auto signed(i), (j), (l), (r);
+auto signed(d), (s);
+auto signed char(c);
 
-auto const int signed(DELAY) = (int signed) (10);
-
-auto char signed(c);
-
-auto int signed(i), (j), (l), (r);
-auto int signed(d), (s);
-
-auto char signed(*table) = ("0123456789ABCDEF");
-
-
-
-
-/* **** **** **** **** CODE/TEXT */
-
-if(!(si)) {
-// Error
-printf("\n%s", ("<< An error to put the NIL at argument SI of fn. cv_ltrs()."));
-return(char signed) (~(NIL));
-}
-
-if(!(di)) {
-// Error
-printf("\n%s", ("<< An error to put the NIL at argument DI of fn. cv_ltrs()."));
-return(char signed) (~(NIL));
-}
-
-
-/* **** **** Initialize */
+/* **** CODE/TEXT */
+if(!si) return(~(NIL));
+if(!di) return(~(NIL));
 
 XOR(l, l);
 XOR(i, i);
 XOR(d, d);
 
 while(*(si+(l))) {
-c = (char signed) (*(si+(l++)));
+c = (*(si+(l++)));
 XOR(i, i);
 while(i<(TABLE)) {
 if(!(c^(*(table+(i))))) {
-d = (int signed) (i+RADIX*(d)) /* % (LIMIT) */ ;
+d = (i+RADIX*(d)) /* % (LIMIT) */ ;
 break;
 }
 else {
-(i++);
+i++;
 }}
 // CPU idling
 Sleep(DELAY);
 }
 
-
-/* **** **** Set to argument DI */
-
-if(!('-'^(*(si)))) {
+/* **** Set to argument DI */
+if(!('-'^(*si))) {
 if(!('-'^(*(si+(1))))) {
-(*(di)) = (int signed) (d);
+*(di) = (d);
 }
 else {
-(*(di)) = (int signed) (1+(~(d)));
+*(di) = (1+(~(d)));
 }}
 
 else {
-(*(di)) = (int signed) (d);
+*(di) = (d);
 }
 
-
-XOR(c, c);
-
-return(char signed) (c);
+return(0x00);
 }

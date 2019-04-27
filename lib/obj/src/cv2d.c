@@ -1,19 +1,19 @@
 /* **** Notes
 
-Convert to the (unsigned or) signed quad word.
+Convert to the (unsigned or) signed double word.
 
 radix: Put the radix at.
 di: Put the address to retrieve the unsigned or signed number at.
 base: Put the leading address of an array for letters at.
 
 Remarks:
-Use an initialisation wrapper function to
-initialise the arguments for fn. cv2q_internal e.g., to
+A wrapper function to
+initialise the arguments for fn. cv2d_internal e.g., to
 determine the presence or absense of a sign.
 */
 
 
-signed(__cdecl cv2q(signed short(radix), signed long long(*di), signed char(*base))) {
+signed(__cdecl cv2d(signed short(radix), signed(*di), signed char(*base))) {
 
 /* **** DATA, BSS and STACK */
 auto signed const(LIMIT) = (3600);
@@ -32,7 +32,7 @@ if(HEXA<(radix)) radix = (HEXA);
 if(!(MINUS^(*base))) flag++;
 if(*di) *di = (*di^(*di));
 
-r = cv2q_internal(radix, di, base);
+r = cv2d_internal(radix, di, base);
 
 if(!r) return(0x00);
 
