@@ -567,16 +567,16 @@ return(char signed) (~(NIL));
 }
 
 
-c = (char signed) ct_lett(&r, (buff));
-if(!(c^(~(NIL)))) {
-printf("\n%s", ("<< Error at ct_lett()."));
-// return(char signed) (~(NIL));
+r = ct(buff);
+if(!r) {
+printf("\n%s", ("<< Error at ct()."));
+// return(~(NIL));
 }
 else {
 r = TextOut(*(dc+(DI)), (SHADE_XPOS+(*(pos+(X)))), (SHADE_YPOS+(*(pos+(Y)))), (buff), (r));
-if(!(r)) {
+if(!r) {
 printf("\n%s", ("<< Error at fn. TextOut()."));
-// return(char signed) (~(NIL));
+// return(~(NIL));
 }}
 
 
@@ -598,16 +598,17 @@ return(char signed) (~(NIL));
 }
 
 
-c = (char signed) ct_lett(&r, (buff));
-if(!(c^(~(NIL)))) {
-printf("\n%s", ("<< Error at ct_lett()."));
-// return(char signed) (~(NIL));
+r = ct(buff);
+
+if(!r) {
+printf("\n%s", ("<< Error at ct()."));
+// return(~(NIL));
 }
 else {
 r = TextOut(*(dc+(DI)), (*(pos+(X))), (*(pos+(Y))), (buff), (r));
 if(!(r)) {
 printf("\n%s", ("<< Error at fn. TextOut()."));
-// return(char signed) (~(NIL));
+// return(~(NIL));
 }}
 
 

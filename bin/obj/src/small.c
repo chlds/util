@@ -325,18 +325,18 @@ lead = (struct knot(*)) (cache);
 
 /* **** allocate at the (*cache).p */
 
-c = (char signed) ct_lett(&length, (buff));
+length = ct(buff);
 
-if(!(c^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. ct_lett()."));
+if(!length) {
+printf("\n%s", ("<< Error at fn. ct()."));
 // e.g., unmap the rest..
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 (*cache).p = (char signed(*)) malloc(length+(sizeof(c)));
 if(!((*cache).p)) {
 printf("\n%s", ("<< Error at fn. malloc() of the ((*(cache)).p)."));
 // e.g., unmap the rest..
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 
@@ -347,7 +347,7 @@ c = (char signed) cp_lett(&length, (*cache).p, (buff));
 if(!(c^(~(NIL)))) {
 printf("\n%s", ("<< Error at fn. cp_lett()."));
 // e.g., unmap the rest..
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 
@@ -365,7 +365,7 @@ c = (char signed) cmp_lett_partially(&r, (buff), (*(term+(i))));
 if(!(c^(~(NIL)))) {
 printf("\n%s", ("<< Error at fn. cmp_lett_partially()."));
 // e.g., unmap the rest..
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 /* **** Run a multi-threading program or more */
@@ -382,7 +382,7 @@ if(!(r)) {
 if(!(*(thread+(l++)))) {
 printf("\n%s", ("<< Error at fn. _beginthreadex()."));
 // e.g., unmap the rest..
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 break;
 }
@@ -403,7 +403,7 @@ break;
 printf("\n");
 
 while(1) {
-if(!(Running)) {
+if(!Running) {
 break;
 }
 // Monitoring
@@ -427,9 +427,9 @@ r = (int signed) CloseHandle(*(thread+(--l)));
 if(!(r)) {
 printf("\n%s", ("<< Error at fn. CloseHandle()."));
 // e.g., unmap the rest..
-return(char signed) (~(NIL));
+return(~(NIL));
 }
-(i++);
+i++;
 }
 
 // Monitoring
@@ -467,9 +467,9 @@ while(lead) {
 cache = (struct knot(*)) (lead);
 lead = (struct knot(*)) (*lead).s;
 free((*cache).p);
-(j++);
+j++;
 free(cache);
-(i++);
+i++;
 // Monitoring
 // printf("\r%s%d%s%d", ("The number of the unmapped points: "), (j), (" and "), (i));
 }
@@ -480,5 +480,5 @@ free(cache);
 printf("\n%s", ("All DONE!"));
 
 
-return(char signed) (NIL);
+return(0x00);
 }

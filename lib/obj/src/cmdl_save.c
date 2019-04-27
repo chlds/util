@@ -1,29 +1,20 @@
-/* **** **** a commandlet for all the commandlets
+/* **** Notes
 
-
-to save except the commandlets
-
+Commandlet to save except for the commandlets
 
 Attention:
-
 This code
 is for a doubly LL i.e.,
-<NOT> for a circular LL..
+<NOT> for a circular LL.
 
-
-Notes:
-
+Remarks:
 Implemented with fn. spl() and fn. spl_free()
-
 */
-
 
 
 # define C_CODE_STDS
 # define C_AS
-
 # define external extern
-
 # include "./../../../incl/config.h"
 
 
@@ -31,7 +22,7 @@ Implemented with fn. spl() and fn. spl_free()
 char signed(__cdecl cmdl_save(void(*argp))) {
 
 
-/* **** **** DATA */
+/* **** DATA */
 
 external char signed(Announcements);
 external int signed(Running);
@@ -120,33 +111,33 @@ break;
 if((*cache).flag) {
 }
 else {
-c = (char signed) ct_lett(&count, (*cache).p);
-if(!(c^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. ct_lett() on fn. cmdl_save()."));
+count = ct((*cache).p);
+if(!count) {
+printf("\n%s", ("<< Error at fn. ct() on fn. cmdl_save()."));
 break;
 }
-r = (int signed) write(fd, (*cache).p, (count));
+r = write(fd, (*cache).p, count);
 if(!(r^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. ct_lett() on the fn. cmdl_save()."));
+printf("\n%s", ("<< Error at fn. write() on the fn. cmdl_save()."));
 break;
 }
 /*
-if(!(r)) {
+if(!r) {
 printf("\n%s", ("<< Done with (NIL)."));
 break;
 }
 //*/
 // Insert a linefeed
-c = (char signed) ('\n');
-r = (int signed) write(fd, (&c), (sizeof(c)));
+c = ('\n');
+r = write(fd, &c, sizeof(c));
 if(!(r^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. ct_lett() on the fn. cmdl_save()."));
+printf("\n%s", ("<< Error at fn. write() on the fn. cmdl_save()."));
 break;
 }}
 cache = (struct knot(*)) (*cache).d;
 // CPU idling
 if(i<(SNOOZE)) {
-(i++);
+i++;
 }
 else {
 XOR(i, i);

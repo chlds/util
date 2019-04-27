@@ -24,15 +24,15 @@ external signed int(Running);
 external struct knot(*base);
 external struct knot(*lead);
 
-auto signed int const(QUANTUM) = (0x10);
-auto signed int const(SNOOZE) = (0x04);
-auto signed int const(DELAY) = (0x02*(QUANTUM));
+auto signed const(QUANTUM) = (0x10);
+auto signed const(SNOOZE) = (0x04);
+auto signed const(DELAY) = (0x02*(QUANTUM));
 
 auto struct knot(*cache);
 
-auto signed int(i), (j), (l), (r);
-auto signed int(count), (argc);
-auto signed int(fd);
+auto signed(i), (j), (l), (r);
+auto signed(count), (argc);
+auto signed(fd);
 
 auto signed char(**pp);
 auto signed char(*p);
@@ -76,8 +76,8 @@ p = (char signed(*)) (*(pp+(i+(~(NIL)))));
 
 fd = (int signed) open(p, (O_WRONLY|(O_BINARY|(O_CREAT|(O_APPEND)))), (S_IREAD|(S_IWRITE)));
 if(!(fd^(~(NIL)))) {
-(--Running);
-return(char signed) (~(NIL));
+--Running;
+return(~(NIL));
 }
 else {
 // Monitoring
@@ -94,74 +94,64 @@ cache = (struct knot(*)) (base);
 
 while(cache) {
 if(Announcements) {
-(uncmpltflag++);
+uncmpltflag++;
 break;
 }
 /* Check the command flag */
 if((*cache).flag) {
 }
 else {
-c = (char signed) ct_lett(&count, (*cache).p);
-if(!(c^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. ct_lett() on fn. cmdl_save()."));
+count = ct((*cache).p);
+if(!count) {
+printf("\n%s", ("<< Error at fn. ct() on fn. cmdl_save()."));
 break;
 }
-r = (int signed) write(fd, (*cache).p, (count));
+r = write(fd, (*cache).p, count);
 if(!(r^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. ct_lett() on the fn. cmdl_save()."));
+printf("\n%s", ("<< Error at fn. write() on the fn. cmdl_save()."));
 break;
 }
 /*
-if(!(r)) {
+if(!r) {
 printf("\n%s", ("<< Done with (NIL)."));
 break;
 }
 //*/
 // Insert a linefeed
-c = (char signed) ('\n');
-r = write(fd, (&c), (sizeof(c)));
+c = ('\n');
+r = write(fd, &c, sizeof(c));
 if(!(r^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. ct_lett() on the fn. cmdl_save()."));
+printf("\n%s", ("<< Error at fn. write() on the fn. cmdl_save()."));
 break;
 }}
 cache = (struct knot(*)) (*cache).d;
 // CPU idling
 if(i<(SNOOZE)) {
-(i++);
+i++;
 }
 else {
 XOR(i, i);
 Sleep(DELAY);
 }}
 
-
 /* **** closing/unmapping on the RAM */
-
-r = (int signed) close(fd);
+r = close(fd);
 
 if(!(r^(~(NIL)))) {
 printf("\n%s", ("<< Error at fn. close()."));
 --Running;
 return(~(NIL));
 }
-else {
-}
-
 
 /* **** Notificate */
-
-r = (int signed) printf("\n%s%s", ("Saved as: "), (p));
+r = printf("\n%s%s", "Saved as: ", p);
 
 if(uncmpltflag) {
-printf("\n%s", ("Attention: There was an interruption during writing.."));
-}
-
-else {
+printf("\n%s", "Attention: There was an interruption during writing..");
 }
 
 
 /* **** Unmap all the buffers allocated by fn. spl() on the RAM */
-
 c = (char signed) spl_free(pp);
 
 if(!(c^(~(NIL)))) {

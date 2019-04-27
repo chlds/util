@@ -256,7 +256,7 @@ secs = (secs%(LIMIT));
 }}
 
 
-(*(scr+(X))) = GetSystemMetrics(SM_CXSCREEN);
+*(scr+(X)) = GetSystemMetrics(SM_CXSCREEN);
 
 if(!(*(scr+(X)))) {
 printf("\n%s", ("<< Error at GetSystemMetrics(SM_CXSCREEN)."));
@@ -267,7 +267,7 @@ else {
 }
 
 
-(*(scr+(Y))) = GetSystemMetrics(SM_CYSCREEN);
+*(scr+(Y)) = GetSystemMetrics(SM_CYSCREEN);
 
 if(!(*(scr+(Y)))) {
 printf("\n%s", ("<< Error at GetSystemMetrics(SM_CYSCREEN)."));
@@ -286,7 +286,7 @@ else {
 
 
 /* **** Create/map the objects on the RAM */
-(*(obj+(REGION))) = (void(*)) CreateRectRgn(0, (0), (*(region+(X))), (*(region+(Y))));
+*(obj+(REGION)) = (void(*)) CreateRectRgn(0, (0), (*(region+(X))), (*(region+(Y))));
 
 if(!(*(obj+(REGION)))) {
 printf("\n%s", ("<< Error at CreateRectRgn()."));
@@ -298,7 +298,7 @@ else {
 }
 
 
-(*(obj+(BRUSH))) = (void(*)) CreateSolidBrush(SOLIDBRUSH);
+*(obj+(BRUSH)) = (void(*)) CreateSolidBrush(SOLIDBRUSH);
 
 if(!(*(obj+(BRUSH)))) {
 printf("\n%s", ("<< Error at CreateSolidBrush()."));
@@ -310,7 +310,7 @@ else {
 }
 
 
-(*(obj+(FONT))) = (void(*)) CreateFont(
+*(obj+(FONT)) = (void(*)) CreateFont(
 height_font, width_font, escapement_font, orientation_font, weight_font, \
 italic_font, underline_font, strikeout_font, charset_font, outprecision_font, clipprecision_font, \
 quality_font, pitchandfamily_font, (char signed*) (facename_font)
@@ -328,7 +328,7 @@ else {
 
 /* **** **** Create a bitmap object and two memory device contexts from the common DC */
 
-(*(dc+(CACHE))) = (void(*)) GetDC((void(*)) (*(window+(ACTIVE))));
+*(dc+(CACHE)) = (void(*)) GetDC((void(*)) (*(window+(ACTIVE))));
 
 if(!(*(dc+(CACHE)))) {
 printf("\n%s", ("<< Error at GetDC()."));
@@ -352,7 +352,7 @@ else {
 // printf("\n%s%p", ("The handle of a memory device context created/mapped on the RAM will be on offset "), (*(dc+(i))));
 }}
 
-(*(obj+(BITMAP))) = (void(*)) CreateCompatibleBitmap(*(dc+(CACHE)), (*(region+(X))), (*(region+(Y))));
+*(obj+(BITMAP)) = (void(*)) CreateCompatibleBitmap(*(dc+(CACHE)), (*(region+(X))), (*(region+(Y))));
 
 if(!(*(obj+(BITMAP)))) {
 printf("\n%s", ("<< Error at fn. CreateCompatibleBitmap()."));
@@ -365,13 +365,13 @@ else {
 
 r = ReleaseDC(*(window+(ACTIVE)), (*(dc+(CACHE))));
 
-if(!(r)) {
+if(!r) {
 printf("\n%s", ("<< Error at ReleaseDC()."));
 return(~(NIL));
 }
 
 /* **** Get a handle of the module object (to load a bitmap file) */
-(*(module+(INSTANCE))) = (void(*)) GetModuleHandle((char signed(*)) (NIL));
+*(module+(INSTANCE)) = (void(*)) GetModuleHandle((char signed(*)) (NIL));
 
 if(!(*(module+(INSTANCE)))) {
 printf("\n%s", ("<< Error at fn. GetModuleHandle()."));
@@ -386,7 +386,7 @@ else {
 //* **** Optional
 r = GetModuleFileName(*(module+(INSTANCE)), (buff), (BUFF));
 
-if(!(r)) {
+if(!r) {
 printf("\n%s", ("<< Error at fn. GetModuleFileName()."));
 return(~(NIL));
 }
@@ -401,7 +401,7 @@ else {
 /* **** Get the file name of the desktop wallpaper to convert into the bitmap file format..
 r = SystemParametersInfo(SPI_GETDESKWALLPAPER, BUFF, buff, (NIL));
 
-if(!(r)) {
+if(!r) {
 printf("\n%s", ("<< Error at fn. SystemParametersInfo()."));
 printf("\n%s%d", ("<< the r is: "), (r));
 return(~(NIL));
@@ -417,7 +417,7 @@ printf("\n%s%s", ("The path of the desktop wallpaper is "), (buff));
 /* **** Retrieve a handle of the object loaded (or mapped (or stored on the RAM)) from a bitmap file. */
 /* **** e.g., the loaded, created or mapped objects ..are deleted.
 
-(*(obj+(LOADEDBITMAP))) = (void(*)) LoadImage(*(module+(INSTANCE)), (bmp_filename), (IMAGE_BITMAP), (0), (0), (LR_LOADFROMFILE));
+*(obj+(LOADEDBITMAP)) = (void(*)) LoadImage(*(module+(INSTANCE)), (bmp_filename), (IMAGE_BITMAP), (0), (0), (LR_LOADFROMFILE));
 
 if(!(*(obj+(LOADEDBITMAP)))) {
 printf("\n%s", ("<< Error at fn. LoadImage()."));
@@ -432,7 +432,7 @@ printf("\n%s%p", ("The handle of a loaded bitmap object created/mapped on the RA
 
 /* **** **** Selecting the created, loaded or mapped objects to two memory Device Context */
 
-(*(old_obj+(BRUSH))) = (void(*)) SelectObject(*(dc+(DI)), (void(*)) (*(obj+(BRUSH))));
+*(old_obj+(BRUSH)) = (void(*)) SelectObject(*(dc+(DI)), (void(*)) (*(obj+(BRUSH))));
 
 if(!(*(old_obj+(BRUSH)))) {
 printf("\n%s", ("<< Error at fn. SelectObject() of the Brush with the NULL."));
@@ -444,7 +444,7 @@ return(~(NIL));
 }
 
 
-(*(old_obj+(FONT))) = (void(*)) SelectObject(*(dc+(DI)), (void(*)) (*(obj+(FONT))));
+*(old_obj+(FONT)) = (void(*)) SelectObject(*(dc+(DI)), (void(*)) (*(obj+(FONT))));
 
 if(!(*(old_obj+(FONT)))) {
 printf("\n%s", ("<< Error at fn. SelectObject(FONT) with the NULL."));
@@ -456,7 +456,7 @@ return(~(NIL));
 }
 
 
-(*(old_obj+(BITMAP))) = (void(*)) SelectObject(*(dc+(DI)), (void(*)) (*(obj+(BITMAP))));
+*(old_obj+(BITMAP)) = (void(*)) SelectObject(*(dc+(DI)), (void(*)) (*(obj+(BITMAP))));
 
 if(!(*(old_obj+(BITMAP)))) {
 printf("\n%s", ("<< Error at fn. SelectObject(BITMAP) with the NULL."));
@@ -470,7 +470,7 @@ return(~(NIL));
 
 /* **** **** To (*(dc+(SI)))
 
-(*(old_obj+(LOADEDBITMAP))) = (void(*)) SelectObject(*(dc+(SI)), (void(*)) (*(obj+(LOADEDBITMAP))));
+*(old_obj+(LOADEDBITMAP)) = (void(*)) SelectObject(*(dc+(SI)), (void(*)) (*(obj+(LOADEDBITMAP))));
 
 if(!(*(old_obj+(LOADEDBITMAP)))) {
 printf("\n%s", ("<< Error at fn. SelectObject(LOADEDBITMAP) with the NULL."));
@@ -493,7 +493,7 @@ return(~(NIL));
 
 old_bkmode = SetBkMode(*(dc+(DI)), (BKMODE));
 
-if(!(old_bkmode)) {
+if(!old_bkmode) {
 printf("\n%s", ("<< Error at SetBkMode()."));
 return(~(NIL));
 }
@@ -553,7 +553,7 @@ break;
 //* **** Fill
 r = FillRgn(*(dc+(DI)), (void(*)) (*(obj+(REGION))), (void(*)) (*(obj+(BRUSH))));
 
-if(!(r)) {
+if(!r) {
 printf("\n%s", ("<< Error at FillRgn()."));
 return(~(NIL));
 }
@@ -565,7 +565,7 @@ else {
 /* **** Use the Bit Block Transfer to map the loaded bitmap image on an off-screen buffer
 r = BitBlt(*(dc+(DI)), 0, 0, (*(region+(X))), (*(region+(Y))), (*(dc+(SI))), 0, 0, SRCCOPY);
 
-if(!(r)) {
+if(!r) {
 printf("\n%s", ("<< Error at fn. BitBlt()."));
 return(~(NIL));
 }
@@ -588,15 +588,15 @@ printf("\n%s", ("<< Error at SetTextColor()."));
 return(~(NIL));
 }
 
-c = (char signed) ct_lett(&r, (buff));
+r = ct(buff);
 
-if(!(c^(~(NIL)))) {
-printf("\n%s", ("<< Error at ct_lett()."));
+if(!r) {
+printf("\n%s", ("<< Error at ct()."));
 // return(~(NIL));
 }
 else {
 r = TextOut(*(dc+(DI)), (SHADE_XPOS+(*(pos+(X)))), (SHADE_YPOS+(*(pos+(Y)))), (buff), (r));
-if(!(r)) {
+if(!r) {
 printf("\n%s", ("<< Error at fn. TextOut()."));
 // return(~(NIL));
 }}
@@ -617,15 +617,15 @@ printf("\n%s", ("<< Error at SetTextColor()."));
 return(~(NIL));
 }
 
-c = ct_lett(&r, (buff));
+r = ct(buff);
 
-if(!(c^(~(NIL)))) {
-printf("\n%s", ("<< Error at ct_lett()."));
+if(!r) {
+printf("\n%s", ("<< Error at ct()."));
 // return(~(NIL));
 }
 else {
 r = TextOut(*(dc+(DI)), (*(pos+(X))), (*(pos+(Y))), (buff), (r));
-if(!(r)) {
+if(!r) {
 printf("\n%s", ("<< Error at fn. TextOut()."));
 // return(~(NIL));
 }}
@@ -639,7 +639,7 @@ return(~(NIL));
 
 
 /* **** Getting and releasing a handle of the common Dedive Context to use in fn. BitBlt() */
-(*(dc+(CACHE))) = (void(*)) GetDC((void(*)) (*(window+(ACTIVE))));
+*(dc+(CACHE)) = (void(*)) GetDC((void(*)) (*(window+(ACTIVE))));
 
 if(!(*(dc+(CACHE)))) {
 printf("\n%s", ("<< Error at GetDC()."));
@@ -652,19 +652,17 @@ else {
 
 r = BitBlt(*(dc+(CACHE)), 0, 0, (*(region+(X))), (*(region+(Y))), (*(dc+(DI))), 0, 0, SRCCOPY);
 
-if(!(r)) {
+if(!r) {
 printf("\n%s", ("<< Error at fn. BitBlt()."));
 return(~(NIL));
 }
 
 r = (int signed) ReleaseDC(*(window+(ACTIVE)), (*(dc+(CACHE))));
 
-if(!(r)) {
+if(!r) {
 printf("\n%s", ("<< Error at ReleaseDC()."));
 return(~(NIL));
 }}
-
-
 
 
 
@@ -680,7 +678,7 @@ return(~(NIL));
 //*/
 
 old_bkmode = SetBkMode(*(dc+(DI)), (old_bkmode));
-if(!(old_bkmode)) {
+if(!old_bkmode) {
 printf("\n%s", ("<< Error at SetBkMode()."));
 return(~(NIL));
 }
@@ -693,7 +691,7 @@ return(~(NIL));
 
 
 /* **** De-selecting the handle of the loaded bitmap objects to a memory Device Context.
-(*(old_obj+(LOADEDBITMAP))) = (void(*)) SelectObject(*(dc+(SI)), (void(*)) (*(old_obj+(LOADEDBITMAP))));
+*(old_obj+(LOADEDBITMAP)) = (void(*)) SelectObject(*(dc+(SI)), (void(*)) (*(old_obj+(LOADEDBITMAP))));
 
 if(!(*(old_obj+(LOADEDBITMAP)))) {
 printf("\n%s", ("<< Error at fn. SelectObject to de-select a loaded bitmap to (*(dc+(SI)))."));
@@ -708,12 +706,12 @@ return(~(NIL));
 //*/
 
 
-// Except the two objects i.e., a region object and a bitmap object loaded on (*(dc+(SI))) ---- Please look at the above process.
+// Except for the two objects i.e., a region object and a bitmap object loaded on (*(dc+(SI))) ---- Please look at the above process.
 
 i = (-2+(COUNT_OBJS));
 
 while(i) {
-(*(old_obj+(i))) = (void(*)) SelectObject(*(dc+(DI)), (void(*)) (*(old_obj+(--i))));
+*(old_obj+(i)) = (void(*)) SelectObject(*(dc+(DI)), (void(*)) (*(old_obj+(--i))));
 if(!(*(old_obj+(i)))) {
 printf("\n%s%d", ("<< Error at fn. SelectObject to de-select and the i is: "), (i));
 return(~(NIL));
@@ -729,7 +727,7 @@ i = (-1+(COUNT_DC));
 
 while(i) {
 r = DeleteDC(*(dc+(--i)));
-if(!(r)) {
+if(!r) {
 printf("\n%s%d", ("<< Error at fn. DeleteDC() and the r is: "), (r));
 printf("\n%s%d", ("<< Error at fn. DeleteDC() and the i is: "), (i));
 return(~(NIL));
@@ -747,7 +745,7 @@ i = (-1+(COUNT_OBJS));
 
 while(i) {
 r = DeleteObject(*(obj+(--i)));
-if(!(r)) {
+if(!r) {
 printf("\n%s%d", ("<< Error at fn. DeleteObject() and the i is: "), (i));
 return(~(NIL));
 }}

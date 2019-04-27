@@ -11,8 +11,8 @@ cl pick.obj pickfiles.obj ../../../lib/cui.lib
 
 # define C_CODE_STDS
 # define C_AS
-
 # include "./../../../incl/config.h"
+
 # include <windows.h>
 
 # define BUFF (0x400)
@@ -20,19 +20,17 @@ cl pick.obj pickfiles.obj ../../../lib/cui.lib
 
 
 
-char signed(__cdecl pickfiles(char signed(*argp))) {
+signed char(__cdecl pickfiles(signed char(*argp))) {
 
-
-/* **** **** DATA */
-
-extern int signed(TheNumbreOfTheDirectories);
-extern int signed(TheNumbreOfTheFiles);
+/* **** DATA, BSS and STACK */
+extern signed(TheNumbreOfTheDirectories);
+extern signed(TheNumbreOfTheFiles);
 
 enum {
 SI, DI, CACHE
 };
 
-auto int signed(attrib[]) = {
+auto signed int(attrib[]) = {
 (int signed) (FILE_ATTRIBUTE_ARCHIVE),
 (int signed) (FILE_ATTRIBUTE_COMPRESSED),
 (int signed) (FILE_ATTRIBUTE_DEVICE),
@@ -55,7 +53,7 @@ auto int signed(attrib[]) = {
 (int signed) (NIL)
 };
 
-auto char signed(*(attribp[])) = {
+auto signed char(*(attribp[])) = {
 (char signed(*)) ("Archive"),
 (char signed(*)) ("Compressed"),
 (char signed(*)) ("Device"),
@@ -79,9 +77,9 @@ auto char signed(*(attribp[])) = {
 };
 
 
-auto const int signed(QUANTUM) = (int signed) (0x10);
-auto const int signed(SNOOZE) = (int signed) (0x08);
-auto const int signed(DELAY) = (int signed) (2*(QUANTUM));
+auto signed const(QUANTUM) = (0x10);
+auto signed const(SNOOZE) = (0x04);
+auto signed const(DELAY) = (2*(QUANTUM));
 // in milli-seconds
 
 auto WIN32_FIND_DATA(wfd);
@@ -90,33 +88,30 @@ auto void(*(search[N]));
 
 auto SYSTEMTIME(st);
 
-auto char signed(buff[BUFF]);
+auto signed char(buff[BUFF]);
+auto signed char(*p);
 
-auto char signed(*p);
-
-auto int signed(i), (l), (r);
-auto short signed(flag);
-auto char signed(c);
+auto signed(i), (l), (r);
+auto signed short(flag);
+auto signed char(c);
 
 
 /* **** **** CODE/TEXT */
-
 printf("\n");
-printf("%s", (argp));
+printf("%s", argp);
 
 
 /* **** opendir */
-
-(*(search+(SI))) = (void(*)) FindFirstFile(argp, (&wfd));
+*(search+(SI)) = (void(*)) FindFirstFile(argp, (&wfd));
 
 if(!((int long long) INVALID_HANDLE_VALUE^(int long long) (*(search+(SI))))) {
 if(!(ERROR_NO_MORE_FILES^(r = GetLastError()))) {
 }
 else {
-printf("%s", ("<< Error at fn. FindFirstFile()."));
+printf("%s", "<< Error at fn. FindFirstFile().");
 printf("%s%Xh\n", (" and the last error number is: "), (r));
 printf("%s%s\n", ("and the argp is: "), (argp));
-return(char signed) (~(NIL));
+return(~(NIL));
 }}
 
 else {
@@ -124,21 +119,19 @@ else {
 }
 
 
-c = ct_lett(&i, (argp));
-(*(argp+(i+(~(NIL))))) = (char) (NIL);
+i = ct(argp);
+*(argp+(i+(~(NIL)))) = (char) (NIL);
 
 // Monitoring
 // printf("%s%s\n", ("The crafted argp is: "), (argp));
 
-
 /* **** readdir */
-
 XOR(l, l);
 
 while(1) {
 
 if(l<(SNOOZE)) {
-(l++);
+l++;
 }
 else {
 XOR(l, l);
@@ -151,11 +144,11 @@ printf("\n");
 if(wfd.dwFileAttributes&(FILE_ATTRIBUTE_DIRECTORY)) {
 
 c = cmp_lett(&i, (".."), (wfd.cFileName));
-if(!(i)) {
+if(!i) {
 }
 else {
 c = cmp_lett(&i, ("."), (wfd.cFileName));
-if(!(i)) {
+if(!i) {
 }
 else {
 // To the recursion
@@ -164,18 +157,18 @@ sprintf(buff, ("%s%s%s"), (argp), (wfd.cFileName), ("/*"));
 // printf("%s%s\n", ("The buff is: "), (buff));
 c = pickfiles(buff);
 printf("\n");
-printf("%s\n", (argp));
+printf("%s\n", argp);
 }}
 
 // Output a directory
-printf("%s%s%s", (" d "), (wfd.cFileName), ("/"));
-(TheNumbreOfTheDirectories++);
+printf("%s%s%s", " d ", wfd.cFileName, "/");
+TheNumbreOfTheDirectories++;
 }
 
 // Or output a file
 else {
-printf("%s%s", (" - "), (wfd.cFileName));
-(TheNumbreOfTheFiles++);
+printf("%s%s", " - ", wfd.cFileName);
+TheNumbreOfTheFiles++;
 }
 
 
@@ -186,16 +179,16 @@ while(*(attrib+(i))) {
 // Sleep(DELAY);
 // printf("%s%d", ("i is: "), (i));
 if(wfd.dwFileAttributes&(*(attrib+(i)))) {
-printf("%s%s", ("  "), (*(attribp+(i))));
+printf("%s%s", "  ", *(attribp+(i)));
 }
-(i++);
+i++;
 }
 
 
 /* Find the next file */
 
-r = FindNextFile(*(search+(SI)), (&wfd));
-if(!(r)) {
+r = FindNextFile(*(search+(SI)), &wfd);
+if(!r) {
 if(!(ERROR_NO_MORE_FILES^(r = GetLastError()))) {
 break;
 }
@@ -207,15 +200,13 @@ break;
 
 
 
-
 /* **** closedir */
+r = FindClose(*(search+(SI)));
 
-r = (int signed) FindClose(*(search+(SI)));
-
-if(!(r)) {
-printf("%s", ("<< Error at fn. FindClose()."));
+if(!r) {
+printf("%s", "<< Error at fn. FindClose().");
 printf("%s%Xh\n", (" and the last error number is: "), (GetLastError()));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 else {
 /*
@@ -224,10 +215,7 @@ printf("%s\n", ("Successfully closed."));
 //*/
 }
 
-
 printf("\n");
 
-
-XOR(c, c);
-return(char signed) (c);
+return(0x00);
 }

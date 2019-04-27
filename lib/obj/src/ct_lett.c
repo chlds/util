@@ -1,41 +1,28 @@
-/* **** **** **** **** Refer on
+/* **** Notes
 
-./incl/lib/ct_lett.c
+Count letters to the terminating null character.
 
-Count the letters.
-
-//*/
-
+Remarks:
+Being deprecated..
+*/
 
 
 # define C_CODE_STDS
-
 # include "./../../../incl/config.h"
 
+signed char(__cdecl ct_lett(signed int(*di), signed char(*si))) {
 
+/* **** DATA, BSS and STACK */
+auto signed int const(QUANTUM) = (0x10);
+auto signed int const(SNOOZE) = (0x04);
+auto signed int const(DELAY) = (0x02*(QUANTUM));
 
-char signed(__cdecl ct_lett(int signed(*di), char signed(*si))) {
+auto signed int(i), (j);
+auto signed char(c);
 
-
-auto const int signed(SNOOZE) = (int signed) (255);
-auto const int signed(DELAY) = (int signed) (25);
-
-auto int signed(j);
-auto int signed(i);
-
-auto char signed(c);
-
-
-if(!(si)) {
-// Error
-return(char signed) (~(NIL));
-}
-
-if(!(di)) {
-// Error
-return(char signed) (~(NIL));
-}
-
+/* **** CODE/TEXT */
+if(!si) return(~(NIL));
+if(!di) return(~(NIL));
 
 XOR(j, j);
 XOR(i, i);
@@ -51,10 +38,7 @@ XOR(j, j);
 Sleep(DELAY);
 }}
 
+*di = (i);
 
-(*di) = (int signed) (i);
-
-XOR(c, c);
-
-return(char signed) (c);
+return(0x00);
 }

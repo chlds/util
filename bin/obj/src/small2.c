@@ -310,10 +310,10 @@ return(~(NIL));
 
 /* **** allocate at the (*cache).p */
 
-c = ct_lett(&length, (buff));
+length = ct(buff);
 
-if(!(c^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. ct_lett()."));
+if(!length) {
+printf("\n%s", ("<< Error at fn. ct()."));
 // e.g., unmap the rest..
 return(~(NIL));
 }
