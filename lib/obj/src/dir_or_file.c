@@ -1,15 +1,13 @@
 /* **** Notes
 
 Is it a directory or file..?
-
 */
 
 
 # define C_CODE_STDS
 # define C_AS
-
+# define C_W32API
 # include "./../../../incl/config.h"
-# include <windows.h>
 
 # define BUFF (0x400)
 # define N (0x03)
@@ -22,39 +20,37 @@ Is it a directory or file..?
 # define P_DIR (0x20)
 # define DIRS (P_DIR+(CURR_DIR+(DOT_DIR+(DIR))))
 
+signed short(__cdecl dir_or_file(WIN32_FIND_DATA(*argp))) {
 
-char signed(__cdecl dir_or_file(WIN32_FIND_DATA(*argp))) {
-
-/* **** **** DATA
-auto int signed const(QUANTUM) = (0x10);
-auto int signed const(SNOOZE) = (0x08);
-auto int signed const(DELAY) = (0x02*(QUANTUM));
+/* **** DATA
+auto signed const(QUANTUM) = (0x10);
+auto signed const(SNOOZE) = (0x08);
+auto signed const(DELAY) = (0x02*(QUANTUM));
 //*/
 
-auto char signed const(CURRENT_DIRECTORY) = ('.');
-auto char signed const(A_DOT_CHARACTER) = ('.');
+auto signed char const(CURRENT_DIRECTORY) = ('.');
+auto signed char const(A_DOT_CHARACTER) = ('.');
 
-auto char signed(*p);
+auto signed char(*p);
+auto signed(i), (l), (r);
+auto signed short(flag);
+auto signed char(c);
 
-auto int signed(i), (l), (r);
-auto short signed(flag);
-auto char signed(c);
+/* **** CODE/TEXT */
+if(!argp) return(0x00);
 
-/* **** **** CODE/TEXT */
-if(!argp) return(NIL);
+p = ((*argp).cFileName);
+// printf("%s%s\n", "(*argp).cFileName is: ", p);
 
 XOR(flag, flag);
-p = ((*argp).cFileName);
 
-// printf("%s%s\n", ("p is: "), (p));
-
-// Directory Check!
+/* Dir. Check! */
 if(FILE_ATTRIBUTE_DIRECTORY&((*argp).dwFileAttributes)) OR(flag, DIR);
 
 /* It is a directory */
 if(flag) {
 
-if(!(CURRENT_DIRECTORY^(*(p+(NIL))))) {
+if(!(CURRENT_DIRECTORY^(*p))) {
 XOR(flag, flag);
 OR(flag, DOT_DIR);
 }
@@ -66,15 +62,15 @@ OR(flag, CURR_DIR);
 }}
 
 if(!(flag^(DOT_DIR))) {
-if(!(CURRENT_DIRECTORY^(*(p+(1))))) {
+if(!(A_DOT_CHARACTER^(*(p+(1))))) {
 if(!(*(p+(2)))) {
 XOR(flag, flag);
 OR(flag, P_DIR);
 }}}}
 
-/* It is a file */
+/* It is a file i.e., the flag is (0x00). */
 else {
-if(!(A_DOT_CHARACTER^(*(p+(NIL))))) OR(flag, DOT_FILE);
+if(!(A_DOT_CHARACTER^(*p))) OR(flag, DOT_FILE);
 else OR(flag, FILE);
 }
 

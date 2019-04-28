@@ -1,8 +1,8 @@
 /* **** Notes
 
-Pick up sub-directories and their contents in the depth-first search
+Look up sub-directories and their contents in the depth-first search
 
-WARNING:
+Remarks:
 This program may immediately cause a stack overflow.
 */
 
@@ -32,7 +32,6 @@ auto WIN32_FIND_DATA(wfd);
 auto void(*search);
 auto signed char(*p);
 auto signed(i), (r);
-auto signed char(c);
 
 /* **** CODE/TEXT */
 if(argc<(2)) {
@@ -44,7 +43,7 @@ else {
 p = (*(argv+(argc+(~(NIL)))));
 }
 
-c = searchdirectory2(p);
+r = search2dir(p);
 
 printf("\n");
 printf("%s%d\n", ("The directories: "), (TheNumbreOfTheDirectories));

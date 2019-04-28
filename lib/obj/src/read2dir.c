@@ -1,15 +1,13 @@
 /* **** Notes
 
 Depth-first searching
-
 */
 
 
 # define C_CODE_STDS
 # define C_AS
-
+# define C_W32API
 # include "./../../../incl/config.h"
-# include <windows.h>
 
 # define BUFF (0x300)
 # define N (0x03)
@@ -26,45 +24,44 @@ Depth-first searching
 struct dir_info_stored {
 void(*search);
 WIN32_FIND_DATA(wfd);
-char signed(*parent_dir);
+signed char(*parent_dir);
 } typedef DIR_INFO_STORED;
 //*/
 
+signed(__cdecl read2dir(DIR_INFO_STORED(*argp))) {
 
-char signed(__cdecl readdirectory2(DIR_INFO_STORED(*argp))) {
-
-/* **** **** DATA */
-extern int signed(TheNumbreOfTheDirectories);
-extern int signed(TheNumbreOfTheFiles);
+/* **** DATA, BSS and STACK */
+extern signed(TheNumbreOfTheDirectories);
+extern signed(TheNumbreOfTheFiles);
 
 enum {
 SI, DI, CACHE
 };
 
-static int signed(attrib[]) = {
-(int signed) (FILE_ATTRIBUTE_ARCHIVE),
-(int signed) (FILE_ATTRIBUTE_COMPRESSED),
-(int signed) (FILE_ATTRIBUTE_DEVICE),
-(int signed) (FILE_ATTRIBUTE_DIRECTORY),
-(int signed) (FILE_ATTRIBUTE_ENCRYPTED),
-(int signed) (FILE_ATTRIBUTE_HIDDEN),
-(int signed) (FILE_ATTRIBUTE_INTEGRITY_STREAM),
-(int signed) (FILE_ATTRIBUTE_NORMAL),
-(int signed) (FILE_ATTRIBUTE_NOT_CONTENT_INDEXED),
-(int signed) (FILE_ATTRIBUTE_NO_SCRUB_DATA),
-(int signed) (FILE_ATTRIBUTE_OFFLINE),
-(int signed) (FILE_ATTRIBUTE_READONLY),
-(int signed) (FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS),
-(int signed) (FILE_ATTRIBUTE_RECALL_ON_OPEN),
-(int signed) (FILE_ATTRIBUTE_REPARSE_POINT),
-(int signed) (FILE_ATTRIBUTE_SPARSE_FILE),
-(int signed) (FILE_ATTRIBUTE_SYSTEM),
-(int signed) (FILE_ATTRIBUTE_TEMPORARY),
-(int signed) (FILE_ATTRIBUTE_VIRTUAL),
-(int signed) (NIL)
+static signed const(attrib[]) = {
+(signed) (FILE_ATTRIBUTE_ARCHIVE),
+(signed) (FILE_ATTRIBUTE_COMPRESSED),
+(signed) (FILE_ATTRIBUTE_DEVICE),
+(signed) (FILE_ATTRIBUTE_DIRECTORY),
+(signed) (FILE_ATTRIBUTE_ENCRYPTED),
+(signed) (FILE_ATTRIBUTE_HIDDEN),
+(signed) (FILE_ATTRIBUTE_INTEGRITY_STREAM),
+(signed) (FILE_ATTRIBUTE_NORMAL),
+(signed) (FILE_ATTRIBUTE_NOT_CONTENT_INDEXED),
+(signed) (FILE_ATTRIBUTE_NO_SCRUB_DATA),
+(signed) (FILE_ATTRIBUTE_OFFLINE),
+(signed) (FILE_ATTRIBUTE_READONLY),
+(signed) (FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS),
+(signed) (FILE_ATTRIBUTE_RECALL_ON_OPEN),
+(signed) (FILE_ATTRIBUTE_REPARSE_POINT),
+(signed) (FILE_ATTRIBUTE_SPARSE_FILE),
+(signed) (FILE_ATTRIBUTE_SYSTEM),
+(signed) (FILE_ATTRIBUTE_TEMPORARY),
+(signed) (FILE_ATTRIBUTE_VIRTUAL),
+(signed) (NIL)
 };
 
-static char signed(*(attribp[])) = {
+static signed char const(*(attribp[])) = {
 (char signed(*)) ("Archive"),
 (char signed(*)) ("Compressed"),
 (char signed(*)) ("Device"),
@@ -87,28 +84,26 @@ static char signed(*(attribp[])) = {
 (char signed(*)) (NIL)
 };
 
-auto char signed const(CURRENT_DIRECTORY) = ('.');
+auto signed char const(CURRENT_DIRECTORY) = ('.');
 
 auto WIN32_FIND_DATA(wfd);
 
-auto char signed(craft[BUFF]);
-auto char signed(buff[BUFF]);
-
-auto char signed(*p);
-
 auto SYSTEMTIME(st);
 
-auto int signed(i), (l), (r);
-auto short signed(attrib_flag) = (0x01);
-auto short signed(flag);
-auto char signed(c);
+auto signed char(craft[BUFF]);
+auto signed char(buff[BUFF]);
+auto signed char(*p);
 
 auto DIR_INFO_STORED(dis);
+auto signed(i), (l), (r);
+auto signed short(attrib_flag) = (0x01);
+auto signed short(flag);
+auto signed char(c);
 
-/* **** **** CODE/TEXT */
-if(!argp) return(NIL);
-if(!((*argp).search)) return(NIL);
-if(!((*argp).parent_dir)) return(NIL);
+/* **** CODE/TEXT */
+if(!argp) return(0x00);
+if(!((*argp).search)) return(0x00);
+if(!((*argp).parent_dir)) return(0x00);
 
 /* Monitor
 printf("%s%p\n", ("argp (i.e., of data type (DIR_INFO_STORED*)) is: "), (argp));
@@ -118,7 +113,7 @@ printf("%s%s\n", ("(*argp).parent_dir is: "), (*argp).parent_dir);
 //*/
 
 XOR(flag, flag);
-p = (char signed(*)) ((*argp).wfd.cFileName);
+p = ((*argp).wfd.cFileName);
 
 /* Monitor
 printf("%s%p\n", ("(*argp).wfd.cFileName is: "), (*argp).wfd.cFileName);
@@ -128,10 +123,9 @@ printf("%s%s\n", ("p is: "), (p));
 //*/
 
 // Directory Check!
-flag = (short signed) dir_or_file(&((*argp).wfd));
+flag = (signed short) dir_or_file(&((*argp).wfd));
 
-// Monitor
-// printf("%s%d\n", ("flag after using fn. dir_or_file() is: "), (flag));
+// printf("%s%d\n", "The flag after using fn. dir_or_file() is: ", flag);
 
 /* Commentary
 # define FILE (0x01)
@@ -145,50 +139,51 @@ rf. at fn. dir_or_file()
 //*/
 
 if(flag&(DIR+(DOT_DIR))) {
-// call after crafting the parent path
-c = cp_lett(&i, (craft), (*argp).parent_dir);
-(*(craft+(i+(~(NIL))))) = (NIL);
-sprintf(buff, ("%s%s%s"), (craft), (p), ("/*"));
-// printf("%s%s\n", ("The buff is: "), (buff));
-searchdirectory2(buff);
+// Call after crafting the parent path.
+c = cp_lett(&i, craft, (*argp).parent_dir);
+*(craft+(i+(~(NIL)))) = (0x00);
+sprintf(buff, "%s%s%s", craft, p, "/*");
+// printf("%s%s\n", "The buff is: ", buff);
+r = search2dir(buff);
+
 printf("\n");
 printf("%s\n", (*argp).parent_dir);
 }
 
 // Output a directory name
 if(flag&(DIRS)) {
-printf("%s", (" d "));
-printf("%s", (p));
-(TheNumbreOfTheDirectories++);
+printf("%s", " d ");
+printf("%s", p);
+TheNumbreOfTheDirectories++;
 /* Check the attributes of a directory or of a file */
-if(attrib_flag) c = attributes_of((*argp).wfd.dwFileAttributes, (attrib), (attribp));
+if(attrib_flag) r = attrib_of((*argp).wfd.dwFileAttributes, attrib, attribp);
 }
 
 else {
-// printf("%s%d\n", ("The flag value when outputting a file name is: "), (flag));
+// printf("%s%d\n", "The flag value when outputting a file name is: ", flag);
 // Output a file name
-printf("%s", (" - "));
-printf("%s", (p));
-(TheNumbreOfTheFiles++);
+printf("%s", " - ");
+printf("%s", p);
+TheNumbreOfTheFiles++;
 /* Check the attributes of a directory or of a file */
-if(attrib_flag) c = attributes_of((*argp).wfd.dwFileAttributes, (attrib), (attribp));
+if(attrib_flag) r = attrib_of((*argp).wfd.dwFileAttributes, attrib, attribp);
 }
 
 /* To go to the next step */
 printf("\n");
 
 /* Update the search handle */
-r = FindNextFile((*argp).search, (&(dis.wfd)));
+r = FindNextFile((*argp).search, &(dis.wfd));
 
 if(!r) {
 r = GetLastError();
-if(r^(ERROR_NO_MORE_FILES)) printf("%s%Xh\n", ("Error at fn. FindNextFile(). with error no. "), (r));
-return(1);
+if(r^(ERROR_NO_MORE_FILES)) printf("%s%Xh\n", "Error: No More Files at fn. FindNextFile(). with error no. ", r);
+return(0x01);
 }
 
 // Setting
 dis.search = (*argp).search;
 dis.parent_dir = (*argp).parent_dir;
 
-return (1+(readdirectory2(&dis)));
+return (1+(read2dir(&dis)));
 }

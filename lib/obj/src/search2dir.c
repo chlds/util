@@ -3,14 +3,13 @@
 Depth-first searching
 
 Make a structure to measure a part of code that overflows
-
 */
+
 
 # define C_CODE_STDS
 # define C_AS
-
+# define C_W32API
 # include "./../../../incl/config.h"
-# include <windows.h>
 
 # define BUFF (0x300)
 # define N (0x03)
@@ -23,31 +22,25 @@ char signed(*parent_dir);
 } typedef DIR_INFO_STORED;
 //*/
 
+signed(__cdecl search2dir(signed char(*argp))) {
 
-char signed(__cdecl searchdirectory2(char signed(*argp))) {
-
-/* **** **** DATA */
-auto int signed const(QUANTUM) = (0x10);
-auto int signed const(SNOOZE) = (0x08);
-auto int signed const(DELAY) = (0x02*(QUANTUM));
+/* **** DATA, BSS and STACK */
+auto signed const(QUANTUM) = (0x10);
+auto signed const(SNOOZE) = (0x04);
+auto signed const(DELAY) = (0x02*(QUANTUM));
 
 auto WIN32_FIND_DATA(wfd);
-
 auto void(*search);
 
 auto SYSTEMTIME(st);
 
-auto char signed(buff[BUFF]);
-
-auto char signed(*p);
-
-auto int signed(i), (l), (r);
-auto short signed(flag);
-auto char signed(c);
-
 auto DIR_INFO_STORED(dis);
+auto signed char(buff[BUFF]);
+auto signed char(*p);
+auto signed(i), (l), (r);
+auto signed short(flag);
 
-/* **** **** CODE/TEXT */
+/* **** CODE/TEXT */
 printf("\n");
 printf("%s\n", (argp));
 
@@ -55,32 +48,32 @@ Sleep(DELAY);
 
 dis.parent_dir = (argp);
 
-dis.search = (void(*)) FindFirstFile(argp, (&(dis.wfd)));
+dis.search = (void(*)) FindFirstFile(argp, &(dis.wfd));
 
-if(!((int long long) INVALID_HANDLE_VALUE^((int long long) dis.search))) {
-if(!(ERROR_NO_MORE_FILES^(r = GetLastError()))) return(NIL);
+if(!((signed long long) INVALID_HANDLE_VALUE^((signed long long) dis.search))) {
+if(!(ERROR_NO_MORE_FILES^(r = GetLastError()))) return(0x00);
 else {
 printf("%s", ("<< Error at fn. FindFirstFile()."));
-printf("%s%Xh\n", ("with error no. "), (GetLastError()));
+printf("%s%Xh\n", (" with error no. "), (GetLastError()));
 // Monitor
 printf("%s%s\n", ("and the dis.parent_dir: "), (dis.parent_dir));
 printf("%s%s\n", ("and the argp: "), (argp));
-return(NIL);
+return(0x00);
 }}
 
 // else printf("%s%p\n", ("The search handle is: "), (search));
 
-c = readdirectory2(&dis);
+r = read2dir(&dis);
 
-printf("%s%d\n", ("Count: "), (c));
+printf("%s%d\n", "Count: ", r);
 
-r = (int signed) FindClose(dis.search);
+r = FindClose(dis.search);
 
-if(!(r)) {
+if(!r) {
 printf("%s", ("<< Error at fn. FindClose()."));
-printf("%s%Xh\n", ("with error no. "), (GetLastError()));
-return(NIL);
+printf("%s%Xh\n", (" with error no. "), (GetLastError()));
+return(0x00);
 }
 
-return(XOR(c, c));
+return(0x01);
 }

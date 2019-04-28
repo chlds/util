@@ -6,14 +6,14 @@ Check the attributes of a directory or of a file
 
 # include <stdio.h>
 
-signed int(__cdecl attrib_of(unsigned int(cache), unsigned int(*di), signed char(**si))) {
+signed(__cdecl attrib_of(unsigned(cache), unsigned(*di), signed char(**si))) {
 
 /* **** CODE/TEXT */
 // if(!cache) return(0x00);
-if(!di) return(0);
-if(!si) return(0);
-if(!(*di)) return(0);
-if(!(*si)) return(0);
+if(!di) return(0x00);
+if(!si) return(0x00);
+if(!(*di)) return(0x00);
+if(!(*si)) return(0x00);
 
 /* Monitor
 printf("\n");
@@ -24,9 +24,9 @@ printf("%s%Xh\n", ("*di is: "), (*di));
 printf("%s%s\n", ("*si is: "), (*si));
 //*/
 
-if(cache&(*di)) printf("%s%s", (" - "), (*si));
+if(cache&(*di)) printf("%s%s", "  ", *si);
 
 di++;
 si++;
-return (1+(attrib_of(cache, (di), (si))));
+return (1+(attrib_of(cache, di, si)));
 }
