@@ -3,8 +3,12 @@
 Building a linked list (in C)
 
 Remarks:
-Based on a doubly linked list (i.e., not a circular linked list).
-//*/
+Based on a doubly linked list (i.e., not a circular linked list). */
+
+
+
+
+
 
 
 struct card {

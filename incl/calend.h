@@ -2,7 +2,12 @@
 
 Remarks:
 Not a good design and/or implementation..
-//*/
+Being deprecated.. */
+
+
+
+
+
 
 
 static signed char const(*(dayoftheweek[])) = {
@@ -15,6 +20,7 @@ static signed char const(*(dayoftheweek[])) = {
 (char signed(*)) ("Saturday"),
 (char signed(*)) (NIL)
 };
+
 
 static signed char const(*(month[])) = {
 (char signed(*)) ("January"),

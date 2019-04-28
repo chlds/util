@@ -1,67 +1,43 @@
 /* **** Notes
 
-Factorial
-
-*/
-
+Factorial: Up to 20 */
 
 
 # define C_CODE_STDS
-
 # include "./../../../incl/config.h"
 
+unsigned long long(__cdecl fact(unsigned(arg))) {
 
-
-/* **** **** fn. fact() */
-
-int unsigned(__cdecl fact(int unsigned(arg))) {
-
-// To monitor
-// printf("%s%d\n", ("The arg is: "), (arg));
-
-if(arg<(2)) return(int unsigned) (1);
-else return(int unsigned) (arg*(fact(arg+(~(NIL)))));
+if(arg<(2)) return(1);
+return(arg*(fact(arg+(~(NIL)))));
 }
 
 
 
-/* **** **** entry point */
+/* **** entry point */
+signed(__cdecl main(signed(argc), signed char(**argv), signed char(**envp))) {
 
-char signed(__cdecl main(char signed(argc), char signed(**argv), char signed(**envp))) {
+/* **** DATA, BSS and STACK */
+auto unsigned long long(t);
+auto signed(d), (r);
 
-
-/* **** **** DATA */
-
-auto const int signed(QUANTUM) = (int signed) (0x10);
-auto const int signed(DELAY) = (int signed) (2*(QUANTUM));
-// in milli-seconds
-
-auto char signed(*p);
-
-auto int signed(i), (j), (l), (r);
-auto char signed(c);
-
-
-/* **** **** CODE/TEXT */
-
+/* **** CODE/TEXT */
 if(argc<(2)) {
 printf("%s\n", ("Please enter a value following the command."));
-return(char signed) (NIL);
+return(0x00);
 }
 
-p = (*(argv+(argc+(~(NIL)))));
+r = cv2ud(10, &d, *(argv+(argc+(~(NIL)))));
+// Convert to unsigned double word.
 
-c = (char signed) cv_lett(&i, (p));
-
-if(!(c^(~(NIL)))) {
-printf("%s\n", ("<< Error at fn. cv_lett()."));
+if(!r) {
+printf("%s\n", ("<< Error at fn. cv2uq()."));
 return(~(NIL));
 }
 
-r = (int unsigned) fact(i);
+t = fact(d);
 
-printf("%d%s%d\n", (i), ("! is: "), (r));
+printf("%d%s%llu\n", (d), ("! is: "), (t));
 
-XOR(c, c);
-return(char signed) (c);
+return(0x00);
 }
