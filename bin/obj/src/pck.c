@@ -2,37 +2,31 @@
 
 Pick up sub-directories and their contents in the depth-first search
 
-
-
-WARNING: This program immediately causes a stack overflow.
-
-
-
+WARNING:
+This program may immediately cause a stack overflow.
 */
 
 
 # define C_CODE_STDS
+# define C_AS
+# define C_W32API
 # include "./../../../incl/config.h"
 
-# include <windows.h>
+/* **** Global variables */
+signed(TheNumbreOfTheDirectories) = (0x00);
+signed(TheNumbreOfTheFiles) = (0x00);
 
+/* **** entry point */
+signed(__cdecl main(signed(argc), signed char(**argv), signed char(**envp))) {
 
-/* Global variables */
-int signed(TheNumbreOfTheDirectories) = (int signed) (0);
-int signed(TheNumbreOfTheFiles) = (int signed) (0);
+/* **** DATA, BSS and STACK */
+auto WIN32_FIND_DATA(wfd);
+auto void(*search);
+auto signed char(*p);
+auto signed(i), (r);
+auto signed char(c);
 
-
-/* **** **** entry point */
-char signed(__cdecl main(char signed(argc), char signed(**argv), char signed(**envp))) {
-
-/* **** **** DATA */
-auto char signed(*p);
-auto void*search;
-WIN32_FIND_DATA(wfd);
-auto int(i), (r);
-auto char signed(c);
-
-/* **** **** CODE/TEXT */
+/* **** CODE/TEXT */
 if(argc<(2)) {
 p = ("./*");
 // printf(p);
@@ -44,10 +38,9 @@ p = (*(argv+(argc+(~(NIL)))));
 
 c = searchdirectory(p);
 
-/* **** **** Reports */
 printf("\n");
-printf("%s%d\n", ("The total directories: "), (TheNumbreOfTheDirectories));
-printf("%s%d\n", ("The total files: "), (TheNumbreOfTheFiles));
+printf("%s%d\n", ("The directories: "), (TheNumbreOfTheDirectories));
+printf("%s%d\n", ("The files: "), (TheNumbreOfTheFiles));
 
-return(char signed) (XOR(c, c));
+return(0x00);
 }

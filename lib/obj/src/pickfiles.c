@@ -2,25 +2,20 @@
 
 Depth-first searching
 
-cl -c pickfiles.c
-cl pick.obj pickfiles.obj ../../../lib/cui.lib
-
+Remarks:
+If the function fails, the return value is (0x00).
 */
-
 
 
 # define C_CODE_STDS
 # define C_AS
+# define C_W32API
 # include "./../../../incl/config.h"
-
-# include <windows.h>
 
 # define BUFF (0x400)
 # define N (0x03)
 
-
-
-signed char(__cdecl pickfiles(signed char(*argp))) {
+signed(__cdecl pickfiles(signed char(*argp))) {
 
 /* **** DATA, BSS and STACK */
 extern signed(TheNumbreOfTheDirectories);
@@ -30,27 +25,27 @@ enum {
 SI, DI, CACHE
 };
 
-auto signed int(attrib[]) = {
-(int signed) (FILE_ATTRIBUTE_ARCHIVE),
-(int signed) (FILE_ATTRIBUTE_COMPRESSED),
-(int signed) (FILE_ATTRIBUTE_DEVICE),
-(int signed) (FILE_ATTRIBUTE_DIRECTORY),
-(int signed) (FILE_ATTRIBUTE_ENCRYPTED),
-(int signed) (FILE_ATTRIBUTE_HIDDEN),
-(int signed) (FILE_ATTRIBUTE_INTEGRITY_STREAM),
-(int signed) (FILE_ATTRIBUTE_NORMAL),
-(int signed) (FILE_ATTRIBUTE_NOT_CONTENT_INDEXED),
-(int signed) (FILE_ATTRIBUTE_NO_SCRUB_DATA),
-(int signed) (FILE_ATTRIBUTE_OFFLINE),
-(int signed) (FILE_ATTRIBUTE_READONLY),
-(int signed) (FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS),
-(int signed) (FILE_ATTRIBUTE_RECALL_ON_OPEN),
-(int signed) (FILE_ATTRIBUTE_REPARSE_POINT),
-(int signed) (FILE_ATTRIBUTE_SPARSE_FILE),
-(int signed) (FILE_ATTRIBUTE_SYSTEM),
-(int signed) (FILE_ATTRIBUTE_TEMPORARY),
-(int signed) (FILE_ATTRIBUTE_VIRTUAL),
-(int signed) (NIL)
+auto signed(attrib[]) = {
+(signed) (FILE_ATTRIBUTE_ARCHIVE),
+(signed) (FILE_ATTRIBUTE_COMPRESSED),
+(signed) (FILE_ATTRIBUTE_DEVICE),
+(signed) (FILE_ATTRIBUTE_DIRECTORY),
+(signed) (FILE_ATTRIBUTE_ENCRYPTED),
+(signed) (FILE_ATTRIBUTE_HIDDEN),
+(signed) (FILE_ATTRIBUTE_INTEGRITY_STREAM),
+(signed) (FILE_ATTRIBUTE_NORMAL),
+(signed) (FILE_ATTRIBUTE_NOT_CONTENT_INDEXED),
+(signed) (FILE_ATTRIBUTE_NO_SCRUB_DATA),
+(signed) (FILE_ATTRIBUTE_OFFLINE),
+(signed) (FILE_ATTRIBUTE_READONLY),
+(signed) (FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS),
+(signed) (FILE_ATTRIBUTE_RECALL_ON_OPEN),
+(signed) (FILE_ATTRIBUTE_REPARSE_POINT),
+(signed) (FILE_ATTRIBUTE_SPARSE_FILE),
+(signed) (FILE_ATTRIBUTE_SYSTEM),
+(signed) (FILE_ATTRIBUTE_TEMPORARY),
+(signed) (FILE_ATTRIBUTE_VIRTUAL),
+(signed) (NIL)
 };
 
 auto signed char(*(attribp[])) = {
@@ -95,37 +90,33 @@ auto signed(i), (l), (r);
 auto signed short(flag);
 auto signed char(c);
 
-
-/* **** **** CODE/TEXT */
+/* **** CODE/TEXT */
 printf("\n");
 printf("%s", argp);
-
 
 /* **** opendir */
 *(search+(SI)) = (void(*)) FindFirstFile(argp, (&wfd));
 
-if(!((int long long) INVALID_HANDLE_VALUE^(int long long) (*(search+(SI))))) {
+if(!((signed long long) INVALID_HANDLE_VALUE^(signed long long) (*(search+(SI))))) {
 if(!(ERROR_NO_MORE_FILES^(r = GetLastError()))) {
 }
 else {
 printf("%s", "<< Error at fn. FindFirstFile().");
 printf("%s%Xh\n", (" and the last error number is: "), (r));
 printf("%s%s\n", ("and the argp is: "), (argp));
-return(~(NIL));
+return(0x00);
 }}
 
 else {
-// printf("%s%p\n", ("The search handle is: "), (*(search+(SI))));
+// printf("%s%p\n", "The search handle is: ", *(search+(SI)));
 }
 
 
 i = ct(argp);
-*(argp+(i+(~(NIL)))) = (char) (NIL);
-
-// Monitoring
+*(argp+(i+(~(NIL)))) = (signed char) (0x00);
 // printf("%s%s\n", ("The crafted argp is: "), (argp));
 
-/* **** readdir */
+/* readdir */
 XOR(l, l);
 
 while(1) {
@@ -140,22 +131,22 @@ Sleep(DELAY);
 
 printf("\n");
 
-
 if(wfd.dwFileAttributes&(FILE_ATTRIBUTE_DIRECTORY)) {
 
-c = cmp_lett(&i, (".."), (wfd.cFileName));
+c = cmp_lett(&i, "..", wfd.cFileName);
 if(!i) {
 }
 else {
-c = cmp_lett(&i, ("."), (wfd.cFileName));
+c = cmp_lett(&i, ".", wfd.cFileName);
 if(!i) {
 }
 else {
 // To the recursion
-sprintf(buff, ("%s%s%s"), (argp), (wfd.cFileName), ("/*"));
+sprintf(buff, "%s%s%s", argp, wfd.cFileName, "/*");
 // Monitoring
-// printf("%s%s\n", ("The buff is: "), (buff));
-c = pickfiles(buff);
+// printf("%s%s\n", "The buff is: ", buff);
+r = pickfiles(buff);
+if(!r) return(0x00);
 printf("\n");
 printf("%s\n", argp);
 }}
@@ -173,40 +164,36 @@ TheNumbreOfTheFiles++;
 
 
 // Output the file attributes
-
 XOR(i, i);
+
 while(*(attrib+(i))) {
-// Sleep(DELAY);
-// printf("%s%d", ("i is: "), (i));
 if(wfd.dwFileAttributes&(*(attrib+(i)))) {
 printf("%s%s", "  ", *(attribp+(i)));
 }
 i++;
 }
 
-
 /* Find the next file */
-
 r = FindNextFile(*(search+(SI)), &wfd);
+
 if(!r) {
 if(!(ERROR_NO_MORE_FILES^(r = GetLastError()))) {
 break;
 }
 else {
-printf("%s", ("<< Error at fn. FindNextFile()."));
-printf("%s%Xh\n", (" and the last error number is: "), (r));
+printf("%s", "<< Error at fn. FindNextFile().");
+printf("%s%Xh\n", " and the last error number is: ", r);
 break;
 }}}
 
 
-
-/* **** closedir */
+/* closedir */
 r = FindClose(*(search+(SI)));
 
 if(!r) {
 printf("%s", "<< Error at fn. FindClose().");
 printf("%s%Xh\n", (" and the last error number is: "), (GetLastError()));
-return(~(NIL));
+return(0x00);
 }
 else {
 /*
@@ -217,5 +204,5 @@ printf("%s\n", ("Successfully closed."));
 
 printf("\n");
 
-return(0x00);
+return(0x01);
 }

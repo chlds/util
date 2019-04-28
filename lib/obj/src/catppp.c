@@ -4,14 +4,14 @@ Call fn. catpp
 */
 
 
-signed int(__cdecl catppp(signed char(***argp))) {
+signed(__cdecl catppp(signed char(***argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed int(r);
+auto signed(r);
 
 /* **** CODE/TEXT */
-if(!argp) return(0);
-if(!(*argp)) return(0);
+if(!argp) return(0x00);
+if(!(*argp)) return(0x00);
 
 r = catpp(*argp);
 

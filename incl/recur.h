@@ -58,5 +58,7 @@ signed(__cdecl ct(signed char(*argp)));
 /* Count letters to the one you'd select or to the terminating null character. */
 
 
-char signed(__cdecl catppp(char signed(***argp)));
-char signed(__cdecl catpp(char signed(**argp)));
+signed(__cdecl catppp(signed char(***argp)));
+signed(__cdecl catpp(signed char(**argp)));
+
+/* Output character lines out of the argument. */

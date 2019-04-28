@@ -1,54 +1,39 @@
 /* **** Notes
 
 Depth-first searching
-
 */
 
 
-
 # define C_CODE_STDS
-
 # include "./../../../incl/config.h"
 
+/* **** Global variables */
+signed(TheNumbreOfTheDirectories) = (0x00);
+signed(TheNumbreOfTheFiles) = (0x00);
 
+/* **** entry point */
+signed(__cdecl main(signed(argc), signed char(**argv), signed char(**envp))) {
 
-/* Global variables */
+/* **** DATA, BSS and DATA */
+auto signed char(*p);
+auto signed(r);
+auto signed char(c);
 
-int signed(TheNumbreOfTheDirectories) = (int signed) (0);
-int signed(TheNumbreOfTheFiles) = (int signed) (0);
-
-
-
-/* **** **** entry point */
-
-char signed(__cdecl main(char signed(argc), char signed(**argv), char signed(**envp))) {
-
-
-/* **** **** DATA */
-
-auto char signed(*p);
-auto char signed(c);
-
-
-/* **** **** CODE/TEXT */
-
+/* **** CODE/TEXT */
 if(argc<(2)) {
-pickfiles("./*");
+r = pickfiles("./*");
+if(!r) return(XNOR(r));
 }
 
 else {
 p = (*(argv+(argc+(~(NIL)))));
-pickfiles(p);
+r = pickfiles(p);
+if(!r) return(XNOR(r));
 }
 
-
-/* **** **** Reports */
-
 printf("\n");
-printf("%s%d\n", ("The total directories: "), (TheNumbreOfTheDirectories));
-printf("%s%d\n", ("The total files: "), (TheNumbreOfTheFiles));
+printf("%s%d\n", ("The directories: "), (TheNumbreOfTheDirectories));
+printf("%s%d\n", ("The files: "), (TheNumbreOfTheFiles));
 
-
-XOR(c, c);
-return(char signed) (c);
+return(0x00);
 }

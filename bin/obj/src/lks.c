@@ -1,32 +1,32 @@
 /* **** Notes
 
 Look the environment variables
-
 */
-
 
 # define C_CODE_STDS
 # include "./../../../incl/config.h"
 
+signed(__cdecl main(signed(argc), signed char(**argv), signed char(**envp))) {
 
-char signed(__cdecl main(char signed(argc), char signed(**argv), char signed(**envp))) {
-
-/* **** **** DATA
-auto int signed const(QUANTUM) = (0x10);
-auto int signed const(SNOOZE) = (0x08);
-auto int signed const(DELAY) = (0x02*(QUANTUM));
+/* **** DATA, BSS and STACK
+auto signed const(QUANTUM) = (0x10);
+auto signed const(SNOOZE) = (0x08);
+auto signed const(DELAY) = (0x02*(QUANTUM));
 //*/
 
-auto char signed(c);
+auto signed char(**(p[])) = {
+(signed char(**)) (argv),
+(signed char(**)) (envp),
+(signed char(**)) (NIL)
+};
 
-/* **** **** CODE/TEXT */
+auto signed(r);
+
+/* **** CODE/TEXT */
 printf("\n");
 
-c = catpp(argv);
-printf("%s%d\n", ("The numbre: "), (c));
+r = catppp(p);
+printf("%s%d\n", "r is: ", r);
 
-c = catpp(envp);
-printf("%s%d\n", ("The numbre: "), (c));
-
-return(NIL);
+return(0x00);
 }
