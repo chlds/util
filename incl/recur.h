@@ -38,6 +38,12 @@ signed(__cdecl cv2d(signed short(radix), signed(*di), signed char(*base)));
 /* Convert to a signed and/or unsigned double word out of an array for letters. */
 
 
+signed(__cdecl cmpr_partially(signed(*cache), signed char(*di), signed char(*si)));
+signed(__cdecl cmpr(signed(*cache), signed char(*di), signed char(*si)));
+
+/* Compare strings */
+
+
 signed(__cdecl ct_ars_internal(signed short(flag), signed(*di), signed char(*base)));
 signed(__cdecl ct_ars(signed(*di), signed char(*base)));
 signed(__cdecl ct_ars2(signed char(*base)));
