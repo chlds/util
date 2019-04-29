@@ -14,7 +14,6 @@ char signed(__cdecl spl_free(char signed(**argp)));
 char signed(__cdecl concat(char signed(**argp), ...));
 
 char signed(__cdecl cmp_lett(int signed(*cache), char signed(*di), char signed(*si)));
-char signed(__cdecl cp_lett(int signed(*cache), char signed(*di), char signed(*si)));
 
 char signed(__cdecl dbug(char signed(*argp)));
 char signed(__cdecl cats(char signed(*argp)));

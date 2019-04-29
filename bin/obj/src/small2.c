@@ -327,14 +327,13 @@ return(~(NIL));
 
 /* **** Copy at (*cache).p */
 
-c = cp_lett(&length, (*cache).p, (buff));
+r = cpy((*cache).p, buff);
 
-if(!(c^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. cp_lett()."));
+if(!r) {
+printf("\n%s", "<< Error at fn. cpy().");
 // e.g., unmap the rest..
 return(~(NIL));
 }
-
 
 
 
@@ -375,19 +374,17 @@ return(~(NIL));
 break;
 }
 else {
-(i++);
+i++;
 }}
 
 /* **** Terminate */
-if(!(i)) {
+if(!i) {
 break;
 }}
 
 
 
-
 /* **** **** Check all the sub-threads */
-
 printf("\n");
 
 while(1) {
@@ -407,12 +404,12 @@ printf("\n");
 i = (i^(i));
 while(l) {
 r = CloseHandle(*(thread+(--l)));
-if(!(r)) {
-printf("\n%s", ("<< Error at fn. CloseHandle()."));
+if(!r) {
+printf("\n%s", "<< Error at fn. CloseHandle().");
 // e.g., unmap the rest..
 return(~(NIL));
 }
-(i++);
+i++;
 }
 
 // Monitoring
@@ -420,25 +417,29 @@ printf("%s%d\n", ("The number of the unmapped thread handlers: "), (i));
 
 
 /* **** Outputting */
-printf("\n%s", ("<< Auxiliaries: Outputting"));
+printf("\n%s", "<< Auxiliaries: Outputting");
 printf("\n");
 
 cache = (struct knot(*)) (base);
 i = (i^(i));
 
 while(cache) {
-printf("\n%d%s%s", (i++), (". "), (*cache).p);
+printf("\n%d%s%s", i++, ". ", (*cache).p);
 cache = (struct knot(*)) (*cache).d;
 }
 //*/
 
 
-/* **** unmap at */
 printf("\n");
 
-r = unmap2_ll(lead);
-printf("%s%d%s\n", ("Unmapped the "), (r), (" knots."));
 
-printf("\n%s", ("All DONE!"));
+/* unmap at */
+r = unmap2_ll(lead);
+printf("%s%d%s\n", "Unmapped the ", r, " knots.");
+
+
+
+printf("\n%s", "All DONE!");
+
 return(0x00);
 }

@@ -140,8 +140,12 @@ rf. at fn. dir_or_file()
 
 if(flag&(DIR+(DOT_DIR))) {
 // Call after crafting the parent path.
-c = cp_lett(&i, craft, (*argp).parent_dir);
-*(craft+(i+(~(NIL)))) = (0x00);
+r = cpy(craft, (*argp).parent_dir);
+if(!r) {
+printf("%s\n", "<< An error has occurred at fn. cpy().");
+return(0x00);
+}
+*(craft+(r+(~(NIL)))) = (0x00);
 sprintf(buff, "%s%s%s", craft, p, "/*");
 // printf("%s%s\n", "The buff is: ", buff);
 r = search2dir(buff);

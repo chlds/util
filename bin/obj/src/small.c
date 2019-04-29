@@ -342,10 +342,10 @@ return(~(NIL));
 
 /* **** Copy at (*cache).p */
 
-c = (char signed) cp_lett(&length, (*cache).p, (buff));
+r = cpy((*cache).p, buff);
 
-if(!(c^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. cp_lett()."));
+if(!r) {
+printf("\n%s", ("<< Error at fn. cpy()."));
 // e.g., unmap the rest..
 return(~(NIL));
 }
