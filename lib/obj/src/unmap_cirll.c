@@ -15,18 +15,17 @@ Please look at util/incl/ll.h
 # include "../../../incl/config.h"
 # include <stdlib.h>
 
-signed(__cdecl unmap2_circularll(struct knot(*argp))) {
+signed(__cdecl unmap_cirll(struct knot(*argp))) {
 
 /* **** DATA */
 extern struct knot(*lead);
 extern struct knot(*base);
-auto struct knot(*cache);
+auto void(*cache);
 
 /* **** CODE/TEXT */
 if(!argp) return(NIL);
 
 if(!((long long) argp^((long long) base))) {
-free((*argp).p);
 free(argp);
 lead = (0x00);
 base = (0x00);
@@ -35,8 +34,7 @@ return(0x01);
 
 cache = (argp);
 argp = (*argp).s;
-free((*cache).p);
 free(cache);
 
-return(1+(unmap2_circularll(argp)));
+return(1+(unmap_cirll(argp)));
 }

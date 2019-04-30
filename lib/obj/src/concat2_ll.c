@@ -2,11 +2,12 @@
 
 Concatenate a knot in a doubly linked list.
 
-argp: Put the address of the <knot> structure at.
+cache: Put the address of the <knot> structure at.
+argp: Put the address of the <pknot> structure at.
 
 Remarks:
+Being deprecated..
 Based on a doubly linked list (i.e., not a circular linked list).
-
 Please look at util/incl/ll.h
 //*/
 
