@@ -9,7 +9,7 @@ Using along with fn. concat.
 
 # include <stdarg.h>
 
-signed(__cdecl concat_internal(signed char(*di), signed char(*bp))) {
+signed(__cdecl concats_internal(signed char(*di), signed char(*bp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char(*p);
@@ -28,5 +28,5 @@ r = cpy(di, p);
 if(!r) return(0x00);
 else di = (di+(r));
 
-return(1+(concat_internal(di, bp)));
+return(1+(concats_internal(di, bp)));
 }

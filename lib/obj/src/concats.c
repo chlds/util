@@ -8,7 +8,7 @@ argp: Put the leading address of a buffer at.
 
 # include <stdarg.h>
 
-signed(__cdecl concat(signed char(*argp), ...)) {
+signed(__cdecl concats(signed char(*argp), ...)) {
 
 /* **** DATA, BSS and STACK */
 auto signed char(*bp);
@@ -19,7 +19,7 @@ if(!argp) return(0x00);
 
 va_start(bp, argp);
 
-r = concat_internal(argp, bp);
+r = concats_internal(argp, bp);
 
 va_end(bp);
 
