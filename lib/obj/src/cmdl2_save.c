@@ -103,8 +103,10 @@ if((*cache).flag) {
 else {
 count = ct((*cache).p);
 if(!count) {
+/* **** An error has occurred or empty..
 printf("\n%s", ("<< Error at fn. ct() on fn. cmdl_save()."));
 break;
+//*/
 }
 r = write(fd, (*cache).p, count);
 if(!(r^(~(NIL)))) {

@@ -146,8 +146,13 @@ printf("%s\n", "<< An error has occurred at fn. cpy().");
 return(0x00);
 }
 *(craft+(r+(~(NIL)))) = (0x00);
-sprintf(buff, "%s%s%s", craft, p, "/*");
+
+r = sprintf(buff, "%s%s%s", craft, p, "/*");
+// r = concats(buff, craft, p, "/*", (void*) 0x00);
+if(!r) return(0x00);
+
 // printf("%s%s\n", "The buff is: ", buff);
+
 r = search2dir(buff);
 
 printf("\n");

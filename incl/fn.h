@@ -22,7 +22,3 @@ char signed(__cdecl cv_lett(int signed(*di), char signed(*si)));
 char signed(__cdecl cv_int(char signed(*di), int signed(si)));
 
 signed(__cdecl ct_args(signed char(*argp)));
-signed(__cdecl ct_arg(signed(*di), signed char(*base)));
-// Being deprecated..
-
-char signed(__cdecl ct_lett(int signed(*di), char signed(*si)));

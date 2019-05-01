@@ -1,30 +1,27 @@
 /* **** Notes
 
+Days of the week
+
+Remarks:
 Using a loop
-
 */
-
 
 
 # define C_CODE_STDS
 # define C_AS
-
 # include "./../../../incl/config.h"
 
+/* **** entry point */
+signed(__cdecl main(signed(argc), signed char(**argv), signed char(**envp))) {
 
 
-/* **** **** entry point */
-
-char signed(__cdecl main(char signed(argc), char signed(**argv), char signed(**envp))) {
-
-
-/* **** **** DATA */
-
-auto const int signed(QUANTUM) = (int signed) (0x10);
-auto const int signed(DELAY) = (int signed) (2*(QUANTUM));
+/* **** DATA, BSS and STACK */
+auto signed const(QUANTUM) = (0x10);
+auto signed const(SNOOZE) = (0x08);
+auto signed const(DELAY) = (0x02*(QUANTUM));
 // in milli-seconds
 
-auto char signed(*(arr[])) = {
+auto signed char(*(arr[])) = {
 (char signed(*)) ("Sun"),
 (char signed(*)) ("Mon"),
 (char signed(*)) ("Tue"),
@@ -35,12 +32,9 @@ auto char signed(*(arr[])) = {
 (char signed(*)) (NIL)
 };
 
-auto int signed(i);
-auto char signed(c);
+auto signed(i);
 
-
-/* **** **** CODE/TEXT */
-
+/* **** CODE/TEXT */
 XOR(i, i);
 
 while(*(arr+(i))) {
@@ -48,7 +42,5 @@ Sleep(DELAY);
 printf("%s\n", (*(arr+(i++))));
 }
 
-
-XOR(c, c);
-return(char signed) (c);
+return(0x00);
 }

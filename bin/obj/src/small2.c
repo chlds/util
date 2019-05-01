@@ -313,10 +313,13 @@ return(~(NIL));
 length = ct(buff);
 
 if(!length) {
+/* An error or empty..
 printf("\n%s", ("<< Error at fn. ct()."));
 // e.g., unmap the rest..
 return(~(NIL));
+//*/
 }
+
 (*cache).p = (char signed(*)) malloc(length+(sizeof(c)));
 if(!((*cache).p)) {
 printf("\n%s", ("<< Error at fn. malloc() of the ((*(cache)).p)."));
@@ -330,9 +333,11 @@ return(~(NIL));
 r = cpy((*cache).p, buff);
 
 if(!r) {
+/* An error or empty..
 printf("\n%s", "<< Error at fn. cpy().");
 // e.g., unmap the rest..
 return(~(NIL));
+//*/
 }
 
 

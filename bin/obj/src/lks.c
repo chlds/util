@@ -26,6 +26,8 @@ auto signed(r);
 printf("\n");
 
 r = catppp(p);
+
+printf("\n");
 printf("%s%d\n", "r is: ", r);
 
 return(0x00);
