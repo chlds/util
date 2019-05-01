@@ -1,70 +1,49 @@
-/* **** **** **** **** Refer on
-
-./incl/lib/cmp_lett.c
+/* **** Notes
 
 Compare strings
-
-//*/
-
+*/
 
 
 # define C_CODE_STDS
-
 # include "./../../../incl/config.h"
 
+signed(__cdecl cmp_lett(signed(*cache), signed char(*di), signed char(*si))) {
 
+/* **** DATA, BSS and STACK */
+auto signed const(QUANTUM) = (0x10);
+auto signed const(SNOOZE) = (0x08);
+auto signed const(DELAY) = (0x02*(QUANTUM));
 
-char signed(__cdecl cmp_lett(int signed(*cache), char signed(*di), char signed(*si))) {
+auto signed(i), (j), (l), (r);
+auto signed char(c);
 
-
-auto const int signed(SNOOZE) = (int signed) (255);
-auto const int signed(DELAY) = (int signed) (25);
-
-auto int signed(i), (j), (l), (r);
-auto char signed(c);
-
-
-if(!(si)) {
-// Error
-return(char signed) (~(NIL));
-}
-
-if(!(di)) {
-// Error
-return(char signed) (~(NIL));
-}
-
-if(!(cache)) {
-// Error
-return(char signed) (~(NIL));
-}
-
+/* **** CODE/TEXT */
+if(!cache) return(~(NIL));
+if(!di) return(~(NIL));
+if(!si) return(~(NIL));
 
 XOR(l, l);
 XOR(i, i);
 
 while(*(si+(i))) {
-c = (char signed) (*(di+(i)));
+c = (*(di+(i)));
 if(!(c^(*(si+(i))))) {
 }
 else {
 break;
 }
-(i++);
+i++;
 // CPU idling
 if(l<(SNOOZE)) {
-(l++);
+l++;
 }
 else {
 XOR(l, l);
 Sleep(DELAY);
 }}
 
-c = (char signed) (*(di+(i)));
-(*cache) = (int signed) (-c+(*(si+(i))));
+c = (*(di+(i)));
+*cache = (signed) (c+(1+(~(*(si+(i))))));
 
-
-XOR(c, c);
-
-return(char signed) (c);
+return(0x01);
 }

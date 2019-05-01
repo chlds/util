@@ -21,123 +21,112 @@ on branch develop
 global signed char(Announcements) = (NIL);
 global signed char(cmdl_time_Toggle) = (NIL);
 
-global signed int(Running) = (0x01);
+global signed(Running) = (0x01);
 // fn. cmdl_exit() to finally subtract the value.
 
 global struct knot(*base);
 global struct knot(*lead);
 
-/*
-global struct yarn(yarn) = {
-(struct knot(*)) (NIL),
-(struct knot(*)) (NIL),
-(char signed(*)) (NIL),
-(char signed) (NIL),
-(int signed) (NIL),
-(void(*)) (NIL)
-};
-//*/
-
 
 /* **** entry point */
-signed int(__cdecl main(signed int(argc), signed char(**argv), signed char(**envp))) {
+signed(__cdecl main(signed(argc), signed char(**argv), signed char(**envp))) {
 
 auto struct knot(*cache);
 
 /* **** commandlets
 auto struct card(card_exit) = {
-(char signed(*)) ("--exit"),
-(short int signed) (NIL),
-(char signed(__cdecl*) (void(*))) (cmdl_exit),
+(signed char(*)) ("--exit"),
+(signed short) (NIL),
+(unsigned(__stdcall*) (void(*))) (cmdl2_exit),
 (void(*)) (NIL),
-(int unsigned) (NIL), // thread_id i.e., a thread id
+(unsigned) (NIL), // thread_id i.e., a thread id
 (void(*)) (NIL), // hdl i.e., a tread handle
-(int signed) (NIL),
-(int signed) (NIL),
+(signed) (NIL),
+(signed) (NIL),
 (void(*)) (NIL)
 };
 
 auto struct card(card_help) = {
-(char signed(*)) ("--help"),
-(short int signed) (NIL),
-(char signed(__cdecl*) (void(*))) (cmdl_help),
+(signed char(*)) ("--help"),
+(signed short) (NIL),
+(unsigned(__stdcall*) (void(*))) (cmdl2_help),
 (void(*)) (NIL),
-(int unsigned) (NIL),
+(unsigned) (NIL),
 (void(*)) (NIL),
-(int signed) (NIL),
-(int signed) (NIL),
+(signed) (NIL),
+(signed) (NIL),
 (void(*)) (NIL)
 };
 
 auto struct card(card_clear) = {
-(char signed(*)) ("--clear"),
-(short int signed) (NIL),
-(char signed(__cdecl*) (void(*))) (cmdl_clear),
+(signed char(*)) ("--clear"),
+(signed short) (NIL),
+(unsigned(__stdcall*) (void(*))) (cmdl2_clear),
 (void(*)) (NIL),
-(int unsigned) (NIL),
+(unsigned) (NIL),
 (void(*)) (NIL),
-(int signed) (NIL),
-(int signed) (NIL),
+(signed) (NIL),
+(signed) (NIL),
 (void(*)) (NIL)
 };
 
 auto struct card(card_time) = {
-(char signed(*)) ("--time"),
-(short int signed) (NIL),
-(char signed(__cdecl*) (void(*))) (cmdl_time),
+(signed char(*)) ("--time"),
+(signed short) (NIL),
+(unsigned(__stdcall*) (void(*))) (cmdl2_time),
 (void(*)) (NIL),
-(int unsigned) (NIL),
+(unsigned) (NIL),
 (void(*)) (NIL),
-(int signed) (NIL),
-(int signed) (NIL),
+(signed) (NIL),
+(signed) (NIL),
 (void(*)) (NIL)
 };
 
 auto struct card(card_open) = {
-(char signed(*)) ("--open"),
-(short int signed) (NIL),
-(char signed(__cdecl*) (void(*))) (cmdl_open),
+(signed char(*)) ("--open"),
+(signed short) (NIL),
+(unsigned(__stdcall*) (void(*))) (cmdl2_open),
 (void(*)) (NIL),
-(int unsigned) (NIL),
+(unsigned) (NIL),
 (void(*)) (NIL),
-(int signed) (NIL),
-(int signed) (NIL),
+(signed) (NIL),
+(signed) (NIL),
 (void(*)) (NIL)
 };
 
 auto struct card(card_save) = {
-(char signed(*)) ("--save"),
-(short int signed) (NIL),
-(char signed(__cdecl*) (void(*))) (cmdl_save),
+(signed char(*)) ("--save"),
+(signed short) (NIL),
+(unsigned(__stdcall*) (void(*))) (cmdl2_save),
 (void(*)) (NIL),
-(int unsigned) (NIL),
+(unsigned) (NIL),
 (void(*)) (NIL),
-(int signed) (NIL),
-(int signed) (NIL),
+(signed) (NIL),
+(signed) (NIL),
 (void(*)) (NIL)
 };
 
 auto struct card(card_output) = {
-(char signed(*)) ("--output"),
-(short int signed) (NIL),
-(char signed(__cdecl*) (void(*))) (cmdl_output),
+(signed char(*)) ("--output"),
+(signed short) (NIL),
+(unsigned(__stdcall*) (void(*))) (cmdl2_output),
 (void(*)) (NIL),
-(int unsigned) (NIL),
+(unsigned) (NIL),
 (void(*)) (NIL),
-(int signed) (NIL),
-(int signed) (NIL),
+(signed) (NIL),
+(signed) (NIL),
 (void(*)) (NIL)
 };
 
 auto struct card(card_history) = {
-(char signed(*)) ("--history"),
-(short int signed) (NIL),
-(char signed(__cdecl*) (void(*))) (cmdl_history),
+(signed char(*)) ("--history"),
+(signed short) (NIL),
+(unsigned(__stdcall*) (void(*))) (cmdl2_history),
 (void(*)) (NIL),
-(int unsigned) (NIL),
+(unsigned) (NIL),
 (void(*)) (NIL),
-(int signed) (NIL),
-(int signed) (NIL),
+(signed) (NIL),
+(signed) (NIL),
 (void(*)) (NIL)
 };
 
@@ -154,22 +143,19 @@ auto struct card(*(arr[COUNT_FUNCTIONS])) = {
 //*/
 
 
-
 //* **** aux. 1/2
-
-auto unsigned int(__stdcall*(fn[COUNT_FUNCTIONS])) (void(*argp)) = {
-(unsigned int(__stdcall*) (void(*))) (cmdl2_exit),
-(unsigned int(__stdcall*) (void(*))) (cmdl2_help),
-(unsigned int(__stdcall*) (void(*))) (cmdl2_clear),
-(unsigned int(__stdcall*) (void(*))) (cmdl2_time),
-(unsigned int(__stdcall*) (void(*))) (cmdl2_open),
-(unsigned int(__stdcall*) (void(*))) (cmdl2_save),
-(unsigned int(__stdcall*) (void(*))) (cmdl2_output),
-(unsigned int(__stdcall*) (void(*))) (cmdl2_history),
-(unsigned int(__stdcall*) (void(*))) (NIL)
+auto unsigned(__stdcall*(fn[COUNT_FUNCTIONS])) (void(*argp)) = {
+(unsigned(__stdcall*) (void(*))) (cmdl2_exit),
+(unsigned(__stdcall*) (void(*))) (cmdl2_help),
+(unsigned(__stdcall*) (void(*))) (cmdl2_clear),
+(unsigned(__stdcall*) (void(*))) (cmdl2_time),
+(unsigned(__stdcall*) (void(*))) (cmdl2_open),
+(unsigned(__stdcall*) (void(*))) (cmdl2_save),
+(unsigned(__stdcall*) (void(*))) (cmdl2_output),
+(unsigned(__stdcall*) (void(*))) (cmdl2_history),
+(unsigned(__stdcall*) (void(*))) (NIL)
 };
 //*/
-
 
 
 //* **** aux. 2/2
@@ -187,9 +173,8 @@ auto signed char(*(term[COUNT_FUNCTIONS])) = {
 //*/
 
 
-
-auto unsigned int(thread_id[COUNT_THREADS]) = {
-(unsigned int) (NIL)
+auto unsigned(thread_id[COUNT_THREADS]) = {
+(unsigned) (NIL)
 };
 
 
@@ -202,33 +187,29 @@ auto signed char(buff[BUFF]) = {
 (signed char) (NIL)
 };
 
-auto unsigned int(stacksize) = (NIL);
-auto unsigned int(createdflags) = (NIL);
+auto unsigned(stacksize) = (NIL);
+auto unsigned(createdflags) = (NIL);
 
-auto signed int(i), (j), (l), (r);
-auto signed int(count), (total);
-auto signed int(length);
+auto signed(i), (j), (l), (r);
+auto signed(count), (total);
+auto signed(dif), (length);
 
 auto signed short(flag);
 auto signed char(c);
 
-auto char signed(*p) = (char signed(*)) (NIL);
+auto signed char(*p) = (NIL);
 
 
+/* **** CODE/TEXT */
 
+printf("\n");
+printf("%s\n", ("Please type --exit or press <Ctrl-C> to stop."));
+printf("%s\n", ("Command or text:"));
+printf("\n");
 
-/* **** **** **** **** CODE/TEXT */
-/* **** Notification */
-
-printf("\n%s", ("Please type --exit or press <Ctrl-C> to stop."));
-printf("\n%s", ("Command or text:"));
-printf("\n\n");
-
-
-/* **** **** Initialize */
-
-base = (void(*)) (NIL);
-lead = (void(*)) (NIL);
+/* Initialize */
+base = (NIL);
+lead = (NIL);
 
 count = (count^(count));
 total = (total^(total));
@@ -246,40 +227,40 @@ i = (i^(i));
 
 while(1) {
 
-r = (int signed) read(CIN, (&c), (sizeof(c)));
+r = read(CIN, &c, sizeof(c));
 
 if(!(r^(~(NIL)))) {
 printf("\n%s", ("<< Error at fn. read()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 
 if(!(c^('\r'))) {
-(*(buff+(i))) = (char signed) (NIL);
-(i++);
+*(buff+(i)) = (0x00);
+i++;
 // flag = (flag^(flag));
 break;
 }
 
 if(!(c^('\n'))) {
-(*(buff+(i))) = (char signed) (NIL);
-(i++);
+*(buff+(i)) = (0x00);
+i++;
 // flag = (flag^(flag));
 break;
 }
 
-count = (int signed) (r);
+count = (r);
 
-(*(buff+(i))) = (char signed) (c);
-(i++);
+*(buff+(i)) = (c);
+i++;
 
 /* **** CPU idling */
 // Sleep(DELAY);
 
 /* **** writing
-r = (int signed) write(COUT, (&c), (count));
+r = write(COUT, &c, count);
 if(!(r^(~(NIL)))) {
 printf("\n%s", ("<< Error at fn. write()."));
-return(char signed) (~(NIL));
+return(~(NIL));
 }
 //*/
 
@@ -287,19 +268,15 @@ return(char signed) (~(NIL));
 
 
 
-
-/* **** **** Making a doubly LL after reading */
-
+/* **** Making a doubly LL after reading */
 cache = (struct knot(*)) malloc(sizeof(struct knot));
 
-if(!(cache)) {
+if(!cache) {
 printf("\n%s", ("<< Error at fn. malloc()."));
 return(~(NIL));
 }
 
-
-/* **** concatenate */
-
+/* concatenate */
 r = concat_ll(cache);
 
 if(!r) {
@@ -307,9 +284,7 @@ printf("%s\n", ("Error at fn. concat_ll()."));
 return(~(NIL));
 }
 
-
-/* **** allocate at the (*cache).p */
-
+/* allocate at the (*cache).p */
 length = ct(buff);
 
 if(!length) {
@@ -320,7 +295,7 @@ return(~(NIL));
 //*/
 }
 
-(*cache).p = (char signed(*)) malloc(length+(sizeof(c)));
+(*cache).p = (signed char(*)) malloc(length+(sizeof(c)));
 if(!((*cache).p)) {
 printf("\n%s", ("<< Error at fn. malloc() of the ((*(cache)).p)."));
 // e.g., unmap the rest..
@@ -328,8 +303,7 @@ return(~(NIL));
 }
 
 
-/* **** Copy at (*cache).p */
-
+/* Copy at (*cache).p */
 r = cpy((*cache).p, buff);
 
 if(!r) {
@@ -341,34 +315,32 @@ return(~(NIL));
 }
 
 
-
 /* **** Is it a command or text */
-
 AND((*lead).flag, NIL);
 XOR(i, i);
 
 while(*(term+(i))) {
 
-c = cmp_lett_partially(&r, (buff), (*(term+(i))));
+r = cmpr_partially(&dif, buff, *(term+(i)));
 
-if(!(c^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. cmp_lett_partially()."));
+if(!r) {
+printf("\n%s", "<< Error at fn. cmpr_partially().");
 // e.g., unmap the rest..
 return(~(NIL));
 }
 
-/* **** Run a multi-threading program or more */
-if(!(r)) {
+/* It has a commandlet. Run a multi-threading program or more */
+if(!dif) {
 
 OR((*lead).flag, CMDFLAG);
 
-(*(thread+(l))) = (void(*)) _beginthreadex(
+*(thread+(l)) = (void(*)) _beginthreadex(
 (void(*)) (NIL),
-(unsigned int) (stacksize),
-(unsigned int(__stdcall*) (void(*))) (*(fn+(i))),
+(unsigned) (stacksize),
+(unsigned(__stdcall*) (void(*))) (*(fn+(i))),
 (void(*)) (*lead).p, // e.g., (*(argp+(i))),
-(unsigned int) (createdflags),
-(unsigned int(*)) (thread_id+(j++))
+(unsigned) (createdflags),
+(unsigned(*)) (thread_id+(j++))
 );
 
 if(!(*(thread+(l++)))) {
@@ -388,7 +360,6 @@ break;
 }}
 
 
-
 /* **** **** Check all the sub-threads */
 printf("\n");
 
@@ -403,7 +374,7 @@ printf(" ..");
 Sleep(3*(DELAY));
 }
 
-/* **** Close/unmap the thread handlers */
+/* Close/unmap the thread handlers */
 printf("\n");
 
 i = (i^(i));
@@ -421,11 +392,11 @@ i++;
 printf("%s%d\n", ("The number of the unmapped thread handlers: "), (i));
 
 
-/* **** Outputting */
+/* Auxiliarilly Outputting */
 printf("\n%s", "<< Auxiliaries: Outputting");
 printf("\n");
 
-cache = (struct knot(*)) (base);
+cache = (base);
 i = (i^(i));
 
 while(cache) {
@@ -441,7 +412,6 @@ printf("\n");
 /* unmap at */
 r = unmap2_ll(lead);
 printf("%s%d%s\n", "Unmapped the ", r, " knots.");
-
 
 
 printf("\n%s", "All DONE!");

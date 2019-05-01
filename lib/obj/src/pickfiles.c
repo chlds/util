@@ -73,7 +73,7 @@ auto signed char(*(attribp[])) = {
 
 
 auto signed const(QUANTUM) = (0x10);
-auto signed const(SNOOZE) = (0x04);
+auto signed const(SNOOZE) = (0x08);
 auto signed const(DELAY) = (2*(QUANTUM));
 // in milli-seconds
 
@@ -86,6 +86,7 @@ auto SYSTEMTIME(st);
 auto signed char(buff[BUFF]);
 auto signed char(*p);
 
+auto signed(dif);
 auto signed(i), (l), (r);
 auto signed short(flag);
 auto signed char(c);
@@ -133,12 +134,12 @@ printf("\n");
 
 if(wfd.dwFileAttributes&(FILE_ATTRIBUTE_DIRECTORY)) {
 
-c = cmp_lett(&i, "..", wfd.cFileName);
-if(!i) {
+r = cmp_lett(&dif, "..", wfd.cFileName);
+if(!dif) {
 }
 else {
-c = cmp_lett(&i, ".", wfd.cFileName);
-if(!i) {
+r = cmp_lett(&dif, ".", wfd.cFileName);
+if(!dif) {
 }
 else {
 // To the recursion
