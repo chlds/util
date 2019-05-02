@@ -8,6 +8,8 @@ Check the data types and expressions. */
 
 
 
+signed(__cdecl reading(signed char(*di), unsigned(size)));
+
 char signed(__cdecl spl(char signed(***cache), int signed(*di), char signed(*si)));
 char signed(__cdecl spl_free(char signed(**argp)));
 

@@ -220,55 +220,22 @@ i = (i^(i));
 
 flag = (flag^(flag));
 
-while(2) {
-
-/* **** reading */
-i = (i^(i));
-
 while(1) {
 
-r = read(CIN, &c, sizeof(c));
+/* reading */
+r = reading(buff, BUFF);
 
-if(!(r^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. read()."));
-return(~(NIL));
+if(!(r^(~(0x00)))) {
+printf("\n%s", ("<< Error at fn. reading() with (~(0x00))."));
+return(XNOR(r));
 }
 
-if(!(c^('\r'))) {
-*(buff+(i)) = (0x00);
-i++;
-// flag = (flag^(flag));
-break;
+if(!r) {
+printf("\n%s", ("<< Error at fn. reading() with (0x00)."));
+return(XNOR(r));
 }
 
-if(!(c^('\n'))) {
-*(buff+(i)) = (0x00);
-i++;
-// flag = (flag^(flag));
-break;
-}
-
-count = (r);
-
-*(buff+(i)) = (c);
-i++;
-
-/* **** CPU idling */
-// Sleep(DELAY);
-
-/* **** writing
-r = write(COUT, &c, count);
-if(!(r^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. write()."));
-return(~(NIL));
-}
-//*/
-
-}
-
-
-
-/* **** Making a doubly LL after reading */
+/* Making a doubly LL after reading */
 cache = (struct knot(*)) malloc(sizeof(struct knot));
 
 if(!cache) {
@@ -315,14 +282,12 @@ return(~(NIL));
 }
 
 
-/* **** Is it a command or text */
+/* Is it a command or text.. */
 AND((*lead).flag, NIL);
 XOR(i, i);
 
 while(*(term+(i))) {
-
 r = cmpr_partially(&dif, buff, *(term+(i)));
-
 if(!r) {
 printf("\n%s", "<< Error at fn. cmpr_partially().");
 // e.g., unmap the rest..
