@@ -22,7 +22,7 @@ char signed(*parent_dir);
 } typedef DIR_INFO_STORED;
 //*/
 
-signed(__cdecl search2dir(signed char(*argp))) {
+signed(__cdecl open2dir(signed char(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed const(QUANTUM) = (0x10);
@@ -37,7 +37,7 @@ auto SYSTEMTIME(st);
 auto DIR_INFO_STORED(dis);
 auto signed char(buff[BUFF]);
 auto signed char(*p);
-auto signed(i), (l), (r);
+auto signed(r);
 auto signed short(flag);
 
 /* **** CODE/TEXT */
@@ -48,6 +48,7 @@ Sleep(DELAY);
 
 dis.parent_dir = (argp);
 
+/* Open(, map, store or..) on the RAM */
 dis.search = (void(*)) FindFirstFile(argp, &(dis.wfd));
 
 if(!((signed long long) INVALID_HANDLE_VALUE^((signed long long) dis.search))) {
@@ -60,7 +61,6 @@ printf("%s%s\n", ("and the dis.parent_dir: "), (dis.parent_dir));
 printf("%s%s\n", ("and the argp: "), (argp));
 return(0x00);
 }}
-
 // else printf("%s%p\n", ("The search handle is: "), (search));
 
 r = read2dir(&dis);

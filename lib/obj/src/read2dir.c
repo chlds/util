@@ -95,10 +95,9 @@ auto signed char(buff[BUFF]);
 auto signed char(*p);
 
 auto DIR_INFO_STORED(dis);
-auto signed(i), (l), (r);
+auto signed(r);
 auto signed short(attrib_flag) = (0x01);
 auto signed short(flag);
-auto signed char(c);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -136,7 +135,7 @@ flag = (signed short) dir_or_file(&((*argp).wfd));
 # define P_DIR (0x20)
 # define DIRS (DIR+(DOT_DIR+(CURR_DIR+(P_DIR))))
 rf. at fn. dir_or_file()
-//*/
+*/
 
 if(flag&(DIR+(DOT_DIR))) {
 // Call after crafting the parent path.
@@ -153,7 +152,13 @@ if(!r) return(0x00);
 
 // printf("%s%s\n", "The buff is: ", buff);
 
-r = search2dir(buff);
+r = open2dir(buff);
+
+if(!r) {
+}
+
+else {
+}
 
 printf("\n");
 printf("%s\n", (*argp).parent_dir);
@@ -181,16 +186,20 @@ if(attrib_flag) r = attrib_of((*argp).wfd.dwFileAttributes, attrib, attribp);
 /* To go to the next step */
 printf("\n");
 
-/* Update the search handle */
+/* Read i.e., update with the search handle */
 r = FindNextFile((*argp).search, &(dis.wfd));
 
 if(!r) {
 r = GetLastError();
-if(r^(ERROR_NO_MORE_FILES)) printf("%s%Xh\n", "Error: No More Files at fn. FindNextFile(). with error no. ", r);
-return(0x01);
-}
+if(!(r^(ERROR_NO_MORE_FILES))) return(0x00);
+else {
+// An error has occurred.
+printf("%s%Xh\n", "<< Error at fn. FindNextFile() with error no. ", r);
+return(0x00);
+// e.g., return(r);
+}}
 
-// Setting
+// Set the rest.
 dis.search = (*argp).search;
 dis.parent_dir = (*argp).parent_dir;
 

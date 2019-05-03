@@ -31,7 +31,7 @@ signed(__cdecl main(signed(argc), signed char(**argv), signed char(**envp))) {
 auto WIN32_FIND_DATA(wfd);
 auto void(*search);
 auto signed char(*p);
-auto signed(i), (r);
+auto signed(r);
 
 /* **** CODE/TEXT */
 if(argc<(2)) {
@@ -43,7 +43,7 @@ else {
 p = (*(argv+(argc+(~(NIL)))));
 }
 
-r = search2dir(p);
+r = open2dir(p);
 
 printf("\n");
 printf("%s%d\n", ("The directories: "), (TheNumbreOfTheDirectories));
