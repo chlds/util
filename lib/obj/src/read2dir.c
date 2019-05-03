@@ -191,17 +191,13 @@ r = FindNextFile((*argp).search, &(dis.wfd));
 
 if(!r) {
 r = GetLastError();
-if(!(r^(ERROR_NO_MORE_FILES))) return(0x00);
-else {
-// An error has occurred.
-printf("%s%Xh\n", "<< Error at fn. FindNextFile() with error no. ", r);
+if(r^(ERROR_NO_MORE_FILES)) printf("%s%Xh\n", "<< Error at fn. FindNextFile() with error no. ", r);
 return(0x00);
-// e.g., return(r);
-}}
+}
 
 // Set the rest.
 dis.search = (*argp).search;
 dis.parent_dir = (*argp).parent_dir;
 
-return (1+(read2dir(&dis)));
+return(1+(read2dir(&dis)));
 }

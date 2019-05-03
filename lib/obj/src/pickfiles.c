@@ -99,14 +99,12 @@ printf("%s", argp);
 *(search+(SI)) = (void(*)) FindFirstFile(argp, (&wfd));
 
 if(!((signed long long) INVALID_HANDLE_VALUE^(signed long long) (*(search+(SI))))) {
-if(!(ERROR_NO_MORE_FILES^(r = GetLastError()))) {
-}
-else {
-printf("%s", "<< Error at fn. FindFirstFile().");
-printf("%s%Xh\n", (" and the last error number is: "), (r));
-printf("%s%s\n", ("and the argp is: "), (argp));
+r = GetLastError();
+printf("%s%Xh\n", "<< Error at fn. FindFirstFile() with the last error no. ", r);
+if(!(r^(ERROR_FILE_NOT_FOUND))) printf("%s\n", "No matching files.");
+printf("%s%s\n", "and the argp is: ", argp);
 return(0x00);
-}}
+}
 
 else {
 // printf("%s%p\n", "The search handle is: ", *(search+(SI)));
@@ -132,8 +130,8 @@ Sleep(DELAY);
 
 printf("\n");
 
-if(wfd.dwFileAttributes&(FILE_ATTRIBUTE_DIRECTORY)) {
 
+if(wfd.dwFileAttributes&(FILE_ATTRIBUTE_DIRECTORY)) {
 r = cmp_lett(&dif, "..", wfd.cFileName);
 if(!dif) {
 }
@@ -147,15 +145,20 @@ sprintf(buff, "%s%s%s", argp, wfd.cFileName, "/*");
 // Monitoring
 // printf("%s%s\n", "The buff is: ", buff);
 r = pickfiles(buff);
-if(!r) return(0x00);
+/* Pay attention to handling of the return value. */
+if(!r) {
+}
+else {
+}
+// Being gone back to the previous directory.
 printf("\n");
 printf("%s\n", argp);
 }}
-
 // Output a directory
 printf("%s%s%s", " d ", wfd.cFileName, "/");
 TheNumbreOfTheDirectories++;
 }
+
 
 // Or output a file
 else {
@@ -178,32 +181,21 @@ i++;
 r = FindNextFile(*(search+(SI)), &wfd);
 
 if(!r) {
-if(!(ERROR_NO_MORE_FILES^(r = GetLastError()))) {
+r = GetLastError();
+if(r^(ERROR_NO_MORE_FILES)) printf("%s%Xh\n", "<< Error at fn. FindNextFile() with the last error no. ", r);
 break;
-}
-else {
-printf("%s", "<< Error at fn. FindNextFile().");
-printf("%s%Xh\n", " and the last error number is: ", r);
-break;
-}}}
+}}
 
 
 /* closedir */
 r = FindClose(*(search+(SI)));
 
 if(!r) {
+r = GetLastError();
 printf("%s", "<< Error at fn. FindClose().");
-printf("%s%Xh\n", (" and the last error number is: "), (GetLastError()));
+printf("%s%Xh\n", " and the last error number is: ", r);
 return(0x00);
 }
-else {
-/*
-printf("\n");
-printf("%s\n", ("Successfully closed."));
-//*/
-}
-
-printf("\n");
 
 return(0x01);
 }

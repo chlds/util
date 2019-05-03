@@ -52,26 +52,33 @@ dis.parent_dir = (argp);
 dis.search = (void(*)) FindFirstFile(argp, &(dis.wfd));
 
 if(!((signed long long) INVALID_HANDLE_VALUE^((signed long long) dis.search))) {
-if(!(ERROR_NO_MORE_FILES^(r = GetLastError()))) return(0x00);
-else {
-printf("%s", ("<< Error at fn. FindFirstFile()."));
-printf("%s%Xh\n", (" with error no. "), (GetLastError()));
-// Monitor
-printf("%s%s\n", ("and the dis.parent_dir: "), (dis.parent_dir));
-printf("%s%s\n", ("and the argp: "), (argp));
+r = GetLastError();
+printf("%s%Xh\n", "<< Error at fn. FindFirstFile() with error no. ", r);
+if(!(r^(ERROR_FILE_NOT_FOUND))) printf("%s\n", "No matching files can be found.");
+//* Monitoring
+printf("%s%s\n", "and the dis.parent_dir: ", dis.parent_dir);
+printf("%s%s\n", "and the argp: ", argp);
+//*/
 return(0x00);
-}}
-// else printf("%s%p\n", ("The search handle is: "), (search));
+}
+// else printf("%s%p\n", "The search handle is: ", dis.search);
 
 r = read2dir(&dis);
+
+if(!r) {
+}
+
+else {
+}
 
 printf("%s%d\n", "Count: ", r);
 
 r = FindClose(dis.search);
 
 if(!r) {
-printf("%s", ("<< Error at fn. FindClose()."));
-printf("%s%Xh\n", (" with error no. "), (GetLastError()));
+r = GetLastError();
+printf("%s", "<< Error at fn. FindClose().");
+printf("%s%Xh\n", " with error no. ", r);
 return(0x00);
 }
 

@@ -45,9 +45,14 @@ p = (*(argv+(argc+(~(NIL)))));
 
 r = open2dir(p);
 
+if(!r) {
+printf("%s\n", "<< Error at fn. open2dir().");
+return(0x00);
+}
+
 printf("\n");
-printf("%s%d\n", ("The directories: "), (TheNumbreOfTheDirectories));
-printf("%s%d\n", ("The files: "), (TheNumbreOfTheFiles));
+printf("%s%d\n", "The directories: ", TheNumbreOfTheDirectories);
+printf("%s%d\n", "The files: ", TheNumbreOfTheFiles);
 
 return(0x00);
 }
