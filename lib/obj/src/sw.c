@@ -4,15 +4,15 @@ Exchange the DI and the SI
 */
 
 
-signed int(__cdecl sw(signed int(*di), signed int(*si))) {
+signed(__cdecl sw(signed(*di), signed(*si))) {
 
-/* **** DATA
-auto signed int const(QUANTUM) = (0x10);
-auto signed int const(SNOOZE) = (0x04);
-auto signed int const(DELAY) = (0x02*(QUANTUM));
+/* **** DATA, BSS and DATA
+auto signed const(QUANTUM) = (0x10);
+auto signed const(SNOOZE) = (0x04);
+auto signed const(DELAY) = (0x02*(QUANTUM));
 //*/
 
-auto signed int(cache);
+auto signed(cache);
 
 /* **** CODE/TEXT */
 if(!di) return(0x00);
@@ -22,5 +22,5 @@ cache = (*di);
 *di = (*si);
 *si = (cache);
 
-return(1);
+return(0x01);
 }
