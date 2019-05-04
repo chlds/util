@@ -3,190 +3,147 @@
 To dump a file in the binary
 
 Implemented with a flag to be added for code to run as far as possible to the end
-
 */
 
 
-
 # define C_CODE_STDS
-# define BUFF (0x400)
-
 # include "./../../../incl/config.h"
+
+# define BUFF (0x400)
 
 # define MONITORING
 
-# ifdef MONITORING
-# endif
-
-/*
-#ifdef _WIN32
-#include <windows.h>
-#else
-#include <unistd.h>
-#endif
-//*/
-
-
-
 /* **** entry point */
+signed(__cdecl main(signed(argc), signed char(**argv), signed char(**envp))) {
 
-char signed(__cdecl main(char signed(argc), char signed(**argv), char signed(**envp))) {
-
-
-/* **** DATA */
-
+/* **** DATA, BSS and STACK */
 enum {
 SI, DI, CACHE
 };
 
-auto const int signed(QUANTUM) = (int signed) (0x10);
-auto const int signed(COLUMN) = (int signed) (0x10);
-auto const int signed(LIMIT) = (int signed) (0x02);
-auto const int signed(DELAY) = (int signed) (2*(QUANTUM));
-// in milli-seconds
+auto signed const(QUANTUM) = (0x10);
+auto signed const(SNOOZE) = (0x08);
+auto signed const(DELAY) = (2*(QUANTUM));
 
-auto int signed(fd[2]) = {
-(int signed) (NIL)
+auto signed const(COLUMN) = (0x10);
+auto signed const(LIMIT) = (0x02);
+
+auto signed(fd[2]) = {
+(signed) (0x00)
 };
 
-auto int signed(row) = (int signed) (NIL);
-auto int signed(line) = (int signed) (NIL);
-auto int signed(total) = (int signed) (NIL);
+auto signed(row) = (NIL);
+auto signed(line) = (NIL);
+auto signed(total) = (NIL);
 
-auto int signed(i), (j), (l), (r);
+auto signed(i), (l), (r);
 
-auto short int signed(quickflag);
-auto short int signed(flag);
+auto signed short(quickflag);
+auto signed short(flag);
 
-auto char signed(buff[BUFF]);
+auto signed char(buff[BUFF]);
 
-auto char signed(c);
+auto unsigned char(c);
 
-
-/* **** **** CODE/TEXT */
-
+/* **** CODE/TEXT */
 if(argc<(LIMIT)) {
 printf("\n");
 printf("%s\n", ("  Usage:"));
 printf("%s\n", ("  dump [-options] <file>"));
-return(char signed) (NIL);
+return(0x00);
 }
-
 
 XOR(quickflag, quickflag);
 
 if(LIMIT<(argc)) {
-(quickflag++);
+quickflag++;
 }
 
-
-/* **** **** Open */
-
-(*(fd+(SI))) = (int signed) open(*(argv+(argc+(~(NIL)))), (int signed) (O_RDONLY|(O_BINARY)));
+/* Open */
+*(fd+(SI)) = open(*(argv+(argc+(~(NIL)))), (O_RDONLY|(O_BINARY)));
 
 r = (*(fd+(SI)));
 
 if(!(r^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. open()."));
-return(~(NIL));
+printf("\n%s", "<< Error at fn. open().");
+return(r);
 }
 
 else {
-// To monitor
-// printf("\n%s%Xh", ("A file descriptor to read the file is: "), (r));
+// printf("\n%s%Xh", "A file descriptor to read the file is: ", r);
 }
 
-
-/* **** **** Outputting */
-
+/* Outputting */
 XOR(flag, flag);
 XOR(l, l);
 
 XOR(row, row);
 NOT(row);
 
-r = printf("%08d%s", (line++), (": "));
+r = printf("%08d%s", line++, ": ");
 
 while(1) {
 
-/* **** Reading */
-r = (int signed) read(*(fd+(SI)), (&c), (sizeof(c)));
+/* Reading */
+r = read(*(fd+(SI)), &c, sizeof(c));
 
-row = (int signed) (row+(r));
-total = (int signed) (total+(r));
-
-/* To successfully terminate */
-if(!(r)) {
-// Monitoring
-// printf("\n\n%s", ("Done (with NIL)."));
+// An error has occurred at fn. read.
+if(!(r^(~(0x00)))) {
+printf("%s\n", "<< Error at fn. read().");
 break;
 }
 
-/* To also successfully terminate */
-if(!(r^(EOF))) {
-// Monitoring
-// printf("\n\n%s", ("Done (with EOF)."));
-break;
-}
+// Successfully terminate
+if(!r) break;
+if(!(r^(EOF))) break;
 
-/* Errors */
-if(!(r^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. read()."));
-// (flag++);
-break;
-}
+row = (row+(r));
+total = (total+(r));
 
-
-/* **** Writing */
-
-if(!(row^(0x08))) r = printf("%s", (" "));
+/* Writing */
+if(!(row^(0x08))) r = printf("%s", " ");
 
 if(row<(COLUMN)) {
-r = printf("%s%02X", (" "), (c));
+r = printf("%s%02X", " ", c);
 }
 else {
-if(!(quickflag)) {
+if(!quickflag) {
 Sleep(DELAY);
 }
 else {
-if(l<(0x0F)) {
-(l++);
+if(l<(SNOOZE)) {
+l++;
 }
 else {
 XOR(l, l);
 Sleep(DELAY);
 }}
 r = printf("\n");
-r = printf("%08d%s", (line++), (": "));
-r = printf("%s%02X", (" "), (c));
+r = printf("%08d%s", line++, ": ");
+r = printf("%s%02X", " ", c);
 XOR(row, row);
 }}
 
-
-/* **** **** Close the file descriptor to read a file */
-
-r = (int signed) close(*(fd+(SI)));
+/* Close the file descriptor to read a file */
+r = close(*(fd+(SI)));
 
 if(!(r^(~(NIL)))) {
-printf("\n%s", ("<< Error at fn. close()."));
-return(~(NIL));
+printf("%s\n", "<< Error at fn. close().");
+return(r);
 }
 
 else {
 printf("\n");
 // to monitor
-// r = printf("\n%s%Xh", ("Closed/unmapped a file descriptor and the return value is: "), (r));
-r = printf("\n%d%s", (line), (" lines"));
-r = printf("\n%s%d%s", ("Total: "), (total), (" bytes"));
+// r = printf("%s%Xh\n", "Closed/unmapped a file descriptor and the return value is: ", r);
+r = printf("%d%s\n", line, " lines");
+r = printf("%s%d%s\n", "Total: ", total, " bytes");
 }
 
-
-/* **** To monitor
+/* Monitoring
 printf("\n");
-printf("%s\n", ("All done!"));
+printf("%s\n", "All done!");
 //*/
 
-
-XOR(c, c);
-return(char signed) (c);
+return(0x00);
 }

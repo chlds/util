@@ -148,7 +148,10 @@ return(0x00);
 
 r = sprintf(buff, "%s%s%s", craft, p, "/*");
 // r = concats(buff, craft, p, "/*", (void*) 0x00);
-if(!r) return(0x00);
+if(!r) {
+printf("%s\n", "<< An error has occurred at fn. concats/sprintf().");
+return(0x00);
+}
 
 // printf("%s%s\n", "The buff is: ", buff);
 
@@ -192,7 +195,7 @@ r = FindNextFile((*argp).search, &(dis.wfd));
 if(!r) {
 r = GetLastError();
 if(r^(ERROR_NO_MORE_FILES)) printf("%s%Xh\n", "<< Error at fn. FindNextFile() with error no. ", r);
-return(0x00);
+return(0x01);
 }
 
 // Set the rest.

@@ -12,6 +12,12 @@ If the function fails, the return value is (0x00). */
 
 
 
+signed(__cdecl read2dir(void(*argp)));
+signed(__cdecl open2dir(signed char(*argp)));
+
+/* Close, read and open a directory entry out of the argp. */
+
+
 signed(__cdecl cv2a_uq_internal(signed short(radix), signed char(*di), unsigned long long(si)));
 signed(__cdecl cv2a_q_internal(signed short(radix), signed char(*di), signed long long(si)));
 signed(__cdecl cv2a_uq(signed short(radix), signed char(*di), unsigned long long(si)));
