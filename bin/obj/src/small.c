@@ -13,7 +13,7 @@ on branch develop
 # define DELAY (25)
 
 # define COUNT_FUNCTIONS (1+(8))
-# define COUNT_THREADS (0x100)
+# define COUNT_THREADS (0x400)
 # define CMDFLAG (1)
 
 # define global
@@ -26,7 +26,6 @@ global signed(Running) = (0x01);
 
 global struct knot(*base);
 global struct knot(*lead);
-
 
 /* **** entry point */
 signed(__cdecl main(signed(argc), signed char(**argv), signed char(**envp))) {
@@ -220,7 +219,7 @@ i = (i^(i));
 
 flag = (flag^(flag));
 
-while(1) {
+while(2) {
 
 /* reading */
 r = reading(buff, BUFF);
@@ -268,7 +267,6 @@ printf("\n%s", ("<< Error at fn. malloc() of the ((*(cache)).p)."));
 // e.g., unmap the rest..
 return(~(NIL));
 }
-
 
 /* Copy at (*cache).p */
 r = cpy((*cache).p, buff);
@@ -325,7 +323,7 @@ break;
 }}
 
 
-/* **** **** Check all the sub-threads */
+/* Check behavior of the other sub-threads to be stopped by sub-thread cmdl2_exit. */
 printf("\n");
 
 while(1) {
@@ -354,8 +352,7 @@ i++;
 }
 
 // Monitoring
-printf("%s%d\n", ("The number of the unmapped thread handlers: "), (i));
-
+printf("%s%d\n", "The number of the unmapped thread handlers: ", i);
 
 /* Auxiliarilly Outputting */
 printf("\n%s", "<< Auxiliaries: Outputting");
@@ -370,14 +367,11 @@ cache = (struct knot(*)) (*cache).d;
 }
 //*/
 
-
 printf("\n");
-
 
 /* unmap at */
 r = unmap2_ll(lead);
 printf("%s%d%s\n", "Unmapped the ", r, " knots.");
-
 
 printf("\n%s", "All DONE!");
 

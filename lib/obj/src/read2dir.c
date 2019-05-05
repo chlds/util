@@ -19,6 +19,11 @@ Depth-first searching
 # define CURR_DIR (0x10)
 # define P_DIR (0x20)
 # define DIRS (DIR+(DOT_DIR+(CURR_DIR+(P_DIR))))
+// for signed short(flag).
+
+# define OPT_RECURSION (0x02)
+# define OPT_ATTRIBS (0x01)
+// for signed short(opt_flag).
 
 //* To measure a part of code that overflows
 struct dir_info_stored {
@@ -96,7 +101,7 @@ auto signed char(*p);
 
 auto DIR_INFO_STORED(dis);
 auto signed(r);
-auto signed short(attrib_flag) = (0x01);
+auto signed short(opt_flag) = (OPT_ATTRIBS|(OPT_RECURSION));
 auto signed short(flag);
 
 /* **** CODE/TEXT */
@@ -145,46 +150,46 @@ printf("%s\n", "<< An error has occurred at fn. cpy().");
 return(0x00);
 }
 *(craft+(r+(~(NIL)))) = (0x00);
-
 r = sprintf(buff, "%s%s%s", craft, p, "/*");
 // r = concats(buff, craft, p, "/*", (void*) 0x00);
 if(!r) {
 printf("%s\n", "<< An error has occurred at fn. concats/sprintf().");
 return(0x00);
 }
-
 // printf("%s%s\n", "The buff is: ", buff);
 
 r = open2dir(buff);
 
 if(!r) {
+// printf("%s%d\n", "The r = open2dir() is: ", r);
 }
-
 else {
 }
-
 printf("\n");
 printf("%s\n", (*argp).parent_dir);
 }
 
-// Output a directory name
+// Monitoring
+// printf("%s%d\n", "The flag is: ", flag);
+
 if(flag&(DIRS)) {
+// Output a directory name
 printf("%s", " d ");
 printf("%s", p);
 TheNumbreOfTheDirectories++;
-/* Check the attributes of a directory or of a file */
-if(attrib_flag) r = attrib_of((*argp).wfd.dwFileAttributes, attrib, attribp);
 }
 
 else {
-// printf("%s%d\n", "The flag value when outputting a file name is: ", flag);
-// Output a file name
+// Or output a file name
 printf("%s", " - ");
 printf("%s", p);
 TheNumbreOfTheFiles++;
-/* Check the attributes of a directory or of a file */
-if(attrib_flag) r = attrib_of((*argp).wfd.dwFileAttributes, attrib, attribp);
 }
+
+/* Check the attributes of a directory or of a file */
+if(opt_flag&(OPT_ATTRIBS)) r = attrib_of((*argp).wfd.dwFileAttributes, attrib, attribp);
+
+// if(!r) printf("%s%d\n", "The r = attrib_of() is: ", r);
 
 /* To go to the next step */
 printf("\n");
