@@ -10,7 +10,6 @@ on branch develop
 # include "./../../../incl/config.h"
 
 # define BUFF (0x400)
-# define DELAY (25)
 
 # define COUNT_FUNCTIONS (1+(8))
 # define COUNT_THREADS (0x400)
@@ -29,6 +28,10 @@ global struct knot(*lead);
 
 /* **** entry point */
 signed(__cdecl main(signed(argc), signed char(**argv), signed char(**envp))) {
+
+auto signed const(QUANTUM) = (0x10);
+auto signed const(SNOOZE) = (0x04);
+auto signed const(DELAY) = (0x02*(QUANTUM));
 
 auto struct knot(*cache);
 
@@ -202,22 +205,21 @@ auto signed char(*p) = (NIL);
 /* **** CODE/TEXT */
 
 printf("\n");
-printf("%s\n", ("Please type --exit or press <Ctrl-C> to stop."));
-printf("%s\n", ("Command or text:"));
+printf("%s\n", "Please type --exit or press <Ctrl-C> to stop.");
+printf("%s\n", "Command or text:");
 printf("\n");
 
 /* Initialize */
 base = (NIL);
 lead = (NIL);
 
-count = (count^(count));
-total = (total^(total));
-
 l = (l^(l));
 j = (j^(j));
 i = (i^(i));
 
-flag = (flag^(flag));
+XOR(count, count);
+XOR(total, total);
+XOR(flag, flag);
 
 while(2) {
 
@@ -225,12 +227,12 @@ while(2) {
 r = reading(buff, BUFF);
 
 if(!(r^(~(0x00)))) {
-printf("\n%s", ("<< Error at fn. reading() with (~(0x00))."));
-return(XNOR(r));
+printf("\n%s", "<< Error at fn. reading() with (~(0x00)).");
+return(r);
 }
 
 if(!r) {
-printf("\n%s", ("<< Error at fn. reading() with (0x00)."));
+printf("\n%s", "<< Error at fn. reading() with (0x00).");
 return(XNOR(r));
 }
 
@@ -238,16 +240,16 @@ return(XNOR(r));
 cache = (struct knot(*)) malloc(sizeof(struct knot));
 
 if(!cache) {
-printf("\n%s", ("<< Error at fn. malloc()."));
-return(~(NIL));
+printf("\n%s", "<< Error at fn. malloc().");
+return(XNOR(r));
 }
 
 /* concatenate */
 r = concat_ll(cache);
 
 if(!r) {
-printf("%s\n", ("Error at fn. concat_ll()."));
-return(~(NIL));
+printf("%s\n", "Error at fn. concat_ll().");
+return(XNOR(r));
 }
 
 /* allocate at the (*cache).p */
@@ -255,17 +257,18 @@ length = ct(buff);
 
 if(!length) {
 /* An error or empty..
-printf("\n%s", ("<< Error at fn. ct()."));
+printf("\n%s", "<< Error at fn. ct().");
 // e.g., unmap the rest..
-return(~(NIL));
+return(XNOR(r));
 //*/
 }
 
 (*cache).p = (signed char(*)) malloc(length+(sizeof(c)));
+
 if(!((*cache).p)) {
 printf("\n%s", ("<< Error at fn. malloc() of the ((*(cache)).p)."));
 // e.g., unmap the rest..
-return(~(NIL));
+return(XNOR(r));
 }
 
 /* Copy at (*cache).p */
@@ -275,7 +278,7 @@ if(!r) {
 /* An error or empty..
 printf("\n%s", "<< Error at fn. cpy().");
 // e.g., unmap the rest..
-return(~(NIL));
+return(XNOR(r));
 //*/
 }
 
@@ -289,7 +292,7 @@ r = cmpr_partially(&dif, buff, *(term+(i)));
 if(!r) {
 printf("\n%s", "<< Error at fn. cmpr_partially().");
 // e.g., unmap the rest..
-return(~(NIL));
+return(XNOR(r));
 }
 
 /* It has a commandlet. Run a multi-threading program or more */
@@ -307,9 +310,9 @@ OR((*lead).flag, CMDFLAG);
 );
 
 if(!(*(thread+(l++)))) {
-printf("\n%s", ("<< Error at fn. _beginthreadex()."));
+printf("\n%s", "<< Error at fn. _beginthreadex().");
 // e.g., unmap the rest..
-return(~(NIL));
+return(XNOR(r));
 }
 break;
 }
@@ -317,7 +320,7 @@ else {
 i++;
 }}
 
-/* **** Terminate */
+/* Terminate */
 if(!i) {
 break;
 }}
@@ -331,16 +334,17 @@ if(!Running) {
 break;
 }
 // Monitoring
-// printf("\n%s", ("Waiting for all the sub-threads to stop"));
+// printf("\n%s", "Waiting for all the sub-threads to stop");
 printf(" ..");
-/* **** CPU idling */
-Sleep(3*(DELAY));
+/* CPU idling */
+Sleep(DELAY);
 }
 
 /* Close/unmap the thread handlers */
 printf("\n");
 
 i = (i^(i));
+
 while(l) {
 r = CloseHandle(*(thread+(--l)));
 if(!r) {

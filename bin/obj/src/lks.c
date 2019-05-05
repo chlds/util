@@ -24,11 +24,18 @@ auto signed(r);
 
 /* **** CODE/TEXT */
 printf("\n");
-
-r = catppp(p);
+r = catpp(argv);
+printf("%d%s\n", r, " arguments");
 
 printf("\n");
-printf("%s%d\n", "r is: ", r);
+r = catpp(envp);
+printf("%d%s\n", r, " environment variables");
+
+/* Or..
+printf("\n");
+r = catppp(p);
+// printf("%s%d\n", "r is: ", r);
+//*/
 
 return(0x00);
 }
