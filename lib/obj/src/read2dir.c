@@ -91,13 +91,6 @@ static signed char const(*(attribp[])) = {
 
 auto SYSTEMTIME(st);
 
-auto DIR_INFO_STORED(dis);
-/* as a substitute/alternative for
-auto void(*search);
-auto signed char(*parent_dir);
-auto WIN32_FIND_DATA(wfd);
-//*/
-
 auto signed char(craft[BUFF]);
 auto signed char(buff[BUFF]);
 auto signed char(*p);
@@ -118,7 +111,6 @@ printf("%s%p\n", ("(*argp).parent_dir is: "), (*argp).parent_dir);
 printf("%s%s\n", ("(*argp).parent_dir is: "), (*argp).parent_dir);
 //*/
 
-XOR(flag, flag);
 p = ((*argp).wfd.cFileName);
 
 /* Monitor
@@ -198,7 +190,7 @@ if(cmdln_flag&(OPT_ATTRIBS)) r = attrib_of((*argp).wfd.dwFileAttributes, attrib,
 printf("\n");
 
 /* Read i.e., update with the search handle */
-r = FindNextFile((*argp).search, &(dis.wfd));
+r = FindNextFile((*argp).search, &((*argp).wfd));
 
 if(!r) {
 r = GetLastError();
@@ -206,9 +198,5 @@ if(r^(ERROR_NO_MORE_FILES)) printf("%s%Xh\n", "<< Error at fn. FindNextFile() wi
 return(0x01);
 }
 
-// Set the rest.
-dis.search = (*argp).search;
-dis.parent_dir = (*argp).parent_dir;
-
-return(1+(read2dir(cmdln_flag, &dis)));
+return(1+(read2dir(cmdln_flag, argp)));
 }

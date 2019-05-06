@@ -68,7 +68,7 @@ if(!r) {
 else {
 }
 
-printf("%s%d\n", "Count: ", r);
+printf("%s%d%s%s\n", " ", r, " dir/files read on ", argp);
 
 r = FindClose(dis.search);
 
