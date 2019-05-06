@@ -11,38 +11,35 @@ Make a structure to measure a part of code that overflows
 # define C_W32API
 # include "./../../../incl/config.h"
 
-# define BUFF (0x300)
-# define N (0x03)
-
 //* To measure a part of code that overflows
 struct dir_info_stored {
 void(*search);
-WIN32_FIND_DATA(wfd);
 char signed(*parent_dir);
+WIN32_FIND_DATA(wfd);
 } typedef DIR_INFO_STORED;
 //*/
 
-signed(__cdecl open2dir(signed char(*argp))) {
+signed(__cdecl open2dir(signed short(cmdln_flag), signed char(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed const(QUANTUM) = (0x10);
 auto signed const(SNOOZE) = (0x04);
 auto signed const(DELAY) = (0x02*(QUANTUM));
 
-auto WIN32_FIND_DATA(wfd);
-auto void(*search);
-
 auto SYSTEMTIME(st);
 
 auto DIR_INFO_STORED(dis);
-auto signed char(buff[BUFF]);
-auto signed char(*p);
+/* as a substitute/alternative for
+auto void(*search);
+auto signed char(*parent_dir);
+auto WIN32_FIND_DATA(wfd);
+//*/
+
 auto signed(r);
-auto signed short(flag);
 
 /* **** CODE/TEXT */
 printf("\n");
-printf("%s\n", (argp));
+printf("%s\n", argp);
 
 Sleep(DELAY);
 
@@ -63,7 +60,7 @@ return(0x00);
 }
 // else printf("%s%p\n", "The search handle is: ", dis.search);
 
-r = read2dir(&dis);
+r = read2dir(cmdln_flag, &dis);
 
 if(!r) {
 }

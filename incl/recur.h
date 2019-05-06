@@ -12,8 +12,9 @@ If the function fails, the return value is (0x00). */
 
 
 
-signed(__cdecl read2dir(void(*argp)));
-signed(__cdecl open2dir(signed char(*argp)));
+// signed(__cdecl read2dir(signed short(cmdln_flag), struct dir_info_stored(*argp)));
+signed(__cdecl read2dir(signed short(cmdln_flag), void(*argp)));
+signed(__cdecl open2dir(signed short(cmdln_flag), signed char(*argp)));
 
 /* Close, read and open a directory entry out of the argp. */
 

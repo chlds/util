@@ -23,17 +23,17 @@ Depth-first searching
 
 # define OPT_RECURSION (0x02)
 # define OPT_ATTRIBS (0x01)
-// for signed short(opt_flag).
+// for signed short(cmdln_flag).
 
 //* To measure a part of code that overflows
 struct dir_info_stored {
 void(*search);
-WIN32_FIND_DATA(wfd);
 signed char(*parent_dir);
+WIN32_FIND_DATA(wfd);
 } typedef DIR_INFO_STORED;
 //*/
 
-signed(__cdecl read2dir(DIR_INFO_STORED(*argp))) {
+signed(__cdecl read2dir(signed short(cmdln_flag), DIR_INFO_STORED(*argp))) {
 
 /* **** DATA, BSS and STACK */
 extern signed(TheNumbreOfTheDirectories);
@@ -89,20 +89,22 @@ static signed char const(*(attribp[])) = {
 (char signed(*)) (NIL)
 };
 
-auto signed char const(CURRENT_DIRECTORY) = ('.');
-
-auto WIN32_FIND_DATA(wfd);
-
 auto SYSTEMTIME(st);
+
+auto DIR_INFO_STORED(dis);
+/* as a substitute/alternative for
+auto void(*search);
+auto signed char(*parent_dir);
+auto WIN32_FIND_DATA(wfd);
+//*/
 
 auto signed char(craft[BUFF]);
 auto signed char(buff[BUFF]);
 auto signed char(*p);
 
-auto DIR_INFO_STORED(dis);
 auto signed(r);
-auto signed short(opt_flag) = (OPT_ATTRIBS|(OPT_RECURSION));
 auto signed short(flag);
+// for fn. dir_or_file()
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -142,7 +144,10 @@ flag = (signed short) dir_or_file(&((*argp).wfd));
 rf. at fn. dir_or_file()
 */
 
+if(cmdln_flag&(OPT_RECURSION)) {
+
 if(flag&(DIR+(DOT_DIR))) {
+
 // Call after crafting the parent path.
 r = cpy(craft, (*argp).parent_dir);
 if(!r) {
@@ -157,9 +162,7 @@ printf("%s\n", "<< An error has occurred at fn. concats/sprintf().");
 return(0x00);
 }
 // printf("%s%s\n", "The buff is: ", buff);
-
-r = open2dir(buff);
-
+r = open2dir(cmdln_flag, buff);
 if(!r) {
 // printf("%s%d\n", "The r = open2dir() is: ", r);
 }
@@ -167,7 +170,7 @@ else {
 }
 printf("\n");
 printf("%s\n", (*argp).parent_dir);
-}
+}}
 
 // Monitoring
 // printf("%s%d\n", "The flag is: ", flag);
@@ -187,7 +190,7 @@ TheNumbreOfTheFiles++;
 }
 
 /* Check the attributes of a directory or of a file */
-if(opt_flag&(OPT_ATTRIBS)) r = attrib_of((*argp).wfd.dwFileAttributes, attrib, attribp);
+if(cmdln_flag&(OPT_ATTRIBS)) r = attrib_of((*argp).wfd.dwFileAttributes, attrib, attribp);
 
 // if(!r) printf("%s%d\n", "The r = attrib_of() is: ", r);
 
@@ -207,5 +210,5 @@ return(0x01);
 dis.search = (*argp).search;
 dis.parent_dir = (*argp).parent_dir;
 
-return(1+(read2dir(&dis)));
+return(1+(read2dir(cmdln_flag, &dis)));
 }
