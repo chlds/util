@@ -12,18 +12,22 @@ If the function fails, the return value is (0x00).
 # define C_W32API
 # include "./../../../incl/config.h"
 
+# define FILE (0x01)
+# define DOT_FILE (0x02)
+# define DIR (0x04)
+# define DOT_DIR (0x08)
+# define CURR_DIR (0x10)
+# define P_DIR (0x20)
+# define DIRS (P_DIR+(CURR_DIR+(DOT_DIR+(DIR))))
+// for signed short(flag)
+
 # define BUFF (0x400)
-# define N (0x03)
 
 signed(__cdecl pickfiles(signed char(*argp))) {
 
 /* **** DATA, BSS and STACK */
 extern signed(TheNumbreOfTheDirectories);
 extern signed(TheNumbreOfTheFiles);
-
-enum {
-SI, DI, CACHE
-};
 
 auto signed(attrib[]) = {
 (signed) (FILE_ATTRIBUTE_ARCHIVE),
@@ -71,49 +75,42 @@ auto signed char(*(attribp[])) = {
 (char signed(*)) (NIL)
 };
 
-
 auto signed const(QUANTUM) = (0x10);
 auto signed const(SNOOZE) = (0x08);
 auto signed const(DELAY) = (2*(QUANTUM));
-// in milli-seconds
-
-auto WIN32_FIND_DATA(wfd);
-
-auto void(*(search[N]));
 
 auto SYSTEMTIME(st);
 
+auto void(*search);
+auto WIN32_FIND_DATA(wfd);
+
 auto signed char(buff[BUFF]);
-auto signed char(*p);
+// auto signed char(*p);
 
 auto signed(dif);
 auto signed(i), (l), (r);
 auto signed short(flag);
-auto signed char(c);
 
 /* **** CODE/TEXT */
 printf("\n");
 printf("%s", argp);
 
 /* **** opendir */
-*(search+(SI)) = (void(*)) FindFirstFile(argp, (&wfd));
+search = (void(*)) FindFirstFile(argp, &wfd);
 
-if(!((signed long long) INVALID_HANDLE_VALUE^(signed long long) (*(search+(SI))))) {
+if(!((signed long long) INVALID_HANDLE_VALUE^(signed long long) (search))) {
 r = GetLastError();
 printf("%s%Xh\n", "<< Error at fn. FindFirstFile() with the last error no. ", r);
 if(!(r^(ERROR_FILE_NOT_FOUND))) printf("%s\n", "No matching files.");
-printf("%s%s\n", "and the argp is: ", argp);
+printf("%s%s\n", "argp is: ", argp);
 return(0x00);
 }
 
-else {
-// printf("%s%p\n", "The search handle is: ", *(search+(SI)));
-}
+// else printf("%s%p\n", "The search handle is: ", search);
 
-
-i = ct(argp);
-*(argp+(i+(~(NIL)))) = (signed char) (0x00);
-// printf("%s%s\n", ("The crafted argp is: "), (argp));
+r = ct(argp);
+*(argp+(r+(~(0x00)))) = (0x00);
+// printf("%s%s\n", "crafted argp is: ", argp);
 
 /* readdir */
 XOR(l, l);
@@ -130,20 +127,12 @@ Sleep(DELAY);
 
 printf("\n");
 
+flag = (signed short) dir_or_file(&wfd);
 
-if(wfd.dwFileAttributes&(FILE_ATTRIBUTE_DIRECTORY)) {
-r = cmp_lett(&dif, "..", wfd.cFileName);
-if(!dif) {
-}
-else {
-r = cmp_lett(&dif, ".", wfd.cFileName);
-if(!dif) {
-}
-else {
-// To the recursion
+if(flag&(DOT_DIR|(DIR))) {
+// Going to recur
 sprintf(buff, "%s%s%s", argp, wfd.cFileName, "/*");
-// Monitoring
-// printf("%s%s\n", "The buff is: ", buff);
+// printf("%s%s\n", "concatenated buff is: ", buff);
 r = pickfiles(buff);
 /* Pay attention to handling of the return value. */
 if(!r) {
@@ -153,23 +142,22 @@ else {
 // Being gone back to the previous directory.
 printf("\n");
 printf("%s\n", argp);
-}}
+}
+
+if(flag&(DIRS)) {
 // Output a directory
 printf("%s%s%s", " d ", wfd.cFileName, "/");
 TheNumbreOfTheDirectories++;
 }
 
-
-// Or output a file
 else {
+// Or output a file
 printf("%s%s", " - ", wfd.cFileName);
 TheNumbreOfTheFiles++;
 }
 
-
 // Output the file attributes
 XOR(i, i);
-
 while(*(attrib+(i))) {
 if(wfd.dwFileAttributes&(*(attrib+(i)))) {
 printf("%s%s", "  ", *(attribp+(i)));
@@ -178,7 +166,7 @@ i++;
 }
 
 /* Find the next file */
-r = FindNextFile(*(search+(SI)), &wfd);
+r = FindNextFile(search, &wfd);
 
 if(!r) {
 r = GetLastError();
@@ -188,12 +176,11 @@ break;
 
 
 /* closedir */
-r = FindClose(*(search+(SI)));
+r = FindClose(search);
 
 if(!r) {
 r = GetLastError();
-printf("%s", "<< Error at fn. FindClose().");
-printf("%s%Xh\n", " and the last error number is: ", r);
+printf("%s%Xh\n", "<< Error at fn. FindClose() with last error no. ", r);
 return(0x00);
 }
 

@@ -32,9 +32,7 @@ auto signed char const(CURRENT_DIRECTORY) = ('.');
 auto signed char const(A_DOT_CHARACTER) = ('.');
 
 auto signed char(*p);
-auto signed(i), (l), (r);
 auto signed short(flag);
-auto signed char(c);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);

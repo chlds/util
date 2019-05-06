@@ -155,11 +155,12 @@ return(0x00);
 }
 // printf("%s%s\n", "The buff is: ", buff);
 r = open2dir(cmdln_flag, buff);
+/* Pay attention to handling of the return value. */
 if(!r) {
-// printf("%s%d\n", "The r = open2dir() is: ", r);
 }
 else {
 }
+// Being gone back to the previous directory.
 printf("\n");
 printf("%s\n", (*argp).parent_dir);
 }}

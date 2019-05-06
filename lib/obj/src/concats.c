@@ -3,6 +3,9 @@
 Concatenate strings to the <argp>.
 
 argp: Put the leading address of a buffer at.
+
+Remarks:
+Put the null address at the terminating argument.
 */
 
 
