@@ -9,8 +9,7 @@ Depth-first searching
 # define C_W32API
 # include "./../../../incl/config.h"
 
-# define BUFF (0x300)
-# define N (0x03)
+# define BUFF (0x400)
 
 # define FILE (0x01)
 # define DOT_FILE (0x02)
@@ -38,10 +37,6 @@ signed(__cdecl read2dir(signed short(cmdln_flag), DIR_INFO_STORED(*argp))) {
 /* **** DATA, BSS and STACK */
 extern signed(TheNumbreOfTheDirectories);
 extern signed(TheNumbreOfTheFiles);
-
-enum {
-SI, DI, CACHE
-};
 
 static signed const(attrib[]) = {
 (signed) (FILE_ATTRIBUTE_ARCHIVE),
@@ -92,7 +87,7 @@ static signed char const(*(attribp[])) = {
 auto SYSTEMTIME(st);
 
 auto signed char(craft[BUFF]);
-auto signed char(buff[BUFF]);
+// auto signed char(buff[BUFF]);
 auto signed char(*p);
 
 auto signed(r);
@@ -147,14 +142,28 @@ printf("%s\n", "<< An error has occurred at fn. cpy().");
 return(0x00);
 }
 *(craft+(r+(~(NIL)))) = (0x00);
-r = sprintf(buff, "%s%s%s", craft, p, "/*");
+// And append to an array craft i.e., not using another array buff.
+r = concat2(craft, p, "/*", (void*) 0x00);
+if(!r) {
+printf("%s\n", "<< Error at fn. concat2().");
+return(0x00);
+}
+/* e.g., Using along with another array buff.
+// r = sprintf(buff, "%s%s%s", craft, p, "/*");
+// ..or
 // r = concats(buff, craft, p, "/*", (void*) 0x00);
 if(!r) {
 printf("%s\n", "<< An error has occurred at fn. concats/sprintf().");
 return(0x00);
 }
 // printf("%s%s\n", "The buff is: ", buff);
-r = open2dir(cmdln_flag, buff);
+//*/
+// Monitoring
+// printf("%s%s\n", "craft is: ", craft);
+// printf("%s%s\n", "buff is: ", buff);
+// ..and
+// r = open2dir(cmdln_flag, buff);
+r = open2dir(cmdln_flag, craft);
 /* Pay attention to handling of the return value. */
 if(!r) {
 }

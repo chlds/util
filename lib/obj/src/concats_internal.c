@@ -3,7 +3,7 @@
 Concatenate strings.
 
 Remarks:
-Using along with fn. concat.
+Using along with fn. concats, with fn. concat2 and with fn. cpy.
 */
 
 

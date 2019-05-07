@@ -74,8 +74,7 @@ r = FindClose(dis.search);
 
 if(!r) {
 r = GetLastError();
-printf("%s", "<< Error at fn. FindClose().");
-printf("%s%Xh\n", " with error no. ", r);
+printf("%s%Xh\n", "<< Error at fn. FindClose() with error no. ", r);
 return(0x00);
 }
 

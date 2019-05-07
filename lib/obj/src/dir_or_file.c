@@ -9,9 +9,6 @@ Is it a directory or file..?
 # define C_W32API
 # include "./../../../incl/config.h"
 
-# define BUFF (0x400)
-# define N (0x03)
-
 # define FILE (0x01)
 # define DOT_FILE (0x02)
 # define DIR (0x04)
@@ -22,13 +19,6 @@ Is it a directory or file..?
 
 signed short(__cdecl dir_or_file(WIN32_FIND_DATA(*argp))) {
 
-/* **** DATA
-auto signed const(QUANTUM) = (0x10);
-auto signed const(SNOOZE) = (0x08);
-auto signed const(DELAY) = (0x02*(QUANTUM));
-//*/
-
-auto signed char const(CURRENT_DIRECTORY) = ('.');
 auto signed char const(A_DOT_CHARACTER) = ('.');
 
 auto signed char(*p);
@@ -48,7 +38,7 @@ if(FILE_ATTRIBUTE_DIRECTORY&((*argp).dwFileAttributes)) OR(flag, DIR);
 /* It is a directory */
 if(flag) {
 
-if(!(CURRENT_DIRECTORY^(*p))) {
+if(!(A_DOT_CHARACTER^(*p))) {
 XOR(flag, flag);
 OR(flag, DOT_DIR);
 }
