@@ -19,6 +19,22 @@ signed(__cdecl open2dir(signed short(cmdln_flag), signed char(*argp)));
 /* Close, read and open a directory entry out of the argp. */
 
 
+signed(__cdecl concats_internal(signed char(*di), signed char(*bp)));
+signed(__cdecl concats(signed char(*argp), ...));
+
+/* Copy concatenated strings to the argp (using along with fn. concats_internal). */
+
+
+signed(__cdecl concat2(signed char(*argp), ...));
+
+/* Append strings to the argp (using along with fn. concats_internal). */
+
+
+signed(__cdecl append2(signed char(*di), signed char(*si)));
+
+/* Append the si to the di. */
+
+
 signed(__cdecl cv2a_uq_internal(signed short(radix), signed char(*di), unsigned long long(si)));
 signed(__cdecl cv2a_q_internal(signed short(radix), signed char(*di), signed long long(si)));
 signed(__cdecl cv2a_uq(signed short(radix), signed char(*di), unsigned long long(si)));
