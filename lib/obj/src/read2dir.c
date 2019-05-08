@@ -1,6 +1,9 @@
 /* **** Notes
 
 Depth-first searching
+
+Remarks:
+Using along with fn. finds
 */
 
 
@@ -27,7 +30,7 @@ Depth-first searching
 //* To measure a part of code that overflows
 struct dir_info_stored {
 void(*search);
-signed char(*parent_dir);
+signed char(*p_dir);
 WIN32_FIND_DATA(wfd);
 } typedef DIR_INFO_STORED;
 //*/
@@ -96,13 +99,13 @@ auto signed short(flag);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 if(!((*argp).search)) return(0x00);
-if(!((*argp).parent_dir)) return(0x00);
+if(!((*argp).p_dir)) return(0x00);
 
 /* Monitor
 printf("%s%p\n", ("argp (i.e., of data type (DIR_INFO_STORED*)) is: "), (argp));
 printf("%s%p\n", ("(*argp).search is: "), (*argp).search);
-printf("%s%p\n", ("(*argp).parent_dir is: "), (*argp).parent_dir);
-printf("%s%s\n", ("(*argp).parent_dir is: "), (*argp).parent_dir);
+printf("%s%p\n", ("(*argp).p_dir is: "), (*argp).p_dir);
+printf("%s%s\n", ("(*argp).p_dir is: "), (*argp).p_dir);
 //*/
 
 p = ((*argp).wfd.cFileName);
@@ -134,8 +137,8 @@ if(cmdln_flag&(OPT_RECURSION)) {
 
 if(flag&(DIR+(DOT_DIR))) {
 
-// Call after crafting the parent path.
-r = cpy(craft, (*argp).parent_dir);
+// Call fn. find2() after crafting the parent path.
+r = cpy(craft, (*argp).p_dir);
 if(!r) {
 printf("%s\n", "<< An error has occurred at fn. cpy().");
 return(0x00);
@@ -160,7 +163,7 @@ return(0x00);
 }
 // And monitor.
 // printf("%s%s\n", "craft is: ", craft);
-r = open2dir(cmdln_flag, craft);
+r = finds(cmdln_flag, craft);
 /* Pay attention to handling of the return value. */
 if(!r) {
 }
@@ -168,7 +171,7 @@ else {
 }
 // Being gone back to the previous directory.
 printf("\n");
-printf("%s\n", (*argp).parent_dir);
+printf("%s\n", (*argp).p_dir);
 }}
 
 // Monitoring
@@ -190,8 +193,7 @@ TheNumbreOfTheFiles++;
 
 /* Check the attributes of a directory or of a file */
 if(cmdln_flag&(OPT_ATTRIBS)) r = attrib_of((*argp).wfd.dwFileAttributes, attrib, attribp);
-
-// if(!r) printf("%s%d\n", "The r = attrib_of() is: ", r);
+if(!r) printf("%s\n", "An error has occurred at fn. attrib_of().");
 
 /* To go to the next step */
 printf("\n");

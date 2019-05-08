@@ -14,12 +14,12 @@ Make a structure to measure a part of code that overflows
 //* To measure a part of code that overflows
 struct dir_info_stored {
 void(*search);
-char signed(*parent_dir);
+char signed(*p_dir);
 WIN32_FIND_DATA(wfd);
 } typedef DIR_INFO_STORED;
 //*/
 
-signed(__cdecl open2dir(signed short(cmdln_flag), signed char(*argp))) {
+signed(__cdecl finds(signed short(cmdln_flag), signed char(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed const(QUANTUM) = (0x10);
@@ -31,7 +31,7 @@ auto SYSTEMTIME(st);
 auto DIR_INFO_STORED(dis);
 /* as a substitute/alternative for
 auto void(*search);
-auto signed char(*parent_dir);
+auto signed char(*p_dir);
 auto WIN32_FIND_DATA(wfd);
 //*/
 
@@ -43,18 +43,17 @@ printf("%s\n", argp);
 
 Sleep(DELAY);
 
-dis.parent_dir = (argp);
-
 /* Open(, map, store or..) on the RAM */
-dis.search = (void(*)) FindFirstFile(argp, &(dis.wfd));
+dis.p_dir = (argp);
+dis.search = (void(*)) FindFirstFile(argp /* or dis.p_dir */, &(dis.wfd));
 
 if(!((signed long long) INVALID_HANDLE_VALUE^((signed long long) dis.search))) {
 r = GetLastError();
 printf("%s%Xh\n", "<< Error at fn. FindFirstFile() with error no. ", r);
 if(!(r^(ERROR_FILE_NOT_FOUND))) printf("%s\n", "No matching files can be found.");
 //* Monitoring
-printf("%s%s\n", "and the dis.parent_dir: ", dis.parent_dir);
-printf("%s%s\n", "and the argp: ", argp);
+printf("%s%s\n", "and dis.p_dir: ", dis.p_dir);
+printf("%s%s\n", "and argp: ", argp);
 //*/
 return(0x00);
 }
@@ -68,7 +67,7 @@ if(!r) {
 else {
 }
 
-printf("%s%d%s%s\n", " ", r, " dir/files read on ", argp);
+printf("%s%d%s%s\n", " ", r, " dir/files read on ", argp /* or dis.p_dir */);
 
 r = FindClose(dis.search);
 

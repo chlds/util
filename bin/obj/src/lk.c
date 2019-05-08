@@ -19,7 +19,7 @@ This program may immediately cause a stack overflow.
 //* To measure a part of code that overflows a stack frame
 struct dir_info_stored {
 void(*search);
-char signed(*parent_dir);
+char signed(*p_dir);
 WIN32_FIND_DATA(wfd);
 } typedef DIR_INFO_STORED;
 //*/
@@ -35,7 +35,7 @@ signed(__cdecl main(signed(argc), signed char(**argv), signed char(**envp))) {
 auto DIR_INFO_STORED(dis);
 /* as a substitute/alternative for
 auto void(*search);
-auto signed char(*parent_dir);
+auto signed char(*p_dir);
 auto WIN32_FIND_DATA(wfd);
 //*/
 
@@ -56,10 +56,10 @@ XOR(cmdln_flag, cmdln_flag);
 OR(cmdln_flag, (OPT_ATTRIBS|(OPT_RECURSION)));
 }
 
-r = open2dir(cmdln_flag, p);
+r = finds(cmdln_flag, p);
 
 if(!r) {
-printf("%s\n", "<< Error at fn. open2dir().");
+printf("%s\n", "<< An error has occurred at fn. finds().");
 return(0x00);
 }
 
