@@ -1,10 +1,9 @@
-/* **** **** **** **** Notes
+/* **** Notes
 
 Convert to an signed interger out of the letters.
 
 Remarks:
 Being deprecated..
-Not using fn. spl() and fn. spl_free().
 */
 
 
