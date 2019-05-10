@@ -34,6 +34,17 @@ signed(__cdecl append2(signed char(*di), signed char(*si)));
 /* Append the si to the di. */
 
 
+signed(__cdecl splt_free(signed char(**argp)));
+signed(__cdecl splt(signed char(***di), signed char(*base)));
+
+/* Split out of an array */
+
+
+signed(__cdecl cue2(signed char(*base)));
+
+/* Cue */
+
+
 signed(__cdecl cv2a_uq_internal(signed short(radix), signed char(*di), unsigned long long(si)));
 signed(__cdecl cv2a_q_internal(signed short(radix), signed char(*di), signed long long(si)));
 signed(__cdecl cv2a_uq(signed short(radix), signed char(*di), unsigned long long(si)));
@@ -71,6 +82,12 @@ signed(__cdecl ct_ars(signed(*di), signed char(*base)));
 signed(__cdecl ct_ars2(signed char(*base)));
 
 /* Count arguments to the terminating null character. */
+
+
+signed(__cdecl cpy2(signed char(cache), signed char(*di), signed char(*si)));
+signed(__cdecl cpy(signed char(*di), signed char(*si)));
+
+/* Copy to the di out of the si */
 
 
 signed(__cdecl ct2_except_internal(signed char(cache), signed(*di), signed char(*base)));
