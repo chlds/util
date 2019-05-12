@@ -1,9 +1,9 @@
 /* **** Notes
 
-Split out of an array.
+Split out of an array for letters.
 
 Remarks:
-Please use fn. splt_free to unmap the allocated buffer on the RAM after using fn. splt.
+Please use fn. spltfree to unmap the allocated buffer on the RAM after using fn. splt.
 Using along with fn. ct_ars, fn. malloc, fn. cue2, fn. ct2 and fn. cpy2
 */
 

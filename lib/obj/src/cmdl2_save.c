@@ -8,7 +8,7 @@ is for a doubly LL i.e.,
 <NOT> for a circular LL..
 
 Remarks:
-Implemented along with fn. splt_free() and with fn. splt()
+Implemented along with fn. spltfree() and with fn. splt()
 */
 
 
@@ -151,10 +151,10 @@ printf("%s\n", "Attention: There was an interruption during writing..");
 }
 
 /* Unmap all the buffers allocated by fn. splt() on the RAM */
-r = splt_free(pp);
+r = spltfree(pp);
 
 if(!r) {
-printf("%s\n", "<< Error at fn. splt_free() in fn. cmdl2_save()");
+printf("%s\n", "<< Error at fn. spltfree() in fn. cmdl2_save()");
 --Running;
 return(XNOR(r));
 }

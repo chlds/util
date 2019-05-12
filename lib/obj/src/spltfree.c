@@ -11,7 +11,7 @@ Using fn. free
 # define C_AS
 # include "./../../../incl/config.h"
 
-signed(__cdecl splt_free(char signed(**argp))) {
+signed(__cdecl spltfree(signed char(**argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed(r);
@@ -24,7 +24,6 @@ while(*(argp+(r))) {
 free(*(argp+(r++)));
 }
 
-free(*(argp+(r++)));
 free(argp);
 r++;
 

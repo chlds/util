@@ -34,10 +34,12 @@ signed(__cdecl append2(signed char(*di), signed char(*si)));
 /* Append the si to the di. */
 
 
-signed(__cdecl splt_free(signed char(**argp)));
+signed(__cdecl spltfree2_internal(signed char(**argp)));
+signed(__cdecl spltfree2(signed char(**argp)));
+signed(__cdecl spltfree(signed char(**argp)));
 signed(__cdecl splt(signed char(***di), signed char(*base)));
 
-/* Split out of an array */
+/* Map word-split arrays on and unmap the ones out of the RAM */
 
 
 signed(__cdecl cue2(signed char(*base)));
