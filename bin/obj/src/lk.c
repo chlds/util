@@ -25,8 +25,8 @@ WIN32_FIND_DATA(wfd);
 //*/
 
 /* **** Global variables */
-signed(TheNumbreOfTheDirectories) = (0x00);
-signed(TheNumbreOfTheFiles) = (0x00);
+signed(TheNumbreOfDirectories) = (0x00);
+signed(TheNumbreOfFiles) = (0x00);
 
 /* **** entry point */
 signed(__cdecl main(signed(argc), signed char(**argv), signed char(**envp))) {
@@ -64,8 +64,8 @@ return(0x00);
 }
 
 printf("\n");
-printf("%s%d\n", "The directories: ", TheNumbreOfTheDirectories);
-printf("%s%d\n", "The files: ", TheNumbreOfTheFiles);
+printf(" %d%s\n", TheNumbreOfDirectories, " directories");
+printf(" %d%s\n", TheNumbreOfFiles, " files");
 
 return(0x00);
 }

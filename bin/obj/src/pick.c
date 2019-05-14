@@ -1,6 +1,9 @@
 /* **** Notes
 
-Depth-first searching
+Find files that contain the specific string using depth-first search.
+
+Remarks:
+The command is case-sensitive.
 */
 
 
@@ -8,8 +11,8 @@ Depth-first searching
 # include "./../../../incl/config.h"
 
 /* **** Global variables */
-signed(TheNumbreOfTheDirectories) = (0x00);
-signed(TheNumbreOfTheFiles) = (0x00);
+signed(TheNumbreOfDirectories) = (0x00);
+signed(TheNumbreOfFiles) = (0x00);
 
 /* **** entry point */
 signed(__cdecl main(signed(argc), signed char(**argv), signed char(**envp))) {
@@ -21,19 +24,29 @@ auto signed char(c);
 
 /* **** CODE/TEXT */
 if(argc<(2)) {
-r = pickfiles("./*");
+printf("\n");
+printf("%s\n", " pick <path> [FILE]");
+printf("\n");
+printf("%s\n", " Find files that contain the specific string using depth-first search.");
+printf("%s\n", " e.g., pick ./* obj");
+return(0x00);
+}
+
+if(2<(argc)) {
+p = (*(argv+(argc+(~(0x01)))));
+r = picking(p, *(argv+(argc+(~(0x00)))));
 if(!r) return(XNOR(r));
 }
 
 else {
-p = (*(argv+(argc+(~(NIL)))));
+p = (*(argv+(argc+(~(0x00)))));
 r = pickfiles(p);
 if(!r) return(XNOR(r));
 }
 
 printf("\n");
-printf("%s%d\n", ("The directories: "), (TheNumbreOfTheDirectories));
-printf("%s%d\n", ("The files: "), (TheNumbreOfTheFiles));
+printf(" %d%s\n", TheNumbreOfDirectories, " directories");
+printf(" %d%s\n", TheNumbreOfFiles, " files");
 
 return(0x00);
 }

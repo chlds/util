@@ -73,10 +73,11 @@ signed(__cdecl cv2d(signed short(radix), signed(*di), signed char(*base)));
 /* Convert to a signed and/or unsigned double word out of an array for letters. */
 
 
+signed(__cdecl cmpr_parts(signed(*cache), signed char(*di), signed char(*si)));
 signed(__cdecl cmpr_partially(signed(*cache), signed char(*di), signed char(*si)));
 signed(__cdecl cmpr(signed(*cache), signed char(*di), signed char(*si)));
 
-/* Compare strings */
+/* Compare the ones in case sensitive strings */
 
 
 signed(__cdecl ct_ars_internal(signed short(flag), signed(*di), signed char(*base)));

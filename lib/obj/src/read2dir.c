@@ -38,8 +38,8 @@ WIN32_FIND_DATA(wfd);
 signed(__cdecl read2dir(signed short(cmdln_flag), DIR_INFO_STORED(*argp))) {
 
 /* **** DATA, BSS and STACK */
-extern signed(TheNumbreOfTheDirectories);
-extern signed(TheNumbreOfTheFiles);
+extern signed(TheNumbreOfDirectories);
+extern signed(TheNumbreOfFiles);
 
 static signed const(attrib[]) = {
 (signed) (FILE_ATTRIBUTE_ARCHIVE),
@@ -181,14 +181,14 @@ if(flag&(DIRS)) {
 // Output a directory name
 printf("%s", " d ");
 printf("%s", p);
-TheNumbreOfTheDirectories++;
+TheNumbreOfDirectories++;
 }
 
 else {
 // Or output a file name
 printf("%s", " - ");
 printf("%s", p);
-TheNumbreOfTheFiles++;
+TheNumbreOfFiles++;
 }
 
 /* Check the attributes of a directory or of a file */

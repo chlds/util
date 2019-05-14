@@ -23,7 +23,7 @@ If the function fails, the return value is (0x00).
 
 # define BUFF (0x400)
 
-signed(__cdecl pickfiles(signed char(*argp))) {
+signed(__cdecl picking(signed char(*di), signed char(*si))) {
 
 /* **** DATA, BSS and STACK */
 extern signed(TheNumbreOfDirectories);
@@ -89,28 +89,31 @@ auto signed char(buff[BUFF]);
 
 auto signed(dif);
 auto signed(i), (l), (r);
+auto signed(differential);
 auto signed short(flag);
 
 /* **** CODE/TEXT */
+/* Suppress the output..
 printf("\n");
-printf("%s\n", argp);
+printf("%s", di);
+//*/
 
 /* **** opendir */
-search = (void(*)) FindFirstFile(argp, &wfd);
+search = (void(*)) FindFirstFile(di, &wfd);
 
 if(!((signed long long) INVALID_HANDLE_VALUE^(signed long long) (search))) {
 r = GetLastError();
-printf("%s%Xh\n", "<< Error at fn. FindFirstFile() with the last error no. ", r);
+printf("%s%Xh", "<< Error at fn. FindFirstFile() with error no. ", r);
+printf("%s%s\n", " at path ", di);
 if(!(r^(ERROR_FILE_NOT_FOUND))) printf("%s\n", "No matching files.");
-printf("%s%s\n", "argp is: ", argp);
 return(0x00);
 }
 
 // else printf("%s%p\n", "The search handle is: ", search);
 
-r = ct(argp);
-*(argp+(r+(~(0x00)))) = (0x00);
-// printf("%s%s\n", "crafted argp is: ", argp);
+r = ct(di);
+*(di+(r+(~(0x00)))) = (0x00);
+// printf("%s%s\n", "crafted di is: ", di);
 
 /* readdir */
 XOR(l, l);
@@ -125,32 +128,47 @@ XOR(l, l);
 Sleep(DELAY);
 }
 
+/* Suppress the output..
+printf("\n");
+//*/
+
 flag = (signed short) dir_or_file(&wfd);
 
 if(flag&(DOT_DIR|(DIR))) {
 // Going to recur
-sprintf(buff, "%s%s%s", argp, wfd.cFileName, "/*");
+sprintf(buff, "%s%s%s", di, wfd.cFileName, "/*");
 // printf("%s%s\n", "concatenated buff is: ", buff);
-r = pickfiles(buff);
+r = picking(buff, si);
 /* Pay attention to handling of the return value. */
 if(!r) {
 }
 else {
 }
 // Being gone back to the previous directory.
+/* Suppress the output..
 printf("\n");
-printf("%s\n", argp);
+printf("%s\n", di);
+//*/
 }
+
+/* Compare the ones in case-sensitive strings */
+r = cmpr_parts(&differential, wfd.cFileName, si);
+
+if(!r) {
+}
+
+else {
+if(!differential) {
 
 if(flag&(DIRS)) {
 // Output a directory
-printf("%s%s%s", " d ", wfd.cFileName, "/");
+printf("%s%s%s%s", " d ", di, wfd.cFileName, "/");
 TheNumbreOfDirectories++;
 }
 
 else {
 // Or output a file
-printf("%s%s", " - ", wfd.cFileName);
+printf("%s%s%s", " - ", di, wfd.cFileName);
 TheNumbreOfFiles++;
 }
 
@@ -164,13 +182,14 @@ i++;
 }
 
 printf("\n");
+}}
 
 /* Find the next file */
 r = FindNextFile(search, &wfd);
 
 if(!r) {
 r = GetLastError();
-if(r^(ERROR_NO_MORE_FILES)) printf("%s%Xh\n", "<< Error at fn. FindNextFile() with the last error no. ", r);
+if(r^(ERROR_NO_MORE_FILES)) printf("%s%Xh\n", "<< Error at fn. FindNextFile() with error no. ", r);
 break;
 }}
 
@@ -179,7 +198,7 @@ r = FindClose(search);
 
 if(!r) {
 r = GetLastError();
-printf("%s%Xh\n", "<< Error at fn. FindClose() with last error no. ", r);
+printf("%s%Xh\n", "<< Error at fn. FindClose() with error no. ", r);
 return(0x00);
 }
 
