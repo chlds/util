@@ -40,7 +40,7 @@ if(!r) return(XNOR(r));
 
 else {
 p = (*(argv+(argc+(~(0x00)))));
-r = pickfiles(p);
+r = picking(p, 0x00);
 if(!r) return(XNOR(r));
 }
 

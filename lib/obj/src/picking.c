@@ -89,16 +89,16 @@ auto signed char(buff[BUFF]);
 
 auto signed(dif);
 auto signed(i), (l), (r);
-auto signed(differential);
+auto signed(differential) = (0x00);
 auto signed short(flag);
 
 /* **** CODE/TEXT */
-/* Suppress the output..
+if(!si) {
 printf("\n");
-printf("%s", di);
-//*/
+printf("%s\n", di);
+}
 
-/* **** opendir */
+/* opendir */
 search = (void(*)) FindFirstFile(di, &wfd);
 
 if(!((signed long long) INVALID_HANDLE_VALUE^(signed long long) (search))) {
@@ -128,10 +128,6 @@ XOR(l, l);
 Sleep(DELAY);
 }
 
-/* Suppress the output..
-printf("\n");
-//*/
-
 flag = (signed short) dir_or_file(&wfd);
 
 if(flag&(DOT_DIR|(DIR))) {
@@ -145,19 +141,17 @@ if(!r) {
 else {
 }
 // Being gone back to the previous directory.
-/* Suppress the output..
+if(!si) {
 printf("\n");
 printf("%s\n", di);
-//*/
-}
+}}
 
+/* Output all the dir's and files or the specific dir's and files in a directory tree */
 /* Compare the ones in case-sensitive strings */
-r = cmpr_parts(&differential, wfd.cFileName, si);
+if(si) r = cmpr_parts(&differential, wfd.cFileName, si);
+else r = (0x01);
 
-if(!r) {
-}
-
-else {
+if(r) {
 if(!differential) {
 
 if(flag&(DIRS)) {
@@ -165,7 +159,6 @@ if(flag&(DIRS)) {
 printf("%s%s%s%s", " d ", di, wfd.cFileName, "/");
 TheNumbreOfDirectories++;
 }
-
 else {
 // Or output a file
 printf("%s%s%s", " - ", di, wfd.cFileName);
@@ -175,16 +168,14 @@ TheNumbreOfFiles++;
 // And output the file attributes
 XOR(i, i);
 while(*(attrib+(i))) {
-if(wfd.dwFileAttributes&(*(attrib+(i)))) {
-printf("%s%s", "  ", *(attribp+(i)));
-}
+if(wfd.dwFileAttributes&(*(attrib+(i)))) printf("%s%s", "  ", *(attribp+(i)));
 i++;
 }
 
 printf("\n");
 }}
 
-/* Find the next file */
+/* And find the next file */
 r = FindNextFile(search, &wfd);
 
 if(!r) {
