@@ -23,7 +23,7 @@ If the function fails, the return value is (0x00).
 
 # define BUFF (0x400)
 
-signed(__cdecl picking(signed char(*di), signed char(*si))) {
+signed(__cdecl pickfiles(signed char(*di), signed char(*si))) {
 
 /* **** DATA, BSS and STACK */
 extern signed(TheNumbreOfDirectories);
@@ -134,7 +134,7 @@ if(flag&(DOT_DIR|(DIR))) {
 // Going to recur
 sprintf(buff, "%s%s%s", di, wfd.cFileName, "/*");
 // printf("%s%s\n", "concatenated buff is: ", buff);
-r = picking(buff, si);
+r = pickfiles(buff, si);
 /* Pay attention to handling of the return value. */
 if(!r) {
 }

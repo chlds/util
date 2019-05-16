@@ -1,8 +1,6 @@
 /* **** Notes
 
-Depth-first searching
-
-Make a structure to measure a part of code that overflows
+A wrapper function to initialise arguments for fn. rddir to search in a directory tree using depth-first search
 */
 
 
@@ -59,7 +57,7 @@ return(0x00);
 }
 // else printf("%s%p\n", "The search handle is: ", dis.search);
 
-r = read2dir(cmdln_flag, &dis);
+r = rddir(cmdln_flag, &dis);
 
 if(!r) {
 }
@@ -69,6 +67,7 @@ else {
 
 printf("%s%d%s%s\n", " ", r, " dir/files read on ", argp /* or dis.p_dir */);
 
+/* Close */
 r = FindClose(dis.search);
 
 if(!r) {

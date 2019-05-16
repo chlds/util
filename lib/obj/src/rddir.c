@@ -35,7 +35,7 @@ WIN32_FIND_DATA(wfd);
 } typedef DIR_INFO_STORED;
 //*/
 
-signed(__cdecl read2dir(signed short(cmdln_flag), DIR_INFO_STORED(*argp))) {
+signed(__cdecl rddir(signed short(cmdln_flag), DIR_INFO_STORED(*argp))) {
 
 /* **** DATA, BSS and STACK */
 extern signed(TheNumbreOfDirectories);
@@ -134,10 +134,9 @@ rf. at fn. dir_or_file()
 */
 
 if(cmdln_flag&(OPT_RECURSION)) {
-
 if(flag&(DIR+(DOT_DIR))) {
 
-// Call fn. find2() after crafting the parent path.
+// Call fn. finds() after crafting the parent path.
 r = cpy(craft, (*argp).p_dir);
 if(!r) {
 printf("%s\n", "<< An error has occurred at fn. cpy().");
@@ -161,7 +160,6 @@ if(!r) {
 printf("%s\n", "<< Error at fn. append2() the second");
 return(0x00);
 }
-// And monitor.
 // printf("%s%s\n", "craft is: ", craft);
 r = finds(cmdln_flag, craft);
 /* Pay attention to handling of the return value. */
@@ -174,8 +172,7 @@ printf("\n");
 printf("%s\n", (*argp).p_dir);
 }}
 
-// Monitoring
-// printf("%s%d\n", "The flag is: ", flag);
+// printf("%s%d\n", "flag: ", flag);
 
 if(flag&(DIRS)) {
 // Output a directory name
@@ -207,5 +204,5 @@ if(r^(ERROR_NO_MORE_FILES)) printf("%s%Xh\n", "<< Error at fn. FindNextFile() wi
 return(0x01);
 }
 
-return(1+(read2dir(cmdln_flag, argp)));
+return(1+(rddir(cmdln_flag, argp)));
 }

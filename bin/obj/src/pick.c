@@ -34,13 +34,13 @@ return(0x00);
 
 if(2<(argc)) {
 p = (*(argv+(argc+(~(0x01)))));
-r = picking(p, *(argv+(argc+(~(0x00)))));
+r = pickfiles(p, *(argv+(argc+(~(0x00)))));
 if(!r) return(XNOR(r));
 }
 
 else {
 p = (*(argv+(argc+(~(0x00)))));
-r = picking(p, 0x00);
+r = pickfiles(p, 0x00);
 if(!r) return(XNOR(r));
 }
 
