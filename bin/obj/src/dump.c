@@ -23,7 +23,7 @@ SI, DI, CACHE
 
 auto signed const(QUANTUM) = (0x10);
 auto signed const(SNOOZE) = (0x08);
-auto signed const(DELAY) = (2*(QUANTUM));
+auto signed const(DELAY) = (0x02*(QUANTUM));
 
 auto signed const(COLUMN) = (0x10);
 auto signed const(LIMIT) = (0x02);
@@ -32,14 +32,14 @@ auto signed(fd[2]) = {
 (signed) (0x00)
 };
 
-auto signed(row) = (NIL);
-auto signed(line) = (NIL);
-auto signed(total) = (NIL);
+auto signed(row) = (0x00);
+auto signed(line) = (0x00);
+auto signed(total) = (0x00);
 
 auto signed(i), (l), (r);
 
 auto signed short(quickflag);
-auto signed short(flag);
+auto signed short(ascii_flag);
 
 auto signed char(buff[BUFF]);
 
@@ -48,33 +48,32 @@ auto unsigned char(c);
 /* **** CODE/TEXT */
 if(argc<(LIMIT)) {
 printf("\n");
-printf("%s\n", ("  Usage:"));
-printf("%s\n", ("  dump [-options] <file>"));
+printf("%s\n", "  Usage:");
+printf("%s\n", "  dump [-options] <file>");
 return(0x00);
 }
 
 XOR(quickflag, quickflag);
+XOR(ascii_flag, ascii_flag);
 
-if(LIMIT<(argc)) {
-quickflag++;
-}
+if(LIMIT<(argc)) quickflag++;
+if(0x03<(argc)) ascii_flag++;
 
 /* Open */
-*(fd+(SI)) = open(*(argv+(argc+(~(NIL)))), (O_RDONLY|(O_BINARY)));
+*(fd+(SI)) = open(*(argv+(argc+(~(NIL)))), O_RDONLY|(O_BINARY));
 
 r = (*(fd+(SI)));
 
-if(!(r^(~(NIL)))) {
-printf("\n%s", "<< Error at fn. open().");
+if(!(r^(~(0x00)))) {
+printf("%s\n", "<< Error at fn. open()");
 return(r);
 }
 
 else {
-// printf("\n%s%Xh", "A file descriptor to read the file is: ", r);
+// printf("%s%Xh\n", "File descriptor to read the file is: ", r);
 }
 
 /* Outputting */
-XOR(flag, flag);
 XOR(l, l);
 
 XOR(row, row);
@@ -89,7 +88,7 @@ r = read(*(fd+(SI)), &c, sizeof(c));
 
 // An error has occurred at fn. read.
 if(!(r^(~(0x00)))) {
-printf("%s\n", "<< Error at fn. read().");
+printf("%s\n", "<< Error at fn. read()");
 break;
 }
 
@@ -101,11 +100,20 @@ row = (row+(r));
 total = (total+(r));
 
 /* Writing */
-if(!(row^(0x08))) r = printf("%s", " ");
+if(!(row^(0x08))) printf(" ");
 
+/* Branching 1/2 */
 if(row<(COLUMN)) {
-r = printf("%s%02X", " ", c);
+if(ascii_flag) {
+if(c<(0x80)) {
+if(0x1F<(c)) printf("%s%2c", " ", c);
+else printf("%s%02X", " ", c);
 }
+else printf("%s%02X", " ", c);
+}
+else printf("%s%02X", " ", c);
+}
+
 else {
 if(!quickflag) {
 Sleep(DELAY);
@@ -120,7 +128,17 @@ Sleep(DELAY);
 }}
 r = printf("\n");
 r = printf("%08d%s", line++, ": ");
-r = printf("%s%02X", " ", c);
+
+/* Branching 2/2 */
+if(ascii_flag) {
+if(c<(0x80)) {
+if(0x1F<(c)) printf("%s%2c", " ", c);
+else printf("%s%02X", " ", c);
+}
+else printf("%s%02X", " ", c);
+}
+else printf("%s%02X", " ", c);
+
 XOR(row, row);
 }}
 
@@ -128,7 +146,7 @@ XOR(row, row);
 r = close(*(fd+(SI)));
 
 if(!(r^(~(NIL)))) {
-printf("%s\n", "<< Error at fn. close().");
+printf("%s\n", "<< Error at fn. close()");
 return(r);
 }
 

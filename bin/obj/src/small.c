@@ -17,8 +17,8 @@ on branch develop
 
 # define global
 
-global signed char(Announcements) = (NIL);
-global signed char(cmdl_time_Toggle) = (NIL);
+global signed short(cmdl_time_Toggle) = (0x00);
+global signed short(Announcements) = (0x00);
 
 global signed(Running) = (0x01);
 // fn. cmdl_exit() to finally subtract the value.
@@ -145,7 +145,7 @@ auto struct card(*(arr[COUNT_FUNCTIONS])) = {
 //*/
 
 
-//* **** aux. 1/2
+//* **** auxiliary
 auto unsigned(__stdcall*(fn[COUNT_FUNCTIONS])) (void(*argp)) = {
 (unsigned(__stdcall*) (void(*))) (cmdl2_exit),
 (unsigned(__stdcall*) (void(*))) (cmdl2_help),
@@ -157,10 +157,7 @@ auto unsigned(__stdcall*(fn[COUNT_FUNCTIONS])) (void(*argp)) = {
 (unsigned(__stdcall*) (void(*))) (cmdl2_history),
 (unsigned(__stdcall*) (void(*))) (NIL)
 };
-//*/
 
-
-//* **** aux. 2/2
 auto signed char(*(term[COUNT_FUNCTIONS])) = {
 (char signed(*)) ("--exit"),
 (char signed(*)) ("--help"),
@@ -176,21 +173,19 @@ auto signed char(*(term[COUNT_FUNCTIONS])) = {
 
 
 auto unsigned(thread_id[COUNT_THREADS]) = {
-(unsigned) (NIL)
+(unsigned) (0x00)
 };
-
 
 auto void(*thread[COUNT_THREADS]) = {
-(void(*)) (NIL)
+(void(*)) (0x00)
 };
-
 
 auto signed char(buff[BUFF]) = {
-(signed char) (NIL)
+(signed char) (0x00)
 };
 
-auto unsigned(stacksize) = (NIL);
-auto unsigned(createdflags) = (NIL);
+auto unsigned(createdflags) = (0x00);
+auto unsigned(stacksize) = (0x00);
 
 auto signed(i), (j), (l), (r);
 auto signed(count), (total);
@@ -203,15 +198,15 @@ auto signed char(*p) = (NIL);
 
 
 /* **** CODE/TEXT */
-
 printf("\n");
+
 printf("%s\n", "Please type --exit or press <Ctrl-C> to stop.");
 printf("%s\n", "Command or text:");
 printf("\n");
 
 /* Initialize */
-base = (NIL);
-lead = (NIL);
+base = (0x00);
+lead = (0x00);
 
 l = (l^(l));
 j = (j^(j));
@@ -227,12 +222,12 @@ while(2) {
 r = reading(buff, BUFF);
 
 if(!(r^(~(0x00)))) {
-printf("\n%s", "<< Error at fn. reading() with (~(0x00)).");
+printf("%s\n", "<< Error at fn. reading() with (~(0x00))");
 return(r);
 }
 
 if(!r) {
-printf("\n%s", "<< Error at fn. reading() with (0x00).");
+printf("%s\n", "<< Error at fn. reading() with (0x00)");
 return(XNOR(r));
 }
 
@@ -240,7 +235,7 @@ return(XNOR(r));
 cache = (struct knot(*)) malloc(sizeof(struct knot));
 
 if(!cache) {
-printf("\n%s", "<< Error at fn. malloc().");
+printf("\n%s", "<< Error at fn. malloc()");
 return(XNOR(r));
 }
 
@@ -248,7 +243,7 @@ return(XNOR(r));
 r = concat_ll(cache);
 
 if(!r) {
-printf("%s\n", "Error at fn. concat_ll().");
+printf("%s\n", "Error at fn. concat_ll()");
 return(XNOR(r));
 }
 
@@ -257,7 +252,7 @@ length = ct(buff);
 
 if(!length) {
 /* An error or empty..
-printf("\n%s", "<< Error at fn. ct().");
+printf("%s\n", "<< Error at fn. ct() or empty..");
 // e.g., unmap the rest..
 return(XNOR(r));
 //*/
@@ -266,7 +261,7 @@ return(XNOR(r));
 (*cache).p = (signed char(*)) malloc(length+(sizeof(c)));
 
 if(!((*cache).p)) {
-printf("\n%s", ("<< Error at fn. malloc() of the ((*(cache)).p)."));
+printf("%s\n", "<< Error at (*cache).p = malloc()");
 // e.g., unmap the rest..
 return(XNOR(r));
 }
@@ -276,7 +271,7 @@ r = cpy((*cache).p, buff);
 
 if(!r) {
 /* An error or empty..
-printf("\n%s", "<< Error at fn. cpy().");
+printf("%s\n", "<< Error at fn. cpy() or empty..");
 // e.g., unmap the rest..
 return(XNOR(r));
 //*/
@@ -284,13 +279,13 @@ return(XNOR(r));
 
 
 /* Is it a command or text.. */
-AND((*lead).flag, NIL);
+AND((*lead).flag, 0x00);
 XOR(i, i);
 
 while(*(term+(i))) {
 r = cmpr_partially(&dif, buff, *(term+(i)));
 if(!r) {
-printf("\n%s", "<< Error at fn. cmpr_partially().");
+printf("%s\n", "<< Error at fn. cmpr_partially()");
 // e.g., unmap the rest..
 return(XNOR(r));
 }
@@ -310,7 +305,7 @@ OR((*lead).flag, CMDFLAG);
 );
 
 if(!(*(thread+(l++)))) {
-printf("\n%s", "<< Error at fn. _beginthreadex().");
+printf("%s\n", "<< Error at fn. _beginthreadex()");
 // e.g., unmap the rest..
 return(XNOR(r));
 }
@@ -326,15 +321,12 @@ break;
 }}
 
 
-/* Check behavior of the other sub-threads to be stopped by sub-thread cmdl2_exit. */
+/* Monitor behavior of the other sub-threads to be stopped by sub-thread cmdl2_exit. */
 printf("\n");
 
-while(1) {
-if(!Running) {
-break;
-}
-// Monitoring
-// printf("\n%s", "Waiting for all the sub-threads to stop");
+while(0x01) {
+if(!Running) break;
+// printf("%s\n", "Waiting for all the sub-threads to stop");
 printf(" ..");
 /* CPU idling */
 Sleep(DELAY);
@@ -344,7 +336,6 @@ Sleep(DELAY);
 printf("\n");
 
 i = (i^(i));
-
 while(l) {
 r = CloseHandle(*(thread+(--l)));
 if(!r) {
@@ -358,15 +349,14 @@ i++;
 // Monitoring
 printf("%s%d\n", "The number of the unmapped thread handlers: ", i);
 
-/* Auxiliarilly Outputting */
-printf("\n%s", "<< Auxiliaries: Outputting");
+//* Auxiliarilly Outputting
 printf("\n");
+printf("%s\n", "<< Auxiliaries: Outputting");
 
-cache = (base);
 i = (i^(i));
-
+cache = (base);
 while(cache) {
-printf("\n%d%s%s", i++, ". ", (*cache).p);
+printf("%d%s%s\n", i++, ". ", (*cache).p);
 cache = (struct knot(*)) (*cache).d;
 }
 //*/
@@ -375,9 +365,9 @@ printf("\n");
 
 /* unmap at */
 r = unmap2_ll(lead);
-printf("%s%d%s\n", "Unmapped the ", r, " knots.");
+printf("%s%d%s\n", "Unmapped ", r, " knots.");
 
-printf("\n%s", "All DONE!");
+printf("%s\n", "All DONE!");
 
 return(0x00);
 }

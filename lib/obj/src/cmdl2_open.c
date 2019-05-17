@@ -9,7 +9,7 @@ is for a doubly LL i.e.,
 
 Remarks:
 Implemented along with fn. spltfree() and with fn. splt().
-And also with an (errorflag) error flag to be added for code to run as far as possible to the end.
+And also with a flag to be added for code to run as far as possible to the end.
 */
 
 
@@ -21,8 +21,9 @@ And also with an (errorflag) error flag to be added for code to run as far as po
 unsigned(__stdcall cmdl2_open(void(*argp))) {
 
 /* **** DATA, BSS and STACK */
-external signed char(Announcements);
-external signed int(Running);
+external signed short(Announcements);
+external signed(Running);
+
 external struct knot(*base);
 external struct knot(*lead);
 
@@ -35,29 +36,26 @@ auto signed char const(LINEFEED) = ('\n');
 
 auto struct knot(*cache);
 
-auto signed int(i), (r);
-auto signed int(count);
-auto signed int(fd);
+auto signed(i), (r);
+auto signed(count);
+auto signed(fd);
 
-auto char signed(**pp);
-auto char signed(*p);
+auto signed char(**pp);
+auto signed char(*p);
 
-auto char signed(c);
-auto char signed(uncmpltflag);
-auto char signed(errorflag);
+auto signed short(interrupt_flag);
+auto signed char(c);
 
 /* **** CODE/TEXT */
 Running++;
-
-XOR(errorflag, errorflag);
 
 /* **** Check the arguments */
 r = ct_args(argp);
 
 if(!r) {
-printf("\n%s", ("<< Error at fn. ct_args() on fn. cmdl_open()."));
+printf("%s\n", "<< Error at fn. ct_args() on fn. cmdl_open()");
 --Running;
-return(~(NIL));
+return(XNOR(r));
 }
 
 if(r<(2)) {
@@ -71,7 +69,7 @@ return(XNOR(r));
 r = splt(&pp, argp);
 
 if(!r) {
-printf("%s\n", "<< Error at fn. splt() in fn. cmdl2_open()");
+printf("%s\n", "<< Error at fn. splt()");
 --Running;
 return(XNOR(r));
 }
@@ -82,37 +80,26 @@ p = (*(pp+(r+(~(0x00)))));
 }
 
 /* opening */
-fd = open(p, (O_RDONLY|(O_BINARY)));
+fd = open(p, O_RDONLY|(O_BINARY));
 
 if(!(fd^(~(0x00)))) {
 printf("%s\n", "<< Error at fn. open()");
-/*
---Running;
-return(~(NIL));
-//*/
-OR(errorflag, 0x01);
+return(XNOR(r));
 }
+// else printf("%s%s\n", "Opened at file: ", p);
 
-else {
-// Monitoring
-// printf("\n%s", ("Opened at file: "), (p));
-}
-
-
-/* **** reading/writing */
-
-XOR(uncmpltflag, uncmpltflag);
+/* reading/writing */
+XOR(interrupt_flag, interrupt_flag);
 XOR(i, i);
 
-if(!(errorflag)) {
 while(1) {
 if(Announcements) {
-uncmpltflag++;
+interrupt_flag++;
 break;
 }
 /* reading */
 r = read(fd, &c, sizeof(c));
-if(!(r^(~(NIL)))) {
+if(!(r^(~(0x00)))) {
 printf("%s\n", "<< Error at fn. read()");
 break;
 }
@@ -123,7 +110,7 @@ break;
 }
 /* Writing */
 r = write(COUT, &c, r);
-if(!(r^(~(NIL)))) {
+if(!(r^(~(0x00)))) {
 printf("%s\n", "<< Error at fn. write()");
 break;
 }
@@ -133,19 +120,18 @@ Sleep(DELAY);
 }
 if(!(c^(LINEFEED))) {
 Sleep(3*(DELAY));
-}}}
+}}
+
+/* Notificate */
+if(interrupt_flag) printf("\n\n%s\n", "Attention: There was an interruption during reading and/or writing..");
 
 /* Check an error flag e.g., and closing/unmapping on the RAM */
-if(!errorflag) {
 r = close(fd);
 if(!(r^(~(0x00)))) {
 printf("%s\n", "<< Error at fn. close()");
 --Running;
 return(r);
-}}
-
-/* Notificate */
-if(uncmpltflag) printf("\n\n%s\n", "Attention: There was an interruption during reading and/or writing..");
+}
 
 /* Unmap all the buffers allocated by fn. splt() on the RAM */
 r = spltfree(pp);

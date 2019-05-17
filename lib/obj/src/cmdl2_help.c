@@ -8,27 +8,28 @@ Commandlet to help
 # define C_CODE_STDS
 # include "./../../../incl/config.h"
 
-unsigned int(__stdcall cmdl2_help(void(*argp))) {
+unsigned(__stdcall cmdl2_help(void(*argp))) {
 
 /* **** DATA */
-external signed char(Announcements);
-external signed int(Running);
+external signed short(Announcements);
+external signed(Running);
 
 /* **** CODE/TEXT */
 Running++;
 
 /* **** Monitoring
-printf("%s\n", ("<< cmdl_exit runs."));
-printf("%s\n", (char signed(*)) (argp));
+printf("%s\n", "<< cmdl_exit runs.");
+printf("%s\n", (signed char(*)) argp);
 //*/
 
-printf("\n%s", ("Commands: --help to help, "));
-printf("%s", ("--time to output the local time, "));
-printf("%s", ("--output to output except commands, "));
-printf("%s", ("--history to output the history"));
+printf("\n");
+printf("%s\n", "Commandlets:");
+printf("%s\n", "--help to help, ");
+printf("%s\n", "--time to output the local time, ");
+printf("%s\n", "--output to output except for the commandlets");
+printf("%s\n", "--history to output the history");
 
-printf("\n\n");
-
+printf("\n");
 
 --Running;
 return(0x00);

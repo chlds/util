@@ -2,7 +2,6 @@
 
 Commandlet to output the history
 
-
 Remarks:
 This code
 is for a doubly LL i.e.,
@@ -15,20 +14,20 @@ is for a doubly LL i.e.,
 # define C_AS
 # include "./../../../incl/config.h"
 
-unsigned int(__stdcall cmdl2_history(void(*argp))) {
+unsigned(__stdcall cmdl2_history(void(*argp))) {
 
 /* **** DATA */
-external signed char(Announcements);
-external signed int(Running);
+external signed short(Announcements);
+external signed(Running);
 
 external struct knot(*base);
 external struct knot(*lead);
 
-auto signed int const(QUANTUM) = (0x10);
-auto signed int const(DELAY) = (2*(QUANTUM));
+auto signed const(QUANTUM) = (0x10);
+auto signed const(DELAY) = (0x02*(QUANTUM));
 
 auto struct knot(*cache);
-auto signed int(i);
+auto signed(i);
 
 /* **** CODE/TEXT */
 Running++;
@@ -39,11 +38,9 @@ i = (i^(i));
 cache = (base);
 
 while(cache) {
-if(Announcements) {
-break;
-}
+if(Announcements) break;
 Sleep(DELAY);
-printf("%6d%s", (i++), (".  "));
+printf("%6d%s", i++, ".  ");
 printf("%s\n", (*cache).p);
 cache = (struct knot(*)) (*cache).d;
 }

@@ -11,20 +11,22 @@ unsigned int(__stdcall fn(void(*argp))) for fn. _beginthreadex
 # define C_CODE_STDS
 # include "./../../../incl/config.h"
 
-unsigned int(__stdcall cmdl2_clear(void(*argp))) {
+unsigned(__stdcall cmdl2_clear(void(*argp))) {
 
 /* **** DATA */
-external signed char(Announcements);
-external signed int(Running);
+external signed short(Announcements);
+external signed(Running);
 
 /* **** CODE/TEXT */
 Running++;
 
 system("cls");
 
-printf("\n%s", ("Please type --exit or press <Ctrl-C> to stop."));
-printf("\n%s", ("Commandlet or text:"));
-printf("\n\n");
+printf("\n");
+printf("%s\n", "Please type --exit or press <Ctrl-C> to stop.");
+printf("%s\n", "Commandlet or text:");
+
+printf("\n");
 
 --Running;
 return(0x00);

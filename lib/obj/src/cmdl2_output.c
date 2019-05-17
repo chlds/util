@@ -13,16 +13,19 @@ is for a doubly LL i.e.,
 # define C_AS
 # include "./../../../incl/config.h"
 
-unsigned int(__stdcall cmdl2_output(void(*argp))) {
+unsigned(__stdcall cmdl2_output(void(*argp))) {
 
 /* **** DATA */
-external signed char(Announcements);
-external signed int(Running);
+external signed short(Announcements);
+external signed(Running);
+
 external struct knot(*base);
 external struct knot(*lead);
 
-auto signed int const(DELAY) = (int signed) (50);
-auto signed int(i);
+auto signed const(QUANTUM) = (0x10);
+auto signed const(DELAY) = (0x02*(QUANTUM));
+
+auto signed(i);
 
 auto struct knot(*cache);
 
@@ -35,15 +38,13 @@ i = (i^(i));
 cache = (struct knot(*)) (base);
 
 while(cache) {
-if(Announcements) {
-break;
-}
+if(Announcements) break;
 Sleep(DELAY);
 // Check the command flag i.e., CMDFLAG to be set
 if((*cache).flag) {
 }
 else {
-printf("%6d%s", (i++), (".  "));
+printf("%6d%s", i++, ".  ");
 printf("%s\n", (*cache).p);
 }
 cache = (struct knot(*)) (*cache).d;

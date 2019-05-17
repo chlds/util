@@ -20,8 +20,9 @@ Implemented along with fn. spltfree() and with fn. splt()
 unsigned(__stdcall cmdl2_save(void(*argp))) {
 
 /* **** DATA, BSS and STACK */
-external signed char(Announcements);
-external signed int(Running);
+external signed short(Announcements);
+external signed(Running);
+
 external struct knot(*base);
 external struct knot(*lead);
 
