@@ -8,6 +8,7 @@ Implemented with a flag to be added for code to run as far as possible to the en
 
 # define C_CODE_STDS
 # include "./../../../incl/config.h"
+# include "./../../../incl/ascii_table.h"
 
 # define BUFF (0x400)
 
@@ -42,6 +43,7 @@ auto signed short(quickflag);
 auto signed short(ascii_flag);
 
 auto signed char(buff[BUFF]);
+auto signed char(**p);
 
 auto unsigned char(c);
 
@@ -57,7 +59,11 @@ XOR(quickflag, quickflag);
 XOR(ascii_flag, ascii_flag);
 
 if(LIMIT<(argc)) quickflag++;
-if(0x03<(argc)) ascii_flag++;
+
+if(0x03<(argc)) {
+ascii_flag++;
+p = (signed char(**)) (ascii);
+}
 
 /* Open */
 *(fd+(SI)) = open(*(argv+(argc+(~(NIL)))), O_RDONLY|(O_BINARY));
@@ -105,11 +111,8 @@ if(!(row^(0x08))) printf(" ");
 /* Branching 1/2 */
 if(row<(COLUMN)) {
 if(ascii_flag) {
-if(c<(0x80)) {
-if(0x1F<(c)) printf("%s%2c", " ", c);
-else printf("%s%02X", " ", c);
-}
-else printf("%s%02X", " ", c);
+if(c<(0x80)) printf("%s%3s", " ", *(c+(p)));
+else printf("%s%3X", " ", c);
 }
 else printf("%s%02X", " ", c);
 }
@@ -131,11 +134,8 @@ r = printf("%08d%s", line++, ": ");
 
 /* Branching 2/2 */
 if(ascii_flag) {
-if(c<(0x80)) {
-if(0x1F<(c)) printf("%s%2c", " ", c);
-else printf("%s%02X", " ", c);
-}
-else printf("%s%02X", " ", c);
+if(c<(0x80)) printf("%s%3s", " ", *(c+(p)));
+else printf("%s%3X", " ", c);
 }
 else printf("%s%02X", " ", c);
 
