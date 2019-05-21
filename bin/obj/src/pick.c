@@ -27,7 +27,7 @@ if(argc<(2)) {
 printf("\n");
 printf("%s\n", " pick <path> [FILE]");
 printf("\n");
-printf("%s\n", " Find files that contain the specific string using depth-first search.");
+printf("%s\n", " Find files that contain the case-sensitive specific string using depth-first search.");
 printf("%s\n", " e.g., pick ./* obj");
 return(0x00);
 }
