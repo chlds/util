@@ -6,7 +6,7 @@ argp: Put the leading address of a buffer at.
 */
 
 
-# include <stdarg.h>
+// # include <stdarg.h>
 
 signed(__cdecl append2(signed char(*di), signed char(*si))) {
 
