@@ -88,10 +88,22 @@ signed(__cdecl ct_ars2(signed char(*base)));
 /* Count arguments to the terminating null character. */
 
 
+signed(__cdecl ncpy(signed char(*di), signed char(*si), signed(arg)));
 signed(__cdecl cpy2(signed char(cache), signed char(*di), signed char(*si)));
 signed(__cdecl cpy(signed char(*di), signed char(*si)));
 
 /* Copy to the di out of the si */
+
+
+signed(__cdecl ct_txt_internal(signed(align), signed(*argp), signed char(*base)));
+signed(__cdecl ct_txt(signed(align), signed char(*base)));
+
+/* Count letters along with alignement of the tab to the null character. */
+
+
+signed(__cdecl ct_only(signed char(di), signed char(*argp)));
+
+/* Count a specific letter only. */
 
 
 signed(__cdecl ct2_except_internal(signed char(cache), signed(*di), signed char(*base)));

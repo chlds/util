@@ -13,6 +13,19 @@ Refer Code Page Identifiers on site:docs.microsoft.com.
 
 
 
+/*
+enum {
+NUL, SOH, STX, ETX, EOT, ENQ, ACK, BEL,\
+BS,  HT,  LF,  VT,  FF,  CR,  SO,  SI, \
+DLE, DC1, DC2, DC3, DC4, NAK, SYN, ETB,\
+CAN, EM,  SUB, ESC, FS,  GS,  RS,  US, \
+SP
+};
+
+signed const(DEL) = (0x7F);
+//*/
+
+
 signed char(*(ascii[])) = {
 
 (signed char(*)) ("NUL"),

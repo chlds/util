@@ -9,17 +9,23 @@ Standards: STDIN, STDOUT and STDERR */
 
 
 
-# define XOR(A, B) A = ((A)^(B))
-# define OR(A, B) A = ((A)|(B))
-# define AND(A, B) A = ((A)&(B))
-# define NOT(A) A = (~(A))
+# define XNOR(A)    A = (~((A)^(A)))
 
-# define XNOR(A) A = (~((A)^(A)))
+# define  XOR(A,B)  A = ((A)^(B))
+# define   OR(A,B)  A = ((A)|(B))
+# define  AND(A,B)  A = ((A)&(B))
 
-# define SHL(A, B) A = ((A)<<(B))
-# define SHR(A, B) A = ((A)>>(B))
+# define  NOT(A)    A = (~(A))
 
-# define NIL (0)
+# define  SHL(A,B)  A = ((A)<<(B))
+# define  SHR(A,B)  A = ((A)>>(B))
+
+# define  ADD(A,B)  A=((A)+(B));
+
+# define  DEC(A)    (--(A))
+# define  INC(A)    (++(A))
+
+# define  NIL       (0x00)
 
 
 enum {

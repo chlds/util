@@ -24,6 +24,7 @@
 
 
 # ifdef C_AS
+// # include "./ascii_table.h"
 # include "./datatype.h"
 # include "./cmdl_fn.h"
 # include "./fn.h"
@@ -34,6 +35,15 @@
 
 # ifdef C_MT
 # include <process.h>
+# endif
+
+
+# ifdef C_CMDLN
+# ifndef C_W32API
+# define C_W32API
+# endif
+# include "./cmdln.h"
+// using the CONSOLE_SCREEN_BUFFER_INFO structure(, user32.lib and more..)
 # endif
 
 
