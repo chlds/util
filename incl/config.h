@@ -38,15 +38,15 @@
 # endif
 
 
+# ifdef C_W32API
+# include <windows.h>
+# endif
+
+
 # ifdef C_CMDLN
 # ifndef C_W32API
-# define C_W32API
+# include <windows.h>
 # endif
 # include "./cmdln.h"
 // using the CONSOLE_SCREEN_BUFFER_INFO structure(, user32.lib and more..)
-# endif
-
-
-# ifdef C_W32API
-# include <windows.h>
 # endif
