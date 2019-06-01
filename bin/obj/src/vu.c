@@ -15,15 +15,16 @@ also e.g., a super daemon like the inet.d, fn. ioctl() and/or more..
 # define C_CMDLN
 # define C_W32API
 # include "../../../incl/config.h"
-# pragma comment(lib, "user32.lib")
+// # pragma comment(lib, "user32.lib")
 
 # define COORDS (0x01+(0x03))
 # define COUNT_FN (0x01+(0x20))
 # define OBJS (0x01+(0x03))
-# define BUFF (0x600)
+
+// # define BUFF (0x600)
 
 # define global
-
+global signed(quit_vu) = (0x00);
 global signed(command_mode) = (0x00);
 global signed(terminate) = (0x00);
 
@@ -45,29 +46,17 @@ CTRL_X, CTRL_Y, CTRL_Z, CTRL_LBRACKET,\
 CTRL_BSLASH, CTRL_RBRACKET, CTRL_ASTERISK, CTRL_HASH
 };
 
-auto signed char const(CR) = ('\r');
-auto signed char const(LF) = ('\n');
-auto signed char const(SP) = (' ');
-
-auto signed char(board[BUFF]) = {
-(signed char) (0x00)
-};
-
-auto signed char(buff[BUFF]) = {
-(signed char) (0x00)
-};
-
-auto signed char(snap[BUFF]) = {
-(signed char) (0x00)
-};
-
 auto signed(i), (r);
 auto signed short(flag);
-auto unsigned(c);
+auto signed char(c);
+// auto unsigned char(c);
 
+/*
 auto void(*(device[OBJS]));
+auto void(*(search[OBJS]));
 auto void(*(module[OBJS]));
 auto void(*(window[OBJS]));
+//*/
 
 auto COORD(coord);
 auto POINT(point);
@@ -77,15 +66,7 @@ auto CMDLN_STAT(cmdln_stat);
 // Refer at incl/cmdln.h and incl/config.h
 
 /* **** CODE/TEXT */
-cmdln_stat.clip = (board);
-cmdln_stat.craft = (snap);
-cmdln_stat.init_p = (buff);
-cmdln_stat.p = (buff);
-// cmdln_stat.count = (0x00);
-// cmdln_stat.tail = (0x00);
-cmdln_stat.limit = (BUFF);
-
-flag = (0x00);
+XOR(flag,flag);
 
 // Get the handle for the standard output device
 cmdln_stat.s_out = (void(*)) GetStdHandle(STD_OUTPUT_HANDLE);
@@ -156,49 +137,6 @@ return(XNOR(r));
 
 else printf("%s\n", "All Done!");
 
-//* Monitor
-printf("\n");
-printf("%s\n", "Monitoring:");
-printf("%s%02Xh\n", "cmdln_stat.c is: ", cmdln_stat.c);
-printf("\n");
-printf("%s%02Xh\n", "*(cmdln_stat.init_p+(cmdln_stat.count)) is: ", *(cmdln_stat.init_p+(cmdln_stat.count)));
-printf("%s%02Xh\n", "*(buff+(cmdln_stat.count)) is: ", *(buff+(cmdln_stat.count)));
-printf("%s%02Xh\n", "*(cmdln_stat.p) is: ", *(cmdln_stat.p));
-printf("%s%02Xh\n", "*(buff+(cmdln_stat.tail))  is: ", *(buff+(cmdln_stat.tail)));
-printf("%s%02Xh\n", "*(cmdln_stat.init_p+(cmdln_stat.tail))  is: ", *(cmdln_stat.init_p+(cmdln_stat.tail)));
-printf("\n");
-printf("%s%s\n", "cmdln_stat.init_p is: ", cmdln_stat.init_p);
-printf("%s%p\n", "cmdln_stat.init_p is: ", cmdln_stat.init_p);
-printf("%s%s\n", "cmdln_stat.p      is: ", cmdln_stat.p);
-printf("%s%p\n", "cmdln_stat.p      is: ", cmdln_stat.p);
-printf("%s%s\n", "buff              is: ", buff);
-printf("%s%p\n", "buff              is: ", buff);
-printf("\n");
-printf("%s%s\n", "cmdln_stat.clip   is: ", cmdln_stat.clip);
-printf("%s%p\n", "cmdln_stat.clip   is: ", cmdln_stat.clip);
-printf("%s%s\n", "board             is: ", board);
-printf("%s%p\n", "board             is: ", board);
-printf("\n");
-printf("%s%s\n", "cmdln_stat.craft  is: ", cmdln_stat.craft);
-printf("%s%p\n", "cmdln_stat.craft  is: ", cmdln_stat.craft);
-printf("%s%s\n", "snap              is: ", snap);
-printf("%s%p\n", "snap              is: ", snap);
-printf("\n");
-r = ct(cmdln_stat.init_p); printf("%s%d%s%Xh\n", "r = ct(cmdln_stat.init_p) is: ", r, " or ", r);
-r = ct(cmdln_stat.p);      printf("%s%d%s%Xh\n", "r = ct(cmdln_stat.p)      is: ", r, " or ", r);
-r = ct(buff);              printf("%s%d%s%Xh\n", "r = ct(buff)              is: ", r, " or ", r);
-r = ct(cmdln_stat.clip);   printf("%s%d%s%Xh\n", "r = ct(cmdln_stat.clip)   is: ", r, " or ", r);
-r = ct(board);             printf("%s%d%s%Xh\n", "r = ct(board)             is: ", r, " or ", r);
-r = ct(cmdln_stat.craft);  printf("%s%d%s%Xh\n", "r = ct(cmdln_stat.craft)  is: ", r, " or ", r);
-r = ct(snap);              printf("%s%d%s%Xh\n", "r = ct(snap)              is: ", r, " or ", r);
-printf("\n");
-printf("%s%d%s%Xh\n", "cmdln_stat.count  is: ", cmdln_stat.count, " or ", cmdln_stat.count);
-printf("%s%d%s%Xh\n", "cmdln_stat.tail   is: ", cmdln_stat.tail, " or ", cmdln_stat.tail);
-printf("%s%d%s%Xh\n", "cmdln_stat.limit  is: ", cmdln_stat.limit, " or ", cmdln_stat.limit);
-printf("%s%p\n", "cmdln_stat.s_in   is: ", cmdln_stat.s_in);
-printf("%s%p\n", "cmdln_stat.s_out  is: ", cmdln_stat.s_out);
-printf("%s%p\n", "cmdln_stat.s_err  is: ", cmdln_stat.s_err);
-//*/
 
 return(0x00);
 }

@@ -33,14 +33,14 @@ struct knot(*s);
 void(*optl);
 };
 
-struct knot {
+typedef struct knot {
 signed char(*p);
 signed short(flag);
 signed int(uid);
 struct knot(*d);
 struct knot(*s);
 void(*optl);
-};
+} KNOT;
 
 struct pknot {
 signed char(*p);

@@ -12,7 +12,6 @@ UN-COMPLETED
 # define C_W32API
 # define C_CMDLN
 # include "../../../incl/config.h"
-// # pragma comment(lib, "user32.lib")
 
 # define COORDS (0x01+(0x03))
 # define COUNT_FN (0x01+(0x20))
@@ -64,12 +63,13 @@ auto signed(__cdecl*(fn[COUNT_FN])) (void(*argp)) = {
 (signed(__cdecl*) (void(*))) (0x00)
 };
 
-// for 7-bit characters
+/* for 7-bit characters
 auto signed char const(BS) = (8);
 auto signed char const(LF) = ('\n');
 auto signed char const(CR) = ('\r');
 auto signed char const(ESC) = (27);
 auto signed char const(SP) = (' ');
+//*/
 
 auto signed(cache);
 auto signed(i), (r);
@@ -175,8 +175,8 @@ return(0x00);
 }
 // Set the caret
 if(!(coord.X^((*argp).csbi.srWindow.Right))) {
-coord.X = (0x00);
 INC(coord.Y);
+XOR(coord.X,coord.X);
 }
 else {
 INC(coord.X);
@@ -187,9 +187,6 @@ r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }}}}
-
-
-// Build a linked list
 
 return(0x01+(vu_internal(argp)));
 }

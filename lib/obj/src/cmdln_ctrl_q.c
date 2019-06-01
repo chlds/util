@@ -1,9 +1,10 @@
 /* **** Notes
 
-Launch when press Ctrl-H.
+Press <Ctrl-Q> to invoke the function.
 
 Remarks:
 Launch on vu.exe
+Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 */
 
 
@@ -16,6 +17,8 @@ Launch on vu.exe
 signed(__cdecl cmdln_ctrl_q(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+extern signed(quit_vu);
+
 auto COORD(coord);
 auto signed(i), (r);
 
@@ -34,7 +37,9 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-// printf("%s\n", "Ctrl-Q;");
+INC(quit_vu);
+
+// printf("%s", "Ctrl-Q;");
 
 return(0x01);
 }
