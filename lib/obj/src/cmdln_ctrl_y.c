@@ -37,7 +37,17 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-printf("%s\n", "Ctrl-D;");
+cache = ((*argp).count);
+
+if(!(cache^((*argp).tail))) {
+}
+
+else {
+r = cpy((*argp).clip, (*argp).p);
+if(!r) printf("%s", "<< Error at fn. cpy()");
+}
+
+// printf("%s", "Ctrl-Y;");
 
 return(0x01);
 }

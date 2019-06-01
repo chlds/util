@@ -17,17 +17,24 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl cmdln_ctrl_h(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+/*
 auto signed const(ALIGN_TAB) = (0x08);
 auto signed char const(HT) = (0x09);
 
 auto COORD(coord);
+//*/
+
 auto signed(cache), (i), (r);
+
+/*
 auto signed short(flag);
 auto signed char(c);
+//*/
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+/*
 r = current_caret_pos(argp);
 
 if(!r) {
@@ -39,12 +46,9 @@ else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
-
-/* Monitor
-printf("%s%d", ", Current X: ", (*argp).csbi.dwCursorPosition.X);
-printf("%s%d", ", Current Y: ", (*argp).csbi.dwCursorPosition.Y);
 //*/
 
+/*
 // The Internal Part.
 if((*argp).count) {
 // cache = ((*argp).count);
@@ -106,14 +110,6 @@ coord.X = (r);
 
 else {
 // It is not a tab i.e., (!0x09).
-/* This is a mal-(or dys-)function..
-r = _putch(BS);
-if(!(r^(EOF))) {
-printf("%s", "<< Error at fn. _putch/_putwch()");
-return(0x00);
-}
-//*/
-
 if(coord.X) {
 DEC(coord.X);
 }
@@ -125,7 +121,9 @@ else {
 coord.X = ((*argp).csbi.srWindow.Right);
 DEC(coord.Y);
 }}}}
+//*/
 
+/*
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
 if(!r) {
@@ -133,6 +131,13 @@ r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
+//*/
+
+r = cmdln_ctrl_b(argp);
+if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_b() in fn. cmdln_ctrl_h()");
+
+r = cmdln_ctrl_d(argp);
+if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_d() in fn. cmdln_ctrl_h()");
 
 return(0x01);
 }
