@@ -48,30 +48,28 @@ if(!(cache^((*argp).tail))) {
 
 else {
 // Internal Part.
-// DEC((*argp).count);
-// DEC((*argp).p);
 DEC((*argp).tail);
-// External Part.
 c = (*((*argp).p));
 r = cpy((*argp).craft, 1+((*argp).p));
 r = cpy((*argp).p, (*argp).craft);
 // External Part.
-r = _cputs((*argp).craft);
-if(r) printf("%s", "<< Error at fn. _cputs/_cputws()");
-// Is it a tab character or not..?
 if(!(c^(HT))) {
-r = ((*argp).count);
+r = (coord.X);
 r = (r%(ALIGN_TAB));
 r = (-r+(ALIGN_TAB));
 cache = (r);
+}
+else {
+XOR(cache,cache);
+INC(cache);
+}
+// Output
+r = _cputs((*argp).craft);
+if(r) printf("%s", "<< Error at fn. _cputs/_cputws()");
 while(cache) {
 r = _putch(' ');
 if(!(r^(EOF))) printf("%s", "<< Error at fn. _putch/_putwch()");
 --cache;
-}}
-else {
-r = _putch(' ');
-if(!(r^(EOF))) printf("%s", "<< Error at fn. _putch/_putwch()");
 }
 // Set the caret.
 r = SetConsoleCursorPosition((*argp).s_out, coord);

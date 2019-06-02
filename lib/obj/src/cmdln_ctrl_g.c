@@ -96,38 +96,6 @@ coord.X = (-r+(coord.X));
 if(coord.X<(0x01+((*argp).csbi.srWindow.Right))) break;
 }}
 
-
-
-
-/*
-// The External Part.
-if(!(HT^(*p))) {
-r = ncpy((*argp).craft, (*argp).init_p, cache);
-r = ct_txt(ALIGN_TAB, (*argp).craft);
-r = (r%(ALIGN_TAB));
-r = (-r+(ALIGN_TAB));
-coord.X = (coord.X+(r));
-if(coord.X<(1+((*argp).csbi.srWindow.Right))) {
-}
-else {
-INC(coord.Y);
-cache = (1+((*argp).csbi.srWindow.Right));
-coord.X = (-cache+(coord.X));
-}}
-
-else {
-if(!(coord.X^((*argp).csbi.srWindow.Right))) {
-INC(coord.Y);
-XOR(coord.X, coord.X);
-}
-else {
-INC(coord.X);
-}}
-//*/
-
-
-
-
 if(flag) {
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 if(!r) {
