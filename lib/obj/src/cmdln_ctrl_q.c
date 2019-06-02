@@ -17,7 +17,7 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl cmdln_ctrl_q(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-extern signed(quit_vu);
+extern signed(quit);
 
 auto COORD(coord);
 auto signed(i), (r);
@@ -37,7 +37,8 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-INC(quit_vu);
+XOR(quit,quit);
+INC(quit);
 
 // printf("%s", "Ctrl-Q;");
 

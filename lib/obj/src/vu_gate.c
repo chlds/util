@@ -22,7 +22,7 @@ UN-COMPLETED
 signed(__cdecl vu_gate(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-extern signed(quit_vu);
+extern signed(quit);
 extern signed(terminate);
 
 auto KNOT(*cache);

@@ -24,7 +24,7 @@ also e.g., a super daemon like the inet.d, fn. ioctl() and/or more..
 // # define BUFF (0x600)
 
 # define global
-global signed(quit_vu) = (0x00);
+global signed(quit) = (0x00);
 global signed(command_mode) = (0x00);
 global signed(terminate) = (0x00);
 

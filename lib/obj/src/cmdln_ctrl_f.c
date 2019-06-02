@@ -42,19 +42,19 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-// Internal Part.
 cache = ((*argp).count);
 
 if(!(cache^((*argp).tail))) {
 }
 
 else {
-cache = ((*argp).count);
 p = ((*argp).p);
+
+// Internal Part.
 ((*argp).count)++;
 ((*argp).p)++;
-// The External Part.
 
+// The External Part.
 if(!(HT^(*p))) {
 r = ncpy((*argp).craft, (*argp).init_p, cache);
 r = ct_txt(ALIGN_TAB, (*argp).craft);
@@ -71,8 +71,8 @@ coord.X = (-cache+(coord.X));
 
 else {
 if(!(coord.X^((*argp).csbi.srWindow.Right))) {
-XOR(coord.X, coord.X);
 INC(coord.Y);
+XOR(coord.X, coord.X);
 }
 else {
 INC(coord.X);
