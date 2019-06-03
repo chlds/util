@@ -49,20 +49,13 @@ if(!(cache^((*argp).tail))) {
 else {
 // Internal Part.
 DEC((*argp).tail);
-c = (*((*argp).p));
+r = ct_txt(ALIGN_TAB, (*argp).init_p);
+cache = (r);
 r = cpy((*argp).craft, 1+((*argp).p));
 r = cpy((*argp).p, (*argp).craft);
 // External Part.
-if(!(c^(HT))) {
-r = (coord.X);
-r = (r%(ALIGN_TAB));
-r = (-r+(ALIGN_TAB));
-cache = (r);
-}
-else {
-XOR(cache,cache);
-INC(cache);
-}
+r = ct_txt(ALIGN_TAB, (*argp).init_p);
+cache = (-r+(cache));
 // Output
 r = _cputs((*argp).craft);
 if(r) printf("%s", "<< Error at fn. _cputs/_cputws()");

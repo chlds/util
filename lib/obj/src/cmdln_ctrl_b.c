@@ -40,45 +40,25 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-/* Monitor
-printf("%s%d", ", Current X: ", (*argp).csbi.dwCursorPosition.X);
-printf("%s%d", ", Current Y: ", (*argp).csbi.dwCursorPosition.Y);
-//*/
-
-// The Internal Part.
 if((*argp).count) {
-// cache = ((*argp).count);
-// if(!(cache^((*argp).tail))) DEC((*argp).tail);
-// *(--((*argp).p)) = ('\0');
-// --((*argp).tail);
---((*argp).count);
---((*argp).p);
 
-// The External Part.
+DEC((*argp).count);
+DEC((*argp).p);
+
+// External Part.
 c = (*((*argp).p));
 
 if(!(c^(HT))) {
-// It is a tab i.e., (0x09).
 
 r = ncpy((*argp).craft, (*argp).init_p, (*argp).count);
-
 r = ct_only('\t', (*argp).craft);
 
 if(!r) {
+
 r = ((*argp).count%(ALIGN_TAB));
 r = (-r+(ALIGN_TAB));
-if(!(coord.Y^((*argp).depart.Y))) {
 coord.X = (-r+(coord.X));
 }
-else {
-r = (-r+(coord.X));
-if(r<(0x00)) {
-coord.X = (++r+((*argp).csbi.srWindow.Right));
-DEC(coord.Y);
-}
-else {
-coord.X = (r);
-}}}
 
 else {
 // back-ward search the last tab position.
@@ -91,21 +71,12 @@ cache++;
 }
 r = (cache%(ALIGN_TAB));
 r = (-r+(ALIGN_TAB));
-if(!(coord.Y^((*argp).depart.Y))) {
 coord.X = (-r+(coord.X));
-}
-else {
-r = (-r+(coord.X));
-if(r<(0x00)) {
-coord.X = (++r+((*argp).csbi.srWindow.Right));
-DEC(coord.Y);
-}
-else {
-coord.X = (r);
-}}}}
+}}
 
 else {
 // It is not a tab i.e., (!0x09).
+DEC(coord.X);
 /* This is a mal-(or dys-)function..
 r = _putch(BS);
 if(!(r^(EOF))) {
@@ -113,18 +84,19 @@ printf("%s", "<< Error at fn. _putch/_putwch()");
 return(0x00);
 }
 //*/
-
-if(coord.X) {
-DEC(coord.X);
 }
 
-else {
+// Coordinates
+
 if(!(coord.Y^((*argp).depart.Y))) {
 }
+
 else {
-coord.X = ((*argp).csbi.srWindow.Right);
+if(coord.X<(0x00)) {
 DEC(coord.Y);
-}}}}
+cache = ((*argp).csbi.srWindow.Right);
+coord.X = (cache+(INC(coord.X)));
+}}}
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
