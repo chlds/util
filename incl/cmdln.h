@@ -8,6 +8,8 @@ If the function fails, the return value is (0x00). */
 
 
 
+# define debugging (0x01)
+
 typedef struct cmdln_stat {
 // for 7-bit character and more..
 union xchar {
@@ -39,6 +41,13 @@ COORD(depart);
 CONSOLE_SCREEN_BUFFER_INFO(csbi);
 signed(d);
 signed(s);
+// debug monitor
+struct debug_mon {
+signed(copied);
+signed(embedded);
+signed(repeat);
+};
+// optional
 void(*optl);
 } CMDLN_STAT;
 

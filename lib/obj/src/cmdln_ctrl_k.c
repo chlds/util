@@ -17,6 +17,8 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl cmdln_ctrl_k(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+// extern signed(debugging);
+
 auto signed const(ALIGN_TAB) = (0x08);
 
 auto COORD(coord);
@@ -45,25 +47,30 @@ if(!(r^((*argp).tail))) {
 }
 
 else {
+cache = ct_txt(ALIGN_TAB, (*argp).init_p);
 // Copy a line after the (*argp).p to a clip board (and type <Ctrl-P> to paste the one).
 r = cpy((*argp).clip, (*argp).p);
 if(!r) {
 printf("%s\n", "<< Error at fn. cpy()");
 return(0x00);
 }
+if(debugging) (*argp).copied = (r);
 // Internal Part.
 r = cipher_embed((*argp).p, r);
 if(!r) {
 printf("%s\n", "<< Error at fn. cipher_embed()");
 return(0x00);
 }
+if(debugging) (*argp).embedded = (r);
 (*argp).tail = (-r+((*argp).tail));
 // (*argp).count = ((*argp).tail);
 // External Part.
-cache = ct_txt(ALIGN_TAB, (*argp).clip);
+r = ct_txt(ALIGN_TAB, (*argp).init_p);
+cache = (-r+(cache));
+if(debugging) (*argp).repeat = (cache);
 while(cache) {
-r = _putch(' ');
-// r = _putch('=');
+if(debugging) r = _putch('=');
+else r = _putch(' ');
 --cache;
 }
 r = SetConsoleCursorPosition((*argp).s_out, coord);

@@ -7,8 +7,6 @@ UN-COMPLETED
 */
 
 
-# define debug_flag (0x01)
-
 # define C_CODE_STDS
 # define C_AS
 # define C_W32API
@@ -22,6 +20,7 @@ UN-COMPLETED
 signed(__cdecl vu_internal(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+// extern signed(debugging);
 extern signed(terminate);
 
 auto signed(__cdecl*(fn[COUNT_FN])) (void(*argp)) = {
@@ -187,7 +186,7 @@ return(0x00);
 }}}}
 
 /* to debug */
-if(debug_flag) r = debug_monitor(argp);
+if(debugging) r = debug_monitor(argp);
 
 return(0x01+(vu_internal(argp)));
 }
