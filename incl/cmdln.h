@@ -11,7 +11,7 @@ If the function fails, the return value is (0x00). */
 typedef struct cmdln_stat {
 // for 7-bit character and more..
 union xchar {
-signed char(c);
+signed char(c1);
 signed char(c2[0x02]);
 signed char(c4[0x04]);
 signed char(c6[0x06]);
@@ -19,6 +19,7 @@ signed char(c8[0x08]);
 signed char(c16[0x10]);
 signed char(c24[0x18]);
 };
+signed(c);
 // for a buffer
 signed char(*clip);
 signed char(*craft);

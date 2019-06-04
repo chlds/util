@@ -40,27 +40,13 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 //*/
 
 // Internal Part.
-
 if((*argp).count) {
-// cache = ((*argp).count);
-(*argp).count = (0x00);
-// (*argp).tail = (cache);
-// And
 (*argp).p = ((*argp).init_p);
+(*argp).count = (0x00);
+// (*argp).tail = (0x00);
 }
 
 // External Part.
-
-/*
-r = current_caret_pos(argp);
-if(!r) {
-printf("<< Error at fn. current_caret_pos()");
-return(0x00);
-}
-(*argp).csbi.dwCursorPosition.X = (0x00);
-(*argp).csbi.dwCursorPosition.Y = (0x00);
-//*/
-
 r = SetConsoleCursorPosition((*argp).s_out, (*argp).depart);
 
 if(!r) {

@@ -7,6 +7,8 @@ UN-COMPLETED
 */
 
 
+# define debug_flag (0x01)
+
 # define C_CODE_STDS
 # define C_AS
 # define C_W32API
@@ -71,10 +73,11 @@ auto signed char const(ESC) = (27);
 auto signed char const(SP) = (' ');
 //*/
 
-auto signed(cache);
-auto signed(i), (r);
+auto signed(cache), (i), (r);
 auto signed(c);
-// auto unsigned(c);
+// Not auto signed char(c);
+
+auto signed short(flag);
 
 auto COORD(coord);
 auto POINT(point);
@@ -111,36 +114,31 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
 // Get a character (in the ASCII)
-c = _getch();
+c = (signed) _getch();
 
 (*argp).c = (c);
 
 if(c<(0x20)) {
-// Directly access to functions with a vector table (using an array of offset pointers)
+// Directly access to a function with a vector table (using an array of offset pointers for functions)
 r = (*(c+(fn))) (argp);
 if(!r) printf("%s\n", "<< Oops, it has occurred an error at r = (*(c+(fn))) (argp)..");
 }
-
 
 else {
 if(c<(0x7F)) {
 
 cache = ((*argp).count);
+
 if(!(cache^((*argp).tail))) {
 *((*argp).p) = (c);
 ((*argp).p)++;
 ((*argp).count)++;
 ((*argp).tail)++;
 *((*argp).p) = ('\0');
-// External Part.
-r = _putch(c);
-if(!(r^(EOF))) {
-printf("%s\n", "<< Error at fn. _putch/_putwch()");
-return(0x00);
-}}
+}
 
 else {
-r = cpy((*argp).clip, (*argp).p);
+r = cpy((*argp).craft, (*argp).p);
 if(!r) {
 printf("%s", "<< Error at fn. cpy()");
 return(0x00);
@@ -150,36 +148,36 @@ return(0x00);
 ((*argp).count)++;
 ((*argp).tail)++;
 *((*argp).p) = ('\0');
-r = append2((*argp).p, (*argp).clip);
+r = append2((*argp).p, (*argp).craft);
 if(!r) {
 printf("%s", "<< Error at fn. append2()");
+return(0x00);
 }
-else {
-/* Monitor
-printf("%s%s", "<< Good (*argp).init_p: ", (*argp).init_p);
-printf("%s%s", ", (*argp).p: ", (*argp).p);
-printf("%s%d", ", (*argp).count: ", (*argp).count);
-printf("%s%d", ", (*argp).tail: ", (*argp).tail);
-//*/
+XNOR(flag);
 }
+
 // External Part.
 r = _putch(c);
 if(!(r^(EOF))) {
 printf("%s\n", "<< Error at fn. _putch/_putwch()");
 return(0x00);
 }
-r = _cputs((*argp).clip);
+
+if(flag) {
+// On the current Console Screen Buffer Info.
+r = current_caret_pos(argp);
+if(!r) {
+printf("<< Error at fn. current_caret_pos()");
+return(0x00);
+}
+else {
+coord.X = ((*argp).csbi.dwCursorPosition.X);
+coord.Y = ((*argp).csbi.dwCursorPosition.Y);
+}
+r = _cputs((*argp).craft);
 if(r) {
 printf("%s\n", "<< Error at fn. _cputs/_cputws()");
 return(0x00);
-}
-// Set the caret
-if(!(coord.X^((*argp).csbi.srWindow.Right))) {
-INC(coord.Y);
-XOR(coord.X,coord.X);
-}
-else {
-INC(coord.X);
 }
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 if(!r) {
@@ -187,6 +185,9 @@ r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }}}}
+
+/* to debug */
+if(debug_flag) r = debug_monitor(argp);
 
 return(0x01+(vu_internal(argp)));
 }

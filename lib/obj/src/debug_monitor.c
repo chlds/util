@@ -1,6 +1,6 @@
 /* **** Notes
 
-Press <Ctrl-K> to invoke the function.
+Press <Ctrl-A> to invoke the function.
 
 Remarks:
 Launch on vu.exe
@@ -14,13 +14,11 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl cmdln_ctrl_k(CMDLN_STAT(*argp))) {
+signed(__cdecl debug_monitor(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed const(ALIGN_TAB) = (0x08);
-
-auto COORD(coord);
-auto signed(cache), (i), (r);
+auto COORD(coord), (coord_mon);
+auto signed(cache), (r);
 auto signed short(flag);
 auto signed char(c);
 
@@ -39,39 +37,39 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-r = ((*argp).count);
+/* to debug monitor */
+coord_mon.X = ((*argp).csbi.srWindow.Left);
+coord_mon.Y = (-1+((*argp).csbi.srWindow.Bottom));
 
-if(!(r^((*argp).tail))) {
-}
+r = SetConsoleCursorPosition((*argp).s_out, coord_mon);
 
-else {
-// Copy a line after the (*argp).p to a clip board (and type <Ctrl-P> to paste the one).
-r = cpy((*argp).clip, (*argp).p);
-if(!r) {
-printf("%s\n", "<< Error at fn. cpy()");
-return(0x00);
-}
-// Internal Part.
-r = cipher_embed((*argp).p, r);
-if(!r) {
-printf("%s\n", "<< Error at fn. cipher_embed()");
-return(0x00);
-}
-(*argp).tail = (-r+((*argp).tail));
-// (*argp).count = ((*argp).tail);
-// External Part.
-cache = ct_txt(ALIGN_TAB, (*argp).clip);
-while(cache) {
-r = _putch(' ');
-// r = _putch('=');
---cache;
-}
-r = SetConsoleCursorPosition((*argp).s_out, coord);
 if(!r) {
 r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
-}}
+}
+
+/* Output */
+cache = (1+((*argp).csbi.srWindow.Right));
+
+while(cache) {
+r = _putch('*');
+--cache;
+}
+
+printf("%s%8p", "(*argp).init_p: ", (*argp).init_p);
+printf("%s%8p", ", (*argp).p: ", (*argp).p);
+printf("%s%3d", ", (*argp).count: ", (*argp).count);
+printf("%s%3d", ", (*argp).tail: ", (*argp).tail);
+
+/* Go back */
+r = SetConsoleCursorPosition((*argp).s_out, coord);
+
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}
 
 return(0x01);
 }

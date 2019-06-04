@@ -23,9 +23,8 @@ auto signed const(ALIGN_TAB) = (0x08);
 auto signed char(*p);
 
 auto COORD(coord);
-auto signed(cache), (r);
+auto signed(r);
 auto signed short(flag);
-auto signed char(c);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -42,41 +41,34 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-cache = ((*argp).count);
+r = ((*argp).count);
 
-if(!(cache^((*argp).tail))) {
+if(!(r^((*argp).tail))) {
 }
 
 else {
 p = ((*argp).p);
-
-// Internal Part.
 ((*argp).count)++;
 ((*argp).p)++;
-
-// The External Part.
+// External Part.
 if(!(HT^(*p))) {
-r = ncpy((*argp).craft, (*argp).init_p, cache);
+r = ncpy((*argp).craft, (*argp).init_p, r);
 r = ct_txt(ALIGN_TAB, (*argp).craft);
 r = (r%(ALIGN_TAB));
 r = (-r+(ALIGN_TAB));
 coord.X = (coord.X+(r));
-if(coord.X<(1+((*argp).csbi.srWindow.Right))) {
 }
-else {
-INC(coord.Y);
-cache = (1+((*argp).csbi.srWindow.Right));
-coord.X = (-cache+(coord.X));
-}}
+else INC(coord.X);
+
+r = (1+((*argp).csbi.srWindow.Right));
+
+if(coord.X<(r)) {
+}
 
 else {
-if(!(coord.X^((*argp).csbi.srWindow.Right))) {
 INC(coord.Y);
-XOR(coord.X, coord.X);
+coord.X = (-r+(coord.X));
 }
-else {
-INC(coord.X);
-}}
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
