@@ -14,6 +14,8 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 # define C_CMDLN
 # include "../../../incl/config.h"
 
+# define more_debugging (0x00)
+
 signed(__cdecl debug_monitor(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
@@ -39,7 +41,7 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 /* to debug monitor */
 coord_mon.X = ((*argp).csbi.srWindow.Left);
-coord_mon.Y = (-2+((*argp).csbi.srWindow.Bottom));
+coord_mon.Y = (-4+((*argp).csbi.srWindow.Bottom));
 
 r = SetConsoleCursorPosition((*argp).s_out, coord_mon);
 
@@ -57,15 +59,28 @@ r = _putch('*');
 --cache;
 }
 
-printf("%s%8p", "(*argp).init_p: ", (*argp).init_p);
-printf("%s%8p", ", (*argp).p: ", (*argp).p);
-printf("%s%3d", ", (*argp).count: ", (*argp).count);
-printf("%s%3d\n", ", (*argp).tail: ", (*argp).tail);
+printf("%s", "On (*argp)");
 
-printf("%s%8Xh", "(*argp).copied: ", (*argp).copied);
-printf("%s%8Xh", ", (*argp).embedded: ", (*argp).embedded);
-printf("%s%8Xh", ", (*argp).repeat: ", (*argp).repeat);
-printf("%s%8Xh", ", (*argp).char_output: ", (*argp).char_output);
+printf("%s%3d", ", .count: ", (*argp).count);
+printf("%s%3d", ", .tail: ", (*argp).tail);
+
+printf("%s%3d", ", .copied: ", (*argp).copied);
+printf("%s%3d", ", .embedded: ", (*argp).embedded);
+printf("%s%3d", ", .repeat: ", (*argp).repeat);
+
+printf("%s%3d\n", ", .char_output: ", (*argp).char_output);
+
+if(more_debugging) {
+printf("%s%8p%s%s\n", "(*argp).init_p: ", (*argp).init_p, " : ", (*argp).init_p);
+printf("%s%8p%s%s\n", "(*argp).craft : ", (*argp).craft, " : ", (*argp).craft);
+printf("%s%8p%s%s",   "(*argp).p     : ", (*argp).p, " : ", (*argp).p);
+}
+
+else {
+printf("%s%8p\n", "(*argp).init_p: ", (*argp).init_p);
+printf("%s%8p\n", "(*argp).craft : ", (*argp).craft);
+printf("%s%8p",   "(*argp).p     : ", (*argp).p);
+}
 
 /* Go back */
 r = SetConsoleCursorPosition((*argp).s_out, coord);

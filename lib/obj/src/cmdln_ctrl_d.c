@@ -59,10 +59,12 @@ r = ct_txt(ALIGN_TAB, (*argp).init_p);
 cache = (-r+(cache));
 // Output
 r = c_outs((*argp).craft,argp);
+/* It is empty ..or has an error.
 if(!r) {
 printf("%s", "<< Error at fn. c_outs()");
 return(0x00);
 }
+//*/
 while(cache) {
 if(debugging) r = _putch('*');
 else r = _putch(' ');
