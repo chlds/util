@@ -17,17 +17,13 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-# define BUFF (0x600)
-
 signed(__cdecl cmdln_ctrl_i(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed const(ALIGN_TAB) = (0x08);
-// auto signed char const(TAB) = (0x09);
+auto signed char const(HT) = (0x09);
 
-auto signed char(craft[BUFF]) = {
-(signed char) (0x00)
-};
+auto signed char(*p);
 
 auto COORD(coord);
 auto signed(cache), (r);
@@ -50,77 +46,51 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-// Internal Part.
 cache = ((*argp).count);
 
-if(!(cache^((*argp).tail))) {
-*((*argp).p) = ('\t');
-// *((*argp).p) = (0x09);
-INC((*argp).p);
-INC((*argp).count);
-INC((*argp).tail);
-*((*argp).p) = ('\0');
-}
+if(!(cache^((*argp).tail))) XOR(flag,flag);
 
 else {
-r = cpy(craft, (*argp).p);
+r = cpy((*argp).craft, (*argp).p);
 if(!r) {
-printf("%s", "<< Error at. fn. cpy()");
+printf("%s", "<< Error at fn. cpy()");
 return(0x00);
 }
-else {
+XNOR(flag);
+}
+
 *((*argp).p) = ('\t');
 // *((*argp).p) = (0x09);
-INC((*argp).p);
-INC((*argp).count);
-INC((*argp).tail);
-*((*argp).p) = ('\0');
-r = cpy((*argp).p, craft);
-if(!r) {
-printf("%s\n", "<< Error at. fn. cpy()");
-return(0x00);
-}
-else {
-// printf("%s%d%s", "<< Copied ", r, " letters.");
-}
-flag++;
-}}
-
+// *((*argp).p) = ((*argp).c);
 
 // External Part.
-/*
-cache = (cache%(ALIGN_TAB));
-cache = (-cache+(ALIGN_TAB));
-//*/
+r = c_out((*argp).p,argp);
 
-r = _putch('\t');
-
-if(!(r^(EOF))) {
-printf("<< Error at fn. _putch/_putwch()");
+if(!r) {
+printf("%s", "<< Error at fn. c_out()");
 return(0x00);
 }
 
-r = current_caret_pos(argp);
+((*argp).p)++;
+((*argp).count)++;
+((*argp).tail)++;
+*((*argp).p) = ('\0');
 
+if(flag) {
+r = current_caret_pos(argp);
 if(!r) {
 printf("<< Error at fn. current_caret_pos()");
 return(0x00);
 }
-
 else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-if(flag) {
-r = _cputs(craft);
-if(r) {
-if(!(errno^(EINVAL))) {
-}
-else {
-printf("%s%d", "<< Error at fn. _cputs/_cputws() with errno ", errno);
-return(0x00);
-}}}
+r = cpy((*argp).p,(*argp).craft);
+
+r = c_outs((*argp).p,argp);
+if(!r) return(0x00);
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
@@ -128,7 +98,7 @@ if(!r) {
 r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
-}
+}}
 
 // printf("%s\n", "Ctrl-I;");
 

@@ -65,6 +65,7 @@ printf("%s%3d\n", ", (*argp).tail: ", (*argp).tail);
 printf("%s%8Xh", "(*argp).copied: ", (*argp).copied);
 printf("%s%8Xh", ", (*argp).embedded: ", (*argp).embedded);
 printf("%s%8Xh", ", (*argp).repeat: ", (*argp).repeat);
+printf("%s%8Xh", ", (*argp).char_output: ", (*argp).char_output);
 
 /* Go back */
 r = SetConsoleCursorPosition((*argp).s_out, coord);

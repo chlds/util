@@ -22,6 +22,8 @@ signed(__cdecl cmdln_ctrl_d(CMDLN_STAT(*argp))) {
 auto signed const(ALIGN_TAB) = (0x08);
 auto signed char const(HT) = (0x09);
 
+auto signed char(*p);
+
 auto COORD(coord);
 auto signed(cache), (r);
 auto signed char(c);
@@ -41,30 +43,32 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-cache = ((*argp).count);
+r = ((*argp).count);
 
-if(!(cache^((*argp).tail))) {
+if(!(r^((*argp).tail))) {
 }
 
 else {
 // Internal Part.
 DEC((*argp).tail);
-r = ct_txt(ALIGN_TAB, (*argp).init_p);
-cache = (r);
+cache = ct_txt(ALIGN_TAB, (*argp).init_p);
 r = cpy((*argp).craft, 1+((*argp).p));
 r = cpy((*argp).p, (*argp).craft);
 // External Part.
 r = ct_txt(ALIGN_TAB, (*argp).init_p);
 cache = (-r+(cache));
 // Output
-r = _cputs((*argp).craft);
-if(r) printf("%s", "<< Error at fn. _cputs/_cputws()");
+r = c_outs((*argp).craft,argp);
+if(!r) {
+printf("%s", "<< Error at fn. c_outs()");
+return(0x00);
+}
 while(cache) {
-r = _putch(' ');
+if(debugging) r = _putch('*');
+else r = _putch(' ');
 if(!(r^(EOF))) printf("%s", "<< Error at fn. _putch/_putwch()");
 --cache;
 }
-// Set the caret.
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 if(!r) {
 r = GetLastError();
@@ -72,7 +76,7 @@ printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r
 return(0x00);
 }}
 
-// printf("%s\n", "Ctrl-D;");
+// printf("%s", "Ctrl-D;");
 
 return(0x01);
 }

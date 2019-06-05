@@ -43,6 +43,7 @@ signed(d);
 signed(s);
 // debug monitor
 struct debug_mon {
+signed(char_output);
 signed(copied);
 signed(embedded);
 signed(repeat);

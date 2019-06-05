@@ -23,6 +23,9 @@ signed(__cdecl vu_internal(CMDLN_STAT(*argp))) {
 // extern signed(debugging);
 extern signed(terminate);
 
+auto signed char const(HT) = ('\t');
+// auto signed char const(HT) = (0x09);
+
 auto signed(__cdecl*(fn[COUNT_FN])) (void(*argp)) = {
 
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_at),
@@ -71,6 +74,8 @@ auto signed char const(CR) = ('\r');
 auto signed char const(ESC) = (27);
 auto signed char const(SP) = (' ');
 //*/
+
+auto signed char(*p);
 
 auto signed(cache), (i), (r);
 auto signed(c);
@@ -128,13 +133,7 @@ if(c<(0x7F)) {
 
 cache = ((*argp).count);
 
-if(!(cache^((*argp).tail))) {
-*((*argp).p) = (c);
-((*argp).p)++;
-((*argp).count)++;
-((*argp).tail)++;
-*((*argp).p) = ('\0');
-}
+if(!(cache^((*argp).tail))) XOR(flag,flag);
 
 else {
 r = cpy((*argp).craft, (*argp).p);
@@ -142,28 +141,25 @@ if(!r) {
 printf("%s", "<< Error at fn. cpy()");
 return(0x00);
 }
+XNOR(flag);
+}
+
 *((*argp).p) = (c);
+
+// External Part.
+r = c_out((*argp).p,argp);
+
+if(!r) {
+printf("%s", "<< Error at fn. c_out()");
+return(0x00);
+}
+
 ((*argp).p)++;
 ((*argp).count)++;
 ((*argp).tail)++;
 *((*argp).p) = ('\0');
-r = append2((*argp).p, (*argp).craft);
-if(!r) {
-printf("%s", "<< Error at fn. append2()");
-return(0x00);
-}
-XNOR(flag);
-}
-
-// External Part.
-r = _putch(c);
-if(!(r^(EOF))) {
-printf("%s\n", "<< Error at fn. _putch/_putwch()");
-return(0x00);
-}
 
 if(flag) {
-// On the current Console Screen Buffer Info.
 r = current_caret_pos(argp);
 if(!r) {
 printf("<< Error at fn. current_caret_pos()");
@@ -173,12 +169,14 @@ else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
-r = _cputs((*argp).craft);
-if(r) {
-printf("%s\n", "<< Error at fn. _cputs/_cputws()");
-return(0x00);
-}
+
+r = cpy((*argp).p,(*argp).craft);
+
+r = c_outs((*argp).p,argp);
+if(!r) return(0x00);
+
 r = SetConsoleCursorPosition((*argp).s_out, coord);
+
 if(!r) {
 r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
