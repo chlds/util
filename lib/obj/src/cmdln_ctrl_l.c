@@ -35,7 +35,7 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-printf("%s\n", "Ctrl-L;");
+printf("%s", "Ctrl-L;");
 
 return(0x01);
 }

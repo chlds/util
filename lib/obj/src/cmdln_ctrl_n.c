@@ -16,7 +16,7 @@ auto signed(i), (r);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-printf("%s\n", "Ctrl-N;");
+printf("%s", "Ctrl-N;");
 
 return(0x01);
 }

@@ -16,7 +16,8 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl c_out(signed char(*di), CMDLN_STAT(*argp))) {
+/* **** Use after re-writing fn. c_out_backup to fn. c_out(). */
+signed(__cdecl c_out_backup(signed char(*di), CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed const(ALIGN_TAB) = (0x08);
@@ -67,10 +68,33 @@ cache = (-r+(ALIGN_TAB));
 i = (cache);
 
 // 3. Coordinates
-r = c_out_ht(cache, argp);
+while(cache) {
+r = current_caret_pos(argp);
 if(!r) {
-printf("%s", "<< Error at fn. c_out_ht()");
+printf("<< Error at fn. current_caret_pos()");
 return(0x00);
+}
+else {
+coord.X = ((*argp).csbi.dwCursorPosition.X);
+coord.Y = ((*argp).csbi.dwCursorPosition.Y);
+}
+if(!(coord.X^((*argp).csbi.srWindow.Right))) {
+INC(coord.Y);
+XOR(coord.X,coord.X);
+// Output
+r = _putch(' ');
+if(!(r^(EOF))) printf("%s", "<< Error at fn. _putch()/_putwch()");
+r = SetConsoleCursorPosition((*argp).s_out, coord);
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}}
+else {
+r = _putch(' ');
+if(!(r^(EOF))) printf("%s", "<< Error at fn. _putch()/_putwch()");
+}
+DEC(cache);
 }}
 
 else {

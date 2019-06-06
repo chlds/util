@@ -59,9 +59,10 @@ r = _putch('*');
 --cache;
 }
 
-printf("%s", "On (*argp)");
+printf("%s%3d", "coord.X: ", coord.X);
+printf("%s%3d", ", coord.Y: ", coord.Y);
 
-printf("%s%3d", ", .count: ", (*argp).count);
+printf("%s%3d", ", (*argp).count: ", (*argp).count);
 printf("%s%3d\n", ", .tail: ", (*argp).tail);
 
 printf("%s%8Xh", ".copied: ", (*argp).copied);
