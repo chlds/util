@@ -17,6 +17,7 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl cmdln_ctrl_g(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto signed char const(SP) = (0x20);
 auto signed char const(HT) = (0x09);
 auto signed const(ALIGN_TAB) = (0x08);
 
@@ -42,67 +43,33 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-cache = ((*argp).count);
-
-if(!(cache^((*argp).tail))) {
 XOR(flag,flag);
+
+r = ((*argp).count);
+
+if(!(r^((*argp).tail))) {
 }
 
 else {
+r = cmdln_ctrl_f(argp);
+if(!(SP^(*((*argp).p)))) {
 XNOR(flag);
-
+}
+if(!flag) {
 if(!(HT^(*((*argp).p)))) {
-// External Part.
-r = (coord.X);
-r = (r%(ALIGN_TAB));
-r = (-r+(ALIGN_TAB));
-ADD(coord.X,r);
-// Internal Part.
-((*argp).count)++;
-((*argp).p)++;
-r = ct_ws((*argp).p);
-// External Part.
-ADD(coord.X,r);
-// Internal Part.
-ADD((*argp).count, r);
-ADD((*argp).p, r);
 }
-
 else {
-// Internal Part.
-r = ct2thelast((*argp).p);
-ADD((*argp).count, r);
-ADD((*argp).p, r);
-// External Part.
-ADD(coord.X,r);
-// Internal Part.
-r = ct_ws((*argp).p);
-ADD((*argp).count, r);
-ADD((*argp).p, r);
-// External Part.
-ADD(coord.X,r);
-}}
+r = cmdln_ctrl_g(argp);
+}}}
 
-// Coordinates
-
-if(coord.X<(0x01+((*argp).csbi.srWindow.Right))) {
-}
-
-else {
-while(0x01) {
-INC(coord.Y);
-r = (0x01+((*argp).csbi.srWindow.Right));
-coord.X = (-r+(coord.X));
-if(coord.X<(0x01+((*argp).csbi.srWindow.Right))) break;
-}}
-
-if(flag) {
+/*
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 if(!r) {
 r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
-}}
+}
+//*/
 
 return(0x01);
 }

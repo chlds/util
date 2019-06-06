@@ -1,6 +1,6 @@
 /* **** Notes
 
-Press <Ctrl-R> to invoke the function.
+Run over space.
 
 Remarks:
 Launch on vu.exe
@@ -14,15 +14,18 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl cmdln_ctrl_r(CMDLN_STAT(*argp))) {
+signed(__cdecl cmdln_runover_sp(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto signed char const(SP) = (0x20);
+
 auto COORD(coord);
 auto signed(i), (r);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+/*
 r = current_caret_pos(argp);
 
 if(!r) {
@@ -34,16 +37,14 @@ else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
+//*/
 
 r = ((*argp).count);
+if(!(r^((*argp).tail))) return(0x00);
 
-if(!(r^((*argp).tail))) {
-}
+if(SP^(*((*argp).p))) return(0x00);
 
-else {
-}
+r = cmdln_ctrl_f(argp);
 
-// printf("%s", "Ctrl-R;");
-
-return(0x01);
+return(0x01+(cmdln_runover_sp(argp)));
 }
