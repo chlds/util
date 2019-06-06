@@ -41,7 +41,7 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 /* to debug monitor */
 coord_mon.X = ((*argp).csbi.srWindow.Left);
-coord_mon.Y = (-4+((*argp).csbi.srWindow.Bottom));
+coord_mon.Y = (-5+((*argp).csbi.srWindow.Bottom));
 
 r = SetConsoleCursorPosition((*argp).s_out, coord_mon);
 
@@ -62,13 +62,12 @@ r = _putch('*');
 printf("%s", "On (*argp)");
 
 printf("%s%3d", ", .count: ", (*argp).count);
-printf("%s%3d", ", .tail: ", (*argp).tail);
+printf("%s%3d\n", ", .tail: ", (*argp).tail);
 
-printf("%s%3d", ", .copied: ", (*argp).copied);
-printf("%s%3d", ", .embedded: ", (*argp).embedded);
-printf("%s%3d", ", .repeat: ", (*argp).repeat);
-
-printf("%s%3d\n", ", .char_output: ", (*argp).char_output);
+printf("%s%8Xh", ".copied: ", (*argp).copied);
+printf("%s%8Xh", ", .embedded: ", (*argp).embedded);
+printf("%s%8Xh", ", .repeat: ", (*argp).repeat);
+printf("%s%8Xh\n", ", .char_output: ", (*argp).char_output);
 
 if(more_debugging) {
 printf("%s%8p%s%s\n", "(*argp).init_p: ", (*argp).init_p, " : ", (*argp).init_p);

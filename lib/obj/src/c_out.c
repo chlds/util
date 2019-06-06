@@ -22,6 +22,7 @@ signed(__cdecl c_out(signed char(*di), CMDLN_STAT(*argp))) {
 auto signed const(ALIGN_TAB) = (0x08);
 auto signed char const(HT) = (0x09);
 
+auto COORD(coord_virt);
 auto COORD(coord);
 auto signed(cache), (i), (r);
 auto signed(c);
@@ -46,27 +47,63 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 // To output
 if(!(HT^(*di))) {
 
-// 1. Coordinates
+// 1. Linear
+XOR(coord_virt.Y,coord_virt.Y);
+XOR(coord_virt.X,coord_virt.X);
+OR(coord_virt.Y,coord.Y);
+OR(coord_virt.X,coord.X);
+
 while(0x01) {
-if(coord.Y<((*argp).depart.Y)) return(0x00);
-if(!(coord.Y^((*argp).depart.Y))) break;
-DEC(coord.Y);
-ADD(coord.X,0x01+((*argp).csbi.srWindow.Right));
+if(coord_virt.Y<((*argp).depart.Y)) return(0x00);
+if(!(coord_virt.Y^((*argp).depart.Y))) break;
+DEC(coord_virt.Y);
+ADD(coord_virt.X,0x01+((*argp).csbi.srWindow.Right));
 }
 
 // 2. Alignement
-r = (coord.X);
+r = (coord_virt.X);
 r = (r%(ALIGN_TAB));
 cache = (-r+(ALIGN_TAB));
 i = (cache);
+
+// 3. Coordinates
 while(cache) {
+if(!(coord.X^((*argp).csbi.srWindow.Right))) {
+INC(coord.Y);
+XOR(coord.X,coord.X);
+// Output
 r = _putch(' ');
+if(!(r^(EOF))) printf("%s", "<< Error at fn. _putch()/_putwch()");
+r = SetConsoleCursorPosition((*argp).s_out, coord);
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}}
+else {
+r = _putch(' ');
+if(!(r^(EOF))) printf("%s", "<< Error at fn. _putch()/_putwch()");
+}
 DEC(cache);
 }}
 
 else {
+if(!(coord.X^((*argp).csbi.srWindow.Right))) {
+INC(coord.Y);
+XOR(coord.X,coord.X);
+// Output
 r = _putch(*di);
 if(!(r^(EOF))) printf("%s", "<< Error at fn. _putch()/_putwch()");
+r = SetConsoleCursorPosition((*argp).s_out, coord);
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}}
+else {
+r = _putch(*di);
+if(!(r^(EOF))) printf("%s", "<< Error at fn. _putch()/_putwch()");
+}
 i = (0x01);
 }
 
