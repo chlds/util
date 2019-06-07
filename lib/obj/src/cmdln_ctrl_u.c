@@ -2,6 +2,8 @@
 
 Press <Ctrl-U> to invoke the function.
 
+Up
+
 Remarks:
 Launch on vu.exe
 Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
@@ -34,8 +36,6 @@ else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
-
-// printf("%s\n", "Ctrl-U;");
 
 return(0x01);
 }

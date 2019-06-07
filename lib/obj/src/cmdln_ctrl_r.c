@@ -17,12 +17,16 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl cmdln_ctrl_r(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto signed char const(SP) = (0x20);
+auto signed char const(HT) = (0x09);
+
 auto COORD(coord);
 auto signed(i), (r);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+/*
 r = current_caret_pos(argp);
 
 if(!r) {
@@ -34,16 +38,22 @@ else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
+//*/
 
-r = ((*argp).count);
+if(!((*argp).count)) return(0x01);
 
-if(!(r^((*argp).tail))) {
-}
+r = cmdln_ctrl_b(argp);
 
-else {
-}
+if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_b()");
 
-// printf("%s", "Ctrl-R;");
+if(!((*argp).count)) return(0x01);
 
+if(!(HT^(*((*argp).p)))) return(0x01);
+
+if(!(SP^(*((*argp).p)))) {
+if(SP^(*(-0x01+((*argp).p)))) {
 return(0x01);
+}}
+
+return(0x01+(cmdln_ctrl_r(argp)));
 }
