@@ -13,7 +13,8 @@ Refer Code Page Identifiers on site:docs.microsoft.com.
 
 
 
-/*
+/* in 7-bit ASCII */
+
 enum {
 NUL, SOH, STX, ETX, EOT, ENQ, ACK, BEL,\
 BS,  HT,  LF,  VT,  FF,  CR,  SO,  SI, \
@@ -23,8 +24,6 @@ SP
 };
 
 signed const(DEL) = (0x7F);
-//*/
-
 
 signed char(*(ascii[])) = {
 

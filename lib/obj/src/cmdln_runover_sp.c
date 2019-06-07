@@ -17,7 +17,8 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl cmdln_runover_sp(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char const(SP) = (0x20);
+auto signed char const(SP) = (' ');
+auto signed char const(HT) = ('\t');
 
 auto COORD(coord);
 auto signed(i), (r);
@@ -40,7 +41,8 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 //*/
 
 r = ((*argp).count);
-if(!(r^((*argp).tail))) return(0x00);
+
+if(!(r^((*argp).tail))) return(0x01);
 
 if(SP^(*((*argp).p))) return(0x00);
 

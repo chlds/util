@@ -33,6 +33,11 @@
 # endif
 
 
+# ifdef C_ASCII
+# include "./ascii_table.h"
+# endif
+
+
 # ifdef C_MT
 # include <process.h>
 # endif
