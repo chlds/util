@@ -24,8 +24,8 @@ auto signed const(ALIGN_TAB) = (0x08);
 
 auto COORD(coord);
 auto signed(cache), (i), (r);
+auto signed(c);
 auto signed short(flag);
-auto signed char(c);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
