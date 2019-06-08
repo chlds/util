@@ -61,7 +61,7 @@ r = _putch('*');
 
 printf("%s%3d%s%3d", "coord.X/.Y: ", coord.X, "/", coord.Y);
 printf("%s%3d%s%3d", "; (*argp).count/.tail: ", (*argp).count, "/", (*argp).tail);
-printf("%s%3d\n", "; (*argp).c: ", (*argp).c);
+printf("%s%3d%s%8Xh\n", "; (*argp).c: ", (*argp).c, ", *((*argp).p): ", *((*argp).p));
 
 printf("%s%8Xh", ".copied: ", (*argp).copied);
 printf("%s%8Xh", ", .embedded: ", (*argp).embedded);

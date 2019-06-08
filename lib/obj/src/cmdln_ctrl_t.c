@@ -52,25 +52,18 @@ if(!(r^((*argp).tail))) return(0x01);
 
 r = cmdln_ctrl_f(argp);
 
-if(!(SP^(*((*argp).p)))) {
-r = cmdln_runover_sp(argp);
-return(r);
-}
+if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_f()");
 
-if(!(HT^(*((*argp).p)))) {
-return(0x01);
-}
+r = ((*argp).count);
 
+if(!(r^((*argp).tail))) return(0x01);
+
+if(!(HT^(*((*argp).p)))) return(0x01);
+
+if(SP^(*((*argp).p))) {
 if(!(SP^(*(-1+((*argp).p))))) return(0x01);
 if(!(HT^(*(-1+((*argp).p))))) return(0x01);
+}
 
-r = cmdln_find_ws(argp);
-if(!r) printf("%s", "<< Error at fn. cmdln_find_ws()");
-
-if(!(HT^(*((*argp).p)))) return(r);
-
-r = cmdln_runover_sp(argp);
-if(!r) printf("%s", "<< Error at fn. cmdln_runover_sp()");
-
-return(0x01);
+return(0x01+(cmdln_ctrl_t(argp)));
 }

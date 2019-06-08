@@ -51,9 +51,8 @@ if(!((*argp).count)) return(0x01);
 if(!(HT^(*((*argp).p)))) return(0x01);
 
 if(!(SP^(*((*argp).p)))) {
-if(SP^(*(-0x01+((*argp).p)))) {
-return(0x01);
-}}
+if(SP^(*(-0x01+((*argp).p)))) return(0x01);
+}
 
 return(0x01+(cmdln_ctrl_r(argp)));
 }

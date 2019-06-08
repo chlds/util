@@ -17,7 +17,11 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl cmdln_ctrl_g(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char const(HT) = (0x09);
+auto signed char const(SP) = (' ');
+auto signed char const(HT) = ('\t');
+// auto signed char const(SP) = (0x20);
+// auto signed char const(HT) = (0x09);
+
 auto signed const(ALIGN_TAB) = (0x08);
 
 auto signed char(*p);
@@ -46,13 +50,20 @@ r = ((*argp).count);
 
 if(!(r^((*argp).tail))) return(0x01);
 
-r = SetConsoleCursorPosition((*argp).s_out, coord);
+r = cmdln_ctrl_f(argp);
 
-if(!r) {
-r = GetLastError();
-printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
-return(0x00);
+if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_f()");
+
+r = ((*argp).count);
+
+if(!(r^((*argp).tail))) return(0x01);
+
+if(!(HT^(*((*argp).p)))) return(0x01);
+
+if(SP^(*((*argp).p))) {
+if(!(SP^(*(-1+((*argp).p))))) return(0x01);
+if(!(HT^(*(-1+((*argp).p))))) return(0x01);
 }
 
-return(0x01);
+return(0x01+(cmdln_ctrl_g(argp)));
 }
