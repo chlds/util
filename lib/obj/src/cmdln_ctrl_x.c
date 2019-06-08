@@ -8,15 +8,65 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 */
 
 
-signed(__cdecl cmdln_ctrl_x(void(*argp))) {
+# define C_CODE_STDS
+# define C_AS
+# define C_W32API
+# define C_CMDLN
+# include "../../../incl/config.h"
+
+signed(__cdecl cmdln_ctrl_x(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed(i), (r);
+auto signed char const(SP) = (' ');
+auto signed char const(HT) = ('\t');
+// auto signed char const(SP) = (0x20);
+// auto signed char const(HT) = (0x09);
+
+auto signed const(ALIGN_TAB) = (0x08);
+
+auto COORD(coord);
+auto signed(cache), (i), (r);
+auto signed(c);
+auto signed short(flag);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-printf("%s\n", "Ctrl-X;");
+/*
+r = current_caret_pos(argp);
+
+if(!r) {
+printf("<< Error at fn. current_caret_pos()");
+return(0x00);
+}
+
+else {
+coord.X = ((*argp).csbi.dwCursorPosition.X);
+coord.Y = ((*argp).csbi.dwCursorPosition.Y);
+}
+//*/
+
+r = ((*argp).count);
+
+if(!(r^((*argp).tail))) return(0x01);
+
+r = find_ws((*argp).p);
+
+/* It is empty ..or has occurred an error.
+if(!r) {
+printf("%s", "<< Error at fn. find_ws()");
+return(0x01);
+}
+//*/
+
+r = ncpy((*argp).clip, (*argp).p, r);
+
+/* It is empty ..or has occurred an error.
+if(!r) {
+printf("%s", "<< Error at fn. ncpy()");
+return(0x01);
+}
+//*/
 
 return(0x01);
 }
