@@ -19,8 +19,8 @@ signed(__cdecl cmdln_ctrl_a(CMDLN_STAT(*argp))) {
 /* **** DATA, BSS and STACK */
 auto COORD(coord);
 auto signed(cache), (r);
+auto signed(c);
 auto signed short(flag);
-auto signed char(c);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);

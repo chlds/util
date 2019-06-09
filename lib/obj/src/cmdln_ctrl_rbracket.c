@@ -2,6 +2,8 @@
 
 Press <Ctrl-]> to invoke the function.
 
+Re-do.
+
 Remarks:
 Launch on vu.exe
 Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure

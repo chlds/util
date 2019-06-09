@@ -41,6 +41,7 @@ COORD(depart);
 CONSOLE_SCREEN_BUFFER_INFO(csbi);
 signed(d);
 signed(s);
+CLI_HISTORY(clih);
 // debug monitor
 struct debug_mon {
 signed(char_output);

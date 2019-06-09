@@ -50,3 +50,8 @@ struct knot(*l);
 struct knot(*b);
 void(*optl);
 };
+
+typedef struct cli_history {
+KNOT(*l);
+KNOT(*b);
+} CLI_HISTORY;

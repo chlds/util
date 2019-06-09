@@ -19,6 +19,12 @@ signed(__cdecl finds(signed short(cmdln_flag), signed char(*argp)));
 /* Close, read and open a directory entry out of the argp. */
 
 
+signed(__cdecl unmap2_ll(struct knot(*argp)));
+signed(__cdecl concat2ll(KNOT(*cache),KNOT(**lead),KNOT(**base)));
+
+/* Based on a doubly linked list (for vu.exe) */
+
+
 signed(__cdecl concats_internal(signed char(*di), signed char(*bp)));
 signed(__cdecl concats(signed char(*argp), ...));
 

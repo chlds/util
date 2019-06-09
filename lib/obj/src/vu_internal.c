@@ -124,6 +124,10 @@ c = (signed) _getch();
 (*argp).c = (c);
 
 if(c<(0x20)) {
+/* To undo and re-do
+r = cmdln_history(argp);
+if(!r) printf("%s\n", "<< Error at fn. cmdln_history()");
+//*/
 // Directly access to a function with a vector table (using an array of offset pointers for functions)
 r = (*(c+(fn))) (argp);
 if(!r) printf("%s\n", "<< Oops, it has occurred an error at r = (*(c+(fn))) (argp)..");
