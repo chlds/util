@@ -2,6 +2,8 @@
 
 Press <Ctrl-Q> to invoke the function.
 
+Quit.
+
 Remarks:
 Launch on vu.exe
 Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
@@ -18,6 +20,7 @@ signed(__cdecl cmdln_ctrl_q(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 extern signed(quit);
+extern signed(terminate);
 
 auto COORD(coord);
 auto signed(i), (r);
@@ -25,6 +28,7 @@ auto signed(i), (r);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+/*
 r = current_caret_pos(argp);
 
 if(!r) {
@@ -36,9 +40,10 @@ else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
+//*/
 
-XOR(quit,quit);
-INC(quit);
+XNOR(quit);
+XNOR(terminate);
 
 // printf("%s", "Ctrl-Q;");
 

@@ -4,6 +4,7 @@ Read and write on the CUI
 
 Remarks:
 UN-COMPLETED
+Refer at incl/cmdln.h to set a debug flag.
 */
 
 
