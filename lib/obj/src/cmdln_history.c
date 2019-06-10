@@ -33,7 +33,6 @@ auto signed short(flag);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-/*
 r = current_caret_pos(argp);
 
 if(!r) {
@@ -45,7 +44,6 @@ else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
-//*/
 
 /* Refer at fn. vu_gate().
 (*argp).clih.l = (KNOT*) (0x00);
@@ -97,6 +95,8 @@ return(0x00);
 (*cch).ss_count = ((*argp).count);
 (*cch).ss_tail = ((*argp).tail);
 (*cch).ss_p = ((*argp).p);
+(*cch).ss_caret_pos_x = (coord.X);
+(*cch).ss_caret_pos_y = (coord.Y);
 
 /*
 r = SetConsoleCursorPosition((*argp).s_out, (*argp).depart);

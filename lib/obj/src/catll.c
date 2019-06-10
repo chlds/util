@@ -28,7 +28,8 @@ printf("%s\n", (*cache).p);
 
 //* Optional
 printf("%s", "And snapshot meta: ");
-printf("%s%4d%s%4d", "(*argp).ss_count/.ss_tail: ", (*cache).ss_count, "/", (*cache).ss_tail);
+printf("%s%4d%s%4d", "(*cache).ss_caret_pos_x/y: ", (*cache).ss_caret_pos_x, "/", (*cache).ss_caret_pos_y);
+printf("%s%4d%s%4d", ", .ss_count/.ss_tail: ", (*cache).ss_count, "/", (*cache).ss_tail);
 printf("%s%ph\n", " and .ss_p: ", (*cache).ss_p);
 //*/
 

@@ -44,6 +44,8 @@ void(*optl);
 signed char(*ss_p);
 signed(ss_count);
 signed(ss_tail);
+signed short(ss_caret_pos_x);
+signed short(ss_caret_pos_y);
 } KNOT;
 
 struct pknot {
