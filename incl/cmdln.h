@@ -41,6 +41,8 @@ COORD(depart);
 CONSOLE_SCREEN_BUFFER_INFO(csbi);
 signed(d);
 signed(s);
+KNOT(*l);
+KNOT(*b);
 CLI_HISTORY(clih);
 // debug monitor
 struct debug_mon {
@@ -76,6 +78,7 @@ signed(__cdecl cmdln_ctrl_s(void(*argp)));
 signed(__cdecl cmdln_ctrl_t(void(*argp)));
 signed(__cdecl cmdln_ctrl_u(void(*argp)));
 signed(__cdecl cmdln_ctrl_v(void(*argp)));
+signed(__cdecl cmdln_ctrl_w_prep(void(*argp)));
 signed(__cdecl cmdln_ctrl_w(void(*argp)));
 signed(__cdecl cmdln_ctrl_x(void(*argp)));
 signed(__cdecl cmdln_ctrl_y(void(*argp)));

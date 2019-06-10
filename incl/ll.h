@@ -40,6 +40,10 @@ signed int(uid);
 struct knot(*d);
 struct knot(*s);
 void(*optl);
+/* Snapshot the current pointer position .p, .count and .tail before changing */
+signed char(*ss_p);
+signed(ss_count);
+signed(ss_tail);
 } KNOT;
 
 struct pknot {
@@ -51,6 +55,7 @@ struct knot(*b);
 void(*optl);
 };
 
+/* Snapshot to undo and re-do. */
 typedef struct cli_history {
 KNOT(*l);
 KNOT(*b);

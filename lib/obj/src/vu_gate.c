@@ -68,6 +68,9 @@ if(terminate) return(0x01);
 l = (KNOT*) (0x00);
 b = (KNOT*) (0x00);
 
+(*argp).l = (KNOT*) (l);
+(*argp).b = (KNOT*) (b);
+
 /* a loop
 while(0x01) {
 if(quit) break;
@@ -84,6 +87,10 @@ else {
 (*argp).depart.X = ((*argp).csbi.dwCursorPosition.X);
 (*argp).depart.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
+
+// for CLI History
+(*argp).clih.l = (KNOT*) (0x00);
+(*argp).clih.b = (KNOT*) (0x00);
 
 // recursively read keys
 r = vu_internal(argp);
@@ -104,12 +111,20 @@ printf("%d%s\n", r, " times recurred by fn. vu_internal()");
 // }
 
 // Unmap
+
+// Aux. History
+r = cmdln_output_history(argp);
+if(!r) printf("%s\n", "<< It is empty ..or has occurred an error at fn. cmdln_output_history()");
+printf("%s%d%s\n", "Output ", r, " histories.");
+
 // And Unmap all the CLI History
+r = cmdln_unmap_history(argp);
+if(!r) printf("%s\n", "<< It is empty ..or has occurred an error at fn. cmdln_unmap_history()");
+printf("%s%d%s\n", "Unmapped ", r, " histories.");
 
 //* Monitor
 printf("\n");
 printf("%s\n", "Monitoring:");
-printf("%s%02Xh\n", "(*argp).c is: ", (*argp).c);
 printf("%s%02Xh\n", "*((*argp).init_p+((*argp).count)) is: ", *((*argp).init_p+((*argp).count)));
 printf("%s%02Xh\n", "*(buff+((*argp).count))           is: ", *(buff+((*argp).count)));
 printf("%s%02Xh\n", "*((*argp).p)                      is: ", *((*argp).p));
@@ -140,11 +155,6 @@ r = ct(snap);            printf("%s%d%s%Xh\n", "r = ct(snap)            is: ", r
 
 printf("\n");
 printf("%s%4d%s%4d%s%4Xh\n", "(*argp).count, .tail and .limit: ", (*argp).count, ", ", (*argp).tail, " and ", (*argp).limit);
-
-printf("\n");
-printf("%s%p\n", "(*argp).s_in   is: ", (*argp).s_in);
-printf("%s%p\n", "(*argp).s_out  is: ", (*argp).s_out);
-printf("%s%p\n", "(*argp).s_err  is: ", (*argp).s_err);
 //*/
 
 

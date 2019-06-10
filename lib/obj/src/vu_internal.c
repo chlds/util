@@ -54,7 +54,8 @@ auto signed(__cdecl*(fn[COUNT_FN])) (void(*argp)) = {
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_t),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_u),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_v),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_w),
+(signed(__cdecl*) (void(*))) (cmdln_ctrl_w_prep),
+// (signed(__cdecl*) (void(*))) (cmdln_ctrl_w),
 
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_x),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_y),
@@ -124,10 +125,6 @@ c = (signed) _getch();
 (*argp).c = (c);
 
 if(c<(0x20)) {
-/* To undo and re-do
-r = cmdln_history(argp);
-if(!r) printf("%s\n", "<< Error at fn. cmdln_history()");
-//*/
 // Directly access to a function with a vector table (using an array of offset pointers for functions)
 r = (*(c+(fn))) (argp);
 if(!r) printf("%s\n", "<< Oops, it has occurred an error at r = (*(c+(fn))) (argp)..");

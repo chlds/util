@@ -2,9 +2,9 @@
 
 To undo and re-do
 
-UN-COMPLETED
+Press <Ctrl-V> to invoke the function.
 
-Use the fn. in fn. vu_internal().
+Use the fn. in fn. cmdln_ctrl_w_prep(), e.g., in fn. cmdln_ctrl_d_prep(), in fn. cmdln_ctrl_k_prep() or..
 
 Remarks:
 Launch on vu.exe
@@ -47,8 +47,10 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 //*/
 
+/* Refer at fn. vu_gate().
 (*argp).clih.l = (KNOT*) (0x00);
 (*argp).clih.b = (KNOT*) (0x00);
+//*/
 
 cch = (KNOT*) malloc(0x01*(sizeof(KNOT)));
 
@@ -90,6 +92,11 @@ printf("%s\n", "<< Error at fn. cpy()");
 return(0x00);
 }
 //*/
+
+/* Snapshot the status before changing */
+(*cch).ss_count = ((*argp).count);
+(*cch).ss_tail = ((*argp).tail);
+(*cch).ss_p = ((*argp).p);
 
 /*
 r = SetConsoleCursorPosition((*argp).s_out, (*argp).depart);

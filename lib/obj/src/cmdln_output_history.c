@@ -1,6 +1,8 @@
 /* **** Notes
 
-Unmap a doubly linked list.
+Output content in a doubly linked list.
+
+argp: Put the leading address of the <knot> structure at.
 
 Remarks:
 Please look at util/incl/ll.h
@@ -13,20 +15,16 @@ Please look at util/incl/ll.h
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl cmdln_unmap_history(CMDLN_STAT(*argp))) {
+signed(__cdecl cmdln_output_history(CMDLN_STAT(*argp))) {
 
 /* **** DATA */
 auto struct knot(*cache);
+auto signed(r);
 
 /* **** CODE/TEXT */
 if(!argp) return(NIL);
 
-if(!((*argp).clih.l)) return(0x00);
+r = catll((*argp).clih.l);
 
-cache = ((*argp).clih.l);
-(*argp).clih.l = ((*((*argp).clih.l)).s);
-free((*cache).p);
-free(cache);
-
-return(1+(cmdln_unmap_history(argp)));
+return(r);
 }
