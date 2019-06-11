@@ -1,6 +1,6 @@
 /* **** Notes
 
-Unmap a doubly linked list.
+Unmap a doubly linked list for history.
 
 Remarks:
 Please look at util/incl/ll.h
@@ -16,10 +16,10 @@ Please look at util/incl/ll.h
 signed(__cdecl cmdln_unmap_history(CMDLN_STAT(*argp))) {
 
 /* **** DATA */
-auto struct knot(*cache);
+auto SNAPSHOT(*cache);
 
 /* **** CODE/TEXT */
-if(!argp) return(NIL);
+if(!argp) return(0x00);
 
 if(!((*argp).clih.l)) return(0x00);
 

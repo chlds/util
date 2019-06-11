@@ -29,19 +29,6 @@ auto signed short(flag);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-r = GetConsoleScreenBufferInfo((*argp).s_out, &((*argp).csbi));
-
-if(!r) {
-r = GetLastError();
-printf("%s%d\n", "<< Error at fn. GetConsoleScreenBufferInfo() with error no. ", r);
-return(0x00);
-}
-
-else {
-coord.X = ((*argp).csbi.srWindow.Left);
-coord.Y = ((*argp).csbi.srWindow.Bottom);
-}
-
 if(!((*argp).hist)) {
 r = cmdln_history(argp);
 if(!r) printf("%s\n", "<< Error at fn. cmdln_history(argp)");
@@ -57,6 +44,7 @@ if(!r) {
 // Also refer at fn. cmdln_undo() for the history flag.
 XNOR((*argp).hist);
 
+/*
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
 if(!r) {
@@ -64,6 +52,7 @@ r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
+//*/
 
 // Internal Part.
 

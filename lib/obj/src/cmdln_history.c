@@ -22,7 +22,7 @@ Refer at incl/ll.h for the CLI_HISTORY structure
 signed(__cdecl cmdln_history(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto KNOT(*cch);
+auto SNAPSHOT(*cch);
 
 auto COORD(coord);
 auto signed(cache), (r);
@@ -46,21 +46,21 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
 /* Refer at fn. vu_gate().
-(*argp).clih.l = (KNOT*) (0x00);
-(*argp).clih.b = (KNOT*) (0x00);
+(*argp).clih.l = (SNAPSHOT*) (0x00);
+(*argp).clih.b = (SNAPSHOT*) (0x00);
 //*/
 
-cch = (KNOT*) malloc(0x01*(sizeof(KNOT)));
+cch = (SNAPSHOT*) malloc(0x01*(sizeof(SNAPSHOT)));
 
 if(!cch) {
 printf("%s\n", "<< Error at fn. malloc()");
 return(0x00);
 }
 
-r = concat2ll(cch,&((*argp).clih.l),&((*argp).clih.b));
+r = concat2ll_for_history(cch, &((*argp).clih.l), &((*argp).clih.b));
 
 if(!r) {
-printf("%s\n", "<< Error at fn. concat2ll()");
+printf("%s\n", "<< Error at fn. concat2ll_for_history()");
 return(0x00);
 }
 
@@ -91,12 +91,11 @@ return(0x00);
 }
 //*/
 
-/* Snapshot the status before changing */
-(*cch).ss_count = ((*argp).count);
-(*cch).ss_tail = ((*argp).tail);
-(*cch).ss_p = ((*argp).p);
-(*cch).ss_caret_pos_x = (coord.X);
-(*cch).ss_caret_pos_y = (coord.Y);
+/* Also sequentially take a snapshot for history */
+(*cch).count = ((*argp).count);
+(*cch).tail = ((*argp).tail);
+(*cch).caret_pos_x = (coord.X);
+(*cch).caret_pos_y = (coord.Y);
 
 /*
 r = SetConsoleCursorPosition((*argp).s_out, coord);

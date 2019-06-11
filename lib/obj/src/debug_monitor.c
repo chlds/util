@@ -41,7 +41,7 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 /* to debug monitor */
 coord_mon.X = ((*argp).csbi.srWindow.Left);
-coord_mon.Y = (-5+((*argp).csbi.srWindow.Bottom));
+coord_mon.Y = (-6+((*argp).csbi.srWindow.Bottom));
 
 r = SetConsoleCursorPosition((*argp).s_out, coord_mon);
 
@@ -60,7 +60,9 @@ r = _putch('*');
 }
 
 printf("%s%3d%s%3d", "coord.X/.Y: ", coord.X, "/", coord.Y);
-printf("%s%3d%s%3d", "; (*argp).count/.tail: ", (*argp).count, "/", (*argp).tail);
+printf("%s%3d%s%3d\n", "; (*argp).depart.X/.Y: ", (*argp).depart.X, "/", (*argp).depart.Y);
+
+printf("%s%3d%s%3d", "(*argp).count/.tail: ", (*argp).count, "/", (*argp).tail);
 printf("%s%3d%s%8Xh\n", "; (*argp).c: ", (*argp).c, ", *((*argp).p): ", *((*argp).p));
 
 printf("%s%8Xh", ".copied: ", (*argp).copied);

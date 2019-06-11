@@ -33,21 +33,32 @@ struct knot(*s);
 void(*optl);
 };
 
+typedef struct snapshot {
+signed char(*p);
+signed short(flag);
+signed int(uid);
+signed(count);
+signed(tail);
+signed short(caret_pos_x);
+signed short(caret_pos_y);
+struct snapshot(*d);
+struct snapshot(*s);
+void(*optl);
+} SNAPSHOT;
+
+typedef struct cli_history {
+struct snapshot(*l);
+struct snapshot(*b);
+} CLI_HISTORY;
+
 typedef struct knot {
 signed char(*p);
 signed short(flag);
 signed int(uid);
 struct knot(*d);
 struct knot(*s);
-/* for the snapshot structure */
+CLI_HISTORY(clih);
 void(*optl);
-//* Deprecated..
-signed char(*ss_p);
-signed(ss_count);
-signed(ss_tail);
-signed short(ss_caret_pos_x);
-signed short(ss_caret_pos_y);
-//*/
 } KNOT;
 
 struct pknot {
@@ -58,20 +69,3 @@ struct knot(*l);
 struct knot(*b);
 void(*optl);
 };
-
-/* Snapshot to undo and re-do. */
-typedef struct cli_history {
-KNOT(*l);
-KNOT(*b);
-} CLI_HISTORY;
-
-/* Snapshot structure */
-typedef struct snapshot {
-KNOT(*l);
-KNOT(*b);
-signed char(*p);
-signed(count);
-signed(tail);
-signed short(caret_pos_x);
-signed short(caret_pos_y);
-} SNAPSHOT;

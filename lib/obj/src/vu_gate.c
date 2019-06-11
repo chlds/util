@@ -89,8 +89,10 @@ else {
 }
 
 // for CLI History
-(*argp).clih.l = (KNOT*) (0x00);
-(*argp).clih.b = (KNOT*) (0x00);
+(*argp).clih.l = (SNAPSHOT*) (0x00);
+(*argp).clih.b = (SNAPSHOT*) (0x00);
+
+(*argp).hist = (signed short) (0x00);
 
 // recursively read keys
 r = vu_internal(argp);
