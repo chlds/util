@@ -7,6 +7,7 @@ Undo.
 Remarks:
 Launch on vu.exe
 Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
+Refer at fn. vu_internal and incl/cmdln.h for the cmdln_stat.hist history flag.
 */
 
 
@@ -23,14 +24,10 @@ extern signed(terminate);
 
 auto COORD(coord);
 auto signed(cache), (r);
+auto signed short(flag);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
-
-/*
-p = ((*argp).init_p);
-*(p+((*argp).tail)) = ('\0');
-//*/
 
 r = GetConsoleScreenBufferInfo((*argp).s_out, &((*argp).csbi));
 
@@ -44,6 +41,21 @@ else {
 coord.X = ((*argp).csbi.srWindow.Left);
 coord.Y = ((*argp).csbi.srWindow.Bottom);
 }
+
+if(!((*argp).hist)) {
+r = cmdln_history(argp);
+if(!r) printf("%s\n", "<< Error at fn. cmdln_history(argp)");
+}
+
+r = cmdln_undo(argp);
+
+if(!r) {
+}
+
+// Set the history flag to take a snapshot for history only once
+// To re-do using fn. cmdln_ctrl_rbracket
+// Also refer at fn. cmdln_undo() for the history flag.
+XNOR((*argp).hist);
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 

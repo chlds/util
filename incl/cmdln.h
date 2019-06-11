@@ -44,6 +44,7 @@ signed(s);
 KNOT(*l);
 KNOT(*b);
 CLI_HISTORY(clih);
+signed short(hist);
 // debug monitor
 struct debug_mon {
 signed(char_output);

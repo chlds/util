@@ -39,13 +39,15 @@ signed short(flag);
 signed int(uid);
 struct knot(*d);
 struct knot(*s);
+/* for the snapshot structure */
 void(*optl);
-/* Snapshot the current pointer position .p, .count and .tail before changing */
+//* Deprecated..
 signed char(*ss_p);
 signed(ss_count);
 signed(ss_tail);
 signed short(ss_caret_pos_x);
 signed short(ss_caret_pos_y);
+//*/
 } KNOT;
 
 struct pknot {
@@ -62,3 +64,14 @@ typedef struct cli_history {
 KNOT(*l);
 KNOT(*b);
 } CLI_HISTORY;
+
+/* Snapshot structure */
+typedef struct snapshot {
+KNOT(*l);
+KNOT(*b);
+signed char(*p);
+signed(count);
+signed(tail);
+signed short(caret_pos_x);
+signed short(caret_pos_y);
+} SNAPSHOT;

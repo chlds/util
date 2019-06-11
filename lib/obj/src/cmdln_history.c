@@ -99,7 +99,7 @@ return(0x00);
 (*cch).ss_caret_pos_y = (coord.Y);
 
 /*
-r = SetConsoleCursorPosition((*argp).s_out, (*argp).depart);
+r = SetConsoleCursorPosition((*argp).s_out, coord);
 
 if(!r) {
 r = GetLastError();
