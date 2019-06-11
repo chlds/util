@@ -43,6 +43,8 @@ signed(d);
 signed(s);
 KNOT(*l);
 KNOT(*b);
+// Temporary
+KNOT(*t);
 CLI_HISTORY(clih);
 signed short(hist);
 // debug monitor

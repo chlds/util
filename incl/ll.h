@@ -49,6 +49,8 @@ void(*optl);
 typedef struct cli_history {
 struct snapshot(*l);
 struct snapshot(*b);
+// Temporary
+struct snapshot(*t);
 } CLI_HISTORY;
 
 typedef struct knot {

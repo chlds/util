@@ -26,13 +26,17 @@ auto signed(r);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+r = ((*argp).count);
+
+if(!r) return(0x01);
+
 /* Snapshot to undo and re-do before changing by fn. cmdln_ctrl_w(). */
 r = cmdln_history(argp);
 if(!r) printf("%s\n", "<< Error at fn. cmdln_history()");
 
 r = cmdln_ctrl_w(argp);
 
-/* e.g., re-snapshot to undo and re-do after changing by fn. cmdln_ctrl_w().
+//* e.g., re-snapshot to undo and re-do after changing by fn. cmdln_ctrl_w().
 r = cmdln_history(argp);
 if(!r) printf("%s\n", "<< Error at fn. cmdln_history() the second");
 //*/

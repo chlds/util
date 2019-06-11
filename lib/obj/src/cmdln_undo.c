@@ -29,18 +29,16 @@ auto signed short(flag);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-if(!((*argp).clih.b)) return(0x01);
+if(!((*argp).clih.t)) return(0x01);
+// e.g., if(!((*argp).clih.l)) return(0x01);
+// (*argp).clih.t ..is alway reset the lead of history by fn. cmdln_history.
 
-cch = ((*((*argp).clih.b)).d);
-
+cch = ((*((*argp).clih.t)).s);
 if(!cch) return(0x01);
 
-if((*argp).hist) {
-cch = ((*cch).d);
-if(!cch) return(0x01);
-}
+(*argp).clih.t = (cch);
 
-r = cpy((*argp).init_p,(*cch).p);
+r = cpy((*argp).init_p, (*cch).p);
 if(!r) printf("%s", "<< Error at fn. cpy()");
 
 cache = ((*argp).tail);

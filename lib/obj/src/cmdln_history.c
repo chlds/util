@@ -97,6 +97,10 @@ return(0x00);
 (*cch).caret_pos_x = (coord.X);
 (*cch).caret_pos_y = (coord.Y);
 
+/* Temporary */
+(*argp).clih.t = (cch);
+XOR((*argp).hist,(*argp).hist);
+
 /*
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
