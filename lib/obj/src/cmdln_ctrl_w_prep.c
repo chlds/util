@@ -31,6 +31,8 @@ r = ((*argp).count);
 if(!r) return(0x01);
 
 /* Snapshot to undo and re-do before changing by fn. cmdln_ctrl_w(). */
+XOR((*argp).hist,(*argp).hist);
+
 r = cmdln_history(argp);
 if(!r) printf("%s\n", "<< Error at fn. cmdln_history()");
 

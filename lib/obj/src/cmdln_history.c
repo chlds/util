@@ -100,7 +100,6 @@ return(0x00);
 
 /* Temporary */
 (*argp).clih.t = (cch);
-XOR((*argp).hist,(*argp).hist);
 
 /*
 r = SetConsoleCursorPosition((*argp).s_out, coord);

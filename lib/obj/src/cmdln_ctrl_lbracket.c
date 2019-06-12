@@ -29,12 +29,12 @@ auto signed short(flag);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-/*
 if(!((*argp).hist)) {
+XNOR((*argp).hist);
 r = cmdln_history(argp);
 if(!r) printf("%s\n", "<< Error at fn. cmdln_history(argp)");
+else (*argp).clih.t = ((*((*argp).clih.t)).s);
 }
-//*/
 
 r = cmdln_undo(argp);
 
@@ -43,9 +43,7 @@ if(!r) {
 
 // Set the history flag to take a snapshot for history only once
 // To re-do using fn. cmdln_ctrl_rbracket
-// Also refer at fn. cmdln_undo() for the history flag.
-
-// XNOR((*argp).hist);
+// Also refer at fn. cmdln_ctrl_w(or *)_prep() for the history flag.
 
 /*
 r = SetConsoleCursorPosition((*argp).s_out, coord);
@@ -56,12 +54,6 @@ printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r
 return(0x00);
 }
 //*/
-
-// Internal Part.
-
-// External Part.
-
-// printf("%s", "Ctrl-[;");
 
 return(0x01);
 }
