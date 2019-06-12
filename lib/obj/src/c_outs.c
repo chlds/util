@@ -2,9 +2,12 @@
 
 Console output
 
+Output characters.
+
 Output a tab as whitespace
 
 Remarks:
+Based on fn. c_out
 Launch on vu.exe
 Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 */

@@ -2,6 +2,8 @@
 
 Console output
 
+Output one character.
+
 Output a tab as whitespace
 
 Remarks:

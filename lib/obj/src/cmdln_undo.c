@@ -33,10 +33,9 @@ if(!((*argp).clih.t)) return(0x01);
 // e.g., if(!((*argp).clih.l)) return(0x01);
 // (*argp).clih.t ..is alway reset the lead of history by fn. cmdln_history.
 
-cch = ((*((*argp).clih.t)).s);
-if(!cch) return(0x01);
+cch = ((*argp).clih.t);
 
-(*argp).clih.t = (cch);
+(*argp).clih.t = ((*((*argp).clih.t)).s);
 
 r = cpy((*argp).init_p, (*cch).p);
 if(!r) printf("%s", "<< Error at fn. cpy()");
@@ -78,6 +77,7 @@ r = _cputs((*argp).init_p);
 if(r) printf("%s", "<< Error at fn. _cputs/_cputws()");
 
 // The third
+(*argp).p = ((*cch).caret_p);
 (*argp).count = ((*cch).count);
 (*argp).tail = ((*cch).tail);
 coord.X = ((*cch).caret_pos_x);

@@ -101,6 +101,11 @@ signed(__cdecl cpy(signed char(*di), signed char(*si)));
 /* Copy to the di out of the si */
 
 
+signed(__cdecl cipher_embed_r(signed char(*di), signed(n)));
+signed(__cdecl cipher_embed(signed char(*di), signed(n)));
+
+/* Embed (0x00) (n) times out of the di. */
+
 signed(__cdecl ct_txt_internal(signed(align), signed(*argp), signed char(*base)));
 signed(__cdecl ct_txt(signed(align), signed char(*base)));
 

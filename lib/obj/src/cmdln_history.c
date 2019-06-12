@@ -92,6 +92,7 @@ return(0x00);
 //*/
 
 /* Also sequentially take a snapshot for history */
+(*cch).caret_p = ((*argp).p);
 (*cch).count = ((*argp).count);
 (*cch).tail = ((*argp).tail);
 (*cch).caret_pos_x = (coord.X);

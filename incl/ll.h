@@ -37,6 +37,7 @@ typedef struct snapshot {
 signed char(*p);
 signed short(flag);
 signed int(uid);
+signed char(*caret_p);
 signed(count);
 signed(tail);
 signed short(caret_pos_x);
