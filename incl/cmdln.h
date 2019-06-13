@@ -50,9 +50,13 @@ signed short(hist);
 // debug monitor
 struct debug_mon {
 signed(char_output);
+// by fn. c_out
 signed(copied);
 signed(embedded);
 signed(repeat);
+// by fn. cmdln_ctrl_k
+signed(recurred);
+// by fn. vu_internal
 };
 // optional
 void(*optl);

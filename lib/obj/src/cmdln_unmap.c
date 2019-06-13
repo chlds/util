@@ -2,7 +2,7 @@
 
 Unmap a doubly linked list for history.
 
-Deprecated..
+argp: Put the address of the cmdln_stat structure at.
 
 Remarks:
 Please look at util/incl/ll.h
@@ -15,20 +15,20 @@ Please look at util/incl/ll.h
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl cmdln_unmap_history(CMDLN_STAT(*argp))) {
+signed(__cdecl cmdln_unmap(CMDLN_STAT(*argp))) {
 
 /* **** DATA */
-auto SNAPSHOT(*cache);
+auto KNOT(*cache);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-if(!((*argp).clih.l)) return(0x00);
+if(!((*argp).l)) return(0x00);
 
-cache = ((*argp).clih.l);
-(*argp).clih.l = ((*((*argp).clih.l)).s);
+cache = ((*argp).l);
+(*argp).l = ((*((*argp).l)).s);
 free((*cache).p);
 free(cache);
 
-return(1+(cmdln_unmap_history(argp)));
+return(1+(cmdln_unmap(argp)));
 }

@@ -2,6 +2,8 @@
 
 Output content in a doubly linked list for history.
 
+Deprecated..
+
 Remarks:
 Please look at util/incl/ll.h
 //*/

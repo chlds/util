@@ -2,6 +2,8 @@
 
 Concatenate a knot in a doubly linked list.
 
+Refer at fn. concat2ll_for_history.
+
 Remarks:
 Based on a doubly linked list (i.e., not a circular linked list).
 Please look at util/incl/ll.h

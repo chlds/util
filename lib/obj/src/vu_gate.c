@@ -26,7 +26,7 @@ signed(__cdecl vu_gate(CMDLN_STAT(*argp))) {
 extern signed(quit);
 extern signed(terminate);
 
-auto KNOT(*cch), (*l), (*b);
+auto KNOT(*cch);
 
 auto signed char(board[BUFF]) = {
 (signed char) (0x00)
@@ -56,25 +56,20 @@ if(terminate) return(0x01);
 // initialise
 // system("cls");
 
-(*argp).p = (buff);
 (*argp).init_p = (buff);
 (*argp).clip = (board);
 (*argp).craft = (snap);
-
-(*argp).count = (0x00);
-(*argp).tail = (0x00);
 (*argp).limit = (BUFF);
 
-l = (KNOT*) (0x00);
-b = (KNOT*) (0x00);
+(*argp).p = ((*argp).init_p);
+(*argp).count = (0x00);
+(*argp).tail = (0x00);
 
-(*argp).l = (KNOT*) (l);
-(*argp).b = (KNOT*) (b);
+(*argp).l = (KNOT*) (0x00);
+(*argp).b = (KNOT*) (0x00);
 
-/* a loop
-while(0x01) {
-if(quit) break;
-//*/
+// Temporary
+(*argp).t = (KNOT*) (0x00);
 
 r = current_caret_pos(argp);
 
@@ -96,25 +91,28 @@ else {
 
 (*argp).hist = (signed short) (0x00);
 
+/* for debugging */
+(*argp).recurred = (0x00);
+(*argp).repeat = (0x00);
+(*argp).embedded = (0x00);
+(*argp).copied = (0x00);
+(*argp).char_output = (0x00);
+
 // recursively read keys
-r = vu_internal(argp);
+r = vu_gate_internal(argp);
 
 if(!r) {
-printf("%s\n", "<< Error at fn. vu_internal()");
+printf("%s\n", "<< Error at fn. vu_gate_internal()");
 return(0x00);
 }
 
 else {
 printf("\n");
-printf("%d%s\n", r, " times recurred by fn. vu_internal()");
+printf("%d%s\n", r, " times recurred by fn. vu_gate_internal()");
 }
 
 
-// Build a linked list
-
-// }
-
-// Unmap
+/* Unmap */
 
 // Aux. History
 r = cmdln_output_history(argp);

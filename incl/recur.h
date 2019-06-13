@@ -19,10 +19,16 @@ signed(__cdecl finds(signed short(cmdln_flag), signed char(*argp)));
 /* Close, read and open a directory entry out of the argp. */
 
 
-signed(__cdecl unmap2_ll(struct knot(*argp)));
-signed(__cdecl concat2ll(KNOT(*cache),KNOT(**lead),KNOT(**base)));
+signed(__cdecl unmap2_cirll(struct knot(*argp)));
+signed(__cdecl unmap_cirll(struct knot(*argp)));
 
-/* Based on a doubly linked list (for vu.exe) */
+/* Based on a circular linked list */
+
+
+signed(__cdecl unmap2_ll(struct knot(*argp)));
+signed(__cdecl unmap_ll(struct knot(*argp)));
+
+/* Based on a doubly linked list */
 
 
 signed(__cdecl concats_internal(signed char(*di), signed char(*bp)));
@@ -99,17 +105,6 @@ signed(__cdecl cpy2(signed char(cache), signed char(*di), signed char(*si)));
 signed(__cdecl cpy(signed char(*di), signed char(*si)));
 
 /* Copy to the di out of the si */
-
-
-signed(__cdecl cipher_embed_r(signed char(*di), signed(n)));
-signed(__cdecl cipher_embed(signed char(*di), signed(n)));
-
-/* Embed (0x00) (n) times out of the di. */
-
-signed(__cdecl ct_txt_internal(signed(align), signed(*argp), signed char(*base)));
-signed(__cdecl ct_txt(signed(align), signed char(*base)));
-
-/* Count letters along with alignement of the tab to the null character. */
 
 
 signed(__cdecl ct_only(signed char(di), signed char(*argp)));

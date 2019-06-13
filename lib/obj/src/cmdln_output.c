@@ -1,6 +1,6 @@
 /* **** Notes
 
-Output content in a doubly linked list for history.
+Output content in a doubly linked list.
 
 Remarks:
 Please look at util/incl/ll.h
