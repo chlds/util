@@ -25,19 +25,10 @@ auto signed(cache), (r);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-r = current_caret_pos(argp);
+r = cmdln_redo(argp);
 
-if(!r) {
-printf("<< Error at fn. current_caret_pos()");
-return(0x00);
-}
-
-else {
-coord.X = ((*argp).csbi.dwCursorPosition.X);
-coord.Y = ((*argp).csbi.dwCursorPosition.Y);
-}
-
-printf("%s", "Ctrl-];");
+// It is empty ..or has occurred an error.
+if(!r) return(0x01);
 
 return(0x01);
 }
