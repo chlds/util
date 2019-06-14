@@ -41,7 +41,7 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 /* to debug monitor */
 coord_mon.X = ((*argp).csbi.srWindow.Left);
-coord_mon.Y = (-6+((*argp).csbi.srWindow.Bottom));
+coord_mon.Y = (-7+((*argp).csbi.srWindow.Bottom));
 
 r = SetConsoleCursorPosition((*argp).s_out, coord_mon);
 
@@ -70,6 +70,13 @@ printf("%s%4d", ", (*argp).length_with_ht: ", (*argp).length_with_ht);
 // by fn. ct_txt()
 printf("%s%4d", ", (*argp).recurred: ", (*argp).recurred);
 // by fn. vu_internal
+printf("\n");
+
+printf("%s%3d", "(*argp).cmd_io.c: ", (*argp).cmd_io.c);
+printf("%s%4Xh", ", *((*argp).cmd_io.caret): ", *((*argp).cmd_io.caret));
+printf("%s%ph%s%ph", ", (*argp).cmd_io.caret/.p: ", (*argp).cmd_io.caret, "/", (*argp).cmd_io.p);
+printf("%s%4d", ", (*argp).cmd_io.recurred: ", (*argp).cmd_io.recurred);
+// by fn. cmd_io_internal
 printf("\n");
 
 printf("%s%4d", "(*argp).char_output: ", (*argp).char_output);

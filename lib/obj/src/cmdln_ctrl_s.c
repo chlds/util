@@ -17,11 +17,17 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl cmdln_ctrl_s(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+extern signed(command_mode);
+
 auto COORD(coord);
 auto signed(cache), (r);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
+
+if(command_mode) return(0x01);
+
+INC(command_mode);
 
 r = current_caret_pos(argp);
 
@@ -50,6 +56,8 @@ r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
+
+XOR(command_mode,command_mode);
 
 return(0x01);
 }

@@ -20,6 +20,8 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl cmdln_ctrl_i(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+extern signed(command_mode);
+
 auto signed char const(HT) = (0x09);
 
 auto signed char(*p);
@@ -30,6 +32,8 @@ auto signed short(flag);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
+
+if(command_mode) return(0x01);
 
 XOR(flag, flag);
 

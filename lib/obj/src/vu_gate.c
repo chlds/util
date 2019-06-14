@@ -18,6 +18,7 @@ Refer at incl/cmdln.h to set a debug flag.
 # define COUNT_FN (0x01+(0x20))
 # define OBJS (0x01+(0x03))
 
+# define COMMAND_BUFF (0x200)
 # define BUFF (0x600)
 
 signed(__cdecl vu_gate(CMDLN_STAT(*argp))) {
@@ -27,6 +28,10 @@ extern signed(quit);
 extern signed(terminate);
 
 auto KNOT(*cch);
+
+auto signed char(command_buff[COMMAND_BUFF]) = {
+(signed char) (0x00)
+};
 
 auto signed char(board[BUFF]) = {
 (signed char) (0x00)
@@ -55,6 +60,15 @@ if(terminate) return(0x01);
 
 // initialise
 // system("cls");
+
+/* for command mode */
+(*argp).cmd_io.c = (signed) (0x00);
+(*argp).cmd_io.p = (command_buff);
+(*argp).cmd_io.caret = (command_buff);
+(*argp).cmd_io.limit = (COMMAND_BUFF);
+(*argp).cmd_io.count = (0x00);
+(*argp).cmd_io.tail = (0x00);
+(*argp).cmd_io.recurred = (0x00);
 
 (*argp).init_p = (buff);
 (*argp).clip = (board);

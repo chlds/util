@@ -19,11 +19,15 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl cmdln_ctrl_u(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+extern signed(command_mode);
+
 auto COORD(coord);
 auto signed(cache), (r);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
+
+if(command_mode) return(0x01);
 
 r = current_caret_pos(argp);
 

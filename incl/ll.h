@@ -54,6 +54,23 @@ struct snapshot(*b);
 struct snapshot(*t);
 } CLI_HISTORY;
 
+typedef struct cmd_io {
+signed(c);
+signed char(*p);
+signed short(flag);
+signed int(uid);
+signed char(*caret);
+signed(limit);
+signed(count);
+signed(tail);
+signed(recurred);
+signed short(caret_pos_x);
+signed short(caret_pos_y);
+CLI_HISTORY(clih);
+SNAPSHOT(ss);
+void(*optl);
+} CMD_IO;
+
 typedef struct knot {
 signed char(*p);
 signed(length_with_ht);

@@ -77,7 +77,10 @@ r = cmdln_save(buff,argp);
 if(!r) printf("%s", "<< Error at fn. cmdln_save()");
 }
 
-else printf("%s", "<< Cancelled");
+else {
+printf("%s", "<< Cancelled");
+Sleep(2500);
+}
 
 return(0x01);
 }

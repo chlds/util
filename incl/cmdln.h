@@ -25,6 +25,7 @@ signed char(c24[0x18]);
 };
 signed(c);
 // for a buffer
+CMD_IO(cmd_io);
 signed char(*clip);
 signed char(*craft);
 signed char(*init_p);
