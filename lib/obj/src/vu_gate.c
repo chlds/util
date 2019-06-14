@@ -92,6 +92,7 @@ else {
 (*argp).hist = (signed short) (0x00);
 
 /* for debugging */
+(*argp).length_with_ht = (0x00);
 (*argp).recurred = (0x00);
 (*argp).repeat = (0x00);
 (*argp).embedded = (0x00);

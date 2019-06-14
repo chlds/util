@@ -22,8 +22,6 @@ auto signed char const(HT) = ('\t');
 // auto signed char const(SP) = (0x20);
 // auto signed char const(HT) = (0x09);
 
-auto signed const(ALIGN_TAB) = (0x08);
-
 auto signed char(*p);
 
 auto COORD(coord);

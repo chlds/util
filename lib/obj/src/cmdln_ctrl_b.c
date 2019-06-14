@@ -20,8 +20,6 @@ signed(__cdecl cmdln_ctrl_b(CMDLN_STAT(*argp))) {
 // auto signed char const(SP) = (0x20);
 auto signed char const(HT) = (0x09);
 
-auto signed const(ALIGN_TAB) = (0x08);
-
 auto COORD(coord);
 auto signed(cache), (i), (r);
 auto signed(c);

@@ -19,8 +19,6 @@ signed(__cdecl cmdln_ctrl_k(CMDLN_STAT(*argp))) {
 /* **** DATA, BSS and STACK */
 // extern signed(debugging);
 
-auto signed const(ALIGN_TAB) = (0x08);
-
 auto COORD(coord);
 auto signed(cache), (i), (r);
 auto signed short(flag);

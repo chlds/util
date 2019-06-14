@@ -20,7 +20,6 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl c_out_backup(signed char(*di), CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed const(ALIGN_TAB) = (0x08);
 auto signed char const(HT) = (0x09);
 
 auto COORD(coord_virt);

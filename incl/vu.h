@@ -33,6 +33,14 @@ signed(__cdecl cmdln_redo(CMDLN_STAT(*argp)));
 signed(__cdecl cmdln_undo(CMDLN_STAT(*argp)));
 
 
+signed(__cdecl c_out_ht(signed char(di), CMDLN_STAT(*argp)));
+
+signed(__cdecl c_outs(signed char(*di), CMDLN_STAT(*argp)));
+signed(__cdecl c_out(signed char(*di), CMDLN_STAT(*argp)));
+
+/* Output as whitespace for a tab. */
+
+
 signed(__cdecl cipher_embed_r(signed char(*di), signed(n)));
 signed(__cdecl cipher_embed(signed char(*di), signed(n)));
 

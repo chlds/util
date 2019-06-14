@@ -60,16 +60,25 @@ r = _putch('*');
 }
 
 printf("%s%3d%s%3d", "coord.X/.Y: ", coord.X, "/", coord.Y);
-printf("%s%3d%s%3d", "; (*argp).depart.X/.Y: ", (*argp).depart.X, "/", (*argp).depart.Y);
-printf("%s%8Xh\n", "; (*argp).recurred: ", (*argp).recurred);
+printf("%s%3d%s%3d", ", (*argp).count/.tail: ", (*argp).count, "/", (*argp).tail);
+printf("%s%3d%s%3d", ", (*argp).depart.X/.Y: ", (*argp).depart.X, "/", (*argp).depart.Y);
+printf("\n");
 
-printf("%s%3d%s%3d", "(*argp).count/.tail: ", (*argp).count, "/", (*argp).tail);
-printf("%s%3d%s%8Xh\n", "; (*argp).c: ", (*argp).c, ", *((*argp).p): ", *((*argp).p));
+printf("%s%3d", "(*argp).c: ", (*argp).c);
+printf("%s%4Xh", ", *((*argp).p): ", *((*argp).p));
+printf("%s%4d", ", (*argp).length_with_ht: ", (*argp).length_with_ht);
+// by fn. ct_txt()
+printf("%s%4d", ", (*argp).recurred: ", (*argp).recurred);
+// by fn. vu_internal
+printf("\n");
 
-printf("%s%8Xh", ".copied: ", (*argp).copied);
-printf("%s%8Xh", ", .embedded: ", (*argp).embedded);
-printf("%s%8Xh", ", .repeat: ", (*argp).repeat);
-printf("%s%8Xh\n", ", .char_output: ", (*argp).char_output);
+printf("%s%4d", "(*argp).char_output: ", (*argp).char_output);
+// by fn. c_out
+printf("%s%4d", ", .copied: ", (*argp).copied);
+printf("%s%4d", ", .embedded: ", (*argp).embedded);
+printf("%s%4d", ", .repeat: ", (*argp).repeat);
+// by fn. cmdln_ctrl_k
+printf("\n");
 
 if(more_debugging) {
 printf("%s%8p%s%s\n", "(*argp).init_p: ", (*argp).init_p, " : ", (*argp).init_p);

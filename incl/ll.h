@@ -56,6 +56,7 @@ struct snapshot(*t);
 
 typedef struct knot {
 signed char(*p);
+signed(length_with_ht);
 signed short(flag);
 signed int(uid);
 struct knot(*d);

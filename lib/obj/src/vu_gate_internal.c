@@ -130,7 +130,16 @@ return(0x00);
 }
 //*/
 
+// to move the caret up or down on console screen
+r = ct_txt(ALIGN_TAB,(*argp).init_p);
+
+(*cch).length_with_ht = (r);
+
+if(debugging) (*argp).length_with_ht = (r);
+
+// to the next line
 printf("\n");
+
 
 // Unmap
 

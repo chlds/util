@@ -17,8 +17,6 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl cmdln_ctrl_e(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed const(ALIGN_TAB) = (0x08);
-
 auto COORD(coord);
 auto signed(cache), (r);
 

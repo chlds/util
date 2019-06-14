@@ -10,6 +10,8 @@ If the function fails, the return value is (0x00). */
 
 # define debugging (0x01)
 
+# define ALIGN_TAB (0x08)
+
 typedef struct cmdln_stat {
 // for 7-bit character and more..
 union xchar {
@@ -57,6 +59,8 @@ signed(repeat);
 // by fn. cmdln_ctrl_k
 signed(recurred);
 // by fn. vu_internal
+signed(length_with_ht);
+// by fn. ct_txt in fn. vu_gate_internal
 };
 // optional
 void(*optl);
