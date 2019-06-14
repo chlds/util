@@ -19,6 +19,7 @@ signed(__cdecl cmdln_unmap(CMDLN_STAT(*argp))) {
 
 /* **** DATA */
 auto KNOT(*cache);
+auto signed(r);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -27,6 +28,12 @@ if(!((*argp).l)) return(0x00);
 
 cache = ((*argp).l);
 (*argp).l = ((*((*argp).l)).s);
+
+r = unmap_history((*cache).clih.l);
+
+// It is empty ..or has occurred an error.
+printf("%s%d%s\n", "Unmapped ", r, " histories.");
+
 free((*cache).p);
 free(cache);
 

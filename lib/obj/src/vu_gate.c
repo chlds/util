@@ -112,18 +112,15 @@ printf("\n");
 printf("%d%s\n", r, " times recurred by fn. vu_gate_internal()");
 }
 
+//* Optional
+r = cmdln_output(argp);
+printf("%s%d%s\n", "Output ", r, " contents.");
+//*/
 
 /* Unmap */
+r = cmdln_unmap(argp);
 
-// Aux. History
-r = cmdln_output_history(argp);
-if(!r) printf("%s\n", "<< It is empty ..or has occurred an error at fn. cmdln_output_history()");
-printf("%s%d%s\n", "Output ", r, " histories.");
-
-// And Unmap all the CLI History
-r = cmdln_unmap_history(argp);
-if(!r) printf("%s\n", "<< It is empty ..or has occurred an error at fn. cmdln_unmap_history()");
-printf("%s%d%s\n", "Unmapped ", r, " histories.");
+printf("%s%d%s\n", "Unmapped ", r, " knots.");
 
 //* Monitor
 printf("\n");

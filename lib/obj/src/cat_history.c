@@ -27,10 +27,10 @@ argp = ((*argp).s);
 printf("%s\n", (*cache).p);
 
 //* Optional
-printf("%s", "And snapshot meta: ");
+printf("%s", "and snapshot meta: ");
 printf("%s%4d%s%4d", "(*cache).caret_pos_x/y: ", (*cache).caret_pos_x, "/", (*cache).caret_pos_y);
-printf("%s%4d%s%4d", ", .count/.tail: ", (*cache).count, "/", (*cache).tail);
-printf("%s%ph\n", " and .p: ", (*cache).p);
+printf("%s%4d%s%4d", ", (*cache).count/.tail: ", (*cache).count, "/", (*cache).tail);
+printf("%s%ph%s%ph\n", ", (*cache).caret_p: ", (*cache).caret_p, " and (*cache).p: ", (*cache).p);
 //*/
 
 return(0x01+(cat_history(argp)));

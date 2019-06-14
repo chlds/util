@@ -137,25 +137,27 @@ r = ct_txt(ALIGN_TAB,(*argp).init_p);
 
 if(debugging) (*argp).length_with_ht = (r);
 
+// connect the history into the knot structure
+(*cch).clih.l = ((*argp).clih.l);
+(*cch).clih.b = ((*argp).clih.b);
+
 // to the next line
 printf("\n");
 
 
-// Unmap
-
+/* Unmap
 // Aux. History
 r = cmdln_output_history(argp);
-/* It is empty ..or has occurred an error.
+// It is empty ..or has occurred an error.
 if(!r) printf("%s\n", "<< It is empty ..or has occurred an error at fn. cmdln_output_history()");
-//*/
 printf("%s%d%s\n", "Output ", r, " histories.");
-
-// And Unmap all the CLI History
+// Also unmap history
 r = cmdln_unmap_history(argp);
-/* It is empty ..or has occurred an error.
+// It is empty ..or has occurred an error.
 if(!r) printf("%s\n", "<< It is empty ..or has occurred an error at fn. cmdln_unmap_history()");
-//*/
 printf("%s%d%s\n", "Unmapped ", r, " histories.");
+//*/
+
 
 /* to debug */
 if(debugging) r = debug_monitor(argp);
