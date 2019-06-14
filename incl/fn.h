@@ -8,7 +8,7 @@ Check the data types and expressions. */
 
 
 
-signed(__cdecl reading(signed char(*di), unsigned(size)));
+signed(__cdecl reading(signed char(*di), signed(size)));
 
 signed(__cdecl cmp_lett(signed(*cache), signed char(*di), signed char(*si)));
 

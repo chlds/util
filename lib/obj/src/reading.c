@@ -11,7 +11,7 @@ size: Put the buffer size at.
 # define C_AS
 # include "../../../incl/config.h"
 
-signed(__cdecl reading(signed char(*di), unsigned(size))) {
+signed(__cdecl reading(signed char(*di), signed(size))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char const(CR) = ('\r');
@@ -21,6 +21,7 @@ auto signed(r);
 /* **** CODE/TEXT */
 if(!di) return(0x00);
 if(!size) return(0x00);
+if(size<(0x01)) return(0x00);
 
 r = read(CIN, di, size);
 

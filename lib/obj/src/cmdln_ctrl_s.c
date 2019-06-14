@@ -35,7 +35,21 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-// printf("%s\n", "Ctrl-S;");
+r = cmdln_save_prep(argp);
+
+if(!r) {
+}
+
+else {
+}
+
+r = SetConsoleCursorPosition((*argp).s_out, coord);
+
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}
 
 return(0x01);
 }
