@@ -12,6 +12,10 @@ If the function fails, the return value is (0x00). */
 
 # define ALIGN_TAB (0x08)
 
+# define COMMAND_BUFF (0x200)
+// # define BUFF (0x600)
+// Refer at fn. vu_gate
+
 typedef struct cmdln_stat {
 // for 7-bit character and more..
 union xchar {
@@ -25,6 +29,7 @@ signed char(c24[0x18]);
 };
 signed(c);
 // for a buffer
+signed(command_label);
 CMD_IO(cmd_io);
 signed char(*clip);
 signed char(*craft);
@@ -40,6 +45,7 @@ void(*device);
 void(*module);
 void(*window);
 void(*search);
+COORD(depart_for_cmd_io);
 COORD(depart);
 CONSOLE_SCREEN_BUFFER_INFO(csbi);
 signed(d);
@@ -67,6 +73,42 @@ signed(length_with_ht);
 void(*optl);
 } CMDLN_STAT;
 
+/* for fn. cmd_io_internal */
+signed(__cdecl cmd_ctrl_at(void(*argp)));
+signed(__cdecl cmd_ctrl_a(void(*argp)));
+signed(__cdecl cmd_ctrl_b(void(*argp)));
+signed(__cdecl cmd_ctrl_c(void(*argp)));
+signed(__cdecl cmd_ctrl_d(void(*argp)));
+signed(__cdecl cmd_ctrl_e(void(*argp)));
+signed(__cdecl cmd_ctrl_f(void(*argp)));
+signed(__cdecl cmd_ctrl_g(void(*argp)));
+signed(__cdecl cmd_ctrl_h(void(*argp)));
+signed(__cdecl cmd_ctrl_i(void(*argp)));
+signed(__cdecl cmd_ctrl_j(void(*argp)));
+signed(__cdecl cmd_ctrl_k(void(*argp)));
+signed(__cdecl cmd_ctrl_l(void(*argp)));
+signed(__cdecl cmd_ctrl_m(void(*argp)));
+signed(__cdecl cmd_ctrl_n(void(*argp)));
+signed(__cdecl cmd_ctrl_o(void(*argp)));
+signed(__cdecl cmd_ctrl_p(void(*argp)));
+signed(__cdecl cmd_ctrl_q(void(*argp)));
+signed(__cdecl cmd_ctrl_r(void(*argp)));
+signed(__cdecl cmd_ctrl_s(void(*argp)));
+signed(__cdecl cmd_ctrl_t(void(*argp)));
+signed(__cdecl cmd_ctrl_u(void(*argp)));
+signed(__cdecl cmd_ctrl_v(void(*argp)));
+signed(__cdecl cmd_ctrl_w_prep(void(*argp)));
+signed(__cdecl cmd_ctrl_w(void(*argp)));
+signed(__cdecl cmd_ctrl_x(void(*argp)));
+signed(__cdecl cmd_ctrl_y(void(*argp)));
+signed(__cdecl cmd_ctrl_z(void(*argp)));
+signed(__cdecl cmd_ctrl_lbracket(void(*argp)));
+signed(__cdecl cmd_ctrl_bslash(void(*argp)));
+signed(__cdecl cmd_ctrl_rbracket(void(*argp)));
+signed(__cdecl cmd_ctrl_asterisk(void(*argp)));
+signed(__cdecl cmd_ctrl_hash(void(*argp)));
+
+/* for fn. vu_internal */
 signed(__cdecl cmdln_ctrl_at(void(*argp)));
 signed(__cdecl cmdln_ctrl_a(void(*argp)));
 signed(__cdecl cmdln_ctrl_b(void(*argp)));

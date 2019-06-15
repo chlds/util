@@ -1,8 +1,10 @@
 /* **** Notes
 
-Press <Ctrl-M> to invoke the function.
+Press <Ctrl-Q> to invoke the function.
 
-Line Feed (0x0D)
+in the Command Mode
+
+Quit.
 
 Remarks:
 Launch on vu.exe
@@ -16,7 +18,7 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl cmdln_ctrl_m(CMDLN_STAT(*argp))) {
+signed(__cdecl cmd_ctrl_q(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 extern signed(quit);
@@ -24,24 +26,17 @@ extern signed(terminate);
 extern signed(command_mode);
 extern signed(cmd_io_terminate);
 
-auto signed(cache), (r);
+auto COORD(coord);
+auto signed(i), (r);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-cache = ((*argp).tail);
-*(cache+((*argp).init_p)) = (0x00);
-
-// *((*argp).p) = ('\0');
-
-if(command_mode) {
-cache = ((*argp).cmd_io.tail);
-*(cache+((*argp).cmd_io.p)) = (0x00);
+XNOR(quit);
+XNOR(terminate);
 XNOR(cmd_io_terminate);
-return(0x01);
-}
 
-terminate++;
+// printf("%s", "Ctrl-Q;");
 
 return(0x01);
 }

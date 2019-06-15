@@ -19,6 +19,8 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl cmdln_save_prep(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto signed char(*label) = ("Cancel (c) or Save as (s): ");
+
 auto signed char(buff[BUFF]) = {
 (signed char) (0x00)
 };
@@ -52,28 +54,47 @@ return(0x00);
 }
 
 cache = (0x01+((*argp).csbi.srWindow.Right));
-
 while(cache) {
 r = _putch('*');
 DEC(cache);
 }
 
-printf("%s", "Cancel (c) or Save as (s): ");
+cache = (0x00+((*argp).csbi.srWindow.Right));
+while(cache) {
+r = _putch(' ');
+DEC(cache);
+}
 
-r = reading(buff,BUFF);
+coord.X = ((*argp).csbi.srWindow.Left);
+coord.Y = ((*argp).csbi.srWindow.Bottom);
+
+r = SetConsoleCursorPosition((*argp).s_out, coord);
 
 if(!r) {
-printf("%s\n", "<< Error at fn. reading()");
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}
+
+r = ct(label);
+(*argp).command_label = (r);
+
+printf("%s", label);
+
+r = cmd_io(argp);
+
+if(!r) {
+printf("%s\n", "<< Error at fn. cmd_io()");
 return(0x00);
 }
 
 else {
 }
 
-c = (signed char) (*buff);
+c = (signed char) (*((*argp).cmd_io.p));
 
 if(!(c^('s'))) {
-r = cmdln_save(buff,argp);
+r = cmdln_save(argp);
 if(!r) printf("%s", "<< Error at fn. cmdln_save()");
 }
 

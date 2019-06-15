@@ -18,7 +18,6 @@ Refer at incl/cmdln.h to set a debug flag.
 # define COUNT_FN (0x01+(0x20))
 # define OBJS (0x01+(0x03))
 
-# define COMMAND_BUFF (0x200)
 # define BUFF (0x600)
 
 signed(__cdecl vu_gate(CMDLN_STAT(*argp))) {

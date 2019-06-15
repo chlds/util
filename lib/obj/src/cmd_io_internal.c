@@ -23,52 +23,52 @@ Refer at incl/cmdln.h to set a debug flag.
 signed(__cdecl cmd_io_internal(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-extern signed(command_mode);
-
 extern signed(quit);
 extern signed(terminate);
+extern signed(command_mode);
+extern signed(cmd_io_terminate);
 
 auto signed char const(HT) = ('\t');
 // auto signed char const(HT) = (0x09);
 
 auto signed(__cdecl*(fn[COUNT_FN])) (void(*argp)) = {
 
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_at),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_a),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_b),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_c),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_d),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_e),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_f),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_g),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_at),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_a),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_b),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_c),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_d),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_e),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_f),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_g),
 
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_h),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_i),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_j),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_k),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_l),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_m),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_n),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_o),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_h),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_i),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_j),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_k),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_l),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_m),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_n),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_o),
 
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_p),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_q),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_r),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_s),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_t),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_u),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_v),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_w_prep),
-// (signed(__cdecl*) (void(*))) (cmdln_ctrl_w),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_p),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_q),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_r),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_s),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_t),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_u),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_v),
+// (signed(__cdecl*) (void(*))) (cmd_ctrl_w_prep),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_w),
 
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_x),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_y),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_z),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_lbracket),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_bslash),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_rbracket),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_asterisk),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_hash),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_x),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_y),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_z),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_lbracket),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_bslash),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_rbracket),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_asterisk),
+(signed(__cdecl*) (void(*))) (cmd_ctrl_hash),
 
 (signed(__cdecl*) (void(*))) (0x00)
 };
@@ -87,7 +87,7 @@ auto POINT(point);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-if(terminate) return(0x01);
+if(cmd_io_terminate) return(0x01);
 
 // Exception
 cache = (*argp).cmd_io.tail;
@@ -117,6 +117,14 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 // Get a character (in the ASCII)
 c = (signed) _getch();
+
+/* Irregular
+if(!(c^(0xE0))) {
+// Automatically get the sequential byte
+r = _getch();
+return(0x01+(cmd_io_internal(argp)));
+}
+//*/
 
 (*argp).cmd_io.c = (c);
 
@@ -187,7 +195,7 @@ return(0x00);
 }}}}
 
 /* to debug */
-if(debugging) r = debug_monitor(argp);
+// if(debugging) r = debug_monitor(argp);
 
 return(0x01+(cmd_io_internal(argp)));
 }

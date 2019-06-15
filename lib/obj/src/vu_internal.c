@@ -122,6 +122,14 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 // Get a character (in the ASCII)
 c = (signed) _getch();
 
+/* Irregular
+if(!(c^(0xE0))) {
+// Automatically get the sequential byte
+r = _getch();
+return(0x01+(vu_internal(argp)));
+}
+//*/
+
 (*argp).c = (c);
 
 if(c<(0x20)) {

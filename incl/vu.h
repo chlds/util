@@ -12,6 +12,9 @@ If the function fails, the return value is (0x00). */
 
 
 
+signed(__cdecl ascend_ll(KNOT(**di),KNOT(*argp)));
+signed(__cdecl descend_ll(KNOT(**di),KNOT(*argp)));
+
 //* Deprecated..
 signed(__cdecl cmdln_unmap_history(CMDLN_STAT(*argp)));
 signed(__cdecl cmdln_output_history(CMDLN_STAT(*argp)));
@@ -19,6 +22,10 @@ signed(__cdecl cmdln_output_history(CMDLN_STAT(*argp)));
 
 signed(__cdecl cmdln_unmap(CMDLN_STAT(*argp)));
 signed(__cdecl cmdln_output(CMDLN_STAT(*argp)));
+signed(__cdecl cat_ll_and_histories(KNOT(*argp)));
+
+// Refer at incl/recur.h for fn. unmap2_ll and fn. unmap_ll
+signed(__cdecl cat_ll(KNOT(*argp)));
 
 signed(__cdecl unmap_history(SNAPSHOT(*argp)));
 signed(__cdecl cat_history(SNAPSHOT(*argp)));
@@ -29,8 +36,16 @@ signed(__cdecl concat2ll(KNOT(*cache),KNOT(**lead),KNOT(**base)));
 /* Based on a doubly linked list (for vu.exe) */
 
 
+signed(__cdecl cmdln_save(CMDLN_STAT(*argp)));
+signed(__cdecl cmdln_save_prep(CMDLN_STAT(*argp)));
+
+/* fn. vu_internal > fn. cmdln_ctrl_s > fn. cmdln_save_prep > fn. cmd_io > fn. cmdln_save > fn. cmd_io */
+
+
 signed(__cdecl cmdln_redo(CMDLN_STAT(*argp)));
 signed(__cdecl cmdln_undo(CMDLN_STAT(*argp)));
+
+/* fn. cmdln_ctrl_lbracket and fn. cmdln_ctrl_rbracket */
 
 
 signed(__cdecl c_out_ht(signed char(di), CMDLN_STAT(*argp)));
