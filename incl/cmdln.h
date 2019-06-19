@@ -9,6 +9,7 @@ If the function fails, the return value is (0x00). */
 
 
 # define debugging (0x01)
+# define more_debugging (0x01)
 
 # define ALIGN_TAB (0x08)
 
@@ -54,6 +55,8 @@ KNOT(*l);
 KNOT(*b);
 // Temporary
 KNOT(*t);
+KNOTS(circular);
+KNOTS(doubly);
 CLI_HISTORY(clih);
 signed short(hist);
 // debug monitor
@@ -69,6 +72,7 @@ signed(recurred);
 signed(length_with_ht);
 // by fn. ct_txt in fn. vu_gate_internal
 };
+signed char(*filename);
 // optional
 void(*optl);
 } CMDLN_STAT;

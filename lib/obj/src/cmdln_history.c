@@ -58,11 +58,12 @@ return(0x00);
 }
 
 r = concat2ll_for_history(cch, &((*argp).clih.l), &((*argp).clih.b));
-
 if(!r) {
 printf("%s\n", "<< Error at fn. concat2ll_for_history()");
 return(0x00);
 }
+/* Temporary */
+else (*argp).clih.t = ((*argp).clih.l);
 
 r = ct((*argp).init_p);
 
@@ -74,21 +75,15 @@ return(0x00);
 //*/
 
 INC(r);
-
 (*cch).p = (signed char(*)) malloc(r*(sizeof(signed char)));
-
 if(!((*cch).p)) {
 printf("%s\n", "<< Error at fn. malloc() the second");
 return(0x00);
 }
 
 r = cpy((*cch).p,(*argp).init_p);
-
 /* It is empty ..or has occurred an error.
-if(!r) {
-printf("%s\n", "<< Error at fn. cpy()");
-return(0x00);
-}
+if(!r) printf("%s", "<< Error at fn. cpy()");
 //*/
 
 /* Also sequentially take a snapshot for history */
@@ -97,9 +92,8 @@ return(0x00);
 (*cch).tail = ((*argp).tail);
 (*cch).caret_pos_x = (coord.X);
 (*cch).caret_pos_y = (coord.Y);
-
-/* Temporary */
-(*argp).clih.t = (cch);
+(*cch).depart_x = (coord.X);
+(*cch).depart_y = (coord.Y);
 
 /*
 r = SetConsoleCursorPosition((*argp).s_out, coord);

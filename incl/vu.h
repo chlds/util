@@ -12,8 +12,13 @@ If the function fails, the return value is (0x00). */
 
 
 
-signed(__cdecl ascend_ll(KNOT(**di),KNOT(*argp)));
-signed(__cdecl descend_ll(KNOT(**di),KNOT(*argp)));
+signed(__cdecl ascend2ll(CMDLN_STAT(*argp)));
+signed(__cdecl descend2ll(CMDLN_STAT(*argp)));
+
+//* Deprecated..
+signed(__cdecl ascend_ll(KNOT(**di),KNOT(*si)));
+signed(__cdecl descend_ll(KNOT(**di),KNOT(*si)));
+//*/
 
 //* Deprecated..
 signed(__cdecl cmdln_unmap_history(CMDLN_STAT(*argp)));
@@ -30,8 +35,11 @@ signed(__cdecl cat_ll(KNOT(*argp)));
 signed(__cdecl unmap_history(SNAPSHOT(*argp)));
 signed(__cdecl cat_history(SNAPSHOT(*argp)));
 
+signed(__cdecl add2ll(KNOT(*cache),CMDLN_STAT(argp)));
+signed(__cdecl rebase2ll(KNOT(*cache),CMDLN_STAT(argp)));
+signed(__cdecl absorb2ll(KNOT(*cache),CMDLN_STAT(argp)));
+signed(__cdecl concat2ll(KNOT(*cache),CMDLN_STAT(argp)));
 signed(__cdecl concat2ll_for_history(SNAPSHOT(*cache),SNAPSHOT(**lead),SNAPSHOT(**base)));
-signed(__cdecl concat2ll(KNOT(*cache),KNOT(**lead),KNOT(**base)));
 
 /* Based on a doubly linked list (for vu.exe) */
 

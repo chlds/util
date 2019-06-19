@@ -44,6 +44,7 @@ auto signed char(snap[BUFF]) = {
 (signed char) (0x00)
 };
 
+auto COORD(coord);
 auto signed(cache), (i), (r);
 auto signed(c);
 // auto unsigned(c);
@@ -52,6 +53,20 @@ auto signed short(flag);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
+
+r = current_caret_pos(argp);
+
+if(!r) {
+printf("<< Error at fn. current_caret_pos()");
+return(0x00);
+}
+
+else {
+coord.X = ((*argp).csbi.dwCursorPosition.X);
+coord.Y = ((*argp).csbi.dwCursorPosition.Y);
+(*argp).depart.X = (coord.X);
+(*argp).depart.Y = (coord.Y);
+}
 
 if(terminate) return(0x01);
 
@@ -80,21 +95,15 @@ if(terminate) return(0x01);
 
 (*argp).l = (KNOT*) (0x00);
 (*argp).b = (KNOT*) (0x00);
-
-// Temporary
 (*argp).t = (KNOT*) (0x00);
 
-r = current_caret_pos(argp);
+//* e.g., refer at incl/ll.h
+(*argp).doubly.l = (KNOT*) (0x00);
+(*argp).doubly.t = (KNOT*) (0x00);
+(*argp).doubly.b = (KNOT*) (0x00);
+//*/
 
-if(!r) {
-printf("<< Error at fn. current_caret_pos()");
-return(0x00);
-}
-
-else {
-(*argp).depart.X = ((*argp).csbi.dwCursorPosition.X);
-(*argp).depart.Y = ((*argp).csbi.dwCursorPosition.Y);
-}
+(*argp).filename = (signed char(*)) (0x00);
 
 // for CLI History
 (*argp).clih.l = (SNAPSHOT*) (0x00);

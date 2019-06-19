@@ -26,8 +26,9 @@ signed(__cdecl vu_gate_internal(CMDLN_STAT(*argp))) {
 extern signed(quit);
 extern signed(terminate);
 
-auto KNOT(*cch);
+auto COORD(coord);
 
+auto KNOT(*cch);
 auto signed(cache), (i), (r);
 auto signed(c);
 // auto unsigned(c);
@@ -37,7 +38,22 @@ auto signed short(flag);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-// Sleep(3000);
+if(quit) return(0x01);
+else XOR(terminate,terminate);
+
+r = current_caret_pos(argp);
+
+if(!r) {
+printf("<< Error at fn. current_caret_pos()");
+return(0x00);
+}
+
+else {
+coord.X = ((*argp).csbi.dwCursorPosition.X);
+coord.Y = ((*argp).csbi.dwCursorPosition.Y);
+(*argp).depart.X = (coord.X);
+(*argp).depart.Y = (coord.Y);
+}
 
 // initialise
 // system("cls");
@@ -56,31 +72,41 @@ if(r^(BUFF)) printf("<< Error at fn. cipher_embed()");
 (*argp).limit = (BUFF);
 //*/
 
-if(quit) return(0x01);
-
-else XOR(terminate,terminate);
-
-r = current_caret_pos(argp);
-
-if(!r) {
-printf("<< Error at fn. current_caret_pos()");
+// Build a linked list (1/2)
+cch = (KNOT*) malloc(0x01*(sizeof(KNOT)));
+if(!cch) {
+printf("%s\n", "<< Error at fn. malloc()");
 return(0x00);
 }
 
-else {
-(*argp).depart.X = ((*argp).csbi.dwCursorPosition.X);
-(*argp).depart.Y = ((*argp).csbi.dwCursorPosition.Y);
+r = concat2ll(cch,argp);
+if(!r) {
+printf("%s\n", "<< Error at fn. concat2ll()");
+return(0x00);
 }
+else (*argp).t = (KNOT*) ((*argp).l);
 
-// for CLI History
+// Also
+(*cch).p = (signed char(*)) (0x00);
+
+// Coordinates for the current knot
+(*cch).depart_x = (coord.X);
+(*cch).depart_y = (coord.Y);
+
+// initialise the CLI History
 (*argp).clih.l = (SNAPSHOT*) (0x00);
 (*argp).clih.b = (SNAPSHOT*) (0x00);
-// Temporary
 (*argp).clih.t = (SNAPSHOT*) (0x00);
 
+// also initialise the CLI history on the current temporary knot
+(*cch).clih.l = ((*argp).clih.l);
+(*cch).clih.b = ((*argp).clih.b);
+(*cch).clih.t = ((*argp).clih.t);
+
+// set the CLI history flag
 (*argp).hist = (signed short) (0x00);
 
-// recursively read keys
+/* recursively read keys */
 r = vu_internal(argp);
 
 if(!r) {
@@ -90,30 +116,14 @@ return(0x00);
 
 if(debugging) (*argp).recurred = (r);
 
-// Build a linked list
-cch = (KNOT*) malloc(0x01*(sizeof(KNOT)));
-if(!cch) {
-printf("%s\n", "<< Error at fn. malloc()");
-return(0x00);
-}
-
-r = concat2ll(cch,&((*argp).l),&((*argp).b));
-if(!r) {
-printf("%s\n", "<< Error at fn. concat2ll()");
-return(0x00);
-}
-
+// Build a linked list (2/2)
 r = ct((*argp).init_p);
 
 /* It is empty ..or has occurred an error.
-if(!r) {
-printf("%s\n", "<< Error at fn. concat2ll()");
-return(0x00);
-}
+if(!r) printf("%s", "<< Error at fn. ct()");
 //*/
 
 INC(r);
-
 (*cch).p = (signed char(*)) malloc(r*(sizeof(signed char)));
 
 if(!r) {
@@ -124,28 +134,22 @@ return(0x00);
 r = cpy((*cch).p,(*argp).init_p);
 
 /* It is empty ..or has occurred an error.
-if(!r) {
-printf("%s\n", "<< Error at fn. cpy()");
-return(0x00);
-}
+if(!r) printf("%s", "<< Error at fn. cpy()");
 //*/
 
 // to move the caret up or down on console screen
 r = ct_txt(ALIGN_TAB,(*argp).init_p);
 
 (*cch).length_with_ht = (r);
-
 if(debugging) (*argp).length_with_ht = (r);
 
-// connect the history into the knot structure
-(*cch).clih.l = ((*argp).clih.l);
-(*cch).clih.b = ((*argp).clih.b);
+if(quit) return(0x01);
 
 // to the next line
 printf("\n");
 
 
-/* Unmap
+/* Unmap..
 // Aux. History
 r = cmdln_output_history(argp);
 // It is empty ..or has occurred an error.

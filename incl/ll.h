@@ -42,6 +42,8 @@ signed(count);
 signed(tail);
 signed short(caret_pos_x);
 signed short(caret_pos_y);
+signed short(depart_x);
+signed short(depart_y);
 struct snapshot(*d);
 struct snapshot(*s);
 void(*optl);
@@ -66,6 +68,8 @@ signed(tail);
 signed(recurred);
 signed short(caret_pos_x);
 signed short(caret_pos_y);
+signed short(depart_x);
+signed short(depart_y);
 CLI_HISTORY(clih);
 SNAPSHOT(ss);
 void(*optl);
@@ -78,9 +82,17 @@ signed short(flag);
 signed int(uid);
 struct knot(*d);
 struct knot(*s);
+signed short(depart_x);
+signed short(depart_y);
 CLI_HISTORY(clih);
 void(*optl);
 } KNOT;
+
+typedef struct knots {
+struct knot(*l); // lead
+struct knot(*t); // temporary
+struct knot(*b); // base
+} KNOTS;
 
 struct pknot {
 signed char(*p);

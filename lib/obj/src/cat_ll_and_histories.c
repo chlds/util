@@ -26,10 +26,9 @@ cache = (argp);
 argp = ((*argp).s);
 
 r = cat_history((*cache).clih.l);
-printf("%s%d%s\n", "Output ", r, " histories for ");
+printf("%s%d%s", "Output ", r, " histories for ");
 
 printf("%s\n", (*cache).p);
-printf("\n");
 
 return(0x01+(cat_ll_and_histories(argp)));
 }

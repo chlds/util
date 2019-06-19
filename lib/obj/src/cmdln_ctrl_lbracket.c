@@ -29,11 +29,27 @@ auto signed short(flag);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+r = current_caret_pos(argp);
+
+if(!r) {
+printf("<< Error at fn. current_caret_pos()");
+return(0x00);
+}
+
+else {
+coord.X = ((*argp).csbi.dwCursorPosition.X);
+coord.Y = ((*argp).csbi.dwCursorPosition.Y);
+}
+
 if(!((*argp).hist)) {
 XNOR((*argp).hist);
 r = cmdln_history(argp);
 if(!r) printf("%s\n", "<< Error at fn. cmdln_history(argp)");
 else (*argp).clih.t = ((*((*argp).clih.t)).s);
+// Also
+(*((*argp).t)).clih.t = ((*argp).clih.t);
+(*((*argp).t)).clih.l = ((*argp).clih.l);
+(*((*argp).t)).clih.b = ((*argp).clih.b);
 }
 
 r = cmdln_undo(argp);
@@ -45,7 +61,6 @@ if(!r) {
 // To re-do using fn. cmdln_ctrl_rbracket
 // Also refer at fn. cmdln_ctrl_w(or *)_prep() for the history flag.
 
-/*
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
 if(!r) {
@@ -53,7 +68,6 @@ r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
-//*/
 
 return(0x01);
 }

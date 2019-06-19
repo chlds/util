@@ -24,13 +24,13 @@ if(!argp) return(0x00);
 cache = (argp);
 argp = ((*argp).s);
 
-printf("%s\n", (*cache).p);
+printf("%s%s", "  ", (*cache).p);
 
 //* Optional
-printf("%s", "and snapshot meta: ");
+printf("%s", " and the ss meta: ");
 printf("%s%4d%s%4d", "(*cache).caret_pos_x/y: ", (*cache).caret_pos_x, "/", (*cache).caret_pos_y);
-printf("%s%4d%s%4d", ", (*cache).count/.tail: ", (*cache).count, "/", (*cache).tail);
-printf("%s%ph%s%ph\n", ", (*cache).caret_p: ", (*cache).caret_p, " and (*cache).p: ", (*cache).p);
+printf("%s%4d%s%4d", ", .count/.tail: ", (*cache).count, "/", (*cache).tail);
+printf("%s%ph%s%ph\n", ", .caret_p/.p: ", (*cache).caret_p, "/", (*cache).p);
 //*/
 
 return(0x01+(cat_history(argp)));

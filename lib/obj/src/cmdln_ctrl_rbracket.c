@@ -25,10 +25,30 @@ auto signed(cache), (r);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+r = current_caret_pos(argp);
+
+if(!r) {
+printf("<< Error at fn. current_caret_pos()");
+return(0x00);
+}
+
+else {
+coord.X = ((*argp).csbi.dwCursorPosition.X);
+coord.Y = ((*argp).csbi.dwCursorPosition.Y);
+}
+
 r = cmdln_redo(argp);
 
 // It is empty ..or has occurred an error.
 if(!r) return(0x01);
+
+r = SetConsoleCursorPosition((*argp).s_out, (*argp).depart);
+
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}
 
 return(0x01);
 }

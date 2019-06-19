@@ -30,11 +30,9 @@ auto signed short(flag);
 if(!argp) return(0x00);
 
 if(!((*argp).clih.t)) return(0x01);
-// e.g., if(!((*argp).clih.l)) return(0x01);
 // (*argp).clih.t ..is alway reset the lead of history by fn. cmdln_history.
 
 cch = ((*argp).clih.t);
-
 (*argp).clih.t = ((*((*argp).clih.t)).s);
 
 r = cpy((*argp).init_p, (*cch).p);
@@ -47,7 +45,7 @@ cache = ((*argp).tail);
 
 // The fist
 coord.X = (0x00);
-coord.Y = ((*argp).depart.Y);
+coord.Y = ((*cch).depart_y);
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
@@ -65,7 +63,7 @@ DEC(cache);
 
 // The second
 coord.X = (0x00);
-coord.Y = ((*argp).depart.Y);
+coord.Y = ((*cch).depart_y);
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
@@ -76,8 +74,12 @@ return(0x00);
 }
 
 // Overwrite
+r = c_outs((*argp).init_p);
+if(r) printf("%s", "<< Error at fn. c_outs()");
+/*
 r = _cputs((*argp).init_p);
 if(r) printf("%s", "<< Error at fn. _cputs/_cputws()");
+//*/
 
 // The third
 (*argp).p = ((*cch).caret_p);

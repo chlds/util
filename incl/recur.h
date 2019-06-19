@@ -28,6 +28,10 @@ signed(__cdecl unmap_cirll(struct knot(*argp)));
 signed(__cdecl unmap2_ll(struct knot(*argp)));
 signed(__cdecl unmap_ll(struct knot(*argp)));
 
+signed(__cdecl output_ll(KNOT(*argp)));
+
+signed(__cdecl concat2_ll(KNOT(*cache),KNOTS(*argp)));
+
 /* Based on a doubly linked list */
 
 

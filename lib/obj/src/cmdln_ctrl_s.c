@@ -20,7 +20,10 @@ signed(__cdecl cmdln_ctrl_s(CMDLN_STAT(*argp))) {
 extern signed(command_mode);
 
 auto COORD(coord);
+
+auto KNOT(*cch);
 auto signed(cache), (r);
+// auto signed short(flag);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -41,6 +44,7 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
+/* to save */
 r = cmdln_save_prep(argp);
 
 if(!r) {

@@ -76,31 +76,31 @@ printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r
 return(0x00);
 }
 
+if(!((*argp).filename)) {
+
 r = ct(label);
 (*argp).command_label = (r);
-
 printf("%s", label);
 
 r = cmd_io(argp);
-
 if(!r) {
 printf("%s\n", "<< Error at fn. cmd_io()");
 return(0x00);
 }
 
-else {
-}
-
 c = (signed char) (*((*argp).cmd_io.p));
-
 if(!(c^('s'))) {
 r = cmdln_save(argp);
 if(!r) printf("%s", "<< Error at fn. cmdln_save()");
 }
+else {
+printf("%s", " < Cancelled");
+Sleep(1500);
+}}
 
 else {
-printf("%s", "<< Cancelled");
-Sleep(2500);
+r = cmdln_save(argp);
+if(!r) printf("%s", "<< Error at fn. cmdln_save()");
 }
 
 return(0x01);

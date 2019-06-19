@@ -40,6 +40,7 @@ if(!((*((*argp).clih.t)).d)) return(0x01);
 (*argp).clih.t = ((*((*argp).clih.t)).d);
 }
 
+// step back to avoid the leading address
 if(!((*((*argp).clih.t)).d)) {
 (*argp).clih.t = ((*((*argp).clih.t)).s);
 return(0x01);
@@ -57,7 +58,7 @@ cache = ((*argp).tail);
 
 // The fist
 coord.X = (0x00);
-coord.Y = ((*argp).depart.Y);
+coord.Y = ((*cch).depart_y);
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
@@ -75,7 +76,7 @@ DEC(cache);
 
 // The second
 coord.X = (0x00);
-coord.Y = ((*argp).depart.Y);
+coord.Y = ((*cch).depart_y);
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
@@ -86,8 +87,12 @@ return(0x00);
 }
 
 // Overwrite
+r = c_outs((*argp).init_p);
+if(r) printf("%s", "<< Error at fn. c_outs()");
+/* ..or
 r = _cputs((*argp).init_p);
 if(r) printf("%s", "<< Error at fn. _cputs/_cputws()");
+//*/
 
 // The third
 (*argp).p = ((*cch).caret_p);

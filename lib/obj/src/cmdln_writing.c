@@ -21,52 +21,35 @@ Along with fn. cmdln_save
 signed(__cdecl cmdln_writing(signed(descriptor),KNOT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed const(QUANTUM) = (0x10);
-auto signed const(SNOOZE) = (0x08);
-auto signed const(DELAY) = (0x02*(QUANTUM));
-
-auto KNOT(*cch);
-
-auto COORD(coord);
-auto signed(cache), (i), (l), (r);
-auto signed(fd);
+auto KNOT(*cache);
+auto signed(r);
 auto signed short(flag);
 auto signed char(c);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-XOR(l,l);
-XOR(i,i);
-
-while(0x01) {
-if(!argp) break;
-cch = (KNOT*) (argp);
+cache = (argp);
 argp = ((*argp).d);
-/* The first */
-r = ct((*cch).p);
-r = write(descriptor, (*cch).p, r);
+
+if(!argp) XNOR(flag);
+else XOR(flag,flag);
+
+r = ct((*cache).p);
+r = write(descriptor, (*cache).p, r);
+
 if(!(r^(~(0x00)))) {
 printf("%s\n", "<< Error at fn. write() in fn. cmdln_writing()");
-break;
+return(0x00);
 }
-/* Line Feed */
+
+if(!flag) {
 c = ('\n');
 r = write(descriptor, &c, sizeof(c));
 if(!(r^(~(0x00)))) {
 printf("%s\n", "<< Error at fn. write() in fn. cmdln_writing() the second");
-break;
-}
-/* CPU Idling */
-if(i<(SNOOZE)) {
-i++;
-}
-else {
-XOR(i,i);
-Sleep(DELAY);
-}
-INC(l);
-}
+return(0x00);
+}}
 
-return(l);
+return(0x01+(cmdln_writing(descriptor,argp)));
 }

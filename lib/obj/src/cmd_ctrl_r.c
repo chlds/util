@@ -10,13 +10,15 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 */
 
 
+/*
 # define C_CODE_STDS
 # define C_AS
 # define C_W32API
 # define C_CMDLN
 # include "../../../incl/config.h"
+//*/
 
-signed(__cdecl cmd_ctrl_r(CMDLN_STAT(*argp))) {
+signed(__cdecl cmd_ctrl_r(void(*argp))) {
 
 return(0x01);
 }

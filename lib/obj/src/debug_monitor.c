@@ -14,8 +14,6 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-# define more_debugging (0x00)
-
 signed(__cdecl debug_monitor(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
@@ -41,7 +39,7 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 /* to debug monitor */
 coord_mon.X = ((*argp).csbi.srWindow.Left);
-coord_mon.Y = (-10+((*argp).csbi.srWindow.Bottom));
+coord_mon.Y = (-13+((*argp).csbi.srWindow.Bottom));
 
 r = SetConsoleCursorPosition((*argp).s_out, coord_mon);
 
@@ -59,9 +57,9 @@ r = _putch('*');
 --cache;
 }
 
-printf("%s%3d%s%3d", "coord.X/.Y: ", coord.X, "/", coord.Y);
-printf("%s%3d%s%3d", ", (*argp).count/.tail: ", (*argp).count, "/", (*argp).tail);
-printf("%s%3d%s%3d", ", (*argp).depart.X/.Y: ", (*argp).depart.X, "/", (*argp).depart.Y);
+printf("%s%3d%s%3d", "coord.X/Y: ", coord.X, "/", coord.Y);
+printf("%s%3d%s%3d", ", (*argp).count/tail: ", (*argp).count, "/", (*argp).tail);
+printf("%s%3d%s%3d", ", (*argp).depart.X/Y: ", (*argp).depart.X, "/", (*argp).depart.Y);
 printf("\n");
 
 printf("%s%3d", "(*argp).c: ", (*argp).c);
@@ -89,18 +87,31 @@ printf("%s%4d", ", .copied: ", (*argp).copied);
 printf("%s%4d", ", .embedded: ", (*argp).embedded);
 printf("%s%4d", ", .repeat: ", (*argp).repeat);
 // by fn. cmdln_ctrl_k
+printf("%s%ph%s%ph%s%ph", ", (*argp).t/l/b: ", (*argp).t, "/", (*argp).l, "/", (*argp).b);
 printf("\n");
 
+/* cli histories */
+printf("%s%ph%s%ph%s%ph\n", "(*argp).clih.t/l/b: ", (*argp).clih.t, "/", (*argp).clih.l, "/", (*argp).clih.b);
+
+if((*argp).t) {
+printf("%s%ph%s%ph%s%ph\n", "(*((*argp).t)).clih.t/l/b: ", (*((*argp).t)).clih.t, "/", (*((*argp).t)).clih.l, "/", (*((*argp).t)).clih.b);
+}
+else {
+printf("\n");
+}
+
 if(more_debugging) {
-printf("%s%8p%s%s\n", "(*argp).init_p: ", (*argp).init_p, " : ", (*argp).init_p);
-printf("%s%8p%s%s\n", "(*argp).craft : ", (*argp).craft, " : ", (*argp).craft);
-printf("%s%8p%s%s",   "(*argp).p     : ", (*argp).p, " : ", (*argp).p);
+printf("%s%8ph%s%-50s\n", "(*argp).init_p: ", (*argp).init_p, " : ", (*argp).init_p);
+printf("%s%8ph%s%-50s\n", "(*argp).craft : ", (*argp).craft, " : ", (*argp).craft);
+printf("%s%8ph%s%-50s\n", "(*argp).p     : ", (*argp).p, " : ", (*argp).p);
+if((*argp).filename) printf("%s%s",   "(*argp).filename: ", (*argp).filename);
 }
 
 else {
-printf("%s%8p\n", "(*argp).init_p: ", (*argp).init_p);
-printf("%s%8p\n", "(*argp).craft : ", (*argp).craft);
-printf("%s%8p",   "(*argp).p     : ", (*argp).p);
+printf("%s%8ph\n", "(*argp).init_p: ", (*argp).init_p);
+printf("%s%8ph\n", "(*argp).craft : ", (*argp).craft);
+printf("%s%8ph\n",   "(*argp).p     : ", (*argp).p);
+printf("%s%8ph",   "(*argp).filename: ", (*argp).filename);
 }
 
 /* Go back */
