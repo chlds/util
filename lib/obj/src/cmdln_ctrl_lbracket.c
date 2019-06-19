@@ -61,6 +61,10 @@ if(!r) {
 // To re-do using fn. cmdln_ctrl_rbracket
 // Also refer at fn. cmdln_ctrl_w(or *)_prep() for the history flag.
 
+(*((*argp).t)).clih.t = ((*argp).clih.t);
+(*((*argp).t)).clih.l = ((*argp).clih.l);
+(*((*argp).t)).clih.b = ((*argp).clih.b);
+
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
 if(!r) {

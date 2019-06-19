@@ -42,6 +42,10 @@ r = cmdln_redo(argp);
 // It is empty ..or has occurred an error.
 if(!r) return(0x01);
 
+(*((*argp).t)).clih.t = ((*argp).clih.t);
+(*((*argp).t)).clih.l = ((*argp).clih.l);
+(*((*argp).t)).clih.b = ((*argp).clih.b);
+
 r = SetConsoleCursorPosition((*argp).s_out, (*argp).depart);
 
 if(!r) {

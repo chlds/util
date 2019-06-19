@@ -91,7 +91,7 @@ printf("%s%ph%s%ph%s%ph", ", (*argp).t/l/b: ", (*argp).t, "/", (*argp).l, "/", (
 printf("\n");
 
 /* cli histories */
-printf("%s%ph%s%ph%s%ph\n", "(*argp).clih.t/l/b: ", (*argp).clih.t, "/", (*argp).clih.l, "/", (*argp).clih.b);
+printf("%s%ph%s%ph%s%ph\n", "(*argp).clih.t/l/b       : ", (*argp).clih.t, "/", (*argp).clih.l, "/", (*argp).clih.b);
 
 if((*argp).t) {
 printf("%s%ph%s%ph%s%ph\n", "(*((*argp).t)).clih.t/l/b: ", (*((*argp).t)).clih.t, "/", (*((*argp).t)).clih.l, "/", (*((*argp).t)).clih.b);

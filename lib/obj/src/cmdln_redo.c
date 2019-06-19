@@ -87,8 +87,9 @@ return(0x00);
 }
 
 // Overwrite
-r = c_outs((*argp).init_p);
-if(r) printf("%s", "<< Error at fn. c_outs()");
+r = c_outs((*argp).init_p,argp);
+if(!r) printf("%s", "<< Error at fn. c_outs()");
+
 /* ..or
 r = _cputs((*argp).init_p);
 if(r) printf("%s", "<< Error at fn. _cputs/_cputws()");
@@ -101,6 +102,7 @@ if(r) printf("%s", "<< Error at fn. _cputs/_cputws()");
 coord.X = ((*cch).caret_pos_x);
 coord.Y = ((*cch).caret_pos_y);
 
+/*
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
 if(!r) {
@@ -108,6 +110,7 @@ r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
+//*/
 
 return(0x01);
 }

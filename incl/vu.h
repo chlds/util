@@ -35,10 +35,10 @@ signed(__cdecl cat_ll(KNOT(*argp)));
 signed(__cdecl unmap_history(SNAPSHOT(*argp)));
 signed(__cdecl cat_history(SNAPSHOT(*argp)));
 
-signed(__cdecl add2ll(KNOT(*cache),CMDLN_STAT(argp)));
-signed(__cdecl rebase2ll(KNOT(*cache),CMDLN_STAT(argp)));
-signed(__cdecl absorb2ll(KNOT(*cache),CMDLN_STAT(argp)));
-signed(__cdecl concat2ll(KNOT(*cache),CMDLN_STAT(argp)));
+signed(__cdecl add2ll(KNOT(*cache),CMDLN_STAT(*argp)));
+signed(__cdecl rebase2ll(KNOT(*cache),CMDLN_STAT(*argp)));
+signed(__cdecl absorb2ll(KNOT(*cache),CMDLN_STAT(*argp)));
+signed(__cdecl concat2ll(KNOT(*cache),CMDLN_STAT(*argp)));
 signed(__cdecl concat2ll_for_history(SNAPSHOT(*cache),SNAPSHOT(**lead),SNAPSHOT(**base)));
 
 /* Based on a doubly linked list (for vu.exe) */
@@ -56,9 +56,9 @@ signed(__cdecl cmdln_undo(CMDLN_STAT(*argp)));
 /* fn. cmdln_ctrl_lbracket and fn. cmdln_ctrl_rbracket */
 
 
-signed(__cdecl c_out_ht(signed char(di), CMDLN_STAT(*argp)));
-
 signed(__cdecl c_outs(signed char(*di), CMDLN_STAT(*argp)));
+
+signed(__cdecl c_out_ht(signed(di), CMDLN_STAT(*argp)));
 signed(__cdecl c_out(signed char(*di), CMDLN_STAT(*argp)));
 
 /* Output as whitespace for a tab. */
