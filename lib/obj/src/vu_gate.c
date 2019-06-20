@@ -64,6 +64,9 @@ return(0x00);
 else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
+// Also
+(*argp).caret_pos.X = (coord.X);
+(*argp).caret_pos.Y = (coord.Y);
 (*argp).depart.X = (coord.X);
 (*argp).depart.Y = (coord.Y);
 }

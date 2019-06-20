@@ -58,7 +58,7 @@ cache = ((*argp).tail);
 
 // The fist
 coord.X = (0x00);
-coord.Y = ((*cch).depart_y);
+coord.Y = ((*cch).depart.Y);
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
@@ -76,7 +76,7 @@ DEC(cache);
 
 // The second
 coord.X = (0x00);
-coord.Y = ((*cch).depart_y);
+coord.Y = ((*cch).depart.Y);
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
@@ -88,7 +88,10 @@ return(0x00);
 
 // Overwrite
 r = c_outs((*argp).init_p,argp);
+
+/* It is empty ..or has occurred an error.
 if(!r) printf("%s", "<< Error at fn. c_outs()");
+//*/
 
 /* ..or
 r = _cputs((*argp).init_p);
@@ -99,10 +102,9 @@ if(r) printf("%s", "<< Error at fn. _cputs/_cputws()");
 (*argp).p = ((*cch).caret_p);
 (*argp).count = ((*cch).count);
 (*argp).tail = ((*cch).tail);
-coord.X = ((*cch).caret_pos_x);
-coord.Y = ((*cch).caret_pos_y);
+coord.X = ((*cch).caret_pos.X);
+coord.Y = ((*cch).caret_pos.Y);
 
-/*
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
 if(!r) {
@@ -110,7 +112,6 @@ r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
-//*/
 
 return(0x01);
 }

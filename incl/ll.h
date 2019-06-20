@@ -33,6 +33,11 @@ struct knot(*s);
 void(*optl);
 };
 
+typedef struct coords {
+signed short(X);
+signed short(Y);
+} COORDS;
+
 typedef struct snapshot {
 signed char(*p);
 signed short(flag);
@@ -44,6 +49,8 @@ signed short(caret_pos_x);
 signed short(caret_pos_y);
 signed short(depart_x);
 signed short(depart_y);
+COORDS(caret_pos);
+COORDS(depart);
 struct snapshot(*d);
 struct snapshot(*s);
 void(*optl);
@@ -70,6 +77,8 @@ signed short(caret_pos_x);
 signed short(caret_pos_y);
 signed short(depart_x);
 signed short(depart_y);
+COORDS(caret_pos);
+COORDS(depart);
 CLI_HISTORY(clih);
 SNAPSHOT(ss);
 void(*optl);
@@ -84,6 +93,8 @@ struct knot(*d);
 struct knot(*s);
 signed short(depart_x);
 signed short(depart_y);
+COORDS(caret_pos);
+COORDS(depart);
 CLI_HISTORY(clih);
 void(*optl);
 } KNOT;

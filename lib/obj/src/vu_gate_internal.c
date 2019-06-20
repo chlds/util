@@ -90,8 +90,8 @@ else (*argp).t = (KNOT*) ((*argp).l);
 (*cch).p = (signed char(*)) (0x00);
 
 // Coordinates for the current knot
-(*cch).depart_x = (coord.X);
-(*cch).depart_y = (coord.Y);
+(*cch).depart.X = (coord.X);
+(*cch).depart.Y = (coord.Y);
 
 // initialise the CLI History
 (*argp).clih.l = (SNAPSHOT*) (0x00);

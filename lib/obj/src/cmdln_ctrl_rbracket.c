@@ -25,6 +25,7 @@ auto signed(cache), (r);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+/*
 r = current_caret_pos(argp);
 
 if(!r) {
@@ -36,6 +37,7 @@ else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
+//*/
 
 r = cmdln_redo(argp);
 
@@ -46,6 +48,7 @@ if(!r) return(0x01);
 (*((*argp).t)).clih.l = ((*argp).clih.l);
 (*((*argp).t)).clih.b = ((*argp).clih.b);
 
+/*
 r = SetConsoleCursorPosition((*argp).s_out, (*argp).depart);
 
 if(!r) {
@@ -53,6 +56,7 @@ r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
+//*/
 
 return(0x01);
 }

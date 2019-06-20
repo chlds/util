@@ -43,6 +43,10 @@ return(0x00);
 else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
+/*
+(*argp).caret_pos.X = (coord.X);
+(*argp).caret_pos.Y = (coord.Y);
+//*/
 }
 
 /* Refer at fn. vu_gate().
@@ -90,10 +94,12 @@ if(!r) printf("%s", "<< Error at fn. cpy()");
 (*cch).caret_p = ((*argp).p);
 (*cch).count = ((*argp).count);
 (*cch).tail = ((*argp).tail);
-(*cch).caret_pos_x = (coord.X);
-(*cch).caret_pos_y = (coord.Y);
-(*cch).depart_x = (coord.X);
-(*cch).depart_y = (coord.Y);
+
+(*cch).caret_pos.X = (coord.X);
+(*cch).caret_pos.Y = (coord.Y);
+
+(*cch).depart.X = ((*argp).depart.X);
+(*cch).depart.Y = ((*argp).depart.Y);
 
 /*
 r = SetConsoleCursorPosition((*argp).s_out, coord);
