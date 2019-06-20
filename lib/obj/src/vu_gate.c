@@ -108,6 +108,7 @@ if(terminate) return(0x01);
 (*argp).depart.Y = (coord.Y);
 
 (*argp).filename = (signed char(*)) (0x00);
+(*argp).overwrite = (0x00);
 
 // for CLI History
 (*argp).clih.l = (SNAPSHOT*) (0x00);

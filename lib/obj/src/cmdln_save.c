@@ -19,7 +19,7 @@ signed(__cdecl cmdln_save(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char(*label) = ("Save as: ");
-
+auto signed char(*overwriting) = ("The file already exists. Would you like to overwrite? Cancel (c) or Okay (o): ");
 auto KNOT(*cch);
 
 auto signed char(*p);
@@ -28,6 +28,7 @@ auto COORD(coord);
 auto signed(cache), (r);
 auto signed(fd);
 auto signed short(flag);
+auto signed char(c);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -118,16 +119,43 @@ r = cpy((*((*argp).t)).p,(*argp).init_p);
 if(!r) printf("%s", "<< Error at fn. cpy()");
 //*/
 
+// Pre-open to save the contents to the file
+if(!((*argp).overwrite)) {
+fd = open(p, (O_WRONLY|(O_BINARY|(O_CREAT|(O_EXCL|(O_APPEND))))), (S_IREAD|(S_IWRITE)));
+if(!(fd^(~(0x00)))) {
+printf("%s", overwriting);
+r = ct(overwriting);
+coord.X = (r);
+coord.Y = ((*argp).csbi.srWindow.Bottom);
+r = cmd_io(argp);
+if(!r) {
+printf("%s", "<< Error at fn. cmd_io()");
+return(0x00);
+}
+c = (signed char) (*((*argp).cmd_io.p));
+if(!(c^('o'))) XNOR((*argp).overwrite);
+else {
+// XOR((*argp).overwrite,(*argp).overwrite);
+printf("%s", " < Cancelled! > ");
+free((*argp).filename);
+(*argp).filename = (signed char(*)) (0x00);
+return(0x01);
+}}
+else {
+// Opened
+r = close(fd);
+if(!(r^(~(0x00)))) {
+printf("%s", "<< Error at fn. close()");
+return(0x00);
+}}}
+
 // Open to truncate contents of the file
 fd = open(p, (O_WRONLY|(O_BINARY|(O_CREAT|(O_TRUNC)))), (S_IREAD|(S_IWRITE)));
-
 if(!(fd^(~(0x00)))) {
 printf("%s", "<< Error at fn. open()");
 return(0x00);
 }
-
 r = close(fd);
-
 if(!(r^(~(0x00)))) {
 printf("%s", "<< Error at fn. close()");
 return(0x00);
@@ -135,21 +163,16 @@ return(0x00);
 
 // Re-open to save the contents to the file
 fd = open(p, (O_WRONLY|(O_BINARY|(O_CREAT /* |(O_EXCL */ |(O_APPEND)))), (S_IREAD|(S_IWRITE)));
-
 if(!(fd^(~(0x00)))) {
 printf("%s", "<< Error at fn. open()");
 return(0x00);
 }
-
 // Write
 cch = ((*argp).b);
 r = cmdln_writing(fd,cch);
-
 printf("%s%d%s", "Saved ", r, " lines");
-
 // Close
 r = close(fd);
-
 if(!(r^(~(0x00)))) {
 printf("%s", "<< Error at fn. close()");
 return(0x00);

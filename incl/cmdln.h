@@ -75,6 +75,7 @@ signed(length_with_ht);
 // by fn. ct_txt in fn. vu_gate_internal
 };
 signed char(*filename);
+signed short(overwrite);
 // optional
 void(*optl);
 } CMDLN_STAT;

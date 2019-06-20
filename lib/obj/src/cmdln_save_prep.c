@@ -71,17 +71,14 @@ return(0x00);
 }
 
 if(!((*argp).filename)) {
-
 r = ct(label);
 (*argp).command_label = (r);
 printf("%s", label);
-
 r = cmd_io(argp);
 if(!r) {
 printf("%s\n", "<< Error at fn. cmd_io()");
 return(0x00);
 }
-
 c = (signed char) (*((*argp).cmd_io.p));
 if(!(c^('s'))) {
 r = cmdln_save(argp);
