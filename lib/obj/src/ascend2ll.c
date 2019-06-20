@@ -32,7 +32,7 @@ if(!((*((*argp).t)).s)) return(0x01);
 /* ascend */
 (*argp).t = ((*((*argp).t)).s);
 
-/* set the snapshot and knot parameters to the global delegate - argp - in the cmdln_stat structure (out of the previous knot) */
+/* set the snapshot and knot parameters to the global delegate list - argp - in the cmdln_stat structure (out of the previous knot) */
 /* copy snapshots for a CLI history to the delegate list - argp - in the CMDLN_STAT structure out of the current temporary knot */
 (*argp).clih.l = ((*((*argp).t)).clih.l);
 (*argp).clih.b = ((*((*argp).t)).clih.b);
@@ -45,7 +45,7 @@ r = cpy((*argp).init_p,(*((*argp).t)).p);
 r = ct((*argp).init_p);
 (*argp).tail = (r);
 
-/* and to the coordinates */
+/* and registre coordinates to the global delegate list - argp - in the CMDLN_STAT structure */
 (*argp).depart.X = ((*((*argp).t)).depart.X);
 (*argp).depart.Y = ((*((*argp).t)).depart.Y);
 (*argp).caret_pos.X = (0x00);

@@ -51,8 +51,6 @@ return(0x00);
 else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
-(*argp).depart.X = (coord.X);
-(*argp).depart.Y = (coord.Y);
 }
 
 // initialise
@@ -89,22 +87,33 @@ else (*argp).t = (KNOT*) ((*argp).l);
 // Also
 (*cch).p = (signed char(*)) (0x00);
 
-// Coordinates for the current knot
+// Initialise/update coordinates on the global delegate list - argp - in the CMDLN_STAT structure
+(*argp).caret_pos.X = (coord.X);
+(*argp).caret_pos.Y = (coord.Y);
+(*argp).depart.X = (coord.X);
+(*argp).depart.Y = (coord.Y);
+
+// also on the current new knot
+(*cch).caret_pos.X = (coord.X);
+(*cch).caret_pos.Y = (coord.Y);
 (*cch).depart.X = (coord.X);
 (*cch).depart.Y = (coord.Y);
 
-// initialise the CLI History
+// initialise the CLI History on the delegate list - argp - in the CMDLN_STAT structure
 (*argp).clih.l = (SNAPSHOT*) (0x00);
 (*argp).clih.b = (SNAPSHOT*) (0x00);
 (*argp).clih.t = (SNAPSHOT*) (0x00);
 
-// also initialise the CLI history on the current temporary knot
+// also register on the current new knot
 (*cch).clih.l = ((*argp).clih.l);
 (*cch).clih.b = ((*argp).clih.b);
 (*cch).clih.t = ((*argp).clih.t);
 
 // set the CLI history flag
 (*argp).hist = (signed short) (0x00);
+
+/* update the debug monitor */
+if(debugging) r = debug_monitor(argp);
 
 /* recursively read keys */
 r = vu_internal(argp);

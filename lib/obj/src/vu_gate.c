@@ -64,24 +64,19 @@ return(0x00);
 else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
-// Also
-(*argp).caret_pos.X = (coord.X);
-(*argp).caret_pos.Y = (coord.Y);
-(*argp).depart.X = (coord.X);
-(*argp).depart.Y = (coord.Y);
 }
 
 if(terminate) return(0x01);
 
 // Sleep(3000);
-
-// initialise
 // system("cls");
+
+/* Initialise the global delegate list - argp - in the CMDLN_STAT structure */
 
 /* for command mode */
 (*argp).cmd_io.c = (signed) (0x00);
-(*argp).cmd_io.p = (command_buff);
-(*argp).cmd_io.caret = (command_buff);
+(*argp).cmd_io.p = (command_buff); // the leading address
+(*argp).cmd_io.caret = (command_buff); // the current caret position pointer
 (*argp).cmd_io.limit = (COMMAND_BUFF);
 (*argp).cmd_io.count = (0x00);
 (*argp).cmd_io.tail = (0x00);
@@ -106,23 +101,33 @@ if(terminate) return(0x01);
 (*argp).doubly.b = (KNOT*) (0x00);
 //*/
 
+// Coordinates
+(*argp).caret_pos.X = (coord.X);
+(*argp).caret_pos.Y = (coord.Y);
+(*argp).depart.X = (coord.X);
+(*argp).depart.Y = (coord.Y);
+
 (*argp).filename = (signed char(*)) (0x00);
 
 // for CLI History
 (*argp).clih.l = (SNAPSHOT*) (0x00);
 (*argp).clih.b = (SNAPSHOT*) (0x00);
-// Temporary
-(*argp).clih.t = (SNAPSHOT*) (0x00);
+(*argp).clih.t = (SNAPSHOT*) (0x00); // Temporary
 
+// flag to take a snapshot for the CLI history
+// refer at fn. cmdln_ctrl_w_prep, also at fn. cmdln_ctrl_l/rbracket, cmdln_undo, cmdln_redo and cmdln_history
 (*argp).hist = (signed short) (0x00);
 
 /* for debugging */
 (*argp).length_with_ht = (0x00);
+// referred to descend or ascend the caret position
 (*argp).recurred = (0x00);
 (*argp).repeat = (0x00);
 (*argp).embedded = (0x00);
 (*argp).copied = (0x00);
+// by fn. cmdln_ctrl_k
 (*argp).char_output = (0x00);
+// by fn. c_out
 
 // recursively read keys
 r = vu_gate_internal(argp);
