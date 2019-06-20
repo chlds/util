@@ -32,6 +32,27 @@ auto signed(cache), (i), (r);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+// Build a linked list (in the latter part (not the former part))
+r = ct((*argp).init_p);
+
+/* It is empty ..or has occurred an error.
+if(!r) printf("%s", "<< Error at fn. ct()");
+//*/
+
+INC(r);
+(*((*argp).t)).p = (signed char(*)) malloc(r*(sizeof(signed char)));
+
+if(!((*((*argp).t)).p)) {
+printf("%s\n", "<< Error at fn. malloc()");
+return(0x00);
+}
+
+r = cpy((*((*argp).t)).p,(*argp).init_p);
+
+/* It is empty ..or has occurred an error.
+if(!r) printf("%s", "<< Error at fn. cpy()");
+//*/
+
 r = current_caret_pos(argp);
 
 if(!r) {
