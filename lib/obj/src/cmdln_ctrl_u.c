@@ -50,9 +50,9 @@ r = ascend2ll(argp);
 
 if(!r) printf("%s", "<< Error at fn. ascend2ll()");
 
-/* External Part. */
 if(!((signed long long) t^((signed long long) (*argp).t))) return(0x01);
 
+/* External Part. */
 r = ct_txt(ALIGN_TAB,(*((*argp).t)).p);
 
 /* It is empty ..or has occurred an error.

@@ -38,6 +38,8 @@ if(!((*((*argp).t)).d)) return(0x01);
 (*argp).clih.t = ((*((*argp).t)).clih.t);
 
 /* also copy a knot to the delegate list in the CMDLN_STAT structure out of the current temporary knot */
+r = cipher_embed((*argp).init_p,BUFF);
+if(r^(BUFF)) printf("<< Error at fn. cipher_embed()");
 r = cpy((*argp).init_p,(*((*argp).t)).p);
 (*argp).p = ((*argp).init_p);
 (*argp).count = (0x00);

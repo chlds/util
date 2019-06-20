@@ -44,15 +44,6 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-t = ((*argp).t);
-
-r = descend2ll(argp);
-
-if(!r) printf("%s", "<< Error at fn. descend2ll()");
-
-/* External Part. */
-if(!((signed long long) t^((signed long long) (*argp).t))) return(0x01);
-
 r = ct_txt(ALIGN_TAB,(*((*argp).t)).p);
 
 /* It is empty ..or has occurred an error.
@@ -71,6 +62,15 @@ if(r<(0x01)) break;
 coord.X = (0x00);
 coord.Y = (i+(coord.Y));
 
+t = ((*argp).t);
+
+r = descend2ll(argp);
+
+if(!r) printf("%s", "<< Error at fn. descend2ll()");
+
+if(!((signed long long) t^((signed long long) (*argp).t))) return(0x01);
+
+/* External Part. */
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
 if(!r) {

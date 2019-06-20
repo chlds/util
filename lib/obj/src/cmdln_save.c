@@ -15,16 +15,10 @@ Refer at fn. cmdln_ctrl_s, fn. cmdln_save_prep, fn. cmdln_save and fn. cmdln_wri
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-# define BUFF (0x100)
-
 signed(__cdecl cmdln_save(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char(*label) = ("Save as: ");
-
-auto signed char(buff[BUFF]) = {
-(signed char) (0x00)
-};
 
 auto KNOT(*cch);
 
@@ -86,7 +80,7 @@ printf("%s", "<< Error at fn. cmd_io()");
 return(0x00);
 }
 
-(*argp).filename = (signed char(*)) malloc(0x200*(sizeof(signed char)));
+(*argp).filename = (signed char(*)) malloc(COMMAND_BUFF*(sizeof(signed char)));
 
 if(!((*argp).filename)) {
 printf("%s", "<< Error at fn. malloc()");

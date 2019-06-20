@@ -14,16 +14,10 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-# define BUFF (0x100)
-
 signed(__cdecl cmdln_save_prep(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char(*label) = ("Cancel (c) or Save as (s): ");
-
-auto signed char(buff[BUFF]) = {
-(signed char) (0x00)
-};
 
 auto COORD(coord);
 auto signed(cache), (r);
@@ -94,7 +88,7 @@ r = cmdln_save(argp);
 if(!r) printf("%s", "<< Error at fn. cmdln_save()");
 }
 else {
-printf("%s", " < Cancelled");
+printf("%s", " < Cancelled > ");
 Sleep(1500);
 }}
 
