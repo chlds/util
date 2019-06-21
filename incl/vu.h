@@ -12,6 +12,12 @@ If the function fails, the return value is (0x00). */
 
 
 
+signed(__cdecl refresh_row_numbers_internal(KNOT(*di),signed short(n),CMDLN_STAT(*argp)));
+signed(__cdecl refresh_row_numbers(CMDLN_STAT(*argp)));
+
+/* change/update the coordinate departure Y for knots e.g., to scroll, to delete a knot or.. */
+
+
 signed(__cdecl ascend2ll(CMDLN_STAT(*argp)));
 signed(__cdecl descend2ll(CMDLN_STAT(*argp)));
 
@@ -35,6 +41,7 @@ signed(__cdecl cat_ll(KNOT(*argp)));
 signed(__cdecl unmap_history(SNAPSHOT(*argp)));
 signed(__cdecl cat_history(SNAPSHOT(*argp)));
 
+signed(__cdecl delete_knot(KNOT(*cache),CMDLN_STAT(*argp)));
 signed(__cdecl add2ll(KNOT(*cache),CMDLN_STAT(*argp)));
 signed(__cdecl rebase2ll(KNOT(*cache),CMDLN_STAT(*argp)));
 signed(__cdecl absorb2ll(KNOT(*cache),CMDLN_STAT(*argp)));

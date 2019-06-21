@@ -104,8 +104,12 @@ if(terminate) return(0x01);
 // Coordinates
 (*argp).caret_pos.X = (coord.X);
 (*argp).caret_pos.Y = (coord.Y);
+// Change by scrolling
 (*argp).depart.X = (coord.X);
 (*argp).depart.Y = (coord.Y);
+// Not change
+(*argp).orig.X = (coord.X);
+(*argp).orig.Y = (coord.Y);
 
 (*argp).filename = (signed char(*)) (0x00);
 (*argp).overwrite = (0x00);

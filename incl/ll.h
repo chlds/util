@@ -99,12 +99,21 @@ CLI_HISTORY(clih);
 void(*optl);
 } KNOT;
 
+typedef struct knot_stat {
+struct knot(*l); // lead
+struct knot(*t); // temporary
+struct knot(*b); // base
+void(*optl);
+} KNOT_STAT;
+
+// Deprecated..
 typedef struct knots {
 struct knot(*l); // lead
 struct knot(*t); // temporary
 struct knot(*b); // base
 } KNOTS;
 
+// Deprecated..
 struct pknot {
 signed char(*p);
 signed short(flag);

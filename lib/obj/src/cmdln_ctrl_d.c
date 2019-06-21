@@ -2,7 +2,7 @@
 
 Press <Ctrl-D> to invoke the function.
 
-Delete a character on the current caret.
+Delete a character on the current caret (or delete a row).
 
 Remarks:
 Launch on vu.exe
@@ -45,9 +45,17 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 r = ((*argp).count);
 
 if(!(r^((*argp).tail))) {
-}
+/* Delete a row */
+r = delete_knot((*argp).t,argp);
+if(r) {
+r = refresh_row_numbers(argp);
+if(!r) {
+printf("%s", "<< Error at fn. refresh_row_numbers()");
+return(0x00);
+}}}
 
 else {
+/* Delete a character */
 // Internal Part.
 DEC((*argp).tail);
 cache = ct_txt(ALIGN_TAB, (*argp).init_p);

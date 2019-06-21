@@ -50,6 +50,7 @@ COORD(caret_pos_for_cmd_io); // deprecated..
 COORD(depart_for_cmd_io);
 COORD(caret_pos); // mainly for the snapshot history, refer at fn. cmdln_history, cmdln_undo and cmdln_redo.
 COORD(depart);
+COORD(orig);
 CONSOLE_SCREEN_BUFFER_INFO(csbi);
 signed(d);
 signed(s);
