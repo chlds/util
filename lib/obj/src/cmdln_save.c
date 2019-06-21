@@ -33,37 +33,10 @@ auto signed char(c);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-r = current_caret_pos(argp);
+r = cmd_mode_refresh(argp);
 
 if(!r) {
-printf("<< Error at fn. current_caret_pos()");
-return(0x00);
-}
-
-else {
-coord.X = ((*argp).csbi.srWindow.Left);
-coord.Y = ((*argp).csbi.srWindow.Bottom);
-}
-
-r = SetConsoleCursorPosition((*argp).s_out, coord);
-
-if(!r) {
-r = GetLastError();
-printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
-return(0x00);
-}
-
-cache = (0x00+((*argp).csbi.srWindow.Right));
-while(cache) {
-r = _putch(' ');
-DEC(cache);
-}
-
-r = SetConsoleCursorPosition((*argp).s_out, coord);
-
-if(!r) {
-r = GetLastError();
-printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+printf("%s", "<< Error at fn. cmd_mode_refresh()");
 return(0x00);
 }
 
