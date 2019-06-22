@@ -24,6 +24,18 @@ auto signed(r);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+r = ct((*argp).init_p);
+
+INC(r);
+(*((*argp).t)).p = (signed char(*)) malloc(r*(sizeof(signed char)));
+
+if(!((*((*argp).t)).p)) {
+printf("%s", "<< Error at fn. malloc()");
+return(0x00);
+}
+
+r = cpy((*((*argp).t)).p,(*argp).init_p);
+
 system("cls");
 
 r = display_header(argp);

@@ -31,7 +31,12 @@ if(!((*argp).b)) return(0x01);
 (*cache).d = ((*argp).b);
 (*((*argp).b)).s = (cache);
 
-(*argp).b = (cache);
+// also
+(*cache).p = (signed char(*)) (0x00);
+
+/* Update the delegate list - argp - in the CMDLN_STAT structure */
+(*argp).t = (KNOT*) ((*argp).b);
+(*argp).b = (KNOT*) (cache);
 
 return(0x01);
 }

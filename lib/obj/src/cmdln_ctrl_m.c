@@ -29,10 +29,14 @@ auto signed(cache), (r);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+r = cpy((*argp).craft,(*argp).p);
+
+*((*argp).p) = (signed char) ('\0');
+
+/*
 cache = ((*argp).tail);
 *(cache+((*argp).init_p)) = (0x00);
-
-// *((*argp).p) = ('\0');
+//*/
 
 if(command_mode) {
 cache = ((*argp).cmd_io.tail);

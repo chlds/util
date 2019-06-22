@@ -21,6 +21,7 @@ signed(__cdecl absorb2ll(KNOT(*cache),CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto KNOT(*t);
+auto signed(r);
 
 /* **** CODE/TEXT */
 if(!cache) return(0x00);
@@ -28,14 +29,35 @@ if(!argp) return(0x00);
 
 t = ((*argp).t);
 
-if(!t) return(0x00); // go to fn. concat2ll()
-if(!((*t).s)) return(0x00); // go to fn. rebase2ll()
+if(!((signed long long) t^((signed long long) (*argp).l))) {
+r = concat2ll(cache,argp);
+if(!r) {
+printf("%s", "<< Error at fn. concat2ll()");
+return(0x00);
+}
+else return(0x01);
+}
+
+if(!((*t).s)) {
+r = rebase2ll(cache,argp);
+if(!r) {
+printf("%s", "<< Error at fn. rebase2ll()");
+return(0x00);
+}
+else return(0x01);
+}
 
 /* flow: t < cache < (*t).s */
 (*((*t).s)).d = (cache);
 (*cache).s = ((*t).s);
 (*cache).d = (t);
 (*t).s = (cache);
+
+// also
+(*cache).p = (signed char(*)) (0x00);
+
+/* Update the delegate list - argp - in the CMDLN_STAT structure */
+// (*argp).t = (KNOT*) ((*argp).t);
 
 return(0x01);
 }
