@@ -54,6 +54,20 @@ auto signed short(flag);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+if(terminate) return(0x01);
+
+Sleep(1000);
+system("cls");
+
+/* The two-row header */
+(*argp).filename = (signed char(*)) (0x00);
+(*argp).overwrite = (0x00);
+
+r = display_header(argp);
+
+if(!r) printf("%s", "<< Error at fn. display_header()");
+
+/* Coordinates */
 r = current_caret_pos(argp);
 
 if(!r) {
@@ -65,11 +79,6 @@ else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
-
-if(terminate) return(0x01);
-
-// Sleep(3000);
-// system("cls");
 
 /* Initialise the global delegate list - argp - in the CMDLN_STAT structure */
 
@@ -111,9 +120,6 @@ if(terminate) return(0x01);
 (*argp).orig.X = (coord.X);
 (*argp).orig.Y = (coord.Y);
 
-(*argp).filename = (signed char(*)) (0x00);
-(*argp).overwrite = (0x00);
-
 // for CLI History
 (*argp).clih.l = (SNAPSHOT*) (0x00);
 (*argp).clih.b = (SNAPSHOT*) (0x00);
@@ -133,6 +139,8 @@ if(terminate) return(0x01);
 // by fn. cmdln_ctrl_k
 (*argp).char_output = (0x00);
 // by fn. c_out
+
+(*argp).refresh_rows = (0x00);
 
 // recursively read keys
 r = vu_gate_internal(argp);
@@ -156,6 +164,8 @@ printf("%s%d%s\n", "Output ", r, " contents.");
 r = cmdln_unmap(argp);
 
 printf("%s%d%s\n", "Unmapped ", r, " knots.");
+
+if((*argp).filename) free((*argp).filename);
 
 //* Monitor
 printf("\n");

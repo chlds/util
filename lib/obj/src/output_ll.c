@@ -5,7 +5,7 @@ Output character lines out of the argument
 argp: Put the terminating address of the <knot> structure at.
 
 Remarks:
-Use in fn. cmdln_output
+Use in debugging
 */
 
 

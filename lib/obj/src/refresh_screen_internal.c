@@ -1,12 +1,12 @@
 /* **** Notes
 
-Refresh row numbers on the console screen.
+Output character lines out of the argument
 
-k: Put the address of the KNOT structure at.
+k: Put the address of the <knot> structure at.
 argp: Put the address of the CMDLN_STAT structure at.
 
 Remarks:
-Along with fn. refresh_row_numbers
+Along with fn. refresh_screen
 */
 
 
@@ -16,11 +16,11 @@ Along with fn. refresh_row_numbers
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl refresh_row_numbers_internal(KNOT(*k),CMDLN_STAT(*argp))) {
+signed(__cdecl refresh_screen_internal(KNOT(*k),CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto COORD(coord);
-auto signed(i), (r);
+auto signed(r);
 
 /* **** CODE/TEXT */
 if(!k) return(0x00);
@@ -52,6 +52,28 @@ if((*k).clih.l) {
 // also for the current knot on the console screen
 (*k).depart.Y = (coord.Y);
 
+r = c_outs((*k).p,argp);
+
+/* It is empty ..or has occurred an error.
+if(!r) {
+printf("%s", "<< Error at fn. c_outs()");
+return(0x00);
+}
+//*/
+
+/*
+r = SetConsoleCursorPosition((*argp).s_out, (*argp).depart);
+
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}
+//*/
+
 k = ((*k).d);
-return(0x01+(refresh_row_numbers_internal(k,argp)));
+
+if(k) printf("\n");
+
+return(0x01+(refresh_screen_internal(k,argp)));
 }

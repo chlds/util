@@ -74,6 +74,7 @@ signed(recurred);
 // by fn. vu_internal
 signed(length_with_ht);
 // by fn. ct_txt in fn. vu_gate_internal
+signed(refresh_rows);
 };
 signed char(*filename);
 signed short(overwrite);

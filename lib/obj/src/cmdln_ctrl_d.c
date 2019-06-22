@@ -48,9 +48,9 @@ if(!(r^((*argp).tail))) {
 /* Delete a row */
 r = delete_knot((*argp).t,argp);
 if(r) {
-r = refresh_row_numbers(argp);
+r = refresh_screen(argp);
 if(!r) {
-printf("%s", "<< Error at fn. refresh_row_numbers()");
+printf("%s", "<< Error at fn. refresh_screen()");
 return(0x00);
 }}}
 

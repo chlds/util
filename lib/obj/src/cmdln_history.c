@@ -101,6 +101,11 @@ if(!r) printf("%s", "<< Error at fn. cpy()");
 (*cch).depart.X = ((*argp).depart.X);
 (*cch).depart.Y = ((*argp).depart.Y);
 
+/* Connect to the current knot (out of the delegate list - argp - in the CMDLN_STAT structure */
+(*((*argp).t)).clih.t = ((*argp).clih.t);
+(*((*argp).t)).clih.l = ((*argp).clih.l);
+(*((*argp).t)).clih.b = ((*argp).clih.b);
+
 /*
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 

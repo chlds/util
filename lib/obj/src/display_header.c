@@ -1,8 +1,6 @@
 /* **** Notes
 
-Press <Ctrl-V> to invoke the function.
-
-For debugs
+Display the two-row header.
 
 Remarks:
 Launch on vu.exe
@@ -16,15 +14,18 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl cmdln_ctrl_v(CMDLN_STAT(*argp))) {
+signed(__cdecl display_header(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto COORD(coord);
 auto signed(cache), (r);
+auto signed(c);
+auto signed short(flag);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+/*
 r = current_caret_pos(argp);
 
 if(!r) {
@@ -36,12 +37,23 @@ else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
+//*/
 
-r = refresh_screen(argp);
+/* The Header Lines */
+printf("%s", "Ctrl-Q to quit | ");
+if(!((*argp).filename)) printf("%s\n", "No file name");
+else printf("%s\n", (*argp).filename);
+printf("\n");
 
-if(!r) printf("%s", "<< Error at fn. refresh_screen()");
+/*
+r = SetConsoleCursorPosition((*argp).s_out, (*argp).depart);
 
-if(debugging) (*argp).refresh_rows = (r);
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}
+//*/
 
 return(0x01);
 }

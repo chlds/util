@@ -19,14 +19,11 @@ signed(__cdecl refresh_row_numbers(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed(r);
-auto signed short(row);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-row = ((*argp).orig.Y);
-
-r = refresh_row_numbers_internal((*argp).b,row,argp);
+r = refresh_row_numbers_internal((*argp).b,argp);
 
 if(!r) {
 printf("%s", "<< Error at fn. refresh_row_numbers_internal()");

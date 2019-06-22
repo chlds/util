@@ -36,9 +36,11 @@ XOR((*argp).hist,(*argp).hist);
 r = cmdln_history(argp);
 if(!r) printf("%s\n", "<< Error at fn. cmdln_history()");
 
+/* Build in fn. cmdln_history
 (*((*argp).t)).clih.t = ((*argp).clih.t);
 (*((*argp).t)).clih.l = ((*argp).clih.l);
 (*((*argp).t)).clih.b = ((*argp).clih.b);
+//*/
 
 r = cmdln_ctrl_w(argp);
 

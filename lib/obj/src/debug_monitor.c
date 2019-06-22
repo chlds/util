@@ -60,6 +60,7 @@ r = _putch('*');
 printf("%s%3d%s%3d", "coord.X/Y: ", coord.X, "/", coord.Y);
 printf("%s%3d%s%3d", ", (*argp).count/tail: ", (*argp).count, "/", (*argp).tail);
 printf("%s%3d%s%3d", ", (*argp).depart.X/Y: ", (*argp).depart.X, "/", (*argp).depart.Y);
+printf("%s%d%s", ", (*argp).refresh_rows: ", (*argp).refresh_rows, " times");
 printf("\n");
 
 printf("%s%3d", "(*argp).c: ", (*argp).c);
