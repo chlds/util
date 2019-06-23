@@ -43,5 +43,13 @@ if(!r) printf("%s", "<< Error at fn. refresh_screen()");
 
 if(debugging) (*argp).refresh_rows = (r);
 
+r = SetConsoleCursorPosition((*argp).s_out, coord);
+
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}
+
 return(0x01);
 }

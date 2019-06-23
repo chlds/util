@@ -11,6 +11,10 @@ Based on a doubly linked list (i.e., not a circular linked list). */
 
 
 
+# define CONCAT2LL (0x01)
+# define REBASE2LL (0x02)
+# define ABSORB2LL (0x04)
+
 struct card {
 signed char(*p);
 signed short(flag);

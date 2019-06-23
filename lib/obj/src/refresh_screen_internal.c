@@ -39,7 +39,6 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
 r = ((*argp).csbi.srWindow.Bottom);
-
 if(r<(coord.Y)) return(0x00);
 
 if((*k).clih.l) {
@@ -57,16 +56,6 @@ r = c_outs((*k).p,argp);
 /* It is empty ..or has occurred an error.
 if(!r) {
 printf("%s", "<< Error at fn. c_outs()");
-return(0x00);
-}
-//*/
-
-/*
-r = SetConsoleCursorPosition((*argp).s_out, (*argp).depart);
-
-if(!r) {
-r = GetLastError();
-printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
 //*/

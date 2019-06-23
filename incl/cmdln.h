@@ -52,14 +52,18 @@ COORD(caret_pos); // mainly for the snapshot history, refer at fn. cmdln_history
 COORD(depart);
 COORD(orig);
 CONSOLE_SCREEN_BUFFER_INFO(csbi);
+COORD(cache_pos);
 signed(d);
 signed(s);
 KNOT(*l);
 KNOT(*b);
-// Temporary
 KNOT(*t);
 KNOTS(circular);
 KNOTS(doubly);
+signed short(insert);
+KNOT(*created_knot_by_inserting);
+KNOT(*created_knot);
+signed short(concat_type);
 CLI_HISTORY(clih);
 signed short(hist);
 // debug monitor

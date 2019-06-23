@@ -21,10 +21,14 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl cmd_ctrl_m(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+extern signed(cmd_io_terminate);
 auto signed(r);
 
 /* **** CODE/TEXT */
-r = cmdln_ctrl_m(argp);
+r = ((*argp).cmd_io.tail);
+*(r+((*argp).cmd_io.p)) = (0x00);
+
+XNOR(cmd_io_terminate);
 
 return(0x01);
 }

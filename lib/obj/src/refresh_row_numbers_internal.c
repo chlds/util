@@ -19,38 +19,32 @@ Along with fn. refresh_row_numbers
 signed(__cdecl refresh_row_numbers_internal(KNOT(*k),CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto COORD(coord);
 auto signed(i), (r);
 
 /* **** CODE/TEXT */
 if(!k) return(0x00);
 if(!argp) return(0x00);
 
-r = current_caret_pos(argp);
-
-if(!r) {
-printf("<< Error at fn. current_caret_pos()");
-return(0x00);
-}
-
-else {
-coord.X = ((*argp).csbi.dwCursorPosition.X);
-coord.Y = ((*argp).csbi.dwCursorPosition.Y);
-}
-
 r = ((*argp).csbi.srWindow.Bottom);
-
-if(r<(coord.Y)) return(0x00);
+if(r<((*argp).cache_pos.Y)) return(0x00);
 
 if((*k).clih.l) {
 // for the snapshot CLI history
-(*((*k).clih.t)).depart.Y = (coord.Y);
-(*((*k).clih.l)).depart.Y = (coord.Y);
-(*((*k).clih.b)).depart.Y = (coord.Y);
+(*((*k).clih.t)).depart.Y = ((*argp).cache_pos.Y);
+(*((*k).clih.l)).depart.Y = ((*argp).cache_pos.Y);
+(*((*k).clih.b)).depart.Y = ((*argp).cache_pos.Y);
 }
 
 // also for the current knot on the console screen
-(*k).depart.Y = (coord.Y);
+(*k).depart.Y = ((*argp).cache_pos.Y);
+
+i = (0x01+((*argp).csbi.srWindow.Right));
+r = ct_txt(ALIGN_TAB,(*k).p);
+while(0x01) {
+INC((*argp).cache_pos.Y);
+r = (-i+(r));
+if(r<(0x01)) break;
+}
 
 k = ((*k).d);
 return(0x01+(refresh_row_numbers_internal(k,argp)));

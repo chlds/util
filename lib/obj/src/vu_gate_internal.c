@@ -53,67 +53,65 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-// initialise
-// system("cls");
-
+/* initialise the delegate list - argp - in the CMDLN_STAT structure */
+if(!((*argp).insert)) {
 r = cipher_embed((*argp).init_p,BUFF);
 if(r^(BUFF)) printf("<< Error at fn. cipher_embed()");
-
 (*argp).p = ((*argp).init_p);
 (*argp).count = (0x00);
 (*argp).tail = (0x00);
+}
 
-/* Refer at fn. vu_gate
-(*argp).init_p = (buff);
-(*argp).clip = (board);
-(*argp).craft = (snap);
-(*argp).limit = (BUFF);
-//*/
+// also initialise/update coordinates on the delegate list - argp - in the CMDLN_STAT structure
+(*argp).caret_pos.X = (coord.X);
+(*argp).caret_pos.Y = (coord.Y);
+(*argp).depart.X = (coord.X);
+(*argp).depart.Y = (coord.Y);
 
+// and initialise the CLI History on the delegate list - argp - in the CMDLN_STAT structure
+(*argp).clih.l = (SNAPSHOT*) (0x00);
+(*argp).clih.b = (SNAPSHOT*) (0x00);
+(*argp).clih.t = (SNAPSHOT*) (0x00);
+// set the CLI history flag
+(*argp).hist = (signed short) (0x00);
+
+/* Create a new knot associated with the delegate list - argp - in the CMDLN_STAT structure. */
 // Build a linked list (1/2)
+if(!((*argp).insert)) {
+
 cch = (KNOT*) malloc(0x01*(sizeof(KNOT)));
 if(!cch) {
 printf("%s\n", "<< Error at fn. malloc()");
 return(0x00);
 }
 
+(*cch).p = (signed char(*)) (0x00);
+
+(*argp).created_knot = (KNOT*) (cch);
+
 r = concat2ll(cch,argp);
 if(!r) {
 printf("%s\n", "<< Error at fn. concat2ll()");
 return(0x00);
 }
-else (*argp).t = (KNOT*) ((*argp).l);
 
-// Also
-(*cch).p = (signed char(*)) (0x00);
+(*argp).t = (KNOT*) ((*argp).l);
 
-// Initialise/update coordinates on the global delegate list - argp - in the CMDLN_STAT structure
-(*argp).caret_pos.X = (coord.X);
-(*argp).caret_pos.Y = (coord.Y);
-(*argp).depart.X = (coord.X);
-(*argp).depart.Y = (coord.Y);
-
-// also on the current new knot
+// initialise on the current new knot
 (*cch).caret_pos.X = (coord.X);
 (*cch).caret_pos.Y = (coord.Y);
 (*cch).depart.X = (coord.X);
 (*cch).depart.Y = (coord.Y);
-
-// initialise the CLI History on the delegate list - argp - in the CMDLN_STAT structure
-(*argp).clih.l = (SNAPSHOT*) (0x00);
-(*argp).clih.b = (SNAPSHOT*) (0x00);
-(*argp).clih.t = (SNAPSHOT*) (0x00);
-
 // also register on the current new knot
 (*cch).clih.l = ((*argp).clih.l);
 (*cch).clih.b = ((*argp).clih.b);
 (*cch).clih.t = ((*argp).clih.t);
-
-// set the CLI history flag
-(*argp).hist = (signed short) (0x00);
+}
 
 /* update the debug monitor */
 if(debugging) r = debug_monitor(argp);
+
+(*argp).insert = (0x00);
 
 /* recursively read keys */
 r = vu_internal(argp);
@@ -126,37 +124,44 @@ return(0x00);
 if(debugging) (*argp).recurred = (r);
 
 // Build a linked list (2/2)
-r = ct((*argp).init_p);
-
-/* It is empty ..or has occurred an error.
-if(!r) printf("%s", "<< Error at fn. ct()");
+//* Re-allocat
+if((*((*argp).t)).p) free((*((*argp).t)).p);
+(*((*argp).t)).p = (signed char(*)) (0x00);
 //*/
 
+if((*argp).insert) r = ct((*argp).craft);
+else r = ct((*argp).init_p);
+
 INC(r);
-(*cch).p = (signed char(*)) malloc(r*(sizeof(signed char)));
+(*((*argp).t)).p = (signed char(*)) malloc(r*(sizeof(signed char)));
 
 if(!r) {
 printf("%s\n", "<< Error at fn. malloc() the second");
 return(0x00);
 }
 
-r = cpy((*cch).p,(*argp).init_p);
+if((*argp).insert) r = cpy((*((*argp).t)).p,(*argp).craft);
+else r = cpy((*((*argp).t)).p,(*argp).init_p);
 
 /* It is empty ..or has occurred an error.
 if(!r) printf("%s", "<< Error at fn. cpy()");
 //*/
 
-// to move the caret up or down on console screen
-r = ct_txt(ALIGN_TAB,(*argp).init_p);
-
-(*cch).length_with_ht = (r);
-if(debugging) (*argp).length_with_ht = (r);
-
 if(quit) return(0x01);
 
-// to the next line
-printf("\n");
+// registre a created new knot as the current knot
+(*argp).t = (KNOT*) ((*argp).created_knot);
 
+/* and registre parameters of the delegate list - argp - in the CMDLN_STAT structure */
+r = cipher_embed((*argp).init_p,BUFF);
+if(r^(BUFF)) printf("<< Error at fn. cipher_embed()");
+
+if((*argp).insert) r = cpy((*argp).init_p,(*argp).craft);
+else r = cpy((*argp).init_p,(*((*argp).t)).p);
+
+(*argp).p = ((*argp).init_p);
+(*argp).count = (0x00);
+(*argp).tail = (r);
 
 /* Unmap..
 // Aux. History

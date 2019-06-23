@@ -33,6 +33,8 @@ auto signed short(flag);
 if(!di) return(0x00);
 if(!argp) return(0x00);
 
+if(!(*di)) return(0x00);
+
 r = current_caret_pos(argp);
 
 if(!r) {
