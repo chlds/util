@@ -13,7 +13,8 @@ If the function fails, the return value is (0x00). */
 
 
 signed(__cdecl refresh_screen_internal(KNOT(*k),CMDLN_STAT(*argp)));
-signed(__cdecl refresh_screen(CMDLN_STAT(*argp)));
+signed(__cdecl refresh_screen(KNOT(*k),CMDLN_STAT(*argp)));
+signed(__cdecl refresh_screen_at_the_caret_pos(KNOT(*k),CMDLN_STAT(*argp)));
 
 signed(__cdecl refresh_row_numbers_internal(KNOT(*k),CMDLN_STAT(*argp)));
 signed(__cdecl refresh_row_numbers(CMDLN_STAT(*argp)));

@@ -26,7 +26,7 @@ signed(__cdecl vu_gate(CMDLN_STAT(*argp))) {
 extern signed(quit);
 extern signed(terminate);
 
-auto KNOT(*cch);
+auto KNOT(*cache);
 
 auto signed char(command_buff[COMMAND_BUFF]) = {
 (signed char) (0x00)
@@ -45,7 +45,7 @@ auto signed char(snap[BUFF]) = {
 };
 
 auto COORD(coord);
-auto signed(cache), (i), (r);
+auto signed(i), (r);
 auto signed(c);
 // auto unsigned(c);
 
@@ -91,6 +91,7 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 (*argp).cmd_io.tail = (0x00);
 (*argp).cmd_io.recurred = (0x00);
 
+(*argp).c = (0x00);
 (*argp).init_p = (buff);
 (*argp).clip = (board);
 (*argp).craft = (snap);

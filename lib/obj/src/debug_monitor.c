@@ -39,7 +39,7 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 /* to debug monitor */
 coord_mon.X = ((*argp).csbi.srWindow.Left);
-coord_mon.Y = (-13+((*argp).csbi.srWindow.Bottom));
+coord_mon.Y = (-14+((*argp).csbi.srWindow.Bottom));
 
 r = SetConsoleCursorPosition((*argp).s_out, coord_mon);
 
@@ -86,14 +86,16 @@ printf("%s%4d", "(*argp).char_output: ", (*argp).char_output);
 // by fn. c_out
 printf("%s%4d", ", .copied: ", (*argp).copied);
 printf("%s%4d", ", .embedded: ", (*argp).embedded);
-printf("%s%4d", ", .repeat: ", (*argp).repeat);
+printf("%s%4d\n", ", .repeat: ", (*argp).repeat);
 // by fn. cmdln_ctrl_k
-printf("%s%ph%s%ph%s%ph", ", (*argp).t/l/b: ", (*argp).t, "/", (*argp).l, "/", (*argp).b);
-printf("\n");
 
-/* cli histories */
+/* The three (i.e., temporary, lead and base) knots for the delegate list - argp - in the CMDLN_STAT structure */
+printf("%s%ph%s%ph%s%ph\n", "(*argp).t/l/b            : ", (*argp).t, "/", (*argp).l, "/", (*argp).b);
+
+/* cli histories associated with the delegate list - argp - in the CMDLN_STAT structure */
 printf("%s%ph%s%ph%s%ph\n", "(*argp).clih.t/l/b       : ", (*argp).clih.t, "/", (*argp).clih.l, "/", (*argp).clih.b);
 
+/* a temporary (i.e., current) knot associated with the delegate list - argp - in the CMDLN_STAT structure */
 if((*argp).t) {
 printf("%s%ph%s%ph%s%ph\n", "(*((*argp).t)).clih.t/l/b: ", (*((*argp).t)).clih.t, "/", (*((*argp).t)).clih.l, "/", (*((*argp).t)).clih.b);
 }

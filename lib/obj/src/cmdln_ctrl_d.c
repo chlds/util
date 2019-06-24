@@ -47,10 +47,21 @@ r = ((*argp).count);
 if(!(r^((*argp).tail))) {
 /* Delete a row */
 r = delete_knot((*argp).t,argp);
-if(r) {
-r = refresh_screen(argp);
+if(!r) {
+// It is empty ..or has occurred an error.
+// printf("%s", "<< Error at fn. delete_knot()");
+// return(0x00);
+}
+else {
+r = refresh_screen((*argp).b,argp);
 if(!r) {
 printf("%s", "<< Error at fn. refresh_screen()");
+return(0x00);
+}
+r = SetConsoleCursorPosition((*argp).s_out, coord);
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }}}
 

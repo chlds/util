@@ -1,6 +1,6 @@
 /* **** Notes
 
-Refresh the console screen.
+Refresh the console screen at the current caret position.
 
 Remarks:
 Along with fn. refresh_row_numbers
@@ -13,7 +13,7 @@ Along with fn. refresh_row_numbers
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl refresh_screen(KNOT(*k),CMDLN_STAT(*argp))) {
+signed(__cdecl refresh_screen_at_the_caret_pos(KNOT(*k),CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto COORD(coord);
@@ -24,11 +24,6 @@ auto signed(r);
 /* **** CODE/TEXT */
 if(!k) return(0x00);
 if(!argp) return(0x00);
-
-system("cls");
-
-r = display_header(argp);
-if(!r) printf("%s", "<< Error at fn. display_header()");
 
 r = current_caret_pos(argp);
 

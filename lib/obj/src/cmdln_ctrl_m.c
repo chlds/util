@@ -25,8 +25,10 @@ extern signed(command_mode);
 extern signed(cmd_io_terminate);
 
 auto COORD(coord);
+auto COORD(coord_b);
 auto KNOT(*cache);
 auto signed(i), (r);
+auto signed char(ws);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -43,10 +45,21 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
+i = ct_txt(ALIGN_TAB,(*argp).init_p);
+
 r = cpy((*argp).craft,(*argp).p);
 
-if(!r) XOR((*argp).insert,(*argp).insert);
-else XNOR((*argp).insert);
+if(!r) {
+if(!((*((*argp).t)).d)) {
+XOR((*argp).insert,(*argp).insert);
+}
+else {
+XNOR((*argp).insert);
+}}
+
+else {
+XNOR((*argp).insert);
+}
 
 *((*argp).p) = (signed char) ('\0');
 
@@ -61,7 +74,6 @@ return(0x00);
 
 else {
 (*cache).p = (signed char(*)) (0x00);
-(*argp).created_knot_by_inserting = (cache);
 // initialise on the current new knot
 (*cache).caret_pos.X = (0x00);
 (*cache).caret_pos.Y = (coord.Y);
@@ -89,6 +101,21 @@ return(0x00);
 
 r = cpy((*cache).p,(*argp).init_p);
 
+
+ws = (' ');
+coord_b.X = ((*((*argp).t)).depart.X);
+coord_b.Y = ((*((*argp).t)).depart.Y);
+r = SetConsoleCursorPosition((*argp).s_out,coord_b);
+if(!r) printf("%s", "<< Error at fn. SetConsoleCursorPosition()");
+while(i) {
+r = c_out(&ws,argp);
+DEC(i);
+}
+r = SetConsoleCursorPosition((*argp).s_out,coord_b);
+if(!r) printf("%s", "<< Error at fn. SetConsoleCursorPosition()");
+r = c_outs((*cache).p,argp);
+
+
 /* switch the temporary, lead and base knots
 if(CONCAT2LL^((*argp).concat_type)) {
 }
@@ -112,6 +139,7 @@ if(r<(0x01)) break;
 }
 
 coord.X = (0x00);
+
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
 if(!r) {

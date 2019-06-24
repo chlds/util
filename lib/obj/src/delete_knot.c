@@ -19,11 +19,11 @@ signed(__cdecl delete_knot(KNOT(*k),CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto KNOT(*cache);
+auto signed(r);
 
 /* **** CODE/TEXT */
 if(!k) return(0x00);
 if(!argp) return(0x00);
-
 
 /*
 if(!((*argp).l)) return(0x00);
@@ -32,26 +32,33 @@ cache = ((*argp).l);
 if(!((signed long long) cache^((signed long long) (*argp).b))) return(0x00);
 //*/
 
-
 cache = ((*k).d);
-if(!((signed long long) cache^((signed long long) (*k).s))) return(0x01);
-
+if(!((signed long long) cache^((signed long long) (*k).s))) {
+// not unmap
+(*argp).b = (k);
+(*argp).t = (k);
+(*argp).l = (k);
+return(0x01);
+}
 
 if(!((*k).s)) {
 // rebase by deleting i.e., not by inserting, refer at fn. rebase2ll
+(*((*k).d)).s = (KNOT*) (0x00);
 (*argp).b = ((*k).d);
 (*argp).t = ((*k).d);
-(*((*k).d)).s = (KNOT*) (0x00);
+r = cpy((*argp).init_p,(*((*k).d)).p);
 }
 
 else {
 if(!((*k).d)) {
+// not unmap
 return(0x01);
 }
 else {
-(*argp).t = ((*k).d);
 (*((*k).s)).d = ((*k).d);
 (*((*k).d)).s = ((*k).s);
+(*argp).t = ((*k).d);
+r = cpy((*argp).init_p,(*((*k).d)).p);
 }}
 
 free((*k).p);

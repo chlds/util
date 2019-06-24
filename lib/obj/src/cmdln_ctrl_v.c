@@ -37,7 +37,7 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-r = refresh_screen(argp);
+r = refresh_screen((*argp).b,argp);
 
 if(!r) printf("%s", "<< Error at fn. refresh_screen()");
 

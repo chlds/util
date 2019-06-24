@@ -61,7 +61,6 @@ KNOT(*t);
 KNOTS(circular);
 KNOTS(doubly);
 signed short(insert);
-KNOT(*created_knot_by_inserting);
 KNOT(*created_knot);
 signed short(concat_type);
 CLI_HISTORY(clih);

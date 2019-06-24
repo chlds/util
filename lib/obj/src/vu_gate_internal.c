@@ -28,8 +28,8 @@ extern signed(terminate);
 
 auto COORD(coord);
 
-auto KNOT(*cch);
-auto signed(cache), (i), (r);
+auto KNOT(*cache);
+auto signed(i), (r);
 auto signed(c);
 // auto unsigned(c);
 
@@ -79,17 +79,17 @@ if(r^(BUFF)) printf("<< Error at fn. cipher_embed()");
 // Build a linked list (1/2)
 if(!((*argp).insert)) {
 
-cch = (KNOT*) malloc(0x01*(sizeof(KNOT)));
-if(!cch) {
+cache = (KNOT*) malloc(0x01*(sizeof(KNOT)));
+if(!cache) {
 printf("%s\n", "<< Error at fn. malloc()");
 return(0x00);
 }
 
-(*cch).p = (signed char(*)) (0x00);
+(*cache).p = (signed char(*)) (0x00);
 
-(*argp).created_knot = (KNOT*) (cch);
+(*argp).created_knot = (KNOT*) (cache);
 
-r = concat2ll(cch,argp);
+r = concat2ll(cache,argp);
 if(!r) {
 printf("%s\n", "<< Error at fn. concat2ll()");
 return(0x00);
@@ -98,14 +98,14 @@ return(0x00);
 (*argp).t = (KNOT*) ((*argp).l);
 
 // initialise on the current new knot
-(*cch).caret_pos.X = (coord.X);
-(*cch).caret_pos.Y = (coord.Y);
-(*cch).depart.X = (coord.X);
-(*cch).depart.Y = (coord.Y);
+(*cache).caret_pos.X = (coord.X);
+(*cache).caret_pos.Y = (coord.Y);
+(*cache).depart.X = (coord.X);
+(*cache).depart.Y = (coord.Y);
 // also register on the current new knot
-(*cch).clih.l = ((*argp).clih.l);
-(*cch).clih.b = ((*argp).clih.b);
-(*cch).clih.t = ((*argp).clih.t);
+(*cache).clih.l = ((*argp).clih.l);
+(*cache).clih.b = ((*argp).clih.b);
+(*cache).clih.t = ((*argp).clih.t);
 }
 
 /* update the debug monitor */
@@ -149,9 +149,6 @@ if(!r) printf("%s", "<< Error at fn. cpy()");
 
 if(quit) return(0x01);
 
-// registre a created new knot as the current knot
-(*argp).t = (KNOT*) ((*argp).created_knot);
-
 /* and registre parameters of the delegate list - argp - in the CMDLN_STAT structure */
 r = cipher_embed((*argp).init_p,BUFF);
 if(r^(BUFF)) printf("<< Error at fn. cipher_embed()");
@@ -162,6 +159,15 @@ else r = cpy((*argp).init_p,(*((*argp).t)).p);
 (*argp).p = ((*argp).init_p);
 (*argp).count = (0x00);
 (*argp).tail = (r);
+
+
+/* refresh the console screen at the current - i.e., at the new row after inserting - caret position */
+// Attention: Implement a function similar to system("cls") to clear the console screen at the caret position.
+if((*argp).insert) {
+r = refresh_screen_at_the_caret_pos((*argp).t,argp);
+if(!r) printf("%s", "<< Error at fn. refresh_screen_at_the_caret_pos()");
+}
+
 
 /* Unmap..
 // Aux. History
