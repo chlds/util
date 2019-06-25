@@ -23,7 +23,7 @@ signed(__cdecl cmdln_undo(CMDLN_STAT(*argp))) {
 /* **** DATA, BSS and STACK */
 auto SNAPSHOT(*cch);
 auto COORD(coord);
-auto signed(cache), (r);
+auto signed(i), (r);
 auto signed short(flag);
 
 /* **** CODE/TEXT */
@@ -41,7 +41,7 @@ r = cpy((*argp).init_p, (*cch).p);
 if(!r) printf("%s", "<< Error at fn. cpy()");
 //*/
 
-cache = ((*argp).tail);
+i = ct_txt(ALIGN_TAB,(*argp).init_p);
 
 // The fist
 coord.X = (0x00);
@@ -56,9 +56,9 @@ return(0x00);
 }
 
 /* Delete by overwriting */
-while(cache) {
+while(i) {
 r = _putch(' ');
-DEC(cache);
+DEC(i);
 }
 
 // The second

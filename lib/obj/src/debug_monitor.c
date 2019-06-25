@@ -39,7 +39,7 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 /* to debug monitor */
 coord_mon.X = ((*argp).csbi.srWindow.Left);
-coord_mon.Y = (-14+((*argp).csbi.srWindow.Bottom));
+coord_mon.Y = (-15+((*argp).csbi.srWindow.Bottom));
 
 r = SetConsoleCursorPosition((*argp).s_out, coord_mon);
 
@@ -69,6 +69,7 @@ printf("%s%4d", ", (*argp).length_with_ht: ", (*argp).length_with_ht);
 // by fn. ct_txt()
 printf("%s%4d", ", (*argp).recurred: ", (*argp).recurred);
 // by fn. vu_internal
+printf("%s%4d", "(*argp).cleared_rows: ", (*argp).cleared_rows);
 printf("\n");
 
 // (*argp).cmd_io.*
@@ -104,9 +105,10 @@ printf("\n");
 }
 
 if(more_debugging) {
-printf("%s%8ph%s%-50s\n", "(*argp).init_p: ", (*argp).init_p, " : ", (*argp).init_p);
-printf("%s%8ph%s%-50s\n", "(*argp).craft : ", (*argp).craft, " : ", (*argp).craft);
-printf("%s%8ph%s%-50s\n", "(*argp).p     : ", (*argp).p, " : ", (*argp).p);
+printf("%s%8ph%s%-56s\n", "(*((*argp).t)).p: ", (*((*argp).t)).p, " : ", (*((*argp).t)).p);
+printf("%s%8ph%s%-56s\n", "(*argp).init_p  : ", (*argp).init_p, " : ", (*argp).init_p);
+printf("%s%8ph%s%-56s\n", "(*argp).craft   : ", (*argp).craft, " : ", (*argp).craft);
+printf("%s%8ph%s%-56s\n", "(*argp).p       : ", (*argp).p, " : ", (*argp).p);
 if((*argp).filename) printf("%s%s",   "(*argp).filename: ", (*argp).filename);
 }
 

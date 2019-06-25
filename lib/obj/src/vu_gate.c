@@ -144,6 +144,7 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 (*argp).char_output = (0x00);
 // by fn. c_out
 
+(*argp).cleared_rows = (0x00);
 (*argp).refresh_rows = (0x00);
 
 // recursively read keys

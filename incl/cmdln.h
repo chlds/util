@@ -34,7 +34,7 @@ signed(command_label);
 CMD_IO(cmd_io);
 signed char(*clip);
 signed char(*craft);
-signed char(*init_p);
+signed char(*init_p); // as workspace
 signed char(*p);
 signed(limit);
 signed(count);
@@ -78,6 +78,7 @@ signed(recurred);
 signed(length_with_ht);
 // by fn. ct_txt in fn. vu_gate_internal
 signed(refresh_rows);
+signed(cleared_rows);
 };
 signed char(*filename);
 signed short(overwrite);

@@ -42,9 +42,10 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-r = ((*argp).count);
+// Check the numbre to the workspace
+r = ct((*argp).init_p);
 
-if(!(r^((*argp).tail))) {
+if(!r) {
 /* Delete a row */
 r = delete_knot((*argp).t,argp);
 if(!r) {
@@ -52,7 +53,11 @@ if(!r) {
 // printf("%s", "<< Error at fn. delete_knot()");
 // return(0x00);
 }
-else {
+
+// Check the numbre to the workspace
+r = ct((*argp).init_p);
+(*argp).tail = (r);
+
 r = refresh_screen((*argp).b,argp);
 if(!r) {
 printf("%s", "<< Error at fn. refresh_screen()");
@@ -63,15 +68,17 @@ if(!r) {
 r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
-}}}
+}}
 
 else {
 /* Delete a character */
 // Internal Part.
-DEC((*argp).tail);
 cache = ct_txt(ALIGN_TAB, (*argp).init_p);
 r = cpy((*argp).craft, 1+((*argp).p));
 r = cpy((*argp).p, (*argp).craft);
+// Count the numbre to the workspace
+r = ct((*argp).init_p);
+(*argp).tail = (r);
 // External Part.
 r = ct_txt(ALIGN_TAB, (*argp).init_p);
 cache = (-r+(cache));

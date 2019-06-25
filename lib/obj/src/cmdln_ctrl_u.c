@@ -33,6 +33,8 @@ auto signed(cache), (i), (r);
 if(!argp) return(0x00);
 
 // Build a linked list (in the latter part (not the former part))
+if((*((*argp).t)).p) free((*((*argp).t)).p);
+
 r = ct((*argp).init_p);
 
 /* It is empty ..or has occurred an error.

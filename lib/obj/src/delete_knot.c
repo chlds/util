@@ -46,6 +46,7 @@ if(!((*k).s)) {
 (*((*k).d)).s = (KNOT*) (0x00);
 (*argp).b = ((*k).d);
 (*argp).t = ((*k).d);
+// and copy to the workspace
 r = cpy((*argp).init_p,(*((*k).d)).p);
 }
 
@@ -58,6 +59,7 @@ else {
 (*((*k).s)).d = ((*k).d);
 (*((*k).d)).s = ((*k).s);
 (*argp).t = ((*k).d);
+// and copy to the workspace
 r = cpy((*argp).init_p,(*((*k).d)).p);
 }}
 

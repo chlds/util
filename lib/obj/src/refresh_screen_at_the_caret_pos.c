@@ -2,8 +2,11 @@
 
 Refresh the console screen at the current caret position.
 
+Output as foreground characters, refer at fn. clear_rows.
+
 Remarks:
-Along with fn. refresh_row_numbers
+Along with fn. clear_rows
+Also refer at fn. refresh_row_numbers
 */
 
 
@@ -37,6 +40,7 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
+/* Internal Part. */
 //* Aux.
 if((*((*argp).t)).p) {
 free((*((*argp).t)).p);
@@ -51,6 +55,13 @@ return(0x00);
 }
 r = cpy((*((*argp).t)).p,(*argp).init_p);
 //*/
+
+/* External Part. */
+r = clear_rows(argp);
+
+if(!r) printf("%s", "<< Error at fn. clear_rows()");
+
+if(debugging) (*argp).cleared_rows = (r);
 
 r = refresh_screen_internal(k,argp);
 
