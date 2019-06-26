@@ -26,12 +26,5 @@ argp = ((*argp).s);
 
 printf("%s%s", "  ", (*cache).p);
 
-//* Optional
-printf("%s", " and the ss meta: ");
-printf("%s%4d%s%4d", "(*cache).caret_pos.X/Y: ", (*cache).caret_pos.X, "/", (*cache).caret_pos.Y);
-printf("%s%4d%s%4d", ", .count/.tail: ", (*cache).count, "/", (*cache).tail);
-printf("%s%ph%s%ph\n", ", .caret_p/.p: ", (*cache).caret_p, "/", (*cache).p);
-//*/
-
 return(0x01+(cat_history(argp)));
 }

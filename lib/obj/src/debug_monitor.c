@@ -39,7 +39,7 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 /* to debug monitor */
 coord_mon.X = ((*argp).csbi.srWindow.Left);
-coord_mon.Y = (-15+((*argp).csbi.srWindow.Bottom));
+coord_mon.Y = (-16+((*argp).csbi.srWindow.Bottom));
 
 r = SetConsoleCursorPosition((*argp).s_out, coord_mon);
 
@@ -99,13 +99,17 @@ printf("%s%ph%s%ph%s%ph\n", "(*argp).clih.t/l/b       : ", (*argp).clih.t, "/", 
 /* a temporary (i.e., current) knot associated with the delegate list - argp - in the CMDLN_STAT structure */
 if((*argp).t) {
 printf("%s%ph%s%ph%s%ph\n", "(*((*argp).t)).clih.t/l/b: ", (*((*argp).t)).clih.t, "/", (*((*argp).t)).clih.l, "/", (*((*argp).t)).clih.b);
+if((*((*argp).t)).clih.t) printf("%s%4d\n", "(*((*((*argp).t)).clih.t)).offset: ", (*((*((*argp).t)).clih.t)).offset);
+else printf("\n");
 }
 else {
+printf("\n");
 printf("\n");
 }
 
 if(more_debugging) {
-printf("%s%8ph%s%-56s\n", "(*((*argp).t)).p: ", (*((*argp).t)).p, " : ", (*((*argp).t)).p);
+if((*((*argp).t)).p) printf("%s%8ph%s%-56s\n", "(*((*argp).t)).p: ", (*((*argp).t)).p, " : ", (*((*argp).t)).p);
+else printf("\n");
 printf("%s%8ph%s%-56s\n", "(*argp).init_p  : ", (*argp).init_p, " : ", (*argp).init_p);
 printf("%s%8ph%s%-56s\n", "(*argp).craft   : ", (*argp).craft, " : ", (*argp).craft);
 printf("%s%8ph%s%-56s\n", "(*argp).p       : ", (*argp).p, " : ", (*argp).p);
@@ -115,7 +119,7 @@ if((*argp).filename) printf("%s%s",   "(*argp).filename: ", (*argp).filename);
 else {
 printf("%s%8ph\n", "(*argp).init_p: ", (*argp).init_p);
 printf("%s%8ph\n", "(*argp).craft : ", (*argp).craft);
-printf("%s%8ph\n",   "(*argp).p     : ", (*argp).p);
+printf("%s%8ph\n", "(*argp).p     : ", (*argp).p);
 printf("%s%8ph",   "(*argp).filename: ", (*argp).filename);
 }
 

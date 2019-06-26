@@ -22,12 +22,11 @@ Refer at incl/ll.h for the CLI_HISTORY structure
 signed(__cdecl cmdln_history(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto SNAPSHOT(*cch);
-
+auto signed char(*p);
 auto COORD(coord);
-auto signed(cache), (r);
+auto SNAPSHOT(*cache);
+auto signed(i), (r);
 auto signed(c);
-
 auto signed short(flag);
 
 /* **** CODE/TEXT */
@@ -43,10 +42,6 @@ return(0x00);
 else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
-/*
-(*argp).caret_pos.X = (coord.X);
-(*argp).caret_pos.Y = (coord.Y);
-//*/
 }
 
 /* Refer at fn. vu_gate().
@@ -54,54 +49,54 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 (*argp).clih.b = (SNAPSHOT*) (0x00);
 //*/
 
-cch = (SNAPSHOT*) malloc(0x01*(sizeof(SNAPSHOT)));
+cache = (SNAPSHOT*) malloc(0x01*(sizeof(SNAPSHOT)));
 
-if(!cch) {
+if(!cache) {
 printf("%s\n", "<< Error at fn. malloc()");
 return(0x00);
 }
 
-r = concat2ll_for_history(cch, &((*argp).clih.l), &((*argp).clih.b));
+// initialise parameters
+(*cache).p = (signed char(*)) (0x00);
+(*cache).offset = (signed) (0x00);
+
+r = concat2ll_for_history(cache,&((*argp).clih.l),&((*argp).clih.b));
+
 if(!r) {
 printf("%s\n", "<< Error at fn. concat2ll_for_history()");
 return(0x00);
 }
-/* Temporary */
-else (*argp).clih.t = ((*argp).clih.l);
+
+(*argp).clih.t = ((*argp).clih.l);
 
 r = ct((*argp).init_p);
 
 /* It is empty ..or has occurred an error.
-if(!r) {
-printf("%s\n", "<< Error at fn. ct()");
-return(0x00);
-}
+if(!r) printf("%s\n", "<< Error at fn. ct()");
 //*/
 
 INC(r);
-(*cch).p = (signed char(*)) malloc(r*(sizeof(signed char)));
-if(!((*cch).p)) {
+(*cache).p = (signed char(*)) malloc(r*(sizeof(signed char)));
+
+if(!((*cache).p)) {
 printf("%s\n", "<< Error at fn. malloc() the second");
 return(0x00);
 }
 
-r = cpy((*cch).p,(*argp).init_p);
+r = cpy((*cache).p,(*argp).init_p);
+
 /* It is empty ..or has occurred an error.
 if(!r) printf("%s", "<< Error at fn. cpy()");
 //*/
 
-/* Also sequentially take a snapshot for history */
-(*cch).caret_p = ((*argp).p);
-(*cch).count = ((*argp).count);
-(*cch).tail = ((*argp).tail);
+/* distance measured from depart.X of the knot for a snapshot */
+r = cpy((*argp).craft,(*argp).init_p);
+r = ((*argp).count);
+*(r+((*argp).craft)) = (signed char) ('\0');
+r = ct_txt(ALIGN_TAB,(*argp).craft);
+(*cache).offset = (r);
 
-(*cch).caret_pos.X = (coord.X);
-(*cch).caret_pos.Y = (coord.Y);
-
-(*cch).depart.X = ((*argp).depart.X);
-(*cch).depart.Y = ((*argp).depart.Y);
-
-/* Connect to the current knot (out of the delegate list - argp - in the CMDLN_STAT structure */
+/* Registre to the current knot (out of the delegate list - argp - in the CMDLN_STAT structure) */
 (*((*argp).t)).clih.t = ((*argp).clih.t);
 (*((*argp).t)).clih.l = ((*argp).clih.l);
 (*((*argp).t)).clih.b = ((*argp).clih.b);

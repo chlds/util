@@ -47,11 +47,13 @@ if(!((*argp).hist)) {
 XNOR((*argp).hist);
 r = cmdln_history(argp);
 if(!r) printf("%s\n", "<< Error at fn. cmdln_history(argp)");
-else (*argp).clih.t = ((*((*argp).clih.t)).s);
+/*
+(*argp).clih.t = ((*((*argp).clih.t)).s);
 // Also
 (*((*argp).t)).clih.t = ((*argp).clih.t);
 (*((*argp).t)).clih.l = ((*argp).clih.l);
 (*((*argp).t)).clih.b = ((*argp).clih.b);
+//*/
 }
 
 r = cmdln_undo(argp);
@@ -63,6 +65,7 @@ if(!r) {
 // To re-do using fn. cmdln_ctrl_rbracket
 // Also refer at fn. cmdln_ctrl_w(or *)_prep() for the history flag.
 
+/* feed back to the current knot out of the workspace */
 (*((*argp).t)).clih.t = ((*argp).clih.t);
 (*((*argp).t)).clih.l = ((*argp).clih.l);
 (*((*argp).t)).clih.b = ((*argp).clih.b);

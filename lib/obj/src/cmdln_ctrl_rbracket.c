@@ -41,9 +41,9 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 r = cmdln_redo(argp);
 
-// It is empty ..or has occurred an error.
-if(!r) return(0x01);
+if(!r) printf("%s", "<< Error at fn. cmdln_redo()");
 
+/* feed back to the current knot out of the workspace */
 (*((*argp).t)).clih.t = ((*argp).clih.t);
 (*((*argp).t)).clih.l = ((*argp).clih.l);
 (*((*argp).t)).clih.b = ((*argp).clih.b);

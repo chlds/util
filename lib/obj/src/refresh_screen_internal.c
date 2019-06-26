@@ -41,13 +41,6 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 r = ((*argp).csbi.srWindow.Bottom);
 if(r<(coord.Y)) return(0x00);
 
-if((*k).clih.l) {
-// for the snapshot CLI history
-(*((*k).clih.t)).depart.Y = (coord.Y);
-(*((*k).clih.l)).depart.Y = (coord.Y);
-(*((*k).clih.b)).depart.Y = (coord.Y);
-}
-
 // also for the current knot on the console screen
 (*k).depart.Y = (coord.Y);
 

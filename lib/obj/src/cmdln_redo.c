@@ -21,7 +21,7 @@ Refer at fn. cmdln_ctrl_lbracket() for the hist flag.
 signed(__cdecl cmdln_redo(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto SNAPSHOT(*cch);
+auto SNAPSHOT(*cache);
 auto COORD(coord);
 auto signed(i), (r);
 auto signed short(flag);
@@ -29,36 +29,32 @@ auto signed short(flag);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-if(!((*argp).clih.t)) {
-if(!((*argp).clih.l)) return(0x01);
-else (*argp).clih.t = ((*argp).clih.b);
-}
+if(!((*argp).clih.t)) return(0x01);
 // (*argp).clih.t ..is alway reset the lead of history by fn. cmdln_history.
 
-else {
 if(!((*((*argp).clih.t)).d)) return(0x01);
-(*argp).clih.t = ((*((*argp).clih.t)).d);
-}
 
-// step back to avoid the leading address
+i = ct_txt(ALIGN_TAB,(*argp).init_p);
+
+(*argp).clih.t = ((*((*argp).clih.t)).d);
+cache = ((*argp).clih.t);
+
+/* step back to avoid the leading address
 if(!((*((*argp).clih.t)).d)) {
 (*argp).clih.t = ((*((*argp).clih.t)).s);
 return(0x01);
 }
+//*/
 
-cch = ((*((*argp).clih.t)).d);
-
-r = cpy((*argp).init_p, (*cch).p);
+r = cpy((*argp).init_p, (*cache).p);
 
 /* It is empty ..or has occurred an error.
 if(!r) printf("%s", "<< Error at fn. cpy()");
 //*/
 
-i = ((*argp).tail);
-
-// The fist
+// The first: sync. with the workspace
 coord.X = (0x00);
-coord.Y = ((*cch).depart.Y);
+coord.Y = ((*argp).depart.Y);
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
@@ -74,9 +70,9 @@ r = _putch(' ');
 DEC(i);
 }
 
-// The second
+// The second: sync. with the workspace
 coord.X = (0x00);
-coord.Y = ((*cch).depart.Y);
+coord.Y = ((*argp).depart.Y);
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
@@ -98,12 +94,24 @@ r = _cputs((*argp).init_p);
 if(r) printf("%s", "<< Error at fn. _cputs/_cputws()");
 //*/
 
-// The third
-(*argp).p = ((*cch).caret_p);
-(*argp).count = ((*cch).count);
-(*argp).tail = ((*cch).tail);
-coord.X = ((*cch).caret_pos.X);
-coord.Y = ((*cch).caret_pos.Y);
+// The third: sync. parameters with the workspace
+r = ct((*argp).init_p);
+(*argp).tail = (r);
+
+r = ((*cache).offset);
+(*argp).count = (r);
+(*argp).p = (r+((*argp).init_p));
+
+// Countermeasure the multi-lines..
+coord.Y = ((*argp).depart.Y);
+i = (0x01+((*argp).csbi.srWindow.Right));
+while(0x01) {
+r = (-i+(r));
+if(r<(0x01)) break;
+INC(coord.Y);
+}
+
+coord.X = (i+(r));
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 

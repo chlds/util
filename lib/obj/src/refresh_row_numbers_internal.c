@@ -28,14 +28,7 @@ if(!argp) return(0x00);
 r = ((*argp).csbi.srWindow.Bottom);
 if(r<((*argp).cache_pos.Y)) return(0x00);
 
-if((*k).clih.l) {
-// for the snapshot CLI history
-(*((*k).clih.t)).depart.Y = ((*argp).cache_pos.Y);
-(*((*k).clih.l)).depart.Y = ((*argp).cache_pos.Y);
-(*((*k).clih.b)).depart.Y = ((*argp).cache_pos.Y);
-}
-
-// also for the current knot on the console screen
+// feed back coordinate Y of the workspace to the current knot
 (*k).depart.Y = ((*argp).cache_pos.Y);
 
 i = (0x01+((*argp).csbi.srWindow.Right));
