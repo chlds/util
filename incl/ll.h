@@ -44,7 +44,7 @@ signed short(Y);
 
 typedef struct snapshot {
 signed char(*p);
-signed(count); // deprecated..
+// signed(count); // deprecated..
 signed(offset); // distance measured from depart.X of the knot e.g., measured from ((*((*argp).t)).depart.X)
 signed short(flag);
 signed(uid);

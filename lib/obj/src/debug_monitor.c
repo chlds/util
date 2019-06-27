@@ -87,8 +87,17 @@ printf("%s%4d", "(*argp).char_output: ", (*argp).char_output);
 // by fn. c_out
 printf("%s%4d", ", .copied: ", (*argp).copied);
 printf("%s%4d", ", .embedded: ", (*argp).embedded);
-printf("%s%4d\n", ", .repeat: ", (*argp).repeat);
+printf("%s%4d", ", .repeat: ", (*argp).repeat);
 // by fn. cmdln_ctrl_k
+
+
+/* The two Coordinate sets are important.
+i.e., (*argp).depart.X/Y on the workspace
+and (*((*argp).t)).depart.X/Y on the current knot associated with the workspace
+*/
+
+printf("%s%4d%s%4d\n", ", (*((*argp).t)).depart.X/Y: ", (*((*argp).t)).depart.X, "/", (*((*argp).t)).depart.Y);
+
 
 /* The three (i.e., temporary, lead and base) knots for the delegate list - argp - in the CMDLN_STAT structure */
 printf("%s%ph%s%ph%s%ph\n", "(*argp).t/l/b            : ", (*argp).t, "/", (*argp).l, "/", (*argp).b);

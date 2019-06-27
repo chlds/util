@@ -52,8 +52,25 @@ r = cpy((*argp).init_p,(*((*k).d)).p);
 
 else {
 if(!((*k).d)) {
-// not unmap
+
+// Aux.
+if(!((*k).s)) return(0x01);
+(*((*k).s)).d = (KNOT*) (0x00);
+/* feed back to the workspace,
+also refer at fn. cmdln_ctrl_d
+to set the departure coordinates to the workspace
+and to the current knot associated with the one.
+*/
+(*argp).t = ((*k).s);
+(*argp).l = ((*k).s);
+// and copy to the workspace
+r = cpy((*argp).init_p,(*((*k).s)).p);
+// to set the caret pos., refer at fn. cmdln_ctrl_d and incl/cmdln.h.
+(*argp).lead_back = (0x01);
+
+/* ..or not unmap a knot (and the message)
 return(0x01);
+//*/
 }
 else {
 (*((*k).s)).d = ((*k).d);

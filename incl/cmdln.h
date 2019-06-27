@@ -63,6 +63,8 @@ KNOTS(doubly);
 signed short(insert);
 KNOT(*created_knot);
 signed short(concat_type);
+signed short(lead_back);
+// by fn. delete_knot and fn. cmdln_ctrl_d
 CLI_HISTORY(clih);
 signed short(hist);
 // debug monitor
