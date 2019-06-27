@@ -64,7 +64,7 @@ if(!r) printf("%s", "<< Error at fn. cmdln_save()");
 }
 else {
 printf("%s", " < Cancelled > ");
-Sleep(1500);
+// Sleep(1000);
 }}
 
 else {

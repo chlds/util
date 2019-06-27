@@ -25,7 +25,7 @@ auto signed char const(HT) = (0x09);
 
 auto COORD(coord_virt);
 auto COORD(coord);
-auto signed(cache), (i), (r);
+auto signed(r);
 auto signed(c);
 auto signed short(flag);
 
@@ -66,11 +66,10 @@ ADD(coord_virt.X,0x01+((*argp).csbi.srWindow.Right));
 // 2. Alignement
 r = (coord_virt.X);
 r = (r%(ALIGN_TAB));
-cache = (-r+(ALIGN_TAB));
-i = (cache);
+r = (-r+(ALIGN_TAB));
 
 // 3. Coordinates
-r = c_out_ht(cache, argp);
+r = c_out_ht(r, argp);
 if(!r) {
 printf("%s", "<< Error at fn. c_out_ht()");
 return(0x00);
@@ -93,10 +92,10 @@ else {
 r = _putch(*di);
 if(!(r^(EOF))) printf("%s", "<< Error at fn. _putch()/_putwch()");
 }
-i = (0x01);
+r = (0x01);
 }
 
-if(debugging) (*argp).char_output = (i);
+if(debugging) (*argp).char_output = (r);
 
-return(0x01);
+return(r);
 }

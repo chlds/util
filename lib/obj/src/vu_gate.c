@@ -160,10 +160,11 @@ printf("\n");
 printf("%d%s\n", r, " times recurred by fn. vu_gate_internal()");
 }
 
-//* Optional
+// Optional
+if(debugging) {
 r = cmdln_output(argp);
 printf("%s%d%s\n", "Output ", r, " contents.");
-//*/
+}
 
 /* Unmap */
 r = cmdln_unmap(argp);

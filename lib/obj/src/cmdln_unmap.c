@@ -32,7 +32,7 @@ cache = ((*argp).l);
 r = unmap_history((*cache).clih.l);
 
 // It is empty ..or has occurred an error.
-printf("%s%d%s\n", "Unmapped ", r, " histories.");
+if(debugging) printf("%s%d%s\n", "Unmapped ", r, " histories.");
 
 free((*cache).p);
 free(cache);

@@ -57,19 +57,24 @@ r = _putch('*');
 --cache;
 }
 
-printf("%s%3d%s%3d", "coord.X/Y: ", coord.X, "/", coord.Y);
-printf("%s%3d%s%3d", ", (*argp).count/tail: ", (*argp).count, "/", (*argp).tail);
+printf("%s%3d%s%3d", "(*argp).count/tail: ", (*argp).count, "/", (*argp).tail);
+printf("%s%3d%s%3d", ", coord.X/Y: ", coord.X, "/", coord.Y);
+
+/* The two Coordinate sets are important.
+i.e., (*argp).depart.X/Y on the workspace
+and (*((*argp).t)).depart.X/Y on the current knot associated with the workspace
+*/
 printf("%s%3d%s%3d", ", (*argp).depart.X/Y: ", (*argp).depart.X, "/", (*argp).depart.Y);
-printf("%s%d%s", ", (*argp).refresh_rows: ", (*argp).refresh_rows, " times");
+printf("%s%4d%s%4d", ", (*((*argp).t)).depart.X/Y: ", (*((*argp).t)).depart.X, "/", (*((*argp).t)).depart.Y);
 printf("\n");
 
 printf("%s%3d", "(*argp).c: ", (*argp).c);
 printf("%s%4Xh", ", *((*argp).p): ", *((*argp).p));
-printf("%s%4d", ", (*argp).length_with_ht: ", (*argp).length_with_ht);
+printf("%s%4d", ", .length_with_ht: ", (*argp).length_with_ht);
 // by fn. ct_txt()
-printf("%s%4d", ", (*argp).recurred: ", (*argp).recurred);
+printf("%s%4d", ", .recurred: ", (*argp).recurred);
 // by fn. vu_internal
-printf("%s%4d", "(*argp).cleared_rows: ", (*argp).cleared_rows);
+printf("%s%4d", ", .cleared_rows: ", (*argp).cleared_rows);
 printf("\n");
 
 // (*argp).cmd_io.*
@@ -89,15 +94,8 @@ printf("%s%4d", ", .copied: ", (*argp).copied);
 printf("%s%4d", ", .embedded: ", (*argp).embedded);
 printf("%s%4d", ", .repeat: ", (*argp).repeat);
 // by fn. cmdln_ctrl_k
-
-
-/* The two Coordinate sets are important.
-i.e., (*argp).depart.X/Y on the workspace
-and (*((*argp).t)).depart.X/Y on the current knot associated with the workspace
-*/
-
-printf("%s%4d%s%4d\n", ", (*((*argp).t)).depart.X/Y: ", (*((*argp).t)).depart.X, "/", (*((*argp).t)).depart.Y);
-
+printf("%s%d%s", ", .refresh_rows: ", (*argp).refresh_rows, " times");
+printf("\n");
 
 /* The three (i.e., temporary, lead and base) knots for the delegate list - argp - in the CMDLN_STAT structure */
 printf("%s%ph%s%ph%s%ph\n", "(*argp).t/l/b            : ", (*argp).t, "/", (*argp).l, "/", (*argp).b);
