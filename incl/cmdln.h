@@ -11,6 +11,9 @@ If the function fails, the return value is (0x00). */
 # define debugging (0x01)
 # define more_debugging (0x01)
 
+# define HEADER_ROWS (0x02)
+# define FOOTER_ROWS (0x02)
+
 # define ALIGN_TAB (0x08)
 
 # define COMMAND_BUFF (0x200) // (-1+(256)) per row i.e., in a null-terminated array for characters

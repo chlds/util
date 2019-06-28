@@ -12,6 +12,20 @@ If the function fails, the return value is (0x00). */
 
 
 
+signed(__cdecl c_outll_internal(KNOT(*k),CMDLN_STAT(*argp)));
+signed(__cdecl c_outll(CMDLN_STAT(*argp)));
+
+/* Output character lines in the doubly linked list */
+
+
+signed(__cdecl clearground(CMDLN_STAT(*argp)));
+signed(__cdecl clearbody(CMDLN_STAT(*argp)));
+signed(__cdecl clearfooter(CMDLN_STAT(*argp)));
+signed(__cdecl clearheader(CMDLN_STAT(*argp)));
+
+/* Clear the console screen buffer */
+
+
 signed(__cdecl refresh_screen_internal(KNOT(*k),CMDLN_STAT(*argp)));
 signed(__cdecl refresh_screen(KNOT(*k),CMDLN_STAT(*argp)));
 
