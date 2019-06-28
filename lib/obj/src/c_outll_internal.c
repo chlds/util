@@ -22,11 +22,27 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl c_outll_internal(KNOT(*k),CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto COORD(coord);
 auto signed(r);
 
 /* **** CODE/TEXT */
 if(!k) return(0x00);
 if(!argp) return(0x00);
+
+r = current_caret_pos(argp);
+
+if(!r) {
+printf("<< Error at fn. current_caret_pos()");
+return(0x00);
+}
+
+else {
+coord.X = ((*argp).csbi.dwCursorPosition.X);
+coord.Y = ((*argp).csbi.dwCursorPosition.Y);
+}
+
+(*k).depart.X = (0x00);
+(*k).depart.Y = (coord.Y);
 
 r = c_outs((*k).p,argp);
 

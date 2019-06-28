@@ -23,7 +23,7 @@ signed(__cdecl c_out(signed char(*di), CMDLN_STAT(*argp))) {
 /* **** DATA, BSS and STACK */
 auto signed char const(HT) = (0x09);
 
-auto COORD(coord_virt);
+auto COORD(coord_b);
 auto COORD(coord);
 auto signed(r);
 auto signed(c);
@@ -51,20 +51,18 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 if(!(HT^(*di))) {
 
 // 1. Linear
-XOR(coord_virt.Y,coord_virt.Y);
-XOR(coord_virt.X,coord_virt.X);
-OR(coord_virt.Y,coord.Y);
-OR(coord_virt.X,coord.X);
+coord_b.X = (coord.X);
+coord_b.Y = (coord.Y);
 
 while(0x01) {
-if(coord_virt.Y<((*argp).depart.Y)) return(0x00);
-if(!(coord_virt.Y^((*argp).depart.Y))) break;
-DEC(coord_virt.Y);
-ADD(coord_virt.X,0x01+((*argp).csbi.srWindow.Right));
+if(coord_b.Y<((*argp).depart.Y)) return(0x00);
+if(!(coord_b.Y^((*argp).depart.Y))) break;
+DEC(coord_b.Y);
+ADD(coord_b.X,0x01+((*argp).csbi.srWindow.Right));
 }
 
 // 2. Alignement
-r = (coord_virt.X);
+r = (coord_b.X);
 r = (r%(ALIGN_TAB));
 r = (-r+(ALIGN_TAB));
 
