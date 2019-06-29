@@ -76,6 +76,10 @@ if(!i) {
 }
 //*/
 
+/* restore coordinates for the workspace */
+(*argp).depart.X = (0x00);
+(*argp).depart.Y = (coord.Y);
+
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
 if(!r) {

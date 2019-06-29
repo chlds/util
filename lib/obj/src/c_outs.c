@@ -57,5 +57,5 @@ if(!r) {
 
 INC(di);
 
-return(0x01+(c_outs(di,argp)));
+return(r+(c_outs(di,argp)));
 }

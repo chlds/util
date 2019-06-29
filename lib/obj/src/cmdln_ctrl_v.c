@@ -43,6 +43,9 @@ if(!r) printf("%s", "<< Error at fn. refresh_screen()");
 
 if(debugging) (*argp).refresh_rows = (r);
 
+// Restore coordinates for the workspace
+(*argp).depart.Y = (coord.Y);
+
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
 if(!r) {

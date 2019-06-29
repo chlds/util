@@ -41,8 +41,9 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 r = ((*argp).csbi.srWindow.Bottom);
 if(r<(coord.Y)) return(0x00);
 
-// also for the current knot on the console screen
+// also reset coordinates of the current knot and the workspace for the console screen
 (*k).depart.Y = (coord.Y);
+(*argp).depart.Y = ((*k).depart.Y);
 
 r = c_outs((*k).p,argp);
 

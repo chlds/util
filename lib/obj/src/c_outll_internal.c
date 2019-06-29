@@ -41,8 +41,12 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
+// reset coordinates for the current knot
 (*k).depart.X = (0x00);
 (*k).depart.Y = (coord.Y);
+// also sync. coordinates with the workspace
+(*argp).depart.X = ((*k).depart.X);
+(*argp).depart.Y = ((*k).depart.Y);
 
 r = c_outs((*k).p,argp);
 
@@ -50,6 +54,11 @@ r = c_outs((*k).p,argp);
 if(!r) {
 }
 //*/
+
+if(debugging) {
+printf("%s%d", " ## c_outs().", r);
+printf("%s%d", " & ct().", ct((*k).p));
+}
 
 k = ((*k).d);
 
