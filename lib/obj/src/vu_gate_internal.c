@@ -63,8 +63,8 @@ if(r^(BUFF)) printf("<< Error at fn. cipher_embed()");
 }
 
 // also initialise/update coordinates on the delegate list - argp - in the CMDLN_STAT structure
-(*argp).caret_pos.X = (coord.X);
-(*argp).caret_pos.Y = (coord.Y);
+// (*argp).caret_pos.X = (coord.X);
+// (*argp).caret_pos.Y = (coord.Y);
 (*argp).depart.X = (coord.X);
 (*argp).depart.Y = (coord.Y);
 

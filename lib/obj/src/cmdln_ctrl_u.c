@@ -73,7 +73,17 @@ r = ascend2ll(argp);
 
 if(!r) printf("%s", "<< Error at fn. ascend2ll()");
 
-if(!((signed long long) t^((signed long long) (*argp).t))) return(0x01);
+if(!((signed long long) t^((signed long long) (*argp).t))) {
+(*argp).count = (0x00);
+coord.X = (0x00);
+coord.Y = ((*argp).depart.Y);
+r = SetConsoleCursorPosition((*argp).s_out, coord);
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+}
+return(0x01);
+}
 
 /* External Part. */
 r = ct_txt(ALIGN_TAB,(*((*argp).t)).p);
@@ -82,6 +92,7 @@ r = ct_txt(ALIGN_TAB,(*((*argp).t)).p);
 if(!r) printf("%s", "<< Error at fn. ct_txt()");
 //*/
 
+/*
 XOR(i,i);
 cache = (0x01+((*argp).csbi.srWindow.Right));
 
@@ -90,9 +101,11 @@ INC(i);
 r = (-cache+(r));
 if(r<(0x01)) break;
 }
+//*/
 
 coord.X = (0x00);
-coord.Y = (-i+(coord.Y));
+coord.Y = ((*argp).depart.Y);
+// refer at fn. ascend2ll
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 

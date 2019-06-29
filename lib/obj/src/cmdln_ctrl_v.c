@@ -21,6 +21,7 @@ signed(__cdecl cmdln_ctrl_v(CMDLN_STAT(*argp))) {
 /* **** DATA, BSS and STACK */
 auto COORD(coord);
 auto signed(cache), (r);
+auto signed short(s);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -37,6 +38,8 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
+s = ((*argp).depart.Y);
+
 r = refresh_screen((*argp).b,argp);
 
 if(!r) printf("%s", "<< Error at fn. refresh_screen()");
@@ -44,7 +47,7 @@ if(!r) printf("%s", "<< Error at fn. refresh_screen()");
 if(debugging) (*argp).refresh_rows = (r);
 
 // Restore coordinates for the workspace
-(*argp).depart.Y = (coord.Y);
+(*argp).depart.Y = (s);
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 

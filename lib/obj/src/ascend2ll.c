@@ -50,8 +50,8 @@ r = ct((*argp).init_p);
 /* and registre coordinates to the global delegate list - argp - in the CMDLN_STAT structure */
 (*argp).depart.X = ((*((*argp).t)).depart.X);
 (*argp).depart.Y = ((*((*argp).t)).depart.Y);
-(*argp).caret_pos.X = (0x00);
-(*argp).caret_pos.Y = ((*argp).depart.Y);
+// (*argp).caret_pos.X = (0x00);
+// (*argp).caret_pos.Y = ((*argp).depart.Y);
 
 return(0x01);
 }

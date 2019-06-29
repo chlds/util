@@ -120,8 +120,8 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
 /* Update coordinates on the global delegate list - argp - in the CMDLN_STAT structure */
-(*argp).caret_pos.X = (coord.X);
-(*argp).caret_pos.Y = (coord.Y);
+// (*argp).caret_pos.X = (coord.X);
+// (*argp).caret_pos.Y = (coord.Y);
 
 // Get a character (in the ASCII)
 c = (signed) _getch();

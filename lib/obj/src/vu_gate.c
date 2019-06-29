@@ -115,8 +115,8 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 //*/
 
 // Coordinates
-(*argp).caret_pos.X = (coord.X);
-(*argp).caret_pos.Y = (coord.Y);
+// (*argp).caret_pos.X = (coord.X);
+// (*argp).caret_pos.Y = (coord.Y);
 // Change by scrolling
 (*argp).depart.X = (coord.X);
 (*argp).depart.Y = (coord.Y);

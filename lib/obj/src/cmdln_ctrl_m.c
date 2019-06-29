@@ -50,16 +50,11 @@ i = ct_txt(ALIGN_TAB,(*argp).init_p);
 r = cpy((*argp).craft,(*argp).p);
 
 if(!r) {
-if(!((*((*argp).t)).d)) {
-XOR((*argp).insert,(*argp).insert);
+if(!((*((*argp).t)).d)) XOR((*argp).insert,(*argp).insert);
+else XNOR((*argp).insert);
 }
-else {
-XNOR((*argp).insert);
-}}
 
-else {
-XNOR((*argp).insert);
-}
+else XNOR((*argp).insert);
 
 *((*argp).p) = (signed char) ('\0');
 
@@ -75,8 +70,8 @@ return(0x00);
 else {
 (*cache).p = (signed char(*)) (0x00);
 // initialise on the current new knot
-(*cache).caret_pos.X = (0x00);
-(*cache).caret_pos.Y = (coord.Y);
+// (*cache).caret_pos.X = (0x00);
+// (*cache).caret_pos.Y = (coord.Y);
 (*cache).depart.X = (0x00);
 (*cache).depart.Y = ((*argp).depart.Y);
 // also register on the current new knot
@@ -129,6 +124,9 @@ if(ABSORB2LL^((*argp).concat_type)) {
 
 XNOR(terminate);
 
+coord.X = (0x00);
+coord.Y = ((*argp).depart.Y);
+
 r = ct_txt(ALIGN_TAB,(*argp).init_p);
 
 i = (0x01+((*argp).csbi.srWindow.Right));
@@ -137,8 +135,6 @@ INC(coord.Y);
 r = (-i+(r));
 if(r<(0x01)) break;
 }
-
-coord.X = (0x00);
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
