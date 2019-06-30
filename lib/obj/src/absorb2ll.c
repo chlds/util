@@ -30,13 +30,26 @@ if(!argp) return(0x00);
 t = ((*argp).t);
 
 if(!((signed long long) t^((signed long long) (*argp).l))) {
+
+if((*argp).insert) {
+(*cache).s = (0x00);
+(*cache).d = ((*argp).l);
+(*((*argp).l)).s = (cache);
+(*((*argp).l)).d = (0x00);
+// also
+(*argp).b = (cache);
+(*argp).t = ((*argp).l);
+return(0x01);
+}
+
+else {
 r = concat2ll(cache,argp);
 if(!r) {
 printf("%s", "<< Error at fn. concat2ll()");
 return(0x00);
 }
 else return(0x01);
-}
+}}
 
 if(!((*t).s)) {
 r = rebase2ll(cache,argp);

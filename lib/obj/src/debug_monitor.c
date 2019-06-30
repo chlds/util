@@ -95,6 +95,7 @@ printf("%s%4d", ", .embedded: ", (*argp).embedded);
 printf("%s%4d", ", .repeat: ", (*argp).repeat);
 // by fn. cmdln_ctrl_k
 printf("%s%d%s", ", .refresh_rows: ", (*argp).refresh_rows, " times");
+printf("%s%2d%s%2d", ", .orig.X/Y: ", (*argp).orig.X, "/", (*argp).orig.Y);
 printf("\n");
 
 /* The three (i.e., temporary, lead and base) knots for the delegate list - argp - in the CMDLN_STAT structure */

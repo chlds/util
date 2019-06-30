@@ -81,6 +81,8 @@ if(!r) {
 printf("%s", "<< Error at fn. refresh_screen()");
 return(0x00);
 }
+// come back
+(*argp).depart.Y = ((*((*argp).t)).depart.Y);
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 if(!r) {
 r = GetLastError();

@@ -12,6 +12,9 @@ If the function fails, the return value is (0x00). */
 
 
 
+signed(__cdecl sync_coordinates_internal(COORD(coo),KNOT(*k),CMDLN_STAT(*argp)));
+signed(__cdecl sync_coordinates(KNOT(*k),CMDLN_STAT(*argp)));
+
 signed(__cdecl c_outll_internal(KNOT(*k),CMDLN_STAT(*argp)));
 signed(__cdecl c_outll(CMDLN_STAT(*argp)));
 

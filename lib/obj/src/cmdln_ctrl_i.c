@@ -103,7 +103,10 @@ printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r
 return(0x00);
 }}
 
-// printf("%s\n", "Ctrl-I;");
+
+// e.g. to clear/refresh the console screen..
+r = cmdln_ctrl_v(argp);
+if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_v() (in fn. cmdln_ctrl_i())");
 
 return(0x01);
 }

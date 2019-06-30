@@ -161,12 +161,21 @@ else r = cpy((*argp).init_p,(*((*argp).t)).p);
 (*argp).tail = (r);
 
 
-/* refresh the console screen at the current - i.e., at the new row after inserting - caret position */
-// Attention: Implement a function similar to system("cls") to clear the console screen at the caret position.
+/* clear/refresh the console screen at the current - i.e., at the new row after inserting - caret position */
+
+/* Attention: Implement a function similar to system("cls") to clear the console screen at the caret position.
 if((*argp).insert) {
 r = refresh_screen_at_the_caret_pos((*argp).t,argp);
 if(!r) printf("%s", "<< Error at fn. refresh_screen_at_the_caret_pos()");
 }
+//*/
+
+//* ..or to more speedy clear and overwrite..
+if((*argp).insert) {
+r = c_outll(argp);
+if(!r) printf("%s", "<< Error at fn. c_outll()");
+}
+//*/
 
 
 /* Unmap..
