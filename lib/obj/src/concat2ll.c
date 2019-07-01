@@ -4,7 +4,7 @@ Concatenate a knot in a doubly linked list (of the CMDLN_STAT structure i.e., di
 
 Refer at fn. concat2_ll
 
-Also refer at fn. concat2ll_for_history, fn. absorb2ll, fn. rebase2ll and fn. add2ll.
+Also refer at fn. concat2ll_for_history, fn. insert2ll, fn. cmdln_ctrl_m or..
 
 Remarks:
 Based on a doubly linked list (i.e., not a circular linked list).

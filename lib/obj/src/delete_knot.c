@@ -42,7 +42,7 @@ return(0x01);
 }
 
 if(!((*k).s)) {
-// rebase by deleting i.e., not by inserting, refer at fn. rebase2ll
+// rebase by deleting i.e., not by inserting
 (*((*k).d)).s = (KNOT*) (0x00);
 (*argp).b = ((*k).d);
 (*argp).t = ((*k).d);

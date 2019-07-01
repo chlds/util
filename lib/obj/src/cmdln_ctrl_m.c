@@ -24,11 +24,12 @@ extern signed(terminate);
 extern signed(command_mode);
 extern signed(cmd_io_terminate);
 
+auto signed char(ws) = (' ');
+
 auto COORD(coord);
 auto COORD(coord_b);
 auto KNOT(*cache);
 auto signed(i), (r);
-auto signed char(ws);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -80,9 +81,9 @@ else {
 (*cache).clih.t = ((*argp).clih.t);
 }
 
-r = absorb2ll(cache,argp);
+r = insert2ll(cache,argp);
 
-if(!r) printf("%s", "<< Error at fn. absorb2ll()");
+if(!r) printf("%s", "<< Error at fn. insert2ll()");
 
 r = ct((*argp).init_p);
 
@@ -96,8 +97,6 @@ return(0x00);
 
 r = cpy((*cache).p,(*argp).init_p);
 
-
-ws = (' ');
 coord_b.X = ((*((*argp).t)).depart.X);
 coord_b.Y = ((*((*argp).t)).depart.Y);
 r = SetConsoleCursorPosition((*argp).s_out,coord_b);
