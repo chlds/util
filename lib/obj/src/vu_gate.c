@@ -61,6 +61,7 @@ system("cls");
 
 /* The two-row header */
 (*argp).filename = (signed char(*)) (0x00);
+(*argp).confirm = (0x00);
 (*argp).overwrite = (0x00);
 
 r = display_header(argp);

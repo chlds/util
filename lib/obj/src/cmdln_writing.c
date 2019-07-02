@@ -3,7 +3,7 @@
 Press <Ctrl-S> to invoke the function.
 
 descriptor: Put the file descriptor at.
-argp: Put the terminating address of the knot structure at.
+k: Put the terminating address of the knot structure at.
 
 Remarks:
 Launch on vu.exe
@@ -18,7 +18,7 @@ Along with fn. cmdln_save
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl cmdln_writing(signed(descriptor),KNOT(*argp))) {
+signed(__cdecl cmdln_writing(signed(descriptor),KNOT(*k))) {
 
 /* **** DATA, BSS and STACK */
 auto KNOT(*cache);
@@ -27,12 +27,12 @@ auto signed short(flag);
 auto signed char(c);
 
 /* **** CODE/TEXT */
-if(!argp) return(0x00);
+if(!k) return(0x00);
 
-cache = (argp);
-argp = ((*argp).d);
+cache = (k);
+k = ((*k).d);
 
-if(!argp) XNOR(flag);
+if(!k) XNOR(flag);
 else XOR(flag,flag);
 
 r = ct((*cache).p);
@@ -51,5 +51,5 @@ printf("%s\n", "<< Error at fn. write() in fn. cmdln_writing() the second");
 return(0x00);
 }}
 
-return(0x01+(cmdln_writing(descriptor,argp)));
+return(0x01+(cmdln_writing(descriptor,k)));
 }
