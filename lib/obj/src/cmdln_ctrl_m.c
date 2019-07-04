@@ -71,8 +71,6 @@ return(0x00);
 else {
 (*cache).p = (signed char(*)) (0x00);
 // initialise on the current new knot
-// (*cache).caret_pos.X = (0x00);
-// (*cache).caret_pos.Y = (coord.Y);
 (*cache).depart.X = (0x00);
 (*cache).depart.Y = ((*argp).depart.Y);
 // also register on the current new knot

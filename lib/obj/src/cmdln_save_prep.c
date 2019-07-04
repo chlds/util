@@ -28,21 +28,11 @@ auto signed char(c);
 if(!argp) return(0x00);
 
 // Build a linked list (in the latter part (not the former part))
-if((*((*argp).t)).p) free((*((*argp).t)).p);
-r = ct((*argp).init_p);
-/* It is empty ..or has occurred an error.
-if(!r) printf("%s", "<< Error at fn. ct()");
-//*/
-INC(r);
-(*((*argp).t)).p = (signed char(*)) malloc(r*(sizeof(signed char)));
+r = sustain(argp);
+
 if(!r) {
-printf("%s\n", "<< Error at fn. malloc() the second");
-return(0x00);
+// It is empty ..or has occurred an error.
 }
-r = cpy((*((*argp).t)).p,(*argp).init_p);
-/* It is empty ..or has occurred an error.
-if(!r) printf("%s", "<< Error at fn. cpy()");
-//*/
 
 r = cmd_mode_prep(argp);
 

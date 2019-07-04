@@ -42,20 +42,11 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-//* Aux.
-if((*((*argp).t)).p) {
-free((*((*argp).t)).p);
-(*((*argp).t)).p = (signed char(*)) (0x00);
+r = sustain(argp);
+
+if(!r) {
+// It is empty ..or has occurred an error.
 }
-r = ct((*argp).init_p);
-INC(r);
-(*((*argp).t)).p = (signed char(*)) malloc(r*(sizeof(signed char)));
-if(!((*((*argp).t)).p)) {
-printf("%s", "<< Error at fn. malloc()");
-return(0x00);
-}
-r = cpy((*((*argp).t)).p,(*argp).init_p);
-//*/
 
 r = refresh_screen_internal(k,argp);
 

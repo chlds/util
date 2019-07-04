@@ -56,7 +56,7 @@ if(!argp) return(0x00);
 
 if(terminate) return(0x01);
 
-Sleep(1000);
+Sleep(500);
 system("cls");
 
 /* The two-row header */
@@ -116,8 +116,6 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 //*/
 
 // Coordinates
-// (*argp).caret_pos.X = (coord.X);
-// (*argp).caret_pos.Y = (coord.Y);
 // Change by scrolling
 (*argp).depart.X = (coord.X);
 (*argp).depart.Y = (coord.Y);
@@ -150,6 +148,12 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 // recursively read keys
 r = vu_gate_internal(argp);
+
+
+/* To check the status */
+Sleep(500);
+system("cls");
+
 
 if(!r) {
 printf("%s\n", "<< Error at fn. vu_gate_internal()");

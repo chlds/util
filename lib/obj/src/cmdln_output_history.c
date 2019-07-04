@@ -21,9 +21,9 @@ signed(__cdecl cmdln_output_history(CMDLN_STAT(*argp))) {
 auto signed(r);
 
 /* **** CODE/TEXT */
-if(!argp) return(NIL);
+if(!argp) return(0x00);
 
-r = cat_history((*argp).clih.l);
+r = cat_history((*argp).clih.b);
 
 return(r);
 }

@@ -53,33 +53,31 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-/* initialise the delegate list - argp - in the CMDLN_STAT structure */
-if(!((*argp).insert)) {
-r = cipher_embed((*argp).init_p,BUFF);
-if(r^(BUFF)) printf("<< Error at fn. cipher_embed()");
-(*argp).p = ((*argp).init_p);
-(*argp).count = (0x00);
-(*argp).tail = (0x00);
-}
-
-// also initialise/update coordinates on the delegate list - argp - in the CMDLN_STAT structure
-// (*argp).caret_pos.X = (coord.X);
-// (*argp).caret_pos.Y = (coord.Y);
+/* Initialise/update coordinates on the delegate list - argp - in the CMDLN_STAT structure */
 (*argp).depart.X = (coord.X);
 (*argp).depart.Y = (coord.Y);
 
-// and initialise the CLI History on the delegate list - argp - in the CMDLN_STAT structure
+// and initialise the CLI History on the delegate list
 (*argp).clih.l = (SNAPSHOT*) (0x00);
 (*argp).clih.b = (SNAPSHOT*) (0x00);
 (*argp).clih.t = (SNAPSHOT*) (0x00);
+
 // set the CLI history flag
 (*argp).hist = (signed short) (0x00);
 
+if(!((*argp).insert)) {
+r = cipher_embed((*argp).init_p,BUFF);
+
+if(r^(BUFF)) printf("<< Error at fn. cipher_embed()");
+
+(*argp).p = ((*argp).init_p);
+(*argp).count = (0x00);
+(*argp).tail = (0x00);
+
 /* Create a new knot associated with the delegate list - argp - in the CMDLN_STAT structure. */
 // Build a linked list (1/2)
-if(!((*argp).insert)) {
-
 cache = (KNOT*) malloc(0x01*(sizeof(KNOT)));
+
 if(!cache) {
 printf("%s\n", "<< Error at fn. malloc()");
 return(0x00);
@@ -90,6 +88,7 @@ return(0x00);
 (*argp).created_knot = (KNOT*) (cache);
 
 r = concat2ll(cache,argp);
+
 if(!r) {
 printf("%s\n", "<< Error at fn. concat2ll()");
 return(0x00);
@@ -98,8 +97,6 @@ return(0x00);
 (*argp).t = (KNOT*) ((*argp).l);
 
 // initialise on the current new knot
-(*cache).caret_pos.X = (coord.X);
-(*cache).caret_pos.Y = (coord.Y);
 (*cache).depart.X = (coord.X);
 (*cache).depart.Y = (coord.Y);
 // also register on the current new knot
@@ -123,11 +120,10 @@ return(0x00);
 
 if(debugging) (*argp).recurred = (r);
 
-// Build a linked list (2/2)
-//* Re-allocat
+// Build a linked list (2/2) (in the latter part (not the former part))
+// Re-allocat
 if((*((*argp).t)).p) free((*((*argp).t)).p);
-(*((*argp).t)).p = (signed char(*)) (0x00);
-//*/
+// (*((*argp).t)).p = (signed char(*)) (0x00);
 
 if((*argp).insert) r = ct((*argp).craft);
 else r = ct((*argp).init_p);
@@ -146,6 +142,13 @@ else r = cpy((*((*argp).t)).p,(*argp).init_p);
 /* It is empty ..or has occurred an error.
 if(!r) printf("%s", "<< Error at fn. cpy()");
 //*/
+
+/* Cut/leave the snapshot history off */
+if((*argp).insert) {
+(*((*argp).t)).clih.l = (SNAPSHOT*) (0x00);
+(*((*argp).t)).clih.t = (SNAPSHOT*) (0x00);
+(*((*argp).t)).clih.b = (SNAPSHOT*) (0x00);
+}
 
 if(quit) return(0x01);
 
@@ -176,21 +179,6 @@ r = c_outll(argp);
 if(!r) printf("%s", "<< Error at fn. c_outll()");
 }
 //*/
-
-
-/* Unmap..
-// Aux. History
-r = cmdln_output_history(argp);
-// It is empty ..or has occurred an error.
-if(!r) printf("%s\n", "<< It is empty ..or has occurred an error at fn. cmdln_output_history()");
-printf("%s%d%s\n", "Output ", r, " histories.");
-// Also unmap history
-r = cmdln_unmap_history(argp);
-// It is empty ..or has occurred an error.
-if(!r) printf("%s\n", "<< It is empty ..or has occurred an error at fn. cmdln_unmap_history()");
-printf("%s%d%s\n", "Unmapped ", r, " histories.");
-//*/
-
 
 /* to debug */
 if(debugging) r = debug_monitor(argp);

@@ -24,6 +24,8 @@ auto signed(i), (r);
 if(!k) return(0x00);
 if(!argp) return(0x00);
 
+// i = ((*argp).csbi.srWindow.Top);
+// i = (-i+((*argp).csbi.srWindow.Bottom));
 i = ((*argp).csbi.srWindow.Bottom);
 if(i<(coo.Y)) return(0x00);
 

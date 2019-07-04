@@ -32,10 +32,18 @@ cache = ((*argp).l);
 r = unmap_history((*cache).clih.l);
 
 // It is empty ..or has occurred an error.
-if(debugging) printf("%s%d%s\n", "Unmapped ", r, " histories.");
+if(debugging) {
+printf("%s%d%s", " < unmapped ", r, " snapshot histories taken for ");
+printf("%s\n", (*cache).p);
+}
 
+if((*cache).p) {
 free((*cache).p);
+(*cache).p = (signed char(*)) (0x00);
+}
+
 free(cache);
+cache = (KNOT*) (0x00);
 
 return(1+(cmdln_unmap(argp)));
 }

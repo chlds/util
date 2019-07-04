@@ -23,8 +23,15 @@ if(!argp) return(0x00);
 
 cache = (argp);
 argp = ((*argp).s);
+
+if((*cache).p) {
 free((*cache).p);
+(*cache).p = (signed char(*)) (0x00);
+}
+
 free(cache);
+// cache = (SNAPSHOT*) (0x00);
+// Attention: The <cache> can not be overwritten i.e., the argument is not pushed in a double pointer
 
 return(1+(unmap_history(argp)));
 }
