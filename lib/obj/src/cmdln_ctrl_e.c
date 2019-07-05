@@ -44,6 +44,7 @@ cache = ((*argp).count);
 
 // External Part.
 r = ncpy((*argp).craft, (*argp).init_p, cache);
+
 r = ct_txt(ALIGN_TAB, (*argp).craft);
 cache = (r);
 
@@ -71,7 +72,7 @@ printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r
 return(0x00);
 }
 
-// printf("%s\n", "Ctrl-E;");
+// printf("%s", "Ctrl-E;");
 
 return(0x01);
 }

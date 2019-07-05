@@ -131,6 +131,12 @@ printf("%s%8ph\n", "(*argp).p     : ", (*argp).p);
 printf("%s%8ph",   "(*argp).filename: ", (*argp).filename);
 }
 
+/* at a two-row footer (for command mode) */
+printf("\n");
+
+printf("%s%4d", "(*argp).nknot: ", (*argp).nknot);
+printf("\n");
+
 /* Go back */
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 

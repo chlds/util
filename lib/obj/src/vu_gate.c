@@ -105,6 +105,8 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 (*argp).insert = (signed short) (0x00);
 (*argp).concat_type = (signed short) (0x00);
 
+(*argp).nknot = (0x00);
+
 (*argp).l = (KNOT*) (0x00);
 (*argp).b = (KNOT*) (0x00);
 (*argp).t = (KNOT*) (0x00);

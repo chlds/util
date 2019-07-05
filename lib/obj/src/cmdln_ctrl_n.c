@@ -73,7 +73,14 @@ r = descend2ll(argp);
 
 if(!r) printf("%s", "<< Error at fn. descend2ll()");
 
-if(!((signed long long) t^((signed long long) (*argp).t))) return(0x01);
+if(!((signed long long) t^((signed long long) (*argp).t))) {
+r = cmdln_ctrl_e(argp);
+if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_e()");
+// continue..
+return(0x01);
+}
+
+INC((*argp).nknot);
 
 coord.X = (0x00);
 coord.Y = ((*argp).depart.Y);

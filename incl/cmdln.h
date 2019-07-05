@@ -86,6 +86,7 @@ signed(cleared_rows);
 signed char(*filename);
 signed short(confirm);
 signed short(overwrite);
+signed(nknot);
 // optional
 void(*optl);
 } CMDLN_STAT;

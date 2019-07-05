@@ -68,6 +68,8 @@ printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r
 return(0x01);
 }
 
+DEC((*argp).nknot);
+
 /* External Part. */
 r = ct_txt(ALIGN_TAB,(*((*argp).t)).p);
 

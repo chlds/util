@@ -141,5 +141,7 @@ printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r
 return(0x00);
 }
 
+INC((*argp).nknot);
+
 return(0x01);
 }
