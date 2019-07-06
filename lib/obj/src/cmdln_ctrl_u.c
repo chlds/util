@@ -50,23 +50,22 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
+if((*argp).count) {
+r = cmdln_ctrl_a(argp);
+if(!r) {
+printf("%s", "<< Error at fn. cmdln_ctrl_a()");
+return(0x00);
+}
+return(0x01);
+}
+
 t = ((*argp).t);
 
 r = ascend2ll(argp);
 
 if(!r) printf("%s", "<< Error at fn. ascend2ll()");
 
-if(!((signed long long) t^((signed long long) (*argp).t))) {
-(*argp).count = (0x00);
-coord.X = (0x00);
-coord.Y = ((*argp).depart.Y);
-r = SetConsoleCursorPosition((*argp).s_out, coord);
-if(!r) {
-r = GetLastError();
-printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
-}
-return(0x01);
-}
+if(!((signed long long) t^((signed long long) (*argp).t))) return(0x01);
 
 DEC((*argp).nknot);
 

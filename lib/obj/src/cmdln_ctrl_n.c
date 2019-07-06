@@ -75,8 +75,10 @@ if(!r) printf("%s", "<< Error at fn. descend2ll()");
 
 if(!((signed long long) t^((signed long long) (*argp).t))) {
 r = cmdln_ctrl_e(argp);
-if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_e()");
-// continue..
+if(!r) {
+printf("%s", "<< Error at fn. cmdln_ctrl_e()");
+return(0x00);
+}
 return(0x01);
 }
 

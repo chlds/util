@@ -55,10 +55,11 @@ if(!r) {
 }
 //*/
 
+if(debugging) {
 if(more_debugging) {
 printf("%s%d", " ## c_outs().", r);
 printf("%s%d", " & ct().", ct((*k).p));
-}
+}}
 
 k = ((*k).d);
 
