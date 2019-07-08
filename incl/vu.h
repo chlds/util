@@ -12,8 +12,14 @@ If the function fails, the return value is (0x00). */
 
 
 
+signed(__cdecl rsync_coordinates_internal(COORD(coo),KNOT(*k),CMDLN_STAT(*argp)));
+signed(__cdecl rsync_coordinates(KNOT(*k),CMDLN_STAT(*argp)));
+
 signed(__cdecl sync_coordinates_internal(COORD(coo),KNOT(*k),CMDLN_STAT(*argp)));
-signed(__cdecl sync_coordinates(KNOT(*k),CMDLN_STAT(*argp)));
+signed(__cdecl sync_coordinates(CMDLN_STAT(*argp)));
+
+signed(__cdecl c_outll_partially_internal(signed(n),KNOT(*k),CMDLN_STAT(*argp)));
+signed(__cdecl c_outll_partially(CMDLN_STAT(*argp)));
 
 signed(__cdecl c_outll_internal(KNOT(*k),CMDLN_STAT(*argp)));
 signed(__cdecl c_outll(CMDLN_STAT(*argp)));
@@ -25,6 +31,7 @@ signed(__cdecl clearground(CMDLN_STAT(*argp)));
 signed(__cdecl clearbody(CMDLN_STAT(*argp)));
 signed(__cdecl clearfooter(CMDLN_STAT(*argp)));
 signed(__cdecl clearheader(CMDLN_STAT(*argp)));
+signed(__cdecl clearbelow(CMDLN_STAT(*argp)));
 
 /* Clear the console screen buffer */
 

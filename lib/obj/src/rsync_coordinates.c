@@ -1,6 +1,6 @@
 /* **** Notes
 
-Synchronise coordinates
+Relatively synchronise coordinates
 
 Remarks:
 Launch on vu.exe
@@ -14,16 +14,16 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl sync_coordinates(CMDLN_STAT(*argp))) {
+signed(__cdecl rsync_coordinates(KNOT(*k),CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto COORD(coord), (coord_b);
 auto signed(i), (r);
 
 /* **** CODE/TEXT */
+if(!k) return(0x00);
 if(!argp) return(0x00);
 
-/*
 r = current_caret_pos(argp);
 
 if(!r) {
@@ -35,18 +35,14 @@ else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
-//*/
 
 /* Backup the workspace status */
 coord_b.X = (signed short) ((*argp).depart.X);
 coord_b.Y = (signed short) ((*argp).depart.Y);
 
-coord.X = (0x00);
-coord.Y = ((*argp).orig.Y);
+r = rsync_coordinates_internal(coord,k,argp);
 
-r = sync_coordinates_internal(coord,(*argp).b,argp);
-
-if(!r) printf("%s", "<< Error at fn. sync_coordinates_internal()");
+if(!r) printf("%s", "<< Error at fn. rsync_coordinates_internal()");
 
 /* Restore the one */
 (*argp).depart.X = (coord_b.X);

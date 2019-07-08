@@ -76,11 +76,16 @@ if(r<(0x01)) break;
 r = ct((*argp).init_p);
 (*argp).tail = (r);
 
+
+/* No bugs, but not efficient..
 r = refresh_screen((*argp).b,argp);
 if(!r) {
 printf("%s", "<< Error at fn. refresh_screen()");
 return(0x00);
 }
+//*/
+
+
 // come back
 (*argp).depart.Y = ((*((*argp).t)).depart.Y);
 r = SetConsoleCursorPosition((*argp).s_out, coord);
@@ -88,7 +93,23 @@ if(!r) {
 r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
-}}
+}
+
+
+//* Being replaced for fn. refresh_screen e.g., refer at fn. cmdln_ctrl_n, fn. vu_gate_internal or..
+// i.e., use the two functions as a substitute for fn. refresh_screen (after running fn. SetConsoleCursorPosition).
+r = sync_coordinates(argp);
+if(!r) {
+printf("%s", "<< Error at fn. sync_coordinates()");
+return(0x00);
+}
+r = c_outll_partially(argp);
+if(!r) {
+printf("%s", "<< Error at fn. c_outll_partially()");
+return(0x00);
+}
+//*/
+}
 
 else {
 /* Delete a character */

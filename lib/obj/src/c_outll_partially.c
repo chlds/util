@@ -47,13 +47,20 @@ if(!r) {
 // It is empty ..or has occurred an error.
 }
 
+coord_b.X = (0x00);
+coord_b.Y = ((*argp).csbi.srWindow.Top);
+
+i = (coord.Y);
+i = (-i+((*argp).csbi.srWindow.Bottom));
+INC(i);
+
 // clear background for the body
 r = clearbelow(argp);
 
 if(!r) printf("%s", "<< Error at fn. clearbelow()");
 
 // and output
-i = c_outll_internal((*argp).t,argp);
+i = c_outll_partially_internal(i,(*argp).t,argp);
 
 /* It is empty ..or has occurred an error.
 if(!i) {
@@ -63,6 +70,14 @@ if(!i) {
 /* restore coordinates for the workspace */
 (*argp).depart.X = (0x00);
 (*argp).depart.Y = (coord.Y);
+
+r = SetConsoleCursorPosition((*argp).s_out, coord_b);
+
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 

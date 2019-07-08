@@ -24,7 +24,7 @@ extern signed(terminate);
 extern signed(command_mode);
 extern signed(cmd_io_terminate);
 
-auto COORD(coord);
+auto COORD(coord), (coord_b);
 
 auto KNOT(*t);
 auto signed(cache), (i), (r);
@@ -65,7 +65,25 @@ r = ascend2ll(argp);
 
 if(!r) printf("%s", "<< Error at fn. ascend2ll()");
 
-if(!((signed long long) t^((signed long long) (*argp).t))) return(0x01);
+if(!((signed long long) t^((signed long long) (*argp).t))) {
+coord_b.X = (signed short) (0x00);
+coord_b.Y = (signed short) (0x00);
+r = SetConsoleCursorPosition((*argp).s_out, coord_b);
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}
+coord_b.X = (signed short) (0x00);
+coord_b.Y = (signed short) ((*argp).orig.Y);
+r = SetConsoleCursorPosition((*argp).s_out, coord_b);
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}
+return(0x01);
+}
 
 DEC((*argp).nknot);
 

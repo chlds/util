@@ -29,6 +29,9 @@ auto COORD(coord);
 auto KNOT(*t);
 auto signed(cache), (i), (r);
 
+// Aux. 1/3
+// auto signed short(flag);
+
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
@@ -49,6 +52,11 @@ else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
+
+// Aux. 2/3
+// flag = ((*argp).csbi.srWindow.Bottom);
+// if(!(coord.Y^(flag))) flag = (0x01);
+// else flag = (0x00);
 
 // r = ct_txt(ALIGN_TAB,(*((*argp).t)).p);
 
@@ -95,6 +103,27 @@ r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
+
+
+// Refer at fn. cmdln_ctrl_d, fn. vu_gate_internal or..
+
+// Aux. 3/3
+// if(flag) {
+
+// Use the function as a substitute for fn. sync_coordinates(argp); to save resources
+r = rsync_coordinates((*argp).t,argp);
+if(!r) {
+printf("%s", "<< Error at fn. sync_coordinates()");
+return(0x00);
+}
+r = c_outll_partially(argp);
+if(!r) {
+printf("%s", "<< Error at fn. c_outll_partially()");
+return(0x00);
+}
+
+// }
+
 
 return(0x01);
 }

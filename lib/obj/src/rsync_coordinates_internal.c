@@ -1,6 +1,6 @@
 /* **** Notes
 
-Synchronise coordinates
+Relatively synchronise coordinates
 
 Remarks:
 Launch on vu.exe
@@ -14,7 +14,7 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl sync_coordinates_internal(COORD(coo),KNOT(*k),CMDLN_STAT(*argp))) {
+signed(__cdecl rsync_coordinates_internal(COORD(coo),KNOT(*k),CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto COORD(coord), (coord_b);
@@ -40,5 +40,5 @@ if(r<(0x01)) break;
 
 k = ((*k).d);
 
-return(0x01+(sync_coordinates_internal(coo,k,argp)));
+return(0x01+(rsync_coordinates_internal(coo,k,argp)));
 }

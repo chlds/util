@@ -173,12 +173,26 @@ if(!r) printf("%s", "<< Error at fn. refresh_screen_at_the_caret_pos()");
 }
 //*/
 
-//* ..or to more speedy clear and overwrite..
+/* ..or to more speedy clear and overwrite..
 if((*argp).insert) {
 r = c_outll(argp);
 if(!r) printf("%s", "<< Error at fn. c_outll()");
 }
 //*/
+
+// Refer at fn. cmdln_ctrl_d, fn. cmdln_ctrl_n or..
+if((*argp).insert) {
+r = sync_coordinates(argp);
+if(!r) {
+printf("%s", "<< Error at fn. sync_coordinates()");
+return(0x00);
+}
+r = c_outll_partially(argp);
+if(!r) {
+printf("%s", "<< Error at fn. c_outll_partially()");
+return(0x00);
+}}
+
 
 /* to debug */
 if(debugging) r = debug_monitor(argp);
