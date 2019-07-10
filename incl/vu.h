@@ -69,7 +69,7 @@ signed(__cdecl cat_ll_and_histories(KNOT(*argp)));
 // Refer at incl/recur.h for fn. unmap2_ll and fn. unmap_ll
 signed(__cdecl cat_ll(KNOT(*argp)));
 
-signed(__cdecl unmap_history(SNAPSHOT(*argp)));
+signed(__cdecl unmap_history(SNAPSHOT(**argp)));
 signed(__cdecl cat_history(SNAPSHOT(*argp)));
 
 signed(__cdecl delete_knot(KNOT(*cache),CMDLN_STAT(*argp)));

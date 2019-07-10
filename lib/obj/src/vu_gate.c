@@ -130,6 +130,8 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 (*argp).clih.b = (SNAPSHOT*) (0x00);
 (*argp).clih.t = (SNAPSHOT*) (0x00); // Temporary
 
+(*argp).unmapped_ss = (0x00);
+
 // flag to take a snapshot for the CLI history
 // refer at fn. cmdln_ctrl_w_prep, also at fn. cmdln_ctrl_l/rbracket, cmdln_undo, cmdln_redo and cmdln_history
 (*argp).hist = (signed short) (0x00);

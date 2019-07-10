@@ -135,6 +135,7 @@ printf("%s%8ph",   "(*argp).filename: ", (*argp).filename);
 printf("\n");
 
 printf("%s%4d", "(*argp).nknot: ", (*argp).nknot);
+printf("%s%4d", ", (*argp).unmapped_ss: ", (*argp).unmapped_ss);
 printf("\n");
 
 /* Go back */

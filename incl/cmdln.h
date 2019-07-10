@@ -82,6 +82,7 @@ signed(length_with_ht);
 // by fn. ct_txt in fn. vu_gate_internal
 signed(refresh_rows);
 signed(cleared_rows);
+signed(unmapped_ss);
 };
 signed char(*filename);
 signed short(confirm);

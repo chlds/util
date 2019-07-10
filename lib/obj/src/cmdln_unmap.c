@@ -29,13 +29,17 @@ if(!((*argp).l)) return(0x00);
 cache = ((*argp).l);
 (*argp).l = ((*((*argp).l)).s);
 
-r = unmap_history((*cache).clih.l);
+r = unmap_history(&((*cache).clih.l));
 
 // It is empty ..or has occurred an error.
 if(debugging) {
 printf("%s%d%s", " < unmapped ", r, " snapshot histories taken for ");
 printf("%s\n", (*cache).p);
 }
+
+(*cache).clih.l = (SNAPSHOT*) (0x00);
+(*cache).clih.t = (SNAPSHOT*) (0x00);
+(*cache).clih.b = (SNAPSHOT*) (0x00);
 
 if((*cache).p) {
 free((*cache).p);

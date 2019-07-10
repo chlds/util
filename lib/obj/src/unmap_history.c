@@ -13,16 +13,17 @@ Please look at util/incl/ll.h
 # define C_AS
 # include "../../../incl/config.h"
 
-signed(__cdecl unmap_history(SNAPSHOT(*argp))) {
+signed(__cdecl unmap_history(SNAPSHOT(**argp))) {
 
 /* **** DATA */
 auto SNAPSHOT(*cache);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
+if(!(*argp)) return(0x00);
 
-cache = (argp);
-argp = ((*argp).s);
+cache = (*argp);
+*argp = ((**argp).s);
 
 if((*cache).p) {
 free((*cache).p);
@@ -30,8 +31,7 @@ free((*cache).p);
 }
 
 free(cache);
-// cache = (SNAPSHOT*) (0x00);
-// Attention: The <cache> can not be overwritten i.e., the argument is not pushed in a double pointer
+cache = (SNAPSHOT*) (0x00);
 
 return(1+(unmap_history(argp)));
 }

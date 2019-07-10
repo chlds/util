@@ -36,7 +36,7 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-/* Backup the workspace status */
+/* Backup the workspace status i.e., for a knot associated with workspace and for the workspace */
 coord_b.X = (signed short) ((*argp).depart.X);
 coord_b.Y = (signed short) ((*argp).depart.Y);
 
@@ -44,9 +44,11 @@ r = rsync_coordinates_internal(coord,k,argp);
 
 if(!r) printf("%s", "<< Error at fn. rsync_coordinates_internal()");
 
-/* Restore the one */
-(*argp).depart.X = (coord_b.X);
-(*argp).depart.Y = (coord_b.Y);
+/* Restore the ones */
+(*k).depart.X = (coord_b.X);
+(*k).depart.Y = (coord_b.Y);
+(*argp).depart.X = ((*k).depart.X);
+(*argp).depart.Y = ((*k).depart.Y);
 
 /*
 r = SetConsoleCursorPosition((*argp).s_out, coord);

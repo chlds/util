@@ -38,6 +38,9 @@ if(!((signed long long) cache^((signed long long) (*k).s))) {
 (*argp).b = (k);
 (*argp).t = (k);
 (*argp).l = (k);
+(*argp).clih.l = (SNAPSHOT*) ((*((*argp).t)).clih.l);
+(*argp).clih.b = (SNAPSHOT*) ((*((*argp).t)).clih.b);
+(*argp).clih.t = (SNAPSHOT*) ((*((*argp).t)).clih.t);
 return(0x01);
 }
 
@@ -46,6 +49,9 @@ if(!((*k).s)) {
 (*((*k).d)).s = (KNOT*) (0x00);
 (*argp).b = ((*k).d);
 (*argp).t = ((*k).d);
+(*argp).clih.l = (SNAPSHOT*) ((*((*argp).t)).clih.l);
+(*argp).clih.b = (SNAPSHOT*) ((*((*argp).t)).clih.b);
+(*argp).clih.t = (SNAPSHOT*) ((*((*argp).t)).clih.t);
 // and copy to the workspace
 r = cpy((*argp).init_p,(*((*k).d)).p);
 }
@@ -63,6 +69,9 @@ and to the current knot associated with the one.
 */
 (*argp).t = ((*k).s);
 (*argp).l = ((*k).s);
+(*argp).clih.l = (SNAPSHOT*) ((*((*argp).t)).clih.l);
+(*argp).clih.b = (SNAPSHOT*) ((*((*argp).t)).clih.b);
+(*argp).clih.t = (SNAPSHOT*) ((*((*argp).t)).clih.t);
 // and copy to the workspace
 r = cpy((*argp).init_p,(*((*k).s)).p);
 // to set the caret pos., refer at fn. cmdln_ctrl_d and incl/cmdln.h.
@@ -76,12 +85,30 @@ else {
 (*((*k).s)).d = ((*k).d);
 (*((*k).d)).s = ((*k).s);
 (*argp).t = ((*k).d);
+(*argp).clih.l = (SNAPSHOT*) ((*((*argp).t)).clih.l);
+(*argp).clih.b = (SNAPSHOT*) ((*((*argp).t)).clih.b);
+(*argp).clih.t = (SNAPSHOT*) ((*((*argp).t)).clih.t);
 // and copy to the workspace
 r = cpy((*argp).init_p,(*((*k).d)).p);
 }}
 
+// unmap snapshots for the CLI history
+r = unmap_history(&((*k).clih.l));
+if(debugging) (*argp).unmapped_ss = (r);
+
+(*k).clih.l = (SNAPSHOT*) (0x00);
+(*k).clih.t = (SNAPSHOT*) (0x00);
+(*k).clih.b = (SNAPSHOT*) (0x00);
+
+// and unmap contents of the knot
+if((*k).p) {
 free((*k).p);
+(*k).p = (signed char(*)) (0x00);
+}
+
 free(k);
+// k = (KNOT*) (0x00);
+// Attention: The <k> can not be overwritten i.e., the argument has not been pushed in a double pointer..
 
 return(0x01);
 }
