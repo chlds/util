@@ -12,6 +12,8 @@ If the function fails, the return value is (0x00). */
 
 
 
+signed(__cdecl qrefresh(KNOT(*k),CMDLN_STAT(*argp)));
+
 signed(__cdecl rsync_coordinates_internal(COORD(coo),KNOT(*k),CMDLN_STAT(*argp)));
 signed(__cdecl rsync_coordinates(KNOT(*k),CMDLN_STAT(*argp)));
 

@@ -103,10 +103,14 @@ printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r
 return(0x00);
 }}
 
+// quickly refresh a part of console screen.
+r = qrefresh((*argp).t,argp);
+if(!r) printf("%s", "<< Error at fn. qrefresh()");
 
-// e.g. to clear/refresh the console screen..
+/* e.g. to clear/refresh the console screen..
 r = cmdln_ctrl_v(argp);
 if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_v() (in fn. cmdln_ctrl_i())");
+//*/
 
 return(0x01);
 }
