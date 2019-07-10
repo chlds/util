@@ -141,6 +141,20 @@ if(!r) printf("%s\n", "<< Oops, it has occurred an error at r = (*(c+(fn))) (arg
 else {
 if(c<(0x7F)) {
 
+
+/* Effectively refresh the console screen to save resources */
+r = ct_txt(ALIGN_TAB,(*argp).init_p);
+if(r<(0x01+((*argp).csbi.srWindow.Right))) {
+}
+else {
+r = (r%(0x01+((*argp).csbi.srWindow.Right)));
+if(!r) {
+// quickly refresh a part of console screen.
+r = qrefresh((*argp).t,argp);
+if(!r) printf("%s", "<< Error at fn. qrefresh()");
+}}
+
+
 /* Reset the history flag for fn. cmdln_history() */
 /* Refer at fn. cmdln_ctrl_lbracket() */
 /* e.g., command pattern, memento pattern or.. */

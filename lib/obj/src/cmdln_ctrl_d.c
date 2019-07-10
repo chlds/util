@@ -144,7 +144,9 @@ printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r
 return(0x00);
 }}
 
-// printf("%s", "Ctrl-D;");
+// quickly refresh a part of console screen.
+r = qrefresh((*argp).t,argp);
+if(!r) printf("%s", "<< Error at fn. qrefresh()");
 
 return(0x01);
 }

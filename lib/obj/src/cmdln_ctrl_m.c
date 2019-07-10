@@ -143,5 +143,11 @@ return(0x00);
 
 INC((*argp).nknot);
 
+/* Comment out to save resources..
+// quickly refresh a part of console screen.
+r = qrefresh((*argp).t,argp);
+if(!r) printf("%s", "<< Error at fn. qrefresh()");
+//*/
+
 return(0x01);
 }
