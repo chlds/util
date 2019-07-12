@@ -206,11 +206,13 @@ cache = ((*argp).q_refresh);
 (*argp).q_refresh = (r);
 
 if(!r) {
-(*argp).q_refresh = (0x00);
+if(!(cache^(r))) {
+}
+else {
 // quickly refresh a part of console screen.
 r = qrefresh((*argp).t,argp);
 if(!r) printf("%s", "<< Error at fn. qrefresh()");
-}
+}}
 
 else {
 if(!(cache^(r))) {
