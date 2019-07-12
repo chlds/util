@@ -149,5 +149,7 @@ r = qrefresh((*argp).t,argp);
 if(!r) printf("%s", "<< Error at fn. qrefresh()");
 //*/
 
+(*argp).q_refresh = (0x00);
+
 return(0x01);
 }

@@ -150,6 +150,9 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 (*argp).cleared_rows = (0x00);
 (*argp).refresh_rows = (0x00);
 
+// along with fn. qrefresh e.g., refer at fn. vu_internal, fn. cmdln_ctrl_d, fn. cmdln_ctrl_m, fn. cmdln_ctrl_n or..
+(*argp).q_refresh = (0x00);
+
 // recursively read keys
 r = vu_gate_internal(argp);
 

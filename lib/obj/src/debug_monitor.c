@@ -136,6 +136,7 @@ printf("\n");
 
 printf("%s%4d", "(*argp).nknot: ", (*argp).nknot);
 printf("%s%4d", ", (*argp).unmapped_ss: ", (*argp).unmapped_ss);
+printf("%s%4d", ", (*argp).q_refresh: ", (*argp).q_refresh);
 printf("\n");
 
 /* Go back */

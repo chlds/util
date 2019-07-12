@@ -9,7 +9,7 @@ If the function fails, the return value is (0x00). */
 
 
 # define debugging (0x01)
-# define more_debugging (0x01)
+# define more_debugging (0x00)
 
 # define HEADER_ROWS (0x02)
 # define FOOTER_ROWS (0x02)
@@ -51,6 +51,8 @@ void(*window);
 void(*search);
 COORD(depart_for_cmd_io);
 COORD(depart);
+// COORD(arriv);
+signed(q_refresh);
 COORD(orig);
 CONSOLE_SCREEN_BUFFER_INFO(csbi);
 COORD(cache_pos);

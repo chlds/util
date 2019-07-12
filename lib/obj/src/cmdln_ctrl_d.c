@@ -24,7 +24,7 @@ auto signed char const(HT) = (0x09);
 auto signed char(*p);
 
 auto COORD(coord);
-auto signed(i), (r);
+auto signed(cache), (i), (r);
 auto signed char(c);
 
 /* **** CODE/TEXT */
@@ -69,8 +69,6 @@ DEC((*((*argp).t)).depart.Y);
 r = (-i+(r));
 if(r<(0x01)) break;
 }}
-// re-initialise
-(*argp).lead_back = (signed short) (0x00);
 
 // Check for the workspace
 r = ct((*argp).init_p);
@@ -144,9 +142,28 @@ printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r
 return(0x00);
 }}
 
+
+/* Effectively refresh the console screen to save resources */
+r = ct_txt(ALIGN_TAB,(*argp).init_p);
+r = (r%(0x01+((*argp).csbi.srWindow.Right)));
+
+if(!r) {
+(*argp).q_refresh = (0x00);
 // quickly refresh a part of console screen.
 r = qrefresh((*argp).t,argp);
 if(!r) printf("%s", "<< Error at fn. qrefresh()");
+}
+
+else {
+cache = ((*argp).q_refresh);
+(*argp).q_refresh = (r);
+if(cache<(r)) {
+r = qrefresh((*argp).t,argp);
+if(!r) printf("%s", "<< Error at fn. qrefresh()");
+}
+else {
+}}
+
 
 return(0x01);
 }

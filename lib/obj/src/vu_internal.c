@@ -141,20 +141,6 @@ if(!r) printf("%s\n", "<< Oops, it has occurred an error at r = (*(c+(fn))) (arg
 else {
 if(c<(0x7F)) {
 
-
-/* Effectively refresh the console screen to save resources */
-r = ct_txt(ALIGN_TAB,(*argp).init_p);
-if(r<(0x01+((*argp).csbi.srWindow.Right))) {
-}
-else {
-r = (r%(0x01+((*argp).csbi.srWindow.Right)));
-if(!r) {
-// quickly refresh a part of console screen.
-r = qrefresh((*argp).t,argp);
-if(!r) printf("%s", "<< Error at fn. qrefresh()");
-}}
-
-
 /* Reset the history flag for fn. cmdln_history() */
 /* Refer at fn. cmdln_ctrl_lbracket() */
 /* e.g., command pattern, memento pattern or.. */
@@ -210,10 +196,37 @@ if(!r) {
 r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
+}}}
+
+/* Effectively refresh the console screen to save resources */
+r = ct_txt(ALIGN_TAB,(*argp).init_p);
+r = (r%(0x01+((*argp).csbi.srWindow.Right)));
+
+cache = ((*argp).q_refresh);
+(*argp).q_refresh = (r);
+
+if(!r) {
+(*argp).q_refresh = (0x00);
+// quickly refresh a part of console screen.
+r = qrefresh((*argp).t,argp);
+if(!r) printf("%s", "<< Error at fn. qrefresh()");
+}
+
+else {
+if(!(cache^(r))) {
+}
+else {
+if(cache<(r)) {
+}
+else {
+r = qrefresh((*argp).t,argp);
+if(!r) printf("%s", "<< Error at fn. qrefresh()");
 }}}}
+
 
 /* to debug */
 if(debugging) r = debug_monitor(argp);
+
 
 return(0x01+(vu_internal(argp)));
 }
