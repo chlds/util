@@ -141,11 +141,6 @@ if(!r) printf("%s\n", "<< Oops, it has occurred an error at r = (*(c+(fn))) (arg
 else {
 if(c<(0x7F)) {
 
-/* Reset the history flag for fn. cmdln_history() */
-/* Refer at fn. cmdln_ctrl_lbracket() */
-/* e.g., command pattern, memento pattern or.. */
-XOR((*argp).hist,(*argp).hist);
-
 cache = ((*argp).count);
 
 if(!(cache^((*argp).tail))) XOR(flag,flag);

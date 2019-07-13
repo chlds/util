@@ -62,9 +62,6 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 (*argp).clih.b = (SNAPSHOT*) (0x00);
 (*argp).clih.t = (SNAPSHOT*) (0x00);
 
-// set the CLI history flag
-(*argp).hist = (signed short) (0x00);
-
 if(!((*argp).insert)) {
 r = cipher_embed((*argp).init_p,BUFF);
 
