@@ -122,15 +122,32 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 // Get a character (in the ASCII)
 c = (signed) _getch();
 
-/* Irregular
+(*argp).c = (c);
+
+
+//* Support the arrow keys
 if(!(c^(0xE0))) {
-// Automatically get the sequential byte
+// get the sequential byte
 r = _getch();
+(*argp).c = (r);
+r = support_arrowkeys(argp);
+if(!r) printf("%s", "<< Error at fn. support_arrowkeys()");
+/* to debug */
+if(debugging) r = debug_monitor(argp);
+return(0x01+(vu_internal(argp)));
+}
+if(!c) {
+// get the sequential byte
+r = _getch();
+(*argp).c = (r);
+r = support_arrowkeys(argp);
+if(!r) printf("%s", "<< Error at fn. support_arrowkeys()");
+/* to debug */
+if(debugging) r = debug_monitor(argp);
 return(0x01+(vu_internal(argp)));
 }
 //*/
 
-(*argp).c = (c);
 
 if(c<(0x20)) {
 // Directly access to a function with a vector table (using an array of offset pointers for functions)
