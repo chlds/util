@@ -130,7 +130,7 @@ return(0x00);
 }
 //*/
 while(i) {
-if(debugging) r = _putch('*');
+if(C_DBG) r = _putch('*');
 else r = _putch(' ');
 if(!(r^(EOF))) printf("%s", "<< Error at fn. _putch/_putwch()");
 DEC(i);

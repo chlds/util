@@ -21,7 +21,6 @@ Refer at incl/cmdln.h to set a debug flag.
 signed(__cdecl vu_internal(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-// extern signed(debugging);
 extern signed(terminate);
 
 auto signed char const(HT) = ('\t');
@@ -133,7 +132,7 @@ r = _getch();
 r = support_arrowkeys(argp);
 if(!r) printf("%s", "<< Error at fn. support_arrowkeys()");
 /* to debug */
-if(debugging) r = debug_monitor(argp);
+if(C_DBG) r = debug_monitor(argp);
 return(0x01+(vu_internal(argp)));
 }
 if(!c) {
@@ -143,7 +142,7 @@ r = _getch();
 r = support_arrowkeys(argp);
 if(!r) printf("%s", "<< Error at fn. support_arrowkeys()");
 /* to debug */
-if(debugging) r = debug_monitor(argp);
+if(C_DBG) r = debug_monitor(argp);
 return(0x01+(vu_internal(argp)));
 }
 //*/
@@ -239,7 +238,7 @@ if(!r) printf("%s", "<< Error at fn. qrefresh()");
 
 
 /* to debug */
-if(debugging) r = debug_monitor(argp);
+if(C_DBG) r = debug_monitor(argp);
 
 
 return(0x01+(vu_internal(argp)));

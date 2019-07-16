@@ -32,7 +32,7 @@ cache = ((*argp).l);
 r = unmap_history(&((*cache).clih.l));
 
 // It is empty ..or has occurred an error.
-if(debugging) {
+if(C_DBG) {
 printf("%s%d%s", " < unmapped ", r, " snapshot histories taken for ");
 printf("%s\n", (*cache).p);
 }

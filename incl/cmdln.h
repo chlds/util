@@ -8,8 +8,14 @@ If the function fails, the return value is (0x00). */
 
 
 
-# define debugging (0x01)
-# define more_debugging (0x00)
+/* Debug Parameters */
+# define DBG_Q (0x08)
+# define DBG_D (0x04)
+# define DBG_W (0x02)
+# define DBG_B (0x01)
+
+/* Console Debug Flag */
+# define C_DBG (0x01)
 
 # define HEADER_ROWS (0x02)
 # define FOOTER_ROWS (0x02)

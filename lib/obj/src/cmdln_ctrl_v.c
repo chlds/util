@@ -44,7 +44,7 @@ r = refresh_screen((*argp).b,argp);
 
 if(!r) printf("%s", "<< Error at fn. refresh_screen()");
 
-if(debugging) (*argp).refresh_rows = (r);
+if(C_DBG) (*argp).refresh_rows = (r);
 
 // Restore coordinates for the workspace
 (*argp).depart.Y = (s);

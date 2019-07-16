@@ -116,7 +116,7 @@ if(!(r^(EOF))) printf("%s", "<< Error at fn. _putch()/_putwch()");
 i = (0x01);
 }
 
-if(debugging) (*argp).char_output = (i);
+if(C_DBG) (*argp).char_output = (i);
 
 return(0x01);
 }

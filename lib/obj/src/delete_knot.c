@@ -94,7 +94,7 @@ r = cpy((*argp).init_p,(*((*k).d)).p);
 
 // unmap snapshots for the CLI history
 r = unmap_history(&((*k).clih.l));
-if(debugging) (*argp).unmapped_ss = (r);
+if(C_DBG) (*argp).unmapped_ss = (r);
 
 (*k).clih.l = (SNAPSHOT*) (0x00);
 (*k).clih.t = (SNAPSHOT*) (0x00);

@@ -103,7 +103,7 @@ return(0x00);
 }
 
 /* update the debug monitor */
-if(debugging) r = debug_monitor(argp);
+if(C_DBG) r = debug_monitor(argp);
 
 (*argp).insert = (0x00);
 
@@ -115,7 +115,7 @@ printf("%s\n", "<< Error at fn. vu_internal()");
 return(0x00);
 }
 
-if(debugging) (*argp).recurred = (r);
+if(C_DBG) (*argp).recurred = (r);
 
 // Build a linked list (2/2) (in the latter part (not the former part))
 // Re-allocat
@@ -192,7 +192,7 @@ return(0x00);
 
 
 /* to debug */
-if(debugging) r = debug_monitor(argp);
+if(C_DBG) r = debug_monitor(argp);
 
 return(0x01+(vu_gate_internal(argp)));
 }

@@ -58,7 +58,7 @@ if(!(S_IFREG^(stats.st_mode&(S_IFMT)))) {
 }
 else {
 printf("%s", "<< Please change the file name..");
-if(debugging) printf("%s%Xh", ", stats.st_mode is: ", stats.st_mode);
+if(C_DBG) printf("%s%Xh", ", stats.st_mode is: ", stats.st_mode);
 return(0x00);
 }}
 

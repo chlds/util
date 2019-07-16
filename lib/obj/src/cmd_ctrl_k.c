@@ -19,8 +19,6 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl cmd_ctrl_k(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-// extern signed(debugging);
-
 auto COORD(coord);
 auto signed(cache), (i), (r);
 auto signed short(flag);
@@ -54,21 +52,21 @@ if(!r) {
 printf("%s\n", "<< Error at fn. cpy()");
 return(0x00);
 }
-if(debugging) (*argp).copied = (r);
+if(C_DBG) (*argp).copied = (r);
 // Internal Part.
 r = cipher_embed((*argp).cmd_io.caret, r);
 if(!r) {
 printf("%s\n", "<< Error at fn. cipher_embed()");
 return(0x00);
 }
-if(debugging) (*argp).embedded = (r);
+if(C_DBG) (*argp).embedded = (r);
 (*argp).cmd_io.tail = (-r+((*argp).cmd_io.tail));
 // External Part.
 r = ct_txt(ALIGN_TAB, (*argp).cmd_io.p);
 cache = (-r+(cache));
-if(debugging) (*argp).repeat = (cache);
+if(C_DBG) (*argp).repeat = (cache);
 while(cache) {
-if(debugging) r = _putch('=');
+if(C_DBG) r = _putch('=');
 else r = _putch(' ');
 --cache;
 }

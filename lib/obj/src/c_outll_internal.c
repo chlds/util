@@ -55,11 +55,10 @@ if(!r) {
 }
 //*/
 
-if(debugging) {
-if(more_debugging) {
+if(DBG_B<(C_DBG)) {
 printf("%s%d", " ## c_outs().", r);
 printf("%s%d", " & ct().", ct((*k).p));
-}}
+}
 
 k = ((*k).d);
 

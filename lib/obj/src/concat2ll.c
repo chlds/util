@@ -37,5 +37,10 @@ else (*((*argp).l)).d = (cache);
 /* Update the delegate list - argp - in the CMDLN_STAT structure */
 (*argp).t = (KNOT*) ((*argp).l);
 
+/* Initialise snapshots for the CLI history */
+(*cache).clih.l = (SNAPSHOT*) (0x00);
+(*cache).clih.t = (SNAPSHOT*) (0x00);
+(*cache).clih.b = (SNAPSHOT*) (0x00);
+
 return(0x01);
 }

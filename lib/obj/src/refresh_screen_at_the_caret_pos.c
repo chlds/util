@@ -52,7 +52,7 @@ r = clear_rows(argp);
 
 if(!r) printf("%s", "<< Error at fn. clear_rows()");
 
-if(debugging) (*argp).cleared_rows = (r);
+if(C_DBG) (*argp).cleared_rows = (r);
 
 r = refresh_screen_internal(k,argp);
 

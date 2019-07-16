@@ -190,7 +190,7 @@ return(0x00);
 }}}}
 
 /* to debug */
-// if(debugging) r = debug_monitor(argp);
+// if(C_DBG) r = debug_monitor(argp);
 
 return(0x01+(cmd_io_internal(argp)));
 }

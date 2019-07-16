@@ -115,7 +115,7 @@ printf("\n");
 printf("\n");
 }
 
-if(more_debugging) {
+if(DBG_B<(C_DBG)) {
 if((*((*argp).t)).p) printf("%s%8ph%s%-56s\n", "(*((*argp).t)).p: ", (*((*argp).t)).p, " : ", (*((*argp).t)).p);
 else printf("\n");
 printf("%s%8ph%s%-56s\n", "(*argp).init_p  : ", (*argp).init_p, " : ", (*argp).init_p);
