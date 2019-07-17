@@ -47,6 +47,8 @@ CTRL_X, CTRL_Y, CTRL_Z, CTRL_LBRACKET,\
 CTRL_BSLASH, CTRL_RBRACKET, CTRL_ASTERISK, CTRL_HASH
 };
 
+auto signed char(*p);
+
 auto signed(i), (r);
 auto signed short(flag);
 auto signed char(c);
@@ -67,6 +69,11 @@ auto CMDLN_STAT(cmdln_stat);
 // Refer at incl/cmdln.h and incl/config.h
 
 /* **** CODE/TEXT */
+if(argc<(0x02)) p = (signed char(*)) (0x00);
+else p = (*(argv+(argc+(~(0x00)))));
+
+cmdln_stat.filename = (p);
+
 XOR(flag,flag);
 
 // Get the handle for the standard output device
@@ -134,7 +141,15 @@ printf("%s\n", "<< Error at fn. vu_gate()");
 return(XNOR(r));
 }
 
-else printf("%s\n", "All Done!");
+/* unmap or not */
+if(p) {
+}
+
+else {
+if(cmdln_stat.filename) free(cmdln_stat.filename);
+}
+
+printf("%s\n", "All Done!");
 
 return(0x00);
 }

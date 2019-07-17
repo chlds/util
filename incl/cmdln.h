@@ -92,6 +92,9 @@ signed(refresh_rows);
 signed(cleared_rows);
 signed(unmapped_ss);
 };
+// To load a file
+signed short(irr);
+signed(fd);
 signed char(*filename);
 signed short(confirm);
 signed short(overwrite);

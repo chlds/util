@@ -71,7 +71,9 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 //*/
 
 /* The Header Lines */
-printf("%s", "Ctrl-Q to quit | ");
+printf("%s", "Press Ctrl-Q to quit | ");
+
+printf("%s", "Save the EOL with LF (0x0A) | ");
 
 /* File name
 if(!((*argp).filename)) printf("%s", "No file name");
