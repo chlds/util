@@ -15,10 +15,12 @@ If the function fails, the return value is (0x00). */
 # define DBG_B (0x01)
 
 /* Console Debug Flag */
-# define C_DBG (0x01)
+# define C_DBG (0x00)
 
 # define HEADER_ROWS (0x02)
 # define FOOTER_ROWS (0x02)
+
+# define LIMIT_FSIZ (384000)
 
 # define ALIGN_TAB (0x08)
 

@@ -21,6 +21,9 @@ auto signed(r);
 /* **** CODE/TEXT */
 if(!k) return(0x00);
 
+// CPU idling
+Sleep(0x10);
+
 r = cat_history((*k).clih.b);
 printf("%s%d%s", " < output ", r, " snapshot histories taken for ");
 

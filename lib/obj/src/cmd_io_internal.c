@@ -118,8 +118,14 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 // Get a character (in the ASCII)
 c = (signed) _getch();
 
-/* Irregular
+//* Irregular
 if(!(c^(0xE0))) {
+// Automatically get the sequential byte
+r = _getch();
+return(0x01+(cmd_io_internal(argp)));
+}
+
+if(!c) {
 // Automatically get the sequential byte
 r = _getch();
 return(0x01+(cmd_io_internal(argp)));

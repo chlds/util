@@ -87,10 +87,12 @@ return(0x00);
 // set workspace parameters.
 (*argp).t = ((*argp).b);
 r = cpy((*argp).init_p,(*((*argp).t)).p);
+/* It is empty ..or has occurred an error.
 if(!r) {
 printf("%s", "<< Error at fn. cpy()");
 return(0x00);
 }
+//*/
 (*argp).tail = (r);
 (*argp).clih.l = (SNAPSHOT*) ((*((*argp).t)).clih.l);
 (*argp).clih.t = (SNAPSHOT*) ((*((*argp).t)).clih.t);

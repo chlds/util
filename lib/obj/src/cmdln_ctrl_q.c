@@ -23,15 +23,17 @@ extern signed(command_mode);
 extern signed(quit);
 extern signed(terminate);
 
+auto signed char(*label) = ("Cancel (c) or Quit (q): ");
+
 auto COORD(coord);
 auto signed(i), (r);
+auto signed char(c);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 if(command_mode) return(0x01);
 
-/*
 r = current_caret_pos(argp);
 
 if(!r) {
@@ -43,12 +45,41 @@ else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
-//*/
 
+r = cmd_mode_prep(argp);
+
+if(!r) {
+printf("%s", "<< Error at fn. cmd_mode_prep()");
+return(0x00);
+}
+
+printf("%s", label);
+
+r = ct(label);
+(*argp).command_label = (r);
+
+r = cmd_io(argp);
+
+if(!r) {
+printf("%s", "<< Error at fn. cmd_io()");
+return(0x00);
+}
+
+c = (signed char) (*((*argp).cmd_io.p));
+
+if(!(c^('q'))) {
 XNOR(quit);
 XNOR(terminate);
+return(0x01);
+}
 
-// printf("%s", "Ctrl-Q;");
+r = SetConsoleCursorPosition((*argp).s_out, coord);
+
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}
 
 return(0x01);
 }

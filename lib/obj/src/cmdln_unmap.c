@@ -23,8 +23,10 @@ auto signed(r);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
-
 if(!((*argp).l)) return(0x00);
+
+// CPU idling
+// Sleep(0x10);
 
 cache = ((*argp).l);
 (*argp).l = ((*((*argp).l)).s);

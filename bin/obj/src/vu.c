@@ -68,13 +68,28 @@ auto CMDLN_STAT(cmdln_stat);
 // auto CONSOLE_SCREEN_BUFFER_INFO(csbi);
 // Refer at incl/cmdln.h and incl/config.h
 
+auto struct stat(stats);
+auto size_t(filesize);
+
 /* **** CODE/TEXT */
 if(argc<(0x02)) p = (signed char(*)) (0x00);
 else p = (*(argv+(argc+(~(0x00)))));
 
 cmdln_stat.filename = (p);
 
-XOR(flag,flag);
+/* Check the file size. */
+if(p) {
+r = stat(p,&stats);
+if(!(r^(~(0x00)))) {
+printf("%s\n", "<< Error at fn. stat()");
+return(0x00);
+}
+if(LIMIT_FSIZ<(stats.st_size)) {
+printf("%s%ld%s\n", "<< Could not load because the file size exceeds 384kB.., size: ", stats.st_size, "bytes");
+return(0x00);
+}}
+
+// XOR(flag,flag);
 
 // Get the handle for the standard output device
 cmdln_stat.s_out = (void(*)) GetStdHandle(STD_OUTPUT_HANDLE);
