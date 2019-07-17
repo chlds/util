@@ -44,7 +44,7 @@ auto signed char(snap[BUFF]) = {
 (signed char) (0x00)
 };
 
-auto COORD(coord), (coord_b);
+auto COORD(coord);
 auto signed(i), (r);
 auto signed(c);
 // auto unsigned(c);
@@ -164,47 +164,9 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 // Loaded a file
 if((*argp).insert) {
-r = cmdln_load(argp);
+r = cmdln_load_prep(argp);
 if(!r) {
-printf("%s", "<< Error at fn. cmdln_load()");
-return(0x00);
-}
-r = cat_ll((*argp).b);
-if(!r) {
-printf("%s", "<< Error at fn. cat_ll()");
-return(0x00);
-}
-coord_b.X = (0x00);
-coord_b.Y = (0x00);
-r = SetConsoleCursorPosition((*argp).s_out, coord_b);
-if(!r) {
-r = GetLastError();
-printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
-return(0x00);
-}
-coord_b.Y = ((*argp).orig.Y);
-r = SetConsoleCursorPosition((*argp).s_out, coord_b);
-if(!r) {
-r = GetLastError();
-printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
-return(0x00);
-}
-
-// set workspace parameters.
-(*argp).t = ((*argp).b);
-r = cpy((*argp).init_p,(*((*argp).t)).p);
-if(!r) {
-printf("%s", "<< Error at fn. cpy()");
-return(0x00);
-}
-(*argp).tail = (r);
-(*argp).clih.l = (SNAPSHOT*) ((*((*argp).t)).clih.l);
-(*argp).clih.t = (SNAPSHOT*) ((*((*argp).t)).clih.t);
-(*argp).clih.b = (SNAPSHOT*) ((*((*argp).t)).clih.b);
-
-r = sync_coordinates(argp);
-if(!r) {
-printf("%s", "<< Error at fn. sync_coordinates()");
+printf("%s", "<< Error at fn. cmdln_load_prep()");
 return(0x00);
 }}
 
