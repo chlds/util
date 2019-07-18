@@ -35,6 +35,9 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
+r = ct((*argp).clip);
+if(!r) return(0x01);
+
 cache = ((*argp).count);
 
 if(!(cache^((*argp).tail))) {
@@ -83,7 +86,8 @@ printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r
 return(0x00);
 }}
 
-// printf("%s\n", "Ctrl-P;");
+r = qrefresh((*argp).t,argp);
+if(!r) printf("%s", "<< Error at fn. qrefresh()");
 
 return(0x01);
 }

@@ -31,7 +31,7 @@ auto signed char(c);
 if(!argp) return(0x00);
 
 /* CPU Idling */
-Sleep(QUANTUM);
+// Sleep(QUANTUM);
 
 /* Initialise */
 XOR(flag,flag);

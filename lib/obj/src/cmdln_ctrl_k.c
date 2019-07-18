@@ -40,6 +40,7 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 r = ((*argp).count);
 
 if(!(r^((*argp).tail))) {
+return(0x01);
 }
 
 else {

@@ -25,8 +25,7 @@ If the function fails, the return value is (0x00). */
 # define ALIGN_TAB (0x08)
 
 # define COMMAND_BUFF (0x200) // (-1+(256)) per row i.e., in a null-terminated array for characters
-# define BUFF (0x600) // (-1+(1536)) per row
-// Refer at fn. vu_gate
+# define BUFF (0xFFFF) // 64kB per row
 
 typedef struct cmdln_stat {
 // for 7-bit character and more..
