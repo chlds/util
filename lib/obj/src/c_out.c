@@ -25,6 +25,7 @@ auto signed char const(HT) = (0x09);
 
 auto COORD(coord_b);
 auto COORD(coord);
+auto signed(len);
 auto signed(r);
 auto signed(c);
 auto signed short(flag);
@@ -78,8 +79,16 @@ if(!(coord.X^((*argp).csbi.srWindow.Right))) {
 INC(coord.Y);
 XOR(coord.X,coord.X);
 // Output
+r = WriteConsole((*argp).s_out,di,sizeof(*di),&len,0x00);
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. WriteConsole() with error no. ", r);
+return(0x00);
+}
+/*
 r = _putch(*di);
 if(!(r^(EOF))) printf("%s", "<< Error at fn. _putch()/_putwch()");
+//*/
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 if(!r) {
 r = GetLastError();
@@ -87,8 +96,16 @@ printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r
 return(0x00);
 }}
 else {
+r = WriteConsole((*argp).s_out,di,sizeof(*di),&len,0x00);
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. WriteConsole() with error no. ", r);
+return(0x00);
+}
+/*
 r = _putch(*di);
 if(!(r^(EOF))) printf("%s", "<< Error at fn. _putch()/_putwch()");
+//*/
 }
 r = (0x01);
 }

@@ -118,6 +118,13 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
+r = cmdln_dbuff(argp);
+
+if(!r) {
+printf("%s", "<< Error at fn. cmdln_dbuff()");
+return(0x00);
+}
+
 // Get a character (in the ASCII)
 c = (signed) _getch();
 

@@ -14,6 +14,7 @@ If the function fails, the return value is (0x00). */
 
 signed(__cdecl cmdln_load_internal(CMDLN_STAT(*argp)));
 signed(__cdecl cmdln_load(CMDLN_STAT(*argp)));
+signed(__cdecl cmdln_load_prep(CMDLN_STAT(*argp)));
 
 /* Load a file */
 

@@ -98,6 +98,7 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 (*argp).cmd_io.count = (0x00);
 (*argp).cmd_io.tail = (0x00);
 (*argp).cmd_io.recurred = (0x00);
+(*argp).cmd_io.args = (0x00);
 
 (*argp).c = (0x00);
 (*argp).init_p = (buff);

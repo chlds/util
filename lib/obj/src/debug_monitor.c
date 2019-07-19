@@ -86,6 +86,8 @@ printf("\n");
 printf("%s%ph", "(*argp).cmd_io.p    : ", (*argp).cmd_io.p);
 printf("%s%4d", ", (*argp).cmd_io.recurred: ", (*argp).cmd_io.recurred);
 // by fn. cmd_io_internal
+printf("%s%4d", ", (*argp).cmd_io.args: ", (*argp).cmd_io.args);
+// by fn. cmdln_ctrl_c
 printf("\n");
 
 printf("%s%4d", "(*argp).char_output: ", (*argp).char_output);

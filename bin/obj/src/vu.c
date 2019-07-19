@@ -86,7 +86,11 @@ return(0x00);
 if(LIMIT_FSIZ<(stats.st_size)) {
 printf("%s%ld%s\n", "<< Could not load because the file size exceeds 384kB.., size: ", stats.st_size, "bytes");
 return(0x00);
-}}
+}
+else cmdln_stat.fsiz = (size_t) (stats.st_size);
+}
+
+else cmdln_stat.fsiz = (size_t) (0x00);
 
 // XOR(flag,flag);
 

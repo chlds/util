@@ -76,8 +76,9 @@ signed short(depart_x);
 signed short(depart_y);
 COORDS(caret_pos);
 COORDS(depart);
-CLI_HISTORY(clih);
-SNAPSHOT(ss);
+signed(args);
+CLI_HISTORY(clih); // Deprecated..
+SNAPSHOT(ss); // Deprecated..
 void(*optl);
 } CMD_IO;
 

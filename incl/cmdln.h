@@ -27,6 +27,8 @@ If the function fails, the return value is (0x00). */
 # define COMMAND_BUFF (0x200) // (-1+(256)) per row i.e., in a null-terminated array for characters
 # define BUFF (0xFFFF) // 64kB per row
 
+# define OFFSCREEN_BUFF (0x03)
+
 typedef struct cmdln_stat {
 // for 7-bit character and more..
 union xchar {
@@ -61,8 +63,9 @@ COORD(depart);
 // COORD(arriv);
 signed(q_refresh);
 COORD(orig);
-CONSOLE_SCREEN_BUFFER_INFO(csbi);
 COORD(cache_pos);
+void(*(offscreen[OFFSCREEN_BUFF]));
+CONSOLE_SCREEN_BUFFER_INFO(csbi);
 signed(d);
 signed(s);
 KNOT(*l);
@@ -96,6 +99,7 @@ signed(unmapped_ss);
 // To load a file
 signed short(irr);
 signed(fd);
+size_t(fsiz);
 signed char(*filename);
 signed short(confirm);
 signed short(overwrite);

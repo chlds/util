@@ -19,6 +19,9 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl cmd_ctrl_k(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto signed char(EQ) = ('=');
+auto signed char(WS) = (' ');
+
 auto COORD(coord);
 auto signed(cache), (i), (r);
 auto signed short(flag);
@@ -66,8 +69,12 @@ r = ct_txt(ALIGN_TAB, (*argp).cmd_io.p);
 cache = (-r+(cache));
 if(C_DBG) (*argp).repeat = (cache);
 while(cache) {
-if(C_DBG) r = _putch('=');
-else r = _putch(' ');
+if(C_DBG) r = c_out(&EQ,argp);
+else r = c_out(&WS,argp);
+if(!r) {
+printf("%s", "<< Error at fn. c_out()");
+return(0x00);
+}
 --cache;
 }
 r = SetConsoleCursorPosition((*argp).s_out, coord);

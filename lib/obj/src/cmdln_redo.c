@@ -21,6 +21,8 @@ Refer at fn. cmdln_ctrl_lbracket() for the hist flag.
 signed(__cdecl cmdln_redo(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto signed char(WS) = (' ');
+
 auto SNAPSHOT(*cache);
 auto COORD(coord);
 auto signed(i), (r);
@@ -66,7 +68,11 @@ return(0x00);
 
 /* Delete by overwriting */
 while(i) {
-r = _putch(' ');
+r = c_out(&WS,argp);
+if(!r) {
+printf("%s", "<< Error at fn. c_out()");
+return(0x00);
+}
 DEC(i);
 }
 

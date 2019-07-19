@@ -23,6 +23,9 @@ signed(__cdecl cmd_ctrl_d(CMDLN_STAT(*argp))) {
 /* **** DATA, BSS and STACK */
 auto signed char const(HT) = (0x09);
 
+auto signed char(AK) = ('*');
+auto signed char(WS) = (' ');
+
 auto signed char(*p);
 
 auto COORD(coord);
@@ -67,9 +70,12 @@ return(0x00);
 }
 //*/
 while(cache) {
-if(C_DBG) r = _putch('*');
-else r = _putch(' ');
-if(!(r^(EOF))) printf("%s", "<< Error at fn. _putch/_putwch()");
+if(C_DBG) r = c_out(&AK,argp);
+else r = c_out(&WS,argp);
+if(!r) {
+printf("%s", "<< Error at fn. c_out()");
+return(0x00);
+}
 --cache;
 }
 r = SetConsoleCursorPosition((*argp).s_out, coord);
