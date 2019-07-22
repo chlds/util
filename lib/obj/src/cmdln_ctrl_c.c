@@ -63,6 +63,34 @@ printf("%s", "<< Error at fn. cmd_io()");
 return(0x00);
 }
 
+/* case i. */
+if(!(*((*argp).cmd_io.p))) {
+r = SetConsoleCursorPosition((*argp).s_out, coord);
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}
+return(0x01);
+}
+
+/* case ii. Display a help page. */
+if(!('h'^(*((*argp).cmd_io.p)))) {
+r = cmdln_help(argp);
+if(!r) {
+printf("%s", "<< Error at fn. cmdln_help()");
+return(0x00);
+}
+r = SetConsoleCursorPosition((*argp).s_out, coord);
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}
+return(0x01);
+}
+
+/* case iii. Jump to line N. */
 // count the arguments.
 r = ct_ars2((*argp).cmd_io.p);
 
@@ -75,13 +103,28 @@ return(0x00);
 
 if(C_DBG) (*argp).cmd_io.args = (r);
 
-r = SetConsoleCursorPosition((*argp).s_out, coord);
 
+/* Aux. */
+XOR(flag,flag);
+r = cv2d(10,&i,(*argp).cmd_io.p);
+/* It is empty ..or has occurred an error.
+if(!r) {
+printf("%s", "<< Error at fn. cv2d()");
+return(0x00);
+}
+//*/
+r = find_knot(i,argp);
+if(!r) XOR(flag,flag);
+else XNOR(flag);
+
+
+if(!flag) {
+r = SetConsoleCursorPosition((*argp).s_out, coord);
 if(!r) {
 r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
-}
+}}
 
 return(0x01);
 }
