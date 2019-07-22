@@ -18,7 +18,6 @@ Based on a doubly linked list
 signed(__cdecl ascend2ll(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-// auto KNOT(*t);
 auto signed(r);
 
 /* **** CODE/TEXT */
@@ -32,20 +31,21 @@ if(!((*((*argp).t)).s)) return(0x01);
 /* ascend */
 (*argp).t = ((*((*argp).t)).s);
 
-/* set the snapshot and knot parameters to the global delegate list - argp - in the cmdln_stat structure (out of the previous knot) */
-/* copy snapshots for a CLI history to the delegate list - argp - in the CMDLN_STAT structure out of the current temporary knot */
+/* initialise */
+r = cipher_embed((*argp).init_p,BUFF);
+if(r^(BUFF)) printf("<< Error at fn. cipher_embed()");
+
+/* copy contents to the workspace */
+r = cpy((*argp).init_p,(*((*argp).t)).p);
+
+(*argp).tail = (r);
+(*argp).count = (0x00);
+(*argp).p = ((*argp).init_p);
+
+/* connect snapshots with the one */
 (*argp).clih.l = ((*((*argp).t)).clih.l);
 (*argp).clih.b = ((*((*argp).t)).clih.b);
 (*argp).clih.t = ((*((*argp).t)).clih.t);
-
-/* also copy a knot to the delegate list - argp - in the CMDLN_STAT structure out of the current temporary knot */
-r = cipher_embed((*argp).init_p,BUFF);
-if(r^(BUFF)) printf("<< Error at fn. cipher_embed()");
-r = cpy((*argp).init_p,(*((*argp).t)).p);
-(*argp).p = ((*argp).init_p);
-(*argp).count = (0x00);
-r = ct((*argp).init_p);
-(*argp).tail = (r);
 
 /* and registre coordinates to the global delegate list - argp - in the CMDLN_STAT structure */
 (*argp).depart.X = ((*((*argp).t)).depart.X);

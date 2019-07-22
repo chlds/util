@@ -71,6 +71,8 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 //*/
 
 /* The Header Lines */
+printf("%s", "VU (Beta) | ");
+
 printf("%s", "Press Ctrl-Q to quit | ");
 
 printf("%s", "Save the EOL with LF (0x0A) | ");

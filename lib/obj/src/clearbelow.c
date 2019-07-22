@@ -41,7 +41,7 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 l = (coord.Y);
 l = (-l+((*argp).csbi.srWindow.Bottom));
 INC(l);
-l = (l*((*argp).csbi.srWindow.Right));
+l = (l*(0x01+((*argp).csbi.srWindow.Right)));
 
 r = FillConsoleOutputCharacter((*argp).s_out,ws,l,coord,&i);
 

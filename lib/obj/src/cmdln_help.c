@@ -24,7 +24,7 @@ enum {
 SI, DI, CACHE
 };
 
-auto signed char(*p) = ("-- WELCOME TO THE HELP PAGE OF CONSOLE TEXT EDITOR VU :) --\n\n\n\
+auto signed char(*p) = ("-- WELCOME TO THE HELP PAGE OF CONSOLE TEXT EDITOR VU (Beta) --\n\n\n\
 Ctrl-C: Command Mode (Beta)\n\
   Enter a number to jump to the line.\n\n\
 Ctrl-A: Place the caret to the lead of the current line.\n\
@@ -39,7 +39,8 @@ Ctrl-[: Redo. (Ctrl-W only)\n\
 Ctrl-]: Undo. (Ctrl-W only)\n\n\
 Ctrl-Y: Copy a part of the current line or a line.\n\
 Ctrl-P: Paste.\n\n\
-Ctrl-S: Save as.\n\
+Ctrl-S: Save.\n\
+  Caution: Line breaks are saved as LF (0x0A) in this editor. Please be careful.\n\n\
 Ctrl-Q: Quit.\n\n\
 Please type any key to return..\
 ");
@@ -144,7 +145,14 @@ printf("%s%d\n", "<< Error at fn. SetConsoleActiveScreenBuffer() with error no. 
 return(0x00);
 }
 
+XOR(flag,flag);
+
 r = _getch();
+
+if(!(r^(0xE0))) XNOR(flag);
+if(!r) XNOR(flag);
+
+if(flag) r = _getch();
 
 /* switch back */
 r = SetConsoleActiveScreenBuffer((*argp).s_out);

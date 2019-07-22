@@ -2,7 +2,7 @@
 
 Press <Ctrl-M> to invoke the function.
 
-Line Feed (0x0D)
+Line Feed (0x0A)
 
 Remarks:
 Launch on vu.exe
