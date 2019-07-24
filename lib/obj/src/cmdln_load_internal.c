@@ -24,7 +24,7 @@ auto signed const(DELAY) = (0x02*(QUANTUM));
 auto KNOT(*cache);
 
 auto signed(i), (r);
-auto signed short(flag);
+auto signed short(cr), (flag);
 auto signed char(c);
 
 /* **** CODE/TEXT */
@@ -35,6 +35,7 @@ if(!argp) return(0x00);
 
 /* Initialise */
 XOR(flag,flag);
+XOR(cr,cr);
 XOR(i,i);
 
 /* Read/write */
@@ -52,9 +53,10 @@ break;
 }
 
 /* Save the EOL with LF (0x0A). */
-// if(!(c^('\r'))) break;
+if(!(c^('\r'))) XNOR(cr);
 if(!(c^('\n'))) break;
 
+if(!cr) {
 // assign
 *(i+((*argp).init_p)) = (signed char) (c);
 INC(i);
@@ -64,7 +66,7 @@ else {
 printf("%s\n", "<< A character limit in one line has been reached.");
 XNOR((*argp).irr);
 return(0x00);
-}}
+}}}
 
 *(i+((*argp).init_p)) = (signed char) ('\0');
 
@@ -87,7 +89,6 @@ return(0x00);
 
 r = cpy((*cache).p,(*argp).init_p);
 
-/* concatenate */
 r = concat2ll(cache,argp);
 if(!r) {
 printf("%s", "<< Error at fn. concat2ll()");

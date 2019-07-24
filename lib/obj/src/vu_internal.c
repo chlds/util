@@ -43,6 +43,7 @@ auto signed(__cdecl*(fn[COUNT_FN])) (void(*argp)) = {
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_k),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_l),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_m),
+// (signed(__cdecl*) (void(*))) (cmdln_ctrl_n_beta),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_n),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_o),
 
@@ -51,6 +52,7 @@ auto signed(__cdecl*(fn[COUNT_FN])) (void(*argp)) = {
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_r),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_s),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_t),
+// (signed(__cdecl*) (void(*))) (cmdln_ctrl_u_beta),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_u),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_v),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_w_prep),

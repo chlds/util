@@ -163,6 +163,7 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 // Loaded a file
 if((*argp).insert) {
+// r = cmdln_load_prep_beta(argp);
 r = cmdln_load_prep(argp);
 if(!r) {
 printf("%s", "<< Error at fn. cmdln_load_prep()");

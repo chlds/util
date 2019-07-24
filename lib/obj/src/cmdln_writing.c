@@ -44,6 +44,15 @@ return(0x00);
 }
 
 if(!flag) {
+//* the CR i.e., (0x0D)
+c = ('\r');
+r = write(descriptor, &c, sizeof(c));
+if(!(r^(~(0x00)))) {
+printf("%s\n", "<< Error at fn. write() in fn. cmdln_writing() the second");
+return(0x00);
+}
+//*/
+// the LF i.e., (0x0A)
 c = ('\n');
 r = write(descriptor, &c, sizeof(c));
 if(!(r^(~(0x00)))) {

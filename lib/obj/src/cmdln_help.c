@@ -40,7 +40,7 @@ Ctrl-]: Undo. (Ctrl-W only)\n\n\
 Ctrl-Y: Copy a part of the current line or a line.\n\
 Ctrl-P: Paste.\n\n\
 Ctrl-S: Save.\n\
-  Caution: Line breaks are saved as LF (0x0A) in this editor. Please be careful.\n\n\
+  Caution: Line breaks are saved as CR (0x0D) and LF (0x0A) in this editor. Please be careful.\n\n\
 Ctrl-Q: Quit.\n\n\
 Please type any key to return..\
 ");

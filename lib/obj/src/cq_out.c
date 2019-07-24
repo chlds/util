@@ -56,7 +56,7 @@ return(0x00);
 /* quickly output */
 r = ((*argp).csbi.srWindow.Bottom);
 
-r = cq_out_internal(r,(*argp).t,argp);
+r = cq_out_internal(r,k,argp);
 
 if(!r) {
 printf("%s", "<< Error at fn. cq_out_internal()");
@@ -71,7 +71,7 @@ printf("%s", "<< Error at fn. connect_with_workspace()");
 return(0x00);
 }
 
-//* to the header
+/* go to the header
 coord_b.X = (0x00);
 coord_b.Y = (0x00);
 r = SetConsoleCursorPosition((*argp).s_out, coord_b);
