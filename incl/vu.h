@@ -12,6 +12,12 @@ If the function fails, the return value is (0x00). */
 
 
 
+signed(__cdecl cq_out_internal(signed(deadline),KNOT(*k),CMDLN_STAT(*argp)));
+signed(__cdecl cq_out(KNOT(*k),CMDLN_STAT(*argp)));
+
+/* Based on fn. c_out */
+
+
 signed(__cdecl cmdln_load_internal(CMDLN_STAT(*argp)));
 signed(__cdecl cmdln_load(CMDLN_STAT(*argp)));
 signed(__cdecl cmdln_load_prep(CMDLN_STAT(*argp)));

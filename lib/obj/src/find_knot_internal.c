@@ -47,7 +47,7 @@ r = cpy((*argp).init_p,(*((*argp).t)).p);
 (*argp).depart.X = ((*((*argp).t)).depart.X);
 (*argp).depart.Y = ((*((*argp).t)).depart.Y);
 // output..
-return(0x00);
+return(0x01);
 }
 
 k = ((*k).d);

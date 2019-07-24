@@ -106,6 +106,13 @@ if(C_DBG) (*argp).cmd_io.args = (r);
 
 /* Aux. */
 XOR(flag,flag);
+
+r = include_num((*argp).cmd_io.p);
+
+if(!r) {
+}
+
+else {
 r = cv2d(10,&i,(*argp).cmd_io.p);
 /* It is empty ..or has occurred an error.
 if(!r) {
@@ -113,9 +120,11 @@ printf("%s", "<< Error at fn. cv2d()");
 return(0x00);
 }
 //*/
+// r = find_knot_beta(i,argp);
 r = find_knot(i,argp);
 if(!r) XOR(flag,flag);
 else XNOR(flag);
+}
 
 
 if(!flag) {

@@ -147,6 +147,7 @@ signed(__cdecl cmd_ctrl_hash(void(*argp)));
 signed(__cdecl cmdln_ctrl_at(void(*argp)));
 signed(__cdecl cmdln_ctrl_a(void(*argp)));
 signed(__cdecl cmdln_ctrl_b(void(*argp)));
+signed(__cdecl cmdln_ctrl_c_beta(void(*argp)));
 signed(__cdecl cmdln_ctrl_c(void(*argp)));
 signed(__cdecl cmdln_ctrl_d(void(*argp)));
 signed(__cdecl cmdln_ctrl_e(void(*argp)));

@@ -111,6 +111,12 @@ signed(__cdecl cpy(signed char(*di), signed char(*si)));
 /* Copy to the di out of the si */
 
 
+signed(__cdecl include_num_internal(signed short(*flagp), signed char(*argp)));
+signed(__cdecl include_num(signed char(*argp)));
+
+/* Check numerals. */
+
+
 signed(__cdecl ct_only(signed char(di), signed char(*argp)));
 
 /* Count a specific letter only. */
