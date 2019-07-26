@@ -38,7 +38,7 @@ return(0x00);
 
 /* overwrite the coordinates */
 (*((*argp).t)).depart.X = (0x00);
-(*((*argp).t)).depart.Y = ((*argp).orig.Y);
+(*((*argp).t)).depart.Y = (0x00);
 (*argp).depart.X = ((*((*argp).t)).depart.X);
 (*argp).depart.Y = ((*((*argp).t)).depart.Y);
 
@@ -53,10 +53,17 @@ printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r
 return(0x00);
 }
 
-r = cq_out((*argp).t,argp);
+r = qclear(argp);
 
 if(!r) {
-printf("%s", "<< Error at fn. cq_out()");
+printf("%s", "<< Error at fn. qclear()");
+return(0x00);
+}
+
+r = cq_outs((*argp).t,argp);
+
+if(!r) {
+printf("%s", "<< Error at fn. cq_outs()");
 return(0x00);
 }
 

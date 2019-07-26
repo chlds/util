@@ -24,7 +24,7 @@ extern signed(terminate);
 extern signed(command_mode);
 extern signed(cmd_io_terminate);
 
-auto COORD(coord);
+auto COORD(coord), (coord_b);
 
 auto KNOT(*t);
 auto signed(cache), (i), (r);
@@ -105,11 +105,11 @@ if(flag) {
 (*argp).depart.Y = ((*((*argp).t)).depart.Y);
 }
 
-coord.X = (0x00);
-coord.Y = ((*argp).depart.Y);
+coord_b.X = (0x00);
+coord_b.Y = ((*argp).depart.Y);
 // refer at fn. descend2ll
 
-r = SetConsoleCursorPosition((*argp).s_out, coord);
+r = SetConsoleCursorPosition((*argp).s_out, coord_b);
 
 if(!r) {
 r = GetLastError();
@@ -118,19 +118,52 @@ return(0x00);
 }
 
 
+r = current_caret_pos(argp);
+
+if(!r) {
+printf("<< Error at fn. current_caret_pos()");
+return(0x00);
+}
+
+else {
+coord.X = ((*argp).csbi.dwCursorPosition.X);
+coord.Y = ((*argp).csbi.dwCursorPosition.Y);
+}
+
+
 // Refer at fn. cmdln_ctrl_d, fn. vu_gate_internal or..
 
 // Aux. 3/3
 if(flag) {
-// Use the function as a substitute for fn. sync_coordinates(argp); to save resources
-r = rsync_coordinates((*argp).t,argp);
+r = clearblock((*argp).t,argp);
 if(!r) {
-printf("%s", "<< Error at fn. sync_coordinates()");
+printf("%s", "<< Error at fn. clearblock()");
 return(0x00);
 }
-r = c_outll_partially(argp);
+// output one line only.
+r = qput((*argp).t,argp);
 if(!r) {
-printf("%s", "<< Error at fn. c_outll_partially()");
+printf("%s", "<< Error at fn. qput()");
+return(0x00);
+}
+/* update the workspace parameters */
+r = connect_with_workspace((*argp).t,argp);
+if(!r) {
+printf("%s", "<< Error at fn. connect_with_workspace()");
+return(0x00);
+}
+coord_b.X = (0x00);
+coord_b.Y = ((*argp).csbi.srWindow.Top);
+r = SetConsoleCursorPosition((*argp).s_out, coord_b);
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}
+r = SetConsoleCursorPosition((*argp).s_out, coord);
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }}
 

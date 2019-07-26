@@ -56,7 +56,10 @@ coord_b.X = (coord.X);
 coord_b.Y = (coord.Y);
 
 while(0x01) {
-if(coord_b.Y<((*argp).depart.Y)) return(0x00);
+if(coord_b.Y<((*argp).depart.Y)) {
+printf("%s", "<< Error at fn. c_out()");
+return(0x00);
+}
 if(!(coord_b.Y^((*argp).depart.Y))) break;
 DEC(coord_b.Y);
 ADD(coord_b.X,0x01+((*argp).csbi.srWindow.Right));

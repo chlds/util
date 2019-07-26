@@ -67,6 +67,7 @@ r = ascend2ll(argp);
 if(!r) printf("%s", "<< Error at fn. ascend2ll()");
 
 if(!((signed long long) t^((signed long long) (*argp).t))) {
+if(!(coord.Y^((*argp).orig.Y))) return(0x01);
 coord_b.X = (signed short) (0x00);
 coord_b.Y = (signed short) (0x00);
 r = SetConsoleCursorPosition((*argp).s_out, coord_b);
@@ -75,7 +76,39 @@ r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
+r = qclear(argp);
+if(!r) {
+printf("%s", "<< Error at fn. qclear()");
+return(0x00);
+}
+r = display_header(argp);
+if(!r) {
+printf("%s", "<< Error at fn. display_header()");
+return(0x00);
+}
+
+(*((*argp).t)).depart.X = (0x00);
+(*((*argp).t)).depart.Y = ((*argp).orig.Y);
+r = connect_with_workspace((*argp).t,argp);
+if(!r) {
+printf("%s", "<< Error at fn. connect_with_workspace()");
+return(0x00);
+}
+
+r = cq_outs((*argp).b,argp);
+if(!r) {
+printf("%s", "<< Error at fn. cq_outs()");
+return(0x00);
+}
+
 coord_b.X = (signed short) (0x00);
+coord_b.Y = (signed short) (0x00);
+r = SetConsoleCursorPosition((*argp).s_out, coord_b);
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}
 coord_b.Y = (signed short) ((*argp).orig.Y);
 r = SetConsoleCursorPosition((*argp).s_out, coord_b);
 if(!r) {
@@ -93,20 +126,42 @@ return(0x01);
 
 DEC((*argp).nknot);
 
-
-/* External Part. */
 XOR(flag,flag);
 if(!(coord.Y^((*argp).csbi.srWindow.Top))) XNOR(flag);
-if(!(coord.Y^((*argp).orig.Y))) XNOR(flag);
+
 if(flag) {
-r = cq_out((*argp).t,argp);
+coord_b.X = (signed short) (0x00);
+coord_b.Y = (signed short) (0x00);
+r = SetConsoleCursorPosition((*argp).s_out, coord_b);
 if(!r) {
-printf("%s", "<< Error at fn. cq_out()");
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
-return(0x01);
+r = qclear(argp);
+if(!r) {
+printf("%s", "<< Error at fn. qclear()");
+return(0x00);
 }
 
+
+(*((*argp).t)).depart.X = (0x00);
+(*((*argp).t)).depart.Y = (0x00);
+r = connect_with_workspace((*argp).t,argp);
+if(!r) {
+printf("%s", "<< Error at fn. connect_with_workspace()");
+return(0x00);
+}
+
+r = cq_outs((*argp).t,argp);
+if(!r) {
+printf("%s", "<< Error at fn. cq_outs()");
+return(0x00);
+}
+
+
+return(0x01);
+}
 
 r = ct_txt(ALIGN_TAB,(*((*argp).t)).p);
 
