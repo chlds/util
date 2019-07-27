@@ -96,14 +96,13 @@ return(0x01);
 
 INC((*argp).nknot);
 
-if(flag) {
+
 /* overwrite the coordinates */
 (*((*argp).t)).depart.X = (0x00);
 (*((*argp).t)).depart.Y = (i);
-// and
 (*argp).depart.X = ((*((*argp).t)).depart.X);
 (*argp).depart.Y = ((*((*argp).t)).depart.Y);
-}
+
 
 coord_b.X = (0x00);
 coord_b.Y = ((*argp).depart.Y);

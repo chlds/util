@@ -32,6 +32,7 @@ auto signed(__cdecl*(fn[COUNT_FN])) (void(*argp)) = {
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_a),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_b),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_c),
+// (signed(__cdecl*) (void(*))) (cmdln_ctrl_d_beta),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_d),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_e),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_f),

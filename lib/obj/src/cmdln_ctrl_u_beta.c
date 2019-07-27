@@ -95,7 +95,7 @@ printf("%s", "<< Error at fn. connect_with_workspace()");
 return(0x00);
 }
 
-r = cq_outs((*argp).b,argp);
+r = cq_outs((*argp).t,argp);
 if(!r) {
 printf("%s", "<< Error at fn. cq_outs()");
 return(0x00);
@@ -169,7 +169,6 @@ r = ct_txt(ALIGN_TAB,(*((*argp).t)).p);
 if(!r) printf("%s", "<< Error at fn. ct_txt()");
 //*/
 
-/*
 XOR(i,i);
 cache = (0x01+((*argp).csbi.srWindow.Right));
 
@@ -178,11 +177,21 @@ INC(i);
 r = (-cache+(r));
 if(r<(0x01)) break;
 }
-//*/
 
 coord.X = (0x00);
-coord.Y = ((*argp).depart.Y);
+coord.Y = (-i+(coord.Y));
 // refer at fn. ascend2ll
+
+
+/* overwrite the coordinates */
+(*((*argp).t)).depart.X = (coord.X);
+(*((*argp).t)).depart.Y = (coord.Y);
+r = connect_with_workspace((*argp).t,argp);
+if(!r) {
+printf("%s", "<< Error at fn. connect_with_workspace()");
+return(0x00);
+}
+
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 

@@ -16,7 +16,7 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl cmdln_ctrl_d(CMDLN_STAT(*argp))) {
+signed(__cdecl cmdln_ctrl_d_beta(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char const(HT) = (0x09);
@@ -27,7 +27,7 @@ auto signed char(WS) = (' ');
 auto signed char(*p);
 
 auto COORD(coord);
-auto signed(cache), (i), (r);
+auto signed(cache), (i), (l), (r);
 auto signed char(c);
 
 /* **** CODE/TEXT */
@@ -64,14 +64,25 @@ if(!r) {
 if((*argp).lead_back) {
 r = ct_txt(ALIGN_TAB,(*argp).init_p);
 i = (0x01+((*argp).csbi.srWindow.Right));
+XOR(l,l);
 while(0x01) {
-DEC(coord.Y);
-// and sync. the coordinates with the workspace and the current knot associated with the one, refer at fn. delete_knot
-DEC((*argp).depart.Y);
-DEC((*((*argp).t)).depart.Y);
+INC(l);
 r = (-i+(r));
 if(r<(0x01)) break;
+}
+coord.X = (0x00);
+if(!coord.Y) {
+}
+else {
+coord.Y = (-l+(coord.Y));
+if(coord.Y<(0x00)) coord.Y = (0x00);
 }}
+
+// overwrite the coordinates for the current knot and for the workspace.
+(*((*argp).t)).depart.X = (coord.X);
+(*((*argp).t)).depart.Y = (coord.Y);
+(*argp).depart.X = ((*((*argp).t)).depart.X);
+(*argp).depart.Y = ((*((*argp).t)).depart.Y);
 
 // Check for the workspace
 r = ct((*argp).init_p);
@@ -86,7 +97,7 @@ return(0x00);
 //*/
 
 // come back
-(*argp).depart.Y = ((*((*argp).t)).depart.Y);
+// (*argp).depart.Y = ((*((*argp).t)).depart.Y);
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 if(!r) {
 r = GetLastError();
@@ -96,11 +107,21 @@ return(0x00);
 
 //* Being replaced for fn. refresh_screen e.g., refer at fn. cmdln_ctrl_n, fn. vu_gate_internal or..
 // i.e., use the two functions as a substitute for fn. refresh_screen (after running fn. SetConsoleCursorPosition).
+
+/*
+r = rsync_coordinates((*argp).t,argp);
+if(!r) {
+printf("%s", "<< Error at fn. rsync_coordinates()");
+return(0x00);
+}
+//*/
+
 r = sync_coordinates(argp);
 if(!r) {
 printf("%s", "<< Error at fn. sync_coordinates()");
 return(0x00);
 }
+
 r = c_outll_partially(argp);
 if(!r) {
 printf("%s", "<< Error at fn. c_outll_partially()");
