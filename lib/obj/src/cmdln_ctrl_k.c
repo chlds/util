@@ -48,6 +48,7 @@ return(0x01);
 
 else {
 cache = ct_txt(ALIGN_TAB, (*argp).init_p);
+i = (cache);
 // Copy a line after the (*argp).p to a clip board (and type <Ctrl-P> to paste the one).
 r = cpy((*argp).clip, (*argp).p);
 if(!r) {
@@ -84,7 +85,8 @@ printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r
 return(0x00);
 }}
 
-/* Quickly refresh a part of console screen */
+if(i<(0x01+((*argp).csbi.srWindow.Right))) return(0x01);
+
 r = qrefresh((*argp).t,argp);
 if(!r) printf("%s", "<< Error at fn. qrefresh()");
 

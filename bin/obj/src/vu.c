@@ -71,8 +71,15 @@ auto struct stat(stats);
 auto size_t(filesize);
 
 /* **** CODE/TEXT */
-if(argc<(0x02)) p = (signed char(*)) (0x00);
-else p = (*(argv+(argc+(~(0x00)))));
+if(argc<(0x02)) {
+cmdln_stat.already_existing_file = (0x00);
+p = (signed char(*)) (0x00);
+}
+
+else {
+cmdln_stat.already_existing_file = (0x01);
+p = (*(argv+(argc+(~(0x00)))));
+}
 
 cmdln_stat.filename = (p);
 

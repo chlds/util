@@ -116,6 +116,7 @@ return(0x00);
 }
 //*/
 
+/*
 r = sync_coordinates(argp);
 if(!r) {
 printf("%s", "<< Error at fn. sync_coordinates()");
@@ -128,6 +129,20 @@ printf("%s", "<< Error at fn. c_outll_partially()");
 return(0x00);
 }
 //*/
+
+r = clearbelow(argp);
+if(!r) {
+printf("%s", "<< Error at fn. clearbelow()");
+return(0x00);
+}
+
+r = cq_outs((*argp).t,argp);
+if(!r) {
+printf("%s", "<< Error at fn. cq_outs()");
+return(0x00);
+}
+
+return(0x01);
 }
 
 
@@ -170,16 +185,15 @@ return(0x00);
 
 /* Effectively refresh the console screen to save resources */
 r = ct_txt(ALIGN_TAB,(*argp).init_p);
+if(r<(0x01+((*argp).csbi.srWindow.Right))) return(0x01);
+
 r = (r%(0x01+((*argp).csbi.srWindow.Right)));
 
 cache = ((*argp).q_refresh);
 (*argp).q_refresh = (r);
 
 if(!r) {
-if(!(cache^(r))) {
-}
-else {
-// quickly refresh a part of console screen.
+if(cache^(r)) {
 r = qrefresh((*argp).t,argp);
 if(!r) printf("%s", "<< Error at fn. qrefresh()");
 }}
@@ -188,8 +202,6 @@ else {
 if(cache<(r)) {
 r = qrefresh((*argp).t,argp);
 if(!r) printf("%s", "<< Error at fn. qrefresh()");
-}
-else {
 }}
 
 

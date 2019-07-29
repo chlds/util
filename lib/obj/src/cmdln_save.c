@@ -110,8 +110,11 @@ if(!(c^('o'))) XNOR((*argp).overwrite);
 else {
 // XOR((*argp).overwrite,(*argp).overwrite);
 printf("%s", " < Cancelled! > ");
+if(!((*argp).already_existing_file)) {
+// e.g., refer at fn. vu.c
 free((*argp).filename);
 (*argp).filename = (signed char(*)) (0x00);
+}
 return(0x01);
 }}}
 

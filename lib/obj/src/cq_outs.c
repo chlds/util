@@ -33,14 +33,9 @@ return(0x00);
 else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
-}
-
-r = SetConsoleCursorPosition((*argp).s_out, coord);
-
-if(!r) {
-r = GetLastError();
-printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
-return(0x00);
+// and
+coord_b.X = (0x00);
+coord_b.Y = ((*argp).csbi.srWindow.Top);
 }
 
 /*
@@ -72,6 +67,14 @@ printf("%s", "<< Error at fn. connect_with_workspace()");
 return(0x00);
 }
 //*/
+
+r = SetConsoleCursorPosition((*argp).s_out, coord_b);
+
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}
 
 /* come back */
 r = SetConsoleCursorPosition((*argp).s_out, coord);

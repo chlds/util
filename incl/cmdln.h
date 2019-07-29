@@ -97,7 +97,10 @@ signed(cleared_rows);
 signed(unmapped_ss);
 };
 // To load a file
+signed short(already_existing_file);
+// not to use fn. free()
 signed short(irr);
+// interrupted in loading a file..
 signed(fd);
 size_t(fsiz);
 signed char(*filename);

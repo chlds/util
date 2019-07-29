@@ -65,6 +65,17 @@ return(0x00);
 }
 //*/
 
+coord_b.X = (0x00);
+coord_b.Y = ((*argp).csbi.srWindow.Top);
+
+r = SetConsoleCursorPosition((*argp).s_out, coord_b);
+
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with no. ", r);
+return(0x00);
+}
+
 /* Come back */
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 

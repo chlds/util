@@ -66,7 +66,7 @@ if(!r) printf("%s", "<< Error at fn. display_header()");
 if((*argp).filename) {
 (*argp).insert = (signed short) (0x01);
 (*argp).confirm = (0x01);
-(*argp).overwrite = (0x01);
+(*argp).overwrite = (0x00);
 }
 
 else {
