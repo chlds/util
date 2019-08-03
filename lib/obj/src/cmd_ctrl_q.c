@@ -32,11 +32,10 @@ auto signed(i), (r);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-XNOR(quit);
-XNOR(terminate);
-XNOR(cmd_io_terminate);
+// XNOR(quit);
+// XNOR(terminate);
 
-// printf("%s", "Ctrl-Q;");
+XNOR(cmd_io_terminate);
 
 return(0x01);
 }

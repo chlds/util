@@ -59,8 +59,10 @@ return(0x00);
 r = cpy((*argp).filename,(*argp).cmd_io.p);
 if(!r) {
 // It is empty ..or has occurred an error.
-printf("%s", "<< Error at fn. cpy()");
+// printf("%s", "<< Error at fn. cpy() or empty..");
 printf("%s", " < Cancelled > ");
+free((*argp).filename);
+(*argp).filename = (signed char(*)) (0x00);
 return(0x00);
 }}
 

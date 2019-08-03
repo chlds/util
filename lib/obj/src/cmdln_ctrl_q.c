@@ -34,6 +34,7 @@ if(!argp) return(0x00);
 
 if(command_mode) return(0x01);
 
+/* 1 of 2
 r = current_caret_pos(argp);
 
 if(!r) {
@@ -68,9 +69,15 @@ return(0x00);
 c = (signed char) (*((*argp).cmd_io.p));
 
 if(!(c^('q'))) {
+//*/
+
+
 XNOR(quit);
 XNOR(terminate);
 return(0x01);
+
+
+/* 2 of 2
 }
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
@@ -82,4 +89,6 @@ return(0x00);
 }
 
 return(0x01);
+//*/
+
 }

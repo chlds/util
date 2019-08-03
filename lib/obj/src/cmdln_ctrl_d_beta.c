@@ -185,7 +185,8 @@ return(0x00);
 
 /* Effectively refresh the console screen to save resources */
 r = ct_txt(ALIGN_TAB,(*argp).init_p);
-if(r<(0x01+((*argp).csbi.srWindow.Right))) return(0x01);
+
+// if(r<(0x01+((*argp).csbi.srWindow.Right))) return(0x01);
 
 r = (r%(0x01+((*argp).csbi.srWindow.Right)));
 
