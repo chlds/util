@@ -163,10 +163,10 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 // Loaded a file
 if((*argp).insert) {
-// r = cmdln_load_prep_beta(argp);
-r = cmdln_load_prep(argp);
+r = cmdln_load_prep_beta(argp);
+// r = cmdln_load_prep(argp);
 if(!r) {
-printf("%s", "<< Error at fn. cmdln_load_prep()");
+printf("%s", "<< Error at fn. cmdln_load_prep_beta()");
 return(0x00);
 }}
 
@@ -176,7 +176,7 @@ r = vu_gate_internal(argp);
 
 
 /* To check the status */
-Sleep(500);
+// Sleep(500);
 system("cls");
 
 
@@ -185,7 +185,7 @@ printf("%s\n", "<< Error at fn. vu_gate_internal()");
 return(0x00);
 }
 
-else {
+if(C_DBG) {
 printf("\n");
 printf("%d%s\n", r, " times recurred by fn. vu_gate_internal()");
 }
@@ -199,9 +199,9 @@ printf("%s%d%s\n", "Output ", r, " contents.");
 /* Unmap */
 r = cmdln_unmap(argp);
 
+if(C_DBG) {
 printf("%s%d%s\n", "Unmapped ", r, " knots.");
 
-//* Monitor
 printf("\n");
 printf("%s\n", "Monitoring:");
 printf("%s%02Xh\n", "*((*argp).init_p+((*argp).count)) is: ", *((*argp).init_p+((*argp).count)));
@@ -234,7 +234,7 @@ r = ct(snap);            printf("%s%d%s%Xh\n", "r = ct(snap)            is: ", r
 
 printf("\n");
 printf("%s%4d%s%4d%s%4Xh\n", "(*argp).count, .tail and .limit: ", (*argp).count, ", ", (*argp).tail, " and ", (*argp).limit);
-//*/
+}
 
 
 return(0x01);

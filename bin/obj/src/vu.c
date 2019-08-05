@@ -91,7 +91,8 @@ printf("%s\n", "<< Error at fn. stat()");
 return(0x00);
 }
 if(LIMIT_FSIZ<(stats.st_size)) {
-printf("%s%ld%s\n", "<< Could not load because the file size exceeds 384kB.., size: ", stats.st_size, "bytes");
+printf("%s%d%s", "<< Could not load because the file size exceeds ", LIMIT_FSIZ, ".., ");
+printf("%s%ld%s\n", "size: ", stats.st_size, "bytes");
 return(0x00);
 }
 else cmdln_stat.fsiz = (size_t) (stats.st_size);
@@ -174,7 +175,7 @@ else {
 if(cmdln_stat.filename) free(cmdln_stat.filename);
 }
 
-printf("%s\n", "All Done!");
+if(C_DBG) printf("%s\n", "All Done!");
 
 return(0x00);
 }

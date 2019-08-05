@@ -22,7 +22,7 @@ auto signed(cache), (r);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-r = output_ll((*argp).b);
+// r = output_ll((*argp).b);
 
 // printf("%s", "Ctrl-\\;");
 

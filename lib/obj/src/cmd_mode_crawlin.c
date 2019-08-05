@@ -1,6 +1,6 @@
 /* **** Notes
 
-Press <Ctrl-S> to invoke the function.
+Crawl in
 
 Remarks:
 Launch on vu.exe
@@ -14,23 +14,20 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl cmdln_ctrl_s(CMDLN_STAT(*argp))) {
+# define ROWS (0x400)
+
+signed(__cdecl cmd_mode_crawlin(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-extern signed(command_mode);
+static signed char(rows[ROWS]) = ("");
 
-auto COORD(coord);
-
-auto KNOT(*cch);
-auto signed(cache), (r);
-// auto signed short(flag);
+auto COORD(coord), (coord_b);
+auto signed(cache), (i), (r);
+auto signed(c);
+auto signed short(flag);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
-
-if(command_mode) return(0x01);
-
-INC(command_mode);
 
 r = current_caret_pos(argp);
 
@@ -44,26 +41,17 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-/* to save */
-r = cmd_mode_crawlin(argp);
+(*argp).crawl = (rows);
+
+coord_b.X = (0x00);
+coord_b.Y = (-0x01+((*argp).csbi.srWindow.Bottom));
+r = (0x02*(0x01+((*argp).csbi.srWindow.Right)));
+
+r = ReadConsoleOutputCharacter((*argp).s_out,rows,r,coord_b,&i);
 
 if(!r) {
-printf("%s", "<< Error at fn. cmd_mode_crawlin()");
-return(0x00);
-}
-
-r = cmdln_save_prep(argp);
-
-if(!r) {
-}
-
-else {
-}
-
-r = cmd_mode_crawlout(argp);
-
-if(!r) {
-printf("%s", "<< Error at fn. cmd_mode_crawlout()");
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. ReadConsoleOutputCharacter() with error no. ", r);
 return(0x00);
 }
 
@@ -74,8 +62,6 @@ r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
-
-XOR(command_mode,command_mode);
 
 return(0x01);
 }

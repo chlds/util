@@ -20,7 +20,7 @@ If the function fails, the return value is (0x00). */
 # define HEADER_ROWS (0x02)
 # define FOOTER_ROWS (0x02)
 
-# define LIMIT_FSIZ (384000)
+# define LIMIT_FSIZ (10000000)
 
 # define ALIGN_TAB (0x08)
 
@@ -107,6 +107,8 @@ signed char(*filename);
 signed short(confirm);
 signed short(overwrite);
 signed(nknot);
+// in entering command mode - refer at fn. cmd_mode_crawlin/out
+signed char(*crawl);
 // optional
 void(*optl);
 } CMDLN_STAT;

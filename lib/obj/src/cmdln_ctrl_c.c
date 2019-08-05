@@ -49,6 +49,13 @@ if(!r) {
 // It is empty ..or has occurred an error.
 }
 
+r = cmd_mode_crawlin(argp);
+
+if(!r) {
+printf("%s", "<< Error at fn. cmd_mode_crawlin()");
+return(0x00);
+}
+
 r = cmd_mode_prep(argp);
 
 r = printf("%s", label);
@@ -71,6 +78,11 @@ r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
+r = cmd_mode_crawlout(argp);
+if(!r) {
+printf("%s", "<< Error at fn. cmd_mode_crawlout()");
+return(0x00);
+}
 return(0x01);
 }
 
@@ -85,6 +97,11 @@ r = SetConsoleCursorPosition((*argp).s_out, coord);
 if(!r) {
 r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}
+r = cmd_mode_crawlout(argp);
+if(!r) {
+printf("%s", "<< Error at fn. cmd_mode_crawlout()");
 return(0x00);
 }
 return(0x01);
@@ -120,8 +137,8 @@ printf("%s", "<< Error at fn. cv2d()");
 return(0x00);
 }
 //*/
-// r = find_knot_beta(i,argp);
-r = find_knot(i,argp);
+r = find_knot_beta(i,argp);
+// r = find_knot(i,argp);
 if(!r) XOR(flag,flag);
 else XNOR(flag);
 }
