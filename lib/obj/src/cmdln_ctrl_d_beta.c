@@ -130,6 +130,12 @@ return(0x00);
 }
 //*/
 
+r = sustain(argp);
+
+if(!r) {
+// It is empty ..or has occurred an error.
+}
+
 r = clearbelow(argp);
 if(!r) {
 printf("%s", "<< Error at fn. clearbelow()");

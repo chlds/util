@@ -2,6 +2,10 @@
 
 Press <Ctrl-\> to invoke the function.
 
+Go to the top (or to the bottom).
+
+UNCOMPLETED
+
 Remarks:
 Launch on vu.exe
 Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
@@ -21,10 +25,6 @@ auto signed(cache), (r);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
-
-// r = output_ll((*argp).b);
-
-// printf("%s", "Ctrl-\\;");
 
 return(0x01);
 }

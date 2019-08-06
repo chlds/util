@@ -31,7 +31,7 @@ Ctrl-A: Place the caret to the lead of the current line.\n\
 Ctrl-E: Place the caret to the end of the current line.\n\
 Ctrl-T: Place the caret to the next word in the current line.\n\
 Ctrl-R: Place the caret to the previous word in the current line.\n\n\
-Ctrl-V: Refresh the screen. (Deprecated..)\n\n\
+Ctrl-V: View in reading. (To be implemented in the future)\n\n\
 Ctrl-D: Delete a character or a line.\n\
 Ctrl-H: Delete a character or a line.\n\n\
 Ctrl-W: Delete a part of the word or a word.\n\
