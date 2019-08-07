@@ -127,24 +127,26 @@ auto signed const(LIMIT) = (3600);
 
 auto signed const(QUANTUM) = (0x10);
 auto signed const(SNOOZE) = (0x04);
-auto signed const(DELAY) = (0x02*(QUANTUM));
+auto signed const(DELAY) = (0x03*(QUANTUM));
 
 // Default
 auto time_t(deadline), (t);
 auto time_t(secs) = (DEFAULT_SECS);
 
-auto unsigned(SOLIDBRUSH) = (0xC09070);
 
 auto signed(old_bkmode), (old_bkcolor), (old_textcolor);
 auto unsigned(old_textalign);
 
 auto signed const(BKMODE) = (TRANSPARENT);
 auto signed const(BKCOLOR) = (0x000000);
-auto signed const(TEXTCOLOR) = (0xF0F0F0);
 
-auto signed const(SHADE_TEXTCOLOR) = (0x606060);
 auto signed const(SHADE_XPOS) = (0x02);
 auto signed const(SHADE_YPOS) = (0x02);
+
+// dark
+auto unsigned(SOLIDBRUSH) = (0x3F3F3F);
+auto signed const(SHADE_TEXTCOLOR) = (0x404040|(SOLIDBRUSH));
+auto signed const(TEXTCOLOR) = (0xF0F0F0&(0x808080|(SHADE_TEXTCOLOR)));
 
 
 auto SYSTEMTIME(st);
@@ -190,8 +192,8 @@ auto unsigned(pos[COUNT_POS]) = {
 (unsigned) (0x00)
 };
 
-auto signed(height_font) = (36);
-auto signed(width_font) = (9);
+auto signed(height_font) = (21);
+auto signed(width_font) = (7);
 auto signed(escapement_font) = (0x00);
 auto signed(orientation_font) = (0x00);
 auto signed(weight_font) = (FW_REGULAR);
@@ -502,8 +504,10 @@ return(XNOR(r));
 
 GetLocalTime(&st);
 
+st.wMilliseconds = (st.wMilliseconds/(100));
+
 sprintf(
-buff, "%2d:%02d:%02d %03d %s %d %s %d", \
+buff, "%2d:%02d:%02d %01d %s %d %s %d", \
 st.wHour, st.wMinute, st.wSecond, st.wMilliseconds, \
 *(dayoftheweek+(st.wDayOfWeek)), st.wDay, *(month+(st.wMonth+(~(0x00)))), st.wYear
 );

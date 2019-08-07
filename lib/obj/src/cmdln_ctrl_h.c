@@ -36,8 +36,8 @@ if(!argp) return(0x00);
 r = cmdln_ctrl_b(argp);
 if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_b() in fn. cmdln_ctrl_h()");
 
-r = cmdln_ctrl_d(argp);
-if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_d() in fn. cmdln_ctrl_h()");
+r = cmdln_ctrl_d_beta(argp);
+if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_d_beta() in fn. cmdln_ctrl_h()");
 
 return(0x01);
 }
