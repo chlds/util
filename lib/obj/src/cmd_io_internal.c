@@ -31,7 +31,7 @@ extern signed(cmd_io_terminate);
 auto signed char const(HT) = ('\t');
 // auto signed char const(HT) = (0x09);
 
-auto signed(__cdecl*(fn[COUNT_FN])) (void(*argp)) = {
+static signed(__cdecl*(fn[COUNT_FN])) (void(*argp)) = {
 
 (signed(__cdecl*) (void(*))) (cmd_ctrl_at),
 (signed(__cdecl*) (void(*))) (cmd_ctrl_a),
@@ -82,7 +82,7 @@ auto signed(c);
 auto signed short(flag);
 
 auto COORD(coord);
-auto POINT(point);
+// auto POINT(point);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);

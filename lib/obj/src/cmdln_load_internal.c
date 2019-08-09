@@ -17,8 +17,8 @@ The EOL (end-of-line) value is (0x0A), i.e., ('\n').
 signed(__cdecl cmdln_load_internal(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-// auto signed const(QUANTUM) = (0x10);
-// auto signed const(SNOOZE) = (0x04);
+static signed const(QUANTUM) = (0x10);
+// static signed const(SNOOZE) = (0x04);
 
 auto KNOT(*cache);
 
@@ -28,9 +28,6 @@ auto signed char(c);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
-
-/* CPU Idling */
-// Sleep(QUANTUM);
 
 /* Initialise */
 XOR(flag,flag);
@@ -51,7 +48,7 @@ XNOR(flag);
 break;
 }
 
-/* Save the EOL with LF (0x0A). */
+/* Remove the EOL with LF (0x0A) or CR (0x0D) and LF (0x0A). */
 if(!(c^('\r'))) XNOR(cr);
 if(!(c^('\n'))) break;
 
@@ -78,6 +75,10 @@ return(0x00);
 }
 
 r = ct((*argp).init_p);
+
+/* CPU Idling */
+// if(!r) Sleep(QUANTUM);
+
 INC(r);
 (*cache).p = (signed char(*)) malloc(r*(sizeof(signed char)));
 if(!((*cache).p)) {

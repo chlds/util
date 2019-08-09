@@ -469,14 +469,7 @@ while(t<(deadline)) {
 /* CPU idling */
 Sleep(DELAY);
 
-/* Save resource */
-if(l<(SNOOZE)) {
-l++;
-}
-else {
-XOR(l,l);
 time(&t);
-}
 
 /* Check the toggle to stop */
 if(!(cmdl_time_Toggle)) break;
@@ -484,7 +477,7 @@ if(!(cmdl_time_Toggle)) break;
 /* Check the announcements to stop */
 if(Announcements) break;
 
-// Fill the region on a back-screen buffer
+//* Fill the region on a back-screen buffer
 r = FillRgn(*(dc+(DI)), (void(*)) *(obj+(REGION)), (void(*)) *(obj+(BRUSH)));
 
 if(!r) {

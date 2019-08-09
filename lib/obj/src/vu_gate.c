@@ -112,6 +112,7 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 (*argp).concat_type = (signed short) (0x00);
 
+(*argp).clipped = (0x00);
 (*argp).nknot = (0x00);
 
 (*argp).l = (KNOT*) (0x00);

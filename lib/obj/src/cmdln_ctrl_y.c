@@ -37,6 +37,8 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
+INC((*argp).clipped);
+
 cache = ((*argp).count);
 
 if(!(cache^((*argp).tail))) {

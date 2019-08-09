@@ -44,6 +44,7 @@ signed(c);
 // for a buffer
 signed(command_label);
 CMD_IO(cmd_io);
+signed(clipped);
 signed char(*clip);
 signed char(*craft);
 signed char(*init_p); // as workspace

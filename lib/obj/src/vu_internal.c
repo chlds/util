@@ -23,10 +23,7 @@ signed(__cdecl vu_internal(CMDLN_STAT(*argp))) {
 /* **** DATA, BSS and STACK */
 extern signed(terminate);
 
-auto signed char const(HT) = ('\t');
-// auto signed char const(HT) = (0x09);
-
-auto signed(__cdecl*(fn[COUNT_FN])) (void(*argp)) = {
+static signed(__cdecl*(fn[COUNT_FN])) (void(*argp)) = {
 
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_at),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_a),
@@ -71,24 +68,14 @@ auto signed(__cdecl*(fn[COUNT_FN])) (void(*argp)) = {
 (signed(__cdecl*) (void(*))) (0x00)
 };
 
-/* for 7-bit characters
-auto signed char const(BS) = (8);
-auto signed char const(LF) = ('\n');
-auto signed char const(CR) = ('\r');
-auto signed char const(ESC) = (27);
-auto signed char const(SP) = (' ');
-//*/
-
-auto signed char(*p);
-
-auto signed(cache), (i), (r);
+auto signed(cache), (r);
 auto signed(c);
 // Not auto signed char(c);
 
 auto signed short(flag);
 
 auto COORD(coord);
-auto POINT(point);
+// auto POINT(point);
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -96,9 +83,9 @@ if(!argp) return(0x00);
 if(terminate) return(0x01);
 
 // Exception
-cache = (*argp).tail;
+r = (*argp).tail;
 
-if(cache<((*argp).limit)) {
+if(r<((*argp).limit)) {
 }
 
 else {
