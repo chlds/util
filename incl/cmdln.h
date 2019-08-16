@@ -25,7 +25,7 @@ If the function fails, the return value is (0x00). */
 # define ALIGN_TAB (0x08)
 
 # define COMMAND_BUFF (0x200) // (-1+(256)) per row i.e., in a null-terminated array for characters
-# define BUFF (0xFFFF) // 64kB per row
+# define BUFF (0x100000) // 1MiB per row
 
 # define OFFSCREEN_BUFF (0x03)
 
@@ -44,7 +44,13 @@ signed(c);
 // for a buffer
 signed(command_label);
 CMD_IO(cmd_io);
+/* for clip board */
+void(*globally_secured);
+void(*locally_secured);
+signed(clipped_bytes);
 signed(clipped);
+signed short(clip_reset);
+/* buffers */
 signed char(*clip);
 signed char(*craft);
 signed char(*init_p); // as workspace
@@ -169,6 +175,7 @@ signed(__cdecl cmdln_ctrl_m(void(*argp)));
 signed(__cdecl cmdln_ctrl_n_beta(void(*argp)));
 signed(__cdecl cmdln_ctrl_n(void(*argp)));
 signed(__cdecl cmdln_ctrl_o(void(*argp)));
+signed(__cdecl cmdln_ctrl_p_beta(void(*argp)));
 signed(__cdecl cmdln_ctrl_p(void(*argp)));
 signed(__cdecl cmdln_ctrl_q(void(*argp)));
 signed(__cdecl cmdln_ctrl_r(void(*argp)));
@@ -180,6 +187,7 @@ signed(__cdecl cmdln_ctrl_v(void(*argp)));
 signed(__cdecl cmdln_ctrl_w_prep(void(*argp)));
 signed(__cdecl cmdln_ctrl_w(void(*argp)));
 signed(__cdecl cmdln_ctrl_x(void(*argp)));
+signed(__cdecl cmdln_ctrl_y_beta(void(*argp)));
 signed(__cdecl cmdln_ctrl_y(void(*argp)));
 signed(__cdecl cmdln_ctrl_z(void(*argp)));
 signed(__cdecl cmdln_ctrl_lbracket(void(*argp)));

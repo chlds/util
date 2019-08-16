@@ -45,7 +45,8 @@ static signed(__cdecl*(fn[COUNT_FN])) (void(*argp)) = {
 // (signed(__cdecl*) (void(*))) (cmdln_ctrl_n),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_o),
 
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_p),
+(signed(__cdecl*) (void(*))) (cmdln_ctrl_p_beta),
+// (signed(__cdecl*) (void(*))) (cmdln_ctrl_p),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_q),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_r),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_s),
@@ -57,7 +58,8 @@ static signed(__cdecl*(fn[COUNT_FN])) (void(*argp)) = {
 // (signed(__cdecl*) (void(*))) (cmdln_ctrl_w),
 
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_x),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_y),
+(signed(__cdecl*) (void(*))) (cmdln_ctrl_y_beta),
+// (signed(__cdecl*) (void(*))) (cmdln_ctrl_y),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_z),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_lbracket),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_bslash),
@@ -152,6 +154,9 @@ if(!r) printf("%s\n", "<< Oops, it has occurred an error at r = (*(c+(fn))) (arg
 }
 
 else {
+// flag for the clipboard, refer fn. cmdln_ctrl_y, vu_clip or..
+XNOR((*argp).clip_reset);
+
 if(c<(0x7F)) {
 
 cache = ((*argp).count);

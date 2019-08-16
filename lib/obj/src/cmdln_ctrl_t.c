@@ -32,6 +32,9 @@ auto signed char(c);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+// flag for the clipboard, refer fn. cmdln_ctrl_y, vu_clip or..
+XNOR((*argp).clip_reset);
+
 r = current_caret_pos(argp);
 
 if(!r) {

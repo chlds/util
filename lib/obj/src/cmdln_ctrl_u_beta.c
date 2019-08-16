@@ -51,6 +51,9 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
+// flag for the clipboard, refer fn. cmdln_ctrl_y, vu_clip or..
+XNOR((*argp).clip_reset);
+
 if((*argp).count) {
 r = cmdln_ctrl_a(argp);
 if(!r) {

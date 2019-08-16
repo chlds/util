@@ -19,7 +19,7 @@ signed(__cdecl cmdln_load(CMDLN_STAT(*argp))) {
 auto KNOT(*cache);
 auto signed char(*p);
 
-auto signed(r);
+auto signed(count), (r);
 auto signed short(flag);
 
 /* **** CODE/TEXT */
@@ -50,7 +50,9 @@ return(0x00);
 (*argp).fd = (signed) (r);
 
 /* Read/write */
-r = cmdln_load_internal(argp);
+XOR(count,count);
+
+r = cmdln_load_internal(count,argp);
 
 if(!r) {
 printf("%s", "<< Error at fn. cmdln_load_internal()");

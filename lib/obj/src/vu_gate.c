@@ -112,7 +112,13 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 (*argp).concat_type = (signed short) (0x00);
 
+/* for the clipboard */
+(*argp).globally_secured = (0x00);
+(*argp).locally_secured = (0x00);
+(*argp).clipped_bytes = (0x00);
 (*argp).clipped = (0x00);
+(*argp).clip_reset = (0x00);
+
 (*argp).nknot = (0x00);
 
 (*argp).l = (KNOT*) (0x00);
@@ -191,11 +197,33 @@ printf("\n");
 printf("%d%s\n", r, " times recurred by fn. vu_gate_internal()");
 }
 
+
 // Optional
 if(C_DBG) {
 r = cmdln_output(argp);
 printf("%s%d%s\n", "Output ", r, " contents.");
 }
+
+
+/* Unmap global and local buffers secured for the clipboard */
+if((*argp).globally_secured) {
+(*argp).globally_secured = GlobalFree((*argp).globally_secured);
+if(!((*argp).globally_secured)) {
+// Good!
+// (*argp).globally_secured = (0x00);
+}
+else {
+r = GetLastError();
+printf("%s%d", "<< Error at fn. GlobalFree() with no. ", r);
+return(0x00);
+}}
+
+// unmap the local buffer.
+if((*argp).locally_secured) {
+free((*argp).locally_secured);
+(*argp).locally_secured = (0x00);
+}
+
 
 /* Unmap */
 r = cmdln_unmap(argp);
@@ -203,6 +231,8 @@ r = cmdln_unmap(argp);
 if(C_DBG) {
 printf("%s%d%s\n", "Unmapped ", r, " knots.");
 
+
+/* Monitor */
 printf("\n");
 printf("%s\n", "Monitoring:");
 printf("%s%02Xh\n", "*((*argp).init_p+((*argp).count)) is: ", *((*argp).init_p+((*argp).count)));

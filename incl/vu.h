@@ -18,7 +18,7 @@ signed(__cdecl cq_out(KNOT(*k),CMDLN_STAT(*argp)));
 /* Based on fn. c_out */
 
 
-signed(__cdecl cmdln_load_internal(CMDLN_STAT(*argp)));
+signed(__cdecl cmdln_load_internal(signed(count),CMDLN_STAT(*argp)));
 signed(__cdecl cmdln_load(CMDLN_STAT(*argp)));
 signed(__cdecl cmdln_load_prep(CMDLN_STAT(*argp)));
 

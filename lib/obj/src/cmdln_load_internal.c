@@ -14,13 +14,15 @@ The EOL (end-of-line) value is (0x0A), i.e., ('\n').
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl cmdln_load_internal(CMDLN_STAT(*argp))) {
+signed(__cdecl cmdln_load_internal(signed(count),CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 static signed const(QUANTUM) = (0x10);
 // static signed const(SNOOZE) = (0x04);
 
 auto KNOT(*cache);
+
+auto signed(range);
 
 auto signed(i), (r);
 auto signed short(cr), (flag);
@@ -35,7 +37,23 @@ XOR(cr,cr);
 XOR(i,i);
 
 /* Read/write */
+XOR(range,range);
+
 while(0x01) {
+
+printf("\r%s%d%s%zd","LOADING.. ",count++,"/",(*argp).fsiz);
+
+
+if(range<(0x00+((*argp).csbi.srWindow.Right))) {
+range++;
+}
+
+else {
+Sleep(0x10);
+break;
+}
+
+
 r = read((*argp).fd,&c,sizeof(c));
 if(!(r^(~(0x00)))) {
 printf("%s", "<< Error at fn. read()");
@@ -99,5 +117,5 @@ return(0x00);
 /* the EOF */
 if(flag) return(0x01);
 
-return(0x01+(cmdln_load_internal(argp)));
+return(0x01+(cmdln_load_internal(count,argp)));
 }
