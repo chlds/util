@@ -74,7 +74,8 @@ free((*argp).locally_secured);
 (*argp).locally_secured = (0x00);
 }
 
-/* secure */
+
+/* 1. secure */
 r = ct((*argp).p);
 l = (r+(EOL_FUL));
 
@@ -100,7 +101,8 @@ return(0x00);
 (*argp).locally_secured = (p);
 (*argp).clipped_bytes = (l);
 
-/* copy (in CRLF) */
+
+/* 2. copy (in CRLF) */
 r = cpy(p,(*argp).p);
 
 cur = (signed char(*)) (r+(p));
@@ -125,6 +127,14 @@ r = vu_clip(argp);
 
 if(!r) {
 printf("%s", "<< Error at fn. vu_clip()");
+return(0x00);
+}
+
+r = SetConsoleCursorPosition((*argp).s_out,coord);
+
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
 

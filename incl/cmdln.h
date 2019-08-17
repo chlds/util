@@ -108,8 +108,9 @@ signed short(already_existing_file);
 // not to use fn. free()
 signed short(irr);
 // interrupted in loading a file..
-signed(fd);
 size_t(fsiz);
+signed(fd);
+signed(loading);
 signed char(*filename);
 signed short(confirm);
 signed short(overwrite);

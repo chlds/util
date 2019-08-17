@@ -170,6 +170,7 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 // Loaded a file
 if((*argp).insert) {
+XOR((*argp).loading,(*argp).loading);
 r = cmdln_load_prep_beta(argp);
 // r = cmdln_load_prep(argp);
 if(!r) {
