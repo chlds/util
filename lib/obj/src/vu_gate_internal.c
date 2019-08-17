@@ -82,6 +82,11 @@ return(0x00);
 
 (*argp).created_knot = (KNOT*) (cache);
 
+
+/* flag to end with LF (0x0A) */
+XNOR((*cache).linefeed);
+// also refer at fn. cmdln_load_internal, fn. cmdln_writing, hd. incl/ll.h and hd. incl/cmdln.h
+
 r = concat2ll(cache,argp);
 
 if(!r) {

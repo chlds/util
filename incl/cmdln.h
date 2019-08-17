@@ -111,6 +111,7 @@ signed short(irr);
 size_t(fsiz);
 signed(fd);
 signed(loading);
+signed short(end_with_linefeed);
 signed char(*filename);
 signed short(confirm);
 signed short(overwrite);

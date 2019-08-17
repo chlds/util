@@ -35,8 +35,10 @@ if(!argp) return(0x00);
 XOR(flag,flag);
 XOR(cr,cr);
 XOR(i,i);
+XOR(c,c);
 
 /* Read/write */
+XNOR((*argp).end_with_linefeed);
 XOR(range,range);
 
 while(0x01) {
@@ -44,23 +46,28 @@ while(0x01) {
 printf("\r%s%d%s%zd","LOADING.. ",((*argp).loading)++,"/",(*argp).fsiz);
 
 
-/* Uncomplete: Use with fn. arrange(), fn. check_last_sp() and/or..
-if(range<(0x00+((*argp).csbi.srWindow.Right))) {
-range++;
+//* Uncomplete: Use with fn. arrange(), fn. check_last_sp() and/or..
+if(range++<(-0x10+((*argp).csbi.srWindow.Right))) {
 }
+
 else {
+if(!(-' '+(c))) {
+// not end with LF (0x0A).
+XOR((*argp).end_with_linefeed,(*argp).end_with_linefeed);
 Sleep(0x10);
 break;
-}
+}}
 //*/
 
 
 r = read((*argp).fd,&c,sizeof(c));
+
 if(!(r^(~(0x00)))) {
 printf("%s", "<< Error at fn. read()");
 XNOR((*argp).irr);
 return(0x00);
 }
+
 if(!r) {
 // the EOF
 XNOR(flag);
@@ -87,6 +94,7 @@ return(0x00);
 
 /* Allocate */
 cache = (KNOT*) malloc(0x01*(sizeof(KNOT)));
+
 if(!cache) {
 printf("%s", "<< Error at fn. malloc()");
 XNOR((*argp).irr);
@@ -100,6 +108,7 @@ r = ct((*argp).init_p);
 
 INC(r);
 (*cache).p = (signed char(*)) malloc(r*(sizeof(signed char)));
+
 if(!((*cache).p)) {
 printf("%s", "<< Error at fn. malloc() the second");
 XNOR((*argp).irr);
@@ -108,7 +117,15 @@ return(0x00);
 
 r = cpy((*cache).p,(*argp).init_p);
 
+
+/* appearance arrangement -- Columnist */
+if((*argp).end_with_linefeed) (*cache).linefeed = (0x01); // i.e. end along with linefeed (0x0A).
+else (*cache).linefeed = (0x00); // i.e. end along with space (0x20).
+// also refer at fn. cmdln_writing.
+
+
 r = concat2ll(cache,argp);
+
 if(!r) {
 printf("%s", "<< Error at fn. concat2ll()");
 XNOR((*argp).irr);

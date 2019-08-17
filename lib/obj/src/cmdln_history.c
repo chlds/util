@@ -1,6 +1,6 @@
 /* **** Notes
 
-To undo and re-do
+Take a snapshot for CLI history to undo and re-do.
 
 Press <Ctrl-V> to invoke the function.
 

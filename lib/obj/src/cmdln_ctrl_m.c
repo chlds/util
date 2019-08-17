@@ -71,7 +71,6 @@ printf("%s", "<< Error at fn. malloc()");
 return(0x00);
 }
 
-else {
 (*cache).p = (signed char(*)) (0x00);
 // initialise on the current new knot
 (*cache).depart.X = (0x00);
@@ -80,7 +79,12 @@ else {
 (*cache).clih.l = ((*argp).clih.l);
 (*cache).clih.b = ((*argp).clih.b);
 (*cache).clih.t = ((*argp).clih.t);
-}
+
+
+/* flag to end with LF (0x0A) */
+XNOR((*cache).linefeed);
+// also refer at fn. cmdln_load_internal, fn. cmdln_writing, hd. incl/ll.h and hd. incl/cmdln.h
+
 
 r = insert2ll(cache,argp);
 

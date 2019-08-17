@@ -44,6 +44,7 @@ return(0x00);
 }
 
 if(!flag) {
+if((*cache).linefeed) {
 //* the CR i.e., (0x0D)
 c = ('\r');
 r = write(descriptor, &c, sizeof(c));
@@ -58,7 +59,7 @@ r = write(descriptor, &c, sizeof(c));
 if(!(r^(~(0x00)))) {
 printf("%s\n", "<< Error at fn. write() in fn. cmdln_writing() the second");
 return(0x00);
-}}
+}}}
 
 return(0x01+(cmdln_writing(descriptor,k)));
 }

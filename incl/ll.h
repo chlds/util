@@ -84,6 +84,7 @@ void(*optl);
 
 typedef struct knot {
 signed char(*p);
+signed short(linefeed);
 signed(length_with_ht);
 signed short(flag);
 signed int(uid);
