@@ -32,7 +32,7 @@ auto signed short(flag);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-// Flag for the clipboard, refer fn. cmdln_ctrl_y_beta, vu_clip or..
+// flag for the clipboard, refer fn. cmdln_ctrl_y_beta, vu_clip or..
 XNOR((*argp).clip_reset);
 
 r = current_caret_pos(argp);
@@ -77,15 +77,14 @@ if(C_DBG) {
 r = GetLastError();
 printf("%s%Xh", "<< Error at fn. CloseClipboard() with no. ", r);
 }}
-// ..sequentially
-// return(0x00);
 return(0x01);
 }
 
 
 /* prepare */
 /*
-r = cpy((*argp).craft,(*argp).p;
+r = cpy((*argp).craft,(*argp).p);
+
 
 r = cpy2('\n',(*argp).p,p);
 
@@ -94,40 +93,41 @@ XNOR(flag);
 }
 
 else {
+p = (0x01+(r+(p)));
 XOR(flag,flag);
-if(!(-'\r'+(*(-0x01+(r+(p)))))) {
-*(-0x01+(r+((*argp).p))) = ('\0');
-
-
-
-
-*(r+((*argp).p)) = ('\n');
-INC(r);
-}
+if(!(-'\r'+(*(-0x02+(p))))) {
+DEC(r);
+*(r+((*argp).p)) = ('\0');
+}}
 
 ADD((*argp).count,r);
 ADD((*argp).tail,r);
 ADD((*argp).p,r);
-p = (p+(r));
 
 
+// Instantly..
+ADD(coord.X,r);
+
+
+// UN-COMPLETED..
 if(!flag) {
 r = qpaste(argp);
 if(!r) {
 }}
 
 
+
+
 r = cpy((*argp).p,(*argp).craft);
 
 
-r = sustain(argp);
+// refresh
+r = qrefresh((*argp).t,argp);
 
 if(!r) {
-// It is empty ..or has occurred an error.
+printf("%s", "<< Error at fn. qrefresh()");
+return(0x00);
 }
-
-
-r = REFRESH();
 //*/
 
 
@@ -140,7 +140,7 @@ return(0x00);
 }
 
 
-/*
+//*
 r = SetConsoleCursorPosition((*argp).s_out,coord);
 
 if(!r) {
@@ -149,7 +149,6 @@ printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r
 return(0x00);
 }
 //*/
-
 
 return(0x01);
 }
