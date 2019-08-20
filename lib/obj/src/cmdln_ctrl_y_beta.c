@@ -29,7 +29,7 @@ auto signed char(*cur), (*p);
 
 auto COORD(coord);
 auto signed(i), (l), (r);
-auto signed short(flag);
+auto signed short(flag); // for CR (0x0D)
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -46,7 +46,7 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-// CRLF (0x0D,0x0A) e.g., LF(0x0A)
+// for CR (0x0D)
 XNOR(flag);
 
 if((*argp).clipped<(0x00)) return(0x00);

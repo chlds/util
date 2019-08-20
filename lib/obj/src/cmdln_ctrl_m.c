@@ -81,9 +81,10 @@ return(0x00);
 (*cache).clih.t = ((*argp).clih.t);
 
 
-/* flag to end with LF (0x0A) */
+/* Flag on a knot that ends with LF (0x0A) */
 XNOR((*cache).linefeed);
-// also refer at fn. cmdln_load_internal, fn. cmdln_writing, hd. incl/ll.h and hd. incl/cmdln.h
+
+// Also refer at fn. cmdln_load_internal, fn. cmdln_writing, hd. incl/ll.h and hd. incl/cmdln.h and more.
 
 
 r = insert2ll(cache,argp);

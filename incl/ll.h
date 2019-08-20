@@ -84,7 +84,7 @@ void(*optl);
 
 typedef struct knot {
 signed char(*p);
-signed short(linefeed);
+signed short(linefeed); // Flag on a knot that ends with the (genuine) line break.
 signed(length_with_ht);
 signed short(flag);
 signed int(uid);

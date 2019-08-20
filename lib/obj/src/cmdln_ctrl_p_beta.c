@@ -8,7 +8,8 @@ Remarks:
 Launch on vu.exe
 Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 Refer at fn. cmdln_ctrl_y_beta and fn. vu_clip
-Use fn. GetClipboardData.
+Use fn. qpaste
+Use fn. GetClipboardData
 */
 
 
@@ -22,7 +23,7 @@ signed(__cdecl cmdln_ctrl_p_beta(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto void(*window);
-auto signed char(*p);
+auto signed char(*bp),(*p);
 
 auto COORD(coord);
 auto signed(cache), (r);
@@ -31,7 +32,7 @@ auto signed short(flag);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-// flag for the clipboard, refer fn. cmdln_ctrl_y, vu_clip or..
+// Flag for the clipboard, refer fn. cmdln_ctrl_y_beta, vu_clip or..
 XNOR((*argp).clip_reset);
 
 r = current_caret_pos(argp);
@@ -66,72 +67,67 @@ return(0x00);
 p = GetClipboardData(CF_TEXT);
 
 if(!p) {
-// r = GetLastError();
-// printf("%s%Xh", "<< Error at fn. GetClipboardData() with no. ", r);
-XOR(flag,flag);
-// continue..
+if(C_DBG) {
+r = GetLastError();
+printf("%s%Xh", "<< Error at fn. GetClipboardData() with no. ", r);
+}
+r = CloseClipboard();
+if(!r) {
+if(C_DBG) {
+r = GetLastError();
+printf("%s%Xh", "<< Error at fn. CloseClipboard() with no. ", r);
+}}
+// ..sequentially
+// return(0x00);
+return(0x01);
 }
 
-else XNOR(flag);
 
-
-/* Build a linked list */
-
-
+/* prepare */
 /*
-r = ct((*argp).clip);
-if(!r) return(0x01);
+r = cpy((*argp).craft,(*argp).p;
 
-cache = ((*argp).count);
+r = cpy2('\n',(*argp).p,p);
 
-if(!(cache^((*argp).tail))) {
-r = append2((*argp).p, (*argp).clip);
+if(!(*(r+(p)))) {
+XNOR(flag);
+}
+
+else {
+XOR(flag,flag);
+if(!(-'\r'+(*(-0x01+(r+(p)))))) {
+*(-0x01+(r+((*argp).p))) = ('\0');
+
+
+
+
+*(r+((*argp).p)) = ('\n');
+INC(r);
+}
+
+ADD((*argp).count,r);
+ADD((*argp).tail,r);
+ADD((*argp).p,r);
+p = (p+(r));
+
+
+if(!flag) {
+r = qpaste(argp);
+if(!r) {
+}}
+
+
+r = cpy((*argp).p,(*argp).craft);
+
+
+r = sustain(argp);
+
 if(!r) {
 // It is empty ..or has occurred an error.
 }
-else {
-ADD((*argp).count, r);
-ADD((*argp).p, r);
-ADD((*argp).tail, r);
-}
-// External Part.
-r = _cputs((*argp).clip);
-if(r) printf("%s", "<< Error at fn. _cputs()/_cputws()");
-}
 
-else {
-r = cpy((*argp).craft, (*argp).p);
-r = cpy((*argp).p, (*argp).clip);
-ADD((*argp).count, r);
-ADD((*argp).p, r);
-ADD((*argp).tail, r);
-// External Part.
-r = _cputs((*argp).clip);
-if(r) printf("%s", "<< Error at fn. _cputs()/_cputws()");
-else {
-r = current_caret_pos(argp);
-if(!r) {
-printf("<< Error at fn. current_caret_pos()");
-return(0x00);
-}
-else {
-coord.X = ((*argp).csbi.dwCursorPosition.X);
-coord.Y = ((*argp).csbi.dwCursorPosition.Y);
-}}
-r = append2((*argp).p, (*argp).craft);
-// External Part.
-r = _cputs((*argp).craft);
-if(r) printf("%s", "<< Error at fn. _cputs()/_cputws()");
-// Set the caret.
-r = SetConsoleCursorPosition((*argp).s_out, coord);
-if(!r) {
-r = GetLastError();
-printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
-return(0x00);
-}}
 
-r = qrefresh((*argp).t,argp);
-if(!r) printf("%s", "<< Error at fn. qrefresh()");
+r = REFRESH();
 //*/
 
 
@@ -144,6 +140,7 @@ return(0x00);
 }
 
 
+/*
 r = SetConsoleCursorPosition((*argp).s_out,coord);
 
 if(!r) {
@@ -151,6 +148,7 @@ r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
+//*/
 
 
 return(0x01);

@@ -164,30 +164,5 @@ return(0x00);
 //*/
 
 
-/*
-r = current_caret_pos(argp);
-
-if(!r) {
-printf("<< Error at fn. current_caret_pos()");
-return(0x00);
-}
-
-else {
-coord.X = ((*argp).csbi.dwCursorPosition.X);
-coord.Y = ((*argp).csbi.dwCursorPosition.Y);
-}
-//*/
-
-
-/* External Part.
-r = SetConsoleCursorPosition((*argp).s_out, coord);
-
-if(!r) {
-r = GetLastError();
-printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
-return(0x00);
-}
-//*/
-
 return(0x01);
 }

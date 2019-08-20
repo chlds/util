@@ -43,9 +43,6 @@ XOR(range,range);
 
 while(0x01) {
 
-printf("\r%s%d%s%zd","LOADING.. ",((*argp).loading)++,"/",(*argp).fsiz);
-
-
 //* Uncomplete: Use with fn. arrange(), fn. check_last_sp() and/or..
 if(range++<(-0x10+((*argp).csbi.srWindow.Right))) {
 }
@@ -58,6 +55,9 @@ Sleep(0x10);
 break;
 }}
 //*/
+
+
+printf("\r%s%d%s%zd","LOADING.. ",((*argp).loading)++,"/",(*argp).fsiz);
 
 
 r = read((*argp).fd,&c,sizeof(c));

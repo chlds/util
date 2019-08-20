@@ -3,7 +3,7 @@
 Quickly paste out of the clipboard.
 
 Remarks:
-Along with fn. refresh_row_numbers
+Along with fn. cmdln_ctrl_p_beta
 */
 
 
@@ -47,97 +47,79 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 }
 
-r = ct(base);
 
-if(!r) return(0x01);
-else total = (r);
+(*argp).count = (0x00);
+(*argp).tail = (0x00);
+(*argp).p = ((*argp).init_p);
 
-XOR(l,l);
-r = ((*argp).count);
 
-if(-r+((*argp).tail)) {
-r = cpy((*argp).craft,(*argp).p);
-l = (r);
+r = cpy2('\n',(*argp).init_p,base);
+
+if(!(*(r+(base)))) {
+(*argp).p = (r+((*argp).init_p));
+ADD((*argp).count,r);
+ADD((*argp).tail,r);
+r = append2((*argp).p,(*argp).craft);
+ADD((*argp).tail,r);
+if(!(-'\n'+(*(-0x01+(r+((*argp).init_p)))))) flag = (0x01); // ends with LF (0x0A).
+else XNOR(flag); // not ends with LF.
 }
 
-r = cpy2('\n',(*argp).p,base);
-
-if(!(*(r+(base)))) XNOR(flag);
 else XOR(flag,flag);
 
-// on CR (0x0D)
-if(!('\r'^(*(-1+(r+((*argp).p)))))) {
-*(-1+(r+((*argp).p))) = ('\0');
-DEC(r);
-}
 
-// insert
-if(l) r = cpy(r+((*argp).p),(*argp).craft);
-
-
-// sequentially
 if(!flag) {
-
-XOR(l,l);
-
-while(0x01) {
-r = cpy2('\n',(*argp).init_p,l+(base));
-l = (l+(r));
-if(!r) {
-if(!(*(l+(base)))) break;
+base = (0x01+(r+(base)));
+if(!(-'\r'+(*(-0x01+(r+((*argp).init_p)))))) {
+DEC(r);
+*(r+((*argp).init_p)) = ('\0');
 }
-else {
-if(!('\r'^(*(-1+(r+(l+(base))))))) DEC(r);
+(*argp).p = (r+((*argp).init_p));
+ADD((*argp).count,r);
+ADD((*argp).tail,r);
 }
-// secure a knot
+
+
 cache = (KNOT*) malloc(0x01*(sizeof(KNOT)));
+
 if(!cache) {
 printf("%s", "<< Error at fn. malloc()");
 return(0x00);
 }
-// and secure for message
+
+r = ct((*argp).init_p);
 INC(r);
 (*cache).p = (signed char(*)) malloc(r*(sizeof(signed char)));
+
 if(!((*cache).p)) {
 printf("%s", "<< Error at fn. malloc the second()");
 return(0x00);
 }
-// copy
+
 r = cpy((*cache).p,(*argp).init_p);
+
 if(!r) {
 // empty or..
 }
-// concatenate
+
+
+/* Flag on a knot that ends with the (genuine) line break */
+(*cache).linefeed = (0x01);
+
+if(flag) {
+if(!(0x01+(flag))) (*cache).linefeed = (0x00);
+}
+
+
 r = insert2ll(cache,argp);
+
 if(!r) {
 printf("%s", "<< Error at fn. insert2ll()");
 return(0x00);
 }
-}
-}
 
 
-r = rsync_coordinates((*argp).t,argp);
+if(flag) return(0x01);
 
-if(!r) {
-printf("%s", "<< Error at fn. sync_coordinates()");
-return(0x00);
-}
-
-r = c_outll_partially(argp);
-
-if(!r) {
-printf("%s", "<< Error at fn. c_outll_partially()");
-return(0x00);
-}
-
-r = SetConsoleCursorPosition((*argp).s_out, coord);
-
-if(!r) {
-r = GetLastError();
-printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
-return(0x00);
-}
-
-return(r);
+return(0x01+(qpaste(base,argp)));
 }
