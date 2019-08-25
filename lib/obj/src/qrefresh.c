@@ -16,9 +16,8 @@ Along with fn. refresh_row_numbers
 signed(__cdecl qrefresh(KNOT(*k),CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto COORD(coord), (coord_b);
-
 auto KNOT(*cache);
+auto COORD(coord), (coord_b);
 auto signed(r);
 
 /* **** CODE/TEXT */
@@ -38,13 +37,11 @@ printf("<< Error at fn. current_caret_pos()");
 return(0x00);
 }
 
-else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
-}
 
-coord_b.X = (signed short) (0x00);
-coord_b.Y = (signed short) ((*argp).depart.Y);
+coord_b.X = (0x00);
+coord_b.Y = ((*argp).depart.Y);
 
 r = SetConsoleCursorPosition((*argp).s_out, coord_b);
 

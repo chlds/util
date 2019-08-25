@@ -2,7 +2,9 @@
 
 Press <Ctrl-P> to invoke the function.
 
-Paste.
+Paste out of the clipboard.
+
+Currently under construction..
 
 Remarks:
 Launch on vu.exe
@@ -25,7 +27,7 @@ signed(__cdecl cmdln_ctrl_p_beta(CMDLN_STAT(*argp))) {
 auto void(*window);
 auto signed char(*bp),(*p);
 
-auto COORD(coord);
+auto COORD(coord_b),(coord);
 auto signed(cache), (r);
 auto signed short(flag);
 
@@ -42,10 +44,11 @@ printf("<< Error at fn. current_caret_pos()");
 return(0x00);
 }
 
-else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
-}
+
+coord_b.X = (coord.X);
+coord_b.Y = (coord.Y);
 
 
 window = GetForegroundWindow();

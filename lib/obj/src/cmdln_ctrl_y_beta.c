@@ -9,7 +9,6 @@ Launch on vu.exe
 Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 
 Use fn. malloc, fn. free, fn. GlobalAlloc and fn. GlobalFree.
-
 */
 
 
@@ -25,10 +24,10 @@ signed(__cdecl cmdln_ctrl_y_beta(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto KNOT(*cache);
-auto signed char(*cur), (*p);
+auto signed char(*cur),(*p);
 
-auto COORD(coord);
-auto signed(i), (l), (r);
+auto COORD(coord_b),(coord);
+auto signed(i),(l),(r);
 auto signed short(flag); // for CR (0x0D)
 
 /* **** CODE/TEXT */
@@ -41,17 +40,19 @@ printf("<< Error at fn. current_caret_pos()");
 return(0x00);
 }
 
-else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
-}
 
+coord_b.X = (coord.X);
+coord_b.Y = (coord.Y);
+
+
+/* Currently under construction
 // for CR (0x0D)
 XNOR(flag);
 
 if((*argp).clipped<(0x00)) return(0x00);
 
-/* check */
 if((*argp).clip_reset) {
 (*argp).clip_reset = (0x00);
 (*argp).clipped = (0x00);
@@ -59,7 +60,6 @@ if((*argp).clip_reset) {
 
 INC((*argp).clipped);
 
-/* unmap the global buffer */
 if((*argp).globally_secured) {
 (*argp).globally_secured = GlobalFree((*argp).globally_secured);
 if((*argp).globally_secured) {
@@ -68,14 +68,13 @@ printf("%s%d", "<< Error at fn. GlobalFree() with no. ", r);
 return(0x00);
 }}
 
-/* unmap the local buffer */
 if((*argp).locally_secured) {
 free((*argp).locally_secured);
 (*argp).locally_secured = (0x00);
 }
 
 
-/* 1. secure */
+// 1. secure
 r = ct((*argp).p);
 l = (r+(EOL_FUL));
 
@@ -102,7 +101,7 @@ return(0x00);
 (*argp).clipped_bytes = (l);
 
 
-/* 2. copy (in CRLF) */
+// 2. copy (in CRLF)
 r = cpy(p,(*argp).p);
 
 cur = (signed char(*)) (r+(p));
@@ -129,6 +128,8 @@ if(!r) {
 printf("%s", "<< Error at fn. vu_clip()");
 return(0x00);
 }
+//*/
+
 
 r = SetConsoleCursorPosition((*argp).s_out,coord);
 

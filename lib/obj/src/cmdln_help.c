@@ -37,8 +37,8 @@ Ctrl-H: Delete a character or a line.\n\n\
 Ctrl-W: Delete a part of the word or a word.\n\
 Ctrl-[: Redo. (Ctrl-W only)\n\
 Ctrl-]: Undo. (Ctrl-W only)\n\n\
-Ctrl-Y: Copy a part of the current line or a line.\n\
-Ctrl-P: Paste.\n\n\
+Ctrl-Y: Copy a part of the current line or lines. (Disabled: Currently under construction)\n\
+Ctrl-P: Paste. (Disabled: Currently under construction)\n\n\
 Ctrl-S: Save.\n\
   Caution: Line breaks are saved as CR (0x0D) and LF (0x0A) in this editor. Please be careful.\n\n\
 Ctrl-Q: Quit.\n\n\

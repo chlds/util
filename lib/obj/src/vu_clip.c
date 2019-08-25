@@ -37,18 +37,18 @@ auto signed short(flag);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-p = GlobalAlloc(GMEM_FIXED,(*argp).clipped_bytes);
-// heap = GlobalAlloc(GMEM_SHARE|(GHND),(*argp).clipped_bytes);
+heap = GlobalAlloc(GMEM_SHARE|(GHND),(*argp).clipped_bytes);
+// p = GlobalAlloc(GMEM_FIXED,(*argp).clipped_bytes);
 
-if(!p) {
+if(!heap) {
 r = GetLastError();
 printf("%s%Xh", "<< Error at fn. GlobalAlloc() with no. ", r);
 return(0x00);
 }
 
-(*argp).globally_secured = (p);
+(*argp).globally_secured = (heap);
 
-siz = GlobalSize(p);
+siz = GlobalSize(heap);
 
 if(!siz) {
 r = GetLastError();
@@ -58,7 +58,7 @@ return(0x00);
 
 // else printf("%s%zd%s", "Globally secured: ", siz, " bytes.");
 
-/*
+//*
 p = (signed char(*)) GlobalLock(heap);
 
 if(!p) {
@@ -77,7 +77,7 @@ return(0x00);
 }
 //*/
 
-/*
+//*
 r = GlobalUnlock(heap);
 
 if(!r) {
@@ -111,13 +111,18 @@ printf("%s%d%s%Xh", "Global Flags: ", r, " or ", r);
 }
 //*/
 
-window = GetForegroundWindow();
+window = GetActiveWindow();
 
 if(!window) {
 r = GetLastError();
-printf("%s%Xh", "<< Error at fn. GetForegroundWindow() with no. ", r);
+printf("%s%Xh", "<< Error at fn. GetActiveWindow() with no. ", r);
 return(0x00);
 }
+
+
+
+
+/* **** Occur a fatal error here.. */
 
 r = OpenClipboard(window);
 
@@ -126,6 +131,9 @@ r = GetLastError();
 printf("%s%Xh", "<< Error at fn. OpenClipboard() with no. ", r);
 return(0x00);
 }
+
+
+
 
 r = EmptyClipboard();
 
@@ -153,7 +161,7 @@ return(0x00);
 }
 
 
-/* refer at fn. cmdln_ctrl_y and at fn. vu_gate.
+/* refer at fn. cmdln_ctrl_y_beta and at fn. vu_gate.
 heap = GlobalFree(heap);
 
 if(heap) {
