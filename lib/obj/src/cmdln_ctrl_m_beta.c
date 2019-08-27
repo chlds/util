@@ -16,7 +16,7 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl cmdln_ctrl_m(CMDLN_STAT(*argp))) {
+signed(__cdecl cmdln_ctrl_m_beta(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 extern signed(quit);
@@ -47,8 +47,6 @@ return(0x00);
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
-i = ct_txt(ALIGN_TAB,(*argp).init_p);
-
 r = cpy((*argp).craft,(*argp).p);
 
 if(!r) {
@@ -58,88 +56,47 @@ else XNOR((*argp).insert);
 
 else XNOR((*argp).insert);
 
-*((*argp).p) = (signed char) ('\0');
+*((*argp).p) = ('\0');
 
 if((*argp).insert) {
-
 cache = (KNOT*) malloc(0x01*(sizeof(KNOT)));
-
 if(!cache) {
 printf("%s", "<< Error at fn. malloc()");
 return(0x00);
 }
-
-(*cache).p = (signed char(*)) (0x00);
-// initialise on the current new knot
+(*cache).p = (0x00);
 (*cache).depart.X = (0x00);
 (*cache).depart.Y = ((*argp).depart.Y);
-// also register on the current new knot
 (*cache).clih.l = ((*argp).clih.l);
 (*cache).clih.b = ((*argp).clih.b);
 (*cache).clih.t = ((*argp).clih.t);
-
-
 /* Flag on a knot that ends with LF (0x0A) */
 XNOR((*cache).linefeed);
-
 // Also refer at fn. cmdln_load_internal, fn. cmdln_writing, hd. incl/ll.h and hd. incl/cmdln.h and more.
-
-
+/* concatenate */
 r = insert2ll(cache,argp);
-
 if(!r) printf("%s", "<< Error at fn. insert2ll()");
-
+// and to copy
 r = ct((*argp).init_p);
-
 INC(r);
 (*cache).p = (signed char(*)) malloc(r*(sizeof(signed char)));
-
 if(!((*cache).p)) {
 printf("%s", "<< Error at fn. malloc() the second");
 return(0x00);
 }
-
 r = cpy((*cache).p,(*argp).init_p);
-
-coord_b.X = ((*((*argp).t)).depart.X);
-coord_b.Y = ((*((*argp).t)).depart.Y);
-r = SetConsoleCursorPosition((*argp).s_out,coord_b);
-if(!r) printf("%s", "<< Error at fn. SetConsoleCursorPosition()");
-while(i) {
-r = c_out(&ws,argp);
-DEC(i);
-}
-r = SetConsoleCursorPosition((*argp).s_out,coord_b);
-if(!r) printf("%s", "<< Error at fn. SetConsoleCursorPosition()");
-r = c_outs((*cache).p,argp);
-
-
-/* switch the temporary, lead and base knots
-if(CONCAT2LL^((*argp).concat_type)) {
-}
-if(REBASE2LL^((*argp).concat_type)) {
-}
-if(ABSORB2LL^((*argp).concat_type)) {
-}
-//*/
-
-}
+r = clearhere(argp);
+if(!r) {
+printf("%s", "<< Error at fn. clearhere()");
+return(0x00);
+}}
 
 XNOR(terminate);
 
-coord.X = (0x00);
-coord.Y = ((*argp).depart.Y);
-
-r = ct_txt(ALIGN_TAB,(*argp).init_p);
-
-i = (0x01+((*argp).csbi.srWindow.Right));
-while(0x01) {
+XOR(coord.X,coord.X);
 INC(coord.Y);
-r = (-i+(r));
-if(r<(0x01)) break;
-}
 
-r = SetConsoleCursorPosition((*argp).s_out, coord);
+r = SetConsoleCursorPosition((*argp).s_out,coord);
 
 if(!r) {
 r = GetLastError();

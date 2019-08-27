@@ -20,8 +20,8 @@ signed(__cdecl support_arrowkeys(CMDLN_STAT(*argp))) {
 auto signed(__cdecl*(arrowkey[])) (CMDLN_STAT(*argp)) = {
 (signed(__cdecl*) (CMDLN_STAT*)) (cmdln_ctrl_b),
 (signed(__cdecl*) (CMDLN_STAT*)) (cmdln_ctrl_f),
-(signed(__cdecl*) (CMDLN_STAT*)) (cmdln_ctrl_u),
-(signed(__cdecl*) (CMDLN_STAT*)) (cmdln_ctrl_n),
+(signed(__cdecl*) (CMDLN_STAT*)) (cmdln_ctrl_u_beta),
+(signed(__cdecl*) (CMDLN_STAT*)) (cmdln_ctrl_n_beta),
 (signed(__cdecl*) (CMDLN_STAT*)) (0x00)
 };
 
