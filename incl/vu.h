@@ -12,6 +12,17 @@ If the function fails, the return value is (0x00). */
 
 
 
+signed(__cdecl qsync_beta_internal(COORD(deadline),KNOT(*k),CMDLN_STAT(*argp)));
+signed(__cdecl qsync_beta(KNOT(*k),CMDLN_STAT(*argp)));
+
+signed(__cdecl c_outs_beta(signed char(*di),CMDLN_STAT(*argp)));
+signed(__cdecl c_out_ht_beta_internal(signed(arg),CMDLN_STAT(*argp)));
+signed(__cdecl c_out_ht_beta(signed char(*di),CMDLN_STAT(*argp)));
+signed(__cdecl c_out_beta(signed char(*di),CMDLN_STAT(*argp)));
+
+/* Console Output (Beta) */
+
+
 signed(__cdecl cq_out_internal(signed(deadline),KNOT(*k),CMDLN_STAT(*argp)));
 signed(__cdecl cq_out(KNOT(*k),CMDLN_STAT(*argp)));
 
@@ -111,7 +122,7 @@ signed(__cdecl cmdln_undo(CMDLN_STAT(*argp)));
 
 signed(__cdecl c_outs(signed char(*di), CMDLN_STAT(*argp)));
 
-signed(__cdecl c_out_ht(signed(di), CMDLN_STAT(*argp)));
+signed(__cdecl c_out_ht(signed(arg), CMDLN_STAT(*argp)));
 signed(__cdecl c_out(signed char(*di), CMDLN_STAT(*argp)));
 
 /* Output as whitespace for a tab. */

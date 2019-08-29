@@ -18,7 +18,7 @@ Refer at incl/cmdln.h to set a debug flag.
 # define COUNT_FN (0x01+(0x20))
 # define OBJS (0x01+(0x03))
 
-signed(__cdecl vu_internal_beta(CMDLN_STAT(*argp))) {
+signed(__cdecl vu_beta_internal(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 extern signed(terminate);
@@ -137,7 +137,7 @@ r = support_arrowkeys(argp);
 if(!r) printf("%s", "<< Error at fn. support_arrowkeys()");
 /* to debug */
 if(C_DBG) r = debug_monitor(argp);
-return(0x01+(vu_internal(argp)));
+return(0x01+(vu_beta_internal(argp)));
 }
 if(!c) {
 // get the sequential byte
@@ -147,7 +147,7 @@ r = support_arrowkeys(argp);
 if(!r) printf("%s", "<< Error at fn. support_arrowkeys()");
 /* to debug */
 if(C_DBG) r = debug_monitor(argp);
-return(0x01+(vu_internal(argp)));
+return(0x01+(vu_beta_internal(argp)));
 }
 //*/
 
@@ -252,5 +252,5 @@ if(!r) printf("%s", "<< Error at fn. qrefresh()");
 if(C_DBG) r = debug_monitor(argp);
 
 
-return(0x01+(vu_internal_beta(argp)));
+return(0x01+(vu_beta_internal(argp)));
 }

@@ -75,11 +75,14 @@ void(*(offscreen[OFFSCREEN_BUFF]));
 CONSOLE_SCREEN_BUFFER_INFO(csbi);
 signed(d);
 signed(s);
+// receptor for the knots e.g., refer at fn. malloc in fn. vu_gate_beta_internal (or in fn. vu_gate_internal)
 KNOT(*l);
 KNOT(*b);
 KNOT(*t);
+// Aux.
 KNOTS(circular);
 KNOTS(doubly);
+// flag
 signed short(insert);
 KNOT(*created_knot);
 signed short(concat_type);
