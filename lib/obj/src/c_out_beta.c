@@ -26,10 +26,11 @@ signed(__cdecl c_out_beta(signed char(*di),CMDLN_STAT(*argp))) {
 auto char const(WS) = (0x20);
 auto char const(HT) = (0x09);
 
+auto signed char(*p) = (" ");
 auto COORD(coord_b);
 auto COORD(coord);
 auto signed(len);
-auto signed(r);
+auto signed i,l,r;
 auto signed(c);
 auto signed short(flag);
 
@@ -67,50 +68,51 @@ return(0x00);
 else {
 
 if(!(coord.X^((*argp).csbi.srWindow.Right))) {
-if(!(' '^(*(-0x01+((*argp).p))))) XNOR(flag);
-else flag = (0x01);
-}
+r = ctdn2lastsp((*argp).init_p);
 
-if(coord.X<(-0x10+((*argp).csbi.srWindow.Right))) {
-}
-else {
-if(!(' '^(*(-0x01+((*argp).p))))) XNOR(flag);
-}
-
-if(flag) {
-INC(coord.Y);
-XOR(coord.X,coord.X);
-}
-
-if(!(-0x01^(flag))) {
-r = SetConsoleCursorPosition((*argp).s_out,coord);
+if(r<(0x01+((*argp).csbi.srWindow.Right))) {
+l = (-0x01+(r));
+coord_b.X = (-l+(coord_b.X));
+r = SetConsoleCursorPosition((*argp).s_out,coord_b);
 if(!r) {
 r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
-}}
-
-r = WriteConsole((*argp).s_out,di,sizeof(*di),&len,0x00);
+}
+XNOR(flag);
+i = (l);
+while(i) {
+Sleep(1000);
+DEC(i);
+r = WriteConsole((*argp).s_out,p,sizeof(signed char),&len,0x00);
 if(!r) {
 r = GetLastError();
 printf("%s%d\n", "<< Error at fn. WriteConsole() with error no. ", r);
 return(0x00);
-}
+}}}
 
-if(!(0x01^(flag))) {
-r = SetConsoleCursorPosition((*argp).s_out,coord);
+XOR(coord_b.X,coord_b.X);
+INC(coord_b.Y);
+r = SetConsoleCursorPosition((*argp).s_out,coord_b);
 if(!r) {
 r = GetLastError();
-printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+printf("%s%d", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}}
+
+
+if(!flag) {
+r = WriteConsole((*argp).s_out,di,sizeof(*di),&len,0x00);
+if(!r) {
+r = GetLastError();
+printf("%s%d", "<< Error at fn. WriteConsole() with error no. ", r);
 return(0x00);
 }}
 
 else {
-INC(coord.X);
-r = SetConsoleCursorPosition((*argp).s_out,coord);
+r = c_outs_beta(-l+((*argp).p),argp);
 if(!r) {
-r = GetLastError();
-printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+printf("%s", "<< Error at fn. c_outs_beta()");
 return(0x00);
 }}
 

@@ -117,6 +117,12 @@ signed(__cdecl include_num(signed char(*argp)));
 /* Check numerals. */
 
 
+signed(__cdecl ctdn2lastsp_internal(signed(arg),signed char(*argp)));
+signed(__cdecl ctdn2lastsp(signed char(*argp)));
+
+/* Count down to the last space */
+
+
 signed(__cdecl ct_only(signed char(di), signed char(*argp)));
 
 /* Count a specific letter only. */
