@@ -117,10 +117,25 @@ signed(__cdecl include_num(signed char(*argp)));
 /* Check numerals. */
 
 
+signed(__cdecl ctdn2lastws_internal(signed(arg),signed char(*argp)));
+signed(__cdecl ctdn2lastws(signed char(*argp)));
+
 signed(__cdecl ctdn2lastsp_internal(signed(arg),signed char(*argp)));
 signed(__cdecl ctdn2lastsp(signed char(*argp)));
 
-/* Count down to the last space */
+/* Count down to the last space (SP) or to the last whitespace (SP/HT) */
+
+
+signed(__cdecl cipher_embed_r(signed char(*di), signed(n)));
+signed(__cdecl cipher_embed(signed char(*di), signed(n)));
+
+/* Embed (0x00) (n) times out of the di. */
+
+
+signed(__cdecl ct_txt_internal(signed(align), signed(*argp), signed char(*base)));
+signed(__cdecl ct_txt(signed(align), signed char(*base)));
+
+/* Count letters along with alignement of the tab to the null character. */
 
 
 signed(__cdecl ct_only(signed char(di), signed char(*argp)));

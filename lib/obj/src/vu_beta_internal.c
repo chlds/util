@@ -178,6 +178,7 @@ XNOR(flag);
 }
 
 *((*argp).p) = (c);
+*(0x01+((*argp).p)) = ('\0');
 
 // External Part.
 r = c_out_beta((*argp).p,argp);
@@ -190,7 +191,6 @@ return(0x00);
 ((*argp).p)++;
 ((*argp).count)++;
 ((*argp).tail)++;
-*((*argp).p) = ('\0');
 
 if(flag) {
 r = current_caret_pos(argp);

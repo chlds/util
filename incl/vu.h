@@ -126,14 +126,3 @@ signed(__cdecl c_out_ht(signed(arg), CMDLN_STAT(*argp)));
 signed(__cdecl c_out(signed char(*di), CMDLN_STAT(*argp)));
 
 /* Output as whitespace for a tab. */
-
-
-signed(__cdecl cipher_embed_r(signed char(*di), signed(n)));
-signed(__cdecl cipher_embed(signed char(*di), signed(n)));
-
-/* Embed (0x00) (n) times out of the di. */
-
-signed(__cdecl ct_txt_internal(signed(align), signed(*argp), signed char(*base)));
-signed(__cdecl ct_txt(signed(align), signed char(*base)));
-
-/* Count letters along with alignement of the tab to the null character. */

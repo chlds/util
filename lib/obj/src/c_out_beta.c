@@ -68,7 +68,7 @@ return(0x00);
 else {
 
 if(!(coord.X^((*argp).csbi.srWindow.Right))) {
-r = ctdn2lastsp((*argp).init_p);
+r = ctdn2lastws((*argp).init_p);
 
 if(r<(0x01+((*argp).csbi.srWindow.Right))) {
 l = (-0x01+(r));
