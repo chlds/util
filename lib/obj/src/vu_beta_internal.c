@@ -164,49 +164,30 @@ XNOR((*argp).clip_reset);
 
 if(c<(0x7F)) {
 
-cache = ((*argp).count);
-
-if(!(cache^((*argp).tail))) XOR(flag,flag);
-
-else {
 r = cpy((*argp).craft, (*argp).p);
-if(!r) {
-printf("%s", "<< Error at fn. cpy()");
-return(0x00);
-}
-XNOR(flag);
-}
-
 *((*argp).p) = (c);
-*(0x01+((*argp).p)) = ('\0');
+((*argp).count)++;
+((*argp).tail)++;
+((*argp).p)++;
+*((*argp).p) = ('\0');
+r = cpy((*argp).p,(*argp).craft);
 
-// External Part.
-r = c_out_beta((*argp).p,argp);
+r = c_out_beta(-0x01+((*argp).p),argp);
 
 if(!r) {
 printf("%s", "<< Error at fn. c_out_beta()");
 return(0x00);
 }
 
-((*argp).p)++;
-((*argp).count)++;
-((*argp).tail)++;
-
-if(flag) {
 r = current_caret_pos(argp);
 if(!r) {
 printf("<< Error at fn. current_caret_pos()");
 return(0x00);
 }
-else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
-}
-
-r = cpy((*argp).p,(*argp).craft);
 
 r = c_outs_beta((*argp).p,argp);
-if(!r) return(0x00);
 
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
@@ -214,7 +195,7 @@ if(!r) {
 r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
-}}}
+}}
 
 
 /* Effectively refresh the console screen to save resources

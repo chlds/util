@@ -12,3 +12,9 @@
 
 # Assembly files
 /**/*.asm
+
+# Batch files
+/**/*.bat
+
+# shell script files
+/**/*.sh

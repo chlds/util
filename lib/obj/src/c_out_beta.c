@@ -68,10 +68,15 @@ return(0x00);
 else {
 
 if(!(coord.X^((*argp).csbi.srWindow.Right))) {
-r = ctdn2lastws((*argp).init_p);
-
-if(r<(0x01+((*argp).csbi.srWindow.Right))) {
-l = (-0x01+(r));
+r = (0x01+((*argp).csbi.srWindow.Right));
+XOR(i,i);
+while(r) {
+if(!(-' '+(*(i+(di))))) break;
+DEC(i);
+DEC(r);
+}
+if(r) {
+l = (~i);
 coord_b.X = (-l+(coord_b.X));
 r = SetConsoleCursorPosition((*argp).s_out,coord_b);
 if(!r) {
@@ -89,8 +94,7 @@ if(!r) {
 r = GetLastError();
 printf("%s%d\n", "<< Error at fn. WriteConsole() with error no. ", r);
 return(0x00);
-}}}
-
+}}
 XOR(coord_b.X,coord_b.X);
 INC(coord_b.Y);
 r = SetConsoleCursorPosition((*argp).s_out,coord_b);
@@ -98,10 +102,43 @@ if(!r) {
 r = GetLastError();
 printf("%s%d", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
-}}
+}
+
+l = (0x01+(~l));
+while(0x01) {
+if(0x00<(l)) break;
+r = c_out_beta(l+(di),argp);
+if(!r) {
+}
+INC(l);
+}
+
+/*
+r = c_outs_beta(-l+di,argp);
+if(!r) {
+printf("%s", "<< Error at fn. c_outs_beta()");
+return(0x00);
+}
+//*/
+}
+else {
+r = WriteConsole((*argp).s_out,di,sizeof(*di),&len,0x00);
+if(!r) {
+r = GetLastError();
+printf("%s%d", "<< Error at fn. WriteConsole() with error no. ", r);
+return(0x00);
+}
+XOR(coord_b.X,coord_b.X);
+INC(coord_b.Y);
+r = SetConsoleCursorPosition((*argp).s_out,coord_b);
+if(!r) {
+r = GetLastError();
+printf("%s%d", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}}}
 
 
-if(!flag) {
+else {
 r = WriteConsole((*argp).s_out,di,sizeof(*di),&len,0x00);
 if(!r) {
 r = GetLastError();
@@ -109,12 +146,6 @@ printf("%s%d", "<< Error at fn. WriteConsole() with error no. ", r);
 return(0x00);
 }}
 
-else {
-r = c_outs_beta(-l+((*argp).p),argp);
-if(!r) {
-printf("%s", "<< Error at fn. c_outs_beta()");
-return(0x00);
-}}
 
 r = (0x01);
 }

@@ -26,5 +26,7 @@ auto signed(cache), (r);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+printf("%s", (*argp).init_p);
+
 return(0x01);
 }
