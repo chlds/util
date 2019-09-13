@@ -76,6 +76,7 @@ DEC(i);
 DEC(r);
 }
 if(r) {
+(*argp).wrap = (0x01);
 l = (~i);
 coord_b.X = (-l+(coord_b.X));
 r = SetConsoleCursorPosition((*argp).s_out,coord_b);

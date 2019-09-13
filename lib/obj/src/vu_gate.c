@@ -110,6 +110,9 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 (*argp).count = (0x00);
 (*argp).tail = (0x00);
 
+(*argp).wrap = (0x00);
+(*argp).offset_by_wrapping = (0x00);
+
 (*argp).concat_type = (signed short) (0x00);
 
 /* for the clipboard */

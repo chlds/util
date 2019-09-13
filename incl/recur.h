@@ -138,6 +138,12 @@ signed(__cdecl ct_txt(signed(align), signed char(*base)));
 /* Count letters along with alignement of the tab to the null character. */
 
 
+signed(__cdecl ct_offset_out_of_last_internal(signed char(arg), signed(len), signed char(*argp)));
+signed(__cdecl ct_offset_out_of_last(signed char(arg), signed char(*argp)));
+
+/* Count offset out of the last arg. */
+
+
 signed(__cdecl ct_only(signed char(di), signed char(*argp)));
 
 /* Count a specific letter only. */

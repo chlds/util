@@ -121,6 +121,9 @@ signed short(overwrite);
 signed(nknot);
 // in entering command mode - refer at fn. cmd_mode_crawlin/out
 signed char(*crawl);
+// refer fn. c_out_beta and fn. vu_beta_internal
+signed short(wrap);
+signed short(offset_by_wrapping);
 // optional
 void(*optl);
 } CMDLN_STAT;

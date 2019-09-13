@@ -163,6 +163,8 @@ else {
 XNOR((*argp).clip_reset);
 
 if(c<(0x7F)) {
+(*argp).wrap = (0x00);
+
 
 r = cpy((*argp).craft, (*argp).p);
 *((*argp).p) = (c);
@@ -170,7 +172,14 @@ r = cpy((*argp).craft, (*argp).p);
 ((*argp).tail)++;
 ((*argp).p)++;
 *((*argp).p) = ('\0');
+
+r = ct_offset_out_of_last(' ',(*argp).init_p);
+(*argp).offset_by_wrapping = (r);
+
 r = cpy((*argp).p,(*argp).craft);
+if(!r) (*argp).copied = (0x00);
+else (*argp).copied = (0x01);
+
 
 r = c_out_beta(-0x01+((*argp).p),argp);
 
@@ -189,13 +198,33 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 r = c_outs_beta((*argp).p,argp);
 
-r = SetConsoleCursorPosition((*argp).s_out, coord);
 
+if((*argp).copied) {
+r = ct2(' ',(*argp).craft);
+if(r<(-coord.X+(0x01+((*argp).csbi.srWindow.Right)))) (*argp).wrap = (0x00);
+else (*argp).wrap = (0x01);
+}
+else (*argp).wrap = (0x00);
+
+
+if((*argp).wrap) {
+INC(coord.Y);
+XOR(coord.X,coord.X);
+coord.X = (coord.X+((*argp).offset_by_wrapping));
+r = SetConsoleCursorPosition((*argp).s_out,coord);
 if(!r) {
 r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }}
+
+else {
+r = SetConsoleCursorPosition((*argp).s_out,coord);
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}}}
 
 
 /* Effectively refresh the console screen to save resources
