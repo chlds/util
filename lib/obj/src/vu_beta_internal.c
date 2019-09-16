@@ -200,10 +200,13 @@ r = c_outs_beta((*argp).p,argp);
 
 
 if((*argp).copied) {
+r = ct2(' ',(*argp).init_p);
+if((*argp).csbi.srWindow.Right<(r)) (*argp).wrap = (0x00);
+else {
 r = ct2(' ',(*argp).craft);
 if(r<(-coord.X+(0x01+((*argp).csbi.srWindow.Right)))) (*argp).wrap = (0x00);
 else (*argp).wrap = (0x01);
-}
+}}
 else (*argp).wrap = (0x00);
 
 

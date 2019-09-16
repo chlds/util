@@ -23,6 +23,7 @@ along with fn. c_out_ht_beta (based on fn. c_out) and fn. c_out_ht_beta_internal
 signed(__cdecl c_out_beta(signed char(*di),CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto char const(HYPHEN) = ('-');
 auto char const(WS) = (0x20);
 auto char const(HT) = (0x09);
 
@@ -48,7 +49,6 @@ return(0x00);
 
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
-
 coord_b.X = (coord.X);
 coord_b.Y = (coord.Y);
 
@@ -56,6 +56,7 @@ XOR(flag,flag);
 
 if(!(HT^(*di))) XNOR(flag);
 if(!(WS^(*di))) XNOR(flag);
+if(!(HYPHEN^(*di))) XNOR(flag);
 
 if(flag) {
 r = c_out_ht_beta(di,argp);

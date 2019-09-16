@@ -198,7 +198,7 @@ signed(__cdecl cmdln_ctrl_rbracket(void(*argp)));
 signed(__cdecl cmdln_ctrl_asterisk(void(*argp)));
 signed(__cdecl cmdln_ctrl_hash(void(*argp)));
 
-/* for fn. vu_internal_beta */
+/* for fn. vu_beta_internal */
 signed(__cdecl cmdln_ctrl_at_beta(void(*argp)));
 signed(__cdecl cmdln_ctrl_a_beta(void(*argp)));
 signed(__cdecl cmdln_ctrl_b_beta(void(*argp)));
@@ -232,3 +232,38 @@ signed(__cdecl cmdln_ctrl_bslash_beta(void(*argp)));
 signed(__cdecl cmdln_ctrl_rbracket_beta(void(*argp)));
 signed(__cdecl cmdln_ctrl_asterisk_beta(void(*argp)));
 signed(__cdecl cmdln_ctrl_hash_beta(void(*argp)));
+
+/* for fn. vu_beta_internal */
+signed(__cdecl ctrl_at_beta(void(*argp)));
+signed(__cdecl ctrl_a_beta(void(*argp)));
+signed(__cdecl ctrl_b_beta(void(*argp)));
+signed(__cdecl ctrl_c_beta(void(*argp)));
+signed(__cdecl ctrl_d_beta(void(*argp)));
+signed(__cdecl ctrl_e_beta(void(*argp)));
+signed(__cdecl ctrl_f_beta(void(*argp)));
+signed(__cdecl ctrl_g_beta(void(*argp)));
+signed(__cdecl ctrl_h_beta(void(*argp)));
+signed(__cdecl ctrl_i_beta(void(*argp)));
+signed(__cdecl ctrl_j_beta(void(*argp)));
+signed(__cdecl ctrl_k_beta(void(*argp)));
+signed(__cdecl ctrl_l_beta(void(*argp)));
+signed(__cdecl ctrl_m_beta(void(*argp)));
+signed(__cdecl ctrl_n_beta(void(*argp)));
+signed(__cdecl ctrl_o_beta(void(*argp)));
+signed(__cdecl ctrl_p_beta(void(*argp)));
+signed(__cdecl ctrl_q_beta(void(*argp)));
+signed(__cdecl ctrl_r_beta(void(*argp)));
+signed(__cdecl ctrl_s_beta(void(*argp)));
+signed(__cdecl ctrl_t_beta(void(*argp)));
+signed(__cdecl ctrl_u_beta(void(*argp)));
+signed(__cdecl ctrl_v_beta(void(*argp)));
+signed(__cdecl ctrl_w_prep_beta(void(*argp)));
+signed(__cdecl ctrl_w_beta(void(*argp)));
+signed(__cdecl ctrl_x_beta(void(*argp)));
+signed(__cdecl ctrl_y_beta(void(*argp)));
+signed(__cdecl ctrl_z_beta(void(*argp)));
+signed(__cdecl ctrl_lbracket_beta(void(*argp)));
+signed(__cdecl ctrl_bslash_beta(void(*argp)));
+signed(__cdecl ctrl_rbracket_beta(void(*argp)));
+signed(__cdecl ctrl_asterisk_beta(void(*argp)));
+signed(__cdecl ctrl_hash_beta(void(*argp)));
