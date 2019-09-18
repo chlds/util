@@ -55,6 +55,8 @@ r = cpy((*argp).init_p,(*k).p);
 // also sync coordinates with the one
 (*argp).depart.X = ((*k).depart.X);
 (*argp).depart.Y = ((*k).depart.Y);
+// and
+(*argp).t = (k);
 
 /* come back */
 coord_b.Y = (coord_b.X);

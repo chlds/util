@@ -78,6 +78,7 @@ printf("%s\n", "<< Error at fn. malloc()");
 return(0x00);
 }
 
+(*cache).cols = (signed short(*)) (0x00);
 (*cache).p = (signed char(*)) (0x00);
 
 (*argp).created_knot = (KNOT*) (cache);

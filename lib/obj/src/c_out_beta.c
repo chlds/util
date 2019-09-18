@@ -8,9 +8,9 @@ Output a tab as whitespace
 Remarks:
 Launch on vu.exe
 Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
-
 Use fn. c_out_beta
 along with fn. c_out_ht_beta (based on fn. c_out) and fn. c_out_ht_beta_internal (based on fn. c_out_ht).
+Check the ((*argp).cols) to wrap words.
 */
 
 
@@ -72,6 +72,7 @@ if(!(coord.X^((*argp).csbi.srWindow.Right))) {
 r = (0x01+((*argp).csbi.srWindow.Right));
 XOR(i,i);
 while(r) {
+if(!(-'-'+(*(i+(di))))) break;
 if(!(-' '+(*(i+(di))))) break;
 DEC(i);
 DEC(r);

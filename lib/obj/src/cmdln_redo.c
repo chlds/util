@@ -119,6 +119,10 @@ INC(coord.Y);
 
 coord.X = (i+(r));
 
+/* Re-write the caret coordinates for a word-wrap line break */
+coord.X = ((*cache).coords.X);
+coord.Y = ((*cache).coords.Y);
+
 r = SetConsoleCursorPosition((*argp).s_out, coord);
 
 if(!r) {

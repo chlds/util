@@ -39,10 +39,8 @@ printf("<< Error at fn. current_caret_pos()");
 return(0x00);
 }
 
-else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
-}
 
 /* Refer at fn. vu_gate().
 (*argp).clih.l = (SNAPSHOT*) (0x00);
@@ -59,6 +57,10 @@ return(0x00);
 // initialise parameters
 (*cache).p = (signed char(*)) (0x00);
 (*cache).offset = (signed) (0x00);
+
+// and used for a word-wrap line break
+(*cache).coords.X = (coord.X);
+(*cache).coords.Y = (coord.Y);
 
 r = concat2ll_for_history(cache,&((*argp).clih.l),&((*argp).clih.b));
 
@@ -89,11 +91,11 @@ r = cpy((*cache).p,(*argp).init_p);
 if(!r) printf("%s", "<< Error at fn. cpy()");
 //*/
 
-/* distance measured from depart.X of the knot for a snapshot */
+/* Distance measured from ((*argp).init_p) on workspace associated with the knot for a snapshot */
 r = cpy((*argp).craft,(*argp).init_p);
 r = ((*argp).count);
 *(r+((*argp).craft)) = (signed char) ('\0');
-r = ct_txt(ALIGN_TAB,(*argp).craft);
+r = ct((*argp).craft);
 (*cache).offset = (r);
 
 /* Registre to the current knot (out of the delegate list - argp - in the CMDLN_STAT structure) */

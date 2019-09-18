@@ -124,6 +124,9 @@ signed char(*crawl);
 // refer fn. c_out_beta and fn. vu_beta_internal
 signed short(wrap);
 signed short(offset_by_wrapping);
+signed short(prev_offset);
+signed short(next_offset);
+signed(cumulative);
 // optional
 void(*optl);
 } CMDLN_STAT;

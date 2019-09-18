@@ -49,33 +49,33 @@ r = cmdln_ctrl_b(argp);
 if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_b()");
 
 if(!((*argp).count)) {
-r = cmdln_ctrl_d(argp);
-if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_d()");
+r = cmdln_ctrl_d_beta(argp);
+if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_d_beta()");
 return(0x01);
 }
 
 if(!(HT^(*((*argp).p)))) {
-r = cmdln_ctrl_d(argp);
-if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_d()");
+r = cmdln_ctrl_d_beta(argp);
+if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_d_beta()");
 return(0x01);
 }
 
 if(SP^(*((*argp).p))) {
 if(!(SP^(*(-1+((*argp).p))))) {
-r = cmdln_ctrl_d(argp);
-if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_d()");
+r = cmdln_ctrl_d_beta(argp);
+if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_d_beta()");
 return(0x01);
 }
 if(!(HT^(*(-1+((*argp).p))))) {
-r = cmdln_ctrl_d(argp);
-if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_d()");
+r = cmdln_ctrl_d_beta(argp);
+if(!r) printf("%s", "<< Error at fn. cmdln_ctrl_d_beta()");
 return(0x01);
 }}
 
-r = cmdln_ctrl_d(argp);
+r = cmdln_ctrl_d_beta(argp);
 
 if(!r) {
-printf("%s", "<< Error at fn. cmdln_ctrl_d()");
+printf("%s", "<< Error at fn. cmdln_ctrl_d_beta()");
 return(0x00);
 }
 

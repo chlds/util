@@ -129,8 +129,7 @@ return(0x01);
 // Internal Part.
 r = cpy((*argp).craft,0x01+((*argp).p));
 r = cpy((*argp).p, (*argp).craft);
-
-// Count the numbre to the workspace
+// and count the numbre to the workspace
 r = ct((*argp).init_p);
 (*argp).tail = (r);
 

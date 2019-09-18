@@ -101,6 +101,9 @@ XNOR((*argp).irr);
 return(0x00);
 }
 
+// word-wrap
+(*cache).cols = (signed short(*)) (0x00);
+
 r = ct((*argp).init_p);
 
 /* CPU Idling */

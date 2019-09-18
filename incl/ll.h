@@ -46,6 +46,7 @@ typedef struct snapshot {
 signed char(*p);
 // signed(count); // deprecated..
 signed(offset); // distance measured from depart.X of the knot e.g., measured from ((*((*argp).t)).depart.X)
+COORDS(coords); // word-wrap
 signed short(flag);
 signed(uid);
 struct snapshot(*d);
@@ -95,6 +96,7 @@ signed short(depart_y);
 COORDS(caret_pos);
 COORDS(depart);
 CLI_HISTORY(clih);
+signed short(*cols); // word-wrap
 void(*optl);
 } KNOT;
 
