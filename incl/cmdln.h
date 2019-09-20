@@ -123,10 +123,12 @@ signed(nknot);
 signed char(*crawl);
 // refer fn. c_out_beta and fn. vu_beta_internal
 signed short(wrap);
+signed short(deadsp_by_wrapping);
 signed short(offset_by_wrapping);
 signed short(prev_offset);
 signed short(next_offset);
 signed(cumulative);
+COORD(cached_coord);
 // optional
 void(*optl);
 } CMDLN_STAT;

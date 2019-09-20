@@ -54,5 +54,14 @@ printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r
 return(0x00);
 }
 
+r = sustain(argp);
+
+r = vu_refresh((*argp).t,argp);
+
+if(!r) {
+printf("%s", "<< Error at fn. vu_refresh()");
+return(0x00);
+}
+
 return(0x01);
 }

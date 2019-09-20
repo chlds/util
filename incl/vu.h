@@ -12,6 +12,12 @@ If the function fails, the return value is (0x00). */
 
 
 
+signed(__cdecl vu_refresh_internal(signed short(col),KNOT(*k),CMDLN_STAT(*argp)));
+signed(__cdecl vu_refresh(KNOT(*k),CMDLN_STAT(*argp)));
+
+/* word-wrap: refresh console screen */
+
+
 signed(__cdecl qsync_beta_internal(COORD(deadline),KNOT(*k),CMDLN_STAT(*argp)));
 signed(__cdecl qsync_beta(KNOT(*k),CMDLN_STAT(*argp)));
 

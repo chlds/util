@@ -69,6 +69,10 @@ if(r^(BUFF)) printf("<< Error at fn. cipher_embed()");
 (*argp).count = (0x00);
 (*argp).tail = (0x00);
 
+// word-wrap: e.g., refer at fn. vu_refresh, fn. c_out_beta or..
+(*argp).cached_coord.X = (0x00);
+(*argp).cached_coord.Y = (0x00);
+
 /* Create a new knot associated with the delegate list - argp - in the CMDLN_STAT structure. */
 // Build a linked list (1/2)
 cache = (KNOT*) malloc(0x01*(sizeof(KNOT)));

@@ -40,6 +40,9 @@ if(!argp) return(0x00);
 if(!di) return(0x00);
 if(!(*di)) return(0x00);
 
+(*argp).deadsp_by_wrapping = (0x00);
+(*argp).wrap = (0x00);
+
 r = current_caret_pos(argp);
 
 if(!r) {
@@ -78,6 +81,7 @@ DEC(i);
 DEC(r);
 }
 if(r) {
+(*argp).deadsp_by_wrapping = (i);
 (*argp).wrap = (0x01);
 l = (~i);
 coord_b.X = (-l+(coord_b.X));
@@ -90,7 +94,7 @@ return(0x00);
 XNOR(flag);
 i = (l);
 while(i) {
-Sleep(1000);
+Sleep(500);
 DEC(i);
 r = WriteConsole((*argp).s_out,p,sizeof(signed char),&len,0x00);
 if(!r) {
@@ -106,24 +110,17 @@ r = GetLastError();
 printf("%s%d", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
-
 l = (0x01+(~l));
 while(0x01) {
 if(0x00<(l)) break;
-r = c_out_beta(l+(di),argp);
+r = WriteConsole((*argp).s_out,l+(di),sizeof(signed char),&len,0x00);
 if(!r) {
-}
-INC(l);
-}
-
-/*
-r = c_outs_beta(-l+di,argp);
-if(!r) {
-printf("%s", "<< Error at fn. c_outs_beta()");
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. WriteConsole() with error no. ", r);
 return(0x00);
 }
-//*/
-}
+INC(l);
+}}
 else {
 r = WriteConsole((*argp).s_out,di,sizeof(*di),&len,0x00);
 if(!r) {

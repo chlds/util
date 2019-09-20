@@ -21,10 +21,8 @@ signed(__cdecl ctrl_b_beta(CMDLN_STAT(*argp))) {
 auto signed char const(HT) = (0x09);
 
 auto COORD(coord), (coord_b);
-
 auto signed(cache), (i), (r);
 auto signed(c);
-
 auto signed short(flag);
 
 /* **** CODE/TEXT */
@@ -47,27 +45,21 @@ coord_b.Y = (coord.Y);
 
 if(!((*argp).count)) return(0x01);
 
-
 // Internal Part.
 DEC((*argp).count);
 DEC((*argp).p);
-
 
 // External Part.
 c = (*((*argp).p));
 
 if(!(c^(HT))) {
-
 r = ncpy((*argp).craft, (*argp).init_p, (*argp).count);
 r = ct_only('\t', (*argp).craft);
-
 if(!r) {
-
 r = ((*argp).count%(ALIGN_TAB));
 r = (-r+(ALIGN_TAB));
 coord.X = (-r+(coord.X));
 }
-
 else {
 // back-ward search the last tab position.
 XOR(cache,cache);
@@ -95,7 +87,6 @@ return(0x00);
 }
 
 // Coordinates
-
 if(!(coord.Y^((*argp).depart.Y))) {
 }
 
