@@ -18,9 +18,7 @@ signed(__cdecl cmdln_ctrl_f(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char const(HT) = (0x09);
-
 auto signed char(*p);
-
 auto COORD(coord);
 auto signed(r);
 auto signed short(flag);
@@ -38,20 +36,17 @@ printf("<< Error at fn. current_caret_pos()");
 return(0x00);
 }
 
-else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
-}
 
 r = ((*argp).count);
 
-if(!(r^((*argp).tail))) {
-}
+if(!(r^((*argp).tail))) return(0x01);
 
-else {
 p = ((*argp).p);
 ((*argp).count)++;
 ((*argp).p)++;
+
 // External Part.
 if(!(HT^(*p))) {
 r = ncpy((*argp).craft, (*argp).init_p, r);
@@ -78,7 +73,7 @@ if(!r) {
 r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
-}}
+}
 
 return(0x01);
 }

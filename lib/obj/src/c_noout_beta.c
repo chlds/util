@@ -1,9 +1,9 @@
 /* **** Notes
 
-Console output
+Console no output
 
-Output one character.
-Output a tab as whitespace
+Not output one character.
+Not output a tab as whitespace
 
 Remarks:
 Launch on vu.exe
@@ -11,6 +11,7 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 Use fn. c_out_beta
 along with fn. c_out_ht_beta (based on fn. c_out) and fn. c_out_ht_beta_internal (based on fn. c_out_ht).
 Check the ((*argp).cols) to wrap words.
+Based on fn. c_out_beta
 */
 
 
@@ -20,7 +21,7 @@ Check the ((*argp).cols) to wrap words.
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl c_out_beta(signed char(*di),CMDLN_STAT(*argp))) {
+signed(__cdecl c_noout_beta(signed char(*di),CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto char const(HYPHEN) = ('-');
@@ -62,9 +63,9 @@ if(!(WS^(*di))) XNOR(flag);
 if(!(HYPHEN^(*di))) XNOR(flag);
 
 if(flag) {
-r = c_out_ht_beta(di,argp);
+r = c_noout_ht_beta(di,argp);
 if(!r) {
-printf("%s", "<< Error at fn. c_out_ht_beta()");
+printf("%s", "<< Error at fn. c_noout_ht_beta()");
 return(0x00);
 }}
 
@@ -97,14 +98,8 @@ INC(coord_b.Y);
 i = (l);
 ++i;
 while(i) {
-Sleep(500);
 DEC(i);
-r = WriteConsole((*argp).s_out,p,sizeof(signed char),&len,0x00);
-if(!r) {
-r = GetLastError();
-printf("%s%d\n", "<< Error at fn. WriteConsole() with error no. ", r);
-return(0x00);
-}}
+}
 r = SetConsoleCursorPosition((*argp).s_out,coord_b);
 if(!r) {
 r = GetLastError();
@@ -114,21 +109,16 @@ return(0x00);
 l = (0x01+(~l));
 while(0x01) {
 if(0x00<(l)) break;
-r = WriteConsole((*argp).s_out,l+(di),sizeof(signed char),&len,0x00);
+INC(coord_b.X);
+r = SetConsoleCursorPosition((*argp).s_out,coord_b);
 if(!r) {
 r = GetLastError();
-printf("%s%d\n", "<< Error at fn. WriteConsole() with error no. ", r);
+printf("%s%d", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
 INC(l);
 }}
 else {
-r = WriteConsole((*argp).s_out,di,sizeof(*di),&len,0x00);
-if(!r) {
-r = GetLastError();
-printf("%s%d", "<< Error at fn. WriteConsole() with error no. ", r);
-return(0x00);
-}
 XOR(coord_b.X,coord_b.X);
 INC(coord_b.Y);
 r = SetConsoleCursorPosition((*argp).s_out,coord_b);
@@ -140,10 +130,11 @@ return(0x00);
 
 
 else {
-r = WriteConsole((*argp).s_out,di,sizeof(*di),&len,0x00);
+INC(coord_b.X);
+r = SetConsoleCursorPosition((*argp).s_out,coord_b);
 if(!r) {
 r = GetLastError();
-printf("%s%d", "<< Error at fn. WriteConsole() with error no. ", r);
+printf("%s%d", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }}
 

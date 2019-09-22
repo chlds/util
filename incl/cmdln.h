@@ -76,6 +76,7 @@ CONSOLE_SCREEN_BUFFER_INFO(csbi);
 signed(d);
 signed(s);
 // receptor for the knots e.g., refer at fn. malloc in fn. vu_gate_beta_internal (or in fn. vu_gate_internal)
+// also refer at fn. cmdln_unmap, fn. vu_gate, fn. ctrl_d_beta, fn. vu_refresh or..
 KNOT(*l);
 KNOT(*b);
 KNOT(*t);

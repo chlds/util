@@ -1,9 +1,9 @@
 /* **** Notes
 
-Refresh the console screen.
+(Quickly..?) calculate the caret coordinates on the console screen.
 
 Remarks:
-Along with fn. refresh_row_numbers
+Based on fn. vu_refresh
 */
 
 
@@ -13,7 +13,7 @@ Along with fn. refresh_row_numbers
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl vu_refresh(KNOT(*k),CMDLN_STAT(*argp))) {
+signed(__cdecl vu_qrefresh(KNOT(*k),CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto KNOT(*cache);
@@ -62,10 +62,10 @@ return(0x00);
 
 XOR(col,col);
 
-r = vu_refresh_internal(col,(*argp).t,argp);
+r = vu_qrefresh_internal(col,(*argp).t,argp);
 
 if(!r) {
-printf("<< Error at fn. vu_refresh_internal()");
+printf("<< Error at fn. vu_qrefresh_internal()");
 return(0x00);
 }
 

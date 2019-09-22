@@ -38,10 +38,8 @@ printf("<< Error at fn. current_caret_pos()");
 return(0x00);
 }
 
-else {
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
-}
 
 if((*argp).count) {
 
@@ -90,7 +88,6 @@ return(0x00);
 }
 
 // Coordinates
-
 if(!(coord.Y^((*argp).depart.Y))) {
 }
 

@@ -52,7 +52,7 @@ static signed(__cdecl*(fn[COUNT_FN])) (void(*argp)) = {
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_t),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_u_beta),
 // (signed(__cdecl*) (void(*))) (cmdln_ctrl_u),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_v),
+(signed(__cdecl*) (void(*))) (ctrl_v_beta),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_w_prep),
 // (signed(__cdecl*) (void(*))) (cmdln_ctrl_w),
 
