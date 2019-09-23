@@ -129,7 +129,8 @@ signed short(offset_by_wrapping);
 signed short(prev_offset);
 signed short(next_offset);
 signed(cumulative);
-COORD(cached_coord);
+COORD(cached_coord); // word-wrap
+COORD(cached_linebreak); // word-wrap
 // optional
 void(*optl);
 } CMDLN_STAT;

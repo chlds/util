@@ -29,6 +29,10 @@ if(!argp) return(0x00);
 // flag for the clipboard, refer fn. cmdln_ctrl_y, vu_clip or..
 XNOR((*argp).clip_reset);
 
+
+(*argp).deadsp_by_wrapping = (0x00);
+
+
 r = current_caret_pos(argp);
 
 if(!r) {

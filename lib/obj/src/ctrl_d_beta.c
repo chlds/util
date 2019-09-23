@@ -33,6 +33,10 @@ auto signed char(c);
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+
+(*argp).deadsp_by_wrapping = (0x00);
+
+
 r = current_caret_pos(argp);
 
 if(!r) {
@@ -44,6 +48,11 @@ coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 coord_b.X = (coord.X);
 coord_b.Y = (coord.Y);
+
+
+r = ((*argp).count);
+if(!(r^((*argp).tail))) return(0x01);
+
 
 r = ct((*argp).init_p);
 

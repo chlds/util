@@ -144,6 +144,11 @@ signed(__cdecl ct_offset_out_of_last(signed char(arg), signed char(*argp)));
 /* Count offset out of the last arg. */
 
 
+signed(__cdecl ct_word(signed char(*argp)));
+
+/* Count length of a word or to the terminating null character. */
+
+
 signed(__cdecl ct_only(signed char(di), signed char(*argp)));
 
 /* Count a specific letter only. */
