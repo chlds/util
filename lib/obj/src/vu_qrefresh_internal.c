@@ -25,8 +25,24 @@ auto signed short(flag);
 /* **** CODE/TEXT */
 if(!k) return(0x00);
 if(!((*k).p)) return(0x00);
-if(!(*(col+((*k).p)))) return(0x01);
 if(!argp) return(0x00);
+
+
+if(!(*(col+((*k).p)))) {
+
+if(!(col^((*argp).count))) {
+r = current_caret_pos(argp);
+if(!r) {
+printf("<< Error at fn. current_caret_pos()");
+return(0x00);
+}
+(*argp).cached_coord.X = ((*argp).csbi.dwCursorPosition.X);
+(*argp).cached_coord.Y = ((*argp).csbi.dwCursorPosition.Y);
+}
+
+return(0x01);
+}
+
 
 //* word_wrap
 i = ((*argp).deadsp_by_wrapping);

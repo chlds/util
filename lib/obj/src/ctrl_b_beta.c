@@ -49,6 +49,13 @@ if(!((*argp).count)) return(0x01);
 DEC((*argp).count);
 DEC((*argp).p);
 
+
+if(!(coord.X)) {
+r = vu_qrefresh((*argp).t,argp);
+return(0x01);
+}
+
+
 // External Part.
 c = (*((*argp).p));
 
@@ -77,13 +84,6 @@ coord.X = (-r+(coord.X));
 else {
 // It is not a tab i.e., (!0x09).
 DEC(coord.X);
-/* This is a mal-(or dys-)function..
-r = _putch(BS);
-if(!(r^(EOF))) {
-printf("%s", "<< Error at fn. _putch/_putwch()");
-return(0x00);
-}
-//*/
 }
 
 // Coordinates

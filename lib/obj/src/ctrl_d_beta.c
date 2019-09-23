@@ -129,14 +129,17 @@ return(0x01);
 // Internal Part.
 r = cpy((*argp).craft,0x01+((*argp).p));
 r = cpy((*argp).p, (*argp).craft);
-
+/*
 r = ct((*argp).init_p);
 (*argp).tail = (r);
+//*/
+DEC((*argp).tail);
+
+
+r = sustain(argp);
+
 
 // External Part.
-r = c_outs_beta((*argp).craft,argp);
-
-// There is room for improvement..
 r = clearhere(argp);
 
 if(!r) {
@@ -144,13 +147,17 @@ printf("%s", "<< Error at fn. clearhere()");
 return(0x00);
 }
 
-r = SetConsoleCursorPosition((*argp).s_out, coord);
+r = vu_refresh((*argp).t,argp);
 
+
+/*
+r = SetConsoleCursorPosition((*argp).s_out, coord);
 if(!r) {
 r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
+//*/
 
 
 /* Effectively refresh the console screen to save resources
