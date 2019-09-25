@@ -55,7 +55,18 @@ DEC((*argp).p);
 
 
 if(!(coord.X)) {
-r = vu_qrefresh((*argp).t,argp);
+r = ct_word_internal(0x01+((*argp).p));
+r = scan_deadsp(r+((*argp).p),(*argp).init_p,argp);
+DEC(coord.Y);
+coord.X = ((*argp).csbi.srWindow.Right);
+coord.X = (-r+(coord.X));
+r = SetConsoleCursorPosition((*argp).s_out, coord);
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}
+// r = vu_qrefresh((*argp).t,argp);
 return(0x01);
 }
 

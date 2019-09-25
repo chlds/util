@@ -97,7 +97,7 @@ INC(coord_b.Y);
 i = (l);
 ++i;
 while(i) {
-Sleep(500);
+// Sleep(500);
 DEC(i);
 r = WriteConsole((*argp).s_out,p,sizeof(signed char),&len,0x00);
 if(!r) {

@@ -21,6 +21,7 @@ auto signed char const(HT) = (0x09);
 auto signed char(*p);
 auto COORD(coord);
 auto signed(r);
+auto signed short(cols);
 auto signed short(flag);
 
 /* **** CODE/TEXT */
@@ -59,12 +60,20 @@ r = (r%(ALIGN_TAB));
 r = (-r+(ALIGN_TAB));
 coord.X = (coord.X+(r));
 }
+
 else INC(coord.X);
 
-r = (1+((*argp).csbi.srWindow.Right));
 
-if(coord.X<(r)) {
-}
+r = (1+((*argp).csbi.srWindow.Right));
+cols = (r);
+
+if(coord.X<(cols)) {
+r = ct_word_internal((*argp).p);
+r = (r+(coord.X%(cols)));
+if(--cols<(r)) {
+INC(coord.Y);
+XOR(coord.X,coord.X);
+}}
 
 else {
 INC(coord.Y);
@@ -72,19 +81,13 @@ coord.X = (-r+(coord.X));
 }
 
 
-r = vu_qrefresh((*argp).t,argp);
-
-
-/*
-r = SetConsoleCursorPosition((*argp).s_out, coord);
+r = SetConsoleCursorPosition((*argp).s_out,coord);
 
 if(!r) {
 r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
-//*/
-
 
 return(0x01);
 }

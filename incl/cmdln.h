@@ -131,6 +131,8 @@ signed short(next_offset);
 signed(cumulative);
 COORD(cached_coord); // word-wrap
 COORD(cached_linebreak); // word-wrap
+// to debug
+signed(c000),(c001),(c002),(c003);
 // optional
 void(*optl);
 } CMDLN_STAT;

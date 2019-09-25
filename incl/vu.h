@@ -12,6 +12,12 @@ If the function fails, the return value is (0x00). */
 
 
 
+signed(__cdecl scan_deadsp_internal(signed char(*di),signed char(*si),CMDLN_STAT(*argp),signed(*diff),signed(cols),signed(col)));
+signed(__cdecl scan_deadsp(signed char(*di),signed char(*si),CMDLN_STAT(*argp)));
+
+/* word-wrap: count the last dead space by wrapping words */
+
+
 signed(__cdecl vu_refresh_internal(signed short(col),KNOT(*k),CMDLN_STAT(*argp)));
 signed(__cdecl vu_refresh(KNOT(*k),CMDLN_STAT(*argp)));
 
