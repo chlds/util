@@ -2,10 +2,13 @@
 
 Connect a knot with the workspace.
 
+Store on the workspace out of the current knot info.
+
 Remarks:
 Synchronise coordinates.
 Launch on vu.exe
 Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
+Refer at fn. sustain.
 */
 
 
@@ -56,6 +59,10 @@ r = cpy((*argp).init_p,(*((*argp).t)).p);
 // set coordinates with the one.
 (*argp).depart.X = ((*((*argp).t)).depart.X);
 (*argp).depart.Y = ((*((*argp).t)).depart.Y);
+
+// word-wrap
+(*argp).cumulative = ((*((*argp).t)).cumulative);
+
 // output..
 
 /* External Part. */

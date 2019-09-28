@@ -83,7 +83,9 @@ $(OBJ): $(SRC) $(HDR)
 
 .PHONY: lb
 lb:
-	cl -Fo"lib/obj/" -Fa"lib/obj/src/" -c "lib/obj/src/*.c"
+# No assembly file
+#	cl -Fo"lib/obj/" -Fa"lib/obj/src/" -c "lib/obj/src/*.c"
+	cl -Fo"lib/obj/" -c "lib/obj/src/*.c"
 	lib.exe -out:lib/$(L).lib "lib/obj/*.obj"
 
 

@@ -17,9 +17,10 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl ctrl_b_beta(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-// auto signed char const(SP) = (0x20);
+auto signed char const(SP) = (0x20);
 auto signed char const(HT) = (0x09);
 
+auto signed char(*p);
 auto COORD(coord), (coord_b);
 auto signed(cache), (i), (r);
 auto signed(c);
@@ -31,9 +32,7 @@ if(!argp) return(0x00);
 // flag for the clipboard, refer fn. cmdln_ctrl_y, vu_clip or..
 XNOR((*argp).clip_reset);
 
-
 (*argp).deadsp_by_wrapping = (0x00);
-
 
 r = current_caret_pos(argp);
 
@@ -49,14 +48,12 @@ coord_b.Y = (coord.Y);
 
 if(!((*argp).count)) return(0x01);
 
-// Internal Part.
-DEC((*argp).count);
+p = ((*argp).p);
 DEC((*argp).p);
-
+DEC((*argp).count);
 
 if(!(coord.X)) {
-r = ct_word_internal(0x01+((*argp).p));
-r = scan_deadsp(r+((*argp).p),(*argp).init_p,argp);
+r = find_deadsp(argp);
 DEC(coord.Y);
 coord.X = ((*argp).csbi.srWindow.Right);
 coord.X = (-r+(coord.X));
@@ -66,7 +63,6 @@ r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
-// r = vu_qrefresh((*argp).t,argp);
 return(0x01);
 }
 

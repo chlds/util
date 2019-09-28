@@ -2,8 +2,11 @@
 
 Sustain message for the current knot associated with the delegate list - argp - in the CMDLN_STAT structure.
 
+Store on the current knot out of the workspace info.
+
 Remarks:
 Synchronise coordinates
+Refer at fn. connect_with_workspace.
 */
 
 
@@ -51,6 +54,9 @@ printf("%s", "<< Error at fn. malloc()");
 return(0x00);
 }
 r = cpy((*((*argp).t)).p,(*argp).init_p);
+
+/* word-wrap */
+(*((*argp).t)).cumulative = ((*argp).cumulative);
 
 return(r);
 }

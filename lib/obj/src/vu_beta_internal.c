@@ -179,6 +179,10 @@ if(!r) (*argp).copied = (0x00);
 else (*argp).copied = (0x01);
 
 
+/* word-wrap */
+// cumulate dead sp by wrapping words or not, refer at incl/cmdln.h or..
+(*argp).cumul_lock = (0x00);
+
 r = c_out_beta(-0x01+((*argp).p),argp);
 
 if(!r) {
@@ -196,6 +200,9 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 r = c_outs_beta((*argp).p,argp);
 
+/* word-wrap */
+// also refer at fn. c_out_beta, fn. sustain, fn. connect_with_workspace, fn. ctrl_b_beta or..
+(*argp).cumul_lock = (0x01);
 
 if((*argp).copied) {
 r = ct2(' ',(*argp).init_p);

@@ -1,6 +1,6 @@
 /* **** Notes
 
-Count < the last > dead space by wrapping words
+Cumulate dead space after wrapping words to the terminating address out of the leading address.
 
 Remarks:
 Refer at incl/vu.h
@@ -13,7 +13,7 @@ Refer at incl/vu.h
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl scan_deadsp_internal(signed char(*di),signed char(*si),CMDLN_STAT(*argp),signed(*diff),signed(cols),signed(col))) {
+signed(__cdecl cumulate_internal(signed(*diff),signed char(*base),signed(col),signed(cols),CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char(HYPHEN) = ('-');
@@ -21,37 +21,32 @@ auto signed char(HT) = ('\t');
 auto signed char(SP) = (' ');
 
 auto signed long long(cur);
-auto signed(r);
+auto signed(cache), (r);
 auto signed short(flag);
 
 /* **** CODE/TEXT */
-if(!di) return(0x00);
-if(!si) return(0x00);
 if(!argp) return(0x00);
+if(!base) return(0x00);
 if(!diff) return(0x00);
 
-if(!(*si)) return(0x00);
-
-cur = ((signed long long) si);
-if(!(cur^((signed long long) di))) return(0x00);
-if(di<(si)) return(0x00);
+if(!(*base)) return(0x00);
 
 XOR(flag,flag);
 
-r = ct_word_internal(si);
+r = ct_word_internal(base);
 
 if(!r) {
-if(!(HYPHEN^(*si))) XNOR(flag);
-if(!(SP^(*si))) XNOR(flag);
+if(!(HYPHEN^(*base))) XNOR(flag);
+if(!(SP^(*base))) XNOR(flag);
 if(flag) {
-INC(si);
+INC(base);
 INC(col);
 col = (col%(cols));
 }
 if(!flag) {
-if(!(HT^(*si))) {
+if(!(HT^(*base))) {
 XNOR(flag);
-INC(si);
+INC(base);
 r = (col%(ALIGN_TAB));
 col = (col+(-r+(ALIGN_TAB)));
 col = (col%(cols));
@@ -62,17 +57,20 @@ return(0x00);
 }}
 
 else {
-si = (si+(r));
-col = (col+(r));
-if(col<(cols)) {
+base = (base+(r));
+r = (col+(r));
+if(r<(cols)) {
+col = (r);
 }
 else {
+cache = (-col+(cols));
+*diff = (cache+(*diff));
+col = (r%(cols));
+ADD(col,cache);
 col = (col%(cols));
-*diff = (-col+(r));
-col = (r);
 }}
 
 if(C_DBG) r = debug_monitor(argp);
 
-return(0x01+(scan_deadsp_internal(di,si,argp,diff,cols,col)));
+return(0x01+(cumulate_internal(diff,base,col,cols,argp)));
 }

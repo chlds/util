@@ -97,6 +97,7 @@ COORDS(caret_pos);
 COORDS(depart);
 CLI_HISTORY(clih);
 signed short(*cols); // word-wrap
+signed(cumulative); // word-wrap e.g., refer at fn. ctrl_b_beta or..
 void(*optl);
 } KNOT;
 

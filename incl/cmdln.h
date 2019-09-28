@@ -115,7 +115,7 @@ signed short(irr);
 size_t(fsiz);
 signed(fd);
 signed(loading);
-signed short(end_with_linefeed);
+signed short(end_with_linefeed); // i.e., end with a Line Break (in LF or CRLF) or not. e.g., refer at fn. cmdln_load_internal or..
 signed char(*filename);
 signed short(confirm);
 signed short(overwrite);
@@ -128,6 +128,7 @@ signed short(deadsp_by_wrapping);
 signed short(offset_by_wrapping);
 signed short(prev_offset);
 signed short(next_offset);
+signed(cumul_lock); // cumulate dead sp by wrapping words at fn. c_out_beta in vu_beta_internal only.
 signed(cumulative);
 COORD(cached_coord); // word-wrap
 COORD(cached_linebreak); // word-wrap

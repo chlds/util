@@ -17,9 +17,10 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl ctrl_f_beta(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto signed char const(SP) = (0x20);
 auto signed char const(HT) = (0x09);
 auto signed char(*p);
-auto COORD(coord);
+auto COORD(coord),(coord_b);
 auto signed(r);
 auto signed short(cols);
 auto signed short(flag);
@@ -30,9 +31,7 @@ if(!argp) return(0x00);
 // flag for the clipboard, refer fn. cmdln_ctrl_y, vu_clip or..
 XNOR((*argp).clip_reset);
 
-
 (*argp).deadsp_by_wrapping = (0x00);
-
 
 r = current_caret_pos(argp);
 
@@ -43,42 +42,54 @@ return(0x00);
 
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
+coord_b.X = (coord.X);
+coord_b.Y = (coord.Y);
 
-r = ((*argp).count);
+r = ((*argp).tail);
 
-if(!(r^((*argp).tail))) return(0x01);
+if(!(r^((*argp).count))) return(0x01);
+
+if(r<((*argp).count)) {
+printf("%s", "<< Error at fn. ctrl_f_beta()");
+return(0x00);
+}
 
 p = ((*argp).p);
 ((*argp).count)++;
 ((*argp).p)++;
 
-// External Part.
+/* External Part. */
+cols = (0x01+((*argp).csbi.srWindow.Right));
+XOR(flag,flag);
+
 if(!(HT^(*p))) {
-r = ncpy((*argp).craft, (*argp).init_p, r);
-r = ct_txt(ALIGN_TAB, (*argp).craft);
-r = (r%(ALIGN_TAB));
+XNOR(flag);
+r = (coord.X%(ALIGN_TAB));
 r = (-r+(ALIGN_TAB));
 coord.X = (coord.X+(r));
-}
-
-else INC(coord.X);
-
-
-r = (1+((*argp).csbi.srWindow.Right));
-cols = (r);
-
-if(coord.X<(cols)) {
-r = ct_word_internal((*argp).p);
-r = (r+(coord.X%(cols)));
-if(--cols<(r)) {
+r = (cols);
+if(--r<(coord.X)) {
 INC(coord.Y);
-XOR(coord.X,coord.X);
+coord.X = (coord.X%(cols));
 }}
 
-else {
+if(!flag) {
+INC(coord.X);
+r = (cols);
+if(--r<(coord.X)) {
 INC(coord.Y);
-coord.X = (-r+(coord.X));
+XOR(coord.X,coord.X);
 }
+else {
+/* word-wrap */
+r = ct_word_internal((*argp).p);
+ADD(coord_b.X,r);
+r = (-0x02+(cols));
+if(r<(coord_b.X)) {
+if(!(SP^(*p))) {
+INC(coord.Y);
+XOR(coord.X,coord.X);
+}}}}
 
 
 r = SetConsoleCursorPosition((*argp).s_out,coord);

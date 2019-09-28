@@ -12,6 +12,17 @@ If the function fails, the return value is (0x00). */
 
 
 
+signed(__cdecl find_deadsp_internal(signed(*diff),signed char(*base),signed(col),signed(cols),CMDLN_STAT(*argp)));
+signed(__cdecl find_deadsp(CMDLN_STAT(*argp)));
+
+/* word-wrap: find the < last > dead space after wrapping words to the current address out of the leading address */
+
+signed(__cdecl cumulate_internal(signed(*diff),signed char(*base),signed(col),signed(cols),CMDLN_STAT(*argp)));
+signed(__cdecl cumulate(CMDLN_STAT(*argp)));
+
+/* word-wrap: cumulate dead space after wrapping words to the terminating address out of the leading address */
+
+
 signed(__cdecl scan_deadsp_internal(signed char(*di),signed char(*si),CMDLN_STAT(*argp),signed(*diff),signed(cols),signed(col)));
 signed(__cdecl scan_deadsp(signed char(*di),signed char(*si),CMDLN_STAT(*argp)));
 

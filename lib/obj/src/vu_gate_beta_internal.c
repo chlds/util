@@ -73,6 +73,10 @@ if(r^(BUFF)) printf("<< Error at fn. cipher_embed()");
 (*argp).cached_coord.X = (0x00);
 (*argp).cached_coord.Y = (0x00);
 
+// word-wrap: cumulate dead sp by wrapping words or not, refer at fn. c_out_beta, fn. ctrl_b_beta, fn. sustain, incl/cmdln.h, incl/ll.h or ..
+(*argp).cumul_lock = (0x01);
+(*argp).cumulative = (0x00);
+
 /* Create a new knot associated with the delegate list - argp - in the CMDLN_STAT structure. */
 // Build a linked list (1/2)
 cache = (KNOT*) malloc(0x01*(sizeof(KNOT)));
@@ -89,8 +93,12 @@ return(0x00);
 
 
 /* flag to end with LF (0x0A) */
-XNOR((*cache).linefeed);
+// i.e., end with a Line Break (in LF or CRLF).
 // also refer at fn. cmdln_load_internal, fn. cmdln_writing, hd. incl/ll.h and hd. incl/cmdln.h
+XNOR((*cache).linefeed);
+
+/* word-wrap */
+(*cache).cumulative = (0x00);
 
 r = concat2ll(cache,argp);
 

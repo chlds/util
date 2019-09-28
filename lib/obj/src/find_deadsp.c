@@ -1,6 +1,9 @@
 /* **** Notes
 
-Count < the last > dead space by wrapping words
+Find the < last > dead sp to the current address out of the leading address.
+
+Remarks:
+Derivated out of fn. cumulate.
 */
 
 
@@ -10,15 +13,14 @@ Count < the last > dead space by wrapping words
 # define C_CMDLN
 # include "../../../incl/config.h"
 
-signed(__cdecl scan_deadsp(signed char(*di),signed char(*si),CMDLN_STAT(*argp))) {
+signed(__cdecl find_deadsp(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto signed char(*p);
 auto signed(cols),(col),(diff);
 auto signed(r);
 
 /* **** CODE/TEXT */
-if(!di) return(0x00);
-if(!si) return(0x00);
 if(!argp) return(0x00);
 
 r = current_caret_pos(argp);
@@ -31,13 +33,21 @@ return(0x00);
 cols = (0x01+((*argp).csbi.srWindow.Right));
 col = (0x00);
 diff = (0x00);
+p = ((*argp).init_p);
 
-r = scan_deadsp_internal(di,si,argp,&diff,cols,col);
-
-if(!r) {
-printf("%s", "<< Error at fn. scan_deadsp_internal()");
+if(!p) {
+printf("%s", "<< Error at fn. cumulate()");
 return(0x00);
 }
+
+r = find_deadsp_internal(&diff,p,col,cols,argp);
+
+/* empty or occurred an error..
+if(!r) {
+printf("%s", "<< Error at fn. find_deadsp_internal()");
+return(0x00);
+}
+//*/
 
 return(diff);
 }

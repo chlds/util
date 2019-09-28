@@ -71,6 +71,7 @@ return(0x00);
 (*cache).clih.l = ((*argp).clih.l);
 (*cache).clih.b = ((*argp).clih.b);
 (*cache).clih.t = ((*argp).clih.t);
+(*cache).cumulative = (0x00); // word-wrap e.g., refer at fn. c_out_beta, fn. ctrl_b_beta, incl/ll.h, incl/cmdln.h or..
 /* Flag on a knot that ends with LF (0x0A) */
 XNOR((*cache).linefeed);
 // Also refer at fn. cmdln_load_internal, fn. cmdln_writing, hd. incl/ll.h and hd. incl/cmdln.h and more.
