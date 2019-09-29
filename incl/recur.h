@@ -132,6 +132,12 @@ signed(__cdecl cipher_embed(signed char(*di), signed(n)));
 /* Embed (0x00) (n) times out of the di. */
 
 
+signed(__cdecl ct_txt_here_internal(signed(align),signed(*argp),signed char(*di),signed char(*base)));
+signed(__cdecl ct_txt_here(signed(align),signed char(*di),signed char(*base)));
+
+/* Count letters along with alignement of the tab to the current (or specific) address. */
+
+
 signed(__cdecl ct_txt_internal(signed(align), signed(*argp), signed char(*base)));
 signed(__cdecl ct_txt(signed(align), signed char(*base)));
 
