@@ -43,6 +43,8 @@ XOR(flag,flag);
 
 r = ct_word_internal(base);
 
+(*argp).len_of_word = (r);
+
 if(!r) {
 if(!(HYPHEN^(*base))) XNOR(flag);
 if(!(SP^(*base))) XNOR(flag);

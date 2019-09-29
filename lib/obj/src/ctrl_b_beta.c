@@ -24,6 +24,7 @@ auto signed char(*p);
 auto COORD(coord), (coord_b);
 auto signed(cache), (i), (r);
 auto signed(c);
+auto signed short(cols);
 auto signed short(flag);
 
 /* **** CODE/TEXT */
@@ -46,6 +47,8 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 coord_b.X = (coord.X);
 coord_b.Y = (coord.Y);
 
+cols = ((*argp).csbi.srWindow.Right);
+
 if(!((*argp).count)) return(0x01);
 
 p = ((*argp).p);
@@ -53,7 +56,11 @@ DEC((*argp).p);
 DEC((*argp).count);
 
 if(!(coord.X)) {
-r = find_deadsp(argp);
+cache = find_deadsp(argp);
+r = ct_word_internal(p);
+r = (-r+((*argp).len_of_word));
+if(cols<(r)) r = (0x00);
+else r = (cache);
 DEC(coord.Y);
 coord.X = ((*argp).csbi.srWindow.Right);
 coord.X = (-r+(coord.X));

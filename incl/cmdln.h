@@ -130,6 +130,7 @@ signed short(prev_offset);
 signed short(next_offset);
 signed(cumul_lock); // cumulate dead sp by wrapping words at fn. c_out_beta in vu_beta_internal only.
 signed(cumulative);
+signed(len_of_word); // word-wrap: refer at fn. ctrl_b_beta, fn. find_deadsp_internal or..
 COORD(cached_coord); // word-wrap
 COORD(cached_linebreak); // word-wrap
 // to debug
