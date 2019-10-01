@@ -129,8 +129,8 @@ signed short(offset_by_wrapping);
 signed short(prev_offset);
 signed short(next_offset);
 signed(cumul_lock); // lock to cumulate dead space by wrapping words at fn. c_out_beta in vu_beta_internal only.
-signed(cumulative_here); // cumulate dead space after wrapping words to the current address i.e., to the ((*argp).p).
-signed(cumulative); // cumulate dead space after wrapping words to the terminating address.
+signed(cumul_here); // cumulate dead space after wrapping words to the current address i.e., to the ((*argp).p).
+signed(cumul); // cumulate dead space after wrapping words to the terminating address.
 signed(len_of_word); // word-wrap: refer at fn. ctrl_b_beta, fn. find_deadsp_internal or..
 signed char(*p_set_after_wrapping); // refer at fn. c_out_beta or..
 // void(*p_after_wrapping);

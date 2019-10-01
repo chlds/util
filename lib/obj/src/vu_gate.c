@@ -90,6 +90,16 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 
 /* Initialise the global delegate list - argp - in the CMDLN_STAT structure */
 
+
+//*
+(*argp).p_set_after_wrapping = (void*) (0x00);
+(*argp).c000 = (0x00);
+(*argp).c001 = (0x00);
+(*argp).c002 = (0x00);
+(*argp).c003 = (0x00);
+//*/
+
+
 /* for command mode */
 (*argp).cmd_io.c = (signed) (0x00);
 (*argp).cmd_io.p = (command_buff); // the leading address

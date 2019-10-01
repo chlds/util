@@ -61,7 +61,7 @@ r = cpy((*argp).init_p,(*((*argp).t)).p);
 (*argp).depart.Y = ((*((*argp).t)).depart.Y);
 
 // word-wrap
-(*argp).cumulative = ((*((*argp).t)).cumulative);
+(*argp).cumul = ((*((*argp).t)).cumul);
 
 // output..
 

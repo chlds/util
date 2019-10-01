@@ -56,7 +56,7 @@ return(0x00);
 r = cpy((*((*argp).t)).p,(*argp).init_p);
 
 /* word-wrap */
-(*((*argp).t)).cumulative = ((*argp).cumulative);
+(*((*argp).t)).cumul = ((*argp).cumul);
 
 return(r);
 }

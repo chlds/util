@@ -34,7 +34,9 @@ if(!diff) return(0x00);
 if(!(*base)) return(0x00);
 
 p = ((*argp).p);
-if(p<(base)) vflag = (0x01);
+
+if(p==(base)) vflag = (0x01);
+if(p<(base)) return(0x00); // e.g., vflag = (0x01);
 else vflag = (0x00);
 
 XOR(flag,flag);

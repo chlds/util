@@ -100,13 +100,31 @@ printf("%s%d%s", ", .refresh_rows: ", (*argp).refresh_rows, " times");
 printf("%s%2d%s%2d", ", .orig.X/Y: ", (*argp).orig.X, "/", (*argp).orig.Y);
 printf("\n");
 
-/* The three (i.e., temporary, lead and base) knots for the delegate list - argp - in the CMDLN_STAT structure */
+
+printf("%s%p", ".init_pp: ", (*argp).init_p);
+printf("%s%p", ", .p: ", (*argp).p);
+printf("%s%p", ", .p_set_after_wrapping: ", (*argp).p_set_after_wrapping);
+printf("\n");
+
+printf("%s%8d", ".cumul_here: ", (*argp).cumul_here);
+printf("%s%8d", ", .cumul: ", (*argp).cumul);
+printf("%s%8d", ", (*((*argp).t)).cumul: ", (*((*argp).t)).cumul);
+printf("\n");
+
+printf("%s%8d", ".c000: ", (*argp).c000);
+printf("%s%8d", ", .c001: ", (*argp).c001);
+printf("%s%8d", ", .c002: ", (*argp).c002);
+printf("%s%8d", ", .c003: ", (*argp).c003);
+printf("\n");
+
+
+/* The three (i.e., temporary, lead and base) knots for the delegate list - argp - in the CMDLN_STAT structure
 printf("%s%ph%s%ph%s%ph\n", "(*argp).t/l/b            : ", (*argp).t, "/", (*argp).l, "/", (*argp).b);
 
-/* cli histories associated with the delegate list - argp - in the CMDLN_STAT structure */
+// cli histories associated with the delegate list - argp - in the CMDLN_STAT structure
 printf("%s%ph%s%ph%s%ph\n", "(*argp).clih.t/l/b       : ", (*argp).clih.t, "/", (*argp).clih.l, "/", (*argp).clih.b);
 
-/* a temporary (i.e., current) knot associated with the delegate list - argp - in the CMDLN_STAT structure */
+// a temporary (i.e., current) knot associated with the delegate list - argp - in the CMDLN_STAT structure
 if((*argp).t) {
 printf("%s%ph%s%ph%s%ph\n", "(*((*argp).t)).clih.t/l/b: ", (*((*argp).t)).clih.t, "/", (*((*argp).t)).clih.l, "/", (*((*argp).t)).clih.b);
 if((*((*argp).t)).clih.t) printf("%s%4d\n", "(*((*((*argp).t)).clih.t)).offset: ", (*((*((*argp).t)).clih.t)).offset);
@@ -133,13 +151,15 @@ printf("%s%8ph\n", "(*argp).p     : ", (*argp).p);
 printf("%s%8ph",   "(*argp).filename: ", (*argp).filename);
 }
 
-/* at a two-row footer (for command mode) */
+// at a two-row footer (for command mode)
 printf("\n");
 
 printf("%s%4d", "(*argp).nknot: ", (*argp).nknot);
 printf("%s%4d", ", (*argp).unmapped_ss: ", (*argp).unmapped_ss);
 printf("%s%4d", ", (*argp).q_refresh: ", (*argp).q_refresh);
 printf("\n");
+//*/
+
 
 /* Go back */
 r = SetConsoleCursorPosition((*argp).s_out, coord);

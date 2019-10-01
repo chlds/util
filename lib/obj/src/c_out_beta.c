@@ -84,7 +84,7 @@ if(r) {
 // store dead sp after wrapping words on the workspace
 (*argp).deadsp_by_wrapping = (i);
 (*argp).wrap = (0x01);
-if(!((*argp).cumul_lock)) ADD((*argp).cumulative,i);
+if(!((*argp).cumul_lock)) ADD((*argp).cumul,i);
 // e.g., refer at fn. ctrl_b_beta, fn. sustain, fn. connect_with_workspace, incl/ll.h, incl/cmdln.h or..
 l = (~i);
 coord_b.X = (-l+(coord_b.X));

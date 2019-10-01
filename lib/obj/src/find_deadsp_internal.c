@@ -78,6 +78,7 @@ cache = (-col+(cols));
 col = (r%(cols));
 ADD(col,cache);
 col = (col%(cols));
+(*argp).p_set_after_wrapping = (-col+(base));
 }}
 
 if(C_DBG) r = debug_monitor(argp);
