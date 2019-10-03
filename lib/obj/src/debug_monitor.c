@@ -101,20 +101,13 @@ printf("%s%2d%s%2d", ", .orig.X/Y: ", (*argp).orig.X, "/", (*argp).orig.Y);
 printf("\n");
 
 
-printf("%s%p", ".init_pp: ", (*argp).init_p);
-printf("%s%p", ", .p: ", (*argp).p);
-printf("%s%p", ", .p_set_after_wrapping: ", (*argp).p_set_after_wrapping);
+printf("%s%4d%s%4d%s%4d", ".cumul_here/.cumul/(*((*argp).t)).cumul: ", (*argp).cumul_here, " / ", (*argp).cumul, " / ", (*((*argp).t)).cumul);
 printf("\n");
 
-printf("%s%8d", ".cumul_here: ", (*argp).cumul_here);
-printf("%s%8d", ", .cumul: ", (*argp).cumul);
-printf("%s%8d", ", (*((*argp).t)).cumul: ", (*((*argp).t)).cumul);
+printf("%s%4d%s%4d%s%4d%s%4d", ".c000/.c001/.c002/.c003: ", (*argp).c000, " / ", (*argp).c001, " / ", (*argp).c002, " / ", (*argp).c003);
 printf("\n");
 
-printf("%s%8d", ".c000: ", (*argp).c000);
-printf("%s%8d", ", .c001: ", (*argp).c001);
-printf("%s%8d", ", .c002: ", (*argp).c002);
-printf("%s%8d", ", .c003: ", (*argp).c003);
+printf("%s%p%s%p%s%p", ".p/.p_set_after_wrapping/.init_p: ", (*argp).p, " / ", (*argp).p_set_after_wrapping, " / ", (*argp).init_p);
 printf("\n");
 
 

@@ -156,6 +156,7 @@ signed(__cdecl ct_word(signed(align),signed(offset),signed char(*argp)));
 /* Count length of a word or to the terminating null character. */
 
 
+signed(__cdecl ct2_only(signed char(di), signed char(*deadline), signed char(*argp)));
 signed(__cdecl ct_only(signed char(di), signed char(*argp)));
 
 /* Count a specific letter only. */

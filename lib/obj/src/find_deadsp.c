@@ -30,6 +30,8 @@ printf("%s", "<< Error at fn. current_caret_pos()");
 return(0x00);
 }
 
+(*argp).p_set_after_wrapping = ((*argp).init_p);
+
 cols = (0x01+((*argp).csbi.srWindow.Right));
 col = (0x00);
 diff = (0x00);

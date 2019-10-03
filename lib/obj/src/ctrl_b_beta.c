@@ -76,21 +76,30 @@ return(0x01);
 
 // External Part.
 c = (*((*argp).p));
+r = find_deadsp(argp);
+p = ((*argp).p);
+i = (0x00);
+while(0x01) {
+if(p==((*argp).p_set_after_wrapping)) break;
+--p;
+i++;
+}
 
 if(!(c^(HT))) {
-r = ncpy((*argp).craft, (*argp).init_p, (*argp).count);
-r = ct_only('\t', (*argp).craft);
+r = ncpy((*argp).craft,(*argp).p_set_after_wrapping,i);
+r = ct_only('\t',(*argp).craft);
 if(!r) {
-r = ((*argp).count%(ALIGN_TAB));
+r = ct2('\t',(*argp).craft);
+r = (r%(ALIGN_TAB));
 r = (-r+(ALIGN_TAB));
 coord.X = (-r+(coord.X));
 }
 else {
 // back-ward search the last tab position.
 XOR(cache,cache);
-i = ((*argp).count);
-while(i) {
-c = (*(--i+((*argp).craft)));
+p = ((*argp).p);
+while(0x01) {
+c = (*(--p));
 if(!(c^(HT))) break;
 cache++;
 }
@@ -122,6 +131,8 @@ r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
+
+r = debug_monitor(argp);
 
 return(0x01);
 }
