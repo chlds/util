@@ -61,5 +61,7 @@ printf("%s", "<< Error at fn. vu_refresh()");
 return(0x00);
 }
 
+r = debug_monitor(argp);
+
 return(0x01);
 }

@@ -38,7 +38,7 @@ diff = (0x00);
 p = ((*argp).init_p);
 
 if(!p) {
-printf("%s", "<< Error at fn. cumulate()");
+printf("%s", "<< Error at fn. find_deadsp()");
 return(0x00);
 }
 

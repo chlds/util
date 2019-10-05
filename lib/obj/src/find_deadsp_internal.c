@@ -25,7 +25,7 @@ auto signed char(*p);
 auto signed long long(cur);
 auto signed(cache), (r);
 
-auto signed short(vflag);
+auto signed short(vflag), (overwrite);
 auto signed short(flag);
 
 /* **** CODE/TEXT */
@@ -35,15 +35,20 @@ if(!diff) return(0x00);
 
 if(!(*base)) return(0x00);
 
+XOR(vflag,vflag);
 p = ((*argp).p);
+// if(p==(base)) XNOR(vflag);
 if(p<(base)) XNOR(vflag);
-else XOR(vflag,vflag);
 
 XOR(flag,flag);
-
 r = ct_word_internal(base);
-
 (*argp).len_of_word = (r);
+
+if(-0x01+cols<(r)) {
+(*argp).p_set_after_wrapping = (base);
+overwrite = (0x00);
+}
+else overwrite = (0x01);
 
 if(!r) {
 if(!(HYPHEN^(*base))) XNOR(flag);
@@ -78,7 +83,7 @@ cache = (-col+(cols));
 col = (r%(cols));
 ADD(col,cache);
 col = (col%(cols));
-(*argp).p_set_after_wrapping = (-col+(base));
+if(overwrite) (*argp).p_set_after_wrapping = (-col+(base));
 }}
 
 if(C_DBG) r = debug_monitor(argp);
