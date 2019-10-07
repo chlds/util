@@ -51,5 +51,7 @@ return(0x00);
 }
 //*/
 
+if(C_DBG) r = debug_monitor(argp);
+
 return(diff);
 }

@@ -21,7 +21,7 @@ auto signed char const(SP) = (0x20);
 auto signed char const(HT) = (0x09);
 auto signed char(*p);
 auto COORD(coord),(coord_b);
-auto signed(r);
+auto signed i,r;
 auto signed short(cols);
 auto signed short(flag);
 
@@ -63,6 +63,24 @@ cols = (0x01+((*argp).csbi.srWindow.Right));
 XOR(flag,flag);
 
 if(!(HT^(*p))) {
+
+
+// word-wrap
+r = ct_word_internal((*argp).p);
+i = (-0x01+(cols));
+if(i<(coord.X+(ALIGN_TAB+(r)))) {
+INC(coord.Y);
+XOR(coord.X,coord.X);
+r = SetConsoleCursorPosition((*argp).s_out,coord);
+if(!r) {
+r = GetLastError();
+printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
+return(0x00);
+}
+return(0x01);
+}
+
+
 XNOR(flag);
 r = (coord.X%(ALIGN_TAB));
 r = (-r+(ALIGN_TAB));

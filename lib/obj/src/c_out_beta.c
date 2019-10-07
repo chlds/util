@@ -77,6 +77,7 @@ XOR(i,i);
 while(r) {
 if(!(-'-'+(*(i+(di))))) break;
 if(!(-' '+(*(i+(di))))) break;
+if(!(-'\t'+(*(i+(di))))) break;
 DEC(i);
 DEC(r);
 }

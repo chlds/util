@@ -132,6 +132,12 @@ signed(__cdecl cipher_embed(signed char(*di), signed(n)));
 /* Embed (0x00) (n) times out of the di. */
 
 
+signed(__cdecl align_backward(signed(arg),signed(*argp)));
+signed(__cdecl align(signed(arg),signed(*argp)));
+
+/* Return the number of spaces that are output when the tab key is pressed. */
+
+
 signed(__cdecl ct_txt_here_internal(signed(align),signed(*argp),signed char(*di),signed char(*base)));
 signed(__cdecl ct_txt_here(signed(align),signed char(*di),signed char(*base)));
 

@@ -86,7 +86,7 @@ col = (col%(cols));
 if(overwrite) (*argp).p_set_after_wrapping = (-col+(base));
 }}
 
-if(C_DBG) r = debug_monitor(argp);
+// if(C_DBG) r = debug_monitor(argp);
 
 if(vflag) return(0x00);
 
