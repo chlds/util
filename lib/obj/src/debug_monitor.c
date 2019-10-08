@@ -104,7 +104,8 @@ printf("\n");
 printf("%s%4d%s%4d%s%4d", ".cumul_here, .cumul, (*((*argp).t)).cumul: ", (*argp).cumul_here, " / ", (*argp).cumul, " / ", (*((*argp).t)).cumul);
 printf("\n");
 
-printf("%s%4d%s%4d%s%4d%s%4d", ".c000, .c001, .c002, .c003: ", (*argp).c000, " / ", (*argp).c001, " / ", (*argp).c002, " / ", (*argp).c003);
+printf("%s%4d%s%4d", ".cached_coord.X/Y: ", (*argp).cached_coord.X, " / ", (*argp).cached_coord.Y);
+printf("%s%4d%s%4d%s%4d%s%4d", ", .c000,.c001,.c002,.c003: ", (*argp).c000, " / ", (*argp).c001, " / ", (*argp).c002, " / ", (*argp).c003);
 printf("\n");
 
 printf("%-24s%p\n", ".p: ", (*argp).p);

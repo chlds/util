@@ -22,7 +22,7 @@ If the function fails, the return value is (0x00). */
 
 # define LIMIT_FSIZ (10000000)
 
-# define ALIGN_TAB (0x08)
+// # define ALIGN_TAB (0x08)
 
 # define COMMAND_BUFF (0x200) // (-1+(256)) per row i.e., in a null-terminated array for characters
 # define BUFF (0x100000) // 1MiB per row

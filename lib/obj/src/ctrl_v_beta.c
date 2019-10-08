@@ -21,11 +21,13 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl ctrl_v_beta(CMDLN_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char(*p);
-auto COORD(coord), (coord_b);
-auto signed(cache), (i), (r);
-auto signed short(flag);
-auto signed char(c);
+auto signed char *p;
+auto COORDS coords;
+auto COORD coord,coord_b;
+auto signed cols;
+auto signed cache,i,r;
+auto signed short flag;
+auto signed char c;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -60,6 +62,15 @@ if(!r) {
 printf("%s", "<< Error at fn. vu_refresh()");
 return(0x00);
 }
+
+
+cols = (0x01+((*argp).csbi.srWindow.Right));
+r = calc_coord(&coords,(*argp).init_p,cols);
+
+(*argp).c000 = r;
+(*argp).c001 = coords.X;
+(*argp).c002 = coords.Y;
+
 
 r = debug_monitor(argp);
 

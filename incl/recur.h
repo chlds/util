@@ -12,6 +12,13 @@ If the function fails, the return value is (0x00). */
 
 
 
+signed(__cdecl calc_coord_internal(COORDS(*coords),signed char(*secure),signed char(*argp),signed char(*base),signed(cols)));
+signed(__cdecl calc_coord(COORDS(*coords),signed char(*argp),signed(cols)));
+
+/* Calculate coordinates of the terminating address of an array for characters, taking into account deviations caused by wrapping words. */
+/* Refer at incl/las.h for ALIGN_TAB. */
+
+
 signed(__cdecl pickfiles(signed char(*di /* path */ ), signed char(*si /* string */ )));
 signed(__cdecl rddir(signed short(cmdln_flag), void /* or struct dir_info_stored */ (*argp)));
 signed(__cdecl finds(signed short(cmdln_flag), signed char(*argp)));
@@ -104,6 +111,7 @@ signed(__cdecl ct_ars2(signed char(*base)));
 /* Count arguments to the terminating null character. */
 
 
+signed(__cdecl cpy2p(signed char(*di), signed char(*deadline), signed char(*si)));
 signed(__cdecl ncpy(signed char(*di), signed char(*si), signed(arg)));
 signed(__cdecl cpy2(signed char(cache), signed char(*di), signed char(*si)));
 signed(__cdecl cpy(signed char(*di), signed char(*si)));
@@ -132,8 +140,8 @@ signed(__cdecl cipher_embed(signed char(*di), signed(n)));
 /* Embed (0x00) (n) times out of the di. */
 
 
-signed(__cdecl align_backward(signed(arg),signed(*argp)));
-signed(__cdecl align(signed(arg),signed(*argp)));
+signed(__cdecl align_backward(signed(arg),signed char(*argp)));
+signed(__cdecl align(signed(arg),signed char(*argp)));
 
 /* Return the number of spaces that are output when the tab key is pressed. */
 

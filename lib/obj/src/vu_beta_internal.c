@@ -35,7 +35,7 @@ static signed(__cdecl*(fn[COUNT_FN])) (void(*argp)) = {
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_g),
 
 (signed(__cdecl*) (void(*))) (ctrl_h_beta),
-(signed(__cdecl*) (void(*))) (cmdln_ctrl_i),
+(signed(__cdecl*) (void(*))) (ctrl_i_beta),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_j),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_k),
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_l),
