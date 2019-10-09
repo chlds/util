@@ -21,6 +21,7 @@ auto signed char const(SP) = (0x20);
 auto signed char const(HT) = (0x09);
 
 auto signed char(*p);
+auto COORDS(coords);
 auto COORD(coord), (coord_b);
 auto signed(cache), (i), (r);
 auto signed(c);
@@ -47,7 +48,7 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 coord_b.X = (coord.X);
 coord_b.Y = (coord.Y);
 
-cols = ((*argp).csbi.srWindow.Right);
+cols = (0x01+((*argp).csbi.srWindow.Right));
 
 if(!((*argp).count)) return(0x01);
 
@@ -56,15 +57,11 @@ DEC((*argp).p);
 DEC((*argp).count);
 
 if(!(coord.X)) {
-cache = find_deadsp(argp);
-r = ct_word_internal(p);
-r = (-r+((*argp).len_of_word));
-if(cols<(r)) r = (0x00);
-else r = (cache);
 DEC(coord.Y);
-coord.X = ((*argp).csbi.srWindow.Right);
-coord.X = (-r+(coord.X));
-r = SetConsoleCursorPosition((*argp).s_out, coord);
+r = cpy2p((*argp).craft,(*argp).p,(*argp).init_p);
+r = calc_coord(&coords,(*argp).craft,cols);
+coord.X = (coords.X);
+r = SetConsoleCursorPosition((*argp).s_out,coord);
 if(!r) {
 r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);

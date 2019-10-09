@@ -16,7 +16,7 @@ signed(__cdecl calc_coord_internal(COORDS(*coords),signed char(*secure),signed c
 signed(__cdecl calc_coord(COORDS(*coords),signed char(*argp),signed(cols)));
 
 /* Calculate coordinates of the terminating address of an array for characters, taking into account deviations caused by wrapping words. */
-/* Refer at incl/las.h for ALIGN_TAB. */
+/* Refer at incl/las.h for ALIGN_TAB and at incl/ll.h for COORDS. */
 
 
 signed(__cdecl pickfiles(signed char(*di /* path */ ), signed char(*si /* string */ )));
@@ -170,6 +170,11 @@ signed(__cdecl ct_word_internal(signed char(*argp)));
 signed(__cdecl ct_word(signed(align),signed(offset),signed char(*argp)));
 
 /* Count length of a word or to the terminating null character. */
+
+
+signed(__cdecl ct2nonblank(signed char(*argp)));
+
+/* Count up to a non-blank place (or to the terminating null character). */
 
 
 signed(__cdecl ct2_only(signed char(di), signed char(*deadline), signed char(*argp)));
