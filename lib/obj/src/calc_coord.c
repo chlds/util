@@ -3,6 +3,7 @@
 Calculate coordinates of the terminating address of an array for characters.
 
 Remarks:
+Absorb deviation caused by wrapping words.
 Refer at incl/recur.h.
 */
 
@@ -33,6 +34,8 @@ return(0x00);
 }
 
 base = (argp);
+(*coords).X = (0x00);
+(*coords).Y = (0x00);
 
 r = calc_coord_internal(coords,p,argp,base,cols);
 

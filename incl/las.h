@@ -23,6 +23,7 @@ Standards: STDIN, STDOUT and STDERR */
 # define  SHL(A,B)  A = ((A)<<(B))
 # define  SHR(A,B)  A = ((A)>>(B))
 
+# define  SUB(A,B)  A=((A)+(-(B)));
 # define  ADD(A,B)  A=((A)+(B));
 
 # define  DEC(A)    (--(A))

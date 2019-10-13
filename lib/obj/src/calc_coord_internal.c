@@ -3,6 +3,7 @@
 Calculate coordinates of the terminating address of an array for characters.
 
 Remarks:
+Absorb deviation caused by wrapping words.
 Refer at incl/recur.h.
 */
 
@@ -14,13 +15,13 @@ Refer at incl/recur.h.
 signed(__cdecl calc_coord_internal(COORDS(*coords),signed char(*secure),signed char(*argp),signed char(*base),signed(cols))) {
 
 /* **** DATA, BSS and STACK */
-static signed char const(HYPHEN) = ('-');
-static signed char const(SP) = (' ');
-static signed char const(HT) = ('\t');
+static signed char const HYPHEN = ('-');
+static signed char const SP = (' ');
+static signed char const HT = ('\t');
 
 auto signed char *p;
 auto signed len,r;
-auto signed short(flag);
+auto signed short flag;
 
 /* **** CODE/TEXT */
 if(!coords) return(0x00);
@@ -34,7 +35,7 @@ if(!(*argp)) return(0x00);
 
 XOR(flag,flag);
 
-// save to deviate..
+// save to deviate (i.e., offset the base for alignement)..
 p = (argp);
 
 r = ct_word_internal(argp);
@@ -44,7 +45,7 @@ if(!r) {
 if(!(HT^(*argp))) {
 XNOR(flag);
 r = cpy2p(secure,argp,base);
-r = align(ALIGN_TAB,secure); // Occur deviations by wrapping words..
+r = align(ALIGN_TAB,secure); // Align
 ADD((*coords).X,r);
 }
 else ADD((*coords).X,0x01);
@@ -64,13 +65,12 @@ if(r<(cols)) {
 else {
 INC((*coords).Y);
 (*coords).X = (len);
-base = (p); // Occur deviations by wrapping words.
+base = (p); // deviations caused by wrapping words.
 while(0x01) {
 r = ((*coords).X);
 if(r<(cols)) break;
 INC((*coords).Y);
-r = (-cols+((*coords).X));
-(*coords).X = (r);
+SUB((*coords).X,cols);
 }}}
 
 else {

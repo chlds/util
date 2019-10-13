@@ -172,6 +172,23 @@ signed(__cdecl ct_word(signed(align),signed(offset),signed char(*argp)));
 /* Count length of a word or to the terminating null character. */
 
 
+signed(__cdecl ct2firstletter_internal(signed(rest),signed char(*cur)));
+signed(__cdecl ct2firstletter(signed char(*cur),signed char(*orig)));
+
+/* Count up to the first letter of one word on the current address. */
+
+
+signed(__cdecl ct2here(signed char(*cur),signed char(*orig)));
+
+/* Count length of characters/bytes up to the current address. */
+
+
+signed(__cdecl ct2nonblank_r_internal(signed(rest),signed char(*cur)));
+signed(__cdecl ct2nonblank_r(signed char(*cur),signed char(*orig)));
+
+/* Reversely count up to a non-blank place. */
+
+
 signed(__cdecl ct2nonblank(signed char(*argp)));
 
 /* Count up to a non-blank place (or to the terminating null character). */

@@ -22,45 +22,71 @@ static signed char const(SP) = (' ');
 static signed char const(HT) = ('\t');
 
 auto signed char *p;
-auto signed i,r;
+auto signed i,l,r;
 auto signed short flag;
 auto signed char c;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-if(!(*((*argp).p))) return(0x01);
-
-XOR(flag,flag);
+XOR(l,l);
 XOR(i,i);
 
+p = ((*argp).p);
+
+if(!(*p)) return(0x01);
+
+if(!(HYPHEN^(*p))) {
+r = ctrl_f_beta(argp);
 r = ct_word_internal((*argp).p);
-ADD(i,r);
-
-if(!r) {
-if(!(HT^(*((*argp).p)))) {
-r = (0x01);
-ADD(i,r);
-XNOR(flag);
-}}
-
-if(!flag) {
-if(!(SP^(*(r+((*argp).p))))) {
-r = ct2nonblank(r+((*argp).p));
-ADD(i,r);
+if(r) return(0x01);
+p = ((*argp).p);
+if(!(HT^(*p))) return(0x01);
+return(0x01+(ctrl_g_beta(argp)));
 }
-if(!(HYPHEN^(*(r+((*argp).p))))) {
-r = (0x01);
-ADD(i,r);
-}}
 
+if(!(HT^(*p))) {
+r = ctrl_f_beta(argp);
+ADD(l,r);
+p = ((*argp).p);
+r = ct2nonblank(p);
+ADD(l,r);
+i = (r);
 while(i) {
 r = ctrl_f_beta(argp);
-if(!r) printf("%s", "<< Error at fn. ctrl_f_beta()");
+--i;
+}
+return(l);
+}
+
+if(!(SP^(*p))) {
+r = ct2nonblank(p);
+ADD(l,r);
+ADD(i,r);
+while(i) {
+r = ctrl_f_beta(argp);
+--i;
+}
+return(l);
+}
+
+r = ct_word_internal(p);
+ADD(l,r);
+ADD(i,r);
+while(i) {
+r = ctrl_f_beta(argp);
 --i;
 }
 
-if(C_DBG) r = debug_monitor(argp);
+p = ((*argp).p);
 
-return(0x01);
+r = ct2nonblank(p);
+ADD(l,r);
+ADD(i,r);
+while(i) {
+r = ctrl_f_beta(argp);
+--i;
+}
+
+return(l);
 }

@@ -129,7 +129,7 @@ printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r
 return(0x00);
 }
 
-r = debug_monitor(argp);
+if(C_DBG) r = debug_monitor(argp);
 
 return(0x01);
 }
