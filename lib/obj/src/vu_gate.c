@@ -116,7 +116,9 @@ coord.Y = ((*argp).csbi.dwCursorPosition.Y);
 (*argp).craft = (snap);
 (*argp).limit = (BUFF);
 
-(*argp).p = ((*argp).init_p);
+(*argp).offset = ((*argp).init_p);
+
+(*argp).p = ((*argp).offset);
 (*argp).count = (0x00);
 (*argp).tail = (0x00);
 

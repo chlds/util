@@ -123,14 +123,14 @@ enum {
 X, Y, OFFSET_X, OFFSET_Y
 };
 
-auto signed const(LIMIT) = (3600);
+auto signed const(LIMIT) = (7200); // for 2h
 
 auto signed const(QUANTUM) = (0x10);
 auto signed const(SNOOZE) = (0x04);
 auto signed const(DELAY) = (0x03*(QUANTUM));
 
 // Default
-auto time_t(deadline), (t);
+auto time_t(deadline), (t), (zzz);
 auto time_t(secs) = (DEFAULT_SECS);
 
 
@@ -471,6 +471,8 @@ Sleep(DELAY);
 
 time(&t);
 
+zzz = (-t+(deadline));
+
 /* Check the toggle to stop */
 if(!(cmdl_time_Toggle)) break;
 
@@ -500,9 +502,9 @@ GetLocalTime(&st);
 st.wMilliseconds = (st.wMilliseconds/(100));
 
 sprintf(
-buff, "%2d:%02d:%02d %01d %s %d %s %d", \
+buff, "%2d:%02d:%02d %01d %s %d %s %d %s %zd %s", \
 st.wHour, st.wMinute, st.wSecond, st.wMilliseconds, \
-*(dayoftheweek+(st.wDayOfWeek)), st.wDay, *(month+(st.wMonth+(~(0x00)))), st.wYear
+*(dayoftheweek+(st.wDayOfWeek)), st.wDay, *(month+(st.wMonth+(~(0x00)))), st.wYear, " | ", zzz, "seconds left"
 );
 
 

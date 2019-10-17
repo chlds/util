@@ -190,6 +190,16 @@ printf("%s", "<< Error at fn. c_out_beta()");
 return(0x00);
 }
 
+
+
+
+r = out_beta((*argp).p,argp);
+
+if(!r) {
+}
+
+
+/* Replaced with fn. out_beta (1/4)
 r = current_caret_pos(argp);
 if(!r) {
 printf("<< Error at fn. current_caret_pos()");
@@ -197,13 +207,20 @@ return(0x00);
 }
 coord.X = ((*argp).csbi.dwCursorPosition.X);
 coord.Y = ((*argp).csbi.dwCursorPosition.Y);
+//*/
 
+
+/* Replaced with fn. out_beta (2/4)
 r = c_outs_beta((*argp).p,argp);
+//*/
+
 
 /* word-wrap */
 // also refer at fn. c_out_beta, fn. sustain, fn. connect_with_workspace, fn. ctrl_b_beta or..
 (*argp).cumul_lock = (0x01);
 
+
+/* Replaced with fn. out_beta (3/4)
 if((*argp).copied) {
 r = ct2(' ',(*argp).init_p);
 if((*argp).csbi.srWindow.Right<(r)) (*argp).wrap = (0x00);
@@ -213,12 +230,13 @@ if(r<(-coord.X+(0x01+((*argp).csbi.srWindow.Right)))) (*argp).wrap = (0x00);
 else (*argp).wrap = (0x01);
 }}
 else (*argp).wrap = (0x00);
+//*/
 
 
+/* Replaced with fn. out_beta (4/4)
 if((*argp).wrap) {
 INC(coord.Y);
-XOR(coord.X,coord.X);
-coord.X = (coord.X+((*argp).offset_by_wrapping));
+coord.X = ((*argp).offset_by_wrapping);
 r = SetConsoleCursorPosition((*argp).s_out,coord);
 if(!r) {
 r = GetLastError();
@@ -232,7 +250,11 @@ if(!r) {
 r = GetLastError();
 printf("%s%d\n", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
-}}}
+}}
+//*/
+
+
+}
 
 
 /* Effectively refresh the console screen to save resources

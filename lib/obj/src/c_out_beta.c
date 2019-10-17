@@ -116,7 +116,8 @@ printf("%s%d", "<< Error at fn. SetConsoleCursorPosition() with error no. ", r);
 return(0x00);
 }
 l = (0x01+(~l));
-(*argp).p_set_after_wrapping = (l+(di));
+(*argp).p_set_after_wrapping = (l+(di)); // Deprecated..
+(*argp).offset = (l+(di));
 while(0x01) {
 if(0x00<(l)) break;
 r = WriteConsole((*argp).s_out,l+(di),sizeof(signed char),&len,0x00);

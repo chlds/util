@@ -50,11 +50,15 @@ void(*locally_secured);
 signed(clipped_bytes);
 signed(clipped);
 signed short(clip_reset);
-/* buffers */
-signed char(*clip);
-signed char(*craft);
-signed char(*init_p); // as workspace
-signed char(*p);
+/* receptors for buffer on the workspace */
+/* refer at fn. vu_gate for the buffers */
+signed char(*clip); // connected with buffer board
+signed char(*craft); // connected with buffer snap
+signed char(*init_p); // connected with buffer buff
+/* word-wrap */
+signed char(*offset); // set after wrapping words (on workspace)
+/* operate */
+signed char(*p); // point the current position (on workspace)
 signed(limit);
 signed(count);
 signed(tail);

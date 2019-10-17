@@ -12,6 +12,12 @@ If the function fails, the return value is (0x00). */
 
 
 
+signed(__cdecl out_beta_internal(signed short(cols),COORD(*coord),signed char(*base),CMDLN_STAT(*argp)));
+signed(__cdecl out_beta(signed char(*base),CMDLN_STAT(*argp)));
+
+/* word-wrap: output content of an array for characters out of the current coordinates */
+
+
 signed(__cdecl find_deadsp_internal(signed(*diff),signed char(*base),signed(col),signed(cols),CMDLN_STAT(*argp)));
 signed(__cdecl find_deadsp(CMDLN_STAT(*argp)));
 

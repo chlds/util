@@ -172,6 +172,11 @@ signed(__cdecl ct_word(signed(align),signed(offset),signed char(*argp)));
 /* Count length of a word or to the terminating null character. */
 
 
+signed(__cdecl ct_word_backward(signed(left),signed char(*argp)));
+
+/* Count length of a word backward. */
+
+
 signed(__cdecl ct2firstletter_internal(signed(rest),signed char(*cur)));
 signed(__cdecl ct2firstletter(signed char(*cur),signed char(*orig)));
 
