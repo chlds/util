@@ -23,6 +23,8 @@ signed(__cdecl vu_beta_internal(CMDLN_STAT(*argp))) {
 /* **** DATA, BSS and STACK */
 extern signed(terminate);
 
+static signed char SP = (' ');
+
 static signed(__cdecl*(fn[COUNT_FN])) (void(*argp)) = {
 
 (signed(__cdecl*) (void(*))) (cmdln_ctrl_at),
@@ -193,10 +195,21 @@ return(0x00);
 
 
 
+// There is (a lot of) room for improvement.
 r = out_beta((*argp).p,argp);
 
 if(!r) {
 }
+
+
+//* word-wrap: refresh
+if(!(SP^((*argp).c))) {
+r = vu_refresh((*argp).t,argp);
+if(!r) {
+}}
+//*/
+
+
 
 
 /* Replaced with fn. out_beta (1/4)
@@ -255,6 +268,13 @@ return(0x00);
 
 
 }
+
+
+
+
+/* And refresh the subsequent screen */
+
+
 
 
 /* Effectively refresh the console screen to save resources

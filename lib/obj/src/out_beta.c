@@ -3,6 +3,10 @@
 Console output
 Output a tab as whitespace
 
+Using fn. c_outs_beta e.g., to output remaining string after inserting a character.
+Compare fn. c_outs_beta with fn. _putch/_putwch.
+Also refer at fn. vu_beta_internal for fn. out_beta.
+
 Remarks:
 Launch on vu.exe
 Use fn. c_out_beta (along with fn. c_out_ht_beta and fn. c_out_ht_beta_internal)
@@ -63,18 +67,9 @@ len = (r);
 }
 
 
-
-
+/* There is (a lot of) room for improvement. */
+/* e.g., use another function using fn. _putch/_putwch to simply output remaining string after inserting a character. */
 r = c_outs_beta(base,argp);
-
-
-/*
-r = out_beta_internal(cols,&coord,base,argp);
-if(!r) {
-}
-//*/
-
-
 
 
 if(flag) {

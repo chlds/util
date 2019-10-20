@@ -82,6 +82,7 @@ return(0x00);
 (*argp).depart.Y = (coord.Y);
 //*/
 
+/* come back */
 r = SetConsoleCursorPosition((*argp).s_out,(*argp).cached_coord);
 
 if(!r) {

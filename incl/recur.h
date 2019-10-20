@@ -12,6 +12,12 @@ If the function fails, the return value is (0x00). */
 
 
 
+signed(__cdecl column_internal(signed short(cols),signed(algn),signed short(col),signed char(*cur),signed char(*offset)));
+signed(__cdecl column(signed short(cols),signed(algn),signed char(*base)));
+
+/* For columnists. */
+
+
 signed(__cdecl calc_coord_internal(COORDS(*coords),signed char(*secure),signed char(*argp),signed char(*base),signed(cols)));
 signed(__cdecl calc_coord(COORDS(*coords),signed char(*argp),signed(cols)));
 
@@ -216,6 +222,11 @@ signed(__cdecl ct2(signed char(di), signed char(*base)));
 signed(__cdecl ct(signed char(*argp)));
 
 /* Count letters to the one you'd select or to the terminating null character. */
+
+
+signed(__cdecl n_putch(signed(n),signed(letter)));
+
+/* Output the letter n times. */
 
 
 signed(__cdecl catppp(signed char(***argp)));

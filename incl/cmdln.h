@@ -138,6 +138,7 @@ signed(cumul); // cumulate dead space after wrapping words to the terminating ad
 signed(len_of_word); // word-wrap: refer at fn. ctrl_b_beta, fn. find_deadsp_internal or..
 signed char(*p_set_after_wrapping); // refer at fn. c_out_beta or..
 // void(*p_after_wrapping);
+signed short(cached_coord_lock); // refer at fn. output_beta_internal.
 COORD(cached_coord); // word-wrap
 COORD(cached_linebreak); // word-wrap
 // to debug
