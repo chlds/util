@@ -38,7 +38,7 @@ if(!(*p)) return(0x01);
 
 if(!(HYPHEN^(*p))) {
 r = ctrl_f_beta(argp);
-r = ct_word_internal((*argp).p);
+r = ct_word((*argp).p);
 if(r) return(0x01);
 p = ((*argp).p);
 if(!(HT^(*p))) return(0x01);
@@ -70,7 +70,7 @@ r = ctrl_f_beta(argp);
 return(l);
 }
 
-r = ct_word_internal(p);
+r = ct_word(p);
 ADD(l,r);
 ADD(i,r);
 while(i) {

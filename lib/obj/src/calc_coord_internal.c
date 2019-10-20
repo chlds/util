@@ -38,7 +38,7 @@ XOR(flag,flag);
 // save to deviate (i.e., offset the base for alignement)..
 p = (argp);
 
-r = ct_word_internal(argp);
+r = ct_word(argp);
 len = (r);
 
 if(!r) {

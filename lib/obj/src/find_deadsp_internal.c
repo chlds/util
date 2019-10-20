@@ -41,7 +41,7 @@ p = ((*argp).p);
 if(p<(base)) XNOR(vflag);
 
 XOR(flag,flag);
-r = ct_word_internal(base);
+r = ct_word(base);
 (*argp).len_of_word = (r);
 
 if(-0x01+cols<(r)) {
@@ -67,7 +67,7 @@ col = (col+(-r+(ALIGN_TAB)));
 col = (col%(cols));
 }}
 if(!flag) {
-printf("%s", "<< Error at fn. ct_word_internal()");
+printf("%s", "<< Error at fn. ct_word()");
 return(0x00);
 }}
 

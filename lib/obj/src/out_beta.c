@@ -47,7 +47,7 @@ coord_b.Y = (coord.Y);
 
 cols = (0x01+((*argp).csbi.srWindow.Right));
 
-len = ct_word_internal(base);
+len = ct_word(base);
 r = (coord.X+(len));
 
 if(r<(cols)) flag = (0x00);

@@ -36,7 +36,7 @@ return(0x00);
 if(!(*cur)) return(0x00);
 
 
-r = ct_word_internal(cur);
+r = ct_word(cur);
 
 if(!r) {
 // 1/3. a hyphen
@@ -61,7 +61,7 @@ r = ct_txt(algn,offset);
 // ..or use fn. ct(offset).
 INC(r);
 p = (signed char(*)) malloc(r*(sizeof(signed char)));
-r = ct_word_internal(cur);
+r = ct_word(cur);
 r = cpy2p(p,cur+(r),offset);
 r = align(algn,p);
 ADD(col,r);

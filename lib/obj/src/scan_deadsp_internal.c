@@ -38,7 +38,7 @@ if(di<(si)) return(0x00);
 
 XOR(flag,flag);
 
-r = ct_word_internal(si);
+r = ct_word(si);
 
 if(!r) {
 if(!(HYPHEN^(*si))) XNOR(flag);
@@ -57,7 +57,7 @@ col = (col+(-r+(ALIGN_TAB)));
 col = (col%(cols));
 }}
 if(!flag) {
-printf("%s", "<< Error at fn. ct_word_internal()");
+printf("%s", "<< Error at fn. ct_word()");
 return(0x00);
 }}
 

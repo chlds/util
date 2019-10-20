@@ -66,7 +66,7 @@ if(!(HT^(*p))) {
 
 
 // word-wrap
-r = ct_word_internal((*argp).p);
+r = ct_word((*argp).p);
 i = (-0x01+(cols));
 if(i<(coord.X+(ALIGN_TAB+(r)))) {
 INC(coord.Y);
@@ -100,7 +100,7 @@ XOR(coord.X,coord.X);
 }
 else {
 /* word-wrap */
-r = ct_word_internal((*argp).p);
+r = ct_word((*argp).p);
 ADD(coord_b.X,r);
 r = (-0x02+(cols));
 if(r<(coord_b.X)) {

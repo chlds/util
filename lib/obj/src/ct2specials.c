@@ -3,7 +3,7 @@
 Count letters to specific/special characters or to the terminating null character.
 
 Remarks:
-refer at fn. ct_word_internal
+refer at fn. ct_word
 */
 
 
