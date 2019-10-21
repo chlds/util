@@ -30,8 +30,8 @@ if(cols<(0x00)) return(0x00);
 if(!cols) return(0x00);
 if(!base) return(0x00);
 
-// To insert an LF at the end of (a row of) columns.
-DEC(cols);
+// To insert an LF at the end of (a row of) columns..
+// DEC(cols);
 
 XOR(col,col);
 
