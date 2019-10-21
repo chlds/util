@@ -24,7 +24,11 @@ static signed char const HT = ('\t');
 static signed char const LF = ('\n');
 
 auto signed const QUANTUM = (0x10);
-auto signed const DELAY = (0x02*(QUANTUM));
+
+auto signed const LEGIBLE = (0x04+(0x06*(QUANTUM)));
+auto signed const HIGH_READING = (0x02*(QUANTUM));
+
+auto signed const DELAY = (HIGH_READING);
 
 auto signed char *p;
 auto signed c,i,r;
@@ -45,8 +49,6 @@ r = ct2specials(cur);
 // ..or r = ct_word(cur);
 
 if(!r) {
-
-Sleep(DELAY);
 
 // 0/3. a linefeed
 if(!(LF^(*cur))) {
@@ -101,6 +103,7 @@ return(0x00);
 }}
 // Common to (LF,) HYPHEN, SP and HT
 ADD(cur,0x01);
+Sleep(DELAY);
 }
 
 else {
