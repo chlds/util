@@ -55,7 +55,13 @@ MYLIB = ./lib/$(L).lib
 MYLIBS = ./lib/*.lib
 LIBS = ./lib/*.lib user32.lib gdi32.lib
 
-CFLAGS = -c -Fo$(OBJ) -Fa$(S)
+
+UTF_8 = -source-charset:utf-8
+# compiler option for unicode:
+# e.g., define _UNICODE, save files in UTF-8, include <tchar.h>, auto TCHAR *p = (L"...."), fn. _putch/_putwch/_puttch and more..
+
+
+CFLAGS = -c -Fo$(OBJ) -Fa$(S) # $(UTF_8)
 CC = cl.exe
 LILFLAGS = -out:$(EXE) -map:$(MAP) -stack:128000000
 LIL = link.exe
