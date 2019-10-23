@@ -150,7 +150,8 @@ auto unsigned(__stdcall*(fn[COUNT_FUNCTIONS])) (void(*argp)) = {
 (unsigned(__stdcall*) (void(*))) (cmdl2_exit),
 (unsigned(__stdcall*) (void(*))) (cmdl2_help),
 (unsigned(__stdcall*) (void(*))) (cmdl2_clear),
-(unsigned(__stdcall*) (void(*))) (cmdl2_time),
+(unsigned(__stdcall*) (void(*))) (cmdl2_time2), // transparency
+// (unsigned(__stdcall*) (void(*))) (cmdl2_time), // solid
 (unsigned(__stdcall*) (void(*))) (cmdl2_open),
 (unsigned(__stdcall*) (void(*))) (cmdl2_save),
 (unsigned(__stdcall*) (void(*))) (cmdl2_output),

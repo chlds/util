@@ -47,8 +47,8 @@ auto unsigned char(c);
 if(argc<(LIMIT)) {
 printf("\n");
 printf("%s\n", "  Usage:");
-printf("%s\n", "  art [columns] <file>");
-printf("%s\n", "  e.g., art 40 abc.txt");
+printf("%s\n", "  art <file> [columns]");
+printf("%s\n", "  e.g., art abc.txt 40");
 return(0x00);
 }
 
@@ -57,16 +57,17 @@ cols = (COLS);
 }
 
 else {
-r = (0x01);
+r = (0x00);
 p = (*(argv+(argc+(~(r)))));
 r = cv2d(RADIX,&i,p);
 // printf("%s%d\n", "r is: ", r);
 // printf("%s%d\n", "i is: ", i);
-if(i<(0x00)) i = (~(i));
+if(!r) return(0x00);
+if(i<(0x00)) i = (0x01+(~(i)));
 cols = (i);
 }
 
-filename = (*(argv+(argc+(~(NIL)))));
+filename = (*(argv+(0x01)));
 
 /* Check the file size to secure buffer */
 r = stat(filename,&stats);
