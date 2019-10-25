@@ -110,8 +110,8 @@ signed(__cdecl cmpr(signed(*cache), signed char(*di), signed char(*si)));
 /* Compare the ones in case sensitive strings */
 
 
-signed(__cdecl ct_ars_internal(signed short(flag), signed(*di), signed char(*base)));
-signed(__cdecl ct_ars(signed(*di), signed char(*base)));
+signed(__cdecl ct_ars_internal(signed short(flag),signed(*retv),signed char(*base)));
+signed(__cdecl ct_ars(signed(*retv),signed char(*base)));
 signed(__cdecl ct_ars2(signed char(*base)));
 
 /* Count arguments to the terminating null character. */

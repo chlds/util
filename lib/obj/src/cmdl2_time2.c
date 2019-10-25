@@ -1,6 +1,18 @@
 /* **** Notes
 
 Commandlet to output the local time
+
+Remarks:
+Transparency
+
+Extra:
+fn. GetStdHandle to retrieve a handle to the specified standard device (standard input, standard output, or standard error).
+fn. GetConsoleWindow to retrieve the window handle used by the console associated with the calling process.
+fn. GetDesktopWindow to retrieve a handle to the desktop window.
+fn. GetWindowInfo to retrieve information about the specified window.
+fn. EnumProcesses to retrieve the process identifier for each process object in the system.
+fn. EnumDeviceDrivers to retrieve the load address for each device driver in the system.
+Refer on site:docs.microsoft.com
 */
 
 /* **** Enhanced Metafiles for Device Independency
@@ -290,6 +302,9 @@ return(XNOR(r));
 // else printf("%s%p\n", "The handle of a font object created/mapped on the RAM will be on offset ", *(obj+(FONT)));
 
 
+/* Retrieve a handle to the desktop window */
+*(window+(ACTIVE)) = GetDesktopWindow();
+
 /* Create a bitmap object and two memory device contexts from the common DC */
 *(dc+(CACHE)) = (void(*)) GetDC((void(*)) *(window+(ACTIVE)));
 
@@ -476,18 +491,17 @@ if(!(cmdl_time_Toggle)) break;
 /* Check the announcements to stop */
 if(Announcements) break;
 
+// One second: Get and release a handle of the common device context to transfer a bit block to an off-screen buffer.
 *(dc+(CACHE)) = (void(*)) GetDC((void(*)) *(window+(ACTIVE)));
 if(!(*(dc+(CACHE)))) {
 printf("%s\n", "<< Error at GetDC()");
 return(XNOR(r));
 }
-
 r = BitBlt(*(dc+(DI)),0x00,0x00,*(region+(X)),*(region+(Y)),*(dc+(CACHE)),0x00,0x00,SRCCOPY);
 if(!r) {
 printf("%s\n", "<< Error at fn. BitBlt()");
 return(XNOR(r));
 }
-
 r = ReleaseDC(*(window+(ACTIVE)),*(dc+(CACHE)));
 if(!r) {
 printf("%s\n", "<< Error at ReleaseDC()");
@@ -540,21 +554,17 @@ if(!r) printf("%s\n", "<< Error at fn. TextOut() the second");
 old_textcolor = SetTextColor(*(dc+(DI)),old_textcolor);
 if(!(old_textcolor^(CLR_INVALID))) printf("%s\n", "<< Error at SetTextColor() the second to restore");
 
-/* Transfer to the primary screen */
-/* Getting and releasing a handle of the common Dedive Context to use in fn. BitBlt() */
+// Two seconds: Get and release a handle of the common device context to transfer a bit block to the primary screen.
 *(dc+(CACHE)) = (void(*)) GetDC((void(*)) *(window+(ACTIVE)));
 if(!(*(dc+(CACHE)))) {
 printf("%s\n", "<< Error at GetDC()");
 return(XNOR(r));
 }
-// else printf("%s%p\n", "The handle of the common device context mapped on the RAM will be on offset ", *(dc+(CACHE)));
-
 r = BitBlt(*(dc+(CACHE)),0x00,0x00,*(region+(X)),*(region+(Y)),*(dc+(DI)),0x00,0x00,SRCCOPY);
 if(!r) {
 printf("%s\n", "<< Error at fn. BitBlt()");
 return(XNOR(r));
 }
-
 r = ReleaseDC(*(window+(ACTIVE)), *(dc+(CACHE)));
 if(!r) {
 printf("%s\n", "<< Error at ReleaseDC()");
