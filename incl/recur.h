@@ -110,6 +110,12 @@ signed(__cdecl cmpr(signed(*cache), signed char(*di), signed char(*si)));
 /* Compare the ones in case sensitive strings */
 
 
+signed(__cdecl ct_words_internal(signed short(flag),signed(*retv),signed char(*base)));
+signed(__cdecl ct_words(signed(*retv),signed char(*base)));
+
+/* Count words to the terminating null character. */
+
+
 signed(__cdecl ct_ars_internal(signed short(flag),signed(*retv),signed char(*base)));
 signed(__cdecl ct_ars(signed(*retv),signed char(*base)));
 signed(__cdecl ct_ars2(signed char(*base)));

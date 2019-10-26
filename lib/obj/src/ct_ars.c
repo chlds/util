@@ -1,18 +1,14 @@
 /* **** Notes
 
-Count the arguments to the terminating null character.
+Count arguments to the terminating null character.
 
-retv: Put the address to retrieve the numbre of the arguments at.
+retv: Put an address to retrieve the numbre of arguments at.
 base: Put the leading address of an array for letters at.
 
 Remarks:
 Construct using along with fn. ct_ars_internal
 */
 
-
-# define LOCK (0x02)
-# define PREPARE (0x01)
-# define UNLOCK (0x00)
 
 signed(__cdecl ct_ars(signed(*retv),signed char(*base))) {
 
@@ -24,7 +20,7 @@ auto signed r;
 if(!retv) return(0x00);
 if(!base) return(0x00);
 
-flag = (PREPARE);
+flag = (0x00);
 *retv = (0x00);
 
 r = ct_ars_internal(flag,retv,base);
