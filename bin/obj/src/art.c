@@ -11,6 +11,9 @@ Implemented with a flag to be added for code to run as far as possible to the en
 # define C_W32API // To use fn. Sleep in a loop.
 # include "./../../../incl/config.h"
 
+# define LDBUFF (2048)
+# define THRESHOLD (0x03)
+
 signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 
 /* **** DATA, BSS and STACK */
@@ -19,8 +22,8 @@ SI, DI, CACHE
 };
 
 auto signed const QUANTUM = (0x10);
-auto signed const SNOOZE = (0xFF);
-auto signed const DELAY = (0x01*(QUANTUM));
+auto signed const SNOOZE = (0x08);
+auto signed const DELAY = (0x02*(QUANTUM));
 
 auto signed const FSIZE = (1024000); // about 1MB
 
@@ -33,6 +36,9 @@ auto struct stat stats;
 auto signed fd[2] = {
 (signed) (0x00)
 };
+
+auto signed char ldbuff[LDBUFF];
+auto signed short verbose;
 
 auto signed short cols = (COLS);
 auto signed short algn = (0x08);
@@ -51,6 +57,9 @@ printf("%s\n", "  art <file> [columns]");
 printf("%s\n", "  e.g., art abc.txt 40");
 return(0x00);
 }
+
+if(THRESHOLD<(argc)) verbose = (0x01);
+else verbose = (0x00);
 
 if(argc<(0x01+(LIMIT))) {
 cols = (COLS);
@@ -77,6 +86,7 @@ printf("%s\n", "<< Error at fn. stat()");
 return(0x00);
 }
 
+// Limitation
 if(FSIZE<(stats.st_size)) {
 printf("%s%d%s", "<< Could not load because the file size exceeds ", FSIZE, ".., ");
 printf("%s%ld%s\n", "size: ", stats.st_size, "bytes");
@@ -119,7 +129,7 @@ cur = (p);
 
 while(1) {
 /* Reading */
-r = read(*(fd+(SI)),&c,sizeof(c));
+r = read(*(fd+(SI)),ldbuff,LDBUFF*(sizeof(*ldbuff)));
 // An error has occurred at fn. read.
 if(!(r^(~(0x00)))) {
 printf("%s\n", "<< Error at fn. read()");
@@ -135,11 +145,12 @@ if(!(r^(EOF))) {
 break;
 }
 /* Writing */
-*cur = (c);
-cur++;
-i++;
+r = ncpy(cur,ldbuff,r);
+if(!r) break;
+ADD(cur,r);
+ADD(i,r);
 // Progress
-printf("\r%s%d%s%d", "Mapping: ", i, "/", stats.st_size);
+if(verbose) printf("\r%s%d%s%d", "Mapping: ", i, "/", stats.st_size);
 // CPU Idling
 if(l<(SNOOZE)) l++;
 else {
@@ -149,8 +160,10 @@ Sleep(QUANTUM);
 
 
 // Aux.
+if(verbose) {
 printf("\n");
 printf("\n");
+}
 
 /* output content of the file in column */
 r = column(cols,algn,p);
@@ -158,7 +171,7 @@ r = column(cols,algn,p);
 if(!r) printf("%s\n", "<< Error at fn. column()");
 
 
-printf("\n");
+if(verbose) printf("\n");
 
 /* monitor
 printf("%s%d\n", "Copied bytes: ", i);
