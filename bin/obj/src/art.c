@@ -61,22 +61,24 @@ return(0x00);
 if(THRESHOLD<(argc)) verbose = (0x01);
 else verbose = (0x00);
 
+l = (0x00);
+
 if(argc<(0x01+(LIMIT))) {
 cols = (COLS);
+filename = (*(argv+(argc+(~(l)))));
 }
 
 else {
-r = (0x00);
-p = (*(argv+(argc+(~(r)))));
+p = (*(argv+(argc+(~(l)))));
 r = cv2d(RADIX,&i,p);
 // printf("%s%d\n", "r is: ", r);
 // printf("%s%d\n", "i is: ", i);
 if(!r) return(0x00);
 if(i<(0x00)) i = (0x01+(~(i)));
 cols = (i);
+l++;
+filename = (*(argv+(argc+(~(l)))));
 }
-
-filename = (*(argv+(0x01)));
 
 /* Check the file size to secure buffer */
 r = stat(filename,&stats);
