@@ -10,6 +10,8 @@ also e.g., a super daemon like the inet.d, fn. ioctl() and/or more..
 */
 
 
+// # define _UNICODE
+
 # define C_CODE_STDS
 # define C_AS
 # define C_CMDLN
@@ -70,7 +72,13 @@ auto CMDLN_STAT(cmdln_stat);
 auto struct stat(stats);
 auto size_t(filesize);
 
+auto signed char *loc;
+
 /* **** CODE/TEXT */
+loc = setlocale(LC_CTYPE,"");
+loc = setlocale(LC_ALL,loc);
+printf("%s\n",loc);
+
 if(argc<(0x02)) {
 cmdln_stat.already_existing_file = (0x00);
 p = (signed char(*)) (0x00);

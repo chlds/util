@@ -18,3 +18,6 @@
 
 # shell script files
 /**/*.sh
+
+# notes
+/**/*.txt
