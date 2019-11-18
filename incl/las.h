@@ -9,6 +9,9 @@ Standards: STDIN, STDOUT and STDERR */
 
 
 
+# define DBG (0x00)
+
+
 # define ALIGN_TAB (0x08)
 
 

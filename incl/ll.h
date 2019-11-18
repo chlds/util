@@ -91,13 +91,15 @@ signed short(flag);
 signed int(uid);
 struct knot(*d);
 struct knot(*s);
-signed short(depart_x);
-signed short(depart_y);
+// signed short(depart_x);
+// signed short(depart_y);
 COORDS(caret_pos);
 COORDS(depart);
 CLI_HISTORY(clih);
 signed short(*cols); // word-wrap
 signed(cumul); // word-wrap e.g., refer at fn. ctrl_b_beta or..
+unsigned(tid); // a thread id e.g., returned by fn. _beginthreadex
+void(*thread); // a thread handle e.g., returned by fn. _beginthreadex
 void(*optl);
 } KNOT;
 
