@@ -12,7 +12,6 @@ on branch develop
 # define BUFF (0x400)
 
 # define COUNT_FUNCTIONS (1+(8))
-# define COUNT_THREADS (0x400)
 # define CMDFLAG (1)
 
 # define global

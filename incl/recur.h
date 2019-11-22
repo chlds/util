@@ -12,6 +12,15 @@ If the function fails, the return value is (0x00). */
 
 
 
+signed(__cdecl cli_outs(signed char(*argp)));
+signed(__cdecl cli_out(signed char(*argp)));
+signed(__cdecl decode2uni_internal(signed(nbyte),signed(*character),signed char(*argp)));
+signed(__cdecl decode2uni(signed(nbyte),signed char(*argp)));
+signed(__cdecl nbytechar(signed char(arg)));
+
+/* Output Unicode characters decoded out of Unicode bytes */
+
+
 signed(__cdecl column_internal(signed short(cols),signed(algn),signed short(col),signed char(*cur),signed char(*offset)));
 signed(__cdecl column(signed short(cols),signed(algn),signed char(*base)));
 
