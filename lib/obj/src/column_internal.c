@@ -5,6 +5,8 @@ Console output
 Remarks:
 Output a tab as whitespace
 Wrap words
+
+Add support for Unicode characters
 */
 
 
@@ -111,8 +113,10 @@ i = (r);
 ADD(col,r);
 if(col<(cols)) {
 while(i) {
-r = _putch(*cur);
-cur++;
+// r = _putch(*cur);
+r = cli_out(cur);
+// cur++;
+cur = (cur+(r));
 --i;
 }}
 else {
@@ -126,9 +130,11 @@ else {
 printf("\n");
 col = (0x00);
 }
-r = _putch(*cur);
+// r = _putch(*cur);
+r = cli_out(cur);
 col++;
-cur++;
+// cur++;
+cur = (cur+(r));
 --i;
 }}}
 
