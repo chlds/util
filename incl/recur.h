@@ -12,6 +12,13 @@ If the function fails, the return value is (0x00). */
 
 
 
+signed(__cdecl encode2uni_internal(signed(nbyte),signed char(*arr),signed(arr_size),signed(character)));
+signed(__cdecl encode2uni(signed char(*arr),signed(arr_size),signed(character)));
+signed(__cdecl ncharbyte(signed(arg)));
+
+/* Generate Unicode bytes encoded out of Unicode characters */
+
+
 signed(__cdecl cli_outs(signed char(*argp)));
 signed(__cdecl cli_out(signed char(*argp)));
 signed(__cdecl decode2uni_internal(signed(nbyte),signed(*character),signed char(*argp)));
