@@ -14,7 +14,7 @@ Encode characters in Unicode decoded on the RAM to bytes in Unicode to store the
 */
 
 
-signed(__cdecl decode2uni(signed nbyte,signed char *argp)) {
+signed(__cdecl decode2uni(signed *character,signed char *argp)) {
 
 /* DATA, BSS and STACK */
 auto signed const AH_8 = (0x80); // a sequential (.io**.****) byte for a n-byte character
@@ -34,22 +34,38 @@ auto signed ar[] = {
 auto signed i,r;
 
 /* CODE/TEXT */
-if(nbyte<(0x00)) return(0x00);
-if(!nbyte) return(0x00);
-if(0x04<(nbyte)) return(AH_8);
+if(!character) return(0x00);
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
-if(!(0x01^(nbyte))) return(*argp);
+i = nbytechar(*argp);
+
+if(!(AH_8^(i))) {
+printf("%s\n","<< Error at fn. nbytechar()");
+return(i);
+}
+
+if(!i) {
+printf("%s\n","<< Error at fn. nbytechar()");
+return(i);
+}
 
 r = (signed) (*argp);
+
+if(!(0x01^(i))) {
+r = (r&(0x7F));
+*character = (r);
+return(0x01);
+}
+
 r = (r&(0x000000FF));
-r = (r&(~(*(ar+(--nbyte)))));
+r = (r&(~(*(ar+(--i)))));
 r = (r<<(0x06));
 
-i = (r);
+*character = (r);
 argp++;
-r = decode2uni_internal(nbyte,&i,argp);
+r = decode2uni_internal(i,character,argp);
 
-return(i);
+r++;
+return(r);
 }

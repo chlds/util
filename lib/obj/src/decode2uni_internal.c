@@ -32,7 +32,7 @@ i = (i|(r));
 
 if(!(--nbyte)) {
 *character = (i);
-return(0x00);
+return(0x01);
 }
 
 i = (i<<(0x06));

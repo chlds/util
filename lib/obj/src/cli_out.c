@@ -17,25 +17,17 @@ auto signed i,r;
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
-r = nbytechar(*argp);
-if(!r) {
-printf("%s\n","<< Error at fn. nbytechar()");
-return(0x00);
-}
-
-i = (r);
-
-r = decode2uni(r,argp);
+r = decode2uni(&i,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. decode2uni()");
 return(0x00);
 }
 
-r = _putwch((wchar_t)r);
-if(!(WEOF^(r))) {
+i = _putwch((wchar_t)i);
+if(!(WEOF^(i))) {
 printf("%s\n","<< Error at fn. _putwch()");
 return(0x00);
 }
 
-return(i);
+return(r);
 }
