@@ -35,10 +35,13 @@ auto unsigned codepage[COUNT_CP] = {
 
 auto signed char *p;
 
-auto signed i,r;
+auto signed i,l,r;
 auto signed char c;
 
 /* **** CODE/TEXT */
+l = (BUFF);
+l = (l>>(0x02));
+
 *(codepage+(OUTPUT)) = GetConsoleOutputCP();
 if(!(*(codepage+(OUTPUT)))) {
 r = GetLastError();
@@ -81,6 +84,8 @@ cputs("Please type the <Enter> key to stop.\n\n");
 
 p = (buff);
 while(0x02) {
+--l;
+if(l<(0x00)) break;
 c = _getch();
 *p = (c);
 p++;
