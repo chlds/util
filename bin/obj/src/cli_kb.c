@@ -1,6 +1,6 @@
 /* **** Notes
 
-Values on a key board
+Output Unicode characters in UTF-8.
 
 Remarks:
 Based on UTF-8
@@ -36,11 +36,11 @@ auto unsigned codepage[COUNT_CP] = {
 auto signed char *p;
 
 auto signed i,l,r;
+auto signed short flag;
 auto signed char c;
 
 /* **** CODE/TEXT */
 l = (BUFF);
-l = (l>>(0x02));
 
 *(codepage+(OUTPUT)) = GetConsoleOutputCP();
 if(!(*(codepage+(OUTPUT)))) {
@@ -82,27 +82,31 @@ printf("\n");
 // Announcements
 cputs("Please type the <Enter> key to stop.\n\n");
 
+flag = (0x00);
+l = (-0x04+(l));
 p = (buff);
 while(0x02) {
---l;
-if(l<(0x00)) break;
 c = _getch();
+r = nbytechar(c);
+l = (-r+(l));
+if(l<(0x01)) flag = (0x01);
+i = (r);
 *p = (c);
 p++;
-r = nbytechar(c);
-i = (r);
 while(--r) {
 c = _getch();
 *p = (c);
 p++;
 }
+if(flag) break;
 r = cli_out(-i+(p));
 if(!(c^(CR))) break;
 if(!(c^(LF))) break;
 }
 
-// Restore to the original code page for console input.
+if(flag) r = cli_out(-i+(p));
 
+// Restore to the original code page for console input.
 r = SetConsoleCP(*(codepage+(BACKUP)));
 if(!r) {
 r = GetLastError();
