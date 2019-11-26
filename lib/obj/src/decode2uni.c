@@ -1,9 +1,20 @@
 /*
 
-Check the leading byte:
-.iiii.o*** that stands for a 4-byte character i.e., a 21-bit character expressed in .iiii.o*** .io**.**** .io**.**** .io**.**** (3+6+6+6) on 32 bits,
-.iiio.**** that stands for a 3-byte character i.e., a 16-bit character expressed in .iiio.**** .io**.**** .io**.**** (4+6+6) on 24 bits,
-.iio*.**** that stands for a 2-byte character i.e., a 11-bit character expressed in .iio*.**** .io**.**** (5+6) on 16 bits,
+Get a character out of Unicode bytes based on UTF-8.
+
+Return the number of decoded bytes.
+
+Check the leading byte for one Unicode character based on UTF-8:
+
+.iiii.o*** (0xF0) that stands for the leading byte for a 4-byte character i.e.,
+for a 21-bit-efficient character expressed in .iiii.o*** .io**.**** .io**.**** .io**.**** (3+6+6+6) on 32 bits,
+.iiio.**** (0xE0) that stands for the leading byte for a 3-byte character i.e.,
+for a 16-bit-efficient character expressed in .iiio.**** .io**.**** .io**.**** (4+6+6) on 24 bits,
+.iio*.**** (0xC0) that stands for the leading byte for a 2-byte character i.e.,
+for an 11-bit-efficient character expressed in .iio*.**** .io**.**** (5+6) on 16 bits,
+and
+.io**.**** (0x80) that stands for a sequential byte i.e.,
+for a 6-bit-efficient byte expressed in .io**.**** (6) on 8 bits for the n-byte characters.
 
 Remarks:
 Expressed in UTF-8
@@ -17,18 +28,13 @@ Encode characters in Unicode decoded on the RAM to bytes in Unicode to store the
 signed(__cdecl decode2uni(signed *character,signed char *argp)) {
 
 /* DATA, BSS and STACK */
-auto signed const AH_8 = (0x80); // a sequential (.io**.****) byte for a n-byte character
-auto signed const AH_C = (0xC0); // the leading (.iio*.****) byte for a 2-byte character
-auto signed const AH_E = (0xE0); // the leading (.iiio.****) byte for a 3-byte character
-auto signed const AH_F = (0xF0); // the leading (.iiii.o***) byte for a 4-byte character
-
-auto signed ah[] = {
-// (signed) 0x00, // a one-byte character expressed in .o***.**** (7-bit)
-(signed) AH_8, // a sequential character followed for the n-byte character expressed in .io**.**** (6-bit)
-(signed) AH_C, // a two-byte character expressed in .iio*.**** .io**.**** (11-bit(5+6))
-(signed) AH_E, // a three-byte character expressed in .iiio.**** .io**.**** .io**.**** (16-bit(4+6+6))
-(signed) AH_F, // a four-byte character expressed in .iiii.o*** .io**.**** .io**.**** .io**.**** (21-bit(3+6+6+6))
-(signed) 0x00,
+auto signed al[] = {
+// (signed) (0x00), // a one-byte character expressed in .o***.**** (7-bit)
+(signed) (0x80), // a sequential byte with efficient 6 bits expressed in .io**.**** (6-bit) for the n-byte characters
+(signed) (0xC0), // a two-byte character expressed in .iio*.**** .io**.**** (11-bit(5+6))
+(signed) (0xE0), // a three-byte character expressed in .iiio.**** .io**.**** .io**.**** (16-bit(4+6+6))
+(signed) (0xF0), // a four-byte character expressed in .iiii.o*** .io**.**** .io**.**** .io**.**** (21-bit(3+6+6+6))
+(signed) (0x00),
 };
 
 auto signed i,r;
@@ -40,9 +46,9 @@ if(!(*argp)) return(0x00);
 
 i = nbytechar(*argp);
 
-if(!(AH_8^(i))) {
-printf("%s\n","<< Error at fn. nbytechar()");
-return(i);
+if(!(0x80^(i))) {
+printf("%s\n","<< Error at fn. nbytechar() returned with a sequential (0x80) byte");
+return(0x00);
 }
 
 if(!i) {
@@ -59,7 +65,7 @@ return(0x01);
 }
 
 r = (r&(0x000000FF));
-r = (r&(~(*(ah+(--i)))));
+r = (r&(~(*(al+(--i)))));
 r = (r<<(0x06));
 
 *character = (r);

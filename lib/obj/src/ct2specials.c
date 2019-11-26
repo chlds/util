@@ -12,7 +12,7 @@ Add support for Unicode characters
 signed(__cdecl ct2specials(signed char(*argp))) {
 
 /* **** DATA, BSS and STACK */
-static signed const AH_8 = (0x80); // i.e., a sequential byte expressed in .io**.**** for an n-byte character in UTF-8.
+static signed const AL_80 = (0x80); // i.e., a sequential byte expressed in .io**.**** for the n-byte characters based on UTF-8.
 static signed char const HYPHEN = ('-');
 static signed char const SP = (' ');
 static signed char const HT = ('\t');
@@ -34,13 +34,13 @@ if(!(LF^(*argp))) return(0x00);
 
 //* Support for Unicode characters
 r = nbytechar(*argp);
-if(!r) {
-printf("%s\n","<< Error at fn. nbytechar()");
+if(!(AL_80^(r))) {
+printf("%s\n","<< Error at fn. nbytechar() returned with a sequential (0x80) byte");
 return(0x00);
 }
-if(!(AH_8^(r))) {
+if(!r) {
 printf("%s\n","<< Error at fn. nbytechar()");
-return(0x00);
+return(r);
 }
 argp = (argp+(r));
 //*/

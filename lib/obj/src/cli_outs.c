@@ -1,6 +1,6 @@
 /*
 
-Output characters to the console screen.
+Output characters based on UTF-8 to the console screen.
 
 Remarks:
 Return the number of output characters (..or the number of bytes for output characters).

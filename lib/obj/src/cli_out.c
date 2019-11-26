@@ -1,9 +1,9 @@
 /*
 
-Output one character to the console screen.
+Output one character based on UTF-8 to the console screen.
 
 Remarks:
-Return the number of bytes for one character.
+Return the number of bytes decoded out of the array.
 */
 
 

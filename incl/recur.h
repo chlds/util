@@ -12,6 +12,8 @@ If the function fails, the return value is (0x00). */
 
 
 
+signed(__cdecl cli_in(signed(*character),signed char(*argp),signed(argp_size)));
+
 signed(__cdecl encode2uni_internal(signed(nbyte),signed char(*arr),signed(arr_size),signed(character)));
 signed(__cdecl encode2uni(signed char(*arr),signed(arr_size),signed(character)));
 signed(__cdecl ncharbyte(signed(arg)));

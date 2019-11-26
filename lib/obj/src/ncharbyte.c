@@ -1,13 +1,6 @@
 /*
 
-Check the leading byte:
-.iiii.o*** that stands for a 4-byte character i.e., a 21-bit character expressed in .iiii.o*** .io**.**** .io**.**** .io**.**** (3+6+6+6) on 32 bits,
-.iiio.**** that stands for a 3-byte character i.e., a 16-bit character expressed in .iiio.**** .io**.**** .io**.**** (4+6+6) on 24 bits,
-.iio*.**** that stands for a 2-byte character i.e., a 11-bit character expressed in .iio*.**** .io**.**** (5+6) on 16 bits,
-
-Remarks:
-Return the number of bytes for a character
-Based on UTF-8
+Return the number of Unicode bytes for a character based on UTF-8
 */
 
 
