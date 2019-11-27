@@ -17,6 +17,7 @@ static signed char const HYPHEN = ('-');
 static signed char const SP = (' ');
 static signed char const HT = ('\t');
 // also
+static signed char const CR = ('\r');
 static signed char const LF = ('\n');
 
 auto signed r;
@@ -29,6 +30,7 @@ if(!('\t'^(*argp))) return(0x00);
 if(!(' '^(*argp))) return(0x00);
 if(!('-'^(*argp))) return(0x00);
 // also
+if(!(CR^(*argp))) return(0x00);
 if(!(LF^(*argp))) return(0x00);
 
 

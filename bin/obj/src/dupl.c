@@ -48,7 +48,7 @@ if(argc<(THRESHOLD)) {
 printf("%s\n", ("The arguments ..need three or more to duplicate to <DI> out of <SI> in the binary format."));
 printf("\n");
 printf("%s\n", ("Usage:"));
-printf("%s\n", ("dpl [-options] .. <destination_file> <source_file>"));
+printf("%s\n", ("dupl [-options] .. <destination_file> <source_file>"));
 return(0x00);
 }
 

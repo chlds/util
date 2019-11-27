@@ -22,19 +22,17 @@ signed(__cdecl column_internal(signed short(cols),signed(algn),signed short(col)
 static signed const HYPHEN = ('-');
 static signed const SP = (' ');
 static signed char const HT = ('\t');
-
+static signed char const CR = ('\r');
 static signed char const LF = ('\n');
 
 auto signed const QUANTUM = (0x10);
-
 auto signed const LEGIBLE = (0x04+(0x06*(QUANTUM)));
 auto signed const HIGH_READING = (0x02*(QUANTUM));
-
 auto signed const DELAY = (HIGH_READING);
 
 auto signed char *p;
 auto signed c,i,r;
-auto signed short flag;
+auto signed short firstcol_flag,flag;
 
 /* **** CODE/TEXT */
 if(!cur) return(0x00);
@@ -47,17 +45,16 @@ return(0x00);
 
 if(!(*cur)) return(0x00);
 
+if(!col) firstcol_flag = (0x01);
+else firstcol_flag = (0x00);
+
 r = ct2specials(cur);
 // ..or r = ct_word(cur);
 
 if(!r) {
-
+XOR(flag,flag);
 // 0/3. a linefeed
-if(!(LF^(*cur))) {
-XOR(col,col);
-printf("\n");
-}
-
+if(!(LF^(*cur))) flag = (0x01);
 // 1/3. a hyphen: There is room for improvement.
 if(!(HYPHEN^(*cur))) {
 ADD(col,0x01);
@@ -67,10 +64,6 @@ r = _putch(HYPHEN);
 if(!(EOF^(r))) {
 printf("%s", "<< Error at fn. _putch/_putwch()");
 return(0x00);
-}
-if(flag) {
-printf("\n");
-XOR(col,col);
 }}
 // 2/3. a space
 if(!(SP^(*cur))) {
@@ -81,10 +74,6 @@ r = _putch(SP);
 if(!(EOF^(r))) {
 printf("%s", "<< Error at fn. _putch/_putwch()");
 return(0x00);
-}
-if(flag) {
-printf("\n");
-XOR(col,col);
 }}
 // 3/3. a horizonal tab
 if(!(HT^(*cur))) {
@@ -98,6 +87,8 @@ r = align(algn,p);
 free(p);
 // output: drain
 ADD(col,r);
+if(col<(cols)) XOR(flag,flag);
+else XNOR(flag);
 r = n_putch(r,SP);
 if(!r) {
 printf("%s", "<< Error at fn. n_putch()");
@@ -105,6 +96,11 @@ return(0x00);
 }}
 // Common to (LF,) HYPHEN, SP and HT
 ADD(cur,0x01);
+if(flag) {
+printf("\n");
+offset = (cur);
+XOR(col,col);
+}
 Sleep(DELAY);
 }
 
@@ -120,15 +116,14 @@ cur = (cur+(r));
 --i;
 }}
 else {
-col = (0x00);
-offset = (cur);
-printf("\n"); // LF
 while(i) {
 if(col<(cols)) {
 }
 else {
-printf("\n");
-col = (0x00);
+if(firstcol_flag) firstcol_flag = (0x00);
+else printf("\n");
+offset = (cur);
+XOR(col,col);
 }
 // r = _putch(*cur);
 r = cli_out(cur);
