@@ -3,7 +3,7 @@
 Output characters based on UTF-8 to the console screen.
 
 Remarks:
-Return the number of output characters (..or the number of bytes for output characters).
+Return the number of bytes for output characters (..or the number of output characters).
 */
 
 
@@ -33,6 +33,6 @@ i = (i+(r));
 c++;
 }
 
-// e.g., return(i);
-return(c);
+// e.g., return(c);
+return(i);
 }
