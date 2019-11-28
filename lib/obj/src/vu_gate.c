@@ -194,8 +194,18 @@ return(0x00);
 }}
 
 
-/* recursively read keys */
+
+
+//* recursively read keys
 r = vu_gate_internal(argp);
+//*/
+
+
+/* Change fn. vu_gate_internal to fn. vu_gate_beta_internal for the beta edition.
+r = vu_gate_beta_internal(argp);
+//*/
+
+
 
 
 /* To check the status */
