@@ -5,10 +5,14 @@ Also get the Unicode character.
 
 Remarks:
 Return the number of bytes for one character.
+
+Notes:
+<Ctrl-@> returns 2 bytes i.e., (0x00) and (0x03).
 */
 
 
 # include <stdio.h>
+# include "../../../incl/cli.h"
 
 signed(__cdecl cli_in(signed *character,signed char *argp,signed argp_size)) {
 
@@ -21,6 +25,18 @@ if(argp_size<(THRESHOLD)) return(0x00);
 c = _getch();
 *argp = (signed char) (c);
 argp++;
+
+
+if(!c) {
+*character = (0x00);
+// <Ctrl-@> returns 2 bytes i.e., (0x00) and (0x03)..
+c = _getch();
+if(!(c^(0x03))) return(0x01);
+else {
+printf("%s\n","<< Error at fn. _getch()");
+return(0x00);
+}}
+
 
 r = nbytechar(c);
 if(!(0x80^(r))) {

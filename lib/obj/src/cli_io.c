@@ -13,12 +13,18 @@ An array of function pointers is not yet implemented..
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include "../../../incl/cli.h"
 
 # define COUNT_CP (0x04)
+# define COUNT_CLI_FN (0x01+(0x20))
 
 signed(__cdecl cli_io(signed char *argp,signed size)) {
 
 /* **** DATA, BSS and STACK */
+enum {
+OLD_INPUT,INPUT,OLD_OUTPUT,OUTPUT,
+};
+
 enum {
 CTRL_AT,CTRL_A,CTRL_B,CTRL_C,
 CTRL_D,CTRL_E,CTRL_F,CTRL_G,
@@ -30,8 +36,44 @@ CTRL_X,CTRL_Y,CTRL_Z,CTRL_LSB,
 CTRL_RS,CTRL_RSB,CTRL_CA,CTRL_LL,
 };
 
-enum {
-OLD_INPUT,INPUT,OLD_OUTPUT,OUTPUT,
+auto signed(__cdecl*(cli_fn[COUNT_CLI_FN])) (void(*cli_fn_argp)) = {
+(signed(__cdecl*) (void(*))) (cli_ctrl_at),
+(signed(__cdecl*) (void(*))) (cli_ctrl_a),
+(signed(__cdecl*) (void(*))) (cli_ctrl_b),
+(signed(__cdecl*) (void(*))) (cli_ctrl_c),
+(signed(__cdecl*) (void(*))) (cli_ctrl_d),
+(signed(__cdecl*) (void(*))) (cli_ctrl_e),
+(signed(__cdecl*) (void(*))) (cli_ctrl_f),
+(signed(__cdecl*) (void(*))) (cli_ctrl_g),
+(signed(__cdecl*) (void(*))) (cli_ctrl_h),
+(signed(__cdecl*) (void(*))) (cli_ctrl_i),
+(signed(__cdecl*) (void(*))) (cli_ctrl_j),
+(signed(__cdecl*) (void(*))) (cli_ctrl_k),
+(signed(__cdecl*) (void(*))) (cli_ctrl_l),
+(signed(__cdecl*) (void(*))) (cli_ctrl_m),
+(signed(__cdecl*) (void(*))) (cli_ctrl_n),
+(signed(__cdecl*) (void(*))) (cli_ctrl_o),
+(signed(__cdecl*) (void(*))) (cli_ctrl_p),
+(signed(__cdecl*) (void(*))) (cli_ctrl_q),
+(signed(__cdecl*) (void(*))) (cli_ctrl_r),
+(signed(__cdecl*) (void(*))) (cli_ctrl_s),
+(signed(__cdecl*) (void(*))) (cli_ctrl_t),
+(signed(__cdecl*) (void(*))) (cli_ctrl_u),
+(signed(__cdecl*) (void(*))) (cli_ctrl_v),
+(signed(__cdecl*) (void(*))) (cli_ctrl_w),
+(signed(__cdecl*) (void(*))) (cli_ctrl_x),
+(signed(__cdecl*) (void(*))) (cli_ctrl_y),
+(signed(__cdecl*) (void(*))) (cli_ctrl_z),
+(signed(__cdecl*) (void(*))) (cli_ctrl_lsb),
+(signed(__cdecl*) (void(*))) (cli_ctrl_rs),
+(signed(__cdecl*) (void(*))) (cli_ctrl_rsb),
+(signed(__cdecl*) (void(*))) (cli_ctrl_ca),
+(signed(__cdecl*) (void(*))) (cli_ctrl_ll),
+(signed(__cdecl*) (void(*))) (0x00),
+};
+
+auto CLI_CTRL_INFO cci = {
+(signed char(*)) (0x00),
 };
 
 auto unsigned const UTF_8 = (65001);
@@ -120,11 +162,14 @@ argp = (argp+(r));
 
 if(i<(0x20)) {
 *(--argp) = (signed char) (0x00);
-// ..and run in an array of pointers for functions e.g.,
+// and run in an array of function pointers e.g.,
 // r = *(cli_fn+(i)) (*(cli_fn_argp+(i)));
-if(!(i^(CTRL_C))) return(0x00);
-if(!(i^(CR))) return(0x00);
-if(!(i^(LF))) return(0x00);
+r = (*(cli_fn+(i)))(&cci);
+if(!r) {
+printf("%s%d%s%d%s\n","<< Error at fn. *(cli_fn[",i,"]) (*(cli_fn_argp+(",i,")))");
+return(0x00);
+}
+if(cci.linebreak) return(0x01);
 }
 
 else {
