@@ -33,7 +33,7 @@ auto signed const SEQ_MASK = (0x3F); // the terminating 6-bit (.oo.ii.iiii) mask
 auto signed const SEQ_FLAG = (0x80); // the leading 2-bit (.io.oo.oooo) flag for a sequential character to an n-byte character
 
 auto signed al[] = {
-// (signed) (0x00), // a one-byte character expressed in .o***.**** (7-bit)
+(signed) (0x00), // a one-byte character expressed in .o***.**** (7-bit)
 (signed) (0x80), // a sequential byte with efficient 6 bits expressed in .io**.**** (6-bit) for the n-byte characters
 (signed) (0xC0), // a two-byte character expressed in .iio*.**** .io**.**** (11-bit(5+6))
 (signed) (0xE0), // a three-byte character expressed in .iiio.**** .io**.**** .io**.**** (16-bit(4+6+6))
@@ -71,9 +71,14 @@ character = (character>>(0x06));
 
 r = encode2uni_internal(i,arr,arr_size,character);
 
+if(!r) {
+printf("%s\n","<< Error at fn. encode2uni_internal()");
+return(0x00);
+}
+
+r++;
 c = (*arr);
 *arr = (c|(*(al+(r))));
 
-r++;
 return(r);
 }

@@ -67,10 +67,15 @@ return(0x01);
 r = (r&(0x000000FF));
 r = (r&(~(*(al+(--i)))));
 r = (r<<(0x06));
-
 *character = (r);
+
 argp++;
 r = decode2uni_internal(i,character,argp);
+
+if(!r) {
+printf("%s\n","<< Error at fn. decode2uni_internal()");
+return(0x00);
+}
 
 r++;
 return(r);
