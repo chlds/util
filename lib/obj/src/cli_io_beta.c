@@ -2,13 +2,10 @@
 
 Output Unicode characters in UTF-8 after decoding Unicode bytes input out of the key board.
 
-Along with C library
+Along with C and Windows libraries
 
 Remarks:
 Based on UTF-8
-
-Notes:
-An array of function pointers is not yet implemented..
 */
 
 
@@ -18,9 +15,9 @@ An array of function pointers is not yet implemented..
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/cli.h"
+# include "../../../incl/cli_w32.h"
 
-signed(__cdecl cli_io(signed char *argp,signed size)) {
+signed(__cdecl cli_io_beta(signed char *argp,signed size)) {
 
 /* **** DATA, BSS and STACK */
 enum {
@@ -39,42 +36,42 @@ CTRL_RS,CTRL_RSB,CTRL_CA,CTRL_LL,
 };
 
 auto signed(__cdecl*(cli_fn[CLI_FN])) (void(*cli_fn_argp)) = {
-(signed(__cdecl*) (void(*))) (cli_ctrl_at),
-(signed(__cdecl*) (void(*))) (cli_ctrl_a),
-(signed(__cdecl*) (void(*))) (cli_ctrl_b),
-(signed(__cdecl*) (void(*))) (cli_ctrl_c),
-(signed(__cdecl*) (void(*))) (cli_ctrl_d),
-(signed(__cdecl*) (void(*))) (cli_ctrl_e),
-(signed(__cdecl*) (void(*))) (cli_ctrl_f),
-(signed(__cdecl*) (void(*))) (cli_ctrl_g),
-(signed(__cdecl*) (void(*))) (cli_ctrl_h),
-(signed(__cdecl*) (void(*))) (cli_ctrl_i),
-(signed(__cdecl*) (void(*))) (cli_ctrl_j),
-(signed(__cdecl*) (void(*))) (cli_ctrl_k),
-(signed(__cdecl*) (void(*))) (cli_ctrl_l),
-(signed(__cdecl*) (void(*))) (cli_ctrl_m),
-(signed(__cdecl*) (void(*))) (cli_ctrl_n),
-(signed(__cdecl*) (void(*))) (cli_ctrl_o),
-(signed(__cdecl*) (void(*))) (cli_ctrl_p),
-(signed(__cdecl*) (void(*))) (cli_ctrl_q),
-(signed(__cdecl*) (void(*))) (cli_ctrl_r),
-(signed(__cdecl*) (void(*))) (cli_ctrl_s),
-(signed(__cdecl*) (void(*))) (cli_ctrl_t),
-(signed(__cdecl*) (void(*))) (cli_ctrl_u),
-(signed(__cdecl*) (void(*))) (cli_ctrl_v),
-(signed(__cdecl*) (void(*))) (cli_ctrl_w),
-(signed(__cdecl*) (void(*))) (cli_ctrl_x),
-(signed(__cdecl*) (void(*))) (cli_ctrl_y),
-(signed(__cdecl*) (void(*))) (cli_ctrl_z),
-(signed(__cdecl*) (void(*))) (cli_ctrl_lsb),
-(signed(__cdecl*) (void(*))) (cli_ctrl_rs),
-(signed(__cdecl*) (void(*))) (cli_ctrl_rsb),
-(signed(__cdecl*) (void(*))) (cli_ctrl_ca),
-(signed(__cdecl*) (void(*))) (cli_ctrl_ll),
+(signed(__cdecl*) (void(*))) (cli_ctrl_at_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_a_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_b_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_c_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_d_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_e_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_f_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_g_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_h_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_i_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_j_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_k_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_l_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_m_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_n_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_o_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_p_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_q_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_r_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_s_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_t_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_u_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_v_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_w_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_x_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_y_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_z_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_lsb_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_rs_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_rsb_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_ca_beta),
+(signed(__cdecl*) (void(*))) (cli_ctrl_ll_beta),
 (signed(__cdecl*) (void(*))) (0x00),
 };
 
-auto CLI_STAT cli_stat = {
+auto CLI_W32_STAT cli_w32_stat = {
 (0x00),
 };
 
@@ -166,12 +163,12 @@ if(i<(0x20)) {
 *(--argp) = (signed char) (0x00);
 // and run in an array of function pointers e.g.,
 // r = *(cli_fn+(i)) (*(cli_fn_argp+(i)));
-r = (*(cli_fn+(i)))(&cli_stat);
+r = (*(cli_fn+(i)))(&cli_w32_stat);
 if(!r) {
 printf("%s%d%s%d%s\n","<< Error at fn. *(cli_fn[",i,"]) (*(cli_fn_argp+(",i,")))");
 return(0x00);
 }
-if(cli_stat.verse.linebreak) return(0x01);
+if(cli_w32_stat.verse.linebreak) return(0x01);
 }
 
 else {
@@ -204,5 +201,5 @@ printf("%s%d%s%X\n","<< Error at fn. SetConsoleOutputCP() with error no. ",r," o
 return(0x00);
 }
 
-return(0x01+(cli_io(argp,size)));
+return(0x01+(cli_io_beta(argp,size)));
 }

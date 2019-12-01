@@ -529,9 +529,11 @@ GetLocalTime(&st);
 st.wMilliseconds = (st.wMilliseconds/(100));
 
 sprintf(
-buff, "%2d:%02d:%02d %01d %s %d %s %d %s %zd%s", \
-st.wHour, st.wMinute, st.wSecond, st.wMilliseconds, \
-*(dayoftheweek+(st.wDayOfWeek)), st.wDay, *(month+(st.wMonth+(~(0x00)))), st.wYear, " | ", zzz, "\" left"
+buff,\
+"%s %d %s %d,  %d:%02d:%02d %01d  |  %zd%s",\
+*(dayoftheweek+(st.wDayOfWeek)),st.wDay,*(month+(st.wMonth+(~(0x00)))),st.wYear,\
+st.wHour,st.wMinute,st.wSecond,st.wMilliseconds,\
+zzz,"\" left"
 );
 
 // 1st outputting

@@ -7,7 +7,8 @@ Remarks:
 Return the number of bytes for one character.
 
 Notes:
-<Ctrl-@> returns 2 bytes i.e., (0x00) and (0x03).
+Call fn. _getch twice to read <Ctrl-@>.
+The first call returns (0x00) and the second call returns (0x03)..
 */
 
 
@@ -29,7 +30,8 @@ argp++;
 
 if(!c) {
 *character = (0x00);
-// <Ctrl-@> returns 2 bytes i.e., (0x00) and (0x03)..
+// call fn. _getch twice to read <Ctrl-@>.
+// the second call returns (0x03).
 c = _getch();
 if(!(c^(0x03))) return(0x01);
 else {

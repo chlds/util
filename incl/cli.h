@@ -1,24 +1,74 @@
 /*
 
+Along with C library
+
 Remarks:
-<Ctrl-@> returns 2 bytes i.e., (0x00) and (0x03)..
+Call function _getch twice to read <Ctrl-@>.
+The first call returns (0x00) and the second call returns (0x03)..
 Refer at util/lib/obj/src/cli_in.c
 and at util/lib/obj/src/cli_io.c
 */
 
 
+# define CLI_DBG_Q (0x08)
+# define CLI_DBG_D (0x04)
+# define CLI_DBG_W (0x02)
+# define CLI_DBG_B (0x01)
+
 # define CLI_DBG (0x01)
 
 # define CTRL_MASK (0x1F)
+# define ALIGNE_TAB (0x08)
 
-typedef struct cli_ctrl_info {
+typedef struct cli_coords {
+signed short offset;
+signed short x;
+signed short y;
+}CLI_COORDS;
+
+typedef struct cli_snapshot {
+signed char *offset;
 signed char *p;
-signed i,r;
-signed short flag;
 signed short linebreak;
-void(*optl);
-} CLI_CTRL_INFO;
+signed short flag;
+signed c;
+signed i;
+signed r;
+struct cli_snapshot *d;
+struct cli_snapshot *s;
+CLI_COORDS depart;
+void *optl;
+}CLI_SNAPSHOT;
 
+typedef struct cli_history {
+CLI_SNAPSHOT *l;
+CLI_SNAPSHOT *b;
+CLI_SNAPSHOT *t;
+void *optl;
+}CLI_HISTORY;
+
+typedef struct cli_verse {
+signed char *craft;
+signed char *offset;
+signed char *p;
+signed short linebreak;
+signed short flag;
+signed c;
+signed i;
+signed r;
+struct cli_verse *d;
+struct cli_verse *s;
+CLI_COORDS depart;
+CLI_HISTORY history;
+void *optl;
+}CLI_VERSE;
+
+typedef struct cli_stat {
+CLI_VERSE verse;
+void(*optl);
+} CLI_STAT;
+
+// along with an array of function pointers
 signed(__cdecl cli_ctrl_at(void(*argp)));
 signed(__cdecl cli_ctrl_a(void(*argp)));
 signed(__cdecl cli_ctrl_b(void(*argp)));
