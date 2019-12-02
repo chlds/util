@@ -15,10 +15,21 @@ and at util/lib/obj/src/cli_io.c
 # define CLI_DBG_W (0x02)
 # define CLI_DBG_B (0x01)
 
-# define CLI_DBG (0x01)
+# define CLI_DBG (CLI_DBG_B)
 
 # define CTRL_MASK (0x1F)
 # define ALIGNE_TAB (0x08)
+
+# define CLI_WORKSPACE (0x01+(0x03))
+# define CLI_OBJS (0x01+(0x03))
+
+enum {
+CLI_IN,CLI_OUT,CLI_ERR,
+};
+
+enum {
+CLI_CRAFT,CLI_BASE,CLI_OFFSET,
+};
 
 typedef struct cli_coords {
 signed short offset;
@@ -48,9 +59,7 @@ void *optl;
 }CLI_HISTORY;
 
 typedef struct cli_verse {
-signed char *craft;
-signed char *offset;
-signed char *p;
+signed char *(ws[CLI_WORKSPACE]);
 signed short linebreak;
 signed short flag;
 signed c;

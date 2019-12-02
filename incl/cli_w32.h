@@ -10,13 +10,12 @@ and at util/lib/obj/src/cli_io.c
 */
 
 
-# define CLI_OBJS (0x01+(0x03))
-// the default objects
+# define CLI_W32_OBJS (0x01+(0x03))
 
-# define CLI_DEVICES (CLI_OBJS)
-# define CLI_MODULES (CLI_OBJS)
-# define CLI_SEARCHES (CLI_OBJS)
-# define CLI_WINDOWS (CLI_OBJS)
+# define CLI_DEVICES (CLI_W32_OBJS)
+# define CLI_MODULES (CLI_W32_OBJS)
+# define CLI_SEARCHES (CLI_W32_OBJS)
+# define CLI_WINDOWS (CLI_W32_OBJS)
 
 # include <windows.h>
 # include "./cli.h"
@@ -31,10 +30,6 @@ CONSOLE_SCREEN_BUFFER_INFO csbi;
 CLI_VERSE verse;
 void(*optl);
 } CLI_W32_STAT;
-
-enum {
-CLI_IN,CLI_OUT,CLI_ERR,EOE,
-};
 
 // along with an array of function pointers
 signed(__cdecl cli_ctrl_at_beta(void(*argp)));
