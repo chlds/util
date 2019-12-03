@@ -77,22 +77,22 @@ CLI_VERSE *t;
 void *optl;
 }CLI_PAGE;
 
-typedef struct cli_cylinder {
+typedef struct cli_paper {
 signed char *(base[CLI_OFFSETS]);
 signed short linebreak;
 signed short flag;
 signed c;
 signed i;
 signed r;
-struct cli_cylinder *d;
-struct cli_cylinder *s;
+struct cli_paper *d;
+struct cli_paper *s;
 CLI_PAGE page;
 CLI_COORDS depart;
 void *optl;
-}CLI_CYLINDER;
+}CLI_PAPER;
 
 typedef struct cli_typewriter {
-CLI_CYLINDER cyl;
+CLI_PAPER paper;
 void(*optl);
 } CLI_TYPEWRITER;
 

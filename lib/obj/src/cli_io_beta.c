@@ -168,7 +168,7 @@ if(!r) {
 printf("%s%d%s%d%s\n","<< Error at fn. *(cli_fn[",i,"]) (*(cli_fn_argp+(",i,")))");
 return(0x00);
 }
-if(cli_w32_stat.ty.cyl.linebreak) return(0x01);
+if(cli_w32_stat.ty.paper.linebreak) return(0x01);
 }
 
 else {
