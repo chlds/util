@@ -5,7 +5,7 @@ Typewriter
 
 
 # define BUFF (0x100000)
-# define BUFF2 (BUFF)
+# define BUFF1 (BUFF)
 // 1MiB
 
 # define CLI_W32
@@ -17,11 +17,11 @@ auto signed long long ll;
 auto signed char *p;
 auto signed i,r;
 
-auto signed char buff2[BUFF2] = {
+auto signed char roll1[BUFF1] = {
 (0x00),
 };
 
-auto signed char buff[BUFF] = {
+auto signed char roll[BUFF] = {
 (0x00),
 };
 
@@ -30,11 +30,11 @@ auto CLI_W32_STAT cli_w32_stat = {
 };
 
 // Initialise
-*(CLI_CRAFT+(cli_w32_stat.verse.ws)) = (buff2);
-*(CLI_BASE+(cli_w32_stat.verse.ws)) = (buff);
+*(CLI_OFFSET+(cli_w32_stat.ty.cyl.base)) = (roll);
+*(CLI_OFFSET1+(cli_w32_stat.ty.cyl.base)) = (roll1);
 
 // Also to align words along with tabs after wrapping words
-*(CLI_OFFSET+(cli_w32_stat.verse.ws)) = (*(CLI_BASE+(cli_w32_stat.verse.ws)));
+*(CLI_OFFSET2+(cli_w32_stat.ty.cyl.base)) = (*(CLI_OFFSET+(cli_w32_stat.ty.cyl.base)));
 
 // Get a handle to the standard output device
 *(CLI_OUT+(cli_w32_stat.device)) = (void(*)) GetStdHandle(STD_OUTPUT_HANDLE);

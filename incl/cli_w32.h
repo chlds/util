@@ -27,7 +27,7 @@ void *(module[CLI_MODULES]);
 void *(device[CLI_DEVICES]);
 COORD coord;
 CONSOLE_SCREEN_BUFFER_INFO csbi;
-CLI_VERSE verse;
+CLI_TYPEWRITER ty;
 void(*optl);
 } CLI_W32_STAT;
 

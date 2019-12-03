@@ -22,7 +22,7 @@ auto signed short flag;
 
 if(!argp) return(0x00);
 
-(*argp).verse.linebreak = (0x01);
+(*argp).ty.cyl.linebreak = (0x01);
 
 if(CLI_DBG) printf("%s","<Ctrl-J>");
 

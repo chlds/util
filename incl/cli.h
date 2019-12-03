@@ -20,7 +20,7 @@ and at util/lib/obj/src/cli_io.c
 # define CTRL_MASK (0x1F)
 # define ALIGNE_TAB (0x08)
 
-# define CLI_WORKSPACE (0x01+(0x03))
+# define CLI_OFFSETS (0x01+(0x03))
 # define CLI_OBJS (0x01+(0x03))
 
 enum {
@@ -28,18 +28,16 @@ CLI_IN,CLI_OUT,CLI_ERR,
 };
 
 enum {
-CLI_CRAFT,CLI_BASE,CLI_OFFSET,
+CLI_OFFSET,CLI_OFFSET1,CLI_OFFSET2,// CLI_OFFSET3,
 };
 
 typedef struct cli_coords {
-signed short offset;
 signed short x;
 signed short y;
 }CLI_COORDS;
 
 typedef struct cli_snapshot {
-signed char *offset;
-signed char *p;
+signed char *(base[CLI_OFFSETS]);
 signed short linebreak;
 signed short flag;
 signed c;
@@ -59,7 +57,7 @@ void *optl;
 }CLI_HISTORY;
 
 typedef struct cli_verse {
-signed char *(ws[CLI_WORKSPACE]);
+signed char *(base[CLI_OFFSETS]);
 signed short linebreak;
 signed short flag;
 signed c;
@@ -67,13 +65,39 @@ signed i;
 signed r;
 struct cli_verse *d;
 struct cli_verse *s;
-CLI_COORDS depart;
 CLI_HISTORY history;
+CLI_COORDS depart;
 void *optl;
 }CLI_VERSE;
 
+typedef struct cli_page {
+CLI_VERSE *l;
+CLI_VERSE *b;
+CLI_VERSE *t;
+void *optl;
+}CLI_PAGE;
+
+typedef struct cli_cylinder {
+signed char *(base[CLI_OFFSETS]);
+signed short linebreak;
+signed short flag;
+signed c;
+signed i;
+signed r;
+struct cli_cylinder *d;
+struct cli_cylinder *s;
+CLI_PAGE page;
+CLI_COORDS depart;
+void *optl;
+}CLI_CYLINDER;
+
+typedef struct cli_typewriter {
+CLI_CYLINDER cyl;
+void(*optl);
+} CLI_TYPEWRITER;
+
 typedef struct cli_stat {
-CLI_VERSE verse;
+CLI_TYPEWRITER ty;
 void(*optl);
 } CLI_STAT;
 
