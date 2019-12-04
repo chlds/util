@@ -16,6 +16,7 @@ signed(__cdecl main(signed argc,signed char **argv,signed char **envp)) {
 auto signed long long ll;
 auto signed char *p;
 auto signed i,r;
+auto signed short flag;
 
 auto signed char roll1[ROLL1] = {
 (0x00),
@@ -30,14 +31,24 @@ auto CLI_W32_STAT cli_w32_stat = {
 };
 
 // Initialise
+// Charge buffers
 *(CLI_OFFSET+(cli_w32_stat.ty.paper.base)) = (roll);
 *(CLI_OFFSET1+(cli_w32_stat.ty.paper.base)) = (roll1);
 // Also to align words along with tabs after wrapping words
 *(CLI_OFFSET2+(cli_w32_stat.ty.paper.base)) = (*(CLI_OFFSET+(cli_w32_stat.ty.paper.base)));
 
+cli_w32_stat.ty.paper.size = (ROLL);
+
+// Coordinate
 r = init_ty_beta(&cli_w32_stat);
 if(!r) {
 printf("%s\n","<< Error at fn. init_ty_beta()");
+return(0x00);
+}
+
+r = cli_spool_beta(&cli_w32_stat);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_spool_beta()");
 return(0x00);
 }
 

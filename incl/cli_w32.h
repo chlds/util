@@ -27,6 +27,7 @@ void *(module[CLI_MODULES]);
 void *(device[CLI_DEVICES]);
 COORD coord;
 CONSOLE_SCREEN_BUFFER_INFO csbi;
+CLI_CODEPAGE codepage;
 CLI_TYPEWRITER ty;
 void(*optl);
 } CLI_W32_STAT;
@@ -71,3 +72,8 @@ signed(__cdecl cli_ctrl_rs_beta(void(*argp)));
 signed(__cdecl cli_ctrl_rsb_beta(void(*argp)));
 signed(__cdecl cli_ctrl_ca_beta(void(*argp)));
 signed(__cdecl cli_ctrl_ll_beta(void(*argp)));
+
+signed(__cdecl cli_io_beta(signed char *cur,signed size,CLI_W32_STAT(*argp)));
+/* Input/Output Unicode bytes/characters in UTF-8 out of the key board to the console screen along with fn. cli_in/cli_out. */
+
+// and more..

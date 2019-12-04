@@ -20,6 +20,7 @@ and at util/lib/obj/src/cli_io.c
 # define CTRL_MASK (0x1F)
 # define ALIGNE_TAB (0x08)
 
+# define CLI_CODEPAGE_IO (0x01+(0x03))
 # define CLI_OFFSETS (0x01+(0x03))
 # define CLI_OBJS (0x01+(0x03))
 
@@ -30,6 +31,10 @@ CLI_IN,CLI_OUT,CLI_ERR,
 enum {
 CLI_OFFSET,CLI_OFFSET1,CLI_OFFSET2,// CLI_OFFSET3,
 };
+
+typedef struct cli_codepage {
+unsigned (io[CLI_CODEPAGE_IO]);
+}CLI_CODEPAGE;
 
 typedef struct cli_coords {
 signed short x;
@@ -78,7 +83,9 @@ void *optl;
 }CLI_PAGE;
 
 typedef struct cli_paper {
+// charge buffers i.e., workspace
 signed char *(base[CLI_OFFSETS]);
+signed size;
 signed short linebreak;
 signed short flag;
 signed c;
@@ -97,6 +104,7 @@ void(*optl);
 } CLI_TYPEWRITER;
 
 typedef struct cli_stat {
+CLI_CODEPAGE codepage;
 CLI_TYPEWRITER ty;
 void(*optl);
 } CLI_STAT;
@@ -141,3 +149,23 @@ signed(__cdecl cli_ctrl_rs(void(*argp)));
 signed(__cdecl cli_ctrl_rsb(void(*argp)));
 signed(__cdecl cli_ctrl_ca(void(*argp)));
 signed(__cdecl cli_ctrl_ll(void(*argp)));
+
+signed(__cdecl cli_io(signed char *cur,signed size,CLI_STAT(*argp)));
+/* Input/Output Unicode bytes/characters in UTF-8 out of the key board to the console screen along with fn. cli_in/cli_out. */
+
+signed(__cdecl cli_in(signed(*character),signed char(*argp),signed(argp_size)));
+/* Get Unicode bytes in UTF-8 out of the keyboard. */
+
+signed(__cdecl encode2uni_internal(signed(nbyte),signed char(*arr),signed(arr_size),signed(character)));
+signed(__cdecl encode2uni(signed char(*arr),signed(arr_size),signed(character)));
+signed(__cdecl ncharbyte(signed(arg)));
+/* Generate Unicode bytes encoded out of Unicode characters */
+
+signed(__cdecl cli_outs(signed char(*argp)));
+signed(__cdecl cli_out(signed char(*argp)));
+signed(__cdecl decode2uni_internal(signed(nbyte),signed(*character),signed char(*argp)));
+signed(__cdecl decode2uni(signed(*character),signed char(*argp)));
+signed(__cdecl nbytechar(signed char(arg)));
+/* Output Unicode characters decoded out of Unicode bytes */
+
+// and more..

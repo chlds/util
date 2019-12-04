@@ -10,6 +10,7 @@ Based on UTF-8
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include "../../../incl/cli.h"
 
 # define COUNT_CP (0x04)
 # define BUFF (0x1000)
@@ -39,6 +40,10 @@ auto signed char *p;
 auto signed i,l,r;
 auto signed short flag;
 auto signed char c;
+
+auto CLI_STAT cli_stat = {
+(0x00),
+};
 
 /* **** CODE/TEXT */
 *(codepage+(OLD_INPUT)) = GetConsoleCP();
@@ -96,8 +101,8 @@ printf("\n");
 cputs("Please type the <Enter> key to stop.\n\n");
 
 
-r = cli_io(buff,BUFF);
-// if(!r) printf("%s\n","<< Error at fn. cli_io() or empty..");
+r = cli_io(buff,BUFF,&cli_stat);
+if(!r) printf("%s\n","<< Error at fn. cli_io()");
 
 if(r) {
 i = (r);

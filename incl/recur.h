@@ -12,32 +12,6 @@ If the function fails, the return value is (0x00). */
 
 
 
-signed(__cdecl cli_io(signed char(*argp),signed(size)));
-
-/* Input/Output Unicode bytes/characters in UTF-8 out of the key board to the console screen along with fn. cli_in/cli_out. */
-
-
-signed(__cdecl cli_in(signed(*character),signed char(*argp),signed(argp_size)));
-
-/* Get Unicode bytes in UTF-8 out of the keyboard. */
-
-
-signed(__cdecl encode2uni_internal(signed(nbyte),signed char(*arr),signed(arr_size),signed(character)));
-signed(__cdecl encode2uni(signed char(*arr),signed(arr_size),signed(character)));
-signed(__cdecl ncharbyte(signed(arg)));
-
-/* Generate Unicode bytes encoded out of Unicode characters */
-
-
-signed(__cdecl cli_outs(signed char(*argp)));
-signed(__cdecl cli_out(signed char(*argp)));
-signed(__cdecl decode2uni_internal(signed(nbyte),signed(*character),signed char(*argp)));
-signed(__cdecl decode2uni(signed(*character),signed char(*argp)));
-signed(__cdecl nbytechar(signed char(arg)));
-
-/* Output Unicode characters decoded out of Unicode bytes */
-
-
 signed(__cdecl column_internal(signed short(cols),signed(algn),signed short(col),signed char(*cur),signed char(*offset)));
 signed(__cdecl column(signed short(cols),signed(algn),signed char(*base)));
 
