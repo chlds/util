@@ -46,10 +46,27 @@ printf("%s\n","<< Error at fn. init_ty_beta()");
 return(0x00);
 }
 
+r = cli_init_pages(&(cli_w32_stat.ty.paper.spool));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_init_pages()");
+return(0x00);
+}
+
 r = cli_spool_beta(&cli_w32_stat);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_spool_beta()");
 return(0x00);
+}
+
+r = cli_unmap_pages(&(cli_w32_stat.ty.paper.spool));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_unmap_pages()");
+return(0x00);
+}
+
+if(CLI_DBG) {
+if(!(0x01^(r))) printf("%s\n","Unmapped 1 page");
+else printf("%s%d%s\n","Unmapped ",r," pages");
 }
 
 return(0x01);

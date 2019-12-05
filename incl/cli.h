@@ -61,26 +61,26 @@ CLI_SNAPSHOT *t;
 void *optl;
 }CLI_HISTORY;
 
-typedef struct cli_verse {
+typedef struct cli_page {
 signed char *(base[CLI_OFFSETS]);
 signed short linebreak;
 signed short flag;
 signed c;
 signed i;
 signed r;
-struct cli_verse *d;
-struct cli_verse *s;
+struct cli_page *d;
+struct cli_page *s;
 CLI_HISTORY history;
 CLI_COORDS depart;
 void *optl;
-}CLI_VERSE;
-
-typedef struct cli_page {
-CLI_VERSE *l;
-CLI_VERSE *b;
-CLI_VERSE *t;
-void *optl;
 }CLI_PAGE;
+
+typedef struct cli_spool {
+CLI_PAGE *l;
+CLI_PAGE *b;
+CLI_PAGE *t;
+void *optl;
+}CLI_SPOOL;
 
 typedef struct cli_paper {
 // charge buffers i.e., workspace
@@ -93,7 +93,7 @@ signed i;
 signed r;
 struct cli_paper *d;
 struct cli_paper *s;
-CLI_PAGE page;
+CLI_SPOOL spool;
 CLI_COORDS depart;
 void *optl;
 }CLI_PAPER;
@@ -108,6 +108,11 @@ CLI_CODEPAGE codepage;
 CLI_TYPEWRITER ty;
 void(*optl);
 } CLI_STAT;
+
+// Based on a doubly linked list (i.e., not a circular linked list)
+signed(__cdecl cli_init_pages(CLI_SPOOL(*argp)));
+signed(__cdecl cli_concat_pages(CLI_PAGE(*cache),CLI_SPOOL(*argp)));
+signed(__cdecl cli_unmap_pages(CLI_SPOOL(*argp)));
 
 // along with an array of function pointers
 signed(__cdecl cli_ctrl_at(void(*argp)));
