@@ -112,6 +112,7 @@ void(*optl);
 // Based on a doubly linked list (i.e., not a circular linked list)
 signed(__cdecl cli_init_pages(CLI_SPOOL(*argp)));
 signed(__cdecl cli_concat_pages(CLI_PAGE(*cache),CLI_SPOOL(*argp)));
+signed(__cdecl cli_bind_pages(CLI_SPOOL(*argp)));
 signed(__cdecl cli_unmap_pages(CLI_SPOOL(*argp)));
 
 // along with an array of function pointers

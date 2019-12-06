@@ -3,6 +3,7 @@
 Concatenate the lead, base and temporary pages in a doubly linked list (for general purpose).
 
 Remarks:
+Refer at fn. cli_bind_pages.
 Based on a doubly linked list (i.e., not a circular linked list)
 //*/
 

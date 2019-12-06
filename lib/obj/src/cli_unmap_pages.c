@@ -4,6 +4,7 @@ Unmap all the pages implemented in a doubly linked list.
 
 Remarks:
 Based on a doubly linked list (i.e., not a circular linked list)
+Along with C library
 //*/
 
 
@@ -27,8 +28,14 @@ cache = (R(l,*argp));
 R(l,*argp) = (R(s,*(R(l,*argp))));
 
 p = (*(CLI_OFFSET+(R(base,*cache))));
-if(p) free(p);
+if(p) {
+free(p);
+*(CLI_OFFSET+(R(base,*cache))) = (0x00);
+p = (0x00);
+}
+
 free(cache);
+cache = (0x00);
 
 return(0x01+(cli_unmap_pages(argp)));
 }
