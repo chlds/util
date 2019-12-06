@@ -19,12 +19,12 @@ signed(__cdecl cli_concat_pages(CLI_PAGE(*cache),CLI_SPOOL(*argp))) {
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 
-if(!(R(l,*argp))) R(b,*argp) = (cache);
-else R(d,*(R(l,*argp))) = (cache);
+if(!(*(CLI_LEAD+(R(page,*argp))))) *(CLI_BASE+(R(page,*argp))) = (cache);
+else R(d,**(CLI_LEAD+(R(page,*argp)))) = (cache);
 
-R(s,*cache) = R(l,*argp);
-R(l,*argp) = (cache);
-R(d,*(R(l,*argp))) = (0x00);
+R(s,*cache) = (*(CLI_LEAD+(R(page,*argp))));
+*(CLI_LEAD+(R(page,*argp))) = (cache);
+R(d,**(CLI_LEAD+(R(page,*argp)))) = (0x00);
 
 return(0x01);
 }

@@ -22,10 +22,10 @@ auto CLI_PAGE *cache;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
-if(!(R(l,*argp))) return(0x00);
+if(!(*(CLI_LEAD+(R(page,*argp))))) return(0x00);
 
-cache = (R(l,*argp));
-R(l,*argp) = (R(s,*(R(l,*argp))));
+cache = (*(CLI_LEAD+(R(page,*argp))));
+*(CLI_LEAD+(R(page,*argp))) = (R(s,**(CLI_LEAD+(R(page,*argp)))));
 
 p = (*(CLI_OFFSET+(R(base,*cache))));
 if(p) {

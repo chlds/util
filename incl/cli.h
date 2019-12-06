@@ -23,6 +23,8 @@ and at util/lib/obj/src/cli_io.c
 # define CLI_CODEPAGE_IO (0x01+(0x03))
 # define CLI_OFFSETS (0x01+(0x03))
 # define CLI_OBJS (0x01+(0x03))
+# define CLI_SNAPSHOTS (CLI_OBJS)
+# define CLI_PAGES (CLI_OBJS)
 
 enum {
 CLI_IN,CLI_OUT,CLI_ERR,
@@ -30,6 +32,10 @@ CLI_IN,CLI_OUT,CLI_ERR,
 
 enum {
 CLI_OFFSET,CLI_OFFSET1,CLI_OFFSET2,// CLI_OFFSET3,
+};
+
+enum {
+CLI_CACHE,CLI_LEAD,CLI_BASE,CLI_TEMP,
 };
 
 typedef struct cli_codepage {
@@ -55,9 +61,7 @@ void *optl;
 }CLI_SNAPSHOT;
 
 typedef struct cli_history {
-CLI_SNAPSHOT *l;
-CLI_SNAPSHOT *b;
-CLI_SNAPSHOT *t;
+CLI_SNAPSHOT *(snapshot[CLI_SNAPSHOTS]);
 void *optl;
 }CLI_HISTORY;
 
@@ -76,9 +80,7 @@ void *optl;
 }CLI_PAGE;
 
 typedef struct cli_spool {
-CLI_PAGE *l;
-CLI_PAGE *b;
-CLI_PAGE *t;
+CLI_PAGE *(page[CLI_PAGES]);
 void *optl;
 }CLI_SPOOL;
 
