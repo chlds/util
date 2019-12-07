@@ -32,6 +32,15 @@ CLI_TYPEWRITER ty;
 void(*optl);
 } CLI_W32_STAT;
 
+// Get the current cursor position or set the cursor position.
+signed(__cdecl cli_coord_beta(signed short(flag),CLI_COORDS(*cache),CLI_W32_STAT(*argp)));
+
+// Retrieve information about the specified console screen buffer.
+signed(__cdecl cli_get_csbi_beta(CLI_W32_STAT(*argp)));
+
+// Retrieve a handle to the specified standard output device.
+signed(__cdecl cli_init_ty_beta(CLI_W32_STAT(*argp)));
+
 // along with an array of function pointers
 signed(__cdecl cli_ctrl_at_beta(void(*argp)));
 signed(__cdecl cli_ctrl_a_beta(void(*argp)));

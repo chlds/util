@@ -22,7 +22,7 @@ auto signed char *p;
 auto signed i,r;
 
 /* **** CODE/TEXT */
-// Get a handle to the standard output device
+// Get a handle to the specified standard output device
 *(CLI_OUT+(R(device,*argp))) = (void(*)) GetStdHandle(STD_OUTPUT_HANDLE);
 ll = (signed long long) (*(CLI_OUT+(R(device,*argp))));
 if(!(ll^((signed long long) INVALID_HANDLE_VALUE))) {
@@ -30,7 +30,7 @@ printf("%s\n","<< Error at fn. GetStdHandle()");
 return(0x00);
 }
 
-if(CLI_DBG) printf("%s%p\n","An offset address for a handle to the standard output device is: ",*(CLI_OUT+(R(device,*argp))));
+if(CLI_DBG) printf("%s%p\n","An offset address for a handle to the specified standard output device is: ",*(CLI_OUT+(R(device,*argp))));
 
 r = GetConsoleScreenBufferInfo(*(CLI_OUT+(R(device,*argp))),&(R(csbi,*argp)));
 

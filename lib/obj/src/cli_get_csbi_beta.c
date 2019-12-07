@@ -20,7 +20,7 @@ auto signed i,r;
 if(!argp) return(0x00);
 
 if(!(*(CLI_OUT+((*argp).device)))) {
-printf("%s\n","<< Get a handle to the standard output device.");
+printf("%s\n","<< Get a handle to the specified standard output device.");
 return(0x00);
 }
 
