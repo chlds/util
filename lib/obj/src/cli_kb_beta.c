@@ -9,7 +9,7 @@ Based on UTF-8
 */
 
 
-# define R(D,S) ((S).D)
+# define R(D,S) (S).D
 // A local macro function
 
 # include <conio.h>
@@ -42,7 +42,7 @@ return(0x00);
 if(CLI_DBG) cputs("Please type the <Enter> key to stop.\n\n");
 
 /* Recur to build a verse */
-p = (*(CLI_OFFSET+R(base,R(paper,R(ty,*argp)))));
+p = (*(CLI_BASE+(R(base,R(paper,R(ty,*argp))))));
 i = R(size,R(paper,R(ty,*argp)));
 r = cli_io_beta(p,i,argp);
 if(!r) {

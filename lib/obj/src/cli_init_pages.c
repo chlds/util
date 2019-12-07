@@ -17,10 +17,10 @@ signed(__cdecl cli_init_pages(CLI_SPOOL(*argp))) {
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-*(CLI_CACHE+(R(page,*argp))) = (0x00);
-*(CLI_LEAD+(R(page,*argp))) = (0x00);
 *(CLI_BASE+(R(page,*argp))) = (0x00);
-*(CLI_TEMP+(R(page,*argp))) = (0x00);
+*(CLI_OFFSET+(R(page,*argp))) = (0x00);
+*(CLI_INDEX+(R(page,*argp))) = (0x00);
+*(CLI_LEAD+(R(page,*argp))) = (0x00);
 
 return(0x01);
 }

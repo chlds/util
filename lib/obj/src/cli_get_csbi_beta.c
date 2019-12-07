@@ -1,13 +1,19 @@
 /*
 
 Retrieve information about the specified console screen buffer.
+
+Remarks:
+Refer at fn. cli_init_ty_beta.
 */
 
+
+# define R(D,S) (S).D
+// A local macro function
 
 # include <stdio.h>
 # include "../../../incl/cli_w32.h"
 
-signed(__cdecl getcsbi(CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_get_csbi_beta(CLI_W32_STAT(*argp))) {
 
 auto signed i,r;
 

@@ -1,19 +1,20 @@
 /*
 
 Initialise along with Win32 API.
+Retrieve a handle to the specified standard output device.
 
 Remarks:
 The beta edition is for Windows 10 64-bit OS.
 */
 
 
-# define R(D,S) ((S).D)
+# define R(D,S) (S).D
 // A local macro function
 
 # define CLI_W32
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl init_ty_beta(CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_init_ty_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed long long ll;
@@ -22,18 +23,16 @@ auto signed i,r;
 
 /* **** CODE/TEXT */
 // Get a handle to the standard output device
-*(CLI_OUT+R(device,*argp)) = (void(*)) GetStdHandle(STD_OUTPUT_HANDLE);
-
-ll = (signed long long) (*(CLI_OUT+R(device,*argp)));
-
+*(CLI_OUT+(R(device,*argp))) = (void(*)) GetStdHandle(STD_OUTPUT_HANDLE);
+ll = (signed long long) (*(CLI_OUT+(R(device,*argp))));
 if(!(ll^((signed long long) INVALID_HANDLE_VALUE))) {
 printf("%s\n","<< Error at fn. GetStdHandle()");
 return(0x00);
 }
 
-if(CLI_DBG) printf("%s%p\n","An offset address for a handle to the standard output device is: ",*(CLI_OUT+R(device,*argp)));
+if(CLI_DBG) printf("%s%p\n","An offset address for a handle to the standard output device is: ",*(CLI_OUT+(R(device,*argp))));
 
-r = GetConsoleScreenBufferInfo(*(CLI_OUT+R(device,*argp)),&R(csbi,*argp));
+r = GetConsoleScreenBufferInfo(*(CLI_OUT+(R(device,*argp))),&(R(csbi,*argp)));
 
 if(!r) {
 r = GetLastError();

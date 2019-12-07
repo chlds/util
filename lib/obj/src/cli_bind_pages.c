@@ -34,8 +34,9 @@ printf("%s\n","<< Error at fn. malloc()");
 return(0x00);
 }
 
-// *(CLI_CACHE+(R(page,*argp))) = (page);
-*(CLI_OFFSET+(R(base,*page))) = (0x00);
+// e.g., *(CLI_CACHE+(R(page,*argp))) = (page);
+
+*(CLI_BASE+(R(base,*page))) = (0x00);
 
 r = cli_concat_pages(page,argp);
 if(!r) {

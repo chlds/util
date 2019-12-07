@@ -27,10 +27,10 @@ if(!(*(CLI_LEAD+(R(page,*argp))))) return(0x00);
 cache = (*(CLI_LEAD+(R(page,*argp))));
 *(CLI_LEAD+(R(page,*argp))) = (R(s,**(CLI_LEAD+(R(page,*argp)))));
 
-p = (*(CLI_OFFSET+(R(base,*cache))));
+p = (*(CLI_BASE+(R(base,*cache))));
 if(p) {
 free(p);
-*(CLI_OFFSET+(R(base,*cache))) = (0x00);
+*(CLI_BASE+(R(base,*cache))) = (0x00);
 p = (0x00);
 }
 

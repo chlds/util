@@ -21,7 +21,7 @@ and at util/lib/obj/src/cli_io.c
 # define ALIGNE_TAB (0x08)
 
 # define CLI_CODEPAGE_IO (0x01+(0x03))
-# define CLI_OFFSETS (0x01+(0x03))
+# define CLI_WORKSPACE (0x01+(0x03))
 # define CLI_OBJS (0x01+(0x03))
 # define CLI_SNAPSHOTS (CLI_OBJS)
 # define CLI_PAGES (CLI_OBJS)
@@ -31,11 +31,7 @@ CLI_IN,CLI_OUT,CLI_ERR,
 };
 
 enum {
-CLI_OFFSET,CLI_OFFSET1,CLI_OFFSET2,// CLI_OFFSET3,
-};
-
-enum {
-CLI_CACHE,CLI_LEAD,CLI_BASE,CLI_TEMP,
+CLI_BASE,CLI_OFFSET,CLI_INDEX,CLI_LEAD,
 };
 
 typedef struct cli_codepage {
@@ -48,7 +44,7 @@ signed short y;
 }CLI_COORDS;
 
 typedef struct cli_snapshot {
-signed char *(base[CLI_OFFSETS]);
+signed char *(base[CLI_WORKSPACE]);
 signed short linebreak;
 signed short flag;
 signed c;
@@ -66,7 +62,7 @@ void *optl;
 }CLI_HISTORY;
 
 typedef struct cli_page {
-signed char *(base[CLI_OFFSETS]);
+signed char *(base[CLI_WORKSPACE]);
 signed short linebreak;
 signed short flag;
 signed c;
@@ -86,7 +82,7 @@ void *optl;
 
 typedef struct cli_paper {
 // charge buffers i.e., workspace
-signed char *(base[CLI_OFFSETS]);
+signed char *(base[CLI_WORKSPACE]);
 signed size;
 signed short linebreak;
 signed short flag;
