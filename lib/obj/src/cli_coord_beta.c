@@ -16,7 +16,7 @@ The beta edition is for Windows 10 64-bit OS.
 # define CLI_W32
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_coord_beta(signed short(flag),CLI_COORDS(*cache),CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_coord_beta(signed short(flag),CLI_COORD(*cache),CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto COORD coord;

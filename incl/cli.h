@@ -38,10 +38,17 @@ typedef struct cli_codepage {
 unsigned (io[CLI_CODEPAGE_IO]);
 }CLI_CODEPAGE;
 
-typedef struct cli_coords {
+typedef struct cli_coord {
 signed short x;
 signed short y;
-}CLI_COORDS;
+}CLI_COORD;
+
+typedef struct cli_rect {
+signed short left;
+signed short top;
+signed short right;
+signed short bottom;
+}CLI_RECT;
 
 typedef struct cli_snapshot {
 signed char *(base[CLI_WORKSPACE]);
@@ -52,7 +59,9 @@ signed i;
 signed r;
 struct cli_snapshot *d;
 struct cli_snapshot *s;
-CLI_COORDS depart;
+CLI_COORD origin;
+CLI_COORD depart;
+CLI_RECT frame;
 void *optl;
 }CLI_SNAPSHOT;
 
@@ -71,7 +80,9 @@ signed r;
 struct cli_page *d;
 struct cli_page *s;
 CLI_HISTORY history;
-CLI_COORDS depart;
+CLI_COORD origin;
+CLI_COORD depart;
+CLI_RECT frame;
 void *optl;
 }CLI_PAGE;
 
@@ -92,7 +103,9 @@ signed r;
 struct cli_paper *d;
 struct cli_paper *s;
 CLI_SPOOL spool;
-CLI_COORDS depart;
+CLI_COORD origin;
+CLI_COORD depart;
+CLI_RECT frame;
 void *optl;
 }CLI_PAPER;
 
@@ -102,10 +115,14 @@ void(*optl);
 } CLI_TYPEWRITER;
 
 typedef struct cli_stat {
+signed char *file_name;
 CLI_CODEPAGE codepage;
 CLI_TYPEWRITER ty;
 void(*optl);
 } CLI_STAT;
+
+// Display the two-row header
+signed(__cdecl cli_display_header(CLI_STAT(*argp)));
 
 // Based on a doubly linked list (i.e., not a circular linked list)
 signed(__cdecl cli_init_pages(CLI_SPOOL(*argp)));

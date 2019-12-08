@@ -21,19 +21,29 @@ and at util/lib/obj/src/cli_io.c
 # include "./cli.h"
 
 typedef struct cli_w32_stat {
+signed char *file_name;
 void *(window[CLI_WINDOWS]);
 void *(search[CLI_SEARCHES]);
 void *(module[CLI_MODULES]);
 void *(device[CLI_DEVICES]);
-COORD coord;
+COORD origin;
+COORD depart;
+SMALL_RECT frame;
 CONSOLE_SCREEN_BUFFER_INFO csbi;
 CLI_CODEPAGE codepage;
 CLI_TYPEWRITER ty;
 void(*optl);
 } CLI_W32_STAT;
 
+// Display the two-row header
+signed(__cdecl cli_display_header_beta(CLI_W32_STAT(*argp)));
+
+// Clear the row/rows.
+signed(__cdecl cli_clear_rows_beta(CLI_W32_STAT(*argp)));
+signed(__cdecl cli_clear_row_beta(signed short comeback_flag,CLI_W32_STAT(*argp)));
+
 // Get the current cursor position or set the cursor position.
-signed(__cdecl cli_coord_beta(signed short(flag),CLI_COORDS(*cache),CLI_W32_STAT(*argp)));
+signed(__cdecl cli_coord_beta(signed short(flag),CLI_COORD(*cache),CLI_W32_STAT(*argp)));
 
 // Retrieve information about the specified console screen buffer.
 signed(__cdecl cli_get_csbi_beta(CLI_W32_STAT(*argp)));
