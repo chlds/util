@@ -26,5 +26,9 @@ R(s,*cache) = (*(CLI_LEAD+(R(page,*argp))));
 *(CLI_LEAD+(R(page,*argp))) = (cache);
 R(d,**(CLI_LEAD+(R(page,*argp)))) = (0x00);
 
+// Aux.
+*(CLI_OFFSET+(R(page,*argp))) = (*(CLI_BASE+(R(page,*argp))));
+*(CLI_INDEX+(R(page,*argp))) = (*(CLI_LEAD+(R(page,*argp))));
+
 return(0x01);
 }

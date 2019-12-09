@@ -32,8 +32,12 @@ SMALL_RECT frame;
 CONSOLE_SCREEN_BUFFER_INFO csbi;
 CLI_CODEPAGE codepage;
 CLI_TYPEWRITER ty;
+CLI_DEBUG_MONITOR debug;
 void(*optl);
 } CLI_W32_STAT;
+
+// Monitor
+signed(__cdecl cli_debug_monitor_beta(CLI_W32_STAT(*argp)));
 
 // Display the two-row header
 signed(__cdecl cli_display_header_beta(CLI_W32_STAT(*argp)));

@@ -15,7 +15,7 @@ and at util/lib/obj/src/cli_io.c
 # define CLI_DBG_W (0x02)
 # define CLI_DBG_B (0x01)
 
-# define CLI_DBG (CLI_DBG_B)
+# define CLI_DBG (CLI_DBG_D)
 
 # define CTRL_MASK (0x1F)
 # define ALIGNE_TAB (0x08)
@@ -36,19 +36,19 @@ CLI_BASE,CLI_OFFSET,CLI_INDEX,CLI_LEAD,
 
 typedef struct cli_codepage {
 unsigned (io[CLI_CODEPAGE_IO]);
-}CLI_CODEPAGE;
+} CLI_CODEPAGE;
 
 typedef struct cli_coord {
 signed short x;
 signed short y;
-}CLI_COORD;
+} CLI_COORD;
 
 typedef struct cli_rect {
 signed short left;
 signed short top;
 signed short right;
 signed short bottom;
-}CLI_RECT;
+} CLI_RECT;
 
 typedef struct cli_snapshot {
 signed char *(base[CLI_WORKSPACE]);
@@ -63,12 +63,12 @@ CLI_COORD origin;
 CLI_COORD depart;
 CLI_RECT frame;
 void *optl;
-}CLI_SNAPSHOT;
+} CLI_SNAPSHOT;
 
 typedef struct cli_history {
 CLI_SNAPSHOT *(snapshot[CLI_SNAPSHOTS]);
 void *optl;
-}CLI_HISTORY;
+} CLI_HISTORY;
 
 typedef struct cli_page {
 signed char *(base[CLI_WORKSPACE]);
@@ -84,17 +84,15 @@ CLI_COORD origin;
 CLI_COORD depart;
 CLI_RECT frame;
 void *optl;
-}CLI_PAGE;
+} CLI_PAGE;
 
 typedef struct cli_spool {
 CLI_PAGE *(page[CLI_PAGES]);
 void *optl;
-}CLI_SPOOL;
+} CLI_SPOOL;
 
 typedef struct cli_paper {
-// charge buffers i.e., workspace
 signed char *(base[CLI_WORKSPACE]);
-signed size;
 signed short linebreak;
 signed short flag;
 signed c;
@@ -107,22 +105,32 @@ CLI_COORD origin;
 CLI_COORD depart;
 CLI_RECT frame;
 void *optl;
-}CLI_PAPER;
+} CLI_PAPER;
 
 typedef struct cli_typewriter {
+signed ink; // ink per roll i.e., buffer per workspace
 CLI_PAPER paper;
-void(*optl);
+void *optl;
 } CLI_TYPEWRITER;
+
+typedef struct cli_debug_monitor {
+signed ink_level;
+void *optl;
+} CLI_DEBUG_MONITOR;
 
 typedef struct cli_stat {
 signed char *file_name;
 CLI_CODEPAGE codepage;
 CLI_TYPEWRITER ty;
-void(*optl);
+CLI_DEBUG_MONITOR debug;
+void *optl;
 } CLI_STAT;
 
 // Display the two-row header
 signed(__cdecl cli_display_header(CLI_STAT(*argp)));
+
+// Charge rolls
+signed(__cdecl cli_init_paper(signed(ink),signed char(**roll),CLI_TYPEWRITER(*argp)));
 
 // Based on a doubly linked list (i.e., not a circular linked list)
 signed(__cdecl cli_init_pages(CLI_SPOOL(*argp)));

@@ -43,7 +43,7 @@ if(CLI_DBG) cputs("Please type the <Enter> key to stop.\n\n");
 
 /* Recur to build a verse */
 p = (*(CLI_BASE+(R(base,R(paper,R(ty,*argp))))));
-i = R(size,R(paper,R(ty,*argp)));
+i = (R(ink,R(ty,*argp)));
 r = cli_io_beta(p,i,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_io_beta()");

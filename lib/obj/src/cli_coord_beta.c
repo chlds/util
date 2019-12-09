@@ -34,7 +34,7 @@ printf("%s\n","<< Get a handle to the specified standard output device.");
 return(0x00);
 }
 
-if(CLI_DBG_B<(CLI_DBG)) printf("%s%p\n","An offset address for a handle to the specified standard output device is: ",*(CLI_OUT+(R(device,*argp))));
+if(CLI_DBG_D<(CLI_DBG)) printf("%s%p\n","An offset address for a handle to the specified standard output device is: ",*(CLI_OUT+(R(device,*argp))));
 
 if(!(CLI_IN^(flag))) {
 // Get the current cursor position.

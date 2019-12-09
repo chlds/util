@@ -109,14 +109,32 @@ if(!r) {
 printf("%s%d%s%d%s\n","<< Error at fn. *(cli_fn[",i,"]) (*(cli_fn_argp+(",i,")))");
 return(0x00);
 }
-if((*argp).ty.paper.linebreak) return(0x01);
-}
+if((*argp).ty.paper.linebreak) {
+// monitor
+if(CLI_DBG_B<(CLI_DBG)) {
+R(ink_level,R(debug,*argp)) = (size);
+r = cli_debug_monitor_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_debug_monitor_beta()");
+return(0x00);
+}}
+return(0x01);
+}}
 
 else {
 // put
 r = cli_out(-r+(cur));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_out()");
+return(0x00);
+}}
+
+// monitor
+if(CLI_DBG_B<(CLI_DBG)) {
+R(ink_level,R(debug,*argp)) = (size);
+r = cli_debug_monitor_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_debug_monitor_beta()");
 return(0x00);
 }}
 
