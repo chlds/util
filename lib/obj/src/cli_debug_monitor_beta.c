@@ -73,7 +73,7 @@ else printf("\n");
 
 // Ink level indicator
 printf("%d%s\n",R(ink_level,R(debug,R(ty,*argp)))," at (R(ink_level,R(debug,R(ty,*argp");
-printf("%d%s\n",R(ink_level,R(ty,*argp))," at (R(ink_level,R(ty,*argp");
+printf("%d%s\n",R(ink_level,R(ty,*argp))," at (R(ink_level,R(ty,*argp (updated by fn. calls but always monitored)");
 printf("%d%s\n",R(ink,R(ty,*argp))," at (R(ink,R(ty,*argp");
 
 // Append and linebreak
@@ -83,7 +83,7 @@ printf("%d%s\n",R(linebreak,R(ty,*argp))," at (R(linebreak,R(ty,*argp");
 // Workspace
 printf("%s\n","Paper");
 printf("%p%s\n",R(cur,R(debug,R(ty,*argp)))," at (R(cur,R(debug,R(ty,*argp");
-printf("%p%s\n",R(cur,R(ty,*argp))," at (R(cur,R(ty,*argp");
+printf("%p%s\n",*(CLI_INDEX+(R(cur,R(ty,*argp))))," at (*(CLI_INDEX+(R(cur,R(ty,*argp (updated by fn. calls but always monitored)");
 printf("%p%s\n",*(CLI_BASE+(R(base,R(paper,R(ty,*argp)))))," at (*(CLI_BASE+(R(base,R(paper,R(ty,*argp");
 printf("%p%s\n",*(CLI_OFFSET+(R(base,R(paper,R(ty,*argp)))))," at (*(CLI_OFFSET+(R(base,R(paper,R(ty,*argp");
 printf("%p%s\n",*(CLI_INDEX+(R(base,R(paper,R(ty,*argp)))))," at (*(CLI_INDEX+(R(base,R(paper,R(ty,*argp");
@@ -93,6 +93,7 @@ printf("%p%s\n",*(CLI_BASE+(R(page,R(spool,R(paper,R(ty,*argp))))))," at *(CLI_B
 printf("%p%s\n",*(CLI_OFFSET+(R(page,R(spool,R(paper,R(ty,*argp))))))," at *(CLI_OFFSET+(R(page,R(spool,R(paper,R(ty,*argp");
 printf("%p%s\n",*(CLI_INDEX+(R(page,R(spool,R(paper,R(ty,*argp))))))," at *(CLI_INDEX+(R(page,R(spool,R(paper,R(ty,*argp");
 printf("%p%s\n",*(CLI_LEAD+(R(page,R(spool,R(paper,R(ty,*argp))))))," at *(CLI_LEAD+(R(page,R(spool,R(paper,R(ty,*argp");
+printf("%d%s",R(insert,R(spool,R(paper,R(ty,*argp))))," at (R(insert,R(spool,R(paper,R(ty,*argp");
 
 /* come back */
 r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);

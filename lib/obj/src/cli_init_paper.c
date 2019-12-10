@@ -39,8 +39,12 @@ i++;
 if(CLI_DBG) printf("%s%d\n","Charged roll: ",i);
 *(i+(R(base,R(paper,*argp)))) = (*(i+(roll)));
 
-R(cur,*argp) = (*(CLI_BASE+(R(base,R(paper,*argp)))));
-R(cur,R(debug,*argp)) = (R(cur,*argp));
+*(CLI_BASE+(R(cur,*argp))) = (*(CLI_BASE+(R(base,R(paper,*argp)))));
+*(CLI_OFFSET+(R(cur,*argp))) = (*(CLI_BASE+(R(cur,*argp))));
+*(CLI_INDEX+(R(cur,*argp))) = (*(CLI_BASE+(R(cur,*argp))));
+*(CLI_LEAD+(R(cur,*argp))) = (*(CLI_BASE+(R(cur,*argp))));
+R(cur,R(debug,*argp)) = (*(CLI_INDEX+(R(cur,*argp))));
+
 R(append,*argp) = (0x00);
 R(linebreak,*argp) = (0x00);
 R(flag,*argp) = (0x00);

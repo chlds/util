@@ -105,7 +105,7 @@ size = (-r+(size));
 if(i<(0x20)) {
 *(--cur) = (signed char) (0x00);
 size++;
-R(cur,R(ty,*argp)) = (cur);
+*(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
 R(ink_level,R(ty,*argp)) = (size);
 // and run in an array of function pointers e.g.,
 // r = *(cli_fn+(i)) (*(cli_fn_argp+(i)));
@@ -115,7 +115,7 @@ printf("%s%d%s%d%s\n","<< Error at fn. *(cli_fn[",i,"]) (*(cli_fn_argp+(",i,")))
 return(0x00);
 }
 size = (R(ink_level,R(ty,*argp)));
-cur = (R(cur,R(ty,*argp)));
+cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 if((*argp).ty.linebreak) {
 // monitor
 if(CLI_DBG_B<(CLI_DBG)) {

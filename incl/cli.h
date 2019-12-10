@@ -87,6 +87,7 @@ void *optl;
 } CLI_PAGE;
 
 typedef struct cli_spool {
+signed short insert;
 CLI_PAGE *(page[CLI_PAGES]);
 void *optl;
 } CLI_SPOOL;
@@ -114,7 +115,7 @@ void *optl;
 } CLI_DEBUG;
 
 typedef struct cli_typewriter {
-signed char *cur;
+signed char *(cur[CLI_OBJS]);
 signed ink_level;
 signed ink; // ink per roll i.e., buffer size per workspace
 signed short append;
