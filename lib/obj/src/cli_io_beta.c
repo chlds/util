@@ -114,7 +114,9 @@ if(!r) {
 printf("%s%d%s%d%s\n","<< Error at fn. *(cli_fn[",i,"]) (*(cli_fn_argp+(",i,")))");
 return(0x00);
 }
-if((*argp).ty.paper.linebreak) {
+size = (R(ink_level,R(ty,*argp)));
+cur = (R(cur,R(ty,*argp)));
+if((*argp).ty.linebreak) {
 // monitor
 if(CLI_DBG_B<(CLI_DBG)) {
 R(cur,R(debug,R(ty,*argp))) = (cur);

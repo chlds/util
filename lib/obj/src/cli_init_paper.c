@@ -43,6 +43,7 @@ R(cur,*argp) = (*(CLI_BASE+(R(base,R(paper,*argp)))));
 R(cur,R(debug,*argp)) = (R(cur,*argp));
 R(append,*argp) = (0x00);
 R(linebreak,*argp) = (0x00);
+R(flag,*argp) = (0x00);
 
 R(linebreak,R(paper,*argp)) = (0x00);
 

@@ -119,6 +119,7 @@ signed ink_level;
 signed ink; // ink per roll i.e., buffer size per workspace
 signed short append;
 signed short linebreak;
+signed short flag;
 CLI_PAPER paper;
 CLI_DEBUG debug;
 void *optl;
