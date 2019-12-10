@@ -107,22 +107,27 @@ CLI_RECT frame;
 void *optl;
 } CLI_PAPER;
 
-typedef struct cli_typewriter {
-signed ink; // ink per roll i.e., buffer per workspace
-CLI_PAPER paper;
-void *optl;
-} CLI_TYPEWRITER;
-
-typedef struct cli_debug_monitor {
+typedef struct cli_debug {
+signed char *cur;
 signed ink_level;
 void *optl;
-} CLI_DEBUG_MONITOR;
+} CLI_DEBUG;
+
+typedef struct cli_typewriter {
+signed char *cur;
+signed ink_level;
+signed ink; // ink per roll i.e., buffer size per workspace
+signed short append;
+signed short linebreak;
+CLI_PAPER paper;
+CLI_DEBUG debug;
+void *optl;
+} CLI_TYPEWRITER;
 
 typedef struct cli_stat {
 signed char *file_name;
 CLI_CODEPAGE codepage;
 CLI_TYPEWRITER ty;
-CLI_DEBUG_MONITOR debug;
 void *optl;
 } CLI_STAT;
 

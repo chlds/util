@@ -8,7 +8,7 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 
 
 # define R(D,S) (S).D
-# define N_ROWS (0x07)
+# define N_ROWS (0x13)
 
 # include <stdio.h>
 # include "../../../incl/cli_w32.h"
@@ -60,9 +60,35 @@ r = _putch('*');
 
 /* monitor */
 r = cli_outs(*(CLI_BASE+(R(base,R(paper,R(ty,*argp))))));
-if(!r) printf("%s\n","<< Empty or..");
+if(!r) printf("%s\n","<< *(CLI_BASE+(R(base,R(paper,R(ty,*argp is empty or..");
 else printf("\n");
-printf("%d%s%d%s\n",R(ink_level,R(debug,*argp)),"/",R(ink,R(ty,*argp))," ink");
+
+r = cli_outs(*(CLI_OFFSET+(R(base,R(paper,R(ty,*argp))))));
+if(!r) printf("%s\n","<< *(CLI_OFFSET+(R(base,R(paper,R(ty,*argp is empty or..");
+else printf("\n");
+
+r = cli_outs(*(CLI_INDEX+(R(base,R(paper,R(ty,*argp))))));
+if(!r) printf("%s\n","<< *(CLI_INDEX+(R(base,R(paper,R(ty,*argp is empty or..");
+else printf("\n");
+
+// Ink level indicator
+printf("%d%s\n",R(ink_level,R(debug,R(ty,*argp)))," at (R(ink_level,R(debug,R(ty,*argp");
+printf("%d%s\n",R(ink_level,R(ty,*argp))," at (R(ink_level,R(ty,*argp");
+printf("%d%s\n",R(ink,R(ty,*argp))," at (R(ink,R(ty,*argp");
+
+// Append and linebreak
+printf("%d%s",R(append,R(ty,*argp))," at (R(append,R(ty,*argp | ");
+printf("%d%s\n",R(linebreak,R(ty,*argp))," at (R(linebreak,R(ty,*argp");
+
+// Workspace
+printf("%s\n","Paper");
+printf("%p%s\n",R(cur,R(debug,R(ty,*argp)))," at (R(cur,R(debug,R(ty,*argp");
+printf("%p%s\n",R(cur,R(ty,*argp))," at (R(cur,R(ty,*argp");
+printf("%p%s\n",*(CLI_BASE+(R(base,R(paper,R(ty,*argp)))))," at (*(CLI_BASE+(R(base,R(paper,R(ty,*argp");
+printf("%p%s\n",*(CLI_OFFSET+(R(base,R(paper,R(ty,*argp)))))," at (*(CLI_OFFSET+(R(base,R(paper,R(ty,*argp");
+printf("%p%s\n",*(CLI_INDEX+(R(base,R(paper,R(ty,*argp)))))," at (*(CLI_INDEX+(R(base,R(paper,R(ty,*argp");
+// Concatenated pages
+printf("%s\n","Pages");
 printf("%p%s\n",*(CLI_BASE+(R(page,R(spool,R(paper,R(ty,*argp))))))," at *(CLI_BASE+(R(page,R(spool,R(paper,R(ty,*argp");
 printf("%p%s\n",*(CLI_OFFSET+(R(page,R(spool,R(paper,R(ty,*argp))))))," at *(CLI_OFFSET+(R(page,R(spool,R(paper,R(ty,*argp");
 printf("%p%s\n",*(CLI_INDEX+(R(page,R(spool,R(paper,R(ty,*argp))))))," at *(CLI_INDEX+(R(page,R(spool,R(paper,R(ty,*argp");

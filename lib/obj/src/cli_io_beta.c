@@ -89,6 +89,9 @@ if(size<(LIMIT)) {
 return(0x00);
 }
 
+/* append
+//*/
+
 // get
 r = cli_in(&i,cur,size);
 if(!r) {
@@ -102,6 +105,8 @@ size = (-r+(size));
 if(i<(0x20)) {
 *(--cur) = (signed char) (0x00);
 size++;
+R(cur,R(ty,*argp)) = (cur);
+R(ink_level,R(ty,*argp)) = (size);
 // and run in an array of function pointers e.g.,
 // r = *(cli_fn+(i)) (*(cli_fn_argp+(i)));
 r = (*(cli_fn+(i)))(argp);
@@ -112,7 +117,8 @@ return(0x00);
 if((*argp).ty.paper.linebreak) {
 // monitor
 if(CLI_DBG_B<(CLI_DBG)) {
-R(ink_level,R(debug,*argp)) = (size);
+R(cur,R(debug,R(ty,*argp))) = (cur);
+R(ink_level,R(debug,R(ty,*argp))) = (size);
 r = cli_debug_monitor_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_debug_monitor_beta()");
@@ -131,7 +137,8 @@ return(0x00);
 
 // monitor
 if(CLI_DBG_B<(CLI_DBG)) {
-R(ink_level,R(debug,*argp)) = (size);
+R(cur,R(debug,R(ty,*argp))) = (cur);
+R(ink_level,R(debug,R(ty,*argp))) = (size);
 r = cli_debug_monitor_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_debug_monitor_beta()");

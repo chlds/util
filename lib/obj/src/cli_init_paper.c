@@ -25,6 +25,8 @@ if(!argp) return(0x00);
 
 // ink per roll i.e., buffer per workspace
 R(ink,*argp) = (ink);
+R(ink_level,*argp) = (R(ink,*argp));
+R(ink_level,R(debug,*argp)) = (R(ink_level,*argp));
 
 // Charge rolls
 i = (0x00);
@@ -33,8 +35,14 @@ if(CLI_DBG) printf("%s%d\r","Charge roll: ",i);
 *(i+(R(base,R(paper,*argp)))) = (*(i+(roll)));
 i++;
 }
+// Charged rolls
 if(CLI_DBG) printf("%s%d\n","Charged roll: ",i);
 *(i+(R(base,R(paper,*argp)))) = (*(i+(roll)));
+
+R(cur,*argp) = (*(CLI_BASE+(R(base,R(paper,*argp)))));
+R(cur,R(debug,*argp)) = (R(cur,*argp));
+R(append,*argp) = (0x00);
+R(linebreak,*argp) = (0x00);
 
 R(linebreak,R(paper,*argp)) = (0x00);
 
