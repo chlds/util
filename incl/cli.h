@@ -22,6 +22,9 @@ and at util/lib/obj/src/cli_io.c
 # define LINEBREAK_CRLF (0x02)
 # define LINEBREAK_LF (0x01)
 
+# define CLI_CONFIG_FILE_SIZE_LIMIT (0x100000)
+# define CLI_FILE_SIZE_LIMIT (0x100000)
+
 # define CLI_CODEPAGE_IO (0x01+(0x03))
 # define CLI_OBJS (0x01+(0x03))
 # define CLI_WORKSPACE (CLI_OBJS)
@@ -129,7 +132,8 @@ void *optl;
 
 typedef struct cli_stat {
 signed char *file;
-signed short config_file;
+signed file_size;
+signed config_file_size;
 signed short linebreak_form;
 CLI_CODEPAGE codepage;
 CLI_TYPEWRITER ty;

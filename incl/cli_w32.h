@@ -22,7 +22,8 @@ and at util/lib/obj/src/cli_io.c
 
 typedef struct cli_w32_stat {
 signed char *file;
-signed short config_file;
+signed file_size;
+signed config_file_size;
 signed short linebreak_form;
 CLI_CODEPAGE codepage;
 CLI_TYPEWRITER ty;
