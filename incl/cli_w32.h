@@ -21,18 +21,17 @@ and at util/lib/obj/src/cli_io.c
 # include "./cli.h"
 
 typedef struct cli_w32_stat {
-signed char *file_name;
+signed char *file;
+signed short config_file;
+signed short linebreak_form;
+CLI_CODEPAGE codepage;
+CLI_TYPEWRITER ty;
+CONSOLE_SCREEN_BUFFER_INFO csbi;
 void *(window[CLI_WINDOWS]);
 void *(search[CLI_SEARCHES]);
 void *(module[CLI_MODULES]);
 void *(device[CLI_DEVICES]);
-COORD origin;
-COORD depart;
-SMALL_RECT frame;
-CONSOLE_SCREEN_BUFFER_INFO csbi;
-CLI_CODEPAGE codepage;
-CLI_TYPEWRITER ty;
-void(*optl);
+void *optl;
 } CLI_W32_STAT;
 
 // Monitor
@@ -50,6 +49,9 @@ signed(__cdecl cli_coord_beta(signed short(flag),CLI_COORD(*cache),CLI_W32_STAT(
 
 // Retrieve information about the specified console screen buffer.
 signed(__cdecl cli_get_csbi_beta(CLI_W32_STAT(*argp)));
+
+// Configure parameters with config file ~/.ty/config_ty.txt
+signed(__cdecl cli_config_ty_beta(signed char(*file),CLI_W32_STAT(*argp)));
 
 // Retrieve a handle to the specified standard output device.
 signed(__cdecl cli_init_ty_beta(CLI_W32_STAT(*argp)));

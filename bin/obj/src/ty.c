@@ -6,9 +6,14 @@ Typewriter
 
 # define R(D,S) (S).D
 // A local macro function
+
 # define BUFF (0x100000)
 // 1MiB
+
 # define ROLLS (0x01+(0x03))
+
+# define THRESHOLD (0x02)
+
 # define CLI_W32
 # include "../../../incl/config_ty.h"
 
@@ -44,6 +49,18 @@ auto signed i,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
+if(argc<(THRESHOLD)) R(file,cli_w32_stat) = (0x00);
+else R(file,cli_w32_stat) = (*(argv+(argc+(~(0x00)))));
+
+p = (R(file,cli_w32_stat));
+
+// Configure parameters with config file ~/.ty/config_ty.txt
+r = cli_config_ty_beta(p,&cli_w32_stat);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_config_ty_beta()");
+return(0x00);
+}
+
 // Coordinate
 r = cli_init_ty_beta(&cli_w32_stat);
 if(!r) {

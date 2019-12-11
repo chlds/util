@@ -14,15 +14,17 @@ and at util/lib/obj/src/cli_io.c
 # define CLI_DBG_D (0x04)
 # define CLI_DBG_W (0x02)
 # define CLI_DBG_B (0x01)
-
 # define CLI_DBG (CLI_DBG_D)
 
 # define CTRL_MASK (0x1F)
+
 # define ALIGNE_TAB (0x08)
+# define LINEBREAK_CRLF (0x02)
+# define LINEBREAK_LF (0x01)
 
 # define CLI_CODEPAGE_IO (0x01+(0x03))
-# define CLI_WORKSPACE (0x01+(0x03))
 # define CLI_OBJS (0x01+(0x03))
+# define CLI_WORKSPACE (CLI_OBJS)
 # define CLI_SNAPSHOTS (CLI_OBJS)
 # define CLI_PAGES (CLI_OBJS)
 
@@ -59,9 +61,8 @@ signed i;
 signed r;
 struct cli_snapshot *d;
 struct cli_snapshot *s;
-CLI_COORD origin;
-CLI_COORD depart;
-CLI_RECT frame;
+CLI_COORD coord[CLI_OBJS];
+CLI_RECT rect;
 void *optl;
 } CLI_SNAPSHOT;
 
@@ -80,9 +81,8 @@ signed r;
 struct cli_page *d;
 struct cli_page *s;
 CLI_HISTORY history;
-CLI_COORD origin;
-CLI_COORD depart;
-CLI_RECT frame;
+CLI_COORD coord[CLI_OBJS];
+CLI_RECT rect;
 void *optl;
 } CLI_PAGE;
 
@@ -102,9 +102,8 @@ signed r;
 struct cli_paper *d;
 struct cli_paper *s;
 CLI_SPOOL spool;
-CLI_COORD origin;
-CLI_COORD depart;
-CLI_RECT frame;
+CLI_COORD coord[CLI_OBJS];
+CLI_RECT rect;
 void *optl;
 } CLI_PAPER;
 
@@ -123,11 +122,15 @@ signed short linebreak;
 signed short flag;
 CLI_PAPER paper;
 CLI_DEBUG debug;
+CLI_COORD coord[CLI_OBJS];
+CLI_RECT rect;
 void *optl;
 } CLI_TYPEWRITER;
 
 typedef struct cli_stat {
-signed char *file_name;
+signed char *file;
+signed short config_file;
+signed short linebreak_form;
 CLI_CODEPAGE codepage;
 CLI_TYPEWRITER ty;
 void *optl;

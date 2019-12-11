@@ -64,15 +64,13 @@ printf("%s\n","<< Error at fn. localtime()");
 return(0x00);
 }
 
-// Aux.
-R(file_name,*argp) = (0x00);
-
 /* The two-row header */
 printf("%s %d %s %d",*(day_of_the_week+(R(tm_wday,*tp))),R(tm_mday,*tp),*(mon+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
-if(R(file_name,*argp)) printf("%s%s"," | ",R(file_name,*argp));
+if(R(file,*argp)) printf("%s%s"," | ",R(file,*argp));
 printf("%s%s"," | ","Ctrl-Q to quit");
 printf("%s%s"," | ","Based on UTF-8");
-printf("%s%s"," | ","EOL with CR (0x0D) and LF (0x0A)");
+if(!(LINEBREAK_CRLF^(R(linebreak_form,*argp)))) printf("%s%s"," | ","EOL with CR (0x0D) and LF (0x0A)");
+else printf("%s%s"," | ","EOL with LF (0x0A)");
 printf("\n");
 printf("\n");
 
