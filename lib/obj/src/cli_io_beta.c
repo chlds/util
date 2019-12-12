@@ -106,7 +106,7 @@ if(i<(0x20)) {
 *(--cur) = (signed char) (0x00);
 size++;
 *(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
-R(ink_level,R(ty,*argp)) = (size);
+R(gauge,R(ty,*argp)) = (size);
 // and run in an array of function pointers e.g.,
 // r = *(cli_fn+(i)) (*(cli_fn_argp+(i)));
 r = (*(cli_fn+(i)))(argp);
@@ -114,13 +114,13 @@ if(!r) {
 printf("%s%d%s%d%s\n","<< Error at fn. *(cli_fn[",i,"]) (*(cli_fn_argp+(",i,")))");
 return(0x00);
 }
-size = (R(ink_level,R(ty,*argp)));
+size = (R(gauge,R(ty,*argp)));
 cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 if((*argp).ty.linebreak) {
 // monitor
 if(CLI_DBG_B<(CLI_DBG)) {
 R(cur,R(debug,R(ty,*argp))) = (cur);
-R(ink_level,R(debug,R(ty,*argp))) = (size);
+R(gauge,R(debug,R(ty,*argp))) = (size);
 r = cli_debug_monitor_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_debug_monitor_beta()");
@@ -140,7 +140,7 @@ return(0x00);
 // monitor
 if(CLI_DBG_B<(CLI_DBG)) {
 R(cur,R(debug,R(ty,*argp))) = (cur);
-R(ink_level,R(debug,R(ty,*argp))) = (size);
+R(gauge,R(debug,R(ty,*argp))) = (size);
 r = cli_debug_monitor_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_debug_monitor_beta()");

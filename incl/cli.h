@@ -95,24 +95,15 @@ CLI_PAGE *(page[CLI_PAGES]);
 void *optl;
 } CLI_SPOOL;
 
-typedef struct cli_paper {
+typedef struct cli_roll {
 signed char *(base[CLI_WORKSPACE]);
-signed short linebreak;
-signed short flag;
-signed c;
-signed i;
-signed r;
-struct cli_paper *d;
-struct cli_paper *s;
-CLI_SPOOL spool;
-CLI_COORD coord[CLI_OBJS];
-CLI_RECT rect;
+signed size;
 void *optl;
-} CLI_PAPER;
+} CLI_ROLL;
 
 typedef struct cli_debug {
 signed char *cur;
-signed ink_level;
+signed gauge;
 void *optl;
 } CLI_DEBUG;
 
@@ -130,8 +121,7 @@ void *optl;
 
 typedef struct cli_typewriter {
 signed char *(cur[CLI_OBJS]);
-signed ink_level;
-signed ink; // ink per roll i.e., buffer size per workspace
+signed gauge;
 signed short linebreak_form;
 signed short linebreak;
 signed short append;
@@ -139,7 +129,8 @@ signed short flag;
 CLI_CONFIG config;
 CLI_EDIT edit;
 CLI_DEBUG debug;
-CLI_PAPER paper;
+CLI_ROLL roll;
+CLI_SPOOL spool;
 CLI_COORD coord[CLI_OBJS];
 CLI_RECT rect;
 void *optl;

@@ -28,7 +28,7 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-spool = (&(R(spool,R(paper,R(ty,*argp)))));
+spool = (&(R(spool,R(ty,*argp))));
 r = cli_bind_pages(spool);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_bind_pages()");

@@ -63,36 +63,30 @@ R(file,R(config,R(ty,cli_w32_stat))) = (*(argv+(--i)));
 
 if(!(argc^(THRESHOLD))) R(file,R(edit,R(ty,cli_w32_stat))) = (*(argv+(--i)));
 
-// Configure parameters with config file ~/.ty/config.txt
+// Parse a config file
 r = cli_parse(&(R(ty,cli_w32_stat)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_parse()");
 return(0x00);
 }
 
-// Coordinate
-r = cli_init_ty_beta(&cli_w32_stat);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_init_ty_beta()");
-return(0x00);
-}
-
-r = cli_init_paper(BUFF,roll,&(cli_w32_stat.ty));
-if(!r) {
-printf("%s\n","<< Error at fn. cli_init_paper()");
-return(0x00);
-}
-
-r = cli_init_pages(&(cli_w32_stat.ty.paper.spool));
+r = cli_init_pages(&(cli_w32_stat.ty.spool));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_init_pages()");
 return(0x00);
 }
 
+r = cli_init_roll(BUFF,roll,&(cli_w32_stat.ty));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_init_roll()");
+return(0x00);
+}
 
-Sleep(750);
-system("cls");
-
+r = cli_init_ty_beta(&cli_w32_stat);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_init_ty_beta()");
+return(0x00);
+}
 
 r = cli_spool_beta(&cli_w32_stat);
 if(!r) {
@@ -100,7 +94,7 @@ printf("%s\n","<< Error at fn. cli_spool_beta()");
 return(0x00);
 }
 
-r = cli_unmap_pages(&(cli_w32_stat.ty.paper.spool));
+r = cli_unmap_pages(&(cli_w32_stat.ty.spool));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_unmap_pages()");
 return(0x00);
@@ -110,11 +104,6 @@ if(CLI_DBG) {
 if(!(0x01^(r))) printf("%s\n","Unmapped 1 page");
 else printf("%s%d%s\n","Unmapped ",r," pages");
 }
-
-
-Sleep(1250);
-system("cls");
-
 
 return(0x01);
 }

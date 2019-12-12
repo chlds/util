@@ -39,20 +39,30 @@ printf("%s\n","<< Error at fn. cli_set_codepages_beta()");
 return(0x00);
 }
 
+
+Sleep(1000);
+system("cls");
+
+
 if(CLI_DBG) cputs("Please type the <Enter> key to stop.\n\n");
 
 /* Recur to build a verse */
-p = (*(CLI_BASE+(R(base,R(paper,R(ty,*argp))))));
-i = (R(ink,R(ty,*argp)));
+p = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
+i = (R(size,R(roll,R(ty,*argp))));
 r = cli_io_beta(p,i,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_io_beta()");
 return(0x00);
 }
 
+
+Sleep(250);
+system("cls");
+
+
 if(CLI_DBG) {
 printf("\n");
-printf("verse: ");
+printf("Text: ");
 r = cli_outs(p);
 printf("\n");
 if(!r) {

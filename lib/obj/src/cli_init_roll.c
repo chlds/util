@@ -12,44 +12,42 @@ Along with C library
 
 # include "../../../incl/cli.h"
 
-signed(__cdecl cli_init_paper(signed(ink),signed char(**roll),CLI_TYPEWRITER(*argp))) {
+signed(__cdecl cli_init_roll(signed(size),signed char(**roll),CLI_TYPEWRITER(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed i,r;
 
 /* **** CODE/TEXT */
-if(ink<(0x01)) return(0x00);
+if(size<(0x01)) return(0x00);
 if(!roll) return(0x00);
 if(!(*roll)) return(0x00);
 if(!argp) return(0x00);
 
-// ink per roll i.e., buffer per workspace
-R(ink,*argp) = (ink);
-R(ink_level,*argp) = (R(ink,*argp));
-R(ink_level,R(debug,*argp)) = (R(ink_level,*argp));
+R(size,R(roll,*argp)) = (size);
+R(gauge,R(debug,*argp)) = (size);
+R(gauge,*argp) = (size);
 
 // Charge rolls
 i = (0x00);
 while(*(i+(roll))) {
 if(CLI_DBG) printf("%s%d\r","Charge roll: ",i);
-*(i+(R(base,R(paper,*argp)))) = (*(i+(roll)));
+*(i+(R(base,R(roll,*argp)))) = (*(i+(roll)));
 i++;
 }
 // Charged rolls
 if(CLI_DBG) printf("%s%d\n","Charged roll: ",i);
-*(i+(R(base,R(paper,*argp)))) = (*(i+(roll)));
+*(i+(R(base,R(roll,*argp)))) = (*(i+(roll)));
 
-*(CLI_BASE+(R(cur,*argp))) = (*(CLI_BASE+(R(base,R(paper,*argp)))));
+R(cur,R(debug,*argp)) = (*(CLI_BASE+(R(base,R(roll,*argp)))));
+*(CLI_BASE+(R(cur,*argp))) = (*(CLI_BASE+(R(base,R(roll,*argp)))));
 *(CLI_OFFSET+(R(cur,*argp))) = (*(CLI_BASE+(R(cur,*argp))));
 *(CLI_INDEX+(R(cur,*argp))) = (*(CLI_BASE+(R(cur,*argp))));
 *(CLI_LEAD+(R(cur,*argp))) = (*(CLI_BASE+(R(cur,*argp))));
-R(cur,R(debug,*argp)) = (*(CLI_INDEX+(R(cur,*argp))));
 
-R(append,*argp) = (0x00);
+if(!(R(linebreak_form,*argp))) R(linebreak_form,*argp) = (LINEBREAK_CRLF);
 R(linebreak,*argp) = (0x00);
+R(append,*argp) = (0x00);
 R(flag,*argp) = (0x00);
-
-R(linebreak,R(paper,*argp)) = (0x00);
 
 return(0x01);
 }
