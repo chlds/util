@@ -13,7 +13,7 @@ Along with C library
 # include <time.h>
 # include "../../../incl/cli.h"
 
-signed(__cdecl cli_display_header(CLI_STAT(*argp))) {
+signed(__cdecl cli_display_header(CLI_TYPEWRITER(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *(day_of_the_week[]) = {
@@ -66,11 +66,19 @@ return(0x00);
 
 /* The two-row header */
 printf("%s %d %s %d",*(day_of_the_week+(R(tm_wday,*tp))),R(tm_mday,*tp),*(mon+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
-if(R(file,*argp)) printf("%s%s"," | ",R(file,*argp));
 printf("%s%s"," | ","Ctrl-Q to quit");
 printf("%s%s"," | ","Based on UTF-8");
-if(!(LINEBREAK_CRLF^(R(linebreak_form,*argp)))) printf("%s%s"," | ","EOL with CR (0x0D) and LF (0x0A)");
-else printf("%s%s"," | ","EOL with LF (0x0A)");
+flag = (0x00);
+if(!(LINEBREAK_CRLF^(R(linebreak_form,*argp)))) {
+flag++;
+printf("%s%s"," | ","EOL with CR (0x0D) and LF (0x0A)");
+}
+if(!flag) {
+if(!(LINEBREAK_LF^(R(linebreak_form,*argp)))) printf("%s%s"," | ","EOL with LF (0x0A)");
+else {
+printf("%s\n","<< Set the linebreak form at (R(linebreak,*argp");
+return(0x00);
+}}
 printf("\n");
 printf("\n");
 

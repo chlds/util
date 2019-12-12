@@ -49,15 +49,24 @@ auto signed i,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
-if(argc<(THRESHOLD)) R(file,cli_w32_stat) = (0x00);
-else R(file,cli_w32_stat) = (*(argv+(argc+(~(0x00)))));
+R(file,R(config,R(ty,cli_w32_stat))) = (0x00);
+R(size,R(config,R(ty,cli_w32_stat))) = (0x00);
+R(file,R(edit,R(ty,cli_w32_stat))) = (0x00);
+R(size,R(edit,R(ty,cli_w32_stat))) = (0x00);
 
-p = (R(file,cli_w32_stat));
+i = (argc);
 
-// Configure parameters with config file ~/.ty/config_ty.txt
-r = cli_config_ty_beta(p,&cli_w32_stat);
+if(THRESHOLD<(argc)) {
+R(file,R(edit,R(ty,cli_w32_stat))) = (*(argv+(--i)));
+R(file,R(config,R(ty,cli_w32_stat))) = (*(argv+(--i)));
+}
+
+if(!(argc^(THRESHOLD))) R(file,R(edit,R(ty,cli_w32_stat))) = (*(argv+(--i)));
+
+// Configure parameters with config file ~/.ty/config.txt
+r = cli_parse(&(R(ty,cli_w32_stat)));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_config_ty_beta()");
+printf("%s\n","<< Error at fn. cli_parse()");
 return(0x00);
 }
 

@@ -21,10 +21,6 @@ and at util/lib/obj/src/cli_io.c
 # include "./cli.h"
 
 typedef struct cli_w32_stat {
-signed char *file;
-signed file_size;
-signed config_file_size;
-signed short linebreak_form;
 CLI_CODEPAGE codepage;
 CLI_TYPEWRITER ty;
 CONSOLE_SCREEN_BUFFER_INFO csbi;
@@ -38,9 +34,6 @@ void *optl;
 // Monitor
 signed(__cdecl cli_debug_monitor_beta(CLI_W32_STAT(*argp)));
 
-// Display the two-row header
-signed(__cdecl cli_display_header_beta(CLI_W32_STAT(*argp)));
-
 // Clear the row/rows.
 signed(__cdecl cli_clear_rows_beta(CLI_W32_STAT(*argp)));
 signed(__cdecl cli_clear_row_beta(signed short comeback_flag,CLI_W32_STAT(*argp)));
@@ -50,9 +43,6 @@ signed(__cdecl cli_coord_beta(signed short(flag),CLI_COORD(*cache),CLI_W32_STAT(
 
 // Retrieve information about the specified console screen buffer.
 signed(__cdecl cli_get_csbi_beta(CLI_W32_STAT(*argp)));
-
-// Configure parameters with config file ~/.ty/config_ty.txt
-signed(__cdecl cli_config_ty_beta(signed char(*file),CLI_W32_STAT(*argp)));
 
 // Retrieve a handle to the specified standard output device.
 signed(__cdecl cli_init_ty_beta(CLI_W32_STAT(*argp)));

@@ -116,32 +116,46 @@ signed ink_level;
 void *optl;
 } CLI_DEBUG;
 
+typedef struct cli_edit {
+signed char *file;
+signed size;
+void *optl;
+} CLI_EDIT;
+
+typedef struct cli_config {
+signed char *file;
+signed size;
+void *optl;
+} CLI_CONFIG;
+
 typedef struct cli_typewriter {
 signed char *(cur[CLI_OBJS]);
 signed ink_level;
 signed ink; // ink per roll i.e., buffer size per workspace
-signed short append;
+signed short linebreak_form;
 signed short linebreak;
+signed short append;
 signed short flag;
-CLI_PAPER paper;
+CLI_CONFIG config;
+CLI_EDIT edit;
 CLI_DEBUG debug;
+CLI_PAPER paper;
 CLI_COORD coord[CLI_OBJS];
 CLI_RECT rect;
 void *optl;
 } CLI_TYPEWRITER;
 
 typedef struct cli_stat {
-signed char *file;
-signed file_size;
-signed config_file_size;
-signed short linebreak_form;
 CLI_CODEPAGE codepage;
 CLI_TYPEWRITER ty;
 void *optl;
 } CLI_STAT;
 
 // Display the two-row header
-signed(__cdecl cli_display_header(CLI_STAT(*argp)));
+signed(__cdecl cli_display_header(CLI_TYPEWRITER(*argp)));
+
+// Parse a config file for the typewriter
+signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp)));
 
 // Charge rolls
 signed(__cdecl cli_init_paper(signed(ink),signed char(**roll),CLI_TYPEWRITER(*argp)));
