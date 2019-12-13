@@ -8,13 +8,14 @@ Along with C library
 */
 
 
+# define CLI_W32
 # define R(D,S) (S).D
 // A local macro function
 
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/cli_w32.h"
+# include "../../../incl/config_ty.h"
 
 signed(__cdecl cli_bind_pages(CLI_SPOOL(*argp))) {
 

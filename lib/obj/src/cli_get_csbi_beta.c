@@ -7,11 +7,12 @@ Refer at fn. cli_init_ty_beta.
 */
 
 
+# define CLI_W32
 # define R(D,S) (S).D
 // A local macro function
 
 # include <stdio.h>
-# include "../../../incl/cli_w32.h"
+# include "../../../incl/config_ty.h"
 
 signed(__cdecl cli_get_csbi_beta(CLI_W32_STAT(*argp))) {
 

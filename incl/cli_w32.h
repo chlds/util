@@ -1,24 +1,24 @@
 /*
 
+The constants, data types and functions for Typewriter
+
 Along with C and Windows libraries
 
 Remarks:
 Call function _getch twice to read <Ctrl-@>.
 The first call returns (0x00) and the second call returns (0x03)..
-Refer at util/lib/obj/src/cli_in.c
-and at util/lib/obj/src/cli_io.c
+Refer at util/lib/obj/src/cli_in.c and at util/lib/obj/src/cli_io_beta.c
+Refer at ./config_ty.h
 */
 
 
-# define CLI_W32_OBJS (0x01+(0x03))
+# include <windows.h>
 
+# define CLI_W32_OBJS (0x01+(0x03))
 # define CLI_DEVICES (CLI_W32_OBJS)
 # define CLI_MODULES (CLI_W32_OBJS)
 # define CLI_SEARCHES (CLI_W32_OBJS)
 # define CLI_WINDOWS (CLI_W32_OBJS)
-
-# include <windows.h>
-# include "./cli.h"
 
 typedef struct cli_w32_stat {
 CLI_CODEPAGE codepage;

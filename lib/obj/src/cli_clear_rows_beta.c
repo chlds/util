@@ -7,10 +7,11 @@ Refer at fn. cli_clear_row_beta.
 */
 
 
+# define CLI_W32
 # define R(D,S) (S).D
 // A local macro function
 
-# include "../../../incl/cli_w32.h"
+# include "../../../incl/config_ty.h"
 
 signed(__cdecl cli_clear_rows_beta(CLI_W32_STAT(*argp))) {
 

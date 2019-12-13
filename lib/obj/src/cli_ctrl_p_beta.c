@@ -9,10 +9,12 @@ Refer at util/lib/obj/src/cli_io_beta.c
 */
 
 
+# define CLI_W32
+
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/cli_w32.h"
+# include "../../../incl/config_ty.h"
 
 signed(__cdecl cli_ctrl_p_beta(CLI_W32_STAT(*argp))) {
 

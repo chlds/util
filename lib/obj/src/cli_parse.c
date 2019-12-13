@@ -9,6 +9,7 @@ LF (0x0A)
 //*/
 
 
+# define CLI_W32
 # define R(D,S) (S).D
 // A local macro function
 
@@ -16,7 +17,7 @@ LF (0x0A)
 # include <stdlib.h>
 # include <time.h>
 # include <sys/stat.h>
-# include "../../../incl/cli_w32.h"
+# include "../../../incl/config_ty.h"
 
 signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp))) {
 

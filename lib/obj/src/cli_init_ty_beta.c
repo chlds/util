@@ -8,10 +8,11 @@ The beta edition is for Windows 10 64-bit OS.
 */
 
 
+# define CLI_W32
 # define R(D,S) (S).D
 // A local macro function
 
-# include "../../../incl/cli_w32.h"
+# include "../../../incl/config_ty.h"
 
 signed(__cdecl cli_init_ty_beta(CLI_W32_STAT(*argp))) {
 

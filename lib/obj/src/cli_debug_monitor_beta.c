@@ -7,11 +7,12 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 */
 
 
+# define CLI_W32
 # define R(D,S) (S).D
 # define N_ROWS (0x17)
 
 # include <stdio.h>
-# include "../../../incl/cli_w32.h"
+# include "../../../incl/config_ty.h"
 
 signed(__cdecl cli_debug_monitor_beta(CLI_W32_STAT(*argp))) {
 

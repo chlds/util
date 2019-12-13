@@ -1,14 +1,33 @@
 /*
 
+The constants, data types and functions for Typewriter
+
 Along with C library
 
 Remarks:
 Call function _getch twice to read <Ctrl-@>.
 The first call returns (0x00) and the second call returns (0x03)..
-Refer at util/lib/obj/src/cli_in.c
-and at util/lib/obj/src/cli_io.c
+Refer at util/lib/obj/src/cli_in.c and at util/lib/obj/src/cli_io.c
+Refer at ./config_ty.h
 */
 
+
+/*
+# include <io.h>
+# include <conio.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <time.h>
+# include <locale.h>
+# include <fcntl.h>
+# include <stdarg.h>
+# include <string.h>
+# include <wchar.h>
+# include <sys/stat.h>
+# include <sys/types.h>
+# include <sys/utime.h>
+# include <process.h>
+//*/
 
 # define CLI_DBG_Q (0x08)
 # define CLI_DBG_D (0x04)
@@ -215,5 +234,8 @@ signed(__cdecl decode2uni_internal(signed(nbyte),signed(*character),signed char(
 signed(__cdecl decode2uni(signed(*character),signed char(*argp)));
 signed(__cdecl nbytechar(signed char(arg)));
 /* Output Unicode characters decoded out of Unicode bytes */
+
+signed(__cdecl ct_sym(signed char(*offset),signed char(*base)));
+/* Count particular symbols to the terminating null character and get the last offset pointer */
 
 // and more..

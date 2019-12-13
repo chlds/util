@@ -9,6 +9,7 @@ Based on UTF-8
 */
 
 
+# define CLI_W32
 # define R(D,S) ((S).D)
 // A local macro function
 
@@ -17,7 +18,7 @@ Based on UTF-8
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/cli_w32.h"
+# include "../../../incl/config_ty.h"
 
 signed(__cdecl cli_io_beta(signed char *cur,signed size,CLI_W32_STAT(*argp))) {
 

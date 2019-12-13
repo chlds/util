@@ -4,17 +4,14 @@ Typewriter
 */
 
 
+# define CLI_W32
 # define R(D,S) (S).D
 // A local macro function
-
 # define BUFF (0x100000)
 // 1MiB
-
 # define ROLLS (0x01+(0x03))
-
 # define THRESHOLD (0x02)
 
-# define CLI_W32
 # include "../../../incl/config_ty.h"
 
 signed(__cdecl main(signed argc,signed char **argv,signed char **envp)) {
