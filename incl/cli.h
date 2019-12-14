@@ -235,7 +235,8 @@ signed(__cdecl decode2uni(signed(*character),signed char(*argp)));
 signed(__cdecl nbytechar(signed char(arg)));
 /* Output Unicode characters decoded out of Unicode bytes */
 
-signed(__cdecl ct_sym(signed char(*offset),signed char(*base)));
-/* Count particular symbols to the terminating null character and get the last offset pointer */
+signed(__cdecl cli_wrap_internal(signed char(**wrap),signed char(*di),signed char(*si)));
+signed(__cdecl cli_wrap(signed char(**wrap),signed char(*di),signed char(*si)));
+/* Retrieve the leading address after wrapping words. */
 
 // and more..

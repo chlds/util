@@ -78,6 +78,7 @@ auto signed char const(CR) = ('\r');
 auto signed char const(LF) = ('\n');
 
 auto signed char *p;
+auto signed diff;
 auto signed i,r;
 auto signed short flag;
 
@@ -90,8 +91,10 @@ if(size<(LIMIT)) {
 return(0x00);
 }
 
-/* append
-//*/
+// to append
+r = cpy(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),cur);
+if(!r) R(append,R(ty,*argp)) = (0x00);
+else R(append,R(ty,*argp)) = (0x01);
 
 // get
 r = cli_in(&i,cur,size);
@@ -100,15 +103,17 @@ printf("%s\n","<< Error at fn. cli_in()");
 return(0x00);
 }
 
-cur = (cur+(r));
-size = (-r+(size));
+diff = (r);
+cur = (cur+(diff));
+size = (-diff+(size));
 
 if(i<(0x20)) {
+// to invoke
 *(--cur) = (signed char) (0x00);
 size++;
 *(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
 R(gauge,R(ty,*argp)) = (size);
-// and run in an array of function pointers e.g.,
+// invoke ..and run in an array of function pointers e.g.,
 // r = *(cli_fn+(i)) (*(cli_fn_argp+(i)));
 r = (*(cli_fn+(i)))(argp);
 if(!r) {
@@ -131,12 +136,29 @@ return(0x01);
 }}
 
 else {
+// append
+r = cpy(cur,*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))));
+if(!r) {
+if(R(append,R(ty,*argp))) {
+printf("%s\n","<< Error at fn. cpy()");
+return(0x00);
+}}
+
+// add a fn. to parse the coordinates.
+
 // put
-r = cli_out(-r+(cur));
+r = cli_out(-diff+(cur));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_out()");
 return(0x00);
-}}
+}
+// also put
+r = cli_outs(cur);
+if(!r) {
+if(R(append,R(ty,*argp))) {
+printf("%s\n","<< Error at fn. cli_outs()");
+return(0x00);
+}}}
 
 // monitor
 if(CLI_DBG_B<(CLI_DBG)) {
