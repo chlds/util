@@ -10,7 +10,7 @@ Based on UTF-8
 
 
 # define CLI_W32
-# define R(D,S) ((S).D)
+# define R(D,S) (S).D
 // A local macro function
 
 # define CLI_FN (0x01+(0x20))
@@ -86,6 +86,10 @@ auto signed short flag;
 if(!cur) return(0x00);
 if(!argp) return(0x00);
 
+// quit
+if(!(CLI_QUIT^(R(flag,R(ty,*argp))))) return(0x01);
+
+// limit
 if(size<(LIMIT)) {
 *cur = (0x00);
 return(0x00);
@@ -147,16 +151,16 @@ return(0x00);
 // add a fn. to parse the coordinates.
 
 // put
-r = cli_out(-diff+(cur));
+r = cli_col_out_beta(-diff+(cur),argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_out()");
+printf("%s\n","<< Error at fn. cli_col_out_beta()");
 return(0x00);
 }
 // also put
-r = cli_outs(cur);
+r = cli_col_outs_beta(cur,argp);
 if(!r) {
 if(R(append,R(ty,*argp))) {
-printf("%s\n","<< Error at fn. cli_outs()");
+printf("%s\n","<< Error at fn. cli_col_outs_beta()");
 return(0x00);
 }}}
 

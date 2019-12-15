@@ -29,6 +29,11 @@ Refer at ./config_ty.h
 # include <process.h>
 //*/
 
+# define CLI_QUIT (0x01)
+# define CLI_QUIT_AFTER_SAVING (0x02)
+# define CLI_MORPH (0x04)
+# define CLI_HELP (0x08)
+
 # define CLI_DBG_Q (0x08)
 # define CLI_DBG_D (0x04)
 # define CLI_DBG_W (0x02)
