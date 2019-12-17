@@ -72,6 +72,16 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }}
 
+// initialise workspace
+i = (CLI_WORKSPACE);
+--i;
+while(i) {
+r = embed_to(*(--i+(R(base,R(roll,R(ty,*argp))))),0x00,R(size,R(roll,R(ty,*argp))));
+if(!r) {
+printf("%s\n","<< Error at fn. embed_to()");
+return(0x00);
+}}
+
 r = cli_kb_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_kb_beta()");

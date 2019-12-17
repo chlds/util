@@ -168,22 +168,24 @@ CLI_TYPEWRITER ty;
 void *optl;
 } CLI_STAT;
 
-// Display the two-row header
 signed(__cdecl cli_display_header(CLI_TYPEWRITER(*argp)));
+// Display the two-row header
 
-// Parse a config file for the typewriter
 signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp)));
+// Parse a config file for the typewriter
 
+signed(__cdecl cli_init_roll(signed(size),signed char(**roll),CLI_TYPEWRITER(*argp)));
 // Charge rolls
-signed(__cdecl cli_init_paper(signed(ink),signed char(**roll),CLI_TYPEWRITER(*argp)));
 
-// Based on a doubly linked list (i.e., not a circular linked list)
+signed(__cdecl cli_book(CLI_TYPEWRITER(*argp)));
+// Copy characters on workspace to the current page.
+
 signed(__cdecl cli_init_pages(CLI_SPOOL(*argp)));
 signed(__cdecl cli_concat_pages(CLI_PAGE(*cache),CLI_SPOOL(*argp)));
 signed(__cdecl cli_bind_pages(CLI_SPOOL(*argp)));
 signed(__cdecl cli_unmap_pages(CLI_SPOOL(*argp)));
+// Based on a doubly linked list (i.e., not a circular linked list)
 
-// along with an array of function pointers
 signed(__cdecl cli_ctrl_at(void(*argp)));
 signed(__cdecl cli_ctrl_a(void(*argp)));
 signed(__cdecl cli_ctrl_b(void(*argp)));
@@ -223,6 +225,7 @@ signed(__cdecl cli_ctrl_rs(void(*argp)));
 signed(__cdecl cli_ctrl_rsb(void(*argp)));
 signed(__cdecl cli_ctrl_ca(void(*argp)));
 signed(__cdecl cli_ctrl_ll(void(*argp)));
+// along with an array of function pointers
 
 signed(__cdecl cli_io(signed char *cur,signed size,CLI_STAT(*argp)));
 /* Input/Output Unicode bytes/characters in UTF-8 out of the key board to the console screen along with fn. cli_in/cli_out. */
@@ -245,5 +248,8 @@ signed(__cdecl nbytechar(signed char(arg)));
 signed(__cdecl cli_wrap_internal(signed char(**wrap),signed char(*di),signed char(*si)));
 signed(__cdecl cli_wrap(signed char(**wrap),signed char(*di),signed char(*si)));
 /* Retrieve the leading address after wrapping words. */
+
+signed(__cdecl embed_to(signed char(*argp),signed char(arg),signed(times)));
+// Embed
 
 // and more..
