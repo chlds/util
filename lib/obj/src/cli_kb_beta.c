@@ -28,6 +28,20 @@ auto signed i,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
+// quit
+if(!(CLI_QUIT^(R(flag,R(ty,*argp))))) return(0x01);
+
+// initialise
+p = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
+R(cur,R(debug,R(ty,*argp))) = (p);
+*(CLI_BASE+(R(cur,R(ty,*argp)))) = (p);
+*(CLI_OFFSET+(R(cur,R(ty,*argp)))) = (p);
+*(CLI_INDEX+(R(cur,R(ty,*argp)))) = (p);
+*(CLI_LEAD+(R(cur,R(ty,*argp)))) = (p);
+R(linebreak,R(ty,*argp)) = (0x00);
+R(append,R(ty,*argp)) = (0x00);
+R(flag,R(ty,*argp)) = (0x00);
+
 r = cli_backup_codepages_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_backup_codepages_beta()");
@@ -41,14 +55,14 @@ return(0x00);
 }
 
 
+if(CLI_DBG_D<(CLI_DBG)) {
 Sleep(1000);
 system("cls");
+}
 
 
-if(CLI_DBG) cputs("Please type the <Enter> key to stop.\n\n");
-
-/* Recur to build a verse */
-p = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
+/* recur */
+// p = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
 i = (R(size,R(roll,R(ty,*argp))));
 r = cli_io_beta(p,i,argp);
 if(!r) {
@@ -57,18 +71,11 @@ return(0x00);
 }
 
 
+if(CLI_DBG) {
 Sleep(250);
 system("cls");
+}
 
-
-if(CLI_DBG) {
-printf("\n");
-printf("Text: ");
-r = cli_outs(p);
-printf("\n");
-if(!r) {
-// Caused by empty space or..
-}}
 
 r = cli_restore_codepages_beta(argp);
 if(!r) {

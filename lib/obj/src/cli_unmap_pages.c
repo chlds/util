@@ -28,11 +28,14 @@ cache = (*(CLI_LEAD+(R(page,*argp))));
 *(CLI_LEAD+(R(page,*argp))) = (R(s,**(CLI_LEAD+(R(page,*argp)))));
 
 p = (*(CLI_BASE+(R(base,*cache))));
-if(p) {
-free(p);
-*(CLI_BASE+(R(base,*cache))) = (0x00);
-p = (0x00);
+if(!p) {
+printf("%s\n","<< No memory block allocated to the current page..");
+return(0x00);
 }
+
+free(p);
+p = (0x00);
+*(CLI_BASE+(R(base,*cache))) = (0x00);
 
 free(cache);
 cache = (0x00);

@@ -15,6 +15,7 @@ Along with C library
 signed(__cdecl cli_init_roll(signed(size),signed char(**roll),CLI_TYPEWRITER(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto signed char *p;
 auto signed i,r;
 
 /* **** CODE/TEXT */
@@ -38,13 +39,16 @@ i++;
 if(CLI_DBG) printf("%s%d\n","Charged roll: ",i);
 *(i+(R(base,R(roll,*argp)))) = (*(i+(roll)));
 
-R(cur,R(debug,*argp)) = (*(CLI_BASE+(R(base,R(roll,*argp)))));
-*(CLI_BASE+(R(cur,*argp))) = (*(CLI_BASE+(R(base,R(roll,*argp)))));
-*(CLI_OFFSET+(R(cur,*argp))) = (*(CLI_BASE+(R(cur,*argp))));
-*(CLI_INDEX+(R(cur,*argp))) = (*(CLI_BASE+(R(cur,*argp))));
-*(CLI_LEAD+(R(cur,*argp))) = (*(CLI_BASE+(R(cur,*argp))));
+p = (*(CLI_BASE+(R(base,R(roll,*argp)))));
+
+R(cur,R(debug,*argp)) = (p);
+*(CLI_BASE+(R(cur,*argp))) = (p);
+*(CLI_OFFSET+(R(cur,*argp))) = (p);
+*(CLI_INDEX+(R(cur,*argp))) = (p);
+*(CLI_LEAD+(R(cur,*argp))) = (p);
 
 if(!(R(linebreak_form,*argp))) R(linebreak_form,*argp) = (LINEBREAK_CRLF);
+
 R(linebreak,*argp) = (0x00);
 R(append,*argp) = (0x00);
 R(flag,*argp) = (0x00);

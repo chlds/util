@@ -59,5 +59,11 @@ printf("%s\n","A COORD structure that contains the maximum size of the console w
 printf("%s%d%s%d\n","csbi.dwMaximumWindowSize.X/Y: ",(*argp).csbi.dwMaximumWindowSize.X,"/",(*argp).csbi.dwMaximumWindowSize.Y);
 }
 
+// coordinate
+R(x,*(CLI_BASE+(R(coord,R(ty,*argp))))) = (0x00);
+R(y,*(CLI_BASE+(R(coord,R(ty,*argp))))) = (0x00);
+R(x,*(CLI_OFFSET+(R(coord,R(ty,*argp))))) = (0x00);
+R(y,*(CLI_OFFSET+(R(coord,R(ty,*argp))))) = (CLI_HEADER_HEIGHT);
+
 return(0x01);
 }

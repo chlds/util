@@ -86,14 +86,17 @@ auto signed short flag;
 if(!cur) return(0x00);
 if(!argp) return(0x00);
 
-// quit
-if(!(CLI_QUIT^(R(flag,R(ty,*argp))))) return(0x01);
-
 // limit
 if(size<(LIMIT)) {
 *cur = (0x00);
 return(0x00);
 }
+
+// break
+if((*argp).ty.linebreak) return(0x01);
+
+// quit
+if(!(CLI_QUIT^(R(flag,R(ty,*argp))))) return(0x01);
 
 // to append
 r = cpy(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),cur);
@@ -126,18 +129,7 @@ return(0x00);
 }
 size = (R(gauge,R(ty,*argp)));
 cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
-if((*argp).ty.linebreak) {
-// monitor
-if(CLI_DBG_B<(CLI_DBG)) {
-R(cur,R(debug,R(ty,*argp))) = (cur);
-R(gauge,R(debug,R(ty,*argp))) = (size);
-r = cli_debug_monitor_beta(argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_debug_monitor_beta()");
-return(0x00);
-}}
-return(0x01);
-}}
+}
 
 else {
 // append

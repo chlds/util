@@ -42,7 +42,7 @@ printf("%s%d%s%X\n","<< Error at fn. GetConsoleOutputCP() with error no. ",r," o
 return(0x00);
 }
 
-if(CLI_DBG) printf("%s%d%s%d\n","The current code pages for console input/output: ",*(CLI_IN+R(io,R(codepage,*argp))),"/",*(CLI_OUT+R(io,R(codepage,*argp))));
+if(CLI_DBG_D<(CLI_DBG)) printf("%s%d%s%d\n","The current code pages for console input/output: ",*(CLI_IN+R(io,R(codepage,*argp))),"/",*(CLI_OUT+R(io,R(codepage,*argp))));
 
 return(0x01);
 }

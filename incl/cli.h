@@ -49,6 +49,8 @@ Refer at ./config_ty.h
 # define CLI_CONFIG_FILE_SIZE_LIMIT (0x100000)
 # define CLI_FILE_SIZE_LIMIT (0x100000)
 
+# define CLI_HEADER_HEIGHT (0x02)
+
 # define CLI_CODEPAGE_IO (0x01+(0x03))
 # define CLI_OBJS (0x01+(0x03))
 # define CLI_WORKSPACE (CLI_OBJS)

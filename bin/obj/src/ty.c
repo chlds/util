@@ -85,6 +85,17 @@ printf("%s\n","<< Error at fn. cli_init_ty_beta()");
 return(0x00);
 }
 
+
+Sleep(1000);
+system("cls");
+
+
+r = cli_display_header(&(cli_w32_stat.ty));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_display_header()");
+return(0x00);
+}
+
 r = cli_spool_beta(&cli_w32_stat);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_spool_beta()");

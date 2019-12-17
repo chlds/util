@@ -41,7 +41,7 @@ printf("%s%d%s%X\n","<< Error at fn. SetConsoleOutputCP() with error no. ",r," o
 return(0x00);
 }}
 
-if(CLI_DBG) {
+if(CLI_DBG_D<(CLI_DBG)) {
 codepage_in = GetConsoleCP();
 if(!codepage_in) {
 r = GetLastError();
