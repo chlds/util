@@ -120,10 +120,12 @@ if(i<(0x20)) {
 size++;
 // concatenate
 r = concats(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(cur,R(ty,*argp)))),*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),(void*) 0x00);
+/* empty or..
 if(!r) {
 printf("%s\n","<< Error at fn. concats()");
 return(0x00);
 }
+//*/
 // to invoke
 *(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
 R(gauge,R(ty,*argp)) = (size);
