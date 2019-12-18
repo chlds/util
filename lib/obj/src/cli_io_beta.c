@@ -115,9 +115,16 @@ cur = (cur+(diff));
 size = (-diff+(size));
 
 if(i<(0x20)) {
-// to invoke
+// fix
 *(--cur) = (signed char) (0x00);
 size++;
+// concatenate
+r = concats(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(cur,R(ty,*argp)))),*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),(void*) 0x00);
+if(!r) {
+printf("%s\n","<< Error at fn. concats()");
+return(0x00);
+}
+// to invoke
 *(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
 R(gauge,R(ty,*argp)) = (size);
 // invoke ..and run in an array of function pointers e.g.,
@@ -149,10 +156,10 @@ printf("%s\n","<< Error at fn. cli_col_out_beta()");
 return(0x00);
 }
 // also put
-r = cli_col_outs_beta(cur,argp);
+r = cli_output_beta(0x01/* a comeback flag */,cur,argp);
 if(!r) {
 if(R(append,R(ty,*argp))) {
-printf("%s\n","<< Error at fn. cli_col_outs_beta()");
+printf("%s\n","<< Error at fn. cli_output_beta()");
 return(0x00);
 }}}
 

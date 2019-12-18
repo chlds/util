@@ -9,6 +9,7 @@ Refer at util/lib/obj/src/cli_io_beta.c
 */
 
 
+# define CLI_MACRO
 # define CLI_W32
 
 # include <conio.h>
@@ -18,13 +19,34 @@ Refer at util/lib/obj/src/cli_io_beta.c
 
 signed(__cdecl cli_ctrl_a_beta(CLI_W32_STAT(*argp))) {
 
+/* **** DATA, BSS and STACK */
+auto CLI_COORD coord;
+
 auto signed char *p;
 auto signed c,i,r;
 auto signed short flag;
 
+/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 if(CLI_DBG) printf("%s","<Ctrl-A>");
+
+// initialise
+p = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
+R(cur,R(debug,R(ty,*argp))) = (p);
+i = (CLI_OBJS);
+while(i) {
+*(--i+(R(cur,R(ty,*argp)))) = (p);
+}
+
+// come back
+coord.x = (0x00);
+coord.y = (R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))));
+r = cli_coord_beta(CLI_OUT,&coord,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_coord_beta()");
+return(0x00);
+}
 
 return(0x01);
 }

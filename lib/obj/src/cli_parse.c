@@ -67,7 +67,7 @@ if(!path) {
 printf("%s\n","<< Error at fn. malloc()");
 return(0x00);
 }
-r = concats(path,p,second_half,0x00);
+r = concats(path,p,second_half,(void*) 0x00);
 if(!r) {
 printf("%s\n","<< Error at fn. concats()");
 return(0x00);

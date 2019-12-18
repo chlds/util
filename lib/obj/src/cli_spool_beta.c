@@ -50,11 +50,24 @@ printf("%s\n","<< Error at fn. cli_bind_pages()");
 return(0x00);
 }
 
+// initialise workspace
+r = embed_to(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),0x00,R(size,R(roll,R(ty,*argp))));
+if(!r) {
+printf("%s\n","<< Error at fn. embed_to()");
+return(0x00);
+}
+
 if(R(append,R(ty,*argp))) {
 // copy subsequent characters to workspace
 r = cpy(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))));
 if(!r) {
 printf("%s\n","<< Error at fn. cpy()");
+return(0x00);
+}
+// clear
+r = embed_to(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),0x00,R(size,R(roll,R(ty,*argp))));
+if(!r) {
+printf("%s\n","<< Error at fn. embed_to()");
 return(0x00);
 }
 // output
@@ -69,16 +82,6 @@ coord.y = (R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))));
 r = cli_coord_beta(CLI_OUT,&coord,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
-return(0x00);
-}}
-
-// initialise workspace
-i = (CLI_WORKSPACE);
---i;
-while(i) {
-r = embed_to(*(--i+(R(base,R(roll,R(ty,*argp))))),0x00,R(size,R(roll,R(ty,*argp))));
-if(!r) {
-printf("%s\n","<< Error at fn. embed_to()");
 return(0x00);
 }}
 

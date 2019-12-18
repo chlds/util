@@ -91,6 +91,7 @@ signed(__cdecl cli_ctrl_ll_beta(void(*argp)));
 signed(__cdecl cli_io_beta(signed char(*cur),signed(size),CLI_W32_STAT(*argp)));
 /* Input/Output Unicode bytes/characters in UTF-8 out of the key board to the console screen along with fn. cli_in/cli_out. */
 
+signed(__cdecl cli_output_beta(signed short(comeback_flag),signed char(*cur),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_col_outs_beta(signed char(*cur),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_col_out_beta(signed char(*cur),CLI_W32_STAT(*argp)));
 /* Form a column in the console screen. */
