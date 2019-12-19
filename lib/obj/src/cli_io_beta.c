@@ -103,6 +103,16 @@ r = cpy(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),cur);
 if(!r) R(append,R(ty,*argp)) = (0x00);
 else R(append,R(ty,*argp)) = (0x01);
 
+// monitor
+if(CLI_DBG_B<(CLI_DBG)) {
+R(cur,R(debug,R(ty,*argp))) = (cur);
+R(gauge,R(debug,R(ty,*argp))) = (size);
+r = cli_debug_monitor_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_debug_monitor_beta()");
+return(0x00);
+}}
+
 // get
 r = cli_in(&i,cur,size);
 if(!r) {
@@ -164,16 +174,6 @@ if(R(append,R(ty,*argp))) {
 printf("%s\n","<< Error at fn. cli_output_beta()");
 return(0x00);
 }}}
-
-// monitor
-if(CLI_DBG_B<(CLI_DBG)) {
-R(cur,R(debug,R(ty,*argp))) = (cur);
-R(gauge,R(debug,R(ty,*argp))) = (size);
-r = cli_debug_monitor_beta(argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_debug_monitor_beta()");
-return(0x00);
-}}
 
 return(0x01+(cli_io_beta(cur,size,argp)));
 }

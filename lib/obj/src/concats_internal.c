@@ -3,7 +3,8 @@
 Concatenate strings.
 
 Remarks:
-Using along with fn. concats, with fn. concat2 and with fn. cpy.
+Refer at fn. concats and fn. concat2.
+Along with fn. cpy
 */
 
 
@@ -20,13 +21,9 @@ if(!argp) return(0x00);
 if(!bp) return(0x00);
 
 p = va_arg(bp,void*);
-
 if(!p) return(0x00);
 
-r = cpy(argp,p);
-
-if(!r) return(0x00);
-else argp = (argp+(r));
+argp = (argp+(cpy(argp,p)));
 
 return(0x01+(concats_internal(argp,bp)));
 }
