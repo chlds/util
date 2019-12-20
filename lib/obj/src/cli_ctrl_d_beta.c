@@ -9,6 +9,7 @@ Refer at util/lib/obj/src/cli_io_beta.c
 */
 
 
+# define CLI_MACRO
 # define CLI_W32
 
 # include <conio.h>
@@ -18,13 +19,58 @@ Refer at util/lib/obj/src/cli_io_beta.c
 
 signed(__cdecl cli_ctrl_d_beta(CLI_W32_STAT(*argp))) {
 
+/* **** DATA, BSS and STACK */
 auto signed char *p;
+auto signed long long sll;
 auto signed c,i,r;
 auto signed short flag;
 
+/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-if(CLI_DBG) printf("%s","<Ctrl-D>");
+if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-D>");
+
+p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+if(!(*p)) return(0x01);
+
+r = nbytechar(*p);
+if(!r) {
+printf("%s\n","<< Error at fn. nbytechar()");
+return(0x00);
+}
+if(!(0x80^(r))) {
+printf("%s\n","<< Error at fn. nbytechar() with (0x80)");
+return(0x00);
+}
+
+ADD(R(gauge,R(ty,*argp)),r);
+
+while(r) {
+INC(p);
+--r;
+}
+
+**(CLI_INDEX+(R(cur,R(ty,*argp)))) = (0x00);
+
+r = concats(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(cur,R(ty,*argp)))),p,(void*) 0x00);
+if(!r) {
+printf("%s\n","<< Error at fn. concats()");
+return(0x00);
+}
+
+r = cli_clear_rows_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
+return(0x00);
+}
+
+r = cli_output_beta(0x01/* a comeback flag */,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
+/* empty or..
+if(!r) {
+printf("%s\n","<< Error at fn. cli_output_beta()");
+return(0x00);
+}
+//*/
 
 return(0x01);
 }
