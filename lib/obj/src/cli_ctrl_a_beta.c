@@ -29,7 +29,7 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-if(CLI_DBG) printf("%s","<Ctrl-A>");
+if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-A>");
 
 // initialise
 p = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
