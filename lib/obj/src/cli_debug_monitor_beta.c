@@ -9,7 +9,7 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 
 # define CLI_W32
 # define R(D,S) (S).D
-# define N_ROWS (0x17)
+# define N_ROWS (0x19)
 
 # include <stdio.h>
 # include "../../../incl/config_ty.h"
@@ -80,7 +80,8 @@ printf("%d%s\n",R(gauge,R(debug,R(ty,*argp)))," at R(gauge,R(debug,R(ty,*argp");
 printf("%d%s\n",R(gauge,R(ty,*argp))," at R(gauge,R(ty,*argp (updated by fn. calls but always monitored)");
 printf("%d%s\n",R(size,R(roll,R(ty,*argp)))," at R(size,R(roll,R(ty,*argp");
 
-// Append and linebreak
+// Clipped pages, append and linebreaks
+printf("%d%s",R(clip,R(ty,*argp))," at R(clip,R(ty,*argp | ");
 printf("%d%s",R(append,R(ty,*argp))," at R(append,R(ty,*argp | ");
 printf("%d%s",R(linebreak,R(ty,*argp))," at R(linebreak,R(ty,*argp | ");
 printf("%d%s\n",R(linebreak_form,R(ty,*argp))," at R(linebreak_form,R(ty,*argp");
@@ -104,6 +105,10 @@ printf("%d%s\n",R(insert,R(spool,R(ty,*argp)))," at (R(insert,R(spool,R(ty,*argp
 // Coordinates
 printf("%s\n","Coordinates");
 printf("%d%s%d%s\n",R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))),"/",R(y,*(CLI_INDEX+(R(coord,R(ty,*argp)))))," at R(x/y,*(CLI_INDEX+(R(coord,R(ty,*argp");
+// Clipboard Info.
+printf("%p%s",*(CLI_BASE+(R(base,R(clipboard,*argp))))," at *(CLI_BASE+(R(base,R(clipboard,*argp | ");
+printf("%zd%s",R(size,R(clipboard,*argp))," at R(size,R(clipboard,*argp | ");
+printf("%d%s\n",R(flag,R(clipboard,*argp))," at R(flag,R(clipboard,*argp");
 
 /* fix the frame */
 r = cli_coord_beta(CLI_OUT,coord+(CLI_OFFSET),argp);

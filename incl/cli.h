@@ -151,6 +151,7 @@ signed gauge;
 signed short linebreak_form;
 signed short linebreak;
 signed short append;
+signed short clip;
 signed short flag;
 CLI_CONFIG config;
 CLI_EDIT edit;

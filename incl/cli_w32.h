@@ -19,11 +19,20 @@ Refer at ./config_ty.h
 # define CLI_MODULES (CLI_W32_OBJS)
 # define CLI_SEARCHES (CLI_W32_OBJS)
 # define CLI_WINDOWS (CLI_W32_OBJS)
+# define CLI_CLIPS (CLI_W32_OBJS)
+
+typedef struct cli_w32_clipboard {
+void *(base[CLI_CLIPS]);
+size_t size;
+signed flag;
+void *optl;
+} CLI_W32_CLIPBOARD;
 
 typedef struct cli_w32_stat {
 CLI_CODEPAGE codepage;
 CLI_TYPEWRITER ty;
 CONSOLE_SCREEN_BUFFER_INFO csbi;
+CLI_W32_CLIPBOARD clipboard;
 void *(window[CLI_WINDOWS]);
 void *(search[CLI_SEARCHES]);
 void *(module[CLI_MODULES]);
@@ -95,5 +104,10 @@ signed(__cdecl cli_output_beta(signed short(comeback_flag),signed char(*cur),CLI
 signed(__cdecl cli_col_outs_beta(signed char(*cur),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_col_out_beta(signed char(*cur),CLI_W32_STAT(*argp)));
 /* Form a column in the console screen. */
+
+signed(__cdecl cli_empty_beta(CLI_W32_STAT(*argp)));
+signed(__cdecl cli_clip_beta(CLI_W32_STAT(*argp)));
+signed(__cdecl cli_paste_beta(CLI_W32_STAT(*argp)));
+/* Operate the clipboard. */
 
 // and more..

@@ -51,6 +51,7 @@ if(!(R(linebreak_form,*argp))) R(linebreak_form,*argp) = (LINEBREAK_CRLF);
 
 R(linebreak,*argp) = (0x00);
 R(append,*argp) = (0x00);
+R(clip,*argp) = (0x00);
 R(flag,*argp) = (0x00);
 
 return(0x01);

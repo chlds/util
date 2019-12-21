@@ -8,9 +8,8 @@ The beta edition is for Windows 10 64-bit OS.
 */
 
 
+# define CLI_MACRO
 # define CLI_W32
-# define R(D,S) (S).D
-// A local macro function
 
 # include "../../../incl/config_ty.h"
 
@@ -22,6 +21,18 @@ auto signed char *p;
 auto signed i,r;
 
 /* **** CODE/TEXT */
+// Initialise
+*(CLI_BASE+(R(base,R(clipboard,*argp)))) = (0x00);
+
+// Get a handle to the console window
+*(CLI_BASE+(R(window,*argp))) = (void(*)) GetConsoleWindow();
+if(!(*(CLI_BASE+(R(window,*argp))))) {
+printf("%s\n","<< Error at fn. GetConsoleWindow()");
+return(0x00);
+}
+
+if(CLI_DBG) printf("%s%p\n","An offset address for a handle to the console window is: ",*(CLI_BASE+(R(window,*argp))));
+
 // Get a handle to the specified standard output device
 *(CLI_OUT+(R(device,*argp))) = (void(*)) GetStdHandle(STD_OUTPUT_HANDLE);
 ll = (signed long long) (*(CLI_OUT+(R(device,*argp))));
