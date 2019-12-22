@@ -53,7 +53,7 @@ p = (signed char(*)) GlobalLock(g);
 if(!p) {
 r = GetLastError();
 printf("%s%d%s%X\n","<< Error at fn. GlobalLock() with ",r," or ",r);
-flag = (0x01);
+flag++;
 }}
 
 if(!flag) {
@@ -63,15 +63,56 @@ ADD(R(gauge,R(ty,*argp)),-r);
 r = (R(gauge,R(ty,*argp)));
 if(r<(0x01+(0x04))) {
 printf("%s\n","<< Reached the limit..");
-flag = (0x01);
+return(0x00);
 }}
 
+// Aux.
 if(!flag) {
 r = cpy(*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))),p);
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cpy()");
-return(0x00);
+// return(0x00);
+//*/
+}}
+
+if(!flag) {
+r = cli_append(p,&(R(ty,*argp)));
+if(!r) {
+/* empty or..
+printf("%s\n","<< Error at fn. cli_append()");
+// return(0x00);
+//*/
+}}
+
+if(!flag) {
+r = cli_clear_rows_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
+// return(0x00);
+}}
+
+if(!flag) {
+r = cli_output_beta(0x00,p,argp);
+if(!r) {
+/* empty or..
+printf("%s\n","<< Error at fn. cli_output_beta()");
+// return(0x00);
+//*/
+}}
+
+if(!flag) {
+while(r) {
+INC(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+--r;
+}}
+
+if(!flag) {
+r = cli_output_beta(0x01,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
+if(!r) {
+/* empty or..
+printf("%s\n","<< Error at fn. cli_output_beta()");
+// return(0x00);
 //*/
 }}
 
@@ -83,7 +124,7 @@ if(!(NO_ERROR^(r))) {
 }
 else {
 printf("%s%d%s%X\n","<< Error at fn. GlobalUnlock() with ",r," or ",r);
-flag = (0x01);
+flag++;
 }}}
 
 r = CloseClipboard();

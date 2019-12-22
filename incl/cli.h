@@ -186,6 +186,9 @@ CLI_TYPEWRITER ty;
 void *optl;
 } CLI_STAT;
 
+signed(__cdecl cli_append(signed char(*appendant),CLI_TYPEWRITER(*argp)));
+// Append
+
 signed(__cdecl cli_display_header(CLI_TYPEWRITER(*argp)));
 // Display the two-row header
 

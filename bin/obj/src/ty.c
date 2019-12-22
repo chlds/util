@@ -108,15 +108,5 @@ if(!(0x01^(r))) printf("%s\n","Unmapped 1 page");
 else printf("%s%d%s\n","Unmapped ",r," pages");
 }
 
-/*
-if(*(CLI_BASE+(R(base,R(clipboard,cli_w32_stat))))) {
-*(CLI_BASE+(R(base,R(clipboard,cli_w32_stat)))) = GlobalFree(*(CLI_BASE+(R(base,R(clipboard,cli_w32_stat)))));
-if(*(CLI_BASE+(R(base,R(clipboard,cli_w32_stat))))) {
-r = GetLastError();
-printf("%s%d%s%X\n","<< Error at fn. GlobalFree() with ",r," or ",r);
-return(0x00);
-}}
-//*/
-
 return(0x01);
 }

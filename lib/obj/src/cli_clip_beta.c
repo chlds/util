@@ -29,7 +29,7 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-/*
+//*
 r = cli_empty_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_empty_beta()");
@@ -44,16 +44,6 @@ INC(r);
 
 // also
 INC(r);
-
-/*
-if(*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp)))))) {
-*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp))))) = GlobalFree(*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp))))));
-if(*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp)))))) {
-r = GetLastError();
-printf("%s%d%s%X\n","<< Error at fn. GlobalFree() with ",r," or ",r);
-return(0x00);
-}}
-//*/
 
 g = GlobalAlloc(GMEM_SHARE|(GHND),r*(sizeof(signed char)));
 
@@ -84,6 +74,8 @@ printf("%s%d%s%X\n","<< Error at fn. GlobalUnlock() with ",r," or ",r);
 return(0x00);
 }}
 
+flag = (0x00);
+
 r = OpenClipboard(*(CLI_BASE+(R(window,*argp))));
 if(!r) {
 r = GetLastError();
@@ -95,17 +87,18 @@ r = EmptyClipboard();
 if(!r) {
 r = GetLastError();
 printf("%s%d%s%X\n","<< Error at fn. EmptyClipboard() with ",r," or ",r);
-return(0x00);
+// return(0x00);
+flag++;
 }
 
-flag = (0x00);
-
+if(!flag) {
 g = SetClipboardData(CF_TEXT,g);
 if(!g) {
 r = GetLastError();
 printf("%s%d%s%X\n","<< Error at fn. SetClipboardData() with ",r," or ",r);
-flag = (0x01);
-}
+// return(0x00);
+flag++;
+}}
 
 r = CloseClipboard();
 if(!r) {
@@ -113,6 +106,14 @@ r = GetLastError();
 printf("%s%d%s%X\n","<< Error at fn. CloseClipboard() with ",r," or ",r);
 return(0x00);
 }
+
+if(*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp)))))) {
+*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp))))) = GlobalFree(*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp))))));
+if(*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp)))))) {
+r = GetLastError();
+printf("%s%d%s%X\n","<< Error at fn. GlobalFree() with ",r," or ",r);
+return(0x00);
+}}
 
 if(flag) {
 R(clip,R(clipboard,R(ty,*argp))) = (0x00);
