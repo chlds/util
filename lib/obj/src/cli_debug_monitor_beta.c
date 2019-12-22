@@ -75,40 +75,42 @@ r = cli_outs(*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))));
 if(!r) printf("%s\n","<< *(CLI_INDEX+(R(base,R(roll,R(ty,*argp is empty or..");
 else printf("\n");
 
-// Gauge for rolls
-printf("%d%s\n",R(gauge,R(debug,R(ty,*argp)))," at R(gauge,R(debug,R(ty,*argp");
-printf("%d%s\n",R(gauge,R(ty,*argp))," at R(gauge,R(ty,*argp (updated by fn. calls but always monitored)");
-printf("%d%s\n",R(size,R(roll,R(ty,*argp)))," at R(size,R(roll,R(ty,*argp");
-
-// Clipped pages, append and linebreaks
-printf("%d%s",R(clip,R(ty,*argp))," at R(clip,R(ty,*argp | ");
-printf("%d%s",R(append,R(ty,*argp))," at R(append,R(ty,*argp | ");
-printf("%d%s",R(linebreak,R(ty,*argp))," at R(linebreak,R(ty,*argp | ");
-printf("%d%s\n",R(linebreak_form,R(ty,*argp))," at R(linebreak_form,R(ty,*argp");
-
 // Workspace
-printf("%s\n","Rolls");
-printf("%p%s\n",R(cur,R(debug,R(ty,*argp)))," at R(cur,R(debug,R(ty,*argp");
-printf("%p%s\n",*(CLI_INDEX+(R(cur,R(ty,*argp))))," at *(CLI_INDEX+(R(cur,R(ty,*argp (updated by fn. calls but always monitored)");
-printf("%p%s\n",*(CLI_OFFSET+(R(cur,R(ty,*argp))))," at *(CLI_OFFSET+(R(cur,R(ty,*argp");
-printf("%p%s\n",*(CLI_BASE+(R(cur,R(ty,*argp))))," at *(CLI_BASE+(R(cur,R(ty,*argp");
-printf("%p%s\n",*(CLI_BASE+(R(base,R(roll,R(ty,*argp)))))," at *(CLI_BASE+(R(base,R(roll,R(ty,*argp");
-printf("%p%s\n",*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp)))))," at *(CLI_OFFSET+(R(base,R(roll,R(ty,*argp");
-printf("%p%s\n",*(CLI_INDEX+(R(base,R(roll,R(ty,*argp)))))," at *(CLI_INDEX+(R(base,R(roll,R(ty,*argp");
+printf("%s\n","Workspace at R(ty,*argp");
+// Flag, append and break
+printf("%d%s",R(flag,R(ty,*argp))," at R(flag, | ");
+printf("%d%s",R(append,R(ty,*argp))," at R(append, | ");
+printf("%d%s",R(linebreak,R(ty,*argp))," at R(linebreak, | ");
+printf("%d%s\n",R(linebreak_form,R(ty,*argp))," at R(linebreak_form,");
+// Gauges
+printf("%d%s\n",R(gauge,R(debug,R(ty,*argp)))," at R(gauge,R(debug,");
+printf("%d%s\n",R(gauge,R(ty,*argp))," at R(gauge, (updated by fn. calls but always monitored)");
+printf("%d%s\n",R(size,R(roll,R(ty,*argp)))," at R(size,R(roll,");
+// Addresses
+printf("%p%s\n",R(cur,R(debug,R(ty,*argp)))," at R(cur,R(debug,");
+printf("%p%s\n",*(CLI_INDEX+(R(cur,R(ty,*argp))))," at *(CLI_INDEX+(R(cur, (updated by fn. calls but always monitored)");
+printf("%p%s\n",*(CLI_OFFSET+(R(cur,R(ty,*argp))))," at *(CLI_OFFSET+(R(cur,");
+printf("%p%s\n",*(CLI_BASE+(R(cur,R(ty,*argp))))," at *(CLI_BASE+(R(cur,");
+printf("%p%s\n",*(CLI_BASE+(R(base,R(roll,R(ty,*argp)))))," at *(CLI_BASE+(R(base,R(roll,");
+printf("%p%s\n",*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp)))))," at *(CLI_OFFSET+(R(base,R(roll,");
+printf("%p%s\n",*(CLI_INDEX+(R(base,R(roll,R(ty,*argp)))))," at *(CLI_INDEX+(R(base,R(roll,");
+
 // Concatenated pages
-printf("%s\n","Pages");
-printf("%p%s\n",*(CLI_BASE+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_BASE+(R(page,R(spool,R(ty,*argp");
-printf("%p%s\n",*(CLI_OFFSET+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_OFFSET+(R(page,R(spool,R(ty,*argp");
-printf("%p%s\n",*(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_INDEX+(R(page,R(spool,R(ty,*argp");
-printf("%p%s\n",*(CLI_LEAD+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_LEAD+(R(page,R(spool,R(ty,*argp");
-printf("%d%s\n",R(insert,R(spool,R(ty,*argp)))," at (R(insert,R(spool,R(ty,*argp");
+printf("%s\n","Pages at R(spool,R(ty,*argp");
+printf("%p%s\n",*(CLI_BASE+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_BASE+(R(page,");
+printf("%p%s\n",*(CLI_OFFSET+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_OFFSET+(R(page,");
+printf("%p%s\n",*(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_INDEX+(R(page,");
+printf("%p%s\n",*(CLI_LEAD+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_LEAD+(R(page,");
+printf("%d%s\n",R(insert,R(spool,R(ty,*argp)))," at R(insert,");
 // Coordinates
-printf("%s\n","Coordinates");
-printf("%d%s%d%s\n",R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))),"/",R(y,*(CLI_INDEX+(R(coord,R(ty,*argp)))))," at R(x/y,*(CLI_INDEX+(R(coord,R(ty,*argp");
+printf("%s\n","Coordinates at R(ty,*argp");
+printf("%d%s%d%s\n",R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))),"/",R(y,*(CLI_INDEX+(R(coord,R(ty,*argp)))))," at R(x/y,*(CLI_INDEX+(R(coord,");
 // Clipboard Info.
-printf("%p%s",*(CLI_BASE+(R(base,R(clipboard,*argp))))," at *(CLI_BASE+(R(base,R(clipboard,*argp | ");
-printf("%zd%s",R(size,R(clipboard,*argp))," at R(size,R(clipboard,*argp | ");
-printf("%d%s\n",R(flag,R(clipboard,*argp))," at R(flag,R(clipboard,*argp");
+printf("%s\n","Clipboard info. at R(clipboard,R(ty,*argp");
+printf("%p%s",*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp)))))," at *(CLI_BASE+(R(base, | ");
+printf("%zd%s",R(size,R(clipboard,R(ty,*argp)))," at R(size, | ");
+printf("%d%s",R(clip,R(clipboard,R(ty,*argp)))," at R(clip, | ");
+printf("%d%s\n",R(flag,R(clipboard,R(ty,*argp)))," at R(flag,");
 
 /* fix the frame */
 r = cli_coord_beta(CLI_OUT,coord+(CLI_OFFSET),argp);

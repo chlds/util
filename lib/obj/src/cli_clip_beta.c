@@ -29,11 +29,13 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+/*
 r = cli_empty_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_empty_beta()");
 return(0x00);
 }
+//*/
 
 r = ct(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 if(!r) return(0x01);
@@ -44,9 +46,9 @@ INC(r);
 INC(r);
 
 /*
-if(*(CLI_BASE+(R(base,R(clipboard,*argp))))) {
-*(CLI_BASE+(R(base,R(clipboard,*argp)))) = GlobalFree(*(CLI_BASE+(R(base,R(clipboard,*argp)))));
-if(*(CLI_BASE+(R(base,R(clipboard,*argp))))) {
+if(*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp)))))) {
+*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp))))) = GlobalFree(*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp))))));
+if(*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp)))))) {
 r = GetLastError();
 printf("%s%d%s%X\n","<< Error at fn. GlobalFree() with ",r," or ",r);
 return(0x00);
@@ -55,9 +57,9 @@ return(0x00);
 
 g = GlobalAlloc(GMEM_SHARE|(GHND),r*(sizeof(signed char)));
 
-*(CLI_BASE+(R(base,R(clipboard,*argp)))) = (g);
-R(flag,R(clipboard,*argp)) = GlobalFlags(g);
-R(size,R(clipboard,*argp)) = GlobalSize(g);
+*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp))))) = (g);
+R(flag,R(clipboard,R(ty,*argp))) = GlobalFlags(g);
+R(size,R(clipboard,R(ty,*argp))) = GlobalSize(g);
 
 p = (signed char(*)) GlobalLock(g);
 if(!p) {
@@ -113,12 +115,12 @@ return(0x00);
 }
 
 if(flag) {
-R(clip,R(ty,*argp)) = (0x00);
+R(clip,R(clipboard,R(ty,*argp))) = (0x00);
 return(0x00);
 }
 
 // clipped pages
-INC(R(clip,R(ty,*argp)));
+INC(R(clip,R(clipboard,R(ty,*argp))));
 
 return(0x01);
 }

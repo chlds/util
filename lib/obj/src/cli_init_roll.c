@@ -1,18 +1,17 @@
 /* **** Notes
 
-Initialise the lead, base and temporary pages.
+Charge buffer.
 
 Remarks:
 Along with C library
 //*/
 
 
-# define R(D,S) (S).D
-// A local macro function
+# define CLI_MACRO
 
-# include "../../../incl/cli.h"
+# include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_init_roll(signed(size),signed char(**roll),CLI_TYPEWRITER(*argp))) {
+signed(__cdecl cli_init_roll(signed(size),signed char(**roll),CLI_ROLL(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *p;
@@ -24,35 +23,17 @@ if(!roll) return(0x00);
 if(!(*roll)) return(0x00);
 if(!argp) return(0x00);
 
-R(size,R(roll,*argp)) = (size);
-R(gauge,R(debug,*argp)) = (size);
-R(gauge,*argp) = (size);
+R(size,*argp) = (size);
 
-// Charge rolls
+// charge rolls
 i = (0x00);
 while(*(i+(roll))) {
-if(CLI_DBG) printf("%s%d\r","Charge roll: ",i);
-*(i+(R(base,R(roll,*argp)))) = (*(i+(roll)));
+*(i+(R(base,*argp))) = (*(i+(roll)));
 i++;
 }
-// Charged rolls
-if(CLI_DBG) printf("%s%d\n","Charged roll: ",i);
-*(i+(R(base,R(roll,*argp)))) = (*(i+(roll)));
-
-p = (*(CLI_BASE+(R(base,R(roll,*argp)))));
-
-R(cur,R(debug,*argp)) = (p);
-*(CLI_BASE+(R(cur,*argp))) = (p);
-*(CLI_OFFSET+(R(cur,*argp))) = (p);
-*(CLI_INDEX+(R(cur,*argp))) = (p);
-*(CLI_LEAD+(R(cur,*argp))) = (p);
-
-if(!(R(linebreak_form,*argp))) R(linebreak_form,*argp) = (LINEBREAK_CRLF);
-
-R(linebreak,*argp) = (0x00);
-R(append,*argp) = (0x00);
-R(clip,*argp) = (0x00);
-R(flag,*argp) = (0x00);
+// charged rolls
+if(CLI_DBG) printf("%s%d%s\n","Charged ",i," rolls");
+*(i+(R(base,*argp))) = (*(i+(roll)));
 
 return(0x01);
 }

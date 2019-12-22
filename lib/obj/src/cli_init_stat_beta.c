@@ -13,7 +13,7 @@ The beta edition is for Windows 10 64-bit OS.
 
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_init_ty_beta(CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_init_stat_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed long long ll;
@@ -21,9 +21,6 @@ auto signed char *p;
 auto signed i,r;
 
 /* **** CODE/TEXT */
-// Initialise
-*(CLI_BASE+(R(base,R(clipboard,*argp)))) = (0x00);
-
 // Get a handle to the console window
 *(CLI_BASE+(R(window,*argp))) = (void(*)) GetConsoleWindow();
 if(!(*(CLI_BASE+(R(window,*argp))))) {
@@ -69,12 +66,6 @@ printf("%s%d%s%d\n","/",(*argp).csbi.srWindow.Right,"/",(*argp).csbi.srWindow.Bo
 printf("%s\n","A COORD structure that contains the maximum size of the console window, in character columns and rows, given the current screen buffer size and font and the screen size.");
 printf("%s%d%s%d\n","csbi.dwMaximumWindowSize.X/Y: ",(*argp).csbi.dwMaximumWindowSize.X,"/",(*argp).csbi.dwMaximumWindowSize.Y);
 }
-
-// coordinate
-R(x,*(CLI_BASE+(R(coord,R(ty,*argp))))) = (0x00);
-R(y,*(CLI_BASE+(R(coord,R(ty,*argp))))) = (0x00);
-R(x,*(CLI_OFFSET+(R(coord,R(ty,*argp))))) = (0x00);
-R(y,*(CLI_OFFSET+(R(coord,R(ty,*argp))))) = (CLI_HEADER_HEIGHT);
 
 return(0x01);
 }

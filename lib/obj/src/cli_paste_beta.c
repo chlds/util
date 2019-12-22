@@ -29,14 +29,17 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+// clipped pages
+R(clip,R(clipboard,R(ty,*argp))) = (0x00);
+
+flag = (0x00);
+
 r = OpenClipboard(*(CLI_BASE+(R(window,*argp))));
 if(!r) {
 r = GetLastError();
 printf("%s%d%s%X\n","<< Error at fn. OpenClipboard() with ",r," or ",r);
 return(0x00);
 }
-
-flag = (0x00);
 
 g = GetClipboardData(CF_TEXT);
 if(!g) {
@@ -50,23 +53,29 @@ p = (signed char(*)) GlobalLock(g);
 if(!p) {
 r = GetLastError();
 printf("%s%d%s%X\n","<< Error at fn. GlobalLock() with ",r," or ",r);
-return(0x00);
-}
+flag = (0x01);
+}}
+
+if(!flag) {
 // limit
-flag = (0x00);
 r = ct(p);
 ADD(R(gauge,R(ty,*argp)),-r);
 r = (R(gauge,R(ty,*argp)));
 if(r<(0x01+(0x04))) {
 printf("%s\n","<< Reached the limit..");
 flag = (0x01);
-}
+}}
+
 if(!flag) {
 r = cpy(*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))),p);
 if(!r) {
+/* empty or..
 printf("%s\n","<< Error at fn. cpy()");
 return(0x00);
+//*/
 }}
+
+if(!flag) {
 r = GlobalUnlock(g);
 if(!r) {
 r = GetLastError();
@@ -74,7 +83,7 @@ if(!(NO_ERROR^(r))) {
 }
 else {
 printf("%s%d%s%X\n","<< Error at fn. GlobalUnlock() with ",r," or ",r);
-return(0x00);
+flag = (0x01);
 }}}
 
 r = CloseClipboard();
@@ -83,9 +92,6 @@ r = GetLastError();
 printf("%s%d%s%X\n","<< Error at fn. CloseClipboard() with ",r," or ",r);
 return(0x00);
 }
-
-// clipped pages
-R(clip,R(ty,*argp)) = (0x00);
 
 if(flag) return(0x00);
 

@@ -19,20 +19,11 @@ Refer at ./config_ty.h
 # define CLI_MODULES (CLI_W32_OBJS)
 # define CLI_SEARCHES (CLI_W32_OBJS)
 # define CLI_WINDOWS (CLI_W32_OBJS)
-# define CLI_CLIPS (CLI_W32_OBJS)
-
-typedef struct cli_w32_clipboard {
-void *(base[CLI_CLIPS]);
-size_t size;
-signed flag;
-void *optl;
-} CLI_W32_CLIPBOARD;
 
 typedef struct cli_w32_stat {
 CLI_CODEPAGE codepage;
 CLI_TYPEWRITER ty;
 CONSOLE_SCREEN_BUFFER_INFO csbi;
-CLI_W32_CLIPBOARD clipboard;
 void *(window[CLI_WINDOWS]);
 void *(search[CLI_SEARCHES]);
 void *(module[CLI_MODULES]);
@@ -54,7 +45,7 @@ signed(__cdecl cli_coord_beta(signed short(flag),CLI_COORD(*cache),CLI_W32_STAT(
 signed(__cdecl cli_get_csbi_beta(CLI_W32_STAT(*argp)));
 
 // Retrieve a handle to the specified standard output device.
-signed(__cdecl cli_init_ty_beta(CLI_W32_STAT(*argp)));
+signed(__cdecl cli_init_stat_beta(CLI_W32_STAT(*argp)));
 
 // along with an array of function pointers
 signed(__cdecl cli_ctrl_at_beta(void(*argp)));

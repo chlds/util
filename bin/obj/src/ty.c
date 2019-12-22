@@ -4,17 +4,18 @@ Typewriter
 */
 
 
+# define CLI_MACRO
 # define CLI_W32
-# define R(D,S) (S).D
-// A local macro function
+
+# define THRESHOLD (0x02)
+
+# define ROLLS (0x01+(0x03))
 # define BUFF (0x100000)
 // 1MiB
-# define ROLLS (0x01+(0x03))
-# define THRESHOLD (0x02)
 
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl main(signed argc,signed char **argv,signed char **envp)) {
+signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char buff2[BUFF] = {
@@ -67,21 +68,15 @@ printf("%s\n","<< Error at fn. cli_parse()");
 return(0x00);
 }
 
-r = cli_init_pages(&(cli_w32_stat.ty.spool));
+r = cli_init_ty(BUFF,roll,&(R(ty,cli_w32_stat)));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_init_pages()");
+printf("%s\n","<< Error at fn. cli_init_ty()");
 return(0x00);
 }
 
-r = cli_init_roll(BUFF,roll,&(cli_w32_stat.ty));
+r = cli_init_stat_beta(&cli_w32_stat);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_init_roll()");
-return(0x00);
-}
-
-r = cli_init_ty_beta(&cli_w32_stat);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_init_ty_beta()");
+printf("%s\n","<< Error at fn. cli_init_stat_beta()");
 return(0x00);
 }
 

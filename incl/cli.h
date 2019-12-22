@@ -53,9 +53,11 @@ Refer at ./config_ty.h
 
 # define CLI_CODEPAGE_IO (0x01+(0x03))
 # define CLI_OBJS (0x01+(0x03))
+# define CLI_CLIPBOARDS (CLI_OBJS)
 # define CLI_WORKSPACE (CLI_OBJS)
 # define CLI_SNAPSHOTS (CLI_OBJS)
 # define CLI_PAGES (CLI_OBJS)
+# define CLI_ROLLS (CLI_OBJS)
 
 enum {
 CLI_IN,CLI_OUT,CLI_ERR,
@@ -127,6 +129,13 @@ signed size;
 void *optl;
 } CLI_ROLL;
 
+/*
+typedef struct cli_paper {
+CLI_ROLL *(roll[CLI_ROLLS]);
+void *optl;
+} CLI_PAPER;
+//*/
+
 typedef struct cli_debug {
 signed char *cur;
 signed gauge;
@@ -145,14 +154,22 @@ signed size;
 void *optl;
 } CLI_CONFIG;
 
+typedef struct cli_clipboard {
+void *(base[CLI_WORKSPACE]);
+size_t size;
+signed clip;
+signed flag;
+void *optl;
+} CLI_CLIPBOARD;
+
 typedef struct cli_typewriter {
 signed char *(cur[CLI_OBJS]);
 signed gauge;
 signed short linebreak_form;
 signed short linebreak;
 signed short append;
-signed short clip;
 signed short flag;
+CLI_CLIPBOARD clipboard;
 CLI_CONFIG config;
 CLI_EDIT edit;
 CLI_DEBUG debug;
@@ -175,7 +192,10 @@ signed(__cdecl cli_display_header(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp)));
 // Parse a config file for the typewriter
 
-signed(__cdecl cli_init_roll(signed(size),signed char(**roll),CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_init_ty(signed(size),signed char(**roll),CLI_TYPEWRITER(*argp)));
+// Initialise
+
+signed(__cdecl cli_init_roll(signed(size),signed char(**roll),CLI_ROLL(*argp)));
 // Charge rolls
 
 signed(__cdecl cli_book(CLI_TYPEWRITER(*argp)));
