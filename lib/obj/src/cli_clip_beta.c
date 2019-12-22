@@ -38,7 +38,12 @@ return(0x00);
 //*/
 
 r = ct(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
-if(!r) return(0x01);
+if(!r) {
+/* empty or..
+printf("%s\n","<< Error at fn. ct()");
+return(0x01);
+//*/
+}
 
 INC(r);
 
@@ -60,8 +65,10 @@ return(0x00);
 
 r = cpy(p,*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 if(!r) {
+/* empty or..
 printf("%s\n","<< Error at fn. cpy()");
 return(0x00);
+//*/
 }
 
 r = GlobalUnlock(g);

@@ -29,7 +29,7 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-if(CLI_DBG) printf("%s","<Ctrl-M>");
+if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-M>");
 
 // coordinate
 r = cli_coord_beta(CLI_IN,&coord,argp);
