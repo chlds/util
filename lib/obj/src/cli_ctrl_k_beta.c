@@ -35,6 +35,9 @@ printf("%s\n","<< Error at fn. cli_clip_beta()");
 return(0x00);
 }
 
+r = ct(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+ADD(R(gauge,R(ty,*argp)),r);
+
 **(CLI_INDEX+(R(cur,R(ty,*argp)))) = (0x00);
 
 r = cli_clear_rows_beta(argp);
