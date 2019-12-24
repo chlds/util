@@ -42,12 +42,15 @@ Refer at ./config_ty.h
 
 # define CTRL_MASK (0x1F)
 
-# define ALIGNE_TAB (0x08)
+# define ALIGN_TAB (0x08)
 # define LINEBREAK_CRLF (0x02)
 # define LINEBREAK_LF (0x01)
 
 # define CLI_CONFIG_FILE_SIZE_LIMIT (0x100000)
 # define CLI_FILE_SIZE_LIMIT (0x100000)
+
+# define CLI_EMPTY (0x01+(0x04))
+# define CLI_BUFF (0x100000)
 
 # define CLI_HEADER_HEIGHT (0x02)
 

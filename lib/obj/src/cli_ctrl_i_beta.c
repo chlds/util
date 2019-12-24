@@ -5,10 +5,12 @@ Press <Ctrl-I> to invoke the function.
 Along with C and Windows libraries
 
 Remarks:
+Input the tab to workspace and output whitespace to the console screen.
 Refer at util/lib/obj/src/cli_io_beta.c
 */
 
 
+# define CLI_MACRO
 # define CLI_W32
 
 # include <conio.h>
@@ -18,13 +20,49 @@ Refer at util/lib/obj/src/cli_io_beta.c
 
 signed(__cdecl cli_ctrl_i_beta(CLI_W32_STAT(*argp))) {
 
-auto signed char *p;
-auto signed c,i,r;
+/* **** DATA, BSS and STACK */
+auto signed char HT = ('\t');
+auto signed char SP = (' ');
+
+auto CLI_COORD coord;
+auto signed char c;
+auto signed i,r;
 auto signed short flag;
 
+/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-if(CLI_DBG) printf("%s","<Ctrl-I>");
+if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-I>");
+
+DEC(R(gauge,R(ty,*argp)));
+
+r = cpy(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+if(!r) R(append,R(ty,*argp)) = (0x00);
+else R(append,R(ty,*argp)) = (0x01);
+
+**(CLI_INDEX+(R(cur,R(ty,*argp)))) = (HT);
+INC(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+
+r = cpy(*(CLI_INDEX+(R(cur,R(ty,*argp)))),*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))));
+if(!r) {
+/* empty or..
+printf("%s\n","<< Error at fn. cpy()");
+return(0x00);
+//*/
+}
+
+r = cli_indent_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_indent_beta()");
+return(0x00);
+}
+
+if(R(append,R(ty,*argp))) {
+r = cli_output_beta(0x01,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_output_beta()");
+return(0x00);
+}}
 
 return(0x01);
 }

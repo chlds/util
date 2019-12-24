@@ -61,7 +61,7 @@ if(!flag) {
 r = ct(p);
 ADD(R(gauge,R(ty,*argp)),-r);
 r = (R(gauge,R(ty,*argp)));
-if(r<(0x01+(0x04))) {
+if(r<(CLI_EMPTY)) {
 printf("%s\n","<< Reached the limit..");
 return(0x00);
 }}

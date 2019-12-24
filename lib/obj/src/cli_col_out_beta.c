@@ -18,8 +18,9 @@ Refer at fn. cli_init_ty_beta.
 signed(__cdecl cli_col_out_beta(signed char(*cur),CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto COORD coord;
+auto signed char HT = ('\t');
 
+auto COORD coord;
 auto signed long long ll;
 auto signed char *p;
 auto signed nbyte;
@@ -37,6 +38,17 @@ return(0x00);
 }
 
 if(CLI_DBG_D<(CLI_DBG)) printf("%s%p\n","An offset address for a handle to the specified standard output device is: ",*(CLI_OUT+(R(device,*argp))));
+
+
+if(!(HT^(*cur))) {
+r = cli_indent_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_indent_beta()");
+return(0x00);
+}
+return(0x01);
+}
+
 
 r = GetConsoleScreenBufferInfo(*(CLI_OUT+(R(device,*argp))),&(R(csbi,*argp)));
 if(!r) {

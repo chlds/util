@@ -7,6 +7,7 @@ Refer at ./config_ty.h and cli.h
 */
 
 
+# define DEC(A) --(A)
 # define INC(A) (A)++
 // Op
 
