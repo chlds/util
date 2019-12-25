@@ -21,6 +21,7 @@ signed(__cdecl cli_paste_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto void *g;
+auto signed short *w;
 auto signed char *p;
 auto signed long long sll;
 auto signed c,i,r;
@@ -41,7 +42,7 @@ printf("%s%d%s%X\n","<< Error at fn. OpenClipboard() with ",r," or ",r);
 return(0x00);
 }
 
-g = GetClipboardData(CF_TEXT);
+g = GetClipboardData(CF_UNICODETEXT);
 if(!g) {
 r = GetLastError();
 printf("%s%d%s%X\n","<< Error at fn. GetClipboardData() with ",r," or ",r);
@@ -49,13 +50,43 @@ flag = (0x01);
 }
 
 if(!flag) {
-p = (signed char(*)) GlobalLock(g);
-if(!p) {
+w = (signed short(*)) GlobalLock(g);
+if(!w) {
 r = GetLastError();
 printf("%s%d%s%X\n","<< Error at fn. GlobalLock() with ",r," or ",r);
 flag++;
 }}
 
+i = (R(gauge,R(ty,*argp)));
+p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+
+r = cpy(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),p);
+if(!r) {
+/* empty or..
+printf("%s\n","<< Error at fn. cpy()");
+return(0x00);
+//*/
+}
+
+while(0x01) {
+if(i<(CLI_EMPTY)) {
+printf("%s\n","<< Reached the limit..");
+return(0x00);
+}
+if(!(*w)) break;
+r = encode2uni(p,i,*w);
+if(!r) {
+printf("%s\n","<< Error at fn. encode2uni()");
+return(0x00);
+}
+p = (r+(p));
+i = (-r+(i));
+w++;
+}
+
+*p = (0x00);
+
+/*
 if(!flag) {
 // limit
 r = ct(p);
@@ -65,10 +96,11 @@ if(r<(CLI_EMPTY)) {
 printf("%s\n","<< Reached the limit..");
 return(0x00);
 }}
+//*/
 
 // Aux.
 if(!flag) {
-r = cpy(*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))),p);
+r = cpy(*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))),*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cpy()");
@@ -76,14 +108,15 @@ printf("%s\n","<< Error at fn. cpy()");
 //*/
 }}
 
+/*
 if(!flag) {
 r = cli_append(p,&(R(ty,*argp)));
 if(!r) {
-/* empty or..
-printf("%s\n","<< Error at fn. cli_append()");
+// empty or..
+// printf("%s\n","<< Error at fn. cli_append()");
 // return(0x00);
-//*/
 }}
+//*/
 
 if(!flag) {
 r = cli_clear_rows_beta(argp);
@@ -93,7 +126,7 @@ printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
 }}
 
 if(!flag) {
-r = cli_output_beta(0x00,p,argp);
+r = cli_output_beta(0x00,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cli_output_beta()");
@@ -105,6 +138,15 @@ if(!flag) {
 while(r) {
 INC(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 --r;
+}}
+
+if(!flag) {
+r = cpy(p,*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))));
+if(!r) {
+/* empty or..
+printf("%s\n","<< Error at fn. cpy()");
+return(0x00);
+//*/
 }}
 
 if(!flag) {

@@ -21,6 +21,7 @@ signed(__cdecl cli_clip_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto void *g;
+auto signed short *w;
 auto signed char *p;
 auto signed long long sll;
 auto signed c,i,r;
@@ -47,29 +48,34 @@ return(0x01);
 
 INC(r);
 
-// also
-INC(r);
-
-g = GlobalAlloc(GMEM_SHARE|(GHND),r*(sizeof(signed char)));
+g = GlobalAlloc(GMEM_SHARE|(GHND),0x02*(r*(sizeof(signed char))));
 
 *(CLI_BASE+(R(base,R(clipboard,R(ty,*argp))))) = (g);
 R(flag,R(clipboard,R(ty,*argp))) = GlobalFlags(g);
 R(size,R(clipboard,R(ty,*argp))) = GlobalSize(g);
 
-p = (signed char(*)) GlobalLock(g);
-if(!p) {
+w = (signed short(*)) GlobalLock(g);
+if(!w) {
 r = GetLastError();
 printf("%s%d%s%X\n","<< Error at fn. GlobalLock() with ",r," or ",r);
 return(0x00);
 }
 
-r = cpy(p,*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+
+while(0x01) {
+if(!(*p)) break;
+r = decode2uni(&i,p);
 if(!r) {
-/* empty or..
-printf("%s\n","<< Error at fn. cpy()");
+printf("%s\n","<< Error at fn. decode2uni()");
 return(0x00);
-//*/
 }
+*w = (signed short) (i);
+w++;
+p = (r+(p));
+}
+
+*w = (0x00);
 
 r = GlobalUnlock(g);
 if(!r) {
@@ -99,7 +105,7 @@ flag++;
 }
 
 if(!flag) {
-g = SetClipboardData(CF_TEXT,g);
+g = SetClipboardData(CF_UNICODETEXT,g);
 if(!g) {
 r = GetLastError();
 printf("%s%d%s%X\n","<< Error at fn. SetClipboardData() with ",r," or ",r);
