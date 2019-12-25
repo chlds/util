@@ -31,7 +31,6 @@ if(!argp) return(0x00);
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-B>");
 
 p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
-
 sll = ((signed long long) p);
 if(!(sll^((signed long long) *(CLI_BASE+(R(base,R(roll,R(ty,*argp)))))))) return(0x01);
 
@@ -45,13 +44,13 @@ return(0x00);
 if(r^(0x80)) break;
 }
 
+cur = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
+
 r = cli_ctrl_a_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_ctrl_a_beta()");
 return(0x00);
 }
-
-cur = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
 
 while(0x01) {
 if(cur<(p)) {

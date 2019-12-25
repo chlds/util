@@ -189,6 +189,10 @@ CLI_TYPEWRITER ty;
 void *optl;
 } CLI_STAT;
 
+signed(__cdecl cli_prev_word_internal(signed char(**retrv),CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_prev_word(signed char(**retrv),CLI_TYPEWRITER(*argp)));
+// Retrieve an address of the previous word.
+
 signed(__cdecl cli_append(signed char(*appendant),CLI_TYPEWRITER(*argp)));
 // Append
 
