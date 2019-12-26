@@ -25,12 +25,10 @@ if(!nbyte) return(0x00);
 if(!arr) return(0x00);
 
 r = (character);
-r = (r&(SEQ_MASK));
-r = (r|(SEQ_FLAG));
+r = (r&(SEQ_MASK)); // i.e., a 6-bit mask (.ooii.iiii(0x3F))
+r = (r|(SEQ_FLAG)); // i.e., a sequential byte for an n-byte character (.iooo.oooo(0x80))
 
 *(arr+(--nbyte)) = (signed char) (r);
-
-if(!nbyte) return(0x01);
 
 character = (character>>(0x06));
 

@@ -25,7 +25,7 @@ Encode characters in Unicode decoded on the RAM to bytes in Unicode to store the
 */
 
 
-signed(__cdecl encode2uni(signed char *arr,signed arr_size,signed character)) {
+signed(__cdecl encode2uni(signed char(*arr),signed(arr_size),signed(character))) {
 
 /* DATA, BSS and STACK */
 auto signed const THRESHOLD = (0x01+(0x04));
@@ -48,35 +48,26 @@ auto signed char c;
 if(!arr) return(0x00);
 if(arr_size<(THRESHOLD)) return(0x00);
 
-i = ncharbyte(character);
-
-if(!i) {
+r = ncharbyte(character);
+if(!r) {
 printf("%s\n","<< Error at fn. ncharbyte()");
-return(i);
+return(r);
 }
 
-*(arr+(i)) = (0x00);
-r = (signed) (character);
+*(arr+(r)) = (0x00);
 
-if(!(0x01^(i))) {
-r = (r&(0x7F));
-*arr = (signed char) (r);
+if(!(0x01^(r))) {
+character = (character&(0x7F));
+*arr = (signed char) (character);
 return(0x01);
 }
 
-r = (r&(SEQ_MASK)); // i.e., a 6-bit mask (.ooii.iiii(0x3F))
-r = (r|(SEQ_FLAG)); // i.e., a sequential byte for an n-byte character (.iooo.oooo(0x80))
-*(arr+(--i)) = (signed char) (r);
-character = (character>>(0x06));
-
-r = encode2uni_internal(i,arr,arr_size,character);
-
+r = encode2uni_internal(r,arr,arr_size,character);
 if(!r) {
 printf("%s\n","<< Error at fn. encode2uni_internal()");
 return(0x00);
 }
 
-r++;
 c = (*arr);
 *arr = (c|(*(al+(r))));
 
