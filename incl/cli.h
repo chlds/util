@@ -53,6 +53,7 @@ Refer at ./config_ty.h
 # define CLI_BUFF (0x100000)
 
 # define CLI_HEADER_HEIGHT (0x02)
+# define CLI_FOOTER_HEIGHT (0x02)
 
 # define CLI_CODEPAGE_IO (0x01+(0x03))
 # define CLI_OBJS (0x01+(0x03))
@@ -61,6 +62,17 @@ Refer at ./config_ty.h
 # define CLI_SNAPSHOTS (CLI_OBJS)
 # define CLI_PAGES (CLI_OBJS)
 # define CLI_ROLLS (CLI_OBJS)
+
+enum {
+CTRL_AT,CTRL_A,CTRL_B,CTRL_C,
+CTRL_D,CTRL_E,CTRL_F,CTRL_G,
+CTRL_H,CTRL_I,CTRL_J,CTRL_K,
+CTRL_L,CTRL_M,CTRL_N,CTRL_O,
+CTRL_P,CTRL_Q,CTRL_R,CTRL_S,
+CTRL_T,CTRL_U,CTRL_V,CTRL_W,
+CTRL_X,CTRL_Y,CTRL_Z,CTRL_LSB,
+CTRL_RS,CTRL_RSB,CTRL_CA,CTRL_LL,
+};
 
 enum {
 CLI_IN,CLI_OUT,CLI_ERR,
@@ -139,12 +151,6 @@ void *optl;
 } CLI_PAPER;
 //*/
 
-typedef struct cli_debug {
-signed char *cur;
-signed gauge;
-void *optl;
-} CLI_DEBUG;
-
 typedef struct cli_edit {
 signed char *file;
 signed size;
@@ -165,6 +171,23 @@ signed flag;
 void *optl;
 } CLI_CLIPBOARD;
 
+typedef struct cli_debug {
+signed char *cur;
+signed gauge;
+void *optl;
+} CLI_DEBUG;
+
+typedef struct cli_commandline {
+signed char *(cur[CLI_OBJS]);
+signed gauge;
+signed short offset;
+signed short linebreak;
+signed short append;
+signed short flag;
+CLI_DEBUG debug;
+void *optl;
+} CLI_COMMANDLINE;
+
 typedef struct cli_typewriter {
 signed char *(cur[CLI_OBJS]);
 signed gauge;
@@ -172,10 +195,11 @@ signed short linebreak_form;
 signed short linebreak;
 signed short append;
 signed short flag;
+CLI_COMMANDLINE commandline;
+CLI_DEBUG debug;
 CLI_CLIPBOARD clipboard;
 CLI_CONFIG config;
 CLI_EDIT edit;
-CLI_DEBUG debug;
 CLI_ROLL roll;
 CLI_SPOOL spool;
 CLI_COORD coord[CLI_OBJS];
@@ -217,11 +241,47 @@ signed(__cdecl cli_bind_pages(CLI_SPOOL(*argp)));
 signed(__cdecl cli_unmap_pages(CLI_SPOOL(*argp)));
 // Based on a doubly linked list (i.e., not a circular linked list)
 
+signed(__cdecl cl_ctrl_at(void(*argp)));
+signed(__cdecl cl_ctrl_a(void(*argp)));
+signed(__cdecl cl_ctrl_b(void(*argp)));
+signed(__cdecl cl_ctrl_c(void(*argp)));
+signed(__cdecl cl_ctrl_d(void(*argp)));
+signed(__cdecl cl_ctrl_e(void(*argp)));
+signed(__cdecl cl_ctrl_f(void(*argp)));
+signed(__cdecl cl_ctrl_g(void(*argp)));
+
+signed(__cdecl cl_ctrl_h(void(*argp)));
+signed(__cdecl cl_ctrl_i(void(*argp)));
+signed(__cdecl cl_ctrl_j(void(*argp)));
+signed(__cdecl cl_ctrl_k(void(*argp)));
+signed(__cdecl cl_ctrl_l(void(*argp)));
+signed(__cdecl cl_ctrl_m(void(*argp)));
+signed(__cdecl cl_ctrl_n(void(*argp)));
+signed(__cdecl cl_ctrl_o(void(*argp)));
+
+signed(__cdecl cl_ctrl_p(void(*argp)));
+signed(__cdecl cl_ctrl_q(void(*argp)));
+signed(__cdecl cl_ctrl_r(void(*argp)));
+signed(__cdecl cl_ctrl_s(void(*argp)));
+signed(__cdecl cl_ctrl_t(void(*argp)));
+signed(__cdecl cl_ctrl_u(void(*argp)));
+signed(__cdecl cl_ctrl_v(void(*argp)));
+signed(__cdecl cl_ctrl_w(void(*argp)));
+
+signed(__cdecl cl_ctrl_x(void(*argp)));
+signed(__cdecl cl_ctrl_y(void(*argp)));
+signed(__cdecl cl_ctrl_z(void(*argp)));
+signed(__cdecl cl_ctrl_lsb(void(*argp)));
+signed(__cdecl cl_ctrl_rs(void(*argp)));
+signed(__cdecl cl_ctrl_rsb(void(*argp)));
+signed(__cdecl cl_ctrl_ca(void(*argp)));
+signed(__cdecl cl_ctrl_ll(void(*argp)));
+// along with an array of function pointers for command lines
+
 signed(__cdecl cli_ctrl_at(void(*argp)));
 signed(__cdecl cli_ctrl_a(void(*argp)));
 signed(__cdecl cli_ctrl_b(void(*argp)));
 signed(__cdecl cli_ctrl_c(void(*argp)));
-
 signed(__cdecl cli_ctrl_d(void(*argp)));
 signed(__cdecl cli_ctrl_e(void(*argp)));
 signed(__cdecl cli_ctrl_f(void(*argp)));
@@ -231,7 +291,6 @@ signed(__cdecl cli_ctrl_h(void(*argp)));
 signed(__cdecl cli_ctrl_i(void(*argp)));
 signed(__cdecl cli_ctrl_j(void(*argp)));
 signed(__cdecl cli_ctrl_k(void(*argp)));
-
 signed(__cdecl cli_ctrl_l(void(*argp)));
 signed(__cdecl cli_ctrl_m(void(*argp)));
 signed(__cdecl cli_ctrl_n(void(*argp)));
@@ -241,7 +300,6 @@ signed(__cdecl cli_ctrl_p(void(*argp)));
 signed(__cdecl cli_ctrl_q(void(*argp)));
 signed(__cdecl cli_ctrl_r(void(*argp)));
 signed(__cdecl cli_ctrl_s(void(*argp)));
-
 signed(__cdecl cli_ctrl_t(void(*argp)));
 signed(__cdecl cli_ctrl_u(void(*argp)));
 signed(__cdecl cli_ctrl_v(void(*argp)));
@@ -251,12 +309,11 @@ signed(__cdecl cli_ctrl_x(void(*argp)));
 signed(__cdecl cli_ctrl_y(void(*argp)));
 signed(__cdecl cli_ctrl_z(void(*argp)));
 signed(__cdecl cli_ctrl_lsb(void(*argp)));
-
 signed(__cdecl cli_ctrl_rs(void(*argp)));
 signed(__cdecl cli_ctrl_rsb(void(*argp)));
 signed(__cdecl cli_ctrl_ca(void(*argp)));
 signed(__cdecl cli_ctrl_ll(void(*argp)));
-// along with an array of function pointers
+// along with an array of function pointers for text
 
 signed(__cdecl cli_io(signed char *cur,signed size,CLI_STAT(*argp)));
 /* Input/Output Unicode bytes/characters in UTF-8 out of the key board to the console screen along with fn. cli_in/cli_out. */

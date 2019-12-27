@@ -47,12 +47,47 @@ signed(__cdecl cli_get_csbi_beta(CLI_W32_STAT(*argp)));
 // Retrieve a handle to the specified standard output device.
 signed(__cdecl cli_init_stat_beta(CLI_W32_STAT(*argp)));
 
-// along with an array of function pointers
+signed(__cdecl cl_ctrl_at_beta(void(*argp)));
+signed(__cdecl cl_ctrl_a_beta(void(*argp)));
+signed(__cdecl cl_ctrl_b_beta(void(*argp)));
+signed(__cdecl cl_ctrl_c_beta(void(*argp)));
+signed(__cdecl cl_ctrl_d_beta(void(*argp)));
+signed(__cdecl cl_ctrl_e_beta(void(*argp)));
+signed(__cdecl cl_ctrl_f_beta(void(*argp)));
+signed(__cdecl cl_ctrl_g_beta(void(*argp)));
+
+signed(__cdecl cl_ctrl_h_beta(void(*argp)));
+signed(__cdecl cl_ctrl_i_beta(void(*argp)));
+signed(__cdecl cl_ctrl_j_beta(void(*argp)));
+signed(__cdecl cl_ctrl_k_beta(void(*argp)));
+signed(__cdecl cl_ctrl_l_beta(void(*argp)));
+signed(__cdecl cl_ctrl_m_beta(void(*argp)));
+signed(__cdecl cl_ctrl_n_beta(void(*argp)));
+signed(__cdecl cl_ctrl_o_beta(void(*argp)));
+
+signed(__cdecl cl_ctrl_p_beta(void(*argp)));
+signed(__cdecl cl_ctrl_q_beta(void(*argp)));
+signed(__cdecl cl_ctrl_r_beta(void(*argp)));
+signed(__cdecl cl_ctrl_s_beta(void(*argp)));
+signed(__cdecl cl_ctrl_t_beta(void(*argp)));
+signed(__cdecl cl_ctrl_u_beta(void(*argp)));
+signed(__cdecl cl_ctrl_v_beta(void(*argp)));
+signed(__cdecl cl_ctrl_w_beta(void(*argp)));
+
+signed(__cdecl cl_ctrl_x_beta(void(*argp)));
+signed(__cdecl cl_ctrl_y_beta(void(*argp)));
+signed(__cdecl cl_ctrl_z_beta(void(*argp)));
+signed(__cdecl cl_ctrl_lsb_beta(void(*argp)));
+signed(__cdecl cl_ctrl_rs_beta(void(*argp)));
+signed(__cdecl cl_ctrl_rsb_beta(void(*argp)));
+signed(__cdecl cl_ctrl_ca_beta(void(*argp)));
+signed(__cdecl cl_ctrl_ll_beta(void(*argp)));
+// along with an array of function pointers for command lines
+
 signed(__cdecl cli_ctrl_at_beta(void(*argp)));
 signed(__cdecl cli_ctrl_a_beta(void(*argp)));
 signed(__cdecl cli_ctrl_b_beta(void(*argp)));
 signed(__cdecl cli_ctrl_c_beta(void(*argp)));
-
 signed(__cdecl cli_ctrl_d_beta(void(*argp)));
 signed(__cdecl cli_ctrl_e_beta(void(*argp)));
 signed(__cdecl cli_ctrl_f_beta(void(*argp)));
@@ -62,7 +97,6 @@ signed(__cdecl cli_ctrl_h_beta(void(*argp)));
 signed(__cdecl cli_ctrl_i_beta(void(*argp)));
 signed(__cdecl cli_ctrl_j_beta(void(*argp)));
 signed(__cdecl cli_ctrl_k_beta(void(*argp)));
-
 signed(__cdecl cli_ctrl_l_beta(void(*argp)));
 signed(__cdecl cli_ctrl_m_beta(void(*argp)));
 signed(__cdecl cli_ctrl_n_beta(void(*argp)));
@@ -72,7 +106,6 @@ signed(__cdecl cli_ctrl_p_beta(void(*argp)));
 signed(__cdecl cli_ctrl_q_beta(void(*argp)));
 signed(__cdecl cli_ctrl_r_beta(void(*argp)));
 signed(__cdecl cli_ctrl_s_beta(void(*argp)));
-
 signed(__cdecl cli_ctrl_t_beta(void(*argp)));
 signed(__cdecl cli_ctrl_u_beta(void(*argp)));
 signed(__cdecl cli_ctrl_v_beta(void(*argp)));
@@ -82,11 +115,11 @@ signed(__cdecl cli_ctrl_x_beta(void(*argp)));
 signed(__cdecl cli_ctrl_y_beta(void(*argp)));
 signed(__cdecl cli_ctrl_z_beta(void(*argp)));
 signed(__cdecl cli_ctrl_lsb_beta(void(*argp)));
-
 signed(__cdecl cli_ctrl_rs_beta(void(*argp)));
 signed(__cdecl cli_ctrl_rsb_beta(void(*argp)));
 signed(__cdecl cli_ctrl_ca_beta(void(*argp)));
 signed(__cdecl cli_ctrl_ll_beta(void(*argp)));
+// along with an array of function pointers for text
 
 signed(__cdecl cli_io_beta(signed char(*cur),signed(size),CLI_W32_STAT(*argp)));
 /* Input/Output Unicode bytes/characters in UTF-8 out of the key board to the console screen along with fn. cli_in/cli_out. */

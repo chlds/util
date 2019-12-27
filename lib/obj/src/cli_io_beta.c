@@ -9,9 +9,8 @@ Based on UTF-8
 */
 
 
+# define CLI_MACRO
 # define CLI_W32
-# define R(D,S) (S).D
-// A local macro function
 
 # define CLI_FN (0x01+(0x20))
 
@@ -20,20 +19,9 @@ Based on UTF-8
 # include <stdlib.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_io_beta(signed char *cur,signed size,CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_io_beta(signed char(*cur),signed(size),CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-enum {
-CTRL_AT,CTRL_A,CTRL_B,CTRL_C,
-CTRL_D,CTRL_E,CTRL_F,CTRL_G,
-CTRL_H,CTRL_I,CTRL_J,CTRL_K,
-CTRL_L,CTRL_M,CTRL_N,CTRL_O,
-CTRL_P,CTRL_Q,CTRL_R,CTRL_S,
-CTRL_T,CTRL_U,CTRL_V,CTRL_W,
-CTRL_X,CTRL_Y,CTRL_Z,CTRL_LSB,
-CTRL_RS,CTRL_RSB,CTRL_CA,CTRL_LL,
-};
-
 auto signed(__cdecl*(cli_fn[CLI_FN])) (void(*cli_fn_argp)) = {
 (signed(__cdecl*) (void(*))) (cli_ctrl_at_beta),
 (signed(__cdecl*) (void(*))) (cli_ctrl_a_beta),
@@ -93,7 +81,7 @@ return(0x00);
 }
 
 // break
-if((*argp).ty.linebreak) return(0x01);
+if(R(linebreak,R(ty,*argp))) return(0x01);
 
 // quit
 if(!(CLI_QUIT^(R(flag,R(ty,*argp))))) return(0x01);
