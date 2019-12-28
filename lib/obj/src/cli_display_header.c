@@ -8,10 +8,13 @@ Along with C library
 */
 
 
-# define R(D,S) (S).D
+# define CLI_MACRO
 
+# include <conio.h>
+# include <stdio.h>
+# include <stdlib.h>
 # include <time.h>
-# include "../../../incl/cli.h"
+# include "../../../incl/config_ty.h"
 
 signed(__cdecl cli_display_header(CLI_TYPEWRITER(*argp))) {
 
