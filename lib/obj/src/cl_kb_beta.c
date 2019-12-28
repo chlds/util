@@ -42,9 +42,9 @@ R(linebreak,R(commandline,R(ty,*argp))) = (0x00);
 R(append,R(commandline,R(ty,*argp))) = (0x00);
 R(flag,R(commandline,R(ty,*argp))) = (0x00);
 
-r = cli_backup_codepages_beta(argp);
+r = cl_backup_codepages_beta(argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_backup_codepages_beta()");
+printf("%s\n","<< Error at fn. cl_backup_codepages_beta()");
 return(0x00);
 }
 
@@ -63,9 +63,9 @@ printf("%s\n","<< Error at fn. cl_io_beta()");
 return(0x00);
 }
 
-r = cli_restore_codepages_beta(argp);
+r = cl_restore_codepages_beta(argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_restore_codepages_beta()");
+printf("%s\n","<< Error at fn. cl_restore_codepages_beta()");
 return(0x00);
 }
 

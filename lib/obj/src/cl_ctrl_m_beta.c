@@ -30,6 +30,8 @@ if(!argp) return(0x00);
 
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-M>");
 
+R(linebreak,R(commandline,R(ty,*argp))) = (0x01);
+
 p = (*(CLI_INDEX+(R(cur,R(commandline,R(ty,*argp))))));
 ll = ((signed long long) p);
 if(!(ll^((signed long long) *(CLI_INDEX+(R(base,R(roll,R(ty,*argp)))))))) return(0x01);

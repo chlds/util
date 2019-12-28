@@ -81,7 +81,7 @@ return(0x00);
 }
 
 // break
-if((*argp).ty.commandline.linebreak) return(0x01);
+if(R(linebreak,R(commandline,R(ty,*argp)))) return(0x01);
 
 // quit
 if(!(CLI_QUIT^(R(flag,R(ty,*argp))))) return(0x01);
