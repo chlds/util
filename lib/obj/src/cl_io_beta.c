@@ -92,7 +92,7 @@ if(!r) R(append,R(commandline,R(ty,*argp))) = (0x00);
 else R(append,R(commandline,R(ty,*argp))) = (0x01);
 
 // monitor
-if(CLI_DBG_B<(CLI_DBG)) {
+if(CLI_DBG_D<(CLI_DBG)) {
 R(cur,R(debug,R(commandline,R(ty,*argp)))) = (cur);
 R(gauge,R(debug,R(commandline,R(ty,*argp)))) = (size);
 r = cli_debug_monitor_beta(argp);

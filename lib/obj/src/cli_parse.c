@@ -9,13 +9,15 @@ LF (0x0A)
 //*/
 
 
-# define CLI_W32
-# define R(D,S) (S).D
-// A local macro function
+# define CLI_MACRO
 
+# include <io.h>
+# include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <time.h>
+# include <fcntl.h>
+# include <sys/types.h>
 # include <sys/stat.h>
 # include "../../../incl/config_ty.h"
 
@@ -94,8 +96,8 @@ R(size,R(config,*argp)) = (stats.st_size);
 
 if(CLI_DBG) printf("%d%s\n",R(size,R(config,*argp))," bytes at (R(size,R(config,*argp");
 
-if(CLI_CONFIG_FILE_SIZE_LIMIT<(stats.st_size)) {
-printf("%s%d%s\n","<< Could not load because the config file size exceeds ",CLI_CONFIG_FILE_SIZE_LIMIT,"..");
+if(CLI_CONFIG_FILE<(stats.st_size)) {
+printf("%s%d%s\n","<< Could not load because the config file size exceeds ",CLI_CONFIG_FILE,"..");
 return(0x00);
 }
 

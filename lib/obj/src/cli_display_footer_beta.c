@@ -15,7 +15,7 @@ Along with C and Windows libraries
 # include <stdlib.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_display_footer_beta(CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_display_footer_beta(signed short(comeback_flag),signed char(*label),CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto CLI_COORD coord[CLI_OBJS];
@@ -25,6 +25,7 @@ auto signed i,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
+if(!label) return(0x00);
 if(!argp) return(0x00);
 
 r = cli_get_csbi_beta(argp);
@@ -52,27 +53,27 @@ printf("%s\n","<< Error at fn. cl_prep_beta()");
 return(0x00);
 }
 
-/*
-r = cl_spool_beta(argp);
+printf("%s",label);
+
+r = cl_kb_beta(argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cl_spool_beta()");
+printf("%s\n","<< Error at fn. cl_kb_beta()");
 return(0x00);
 }
-//*/
 
+if(comeback_flag) {
 // fix the frame
 r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
-
 // come back
 r = cli_coord_beta(CLI_OUT,coord+(CLI_INDEX),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
-}
+}}
 
 return(0x01);
 }

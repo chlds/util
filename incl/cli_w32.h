@@ -31,21 +31,27 @@ void *(device[CLI_DEVICES]);
 void *optl;
 } CLI_W32_STAT;
 
-// Monitor
-signed(__cdecl cli_debug_monitor_beta(CLI_W32_STAT(*argp)));
+signed(__cdecl cli_display_footer_beta(signed short(comeback_flag),signed char(*label),CLI_W32_STAT(*argp)));
+/* Display the footer */
 
-// Clear the row/rows.
+signed(__cdecl cli_debug_monitor_beta(CLI_W32_STAT(*argp)));
+// Monitor
+
 signed(__cdecl cli_clear_rows_beta(CLI_W32_STAT(*argp)));
 signed(__cdecl cli_clear_row_beta(signed short comeback_flag,CLI_W32_STAT(*argp)));
+// Clear the row/rows.
 
-// Get the current cursor position or set the cursor position.
 signed(__cdecl cli_coord_beta(signed short(flag),CLI_COORD(*cache),CLI_W32_STAT(*argp)));
+// Get the current cursor position or set the cursor position.
 
-// Retrieve information about the specified console screen buffer.
 signed(__cdecl cli_get_csbi_beta(CLI_W32_STAT(*argp)));
+// Retrieve information about the specified console screen buffer.
 
-// Retrieve a handle to the specified standard output device.
 signed(__cdecl cli_init_stat_beta(CLI_W32_STAT(*argp)));
+// Retrieve a handle to the specified standard output device.
+
+signed(__cdecl cl_spool_beta(CLI_W32_STAT(*argp)));
+/* Build a doubly linked list. */
 
 signed(__cdecl cl_ctrl_at_beta(void(*argp)));
 signed(__cdecl cl_ctrl_a_beta(void(*argp)));
@@ -84,6 +90,12 @@ signed(__cdecl cl_ctrl_ca_beta(void(*argp)));
 signed(__cdecl cl_ctrl_ll_beta(void(*argp)));
 // along with an array of function pointers for command lines
 
+signed(__cdecl cl_kb_beta(CLI_W32_STAT(*argp)));
+/* Backup, set and restore code pages for input/output. */
+
+signed(__cdecl cl_io_beta(signed char(*cur),signed(size),CLI_W32_STAT(*argp)));
+/* Input/Output Unicode bytes/characters in UTF-8 out of the key board to the console screen along with fn. cli_in/cli_out. */
+
 signed(__cdecl cli_ctrl_at_beta(void(*argp)));
 signed(__cdecl cli_ctrl_a_beta(void(*argp)));
 signed(__cdecl cli_ctrl_b_beta(void(*argp)));
@@ -120,6 +132,9 @@ signed(__cdecl cli_ctrl_rsb_beta(void(*argp)));
 signed(__cdecl cli_ctrl_ca_beta(void(*argp)));
 signed(__cdecl cli_ctrl_ll_beta(void(*argp)));
 // along with an array of function pointers for text
+
+signed(__cdecl cli_kb_beta(CLI_W32_STAT(*argp)));
+/* Backup, set and restore code pages for input/output. */
 
 signed(__cdecl cli_io_beta(signed char(*cur),signed(size),CLI_W32_STAT(*argp)));
 /* Input/Output Unicode bytes/characters in UTF-8 out of the key board to the console screen along with fn. cli_in/cli_out. */

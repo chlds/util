@@ -8,14 +8,13 @@ Typewriter
 # define CLI_W32
 
 # define THRESHOLD (0x02)
-
 # define ROLLS (0x01+(0x03))
 # define BUFF (0x100000)
 // 1MiB
 
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
+signed(__cdecl wmain(signed(argc),signed short(**argv),signed short(**envp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char buff2[BUFF] = {
@@ -41,8 +40,13 @@ auto CLI_W32_STAT cli_w32_stat = {
 (0x00),
 };
 
+auto signed char name[CLI_NAME] = {
+(signed char) (0x00),
+};
+
 auto signed long long ll;
-auto signed char *p;
+auto signed short *config,*edit;
+auto signed char *cur,*p;
 auto signed i,r;
 auto signed short flag;
 
@@ -52,14 +56,64 @@ R(size,R(config,R(ty,cli_w32_stat))) = (0x00);
 R(file,R(edit,R(ty,cli_w32_stat))) = (0x00);
 R(size,R(edit,R(ty,cli_w32_stat))) = (0x00);
 
+
+cur = (0x00);
+p = (0x00);
+config = (0x00);
+edit = (0x00);
 i = (argc);
 
-if(THRESHOLD<(argc)) {
-R(file,R(edit,R(ty,cli_w32_stat))) = (*(argv+(--i)));
-R(file,R(config,R(ty,cli_w32_stat))) = (*(argv+(--i)));
+if(!(i^(THRESHOLD))) edit = (*(argv+(--i)));
+
+if(THRESHOLD<(i)) {
+edit = (*(argv+(--i)));
+config = (*(argv+(--i)));
 }
 
-if(!(argc^(THRESHOLD))) R(file,R(edit,R(ty,cli_w32_stat))) = (*(argv+(--i)));
+if(config) {
+cur = (name);
+i = (CLI_NAME);
+while(0x01) {
+if(CLI_DBG) printf(".. ");
+if(!(*config)) break;
+r = encode2uni(cur,i,*config);
+if(!r) {
+printf("%s\n","<< Error at fn. encode2uni()");
+return(0x00);
+}
+cur = (r+(cur));
+i = (-r+(i));
+config++;
+}
+*cur = (0x00);
+r = keep(&(R(file,R(config,R(ty,cli_w32_stat)))),name);
+if(!r) {
+printf("%s\n","<< Error at fn. keep()");
+return(0x00);
+}}
+
+if(edit) {
+cur = (name);
+i = (CLI_NAME);
+while(0x01) {
+if(CLI_DBG) printf(".. ");
+if(!(*edit)) break;
+r = encode2uni(cur,i,*edit);
+if(!r) {
+printf("%s\n","<< Error at fn. encode2uni()");
+return(0x00);
+}
+cur = (r+(cur));
+i = (-r+(i));
+edit++;
+}
+*cur = (0x00);
+r = keep(&(R(file,R(edit,R(ty,cli_w32_stat)))),name);
+if(!r) {
+printf("%s\n","<< Error at fn. keep()");
+return(0x00);
+}}
+
 
 // Parse a config file
 r = cli_parse(&(R(ty,cli_w32_stat)));
@@ -107,6 +161,16 @@ if(CLI_DBG) {
 if(!(0x01^(r))) printf("%s\n","Unmapped 1 page");
 else printf("%s%d%s\n","Unmapped ",r," pages");
 }
+
+p = (R(file,R(config,R(ty,cli_w32_stat))));
+if(p) free(p);
+p = (0x00);
+R(file,R(config,R(ty,cli_w32_stat))) = (0x00);
+
+p = (R(file,R(edit,R(ty,cli_w32_stat))));
+if(p) free(p);
+p = (0x00);
+R(file,R(edit,R(ty,cli_w32_stat))) = (0x00);
 
 return(0x01);
 }

@@ -23,14 +23,14 @@ Refer at ./config_ty.h
 # include <stdarg.h>
 # include <string.h>
 # include <wchar.h>
-# include <sys/stat.h>
 # include <sys/types.h>
+# include <sys/stat.h>
 # include <sys/utime.h>
 # include <process.h>
 //*/
 
 # define CLI_QUIT (0x01)
-# define CLI_QUIT_AFTER_SAVING (0x02)
+# define CLI_SAVE (0x02)
 # define CLI_MORPH (0x04)
 # define CLI_HELP (0x08)
 
@@ -46,8 +46,9 @@ Refer at ./config_ty.h
 # define LINEBREAK_CRLF (0x02)
 # define LINEBREAK_LF (0x01)
 
-# define CLI_CONFIG_FILE_SIZE_LIMIT (0x100000)
-# define CLI_FILE_SIZE_LIMIT (0x100000)
+# define CLI_CONFIG_FILE (0x100000)
+# define CLI_EDIT_FILE (0x100000)
+# define CLI_NAME (0x02*(0x100))
 
 # define CLI_EMPTY (0x01+(0x04))
 # define CLI_BUFF (0x100000)
@@ -232,6 +233,12 @@ signed(__cdecl cli_init_ty(signed(size),signed char(**roll),CLI_TYPEWRITER(*argp
 signed(__cdecl cli_init_roll(signed(size),signed char(**roll),CLI_ROLL(*argp)));
 // Charge rolls
 
+signed(__cdecl cli_write(signed(descripter),CLI_TYPEWRITER(*argp)));
+// Write
+
+signed(__cdecl cli_save(signed short(update_flag),CLI_TYPEWRITER(*argp)));
+// Save
+
 signed(__cdecl cli_book(CLI_TYPEWRITER(*argp)));
 // Copy characters on workspace to the current page.
 
@@ -317,27 +324,5 @@ signed(__cdecl cli_ctrl_ll(void(*argp)));
 
 signed(__cdecl cli_io(signed char *cur,signed size,CLI_STAT(*argp)));
 /* Input/Output Unicode bytes/characters in UTF-8 out of the key board to the console screen along with fn. cli_in/cli_out. */
-
-signed(__cdecl cli_in(signed(*character),signed char(*argp),signed(argp_size)));
-/* Get Unicode bytes in UTF-8 out of the keyboard. */
-
-signed(__cdecl encode2uni_internal(signed(nbyte),signed char(*arr),signed(arr_size),signed(character)));
-signed(__cdecl encode2uni(signed char(*arr),signed(arr_size),signed(character)));
-signed(__cdecl ncharbyte(signed(arg)));
-/* Generate Unicode bytes encoded out of Unicode characters */
-
-signed(__cdecl cli_outs(signed char(*argp)));
-signed(__cdecl cli_out(signed char(*argp)));
-signed(__cdecl decode2uni_internal(signed(nbyte),signed(*character),signed char(*argp)));
-signed(__cdecl decode2uni(signed(*character),signed char(*argp)));
-signed(__cdecl nbytechar(signed char(arg)));
-/* Output Unicode characters decoded out of Unicode bytes */
-
-signed(__cdecl cli_wrap_internal(signed char(**wrap),signed char(*di),signed char(*si)));
-signed(__cdecl cli_wrap(signed char(**wrap),signed char(*di),signed char(*si)));
-/* Retrieve the leading address after wrapping words. */
-
-signed(__cdecl embed_to(signed char(*argp),signed char(arg),signed(times)));
-// Embed
 
 // and more..
