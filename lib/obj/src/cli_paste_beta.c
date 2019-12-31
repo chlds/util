@@ -142,6 +142,7 @@ INC(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 
 if(!flag) {
 r = cpy(p,*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))));
+// i.e., r = cpy(*(CLI_INDEX+(R(cur,R(ty,*argp)))),*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))));
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cpy()");

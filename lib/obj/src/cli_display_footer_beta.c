@@ -19,6 +19,7 @@ signed(__cdecl cli_display_footer_beta(signed short(comeback_flag),signed char(*
 
 /* **** DATA, BSS and STACK */
 auto CLI_COORD coord[CLI_OBJS];
+auto CLI_COORD coord_b;
 
 auto signed char *p;
 auto signed i,r;
@@ -55,9 +56,34 @@ return(0x00);
 
 printf("%s",label);
 
+r = cli_coord_beta(CLI_IN,&coord_b,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_coord_beta()");
+return(0x00);
+}
+
+R(y,*(CLI_INDEX+(R(coord,R(commandline,R(ty,*argp)))))) = (coord_b.y);
+R(x,*(CLI_INDEX+(R(coord,R(commandline,R(ty,*argp)))))) = (coord_b.x);
+R(y,*(CLI_OFFSET+(R(coord,R(commandline,R(ty,*argp)))))) = (coord_b.y);
+R(x,*(CLI_OFFSET+(R(coord,R(commandline,R(ty,*argp)))))) = (coord_b.x);
+R(y,*(CLI_BASE+(R(coord,R(commandline,R(ty,*argp)))))) = (coord_b.y);
+R(x,*(CLI_BASE+(R(coord,R(commandline,R(ty,*argp)))))) = (coord_b.x);
+
+r = embed_to(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),0x00,CLI_BUFF);
+if(!r) {
+printf("%s\n","<< Error at fn. embed_to()");
+return(0x00);
+}
+
 r = cl_kb_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cl_kb_beta()");
+return(0x00);
+}
+
+r = embed_to(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),0x00,CLI_BUFF);
+if(!r) {
+printf("%s\n","<< Error at fn. embed_to()");
 return(0x00);
 }
 

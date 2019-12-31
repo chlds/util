@@ -19,6 +19,7 @@ LF (0x0A)
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/stat.h>
+# include <errno.h>
 # include "../../../incl/config_ty.h"
 
 signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp))) {
@@ -26,8 +27,11 @@ signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp))) {
 /* **** DATA, BSS and STACK */
 // second half of the default config directory
 auto signed char *second_half = ("/.ty/config.txt");
-auto struct stat stats;
+auto signed short name[CLI_NAME] = {
+(signed short) (0x00),
+};
 
+auto struct _stat stats;
 auto signed char *path;
 auto signed char *p;
 auto signed fd;
@@ -62,9 +66,8 @@ return(0x00);
 }
 i = (i+(r));
 i++;
-// Aux.
-i++;
-path = (signed char(*)) malloc(i*(sizeof(signed char)));
+i = (i*(sizeof(signed char)));
+path = (signed char(*)) malloc(i);
 if(!path) {
 printf("%s\n","<< Error at fn. malloc()");
 return(0x00);
@@ -73,27 +76,33 @@ r = concats(path,p,second_half,(void*) 0x00);
 if(!r) {
 printf("%s\n","<< Error at fn. concats()");
 return(0x00);
-}}
-
-else path = (R(file,R(config,*argp)));
-
+}
 if(CLI_DBG) printf("%s%s\n","Path: ",path);
-
 /* Check the configuration file size. */
-r = stat(path,&stats);
-
+r = _stat(path,&stats);
 if(!(r^(~(0x00)))) {
-if(!flag) {
-printf("%s\n","<< Error at fn. stat()");
+if(!(ENOENT^(errno))) printf("%s%s\n","<< No config file at ",path);
+else {
+printf("%s\n","<< Error at fn. _stat()");
+return(0x00);
+}}}
+
+else {
+path = (R(file,R(config,*argp)));
+r = decode2w(CLI_NAME,name,path);
+if(!r) {
+printf("%s\n","<< Error at fn. decode2w()");
 return(0x00);
 }
+r = _wstat(name,&stats);
+if(!(r^(~(0x00)))) {
+if(!(ENOENT^(errno))) printf("%s\n","<< No configuration file");
 else {
-printf("%s\n","<< No configuration file");
-return(0x01);
-}}
+printf("%s\n","<< Error at fn. _wstat()");
+return(0x00);
+}}}
 
 R(size,R(config,*argp)) = (stats.st_size);
-
 if(CLI_DBG) printf("%d%s\n",R(size,R(config,*argp))," bytes at (R(size,R(config,*argp");
 
 if(CLI_CONFIG_FILE<(stats.st_size)) {

@@ -186,6 +186,8 @@ signed short linebreak;
 signed short append;
 signed short flag;
 CLI_DEBUG debug;
+CLI_COORD coord[CLI_OBJS];
+CLI_RECT rect;
 void *optl;
 } CLI_COMMANDLINE;
 

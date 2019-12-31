@@ -71,21 +71,11 @@ config = (*(argv+(--i)));
 }
 
 if(config) {
-cur = (name);
-i = (CLI_NAME);
-while(0x01) {
-if(CLI_DBG) printf(".. ");
-if(!(*config)) break;
-r = encode2uni(i,cur,*config);
+r = encode2b(CLI_NAME,name,config);
 if(!r) {
-printf("%s\n","<< Error at fn. encode2uni()");
+printf("%s\n","<< Error at fn. encode2b()");
 return(0x00);
 }
-i = (-r+(i));
-cur = (r+(cur));
-config++;
-}
-*cur = (0x00);
 r = keep(&(R(file,R(config,R(ty,cli_w32_stat)))),name);
 if(!r) {
 printf("%s\n","<< Error at fn. keep()");
@@ -93,21 +83,11 @@ return(0x00);
 }}
 
 if(edit) {
-cur = (name);
-i = (CLI_NAME);
-while(0x01) {
-if(CLI_DBG) printf(".. ");
-if(!(*edit)) break;
-r = encode2uni(i,cur,*edit);
+r = encode2b(CLI_NAME,name,edit);
 if(!r) {
-printf("%s\n","<< Error at fn. encode2uni()");
+printf("%s\n","<< Error at fn. encode2b()");
 return(0x00);
 }
-i = (-r+(i));
-cur = (r+(cur));
-edit++;
-}
-*cur = (0x00);
 r = keep(&(R(file,R(edit,R(ty,cli_w32_stat)))),name);
 if(!r) {
 printf("%s\n","<< Error at fn. keep()");
