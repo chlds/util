@@ -66,11 +66,17 @@ return(0x00);
 }}
 else flag = (0x01);
 
+r = ct(R(file,R(edit,R(ty,*argp))));
+if(!r) {
+if(R(file,R(edit,R(ty,*argp)))) free(R(file,R(edit,R(ty,*argp))));
+R(file,R(edit,R(ty,*argp))) = (0x00);
+}
+else {
 r = cli_save(flag/* an update flag */,&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_save()");
 return(0x00);
-}
+}}
 
 if(!flag) {
 r = cli_coord_beta(CLI_OUT,&coord,argp);
