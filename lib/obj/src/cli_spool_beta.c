@@ -50,6 +50,14 @@ printf("%s\n","<< Error at fn. cli_bind_pages()");
 return(0x00);
 }
 
+// coordinate for the index page
+i = (CLI_OBJS);
+while(i) {
+--i;
+R(y,*(i+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))) = (coord.y);
+R(x,*(i+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))) = (coord.x);
+}
+
 // initialise workspace
 r = embed_to(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),0x00,R(size,R(roll,R(ty,*argp))));
 if(!r) {
