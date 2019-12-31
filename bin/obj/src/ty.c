@@ -76,13 +76,13 @@ i = (CLI_NAME);
 while(0x01) {
 if(CLI_DBG) printf(".. ");
 if(!(*config)) break;
-r = encode2uni(cur,i,*config);
+r = encode2uni(i,cur,*config);
 if(!r) {
 printf("%s\n","<< Error at fn. encode2uni()");
 return(0x00);
 }
-cur = (r+(cur));
 i = (-r+(i));
+cur = (r+(cur));
 config++;
 }
 *cur = (0x00);
@@ -98,13 +98,13 @@ i = (CLI_NAME);
 while(0x01) {
 if(CLI_DBG) printf(".. ");
 if(!(*edit)) break;
-r = encode2uni(cur,i,*edit);
+r = encode2uni(i,cur,*edit);
 if(!r) {
 printf("%s\n","<< Error at fn. encode2uni()");
 return(0x00);
 }
-cur = (r+(cur));
 i = (-r+(i));
+cur = (r+(cur));
 edit++;
 }
 *cur = (0x00);

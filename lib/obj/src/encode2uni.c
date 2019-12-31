@@ -25,7 +25,7 @@ Encode characters in Unicode decoded on the RAM to bytes in Unicode to store the
 */
 
 
-signed(__cdecl encode2uni(signed char(*arr),signed(arr_size),signed(character))) {
+signed(__cdecl encode2uni(signed(size),signed char(*array),signed(character))) {
 
 /* DATA, BSS and STACK */
 auto signed const THRESHOLD = (0x01+(0x04));
@@ -45,8 +45,8 @@ auto signed i,r;
 auto signed char c;
 
 /* CODE/TEXT */
-if(!arr) return(0x00);
-if(arr_size<(THRESHOLD)) return(0x00);
+if(!array) return(0x00);
+if(size<(THRESHOLD)) return(0x00);
 
 r = ncharbyte(character);
 if(!r) {
@@ -54,22 +54,22 @@ printf("%s\n","<< Error at fn. ncharbyte()");
 return(r);
 }
 
-*(arr+(r)) = (0x00);
+*(array+(r)) = (0x00);
 
 if(!(0x01^(r))) {
 character = (character&(0x7F));
-*arr = (signed char) (character);
+*array = (signed char) (character);
 return(0x01);
 }
 
-r = encode2uni_internal(r,arr,arr_size,character);
+r = encode2uni_internal(r,size,array,character);
 if(!r) {
 printf("%s\n","<< Error at fn. encode2uni_internal()");
 return(0x00);
 }
 
-c = (*arr);
-*arr = (c|(*(al+(r))));
+c = (*array);
+*array = (c|(*(al+(r))));
 
 return(r);
 }

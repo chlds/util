@@ -37,7 +37,7 @@ if(!(*si)) {
 return(0x00);
 }
 
-r = encode2uni(di,size,*si);
+r = encode2uni(size,di,*si);
 if(!r) {
 printf("%s\n","<< Error at fn. encode2uni()");
 return(0x00);

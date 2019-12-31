@@ -12,7 +12,7 @@ To write: Use fn. encode2uni (and fn. encode2uni_internal)
 */
 
 
-signed(__cdecl encode2uni_internal(signed(nbyte),signed char(*arr),signed(arr_size),signed(character))) {
+signed(__cdecl encode2uni_internal(signed(nbyte),signed(size),signed char(*array),signed(character))) {
 
 /* DATA, BSS and STACK */
 auto signed const SEQ_MASK = (0x3F); // the terminating 6-bit (.oo.ii.iiii) mask for a sequential character to an n-byte character
@@ -22,15 +22,15 @@ auto signed i,r;
 /* CODE/TEXT */
 if(nbyte<(0x00)) return(0x00);
 if(!nbyte) return(0x00);
-if(!arr) return(0x00);
+if(!array) return(0x00);
 
 r = (character);
 r = (r&(SEQ_MASK)); // i.e., a 6-bit mask (.ooii.iiii(0x3F))
 r = (r|(SEQ_FLAG)); // i.e., a sequential byte for an n-byte character (.iooo.oooo(0x80))
 
-*(arr+(--nbyte)) = (signed char) (r);
+*(array+(--nbyte)) = (signed char) (r);
 
 character = (character>>(0x06));
 
-return(0x01+(encode2uni_internal(nbyte,arr,arr_size,character)));
+return(0x01+(encode2uni_internal(nbyte,size,array,character)));
 }

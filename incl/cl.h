@@ -15,8 +15,8 @@ signed(__cdecl decode2w(signed(size),signed short(*di),signed char(*si)));
 signed(__cdecl cli_in(signed(*character),signed char(*argp),signed(argp_size)));
 /* Get Unicode bytes in UTF-8 out of the keyboard. */
 
-signed(__cdecl encode2uni_internal(signed(nbyte),signed char(*arr),signed(arr_size),signed(character)));
-signed(__cdecl encode2uni(signed char(*arr),signed(arr_size),signed(character)));
+signed(__cdecl encode2uni_internal(signed(nbyte),signed(size),signed char(*array),signed(character)));
+signed(__cdecl encode2uni(signed(size),signed char(*array),signed(character)));
 signed(__cdecl ncharbyte(signed(arg)));
 /* Generate Unicode bytes encoded out of Unicode characters */
 

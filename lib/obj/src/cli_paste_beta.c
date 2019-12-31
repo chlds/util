@@ -74,13 +74,13 @@ printf("%s\n","<< Reached the limit..");
 return(0x00);
 }
 if(!(*w)) break;
-r = encode2uni(p,i,*w);
+r = encode2uni(i,p,*w);
 if(!r) {
 printf("%s\n","<< Error at fn. encode2uni()");
 return(0x00);
 }
-p = (r+(p));
 i = (-r+(i));
+p = (r+(p));
 w++;
 }
 
