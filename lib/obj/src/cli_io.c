@@ -65,6 +65,7 @@ auto signed const LIMIT = (0x01+(0x04));
 
 auto signed char *p;
 auto signed i,r;
+auto signed short meta;
 auto signed short flag;
 
 /* **** CODE/TEXT */
@@ -77,13 +78,28 @@ return(0x00);
 }
 
 // get
-r = cli_in(&i,cur,size);
+r = cli_in(&i,&meta,cur,size);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_in()");
 return(0x00);
 }
 
-cur = (cur+(r));
+
+// check for function and arrow keys
+if(meta) {
+r = cli_run_meta_beta(meta,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_run_meta_beta()");
+return(0x00);
+}
+/* and to invoke fn. cli_ctrl_at_beta after calling the function.
+i = (0x00);
+r = (0x01);
+//*/
+}
+
+
+cur = (r+(cur));
 size = (-r+(size));
 
 if(i<(0x20)) {

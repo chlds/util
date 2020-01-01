@@ -1,11 +1,11 @@
 /*
 
-Press <Ctrl-@> to invoke the function.
+Run.
 
 Along with C and Windows libraries
 
 Remarks:
-Refer at fn. cli_io_beta and fn. cli_in.
+Refer at fn. cli_io_beta, fn. cli_in, fn. cli_ctrl_at_beta and cli_support_meta_keys.
 */
 
 
@@ -17,17 +17,15 @@ Refer at fn. cli_io_beta and fn. cli_in.
 # include <stdlib.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_ctrl_at_beta(CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_run_meta_beta(signed short(meta),CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *p;
-auto signed c,i,r;
+auto signed i,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
-
-if(CLI_DBG) printf("%s","<Ctrl-@>");
 
 return(0x01);
 }
