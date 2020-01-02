@@ -18,10 +18,23 @@ The first call returns (0x00) and the second call returns (0x03)..
 signed(__cdecl cli_in(signed(*character),signed char(*argp),signed(size))) {
 
 /* **** DATA, BSS and STACK */
-static signed const THRESHOLD = (0x01+(0x04));
-static signed const SEQ_FLAG = (0x80);
+static signed char LOW = (0xE0);
+static signed THRESHOLD = (0x01+(0x04));
+static signed SEQ_FLAG = (0x80);
+
+static signed high[] = {
+(signed) (0x91),
+(signed) (0x8D),
+(signed) (0x8A),
+(signed) (0x89),
+(signed) (0x86),
+(signed) (0x85),
+(signed) (0x00),
+};
+
 auto signed c,i,r;
 auto signed short flag;
+auto signed char low;
 
 /* **** CODE/TEXT */
 if(!character) return(0x00);
@@ -36,8 +49,8 @@ c = _getch();
 argp++;
 
 // check for function and arrow keys
-if(!(c^(0xE0))) flag = (0xE0);
-else flag = (0x00);
+if(!(0xE0^(c))) low = (0xE0);
+else low = (0x00);
 
 // also
 if(!c) {
@@ -64,7 +77,7 @@ i = (r);
 
 while(--i) {
 c = _getch();
-if(flag) {
+if(low) {
 r = nbytechar(c);
 if(!(0x01^(r))) {
 // i.e., not a sequential byte in UTF-8
@@ -75,13 +88,16 @@ return(0x00);
 }
 return(r);
 }
-if(!(SEQ_FLAG^(r))) {
-// ..now have no good ideas on key F11 (0xE0,0x85,) and key F12 (0xE0,0x86,).
-flag = (0x00);
-if(!(0x86^(c))) flag = (0x01);
-if(!(0x85^(c))) flag = (0x01);
-if(flag) {
-r = cli_support_meta_keys(character,0xE0,c);
+if(!(LOW^(low))) {
+// ..now have no good ideas on key F11 (0xE0,0x85,), key F12 (0xE0,0x86,), key ctrl-up (0xE0,0x8D,) and key ctrl-down (0xE0,0x91,).
+low = (0x00);
+i = (0x00);
+while(*(high+(i))) {
+if(!(c^(*(high+(i))))) low = ((signed char) *(high+(i)));
+i++;
+}
+if(low) {
+r = cli_support_meta_keys(character,LOW,low);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_support_meta_keys()");
 return(0x00);

@@ -15,8 +15,8 @@ To write: Use fn. encode2uni (and fn. encode2uni_internal)
 signed(__cdecl encode2uni_internal(signed(nbyte),signed(size),signed char(*array),signed(character))) {
 
 /* DATA, BSS and STACK */
-auto signed const SEQ_MASK = (0x3F); // the terminating 6-bit (.oo.ii.iiii) mask for a sequential character to an n-byte character
 auto signed const SEQ_FLAG = (0x80); // the leading 2-bit (.io.oo.oooo) flag for a sequential character to an n-byte character
+auto signed const SEQ_MASK = (0x3F); // the terminating 6-bit (.oo.ii.iiii) mask for a sequential character to an n-byte character
 auto signed i,r;
 
 /* CODE/TEXT */

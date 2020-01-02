@@ -28,9 +28,8 @@ Encode characters in Unicode decoded on the RAM to bytes in Unicode to store the
 signed(__cdecl encode2uni(signed(size),signed char(*array),signed(character))) {
 
 /* DATA, BSS and STACK */
-auto signed const THRESHOLD = (0x01+(0x04));
-auto signed const SEQ_MASK = (0x3F); // the terminating 6-bit (.oo.ii.iiii) mask for a sequential character to an n-byte character
-auto signed const SEQ_FLAG = (0x80); // the leading 2-bit (.io.oo.oooo) flag for a sequential character to an n-byte character
+static signed const UTF_16 = (0xFFFF);
+static signed const THRESHOLD = (0x01+(0x04));
 
 auto signed al[] = {
 (signed) (0x00), // a one-byte character expressed in .o***.**** (7-bit)
@@ -61,6 +60,8 @@ character = (character&(0x7F));
 *array = (signed char) (character);
 return(0x01);
 }
+
+character = (character&(UTF_16));
 
 r = encode2uni_internal(r,size,array,character);
 if(!r) {

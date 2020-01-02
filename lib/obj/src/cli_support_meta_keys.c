@@ -20,6 +20,21 @@ signed(__cdecl cli_support_meta_keys(signed(*character),signed char(first),signe
 
 /* **** DATA, BSS and STACK */
 auto signed char const low = (0xE0);
+auto signed char high[] = {
+(signed char) (0x50),
+(signed char) (0x4D),
+(signed char) (0x4B),
+(signed char) (0x48),
+(signed char) (0x00),
+};
+
+auto signed ctrl[] = {
+(signed) (CTRL_N),
+(signed) (CTRL_F),
+(signed) (CTRL_B),
+(signed) (CTRL_U),
+(signed) (0x00),
+};
 
 auto signed char *p;
 auto signed i,r;
@@ -36,9 +51,12 @@ if(!flag) return(0x00);
 // initialise
 *character = (CTRL_AT);
 
-if(!(0xE0^(first))) {
-*character = (CTRL_AT);
-}
+if(!(low^(first))) {
+i = (0x00);
+while(*(high+(i))) {
+if(!(second^(*(high+(i))))) *character = (*(ctrl+(i)));
+i++;
+}}
 
 if(!first) {
 *character = (CTRL_AT);
