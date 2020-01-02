@@ -139,9 +139,6 @@ signed(__cdecl cli_kb_beta(CLI_W32_STAT(*argp)));
 signed(__cdecl cli_io_beta(signed char(*cur),signed(size),CLI_W32_STAT(*argp)));
 /* Input/Output Unicode bytes/characters in UTF-8 out of the key board to the console screen along with fn. cli_in/cli_out. */
 
-signed(__cdecl cli_run_meta_beta(signed short(meta),CLI_W32_STAT(*argp)));
-/* Refer at fn. cli_support_meta_keys. */
-
 signed(__cdecl cli_output_beta(signed short(comeback_flag),signed char(*cur),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_col_outs_beta(signed char(*cur),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_col_out_beta(signed char(*cur),CLI_W32_STAT(*argp)));

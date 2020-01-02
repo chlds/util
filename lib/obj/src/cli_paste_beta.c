@@ -86,17 +86,15 @@ w++;
 
 *p = (0x00);
 
-/*
 if(!flag) {
 // limit
-r = ct(p);
+r = ct(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 ADD(R(gauge,R(ty,*argp)),-r);
 r = (R(gauge,R(ty,*argp)));
 if(r<(CLI_EMPTY)) {
 printf("%s\n","<< Reached the limit..");
 return(0x00);
 }}
-//*/
 
 // Aux.
 if(!flag) {

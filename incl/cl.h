@@ -8,14 +8,14 @@ Along with C library
 # include "./cli_macro.h"
 # endif
 
-signed(__cdecl cli_support_meta_keys(signed char(first),signed char(second)));
+signed(__cdecl cli_support_meta_keys(signed(*character),signed char(first),signed char(second)));
 /* Support for function and arrow keys */
 
 signed(__cdecl encode2b(signed(size),signed char(*di),signed short(*si)));
 signed(__cdecl decode2w(signed(size),signed short(*di),signed char(*si)));
 /* Decode/encode */
 
-signed(__cdecl cli_in(signed(*character),signed short(*meta),signed char(*argp),signed(size)));
+signed(__cdecl cli_in(signed(*character),signed char(*argp),signed(size)));
 /* Get Unicode bytes in UTF-8 out of the keyboard. */
 
 signed(__cdecl encode2uni_internal(signed(nbyte),signed(size),signed char(*array),signed(character)));
