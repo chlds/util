@@ -7,9 +7,8 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 */
 
 
+# define CLI_MACRO
 # define CLI_W32
-# define R(D,S) (S).D
-# define N_ROWS (0x19)
 
 # include <stdio.h>
 # include "../../../incl/config_ty.h"
@@ -17,8 +16,9 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl cli_debug_monitor_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto CLI_COORD coord[0x03];
+auto signed short nrows = (CLI_HEADER_HEIGHT+(0x03));
 
+auto CLI_COORD coord[0x03];
 auto signed i,r;
 auto signed short flag;
 auto signed char c;
@@ -32,15 +32,14 @@ printf("%s\n","<< Error at fn. cli_get_csbi_beta()");
 return(0x00);
 }
 
-R(x,*(coord+(CLI_INDEX))) = (R(X,R(dwCursorPosition,R(csbi,*argp))));
 R(y,*(coord+(CLI_INDEX))) = (R(Y,R(dwCursorPosition,R(csbi,*argp))));
+R(x,*(coord+(CLI_INDEX))) = (R(X,R(dwCursorPosition,R(csbi,*argp))));
 
-R(x,*(coord+(CLI_OFFSET))) = (0x00);
 R(y,*(coord+(CLI_OFFSET))) = (R(Top,R(srWindow,R(csbi,*argp))));
+R(x,*(coord+(CLI_OFFSET))) = (0x00);
 
-r = (N_ROWS);
+R(y,*(coord+(CLI_BASE))) = (nrows+(R(Top,R(srWindow,R(csbi,*argp)))));
 R(x,*(coord+(CLI_BASE))) = (0x00);
-R(y,*(coord+(CLI_BASE))) = (-r+(R(Bottom,R(srWindow,R(csbi,*argp)))));
 
 r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
 if(!r) {

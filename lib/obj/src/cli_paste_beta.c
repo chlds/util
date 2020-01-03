@@ -45,17 +45,30 @@ return(0x00);
 g = GetClipboardData(CF_UNICODETEXT);
 if(!g) {
 r = GetLastError();
-printf("%s%d%s%X\n","<< Error at fn. GetClipboardData() with ",r," or ",r);
-flag = (0x01);
+if(r) {
+if(CLI_DBG_B<(CLI_DBG)) printf("%s%d%s%X\n","<< Error at fn. GetClipboardData() with ",r," or ",r);
+}
+r = CloseClipboard();
+if(!r) {
+r = GetLastError();
+printf("%s%d%s%X\n","<< Error at fn. CloseClipboard() with ",r," or ",r);
+return(0x00);
+}
+return(0x01);
 }
 
-if(!flag) {
 w = (signed short(*)) GlobalLock(g);
 if(!w) {
 r = GetLastError();
 printf("%s%d%s%X\n","<< Error at fn. GlobalLock() with ",r," or ",r);
-flag++;
-}}
+r = CloseClipboard();
+if(!r) {
+r = GetLastError();
+printf("%s%d%s%X\n","<< Error at fn. CloseClipboard() with ",r," or ",r);
+return(0x00);
+}
+return(0x00);
+}
 
 i = (R(gauge,R(ty,*argp)));
 p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
@@ -71,7 +84,9 @@ return(0x00);
 while(0x01) {
 if(i<(CLI_EMPTY)) {
 printf("%s\n","<< Reached the limit..");
-return(0x00);
+flag++;
+break;
+// return(0x00);
 }
 if(!(*w)) break;
 r = encode2uni(i,p,*w);
@@ -157,7 +172,6 @@ printf("%s\n","<< Error at fn. cli_output_beta()");
 //*/
 }}
 
-if(!flag) {
 r = GlobalUnlock(g);
 if(!r) {
 r = GetLastError();
@@ -166,7 +180,7 @@ if(!(NO_ERROR^(r))) {
 else {
 printf("%s%d%s%X\n","<< Error at fn. GlobalUnlock() with ",r," or ",r);
 flag++;
-}}}
+}}
 
 r = CloseClipboard();
 if(!r) {
