@@ -34,10 +34,12 @@ if(!(CLI_QUIT^(R(flag,R(ty,*argp))))) return(0x01);
 // initialise
 p = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
 R(cur,R(debug,R(ty,*argp))) = (p);
-*(CLI_BASE+(R(cur,R(ty,*argp)))) = (p);
-*(CLI_OFFSET+(R(cur,R(ty,*argp)))) = (p);
-*(CLI_INDEX+(R(cur,R(ty,*argp)))) = (p);
-*(CLI_LEAD+(R(cur,R(ty,*argp)))) = (p);
+// R(gauge,R(debug,R(ty,*argp))) = (R(size,R(roll,R(ty,*argp))));
+i = (CLI_OBJS);
+while(i) {
+*(--i+(R(cur,R(ty,*argp)))) = (p);
+}
+// R(gauge,R(ty,*argp)) = (R(size,R(roll,R(ty,*argp))));
 R(linebreak,R(ty,*argp)) = (0x00);
 R(append,R(ty,*argp)) = (0x00);
 R(flag,R(ty,*argp)) = (0x00);

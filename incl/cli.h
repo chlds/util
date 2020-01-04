@@ -33,6 +33,7 @@ Refer at ./config_ty.h
 # define CLI_SAVE (0x02)
 # define CLI_MORPH (0x04)
 # define CLI_HELP (0x08)
+# define CL_QUIT (0x10)
 
 # define CLI_DBG_Q (0x08)
 # define CLI_DBG_D (0x04)
@@ -102,6 +103,7 @@ signed short bottom;
 typedef struct cli_snapshot {
 signed char *(base[CLI_WORKSPACE]);
 signed short linebreak;
+signed short offset;
 signed short flag;
 signed c;
 signed i;
@@ -181,11 +183,12 @@ void *optl;
 typedef struct cli_commandline {
 signed char *(cur[CLI_OBJS]);
 signed gauge;
-signed short offset;
 signed short linebreak;
+signed short offset;
 signed short append;
 signed short flag;
 CLI_DEBUG debug;
+CLI_HISTORY history;
 CLI_COORD coord[CLI_OBJS];
 CLI_RECT rect;
 void *optl;

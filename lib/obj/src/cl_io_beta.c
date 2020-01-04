@@ -84,7 +84,7 @@ return(0x00);
 if(R(linebreak,R(commandline,R(ty,*argp)))) return(0x01);
 
 // quit
-if(!(CLI_QUIT^(R(flag,R(ty,*argp))))) return(0x01);
+if(!(CL_QUIT^(R(flag,R(commandline,R(ty,*argp)))))) return(0x01);
 
 // to append
 r = cpy(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),cur);

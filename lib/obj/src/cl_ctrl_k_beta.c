@@ -5,7 +5,7 @@ Press <Ctrl-K> to invoke the function.
 Along with C and Windows libraries
 
 Remarks:
-Refer at util/lib/obj/src/cl_io_beta.c
+Refer at fn. cli_display_footer_beta, fn. cl_kb_beta and fn. cl_io_beta.
 */
 
 
@@ -30,9 +30,16 @@ if(!argp) return(0x00);
 
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-K>");
 
-p = (*(CLI_INDEX+(R(cur,R(commandline,R(ty,*argp))))));
-ll = ((signed long long) p);
-if(!(ll^((signed long long) *(CLI_INDEX+(R(base,R(roll,R(ty,*argp)))))))) return(0x01);
+r = ct(*(CLI_INDEX+(R(cur,R(commandline,R(ty,*argp))))));
+ADD(R(gauge,R(commandline,R(ty,*argp))),r);
+
+**(CLI_INDEX+(R(cur,R(commandline,R(ty,*argp))))) = (0x00);
+
+r = cli_clear_rows_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
+return(0x00);
+}
 
 return(0x01);
 }

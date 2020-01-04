@@ -25,7 +25,7 @@ auto signed short flag;
 
 if(!argp) return(0x00);
 
-if(CLI_DBG) printf("%s","<Ctrl-Q>");
+if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-Q>");
 
 R(flag,R(ty,*argp)) = (CLI_QUIT);
 

@@ -57,6 +57,15 @@ if(!r) {
 printf("%s\n","<< Error at fn. cli_display_footer_beta()");
 return(0x00);
 }
+if(!(CL_QUIT^(R(flag,R(commandline,R(ty,*argp)))))) {
+// R(flag,R(commandline,R(ty,*argp))) = (0x00);
+r = cli_coord_beta(CLI_OUT,&coord,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_coord_beta()");
+return(0x00);
+}
+return(0x01);
+}
 r = ct(*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))));
 R(size,R(edit,R(ty,*argp))) = (r);
 r = keep(&(R(file,R(edit,R(ty,*argp)))),*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))));
