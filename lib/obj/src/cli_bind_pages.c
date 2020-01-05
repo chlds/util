@@ -8,9 +8,7 @@ Along with C library
 */
 
 
-# define CLI_W32
-# define R(D,S) (S).D
-// A local macro function
+# define CLI_MACRO
 
 # include <conio.h>
 # include <stdio.h>
@@ -38,6 +36,13 @@ return(0x00);
 // e.g., *(CLI_CACHE+(R(page,*argp))) = (page);
 
 *(CLI_BASE+(R(base,*page))) = (0x00);
+
+R(insert,R(history,*page)) = (0x00);
+
+i = (CLI_OBJS);
+while(i) {
+*(--i+(R(snapshot,R(history,*page)))) = (0x00);
+}
 
 r = cli_concat_pages(page,argp);
 if(!r) {

@@ -9,7 +9,7 @@ Along with C library
 
 
 # define R(D,S) (S).D
-// A local macro function
+// A local function/object-like macro
 
 # include "../../../incl/cli.h"
 # include <stdlib.h>
@@ -36,6 +36,14 @@ return(0x00);
 free(p);
 p = (0x00);
 *(CLI_BASE+(R(base,*cache))) = (0x00);
+
+/* temporarily disable..
+r = cli_unmap_snapshots(&(R(history,*cache)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_unmap_snapshots()");
+// return(0x00);
+}
+//*/
 
 free(cache);
 cache = (0x00);

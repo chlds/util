@@ -19,7 +19,7 @@ Refer at fn. cli_spool_beta, fn. cli_book, fn. cli_save, fn. cli_parse or..
 # include <sys/types.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_write(signed(descripter),CLI_TYPEWRITER(*argp))) {
+signed(__cdecl cli_write(signed(descriptor),CLI_TYPEWRITER(*argp))) {
 
 /* **** DATA, BSS and STACK */
 static signed char *crlf = ("\r\n");
@@ -35,7 +35,7 @@ auto signed short flag;
 auto signed char c;
 
 /* **** CODE/TEXT */
-if(descripter<(0x00)) return(0x00);
+if(descriptor<(0x00)) return(0x00);
 if(!argp) return(0x00);
 
 i = (0x00);
@@ -47,7 +47,7 @@ page = (*(CLI_BASE+(R(page,R(spool,*argp)))));
 
 while(page) {
 p = (*(CLI_BASE+(R(base,*page))));
-r = write(descripter,p,ct(p));
+r = write(descriptor,p,ct(p));
 if(!(r^(~(0x00)))) {
 printf("%s\n","<< Error at fn. write()");
 return(0x00);
@@ -57,7 +57,7 @@ page = (R(d,*page));
 if(page) {
 if(flag) p = (crlf);
 else p = (lf);
-r = write(descripter,p,ct(p));
+r = write(descriptor,p,ct(p));
 if(!(r^(~(0x00)))) {
 printf("%s\n","<< Error at fn. write()");
 return(0x00);

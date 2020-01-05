@@ -30,10 +30,12 @@ Refer at ./config_ty.h
 //*/
 
 # define CLI_QUIT (0x01)
-# define CLI_SAVE (0x02)
+# define CLI_IRR (0x02)
 # define CLI_MORPH (0x04)
 # define CLI_HELP (0x08)
+
 # define CL_QUIT (0x10)
+# define CL_IRR (0x20)
 
 # define CLI_DBG_Q (0x08)
 # define CLI_DBG_D (0x04)
@@ -116,6 +118,7 @@ void *optl;
 } CLI_SNAPSHOT;
 
 typedef struct cli_history {
+signed short insert;
 CLI_SNAPSHOT *(snapshot[CLI_SNAPSHOTS]);
 void *optl;
 } CLI_HISTORY;
@@ -238,7 +241,11 @@ signed(__cdecl cli_init_ty(signed(size),signed char(**roll),CLI_TYPEWRITER(*argp
 signed(__cdecl cli_init_roll(signed(size),signed char(**roll),CLI_ROLL(*argp)));
 // Charge rolls
 
-signed(__cdecl cli_write(signed(descripter),CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_load_internal(signed(descriptor),CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_load(CLI_TYPEWRITER(*argp)));
+// Load
+
+signed(__cdecl cli_write(signed(descriptor),CLI_TYPEWRITER(*argp)));
 // Write
 
 signed(__cdecl cli_save(signed short(update_flag),CLI_TYPEWRITER(*argp)));
@@ -248,9 +255,14 @@ signed(__cdecl cli_book(CLI_TYPEWRITER(*argp)));
 // Copy characters on workspace to the current page.
 
 signed(__cdecl cli_init_pages(CLI_SPOOL(*argp)));
+
 signed(__cdecl cli_concat_pages(CLI_PAGE(*cache),CLI_SPOOL(*argp)));
 signed(__cdecl cli_bind_pages(CLI_SPOOL(*argp)));
 signed(__cdecl cli_unmap_pages(CLI_SPOOL(*argp)));
+
+signed(__cdecl cli_concat_snapshots(CLI_SNAPSHOT(*cache),CLI_HISTORY(*argp)));
+signed(__cdecl cli_bind_snapshots(CLI_HISTORY(*argp)));
+signed(__cdecl cli_unmap_snapshots(CLI_HISTORY(*argp)));
 // Based on a doubly linked list (i.e., not a circular linked list)
 
 signed(__cdecl cl_ctrl_at(void(*argp)));

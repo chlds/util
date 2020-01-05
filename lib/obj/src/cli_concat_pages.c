@@ -9,22 +9,21 @@ Based on a doubly linked list (i.e., not a circular linked list)
 //*/
 
 
-# define R(D,S) (S).D
-// A local macro function
+# define CLI_MACRO
 
-# include "../../../incl/cli.h"
+# include "../../../incl/config_ty.h"
 
 signed(__cdecl cli_concat_pages(CLI_PAGE(*cache),CLI_SPOOL(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed long long sll;
+auto signed long long ll;
 
 /* **** CODE/TEXT */
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 
-sll = (signed long long) (*(CLI_LEAD+(R(page,*argp))));
-if(!(sll^((signed long long) *(CLI_INDEX+(R(page,*argp)))))) R(insert,*argp) = (0x00);
+ll = (signed long long) (*(CLI_LEAD+(R(page,*argp))));
+if(!(ll^((signed long long) *(CLI_INDEX+(R(page,*argp)))))) R(insert,*argp) = (0x00);
 else R(insert,*argp) = (0x01);
 
 if(!(R(insert,*argp))) {
