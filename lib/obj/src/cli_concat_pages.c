@@ -1,10 +1,9 @@
 /* **** Notes
 
-Concatenate the lead, base and temporary pages in a doubly linked list (for general purpose).
+Concatenate the lead, index, offset and base pages in a doubly linked list (for general purpose).
 
 Remarks:
-Refer at fn. cli_init_pages.
-Refer at fn. cli_bind_pages.
+Refer at fn. cli_init_pages, fn. cli_bind_pages and fn. cli_unmap_pages.
 Based on a doubly linked list (i.e., not a circular linked list)
 //*/
 

@@ -9,9 +9,8 @@ Based on UTF-8
 */
 
 
+# define CLI_MACRO
 # define CLI_W32
-# define R(D,S) (S).D
-// A local macro function
 
 # include <conio.h>
 # include <stdio.h>
@@ -56,6 +55,12 @@ printf("%s\n","<< Error at fn. cli_set_codepages_beta()");
 return(0x00);
 }
 
+r = cli_history(&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_history()");
+return(0x00);
+}
+
 
 if(CLI_DBG_D<(CLI_DBG)) {
 Sleep(1000);
@@ -63,9 +68,10 @@ system("cls");
 }
 
 
-/* recur */
 // p = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
 i = (R(size,R(roll,R(ty,*argp))));
+
+/* recur */
 r = cli_io_beta(p,i,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_io_beta()");
@@ -78,6 +84,12 @@ Sleep(250);
 system("cls");
 }
 
+
+r = cli_history(&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_history()");
+return(0x00);
+}
 
 r = cli_restore_codepages_beta(argp);
 if(!r) {

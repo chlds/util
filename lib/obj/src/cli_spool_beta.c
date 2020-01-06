@@ -8,9 +8,8 @@ Based on UTF-8
 */
 
 
+# define CLI_MACRO
 # define CLI_W32
-# define R(D,S) (S).D
-// A local macro function
 
 # include <conio.h>
 # include <stdio.h>
@@ -33,30 +32,29 @@ if(!argp) return(0x00);
 // quit
 if(!(CLI_QUIT^(R(flag,R(ty,*argp))))) return(0x01);
 
-// coordinate
-r = cli_coord_beta(CLI_IN,&coord,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
-return(0x00);
-}
-
-R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (coord.x);
-R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (coord.y);
-
 spool = (&(R(spool,R(ty,*argp))));
+
 r = cli_bind_pages(spool);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_bind_pages()");
 return(0x00);
 }
 
-// coordinate for the index page
+r = cli_coord_beta(CLI_IN,&coord,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_coord_beta()");
+return(0x00);
+}
+
 i = (CLI_OBJS);
 while(i) {
 --i;
 R(y,*(i+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))) = (coord.y);
 R(x,*(i+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))) = (coord.x);
 }
+
+R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (coord.y);
+R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (coord.x);
 
 // initialise workspace
 r = embed_to(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),0x00,R(size,R(roll,R(ty,*argp))));
@@ -93,13 +91,18 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }}
 
+r = cli_book(&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_book()");
+return(0x00);
+}
+
 r = cli_kb_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_kb_beta()");
 return(0x00);
 }
 
-// book
 r = cli_book(&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_book()");

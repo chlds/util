@@ -27,6 +27,7 @@ signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp))) {
 /* **** DATA, BSS and STACK */
 // second half of the default config directory
 auto signed char *second_half = ("/.ty/config.txt");
+
 auto signed short name[CLI_NAME] = {
 (signed short) (0x00),
 };
@@ -35,13 +36,17 @@ auto struct _stat stats;
 auto signed char *path;
 auto signed char *p;
 auto signed fd;
+auto signed access;
+auto signed permission;
 auto signed i,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+// default
 R(linebreak_form,*argp) = (LINEBREAK_CRLF);
+R(align_tab,*argp) = (ALIGN_TAB);
 
 flag = (0x00);
 
@@ -81,7 +86,12 @@ if(CLI_DBG) printf("%s%s\n","Path: ",path);
 /* Check the configuration file size. */
 r = _stat(path,&stats);
 if(!(r^(~(0x00)))) {
-if(!(ENOENT^(errno))) printf("%s%s\n","<< No config file at ",path);
+if(!(ENOENT^(errno))) {
+printf("%s%s\n","<< No config file at ",path);
+free(path);
+path = (0x00);
+return(0x01);
+}
 else {
 printf("%s\n","<< Error at fn. _stat()");
 return(0x00);
@@ -96,7 +106,10 @@ return(0x00);
 }
 r = _wstat(name,&stats);
 if(!(r^(~(0x00)))) {
-if(!(ENOENT^(errno))) printf("%s\n","<< No configuration file");
+if(!(ENOENT^(errno))) {
+printf("%s\n","<< No configuration file");
+return(0x01);
+}
 else {
 printf("%s\n","<< Error at fn. _wstat()");
 return(0x00);
@@ -111,9 +124,27 @@ return(0x00);
 }
 
 // open to configure
+access = (_O_RDONLY|(_O_BINARY));
+if(flag) {
+fd = _open(path,access);
+if(!(r^(~(0x00)))) {
+printf("%s\n","<< Error at fn. _open()");
+return(0x00);
+}}
+else {
+fd = _wopen(name,access);
+if(!(r^(~(0x00)))) {
+printf("%s\n","<< Error at fn. _wopen()");
+return(0x00);
+}}
 // parse
 // R(linebreak_form,*argp) = (LINEBREAK_LF);
 // close
+r = _close(fd);
+if(!(r^(~(0x00)))) {
+printf("%s\n","<< Error at fn. _close()");
+return(0x00);
+}
 
 // open to edit
 // load

@@ -1,6 +1,6 @@
 /* **** Notes
 
-Concatenate pages after allocating a memory block for structure CLI_PAGE.
+Concatenate snapshots after allocating a memory block for structure CLI_SNAPSHOT.
 
 Remarks:
 Build a doubly linked list
@@ -15,10 +15,10 @@ Along with C library
 # include <stdlib.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_bind_pages(CLI_SPOOL(*argp))) {
+signed(__cdecl cli_bind_snapshots(CLI_HISTORY(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto CLI_PAGE *cache;
+auto CLI_SNAPSHOT *cache;
 
 auto signed char *p;
 auto signed i,r;
@@ -27,17 +27,10 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-cache = (CLI_PAGE(*)) malloc(0x01*(sizeof(CLI_PAGE)));
+cache = (CLI_SNAPSHOT(*)) malloc(0x01*(sizeof(CLI_SNAPSHOT)));
 if(!cache) {
 printf("%s\n","<< Error at fn. malloc()");
 return(0x00);
-}
-
-R(insert,R(history,*cache)) = (0x00);
-
-i = (CLI_OBJS);
-while(i) {
-*(--i+(R(snapshot,R(history,*cache)))) = (0x00);
 }
 
 i = (CLI_OBJS);
@@ -45,9 +38,9 @@ while(i) {
 *(--i+(R(base,*cache))) = (0x00);
 }
 
-r = cli_concat_pages(cache,argp);
+r = cli_concat_snapshots(cache,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_concat_pages()");
+printf("%s\n","<< Error at fn. cli_concat_snapshots()");
 return(0x00);
 }
 

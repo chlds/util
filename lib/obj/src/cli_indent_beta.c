@@ -25,6 +25,7 @@ auto signed char SP = (' ');
 auto CLI_COORD coord;
 auto signed char c;
 auto signed i,r;
+auto signed short align_tab;
 auto signed short flag;
 
 /* **** CODE/TEXT */
@@ -39,9 +40,15 @@ return(0x00);
 coord.x = (R(X,R(dwCursorPosition,R(csbi,*argp))));
 coord.y = (R(Y,R(dwCursorPosition,R(csbi,*argp))));
 
+align_tab = (R(align_tab,R(ty,*argp)));
+if(align_tab<(0x00)) {
+printf("%s\n","<< Could not align..");
+return(0x00);
+}
+
 r = (coord.x);
-r = (r%(ALIGN_TAB));
-r = (-r+(ALIGN_TAB));
+r = (r%(align_tab));
+r = (-r+(align_tab));
 ADD(coord.x,r);
 
 i = (r);

@@ -17,8 +17,9 @@ Along with C library
 signed(__cdecl cli_unmap_pages(CLI_SPOOL(*argp))) {
 
 /* **** DATA */
-auto signed char *p;
 auto CLI_PAGE *cache;
+auto signed char *p;
+auto signed r;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -37,11 +38,14 @@ free(p);
 p = (0x00);
 *(CLI_BASE+(R(base,*cache))) = (0x00);
 
-/* temporarily disable..
+//* temporarily disable..
 r = cli_unmap_snapshots(&(R(history,*cache)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_unmap_snapshots()");
 // return(0x00);
+}
+else {
+if(CLI_DBG) printf("%s%d%s\n","Unmapped ",r," snapshots");
 }
 //*/
 

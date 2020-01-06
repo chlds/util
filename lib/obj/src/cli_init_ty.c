@@ -35,6 +35,7 @@ printf("%s\n","<< Error at fn. cli_init_roll()");
 return(0x00);
 }
 
+if(!(R(align_tab,*argp))) R(align_tab,*argp) = (ALIGN_TAB);
 if(!(R(linebreak_form,*argp))) R(linebreak_form,*argp) = (LINEBREAK_CRLF);
 R(linebreak,*argp) = (0x00);
 R(append,*argp) = (0x00);

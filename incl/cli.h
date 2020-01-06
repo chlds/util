@@ -46,8 +46,8 @@ Refer at ./config_ty.h
 # define CTRL_MASK (0x1F)
 
 # define ALIGN_TAB (0x08)
-# define LINEBREAK_CRLF (0x02)
-# define LINEBREAK_LF (0x01)
+# define LINEBREAK_CRLF (0x0A0D)
+# define LINEBREAK_LF (0x0A)
 
 # define CLI_CONFIG_FILE (0x100000)
 # define CLI_EDIT_FILE (0x100000)
@@ -200,6 +200,7 @@ void *optl;
 typedef struct cli_typewriter {
 signed char *(cur[CLI_OBJS]);
 signed gauge;
+signed short align_tab;
 signed short linebreak_form;
 signed short linebreak;
 signed short append;
@@ -253,6 +254,9 @@ signed(__cdecl cli_save(signed short(update_flag),CLI_TYPEWRITER(*argp)));
 
 signed(__cdecl cli_book(CLI_TYPEWRITER(*argp)));
 // Copy characters on workspace to the current page.
+
+signed(__cdecl cli_history(CLI_TYPEWRITER(*argp)));
+// Take snapshots to redo and undo.
 
 signed(__cdecl cli_init_pages(CLI_SPOOL(*argp)));
 

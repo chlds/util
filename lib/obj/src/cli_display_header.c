@@ -70,7 +70,8 @@ return(0x00);
 /* The two-row header */
 printf("%s %d %s %d",*(day_of_the_week+(R(tm_wday,*tp))),R(tm_mday,*tp),*(mon+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
 printf("%s%s"," | ","Ctrl-Q to quit");
-printf("%s%s"," | ","Based on UTF-8");
+printf("%s%s"," | ","UTF-8");
+printf("%s%s%d"," | ","Tab: ",R(align_tab,*argp));
 flag = (0x00);
 if(!(LINEBREAK_CRLF^(R(linebreak_form,*argp)))) {
 flag++;

@@ -79,7 +79,8 @@ printf("%s\n","Workspace at R(ty,*argp");
 printf("%d%s",R(flag,R(ty,*argp))," at R(flag, | ");
 printf("%d%s",R(append,R(ty,*argp))," at R(append, | ");
 printf("%d%s",R(linebreak,R(ty,*argp))," at R(linebreak, | ");
-printf("%d%s\n",R(linebreak_form,R(ty,*argp))," at R(linebreak_form,");
+printf("%Xh%s",R(linebreak_form,R(ty,*argp))," at R(linebreak_form, | ");
+printf("%d%s\n",R(align_tab,R(ty,*argp))," at R(align_tab,");
 
 // Gauges
 printf("%d%s\n",R(gauge,R(debug,R(ty,*argp)))," at R(gauge,R(debug,");
