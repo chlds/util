@@ -52,10 +52,10 @@ while(i) {
 }
 
 // coordinate
-R(x,*(CLI_BASE+(R(coord,*argp)))) = (0x00);
-R(y,*(CLI_BASE+(R(coord,*argp)))) = (0x00);
-R(x,*(CLI_OFFSET+(R(coord,*argp)))) = (0x00);
 R(y,*(CLI_OFFSET+(R(coord,*argp)))) = (CLI_HEADER_HEIGHT);
+R(x,*(CLI_OFFSET+(R(coord,*argp)))) = (0x00);
+R(y,*(CLI_BASE+(R(coord,*argp)))) = (0x00);
+R(x,*(CLI_BASE+(R(coord,*argp)))) = (0x00);
 
 return(0x01);
 }

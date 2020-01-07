@@ -126,6 +126,7 @@ void *optl;
 typedef struct cli_page {
 signed char *(base[CLI_WORKSPACE]);
 signed short linebreak;
+signed short offset;
 signed short flag;
 signed c;
 signed i;
@@ -160,12 +161,14 @@ void *optl;
 typedef struct cli_edit {
 signed char *file;
 signed size;
+signed fd;
 void *optl;
 } CLI_EDIT;
 
 typedef struct cli_config {
 signed char *file;
 signed size;
+signed fd;
 void *optl;
 } CLI_CONFIG;
 
@@ -242,7 +245,7 @@ signed(__cdecl cli_init_ty(signed(size),signed char(**roll),CLI_TYPEWRITER(*argp
 signed(__cdecl cli_init_roll(signed(size),signed char(**roll),CLI_ROLL(*argp)));
 // Charge rolls
 
-signed(__cdecl cli_load_internal(signed(descriptor),CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_load_internal(signed(count),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_load(CLI_TYPEWRITER(*argp)));
 // Load
 
@@ -255,14 +258,14 @@ signed(__cdecl cli_save(signed short(update_flag),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_book(CLI_TYPEWRITER(*argp)));
 // Copy characters on workspace to the current page.
 
-signed(__cdecl cli_history(CLI_TYPEWRITER(*argp)));
-// Take snapshots to redo and undo.
-
 signed(__cdecl cli_init_pages(CLI_SPOOL(*argp)));
 
 signed(__cdecl cli_concat_pages(CLI_PAGE(*cache),CLI_SPOOL(*argp)));
 signed(__cdecl cli_bind_pages(CLI_SPOOL(*argp)));
 signed(__cdecl cli_unmap_pages(CLI_SPOOL(*argp)));
+
+signed(__cdecl cli_history(CLI_PAGE(*argp)));
+// Take snapshots to redo and undo.
 
 signed(__cdecl cli_concat_snapshots(CLI_SNAPSHOT(*cache),CLI_HISTORY(*argp)));
 signed(__cdecl cli_bind_snapshots(CLI_HISTORY(*argp)));

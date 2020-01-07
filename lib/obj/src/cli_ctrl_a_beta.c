@@ -40,8 +40,8 @@ while(i) {
 }
 
 // come back
-coord.x = (0x00);
 coord.y = (R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))));
+coord.x = (0x00);
 r = cli_coord_beta(CLI_OUT,&coord,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");

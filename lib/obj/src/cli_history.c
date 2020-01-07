@@ -5,7 +5,8 @@ Take snapshots to redo and undo.
 Along with C library
 
 Remarks:
-Refer at fn. cli_spool_beta and fn. cli_kb_beta.
+Call fn. cli_book before invoking the function to take the content out of workspace.
+Refer at fn. cli_spool_beta, fn. cli_kb_beta and fn. cli_book.
 Build a doubly linked list
 Based on UTF-8
 */
@@ -19,7 +20,7 @@ Based on UTF-8
 # include <stdlib.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_history(CLI_TYPEWRITER(*argp))) {
+signed(__cdecl cli_history(CLI_PAGE(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto CLI_HISTORY *history;
@@ -31,7 +32,7 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-history = (&(R(history,**(CLI_INDEX+(R(page,R(spool,*argp)))))));
+history = (&(R(history,*argp)));
 
 r = cli_bind_snapshots(history);
 if(!r) {
@@ -39,7 +40,7 @@ printf("%s\n","<< Error at fn. cli_bind_snapshots()");
 return(0x00);
 }
 
-r = ct(*(CLI_BASE+(R(base,R(roll,*argp)))));
+r = ct(*(CLI_BASE+(R(base,*argp))));
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. ct()");
@@ -56,7 +57,7 @@ printf("%s\n","<< Error at fn. malloc()");
 return(0x00);
 }
 
-r = cpy(p,*(CLI_BASE+(R(base,R(roll,*argp)))));
+r = cpy(p,*(CLI_BASE+(R(base,*argp))));
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cpy()");
@@ -66,16 +67,7 @@ return(0x00);
 
 *(CLI_BASE+(R(base,**(CLI_INDEX+(R(snapshot,*history)))))) = (p);
 
-p = (*(CLI_BASE+(R(base,R(roll,*argp)))));
-i = (0x00);
-
-while(0x01) {
-if(p<(*(CLI_INDEX+(R(cur,*argp))))) i++;
-else break;
-p++;
-}
-
-R(offset,**(CLI_INDEX+(R(snapshot,*history)))) = (i);
+R(offset,**(CLI_INDEX+(R(snapshot,*history)))) = (R(offset,*argp));
 
 return(0x01);
 }

@@ -53,8 +53,11 @@ auto signed short flag;
 /* **** CODE/TEXT */
 R(file,R(config,R(ty,cli_w32_stat))) = (0x00);
 R(size,R(config,R(ty,cli_w32_stat))) = (0x00);
+R(fd,R(config,R(ty,cli_w32_stat))) = (0x00);
+
 R(file,R(edit,R(ty,cli_w32_stat))) = (0x00);
 R(size,R(edit,R(ty,cli_w32_stat))) = (0x00);
+R(fd,R(edit,R(ty,cli_w32_stat))) = (0x00);
 
 
 cur = (0x00);
@@ -114,16 +117,31 @@ printf("%s\n","<< Error at fn. cli_init_stat_beta()");
 return(0x00);
 }
 
+/*
+r = cli_load(&(R(ty,cli_w32_stat)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_load()");
+return(0x00);
+}
+//*/
+
 
 Sleep(1000);
 system("cls");
 
 
-r = cli_display_header(&(cli_w32_stat.ty));
+r = cli_display_header(&(R(ty,cli_w32_stat)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_display_header()");
 return(0x00);
 }
+
+if(R(fd,R(edit,R(ty,cli_w32_stat)))) {
+r = cli_output_pages_beta(*(CLI_BASE+(R(page,R(spool,R(ty,cli_w32_stat))))),&cli_w32_stat);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_output_pages_beta()");
+return(0x00);
+}}
 
 r = cli_spool_beta(&cli_w32_stat);
 if(!r) {
@@ -131,7 +149,7 @@ printf("%s\n","<< Error at fn. cli_spool_beta()");
 return(0x00);
 }
 
-r = cli_unmap_pages(&(cli_w32_stat.ty.spool));
+r = cli_unmap_pages(&(R(spool,R(ty,cli_w32_stat))));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_unmap_pages()");
 return(0x00);

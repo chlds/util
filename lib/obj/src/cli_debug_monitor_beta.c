@@ -118,6 +118,13 @@ printf("%d%s%d\n",\
 R(x,*(CLI_BASE+(R(coord,**(CLI_LEAD+(R(page,R(spool,R(ty,*argp))))))))),"/",\
 R(y,*(CLI_BASE+(R(coord,**(CLI_LEAD+(R(page,R(spool,R(ty,*argp)))))))))\
 );
+
+if(!(*(CLI_INDEX+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))))) {
+}
+else {
+printf("%d%s",R(offset,**(CLI_INDEX+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))))," at R(offset,**(CLI_INDEX+(R(snapshot,R(history,**(CLI_INDEX+(R(page, | ");
+}
+printf("%d%s",R(offset,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))," at R(offset,**(CLI_INDEX+(R(page, | ");
 printf("%d%s\n",R(insert,R(spool,R(ty,*argp)))," at R(insert,");
 
 // Coordinates

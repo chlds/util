@@ -60,11 +60,18 @@ printf("%s\n","<< Error at fn. _wopen()");
 return(0x00);
 }
 
-r = cli_load_internal(fd,argp);
+R(fd,R(edit,*argp)) = (fd);
+i = (0x00);
+
+printf("\n");
+
+r = cli_load_internal(i,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_load_internal()");
 return(0x00);
 }
+
+printf("\n");
 
 if(CLI_IRR&(R(flag,*argp))) {
 AND(R(flag,*argp),~(CLI_IRR));

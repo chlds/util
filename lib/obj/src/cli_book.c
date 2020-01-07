@@ -3,6 +3,7 @@
 Copy characters on workspace to the current page.
 
 Remarks:
+Refer at fn. cli_bind_pages.
 Build a doubly linked list
 Along with C library
 */
@@ -26,6 +27,13 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+if(!(*(CLI_INDEX+(R(page,R(spool,*argp)))))) {
+printf("%s\n","<< No index page..");
+return(0x00);
+}
+
+if(*(CLI_BASE+(R(base,**(CLI_INDEX+(R(page,R(spool,*argp)))))))) free(*(CLI_BASE+(R(base,**(CLI_INDEX+(R(page,R(spool,*argp))))))));
+
 r = ct(*(CLI_BASE+(R(base,R(roll,*argp)))));
 if(!r) {
 /* empty or..
@@ -35,8 +43,9 @@ return(0x00);
 }
 
 r++;
+r = (r*(sizeof(signed char)));
 
-p = (signed char(*)) malloc(r*(sizeof(signed char)));
+p = (signed char(*)) malloc(r);
 if(!p) {
 printf("%s\n","<< Error at fn. malloc()");
 return(0x00);
@@ -50,10 +59,24 @@ return(0x00);
 //*/
 }
 
-if(*(CLI_BASE+(R(base,**(CLI_INDEX+(R(page,R(spool,*argp)))))))) free(*(CLI_BASE+(R(base,**(CLI_INDEX+(R(page,R(spool,*argp))))))));
-
 *(CLI_BASE+(R(base,**(CLI_INDEX+(R(page,R(spool,*argp))))))) = (p);
-p = (0x00);
+
+p = (*(CLI_BASE+(R(base,R(roll,*argp)))));
+i = (0x00);
+
+while(0x01) {
+if(p<(*(CLI_INDEX+(R(cur,*argp))))) i++;
+else break;
+p++;
+}
+
+R(offset,**(CLI_INDEX+(R(page,R(spool,*argp))))) = (i);
+
+r = cli_history(*(CLI_INDEX+(R(page,R(spool,*argp)))));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_history()");
+return(0x00);
+}
 
 return(0x01);
 }

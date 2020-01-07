@@ -30,19 +30,6 @@ auto signed short flag;
 // quit
 if(!(CLI_QUIT^(R(flag,R(ty,*argp))))) return(0x01);
 
-// initialise
-p = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
-R(cur,R(debug,R(ty,*argp))) = (p);
-// R(gauge,R(debug,R(ty,*argp))) = (R(size,R(roll,R(ty,*argp))));
-i = (CLI_OBJS);
-while(i) {
-*(--i+(R(cur,R(ty,*argp)))) = (p);
-}
-// R(gauge,R(ty,*argp)) = (R(size,R(roll,R(ty,*argp))));
-R(linebreak,R(ty,*argp)) = (0x00);
-R(append,R(ty,*argp)) = (0x00);
-R(flag,R(ty,*argp)) = (0x00);
-
 r = cli_backup_codepages_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_backup_codepages_beta()");
@@ -55,12 +42,6 @@ printf("%s\n","<< Error at fn. cli_set_codepages_beta()");
 return(0x00);
 }
 
-r = cli_history(&(R(ty,*argp)));
-if(!r) {
-printf("%s\n","<< Error at fn. cli_history()");
-return(0x00);
-}
-
 
 if(CLI_DBG_D<(CLI_DBG)) {
 Sleep(1000);
@@ -68,7 +49,7 @@ system("cls");
 }
 
 
-// p = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
+p = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
 i = (R(size,R(roll,R(ty,*argp))));
 
 /* recur */
@@ -84,12 +65,6 @@ Sleep(250);
 system("cls");
 }
 
-
-r = cli_history(&(R(ty,*argp)));
-if(!r) {
-printf("%s\n","<< Error at fn. cli_history()");
-return(0x00);
-}
 
 r = cli_restore_codepages_beta(argp);
 if(!r) {
