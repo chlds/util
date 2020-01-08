@@ -35,18 +35,12 @@ if(R(fd,R(edit,R(ty,*argp)))) R(fd,R(edit,R(ty,*argp))) = (0x00);
 
 else {
 // initialise
-p = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
-R(cur,R(debug,R(ty,*argp))) = (p);
-R(gauge,R(debug,R(ty,*argp))) = (R(size,R(roll,R(ty,*argp))));
-i = (CLI_OBJS);
-while(i) {
-*(--i+(R(cur,R(ty,*argp)))) = (p);
+r = cli_init_workspace(&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_init_workspace()");
+return(0x00);
 }
-R(gauge,R(ty,*argp)) = (R(size,R(roll,R(ty,*argp))));
-R(linebreak,R(ty,*argp)) = (0x00);
-R(append,R(ty,*argp)) = (0x00);
-R(flag,R(ty,*argp)) = (0x00);
-// initialise workspace
+// clear
 r = embed_to(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),0x00,R(size,R(roll,R(ty,*argp))));
 if(!r) {
 printf("%s\n","<< Error at fn. embed_to()");

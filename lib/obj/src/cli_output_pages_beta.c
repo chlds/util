@@ -33,9 +33,16 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
-// connect with workspace
 R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (coord.y);
 R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (0x00);
+
+// connect with workspace
+r = cli_init_workspace(&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_init_workspace()");
+return(0x00);
+}
+
 r = cpy(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(base,*page))));
 if(!r) {
 /* empty or..
@@ -43,6 +50,9 @@ printf("%s\n","<< Error at fn. cpy()");
 return(0x00);
 //*/
 }
+
+ADD(R(gauge,R(debug,R(ty,*argp))),-r);
+ADD(R(gauge,R(ty,*argp)),-r);
 
 // also
 *(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))) = (page);

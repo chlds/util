@@ -33,9 +33,10 @@ Refer at ./config_ty.h
 # define CLI_IRR (0x02)
 # define CLI_MORPH (0x04)
 # define CLI_HELP (0x08)
-
 # define CL_QUIT (0x10)
 # define CL_IRR (0x20)
+# define CLI_ALREADY_EXIST (0x40)
+# define CLI_DIFF_HISTORY (0x80)
 
 # define CLI_DBG_Q (0x08)
 # define CLI_DBG_D (0x04)
