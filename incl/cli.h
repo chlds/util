@@ -259,12 +259,16 @@ signed(__cdecl cli_save(signed short(update_flag),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_book(CLI_TYPEWRITER(*argp)));
 // Copy characters on workspace to the current page.
 
+signed(__cdecl cli_init_workspace(CLI_TYPEWRITER(*argp)));
+// Initialise workspace.
+
 signed(__cdecl cli_init_pages(CLI_SPOOL(*argp)));
 
 signed(__cdecl cli_concat_pages(CLI_PAGE(*cache),CLI_SPOOL(*argp)));
 signed(__cdecl cli_bind_pages(CLI_SPOOL(*argp)));
 signed(__cdecl cli_unmap_pages(CLI_SPOOL(*argp)));
 
+signed(__cdecl cli_diff_history(signed short(*diff),signed char(*base),CLI_PAGE(*argp)));
 signed(__cdecl cli_history(CLI_PAGE(*argp)));
 // Take snapshots to redo and undo.
 

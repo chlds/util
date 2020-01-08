@@ -72,11 +72,18 @@ p++;
 
 R(offset,**(CLI_INDEX+(R(page,R(spool,*argp))))) = (i);
 
+r = cli_diff_history(&flag,*(CLI_BASE+(R(base,R(roll,*argp)))),*(CLI_INDEX+(R(page,R(spool,*argp)))));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_diff_history()");
+return(0x00);
+}
+
+if(flag) {
 r = cli_history(*(CLI_INDEX+(R(page,R(spool,*argp)))));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_history()");
 return(0x00);
-}
+}}
 
 return(0x01);
 }

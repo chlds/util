@@ -4,7 +4,7 @@ Partially compare strings
 */
 
 
-signed(__cdecl cmpr_partially(signed(*cache), signed char(*di), signed char(*si))) {
+signed(__cdecl cmpr_partially(signed(*cache),signed char(*di),signed char(*si))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char(c);
@@ -21,12 +21,12 @@ return(0x01);
 c = (*di);
 
 if(c^(*si)) {
-*cache = (signed) (c+(1+(~(*si))));
+*cache = (signed) (c+(0x01+(~(*si))));
 return(0x01);
 }
 
 di++;
 si++;
 
-return(1+(cmpr_partially(cache, di, si)));
+return(0x01+(cmpr_partially(cache,di,si)));
 }
