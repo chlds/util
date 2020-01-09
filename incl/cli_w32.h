@@ -34,6 +34,9 @@ void *optl;
 signed(__cdecl cli_display_footer_beta(signed short(comeback_flag),signed char(*label),CLI_W32_STAT(*argp)));
 /* Display the footer */
 
+signed(__cdecl cli_confirm_save_beta(CLI_W32_STAT(*argp)));
+// Confirm overwrite
+
 signed(__cdecl cli_debug_monitor_beta(CLI_W32_STAT(*argp)));
 // Monitor
 

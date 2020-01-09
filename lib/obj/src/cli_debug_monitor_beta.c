@@ -76,7 +76,7 @@ else printf("\n");
 
 // Workspace
 printf("%s\n","Workspace at R(ty,*argp");
-printf("%d%s",R(flag,R(ty,*argp))," at R(flag, | ");
+printf("%Xh%s",R(flag,R(ty,*argp))," at R(flag, | ");
 printf("%d%s",R(append,R(ty,*argp))," at R(append, | ");
 printf("%d%s",R(linebreak,R(ty,*argp))," at R(linebreak, | ");
 printf("%Xh%s",R(linebreak_form,R(ty,*argp))," at R(linebreak_form, | ");
@@ -129,7 +129,8 @@ printf("%d%s\n",R(insert,R(spool,R(ty,*argp)))," at R(insert,");
 
 // Coordinates
 printf("%s\n","Coordinates at R(ty,*argp");
-printf("%d%s%d%s\n",R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))),"/",R(y,*(CLI_INDEX+(R(coord,R(ty,*argp)))))," at R(x/y,*(CLI_INDEX+(R(coord,");
+printf("%d%s%d%s",R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))),"/",R(y,*(CLI_INDEX+(R(coord,R(ty,*argp)))))," at R(x/y,*(CLI_INDEX+(R(coord, | ");
+printf("%d%s%d%s\n",R(x,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),"/",R(y,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))," at R(x/y,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page,R(spool,");
 
 // Clipboard Info.
 printf("%s\n","Clipboard info. at R(clipboard,R(ty,*argp");

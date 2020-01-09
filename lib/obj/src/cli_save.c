@@ -16,6 +16,7 @@ Refer at util/lib/obj/src/cl_io_beta.c
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <errno.h>
 # include <sys/stat.h>
 # include <sys/types.h>
 # include "../../../incl/config_ty.h"
@@ -82,6 +83,10 @@ access = (_O_CREAT|(_O_APPEND|(_O_WRONLY|(_O_BINARY))));
 
 fd = _wopen(w,access,permission);
 if(!(fd^(~(0x00)))) {
+if(!(EEXIST^(errno))) {
+OR(R(flag,*argp),CLI_ALREADY_EXIST);
+return(0x01);
+}
 printf("%s\n","<< Error at fn. _wopen()");
 return(0x00);
 }
@@ -99,6 +104,8 @@ if(!(r^(~(0x00)))) {
 printf("%s\n","<< Error at fn. _close()");
 return(0x00);
 }
+
+OR(R(flag,*argp),CLI_OVERWRITE);
 
 free(w);
 
