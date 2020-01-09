@@ -40,6 +40,9 @@ signed(__cdecl embed_to(signed char(*argp),signed char(arg),signed(times)));
 signed(__cdecl keep(signed char(**di),signed char(*si)));
 /* Please be sure to release. */
 
+signed(__cdecl cli_unmap(signed(times),signed char(**argp)));
+// Unmap.
+
 signed(__cdecl cmpr_parts(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr_partially(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr(signed(*cache),signed char(*di),signed char(*si)));

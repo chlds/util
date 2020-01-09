@@ -68,7 +68,7 @@ printf("%s\n","<< Error at fn. cli_display_header()");
 return(0x00);
 }}
 else page = (R(s,*page));
-r = cli_output_pages_beta(page,argp);
+r = cli_output_pages_beta(0x01/* connect with workspace */,page,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_output_pages_beta()");
 return(0x00);

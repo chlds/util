@@ -137,7 +137,7 @@ return(0x00);
 }
 
 if(R(fd,R(edit,R(ty,cli_w32_stat)))) {
-r = cli_output_pages_beta(*(CLI_BASE+(R(page,R(spool,R(ty,cli_w32_stat))))),&cli_w32_stat);
+r = cli_output_pages_beta(0x01/* connect with workspace */,*(CLI_BASE+(R(page,R(spool,R(ty,cli_w32_stat))))),&cli_w32_stat);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_output_pages_beta()");
 return(0x00);

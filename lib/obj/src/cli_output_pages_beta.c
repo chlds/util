@@ -15,7 +15,7 @@ Return the number of output pages.
 # include <stdio.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_output_pages_beta(CLI_PAGE(*page),CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_output_pages_beta(signed short(connect_with/* workspace */),CLI_PAGE(*page),CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto CLI_COORD coord;
@@ -33,16 +33,15 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
+if(connect_with) {
+// connect with workspace
 R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (coord.y);
 R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (0x00);
-
-// connect with workspace
 r = cli_init_workspace(&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_init_workspace()");
 return(0x00);
 }
-
 r = cpy(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(base,*page))));
 if(!r) {
 /* empty or..
@@ -50,12 +49,11 @@ printf("%s\n","<< Error at fn. cpy()");
 return(0x00);
 //*/
 }
-
 ADD(R(gauge,R(debug,R(ty,*argp))),-r);
 ADD(R(gauge,R(ty,*argp)),-r);
-
 // also
 *(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))) = (page);
+}
 
 r = cli_output_pages_internal_beta(page,argp);
 if(!r) {

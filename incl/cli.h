@@ -267,6 +267,7 @@ signed(__cdecl cli_init_pages(CLI_SPOOL(*argp)));
 
 signed(__cdecl cli_concat_pages(CLI_PAGE(*cache),CLI_SPOOL(*argp)));
 signed(__cdecl cli_bind_pages(CLI_SPOOL(*argp)));
+signed(__cdecl cli_reconcat_pages(signed short(*backward),CLI_SPOOL(*argp)));
 signed(__cdecl cli_unmap_pages(CLI_SPOOL(*argp)));
 
 signed(__cdecl cli_diff_history(signed short(*diff),signed char(*base),CLI_PAGE(*argp)));
