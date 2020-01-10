@@ -30,9 +30,6 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-// clipped pages
-R(clip,R(clipboard,R(ty,*argp))) = (0x00);
-
 flag = (0x00);
 
 r = OpenClipboard(*(CLI_BASE+(R(window,*argp))));

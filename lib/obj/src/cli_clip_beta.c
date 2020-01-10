@@ -133,8 +133,5 @@ R(clip,R(clipboard,R(ty,*argp))) = (0x00);
 return(0x00);
 }
 
-// clipped pages
-INC(R(clip,R(clipboard,R(ty,*argp))));
-
 return(0x01);
 }
