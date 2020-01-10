@@ -20,10 +20,15 @@ Refer at util/lib/obj/src/cli_init_roll.c and util/bin/obj/src/ty.c
 signed(__cdecl cli_clip_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto signed short CR = (0x0D);
+auto signed short LF = (0x0A);
+
+auto CLI_PAGE *page;
 auto void *g;
 auto signed short *w;
 auto signed char *p;
 auto signed long long sll;
+auto signed count;
 auto signed c,i,r;
 auto signed short flag;
 
@@ -46,9 +51,30 @@ return(0x01);
 //*/
 }
 
-INC(r);
 
-g = GlobalAlloc(GMEM_SHARE|(GHND),0x02*(r*(sizeof(signed char))));
+//* to copy pages (1 of 2)
+page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
+count = (R(clip,R(clipboard,R(ty,*argp))));
+if(count<(0x01)) {
+printf("%s\n","<< Could not count at R(clip,R(clipboard,R(ty,*argp..");
+return(0x00);
+}
+while(--count) {
+page = (R(d,*page));
+if(!page) break;
+if(!(LINEBREAK_CRLF^(R(linebreak_form,R(ty,*argp))))) INC(r);
+INC(r);
+ADD(r,ct(*(CLI_BASE+(R(base,*page)))));
+}
+//*/
+
+
+INC(r);
+r = (r*(sizeof(signed short)));
+
+g = GlobalAlloc(GMEM_SHARE|(GHND),r);
+
+i = (r);
 
 *(CLI_BASE+(R(base,R(clipboard,R(ty,*argp))))) = (g);
 R(flag,R(clipboard,R(ty,*argp))) = GlobalFlags(g);
@@ -63,19 +89,56 @@ return(0x00);
 
 p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 
-while(0x01) {
-if(!(*p)) break;
-r = decode2uni(&i,p);
+r = decode2w(r,w,p);
 if(!r) {
-printf("%s\n","<< Error at fn. decode2uni()");
+/* empty or..
+printf("%s\n","<< Error at fn. decode2w()");
 return(0x00);
-}
-*w = (signed short) (i);
-w++;
-p = (r+(p));
+//*/
 }
 
-*w = (0x00);
+
+//* to copy pages (2 of 2)
+ADD(i,-r);
+if(i<(0x00)) {
+printf("%s\n","<< Could not assign..");
+return(0x00);
+}
+while(r) {
+w++;
+--r;
+}
+page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
+count = (R(clip,R(clipboard,R(ty,*argp))));
+while(--count) {
+page = (R(d,*page));
+if(!page) break;
+if(!(LINEBREAK_CRLF^(R(linebreak_form,R(ty,*argp))))) {
+*w = (CR);
+w++;
+--i;
+}
+*w = (LF);
+w++;
+--i;
+r = decode2w(i,w,*(CLI_BASE+(R(base,*page))));
+if(!r) {
+/* empty or..
+printf("%s\n","<< Error at fn. decode2w()");
+return(0x00);
+//*/
+}
+ADD(i,-r);
+if(i<(0x00)) {
+printf("%s\n","<< Could not assign..");
+return(0x00);
+}
+while(r) {
+w++;
+--r;
+}}
+//*/
+
 
 r = GlobalUnlock(g);
 if(!r) {
