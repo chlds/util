@@ -4,12 +4,12 @@ Clear rows.
 
 Remarks:
 Refer at fn. cli_clear_row_beta.
+Return the number of cleared rows.
 */
 
 
+# define CLI_MACRO
 # define CLI_W32
-# define R(D,S) (S).D
-// A local macro function
 
 # include "../../../incl/config_ty.h"
 
@@ -19,64 +19,41 @@ signed(__cdecl cli_clear_rows_beta(CLI_W32_STAT(*argp))) {
 auto CLI_COORD coord[0x02];
 
 auto signed i,r;
-auto signed short range;
 auto signed short flag;
-auto signed char ws;
+auto signed short edge;
+auto signed short y;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-r = cli_get_csbi_beta(argp);
+r = cli_coord_beta(CLI_IN,coord+(CLI_BASE),argp);
 if(!r) {
-printf("<< Error at fn. cli_get_csbi_beta()");
+printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
-R(x,*(coord+(CLI_BASE))) = (0x00);
-R(y,*(coord+(CLI_BASE))) = (R(Top,R(srWindow,R(csbi,*argp))));
+edge = (R(Bottom,R(srWindow,R(csbi,*argp))));
+y = (R(Top,R(srWindow,R(csbi,*argp))));
 
-R(x,*(coord+(CLI_OFFSET))) = (R(X,R(dwCursorPosition,R(csbi,*argp))));
-R(y,*(coord+(CLI_OFFSET))) = (R(Y,R(dwCursorPosition,R(csbi,*argp))));
-
-range = (R(Bottom,R(srWindow,R(csbi,*argp))));
-if(!(range^(R(Y,R(dwCursorPosition,R(csbi,*argp)))))) flag = (0x01);
-else flag = (0x00);
-
-r = cli_clear_row_beta(flag/* come back */,argp);
+r = cli_clear_rows_internal_beta(edge,argp);
 if(!r) {
-printf("<< Error at fn. cli_clear_row_beta()");
+printf("%s\n","<< Error at fn. cli_clear_rows_internal_beta()");
 return(0x00);
 }
 
-if(flag) return(r);
-else i = (r);
-
-range = (R(y,*(coord+(CLI_OFFSET))));
-range = (0x01+(~(range)));
-range = (range+(R(Bottom,R(srWindow,R(csbi,*argp)))));
-// range++;
-range = (range*(0x01+(R(Right,R(srWindow,R(csbi,*argp))))));
-
-i = (i+((signed) range));
-ws = (' ');
-
-while(range) {
---range;
-r = cli_out(&ws);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_out()");
-return(0x00);
-}}
+i = (r);
 
 // fix the frame
-r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
+R(y,*(coord+(CLI_OFFSET))) = (y);
+R(x,*(coord+(CLI_OFFSET))) = (0x00);
+r = cli_coord_beta(CLI_OUT,coord+(CLI_OFFSET),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
 // come back
-r = cli_coord_beta(CLI_OUT,coord+(CLI_OFFSET),argp);
+r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);

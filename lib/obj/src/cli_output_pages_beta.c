@@ -21,7 +21,9 @@ signed(__cdecl cli_output_pages_beta(signed short(connect_with/* workspace */),C
 auto CLI_COORD coord;
 
 auto signed char *p;
-auto signed c,i,r;
+auto signed i,r;
+auto signed short flag;
+auto signed short edge;
 
 /* **** CODE/TEXT */
 if(!page) return(0x00);
@@ -32,6 +34,8 @@ if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
+
+edge = (R(Bottom,R(srWindow,R(csbi,*argp))));
 
 if(connect_with) {
 // connect with workspace
@@ -55,7 +59,7 @@ ADD(R(gauge,R(ty,*argp)),-r);
 *(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))) = (page);
 }
 
-r = cli_output_pages_internal_beta(page,argp);
+r = cli_output_pages_internal_beta(edge,page,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_output_pages_internal_beta()");
 return(0x00);

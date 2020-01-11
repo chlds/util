@@ -14,13 +14,16 @@ Return the number of output pages.
 # include <stdio.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_output_pages_internal_beta(CLI_PAGE(*page),CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_output_pages_internal_beta(signed short(edge),CLI_PAGE(*page),CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto CLI_COORD coord;
+auto signed char sp = (' ');
 
+auto CLI_COORD coord;
 auto signed char *p;
-auto signed c,i,r;
+auto signed i,r;
+auto signed short flag;
+auto signed short x;
 
 /* **** CODE/TEXT */
 if(!page) return(0x00);
@@ -31,6 +34,8 @@ if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
+
+if(edge<(coord.y)) return(0x00);
 
 i = (CLI_OBJS);
 while(i) {
@@ -53,21 +58,32 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
-if(coord.y<(R(Bottom,R(srWindow,R(csbi,*argp))))) {
-}
 
-else return(0x01);
+// embed extra columns
+x = (coord.x);
+x = (-x+(0x01+(R(Right,R(srWindow,R(csbi,*argp))))));
 
+while(x) {
+--x;
+r = cli_col_out_beta(&sp,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_col_out_beta()");
+return(0x00);
+}}
+
+
+/*
 ADD(coord.y,0x01);
 coord.x = (0x00);
-
 r = cli_coord_beta(CLI_OUT,&coord,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
+//*/
+
 
 page = (R(d,*page));
 
-return(0x01+(cli_output_pages_internal_beta(page,argp)));
+return(0x01+(cli_output_pages_internal_beta(edge,page,argp)));
 }
