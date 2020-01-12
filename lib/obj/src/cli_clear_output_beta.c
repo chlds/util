@@ -8,6 +8,7 @@ Return the number of bytes for output characters.
 */
 
 
+# define CLI_MACRO
 # define CLI_W32
 
 # include <stdio.h>
@@ -25,19 +26,18 @@ auto signed c,i,r;
 if(!cur) return(0x00);
 if(!argp) return(0x00);
 
-if(!(*cur)) return(0x00);
-
-if(comeback_flag) {
 r = cli_coord_beta(CLI_IN,&coord,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
-}}
+}
 
 r = cli_col_outs_beta(cur,argp);
 if(!r) {
+/* empty or..
 printf("%s\n","<< Error at fn. cli_col_outs_beta()");
 return(0x00);
+//*/
 }
 
 i = (r);
@@ -47,6 +47,8 @@ if(!r) {
 printf("%s\n","<< Error at fn. cli_clear_row_beta()");
 return(0x00);
 }
+
+ADD(i,r);
 
 if(comeback_flag) {
 r = cli_coord_beta(CLI_OUT,&coord,argp);

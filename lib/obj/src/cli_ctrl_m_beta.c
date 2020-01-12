@@ -43,18 +43,9 @@ return(0x00);
 R(linebreak,R(ty,*argp)) = (0x01);
 
 // clear
-r = cli_clear_rows_beta(argp);
+r = cli_clear_row_beta(0x00/* come back */,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
-return(0x00);
-}
-
-// break
-coord.x = (0x00);
-coord.y = (0x01+(coord.y));
-r = cli_coord_beta(CLI_OUT,&coord,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
+printf("%s\n","<< Error at fn. cli_clear_row_beta()");
 return(0x00);
 }
 
