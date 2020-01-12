@@ -121,6 +121,7 @@ void *optl;
 
 typedef struct cli_history {
 signed short insert;
+CLI_SNAPSHOT *(cache);
 CLI_SNAPSHOT *(snapshot[CLI_SNAPSHOTS]);
 void *optl;
 } CLI_HISTORY;
@@ -143,6 +144,7 @@ void *optl;
 
 typedef struct cli_spool {
 signed short insert;
+CLI_PAGE *(cache);
 CLI_PAGE *(page[CLI_PAGES]);
 void *optl;
 } CLI_SPOOL;
@@ -247,6 +249,10 @@ signed(__cdecl cli_init_ty(signed(size),signed char(**roll),CLI_TYPEWRITER(*argp
 signed(__cdecl cli_init_roll(signed(size),signed char(**roll),CLI_ROLL(*argp)));
 // Charge rolls
 
+signed(__cdecl cli_search_pages_internal(signed char(*characters),CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_search_pages(signed char(*characters),CLI_TYPEWRITER(*argp)));
+// search pages out of the index page to find characters.
+
 signed(__cdecl cli_load_internal(signed(count),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_load(CLI_TYPEWRITER(*argp)));
 // Load
@@ -271,14 +277,20 @@ signed(__cdecl cli_merge_pages(CLI_SPOOL(*argp)));
 signed(__cdecl cli_reconcat_pages(signed short(*backward),CLI_SPOOL(*argp)));
 signed(__cdecl cli_unmap_pages(CLI_SPOOL(*argp)));
 
-signed(__cdecl cli_diff_history(signed short(*diff),signed char(*base),CLI_PAGE(*argp)));
-signed(__cdecl cli_history(CLI_PAGE(*argp)));
-// Take snapshots to redo and undo.
+signed(__cdecl cli_count_pages(CLI_PAGE(*argp)));
+
+signed(__cdecl cli_page_internal(CLI_SPOOL(*argp),signed(n)));
+signed(__cdecl cli_page(CLI_PAGE(**di),CLI_SPOOL(*argp),CLI_PAGE(*si),signed(n)));
+// page n times.
 
 signed(__cdecl cli_concat_snapshots(CLI_SNAPSHOT(*cache),CLI_HISTORY(*argp)));
 signed(__cdecl cli_bind_snapshots(CLI_HISTORY(*argp)));
 signed(__cdecl cli_unmap_snapshots(CLI_HISTORY(*argp)));
 // Based on a doubly linked list (i.e., not a circular linked list)
+
+signed(__cdecl cli_diff_history(signed short(*diff),signed char(*base),CLI_PAGE(*argp)));
+signed(__cdecl cli_history(CLI_PAGE(*argp)));
+// Take snapshots to redo and undo.
 
 signed(__cdecl cl_ctrl_at(void(*argp)));
 signed(__cdecl cl_ctrl_a(void(*argp)));
