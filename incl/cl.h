@@ -40,6 +40,9 @@ signed(__cdecl embed_to(signed char(*argp),signed char(arg),signed(times)));
 signed(__cdecl keep(signed char(**di),signed char(*si)));
 /* Please be sure to release. */
 
+signed(__cdecl recharge(signed char(**argp),signed(arg)));
+// Unmap and map.
+
 signed(__cdecl cli_unmap(signed(times),signed char(**argp)));
 // Unmap.
 

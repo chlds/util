@@ -30,7 +30,7 @@ auto signed short y;
 if(!page) return(0x00);
 if(!argp) return(0x00);
 
-r = cli_coord_beta(CLI_IN,&coord,argp);
+r = cli_coord_beta(CLI_IN,coord+(CLI_BASE),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
@@ -55,7 +55,16 @@ printf("%s\n","<< Error at fn. ct()");
 return(0x00);
 //*/
 }
-if(r<(R(size,R(roll,R(ty,*argp))))) {
+i = (r);
+r = (-r+(R(size,R(roll,R(ty,*argp)))));
+if(r<(CLI_EMPTY)) {
+INC(i);
+i = (i*(sizeof(signed char)));
+r = recharge(CLI_BASE+(R(base,R(roll,R(ty,*argp)))),i);
+if(!r) {
+printf("%s\n","<< Error at fn. recharge()");
+return(0x00);
+}}
 r = cpy(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(base,*page))));
 if(!r) {
 /* empty or..
@@ -68,10 +77,6 @@ ADD(R(gauge,R(ty,*argp)),-r);
 // also
 *(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))) = (page);
 }
-else {
-printf("%s\n","<< Reach the limit..");
-return(0x00);
-}}
 
 r = cli_output_pages_internal_beta(edge,page,argp);
 if(!r) {

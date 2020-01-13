@@ -8,7 +8,7 @@ Initialise.
 
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_init_ty(signed(size),signed char(**roll),CLI_TYPEWRITER(*argp))) {
+signed(__cdecl cli_init_ty(signed(size),CLI_TYPEWRITER(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed long long ll;
@@ -17,6 +17,9 @@ auto signed i,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
+if(size<(0x01)) return(0x00);
+if(!argp) return(0x00);
+
 r = cli_init_clipboards(&(R(clipboard,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_init_clipboards()");
@@ -29,9 +32,9 @@ printf("%s\n","<< Error at fn. cli_init_pages()");
 return(0x00);
 }
 
-r = cli_init_roll(size,roll,&(R(roll,*argp)));
+r = cli_init_rolls(size,&(R(roll,*argp)));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_init_roll()");
+printf("%s\n","<< Error at fn. cli_init_rolls()");
 return(0x00);
 }
 

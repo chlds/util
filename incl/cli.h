@@ -243,10 +243,11 @@ signed(__cdecl cli_display_header(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp)));
 // Parse a config file for the typewriter
 
-signed(__cdecl cli_init_ty(signed(size),signed char(**roll),CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_init_ty(signed(size),CLI_TYPEWRITER(*argp)));
 // Initialise
 
-signed(__cdecl cli_init_roll(signed(size),signed char(**roll),CLI_ROLL(*argp)));
+signed(__cdecl cli_init_rolls(signed(size),CLI_ROLL(*argp)));
+signed(__cdecl cli_unmap_rolls(CLI_ROLL(*argp)));
 // Charge rolls
 
 signed(__cdecl cli_search_pages_internal(signed char(*characters),CLI_TYPEWRITER(*argp)));

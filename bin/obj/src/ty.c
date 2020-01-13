@@ -8,7 +8,6 @@ Typewriter
 # define CLI_W32
 
 # define THRESHOLD (0x02)
-# define ROLLS (0x01+(0x03))
 # define BUFF (0x100000)
 // 1MiB
 
@@ -17,25 +16,6 @@ Typewriter
 signed(__cdecl wmain(signed(argc),signed short(**argv),signed short(**envp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char buff2[BUFF] = {
-(0x00),
-};
-
-auto signed char buff1[BUFF] = {
-(0x00),
-};
-
-auto signed char buff[BUFF] = {
-(0x00),
-};
-
-auto signed char *(roll[ROLLS]) = {
-(signed char(*)) (buff),
-(signed char(*)) (buff1),
-(signed char(*)) (buff2),
-(signed char(*)) (0x00),
-};
-
 auto CLI_W32_STAT cli_w32_stat = {
 (0x00),
 };
@@ -105,7 +85,7 @@ printf("%s\n","<< Error at fn. cli_parse()");
 return(0x00);
 }
 
-r = cli_init_ty(BUFF,roll,&(R(ty,cli_w32_stat)));
+r = cli_init_ty(BUFF,&(R(ty,cli_w32_stat)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_init_ty()");
 return(0x00);
@@ -159,6 +139,14 @@ if(CLI_DBG) {
 if(!(0x01^(r))) printf("%s\n","Unmapped 1 page");
 else printf("%s%d%s\n","Unmapped ",r," pages");
 }
+
+r = cli_unmap_rolls(&(R(roll,R(ty,cli_w32_stat))));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_unmap_rolls()");
+return(0x00);
+}
+
+if(CLI_DBG) printf("%s%d%s\n","Unmapped ",r," rolls");
 
 p = (R(file,R(config,R(ty,cli_w32_stat))));
 if(p) free(p);
