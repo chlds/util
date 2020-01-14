@@ -8,8 +8,6 @@ Typewriter
 # define CLI_W32
 
 # define THRESHOLD (0x02)
-# define BUFF (0x100000)
-// 1MiB
 
 # include "../../../incl/config_ty.h"
 
@@ -85,7 +83,7 @@ printf("%s\n","<< Error at fn. cli_parse()");
 return(0x00);
 }
 
-r = cli_init_ty(BUFF,&(R(ty,cli_w32_stat)));
+r = cli_init_ty(CLI_BUFF,&(R(ty,cli_w32_stat)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_init_ty()");
 return(0x00);

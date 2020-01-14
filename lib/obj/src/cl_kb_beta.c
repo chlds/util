@@ -33,12 +33,12 @@ if(!(CLI_QUIT^(R(flag,R(ty,*argp))))) return(0x01);
 // initialise
 p = (*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))));
 R(cur,R(debug,R(commandline,R(ty,*argp)))) = (p);
-// R(gauge,R(debug,R(commandline,R(ty,*argp)))) = (R(size,R(roll,R(ty,*argp))));
+// R(gauge,R(debug,R(commandline,R(ty,*argp)))) = (*(CLI_INDEX+(R(size,R(roll,R(ty,*argp))))));
 i = (CLI_OBJS);
 while(i) {
 *(--i+(R(cur,R(commandline,R(ty,*argp))))) = (p);
 }
-// R(gauge,R(commandline,R(ty,*argp))) = (R(size,R(roll,R(ty,*argp))));
+// R(gauge,R(commandline,R(ty,*argp))) = (*(CLI_INDEX+(R(size,R(roll,R(ty,*argp))))));
 R(linebreak,R(commandline,R(ty,*argp))) = (0x00);
 R(offset,R(commandline,R(ty,*argp))) = (0x00);
 R(append,R(commandline,R(ty,*argp))) = (0x00);
@@ -58,7 +58,7 @@ return(0x00);
 
 /* recur */
 // p = (*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))));
-i = (R(size,R(roll,R(ty,*argp))));
+i = (*(CLI_INDEX+(R(size,R(roll,R(ty,*argp))))));
 r = cl_io_beta(p,i,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cl_io_beta()");

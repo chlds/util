@@ -151,7 +151,7 @@ void *optl;
 
 typedef struct cli_roll {
 signed char *(base[CLI_WORKSPACE]);
-signed size;
+signed size[CLI_WORKSPACE];
 void *optl;
 } CLI_ROLL;
 

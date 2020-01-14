@@ -85,7 +85,7 @@ printf("%d%s\n",R(align_tab,R(ty,*argp))," at R(align_tab,");
 // Gauges
 printf("%d%s\n",R(gauge,R(debug,R(ty,*argp)))," at R(gauge,R(debug,");
 printf("%d%s\n",R(gauge,R(ty,*argp))," at R(gauge, (updated by fn. calls but always monitored)");
-printf("%d%s\n",R(size,R(roll,R(ty,*argp)))," at R(size,R(roll,");
+printf("%d%s%d%s%d%s%d%s\n",*(CLI_BASE+(R(size,R(roll,R(ty,*argp))))),"/",*(CLI_OFFSET+(R(size,R(roll,R(ty,*argp))))),"/",*(CLI_INDEX+(R(size,R(roll,R(ty,*argp))))),"/",*(CLI_LEAD+(R(size,R(roll,R(ty,*argp)))))," at *(CLI_BASE/CLI_OFFSET/CLI_INDEX/CLI_LEAD+(R(size,R(roll,");
 
 // Addresses
 printf("%p%s\n",R(cur,R(debug,R(ty,*argp)))," at R(cur,R(debug,");

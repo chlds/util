@@ -10,7 +10,6 @@ Refer at fn. cli_init_ty, cli_spool_beta and fn. cli_io_beta.
 
 
 # define CLI_MACRO
-# define CLI_W32
 
 # include <conio.h>
 # include <stdio.h>
@@ -32,8 +31,9 @@ R(linebreak,*argp) = (0x00);
 // R(append,*argp) = (0x00);
 // R(flag,*argp) = (0x00);
 
-R(gauge,R(debug,*argp)) = (R(size,R(roll,*argp)));
-R(gauge,*argp) = (R(size,R(roll,*argp)));
+r = (*(CLI_BASE+(R(size,R(roll,*argp)))));
+R(gauge,R(debug,*argp)) = (r);
+R(gauge,*argp) = (r);
 
 p = (*(CLI_BASE+(R(base,R(roll,*argp)))));
 R(cur,R(debug,*argp)) = (p);

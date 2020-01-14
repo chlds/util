@@ -41,7 +41,7 @@ printf("%s\n","<< Error at fn. cli_init_workspace()");
 return(0x00);
 }
 // clear
-r = embed_to(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),0x00,R(size,R(roll,R(ty,*argp))));
+r = embed_to(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),0x00,*(CLI_BASE+(R(size,R(roll,R(ty,*argp))))));
 if(!r) {
 printf("%s\n","<< Error at fn. embed_to()");
 return(0x00);
@@ -55,7 +55,7 @@ printf("%s\n","<< Error at fn. cpy()");
 return(0x00);
 }
 // clear
-r = embed_to(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),0x00,R(size,R(roll,R(ty,*argp))));
+r = embed_to(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),0x00,*(CLI_OFFSET+(R(size,R(roll,R(ty,*argp))))));
 if(!r) {
 printf("%s\n","<< Error at fn. embed_to()");
 return(0x00);

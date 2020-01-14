@@ -40,17 +40,17 @@ printf("%s\n","<< Assign buffer at *(CLI_BASE+(R(base,R(roll,*argp..");
 return(0x00);
 }
 
-i = (R(size,R(roll,*argp)));
+i = (*(CLI_BASE+(R(size,R(roll,*argp)))));
 if(CLI_BUFF^(i)) {
-printf("%s\n","<< Assign size at R(size,R(roll,*argp..");
+printf("%s\n","<< Assign size at *(CLI_BASE+(R(size,R(roll,*argp..");
 return(0x00);
 }
 
 flag = (0x00);
 
 while(0x01) {
-if(!i) {
-*(--p) = (0x00);
+if(i<(CLI_EMPTY)) {
+*p = (0x00);
 OR(R(flag,*argp),CLI_IRR);
 printf("%s\n","<< Reach the limit..");
 return(0x00);

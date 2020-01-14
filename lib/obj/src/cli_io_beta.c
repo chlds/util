@@ -59,7 +59,6 @@ auto signed(__cdecl*(cli_fn[CLI_FN])) (void(*cli_fn_argp)) = {
 };
 
 auto unsigned const UTF_8 = (65001);
-auto signed const LIMIT = (0x01+(0x04));
 
 auto signed char const(SP) = (' ');
 auto signed char const(CR) = ('\r');
@@ -75,10 +74,27 @@ if(!cur) return(0x00);
 if(!argp) return(0x00);
 
 // limit
-if(size<(LIMIT)) {
+if(size<(CLI_EMPTY)) {
 *cur = (0x00);
+r = extend(CLI_BASE+(R(base,R(roll,R(ty,*argp)))),CLI_BASE+(R(size,R(roll,R(ty,*argp)))),CLI_EMPTY);
+if(!r) {
+printf("%s\n","<< Error at fn. extend()");
 return(0x00);
 }
+i = (r);
+r = cli_init_workspace(&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_init_workspace()");
+return(0x00);
+}
+R(gauge,R(debug,R(ty,*argp))) = (CLI_EMPTY);
+R(gauge,R(ty,*argp)) = (CLI_EMPTY);
+size = (CLI_EMPTY);
+cur = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
+while(i) {
+cur++;
+--i;
+}}
 
 // break
 if(R(linebreak,R(ty,*argp))) return(0x01);

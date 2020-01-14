@@ -23,12 +23,15 @@ auto signed i,r;
 if(size<(0x01)) return(0x00);
 if(!argp) return(0x00);
 
-R(size,*argp) = (size);
-
 // charge rolls
 i = (CLI_WORKSPACE);
 while(i) {
 *(--i+(R(base,*argp))) = (signed char(*)) malloc(size*(sizeof(signed char)));
+if(!(*(i+(R(base,*argp))))) {
+printf("%s\n","<< Error at fn. malloc()");
+return(0x00);
+}
+*(i+(R(size,*argp))) = (size);
 }
 
 // charged rolls

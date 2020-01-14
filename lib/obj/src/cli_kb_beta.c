@@ -50,7 +50,7 @@ system("cls");
 
 
 p = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
-i = (R(size,R(roll,R(ty,*argp))));
+i = (*(CLI_BASE+(R(size,R(roll,R(ty,*argp))))));
 
 /* recur */
 r = cli_io_beta(p,i,argp);

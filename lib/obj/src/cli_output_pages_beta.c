@@ -43,11 +43,6 @@ if(connect_with) {
 // connect with workspace
 R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (R(y,*(coord+(CLI_BASE))));
 R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (0x00);
-r = cli_init_workspace(&(R(ty,*argp)));
-if(!r) {
-printf("%s\n","<< Error at fn. cli_init_workspace()");
-return(0x00);
-}
 r = ct(*(CLI_BASE+(R(base,*page))));
 if(!r) {
 /* empty or..
@@ -56,13 +51,19 @@ return(0x00);
 //*/
 }
 i = (r);
-r = (-r+(R(size,R(roll,R(ty,*argp)))));
-if(r<(CLI_EMPTY)) {
+r = (-r+(*(CLI_BASE+(R(size,R(roll,R(ty,*argp)))))));
+if(r<(0x01)) {
 INC(i);
 i = (i*(sizeof(signed char)));
 r = recharge(CLI_BASE+(R(base,R(roll,R(ty,*argp)))),i);
 if(!r) {
 printf("%s\n","<< Error at fn. recharge()");
+return(0x00);
+}
+*(CLI_BASE+(R(size,R(roll,R(ty,*argp))))) = (r);
+r = cli_init_workspace(&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_init_workspace()");
 return(0x00);
 }}
 r = cpy(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(base,*page))));

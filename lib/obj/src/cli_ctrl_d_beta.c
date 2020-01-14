@@ -32,6 +32,12 @@ if(!argp) return(0x00);
 
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-D>");
 
+r = cli_book(&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_book()");
+return(0x00);
+}
+
 r = cli_coord_beta(CLI_IN,coord+(CLI_BASE),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
@@ -39,12 +45,6 @@ return(0x00);
 }
 
 y = (R(Top,R(srWindow,R(csbi,*argp))));
-
-r = cli_book(&(R(ty,*argp)));
-if(!r) {
-printf("%s\n","<< Error at fn. cli_book()");
-return(0x00);
-}
 
 p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 
@@ -56,7 +56,25 @@ return(0x00);
 }
 // to connect with workspace
 r = ct(*(CLI_BASE+(R(base,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))));
-if(r<(R(size,R(roll,R(ty,*argp))))) {
+r = (-r+(*(CLI_BASE+(R(size,R(roll,R(ty,*argp)))))));
+if(r<(0x01)) {
+r = extend(CLI_BASE+(R(base,R(roll,R(ty,*argp)))),CLI_BASE+(R(size,R(roll,R(ty,*argp)))),CLI_EMPTY+(0x02+(~(r))));
+if(!r) {
+printf("%s\n","<< Error at fn. extend()");
+return(0x00);
+}
+i = (r);
+r = cli_init_workspace(&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_init_workspace()");
+return(0x00);
+}
+while(i) {
+INC(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+--i;
+}
+*(CLI_LEAD+(R(cur,R(ty,*argp)))) = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+}
 // connect with workspace
 r = cpy(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(base,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))));
 if(!r) {
@@ -65,13 +83,10 @@ printf("%s\n","<< Error at fn. cpy()");
 return(0x00);
 //*/
 }
-R(gauge,R(debug,R(ty,*argp))) = (-r+(R(size,R(roll,R(ty,*argp)))));
-R(gauge,R(ty,*argp)) = (-r+(R(size,R(roll,R(ty,*argp)))));
+i = (*(CLI_BASE+(R(size,R(roll,R(ty,*argp))))));
+R(gauge,R(debug,R(ty,*argp))) = (-r+(i));
+R(gauge,R(ty,*argp)) = (-r+(i));
 }
-else {
-printf("%s\n","<< Reached the limit..");
-return(0x00);
-}}
 
 else {
 r = nbytechar(*p);
