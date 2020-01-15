@@ -149,6 +149,8 @@ signed(__cdecl cli_clear_output_beta(signed short(comeback_flag),signed char(*cu
 signed(__cdecl cli_output_beta(signed short(comeback_flag),signed char(*cur),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_col_outs_beta(signed char(*cur),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_col_out_beta(signed char(*cur),CLI_W32_STAT(*argp)));
+signed(__cdecl cli_coord_outs_beta(signed char(*cur),CLI_W32_STAT(*argp)));
+signed(__cdecl cli_coord_out_beta(signed char(*cur),CLI_W32_STAT(*argp)));
 /* Form a column in the console screen. */
 
 signed(__cdecl cli_empty_beta(CLI_W32_STAT(*argp)));

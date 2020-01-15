@@ -47,6 +47,12 @@ signed(__cdecl recharge(signed char(**argp),signed(arg)));
 signed(__cdecl cli_unmap(signed(times),signed char(**argp)));
 // Unmap.
 
+signed(__cdecl countback_to(signed char(*edge),signed char(*sym),signed char(*argp)));
+// count back to a symbol or to the leading address.
+
+signed(__cdecl count_to(signed char(*sym),signed char(*argp)));
+// count to a symbol or to the terminating null character.
+
 signed(__cdecl cmpr_parts(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr_partially(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr(signed(*cache),signed char(*di),signed char(*si)));
