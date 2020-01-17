@@ -59,7 +59,6 @@ auto signed(__cdecl*(cl_fn[CL_FN])) (void(*cl_fn_argp)) = {
 };
 
 auto unsigned const UTF_8 = (65001);
-auto signed const LIMIT = (0x01+(0x04));
 
 auto signed char const(SP) = (' ');
 auto signed char const(CR) = ('\r');
@@ -75,9 +74,9 @@ if(!cur) return(0x00);
 if(!argp) return(0x00);
 
 // limit
-if(size<(LIMIT)) {
+if(size<(CLI_EMPTY)) {
 *cur = (0x00);
-return(0x00);
+return(0x01);
 }
 
 // break
@@ -87,9 +86,23 @@ if(R(linebreak,R(commandline,R(ty,*argp)))) return(0x01);
 if(!(CL_QUIT^(R(flag,R(commandline,R(ty,*argp)))))) return(0x01);
 
 // to append
-r = cpy(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),cur);
-if(!r) R(append,R(commandline,R(ty,*argp))) = (0x00);
-else R(append,R(commandline,R(ty,*argp))) = (0x01);
+r = ct(cur);
+if(!r) p = (0x00);
+else {
+INC(r);
+r = (r*(sizeof(signed char)));
+p = (signed char(*)) malloc(r);
+if(!p) {
+printf("%s\n","<< Error at fn. malloc()");
+return(0x00);
+}
+r = cpy(p,cur);
+if(!r) {
+printf("%s\n","<< Error at fn. cpy()");
+return(0x00);
+}}
+
+*(CLI_INDEX+(R(append,R(commandline,R(ty,*argp))))) = (p);
 
 // monitor
 if(CLI_DBG_D<(CLI_DBG)) {
@@ -116,14 +129,13 @@ if(i<(0x20)) {
 // fix
 *(--cur) = (signed char) (0x00);
 size++;
+if(p) {
 // concatenate
-r = concats(*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(cur,R(commandline,R(ty,*argp))))),*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),(void*) 0x00);
-/* empty or..
+r = concats(*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(cur,R(commandline,R(ty,*argp))))),p,(void*) 0x00);
 if(!r) {
 printf("%s\n","<< Error at fn. concats()");
 return(0x00);
-}
-//*/
+}}
 // to invoke
 *(CLI_INDEX+(R(cur,R(commandline,R(ty,*argp))))) = (cur);
 R(gauge,R(commandline,R(ty,*argp))) = (size);
@@ -140,9 +152,9 @@ cur = (*(CLI_INDEX+(R(cur,R(commandline,R(ty,*argp))))));
 
 else {
 // append
-r = cpy(cur,*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))));
+r = cpy(cur,p);
 if(!r) {
-if(R(append,R(commandline,R(ty,*argp)))) {
+if(p) {
 printf("%s\n","<< Error at fn. cpy()");
 return(0x00);
 }}
@@ -150,18 +162,22 @@ return(0x00);
 // add a fn. to parse the coordinates.
 
 // put
-r = cli_col_out_beta(-diff+(cur),argp);
+r = cli_coord_out_beta(-diff+(cur),argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_col_out_beta()");
+printf("%s\n","<< Error at fn. cli_coord_out_beta()");
 return(0x00);
 }
 // also put
-r = cli_output_beta(0x01/* a comeback flag */,cur,argp);
+r = cli_output_beta(0x01/* comeback */,cur,argp);
 if(!r) {
-if(R(append,R(commandline,R(ty,*argp)))) {
+if(p) {
 printf("%s\n","<< Error at fn. cli_output_beta()");
 return(0x00);
 }}}
+
+if(p) free(p);
+p = (0x00);
+*(CLI_INDEX+(R(append,R(commandline,R(ty,*argp))))) = (p);
 
 return(0x01+(cl_io_beta(cur,size,argp)));
 }

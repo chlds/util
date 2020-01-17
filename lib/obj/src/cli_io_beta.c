@@ -76,25 +76,14 @@ if(!argp) return(0x00);
 // limit
 if(size<(CLI_EMPTY)) {
 *cur = (0x00);
-r = extend(CLI_BASE+(R(base,R(roll,R(ty,*argp)))),CLI_BASE+(R(size,R(roll,R(ty,*argp)))),CLI_EMPTY);
+r = cli_extend(0x00/* cue */,CLI_EMPTY,&(R(ty,*argp)));
 if(!r) {
-printf("%s\n","<< Error at fn. extend()");
+printf("%s\n","<< Error at fn. cli_extend()");
 return(0x00);
 }
-i = (r);
-r = cli_init_workspace(&(R(ty,*argp)));
-if(!r) {
-printf("%s\n","<< Error at fn. cli_init_workspace()");
-return(0x00);
-}
-R(gauge,R(debug,R(ty,*argp))) = (CLI_EMPTY);
-R(gauge,R(ty,*argp)) = (CLI_EMPTY);
 size = (CLI_EMPTY);
-cur = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
-while(i) {
-cur++;
---i;
-}}
+cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+}
 
 // break
 if(R(linebreak,R(ty,*argp))) return(0x01);
@@ -103,9 +92,23 @@ if(R(linebreak,R(ty,*argp))) return(0x01);
 if(!(CLI_QUIT^(R(flag,R(ty,*argp))))) return(0x01);
 
 // to append
-r = cpy(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),cur);
-if(!r) R(append,R(ty,*argp)) = (0x00);
-else R(append,R(ty,*argp)) = (0x01);
+r = ct(cur);
+if(!r) p = (0x00);
+else {
+INC(r);
+r = (r*(sizeof(signed char)));
+p = (signed char(*)) malloc(r);
+if(!p) {
+printf("%s\n","<< Error at fn. malloc()");
+return(0x00);
+}
+r = cpy(p,cur);
+if(!r) {
+printf("%s\n","<< Error at fn. cpy()");
+return(0x00);
+}}
+
+*(CLI_BASE+(R(append,R(ty,*argp)))) = (p);
 
 // monitor
 if(CLI_DBG_B<(CLI_DBG)) {
@@ -132,15 +135,14 @@ if(i<(0x20)) {
 // fix
 *(--cur) = (signed char) (0x00);
 size++;
+if(p) {
 // concatenate
-r = concats(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(cur,R(ty,*argp)))),*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),(void*) 0x00);
+r = concats(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(cur,R(ty,*argp)))),p,(void*) 0x00);
 if(!r) {
-/* empty or..
 printf("%s\n","<< Error at fn. concats()");
 return(0x00);
-//*/
-}
-// to copy and paste
+}}
+// count to copy and paste
 if(!(CTRL_L^(i))) INC(R(clip,R(clipboard,R(ty,*argp))));
 else R(clip,R(clipboard,R(ty,*argp))) = (0x00);
 // to invoke
@@ -159,9 +161,9 @@ cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 
 else {
 // append
-r = cpy(cur,*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))));
+r = cpy(cur,p);
 if(!r) {
-if(R(append,R(ty,*argp))) {
+if(p) {
 printf("%s\n","<< Error at fn. cpy()");
 return(0x00);
 }}
@@ -175,12 +177,18 @@ printf("%s\n","<< Error at fn. cli_coord_out_beta()");
 return(0x00);
 }
 // also put
-r = cli_output_beta(0x01/* a comeback flag */,cur,argp);
+r = cli_output_beta(0x01/* comeback */,cur,argp);
 if(!r) {
-if(R(append,R(ty,*argp))) {
+if(p) {
 printf("%s\n","<< Error at fn. cli_output_beta()");
 return(0x00);
 }}}
+
+if(!(R(linebreak,R(ty,*argp)))) {
+if(p) free(p);
+p = (0x00);
+*(CLI_BASE+(R(append,R(ty,*argp)))) = (p);
+}
 
 return(0x01+(cli_io_beta(cur,size,argp)));
 }

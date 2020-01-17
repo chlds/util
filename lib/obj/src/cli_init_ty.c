@@ -38,11 +38,11 @@ printf("%s\n","<< Error at fn. cli_init_rolls()");
 return(0x00);
 }
 
-if(!(R(align_tab,*argp))) R(align_tab,*argp) = (ALIGN_TAB);
 if(!(R(linebreak_form,*argp))) R(linebreak_form,*argp) = (LINEBREAK_CRLF);
-R(linebreak,*argp) = (0x00);
-R(append,*argp) = (0x00);
+if(!(R(align_tab,*argp))) R(align_tab,*argp) = (ALIGN_TAB);
 R(flag,*argp) = (0x00);
+R(linebreak,*argp) = (0x00);
+R(offset,*argp) = (0x00);
 
 R(gauge,R(debug,*argp)) = (size);
 R(gauge,*argp) = (size);
@@ -52,6 +52,10 @@ R(cur,R(debug,*argp)) = (p);
 i = (CLI_OBJS);
 while(i) {
 *(--i+(R(cur,*argp))) = (p);
+}
+i = (CLI_OBJS);
+while(i) {
+*(--i+(R(append,*argp))) = (0x00);
 }
 
 // coordinate

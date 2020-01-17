@@ -38,10 +38,13 @@ i = (CLI_OBJS);
 while(i) {
 *(--i+(R(cur,R(commandline,R(ty,*argp))))) = (p);
 }
+i = (CLI_OBJS);
+while(i) {
+*(--i+(R(append,R(commandline,R(ty,*argp))))) = (0x00);
+}
 // R(gauge,R(commandline,R(ty,*argp))) = (*(CLI_INDEX+(R(size,R(roll,R(ty,*argp))))));
-R(linebreak,R(commandline,R(ty,*argp))) = (0x00);
 R(offset,R(commandline,R(ty,*argp))) = (0x00);
-R(append,R(commandline,R(ty,*argp))) = (0x00);
+R(linebreak,R(commandline,R(ty,*argp))) = (0x00);
 R(flag,R(commandline,R(ty,*argp))) = (0x00);
 
 r = cl_backup_codepages_beta(argp);

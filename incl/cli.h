@@ -55,7 +55,7 @@ Refer at ./config_ty.h
 # define CLI_EDIT_FILE (0x100000)
 # define CLI_NAME (0x02*(0x100))
 
-# define CLI_EMPTY (0x01+(0x04))
+# define CLI_EMPTY (0x01+(0x07))
 # define CLI_BUFF (0x100000)
 
 # define CLI_HEADER_HEIGHT (0x02)
@@ -192,10 +192,11 @@ void *optl;
 
 typedef struct cli_commandline {
 signed char *(cur[CLI_OBJS]);
+signed char *(append[CLI_OBJS]);
+// signed appendant[CLI_OBJS];
 signed gauge;
-signed short linebreak;
 signed short offset;
-signed short append;
+signed short linebreak;
 signed short flag;
 CLI_DEBUG debug;
 CLI_HISTORY history;
@@ -206,12 +207,14 @@ void *optl;
 
 typedef struct cli_typewriter {
 signed char *(cur[CLI_OBJS]);
+signed char *(append[CLI_OBJS]);
+// signed appendant[CLI_OBJS];
 signed gauge;
+signed short offset;
+signed short linebreak;
+signed short flag;
 signed short align_tab;
 signed short linebreak_form;
-signed short linebreak;
-signed short append;
-signed short flag;
 CLI_COMMANDLINE commandline;
 CLI_DEBUG debug;
 CLI_CLIPBOARD clipboard;
@@ -232,23 +235,26 @@ void *optl;
 
 signed(__cdecl cli_prev_word_internal(signed char(**retrv),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_prev_word(signed char(**retrv),CLI_TYPEWRITER(*argp)));
-// Retrieve an address of the previous word.
+// retrieve an address of the previous word.
+
+signed(__cdecl cli_extend(signed short(cue),signed(extra),CLI_TYPEWRITER(*argp)));
+// extend workspace
 
 signed(__cdecl cli_append(signed char(*appendant),CLI_TYPEWRITER(*argp)));
-// Append
+// append
 
 signed(__cdecl cli_display_header(CLI_TYPEWRITER(*argp)));
-// Display the two-row header
+// display the two-row header
 
 signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp)));
-// Parse a config file for the typewriter
+// parse a config file for the typewriter
 
 signed(__cdecl cli_init_ty(signed(size),CLI_TYPEWRITER(*argp)));
-// Initialise
+// initialise
 
 signed(__cdecl cli_init_rolls(signed(size),CLI_ROLL(*argp)));
 signed(__cdecl cli_unmap_rolls(CLI_ROLL(*argp)));
-// Charge rolls
+// charge rolls
 
 signed(__cdecl cli_search_pages_internal(signed char(*characters),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_search_pages(signed char(*characters),CLI_TYPEWRITER(*argp)));
@@ -256,19 +262,19 @@ signed(__cdecl cli_search_pages(signed char(*characters),CLI_TYPEWRITER(*argp)))
 
 signed(__cdecl cli_load_internal(signed(count),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_load(CLI_TYPEWRITER(*argp)));
-// Load
+// load
 
 signed(__cdecl cli_write(signed(descriptor),CLI_TYPEWRITER(*argp)));
-// Write
+// write
 
 signed(__cdecl cli_save(signed short(update_flag),CLI_TYPEWRITER(*argp)));
-// Save
+// save
 
 signed(__cdecl cli_book(CLI_TYPEWRITER(*argp)));
-// Copy characters on workspace to the current page.
+// copy characters on workspace to the current page.
 
 signed(__cdecl cli_init_workspace(CLI_TYPEWRITER(*argp)));
-// Initialise workspace.
+// initialise workspace.
 
 signed(__cdecl cli_init_pages(CLI_SPOOL(*argp)));
 
@@ -287,11 +293,11 @@ signed(__cdecl cli_page(CLI_PAGE(**di),CLI_SPOOL(*argp),CLI_PAGE(*si),signed(n))
 signed(__cdecl cli_concat_snapshots(CLI_SNAPSHOT(*cache),CLI_HISTORY(*argp)));
 signed(__cdecl cli_bind_snapshots(CLI_HISTORY(*argp)));
 signed(__cdecl cli_unmap_snapshots(CLI_HISTORY(*argp)));
-// Based on a doubly linked list (i.e., not a circular linked list)
+// based on a doubly linked list (i.e., not a circular linked list)
 
 signed(__cdecl cli_diff_history(signed short(*diff),signed char(*base),CLI_PAGE(*argp)));
 signed(__cdecl cli_history(CLI_PAGE(*argp)));
-// Take snapshots to redo and undo.
+// take snapshots to redo and undo.
 
 signed(__cdecl cl_ctrl_at(void(*argp)));
 signed(__cdecl cl_ctrl_a(void(*argp)));
@@ -368,6 +374,6 @@ signed(__cdecl cli_ctrl_ll(void(*argp)));
 // along with an array of function pointers for text
 
 signed(__cdecl cli_io(signed char *cur,signed size,CLI_STAT(*argp)));
-/* Input/Output Unicode bytes/characters in UTF-8 out of the key board to the console screen along with fn. cli_in/cli_out. */
+/* input/Output Unicode bytes/characters in UTF-8 out of the key board to the console screen along with fn. cli_in/cli_out. */
 
 // and more..
