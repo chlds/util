@@ -22,8 +22,8 @@ signed(__cdecl cli_paste_beta(CLI_W32_STAT(*argp))) {
 /* **** DATA, BSS and STACK */
 auto void *g;
 auto signed short *w;
-auto signed char *p;
-auto signed long long sll;
+auto signed char *cur,*p;
+auto signed long long ll;
 auto signed c,i,r;
 auto signed short flag;
 

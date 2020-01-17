@@ -34,13 +34,23 @@ p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 ll = ((signed long long) p);
 if(!(ll^((signed long long) *(CLI_BASE+(R(base,R(roll,R(ty,*argp)))))))) return(0x01);
 
-r = cpy(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),p);
-if(!r) {
-/* empty or..
+r = ct(p);
+if(!r) p = (0x00);
+else {
+INC(r);
+r = (r*(sizeof(signed char)));
+p = (signed char(*)) malloc(r);
+if(!p) {
+printf("%s\n","<< Error at fn. malloc()");
+return(0x00);
+}
+r = cpy(p,*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+if(!p) {
 printf("%s\n","<< Error at fn. cpy()");
 return(0x00);
-//*/
-}
+}}
+
+*(CLI_OFFSET+(R(append,R(ty,*argp)))) = (p);
 
 r = cli_ctrl_r_beta(argp);
 if(!r) {
@@ -48,29 +58,23 @@ printf("%s\n","<< Error at fn. cli_ctrl_r_beta()");
 return(0x00);
 }
 
-p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
-
-r = cpy(p,*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))));
+if(!p) **(CLI_INDEX+(R(cur,R(ty,*argp)))) = (0x00);
+else {
+r = cpy(*(CLI_INDEX+(R(cur,R(ty,*argp)))),p);
 if(!r) {
-/* empty or..
 printf("%s\n","<< Error at fn. cpy()");
 return(0x00);
-//*/
-}
+}}
 
-r = cli_clear_rows_beta(argp);
+r = cli_clear_output_beta(0x01/* comeback */,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
+printf("%s\n","<< Error at fn. cli_clear_output_beta()");
 return(0x00);
 }
 
-r = cli_output_beta(0x01,p,argp);
-if(!r) {
-/* empty or..
-printf("%s\n","<< Error at fn. cli_output_beta()");
-return(0x00);
-//*/
-}
+if(p) free(p);
+p = (0x00);
+*(CLI_OFFSET+(R(append,R(ty,*argp)))) = (p);
 
 return(0x01);
 }

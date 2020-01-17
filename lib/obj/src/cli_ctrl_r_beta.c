@@ -23,7 +23,7 @@ signed(__cdecl cli_ctrl_r_beta(CLI_W32_STAT(*argp))) {
 auto signed char HT = ('\t');
 auto signed char SP = (' ');
 auto signed char *cur,*p;
-auto signed long long sll;
+auto signed long long ll;
 auto signed c,i,r;
 auto signed short flag;
 
@@ -33,8 +33,8 @@ if(!argp) return(0x00);
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-R>");
 
 p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
-sll = ((signed long long) p);
-if(!(sll^((signed long long) *(CLI_BASE+(R(base,R(roll,R(ty,*argp)))))))) return(0x01);
+ll = ((signed long long) p);
+if(!(ll^((signed long long) *(CLI_BASE+(R(base,R(roll,R(ty,*argp)))))))) return(0x01);
 
 r = cli_prev_word(&p,&(R(ty,*argp)));
 if(!r) {
@@ -52,15 +52,16 @@ return(0x00);
 
 while(0x01) {
 if(cur<(p)) {
-r = cli_col_out_beta(cur,argp);
+r = cli_coord_out_beta(cur,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_col_out_beta()");
+printf("%s\n","<< Error at fn. cli_coord_out_beta()");
 return(0x00);
 }}
 else break;
 cur = (cur+(r));
 }
 
+*(CLI_LEAD+(R(cur,R(ty,*argp)))) = (cur);
 *(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
 
 return(0x01);
