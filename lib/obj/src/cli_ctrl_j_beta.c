@@ -5,7 +5,7 @@ Press <Ctrl-J> to invoke the function.
 Along with C and Windows libraries
 
 Remarks:
-Refer at fn. cli_io_beta and fn. cli_ctrl_b_beta.
+Refer at fn. cli_io_beta, fn. cli_ctrl_r_beta and fn. cli_ctrl_b_beta.
 */
 
 
@@ -20,7 +20,7 @@ Refer at fn. cli_io_beta and fn. cli_ctrl_b_beta.
 signed(__cdecl cli_ctrl_j_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char *cur,*p;
+auto signed char *cur,*old,*p;
 auto signed long long ll;
 auto signed i,r;
 auto signed short flag;
@@ -33,6 +33,8 @@ if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-J>");
 p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 ll = ((signed long long) p);
 if(!(ll^((signed long long) *(CLI_BASE+(R(base,R(roll,R(ty,*argp)))))))) return(0x01);
+
+old = (p);
 
 r = ct(p);
 if(!r) p = (0x00);
@@ -66,15 +68,29 @@ printf("%s\n","<< Error at fn. cpy()");
 return(0x00);
 }}
 
+if(p) free(p);
+p = (0x00);
+*(CLI_OFFSET+(R(append,R(ty,*argp)))) = (p);
+
+cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+i = (0x00);
+
+while(0x01) {
+if(cur<(old)) {
+cur++;
+i++;
+}
+else break;
+}
+
+ADD(R(gauge,R(debug,R(ty,*argp))),i);
+ADD(R(gauge,R(ty,*argp)),i);
+
 r = cli_clear_output_beta(0x01/* comeback */,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_clear_output_beta()");
 return(0x00);
 }
-
-if(p) free(p);
-p = (0x00);
-*(CLI_OFFSET+(R(append,R(ty,*argp)))) = (p);
 
 return(0x01);
 }

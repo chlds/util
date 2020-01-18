@@ -5,7 +5,7 @@ Press <Ctrl-R> to invoke the function.
 Along with C and Windows libraries
 
 Remarks:
-Refer at fn. cli_io_beta and fn. cli_ctrl_b_beta.
+Refer at fn. cli_io_beta, fn. cli_ctrl_j_beta and fn. cli_ctrl_b_beta.
 */
 
 
@@ -32,23 +32,23 @@ if(!argp) return(0x00);
 
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-R>");
 
-p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
-ll = ((signed long long) p);
+cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+ll = ((signed long long) cur);
 if(!(ll^((signed long long) *(CLI_BASE+(R(base,R(roll,R(ty,*argp)))))))) return(0x01);
 
-r = cli_prev_word(&p,&(R(ty,*argp)));
+r = cue_backward(&p,*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),cur);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_prev_word()");
+printf("%s\n","<< Error at fn. cue_backward()");
 return(0x00);
 }
-
-cur = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
 
 r = cli_ctrl_a_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_ctrl_a_beta()");
 return(0x00);
 }
+
+cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 
 while(0x01) {
 if(cur<(p)) {
