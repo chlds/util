@@ -8,8 +8,11 @@ Along with C library
 //*/
 
 
+# define CL_MACRO
+
 # include <stdio.h>
 # include <stdlib.h>
+# include "../../../incl/cl.h"
 
 signed(__cdecl extend(signed char(**argp),signed(*total),signed(extra))) {
 
@@ -25,13 +28,15 @@ if(extra<(0x01)) return(0x00);
 if(!(*argp)) return(0x00);
 
 r = ct(*argp);
-r++;
+// r++;
 
 *total = (r+(extra));
 i = (*total);
 if(i<(0x01)) return(0x00);
 
-p = (signed char(*)) malloc(r*(sizeof(signed char)));
+INC(r);
+r = (r*(sizeof(signed char)));
+p = (signed char(*)) malloc(r);
 if(!p) {
 printf("%s\n","<< Error at fn. malloc()");
 return(0x00);

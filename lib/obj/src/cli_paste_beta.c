@@ -22,9 +22,9 @@ signed(__cdecl cli_paste_beta(CLI_W32_STAT(*argp))) {
 /* **** DATA, BSS and STACK */
 auto void *g;
 auto signed short *w;
-auto signed char *cur,*p;
+auto signed char *cur,*base,*p;
 auto signed long long ll;
-auto signed c,i,r;
+auto signed c,i,r,offset;
 auto signed short flag;
 
 /* **** CODE/TEXT */
@@ -67,37 +67,68 @@ return(0x00);
 return(0x00);
 }
 
-i = (R(gauge,R(ty,*argp)));
-p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+base = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
+offset = (0x00);
 
-r = cpy(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),p);
+while(0x01) {
+if(base<(cur)) {
+base++;
+offset++;
+}
+else break;
+}
+
+// to append
+r = ct(cur);
+if(!r) p = (0x00);
+else {
+INC(r);
+r = (r*(sizeof(signed char)));
+p = (signed char(*)) malloc(r);
+if(!p) {
+printf("%s\n","<< Error at fn. malloc()");
+return(0x00);
+}
+r = cpy(p,cur);
 if(!r) {
-/* empty or..
 printf("%s\n","<< Error at fn. cpy()");
 return(0x00);
-//*/
-}
+}}
+
+*(CLI_OFFSET+(R(append,R(ty,*argp)))) = (p);
+
+i = (R(gauge,R(ty,*argp)));
 
 while(0x01) {
 if(i<(CLI_EMPTY)) {
-printf("%s\n","<< Reached the limit..");
+r = cli_extend(0x00/* cue */,CLI_EMPTY/* extra */,&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_extend()");
+// return(0x00);
 flag++;
 break;
-// return(0x00);
+}
+i = (CLI_EMPTY);
+cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 }
 if(!(*w)) break;
-r = encode2uni(i,p,*w);
+r = encode2uni(i,cur,*w);
 if(!r) {
 printf("%s\n","<< Error at fn. encode2uni()");
 return(0x00);
 }
 i = (-r+(i));
-p = (r+(p));
+cur = (r+(cur));
 w++;
 }
+*cur = (0x00);
 
-*p = (0x00);
+*(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
+R(gauge,R(debug,R(ty,*argp))) = (i);
+R(gauge,R(ty,*argp)) = (i);
 
+/*
 if(!flag) {
 // limit
 r = ct(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
@@ -107,16 +138,18 @@ if(r<(CLI_EMPTY)) {
 printf("%s\n","<< Reached the limit..");
 return(0x00);
 }}
+//*/
 
+/*
 // Aux.
 if(!flag) {
-r = cpy(*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))),*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+r = (R(offset,R(ty,*argp)));
+r = cpy(*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))),r+(*(CLI_BASE+(R(cur,R(ty,*argp))))));
 if(!r) {
-/* empty or..
 printf("%s\n","<< Error at fn. cpy()");
 // return(0x00);
-//*/
 }}
+//*/
 
 /*
 if(!flag) {
@@ -136,7 +169,7 @@ printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
 }}
 
 if(!flag) {
-r = cli_output_beta(0x00,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
+r = cli_output_beta(0x00/* comeback */,offset+(*(CLI_BASE+(R(cur,R(ty,*argp))))),argp);
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cli_output_beta()");
@@ -144,24 +177,43 @@ printf("%s\n","<< Error at fn. cli_output_beta()");
 //*/
 }}
 
+/*
 if(!flag) {
 while(r) {
 INC(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 --r;
 }}
+//*/
 
 if(!flag) {
-r = cpy(p,*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))));
-// i.e., r = cpy(*(CLI_INDEX+(R(cur,R(ty,*argp)))),*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))));
+// to copy
+r = ct(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
+r = (r+(ct(p)));
+INC(r);
+i = (*(CLI_BASE+(R(size,R(roll,R(ty,*argp))))));
+if(i<(r)) {
+r = cli_extend(0x00/* cue */,CLI_EMPTY+(-i+(r))/* extra */,&(R(ty,*argp)));
 if(!r) {
-/* empty or..
+printf("%s\n","<< Error at fn. cli_extend()");
+return(0x00);
+}}
+r = cpy(*(CLI_INDEX+(R(cur,R(ty,*argp)))),p);
+// i.e., r = cpy(*(CLI_INDEX+(R(cur,R(ty,*argp)))),*(CLI_OFFSET+(R(append,R(ty,*argp)))));
+if(!r) {
+if(p) {
 printf("%s\n","<< Error at fn. cpy()");
 return(0x00);
-//*/
 }}
+ADD(R(gauge,R(debug,R(ty,*argp))),-r);
+ADD(R(gauge,R(ty,*argp)),-r);
+}
+
+if(p) free(p);
+p = (0x00);
+*(CLI_OFFSET+(R(append,R(ty,*argp)))) = (p);
 
 if(!flag) {
-r = cli_output_beta(0x01,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
+r = cli_output_beta(0x01/* comeback */,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cli_output_beta()");

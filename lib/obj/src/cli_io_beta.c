@@ -64,7 +64,7 @@ auto signed char const(SP) = (' ');
 auto signed char const(CR) = ('\r');
 auto signed char const(LF) = ('\n');
 
-auto signed char *p;
+auto signed char *base,*p;
 auto signed diff;
 auto signed i,r;
 auto signed short flag;
@@ -75,14 +75,16 @@ if(!argp) return(0x00);
 
 // limit
 if(size<(CLI_EMPTY)) {
-*cur = (0x00);
-r = cli_extend(0x00/* cue */,CLI_EMPTY,&(R(ty,*argp)));
+r = cli_extend(0x01/* cue */,CLI_EMPTY,&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_extend()");
 return(0x00);
 }
 size = (CLI_EMPTY);
+R(gauge,R(ty,*argp)) = (size);
 cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+cur = (cur+(R(offset,R(ty,*argp))));
+*(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
 }
 
 // break
@@ -189,6 +191,17 @@ if(p) free(p);
 p = (0x00);
 *(CLI_BASE+(R(append,R(ty,*argp)))) = (p);
 }
+
+i = (0x00);
+base = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
+while(0x01) {
+if(base<(cur)) {
+base++;
+i++;
+}
+else break;
+}
+R(offset,R(ty,*argp)) = (i);
 
 return(0x01+(cli_io_beta(cur,size,argp)));
 }

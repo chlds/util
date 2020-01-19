@@ -81,6 +81,12 @@ else printf("\n");
 // Workspace
 printf("%s\n","Workspace at R(ty,*argp");
 
+r = cli_outs(*(CLI_OFFSET+(R(append,R(ty,*argp)))));
+if(!r) printf("%s\n","<< *(CLI_OFFSET+(R(append, is empty or..");
+else printf("\n");
+r = cli_outs(*(CLI_BASE+(R(append,R(ty,*argp)))));
+if(!r) printf("%s\n","<< *(CLI_BASE+(R(append, is empty or..");
+else printf("\n");
 printf("%p%s\n",*(CLI_BASE+(R(append,R(ty,*argp))))," at *(CLI_BASE+(R(append,");
 printf("%p%s\n",*(CLI_OFFSET+(R(append,R(ty,*argp))))," at *(CLI_OFFSET+(R(append,");
 printf("%p%s\n",*(CLI_INDEX+(R(append,R(ty,*argp))))," at *(CLI_INDEX+(R(append,");
