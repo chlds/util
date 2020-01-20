@@ -20,6 +20,8 @@ auto signed i,r;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+R(redo,*argp) = (0x00);
+R(undo,*argp) = (0x00);
 R(insert,*argp) = (0x00);
 
 i = (CLI_OBJS);

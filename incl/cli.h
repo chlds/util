@@ -121,6 +121,8 @@ void *optl;
 
 typedef struct cli_history {
 signed short insert;
+signed undo;
+signed redo;
 CLI_SNAPSHOT *(cache);
 CLI_SNAPSHOT *(snapshot[CLI_SNAPSHOTS]);
 void *optl;
@@ -144,6 +146,8 @@ void *optl;
 
 typedef struct cli_spool {
 signed short insert;
+signed undo;
+signed redo;
 CLI_PAGE *(cache);
 CLI_PAGE *(page[CLI_PAGES]);
 void *optl;

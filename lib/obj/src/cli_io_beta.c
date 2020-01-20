@@ -133,6 +133,10 @@ diff = (r);
 cur = (diff+(cur));
 size = (-diff+(size));
 
+// count to copy and paste
+if(!(CTRL_L^(i))) INC(R(clip,R(clipboard,R(ty,*argp))));
+else R(clip,R(clipboard,R(ty,*argp))) = (0x00);
+
 if(i<(0x20)) {
 // fix
 *(--cur) = (signed char) (0x00);
@@ -144,9 +148,6 @@ if(!r) {
 printf("%s\n","<< Error at fn. concats()");
 return(0x00);
 }}
-// count to copy and paste
-if(!(CTRL_L^(i))) INC(R(clip,R(clipboard,R(ty,*argp))));
-else R(clip,R(clipboard,R(ty,*argp))) = (0x00);
 // to invoke
 *(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
 R(gauge,R(ty,*argp)) = (size);
@@ -185,6 +186,10 @@ if(p) {
 printf("%s\n","<< Error at fn. cli_output_beta()");
 return(0x00);
 }}}
+
+// to undo and redo
+if(!(CTRL_LSB^(i))) R(undo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))) = (0x01);
+else R(undo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))) = (0x00);
 
 if(!(R(linebreak,R(ty,*argp)))) {
 if(p) free(p);
