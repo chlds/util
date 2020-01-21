@@ -30,6 +30,13 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+
+//* temporarily disable
+
+return(0x01);
+//*/
+
+
 flag = (0x00);
 
 r = OpenClipboard(*(CLI_BASE+(R(window,*argp))));
@@ -127,18 +134,6 @@ w++;
 *(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
 R(gauge,R(debug,R(ty,*argp))) = (i);
 R(gauge,R(ty,*argp)) = (i);
-
-/*
-if(!flag) {
-// limit
-r = ct(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
-ADD(R(gauge,R(ty,*argp)),-r);
-r = (R(gauge,R(ty,*argp)));
-if(r<(CLI_EMPTY)) {
-printf("%s\n","<< Reached the limit..");
-return(0x00);
-}}
-//*/
 
 /*
 // Aux.

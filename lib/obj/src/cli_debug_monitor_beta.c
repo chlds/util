@@ -92,17 +92,44 @@ printf("%p%s\n",*(CLI_OFFSET+(R(append,R(ty,*argp))))," at *(CLI_OFFSET+(R(appen
 printf("%p%s\n",*(CLI_INDEX+(R(append,R(ty,*argp))))," at *(CLI_INDEX+(R(append,");
 printf("%p%s\n",*(CLI_LEAD+(R(append,R(ty,*argp))))," at *(CLI_LEAD+(R(append,");
 
+printf("%p%s\n",*(CLI_LEAD+(R(append,R(commandline,R(ty,*argp)))))," at *(CLI_LEAD+(R(append,R(commandline,");
+printf("%p%s\n",*(CLI_INDEX+(R(append,R(commandline,R(ty,*argp)))))," at *(CLI_INDEX+(R(append,R(commandline,");
+printf("%p%s\n",*(CLI_OFFSET+(R(append,R(commandline,R(ty,*argp)))))," at *(CLI_OFFSET+(R(append,R(commandline,");
+printf("%p%s\n",*(CLI_BASE+(R(append,R(commandline,R(ty,*argp)))))," at *(CLI_BASE+(R(append,R(commandline,");
+r = cli_outs(*(CLI_BASE+(R(append,R(commandline,R(ty,*argp))))));
+if(!r) printf("%s\n","<< *(CLI_BASE+(R(append,R(commandline, is empty or..");
+else printf("\n");
+r = cli_outs(*(CLI_OFFSET+(R(append,R(commandline,R(ty,*argp))))));
+if(!r) printf("%s\n","<< *(CLI_OFFSET+(R(append,R(commandline, is empty or..");
+else printf("\n");
+
 // Gauges
-printf("%d%s",R(gauge,R(debug,R(ty,*argp))),"/");
+printf("%d%s",R(gauge,R(commandline,R(ty,*argp))),"/");
+printf("%d%s",R(offset,R(commandline,R(ty,*argp))),"/");
+printf("%d%s",R(linebreak,R(commandline,R(ty,*argp))),"/");
+printf("%Xh%s",R(flag,R(commandline,R(ty,*argp)))," at R(gauge/R(offset/R(linebreak/R(flag, on R(commandline,");
+printf("\n");
+
 printf("%d%s",R(gauge,R(ty,*argp)),"/");
 printf("%d%s",R(offset,R(ty,*argp)),"/");
 printf("%d%s",R(linebreak,R(ty,*argp)),"/");
 printf("%Xh%s",R(flag,R(ty,*argp)),"/");
 printf("%d%s",R(align_tab,R(ty,*argp)),"/");
-printf("%Xh%s\n",R(linebreak_form,R(ty,*argp))," at R(gauge,R(debug/R(gauge/R(offset/R(linebreak/R(flag/R(align_tab/R(linebreak_form,");
+printf("%Xh%s",R(linebreak_form,R(ty,*argp))," at R(gauge/R(offset/R(linebreak/R(flag/R(align_tab/R(linebreak_form,");
+printf("\n");
 
 // Addresses
-printf("%p%s\n",R(cur,R(debug,R(ty,*argp)))," at R(cur,R(debug,");
+printf(\
+"%p%s%d%s\n",\
+R(cur,R(debug,R(commandline,R(ty,*argp)))),"/",\
+R(gauge,R(debug,R(commandline,R(ty,*argp))))," at R(cur/gauge,R(debug,R(commandline,"\
+);
+
+printf(\
+"%p%s%d%s\n",\
+R(cur,R(debug,R(ty,*argp))),"/",\
+R(gauge,R(debug,R(ty,*argp)))," at R(cur/gauge,R(debug,"\
+);
 
 printf("%p%s\n",*(CLI_LEAD+(R(cur,R(ty,*argp))))," at *(CLI_LEAD+(R(cur,");
 printf("%p%s\n",*(CLI_INDEX+(R(cur,R(ty,*argp))))," at *(CLI_INDEX+(R(cur, (updated by fn. calls but always monitored)");
@@ -132,8 +159,14 @@ printf(\
 );
 
 // Concatenated pages
-printf("%s","Pages at R(spool,R(ty,*argp");
+printf("%s","Pages: ");
+printf("%d%s",R(offset,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))),"/");
+printf("%d%s",R(insert,R(spool,R(ty,*argp))),"/");
+printf("%d%s",R(undo,R(spool,R(ty,*argp))),"/");
+printf("%d%s",R(redo,R(spool,R(ty,*argp)))," ");
+printf("%s","at R(offset,**(CLI_INDEX+(R(page/R(insert/R(undo/R(redo, on R(spool,R(ty,*argp");
 printf("\n");
+
 printf("%p%s",*(CLI_BASE+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_BASE+(R(page, | ");
 printf(\
 "%d%s%d\n",\
@@ -159,28 +192,23 @@ R(x,*(CLI_BASE+(R(coord,**(CLI_LEAD+(R(page,R(spool,R(ty,*argp))))))))),"/",\
 R(y,*(CLI_BASE+(R(coord,**(CLI_LEAD+(R(page,R(spool,R(ty,*argp)))))))))\
 );
 
-printf("%d%s",R(offset,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))),"/");
-printf("%d%s",R(insert,R(spool,R(ty,*argp))),"/");
-printf("%d%s",R(undo,R(spool,R(ty,*argp))),"/");
-printf("%d%s",R(redo,R(spool,R(ty,*argp)))," at R(offset,**(CLI_INDEX+(R(page/R(insert/R(undo/R(redo,");
-printf("\n");
-
 // Snapshots
-printf("%s","Snapshots at R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp");
+printf("%s","Snapshots: ");
+
+if(*(CLI_INDEX+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))) {
+printf("%d%s",R(offset,**(CLI_INDEX+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))),"/");
+printf("%d%s",R(insert,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))),"/");
+printf("%d%s",R(undo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))),"/");
+printf("%d%s",R(redo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))," ");
+printf("%s","at R(offset,**(CLI_INDEX+(R(snapshot/R(insert/R(undo/R(redo, on R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp");
+}
+
 printf("\n");
 
 printf("%p%s\n",*(CLI_BASE+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))," at *(CLI_BASE+(R(snapshot, | ");
 printf("%p%s\n",*(CLI_OFFSET+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))," at *(CLI_OFFSET+(R(snapshot, | ");
 printf("%p%s\n",*(CLI_INDEX+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))," at *(CLI_INDEX+(R(snapshot, | ");
 printf("%p%s\n",*(CLI_LEAD+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))," at *(CLI_LEAD+(R(snapshot, | ");
-
-if(*(CLI_INDEX+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))) {
-printf("%d%s",R(offset,**(CLI_INDEX+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))),"/");
-printf("%d%s",R(insert,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))),"/");
-printf("%d%s",R(undo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))),"/");
-printf("%d%s",R(redo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))," at R(offset,**(CLI_INDEX+(R(snapshot/R(insert/R(undo/R(redo,");
-printf("\n");
-}
 
 // Coordinates
 printf("%s\n","Coordinates at R(ty,*argp");

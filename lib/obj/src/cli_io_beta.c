@@ -81,10 +81,10 @@ printf("%s\n","<< Error at fn. cli_extend()");
 return(0x00);
 }
 size = (CLI_EMPTY);
-R(gauge,R(ty,*argp)) = (size);
+// R(gauge,R(ty,*argp)) = (size);
 cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 cur = (cur+(R(offset,R(ty,*argp))));
-*(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
+// *(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
 }
 
 // break

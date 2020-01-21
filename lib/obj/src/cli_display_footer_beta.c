@@ -69,13 +69,15 @@ R(y,*(i+(R(coord,R(commandline,R(ty,*argp)))))) = (coord_b.y);
 R(x,*(i+(R(coord,R(commandline,R(ty,*argp)))))) = (coord_b.x);
 }
 
-r = embed_to(*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))),0x00,CLI_BUFF);
+i = (*(CLI_INDEX+(R(size,R(roll,R(ty,*argp))))));
+r = embed_to(*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))),0x00,i);
 if(!r) {
 printf("%s\n","<< Error at fn. embed_to()");
 return(0x00);
 }
 
-r = embed_to(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),0x00,CLI_BUFF);
+i = (*(CLI_OFFSET+(R(size,R(roll,R(ty,*argp))))));
+r = embed_to(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),0x00,i);
 if(!r) {
 printf("%s\n","<< Error at fn. embed_to()");
 return(0x00);
@@ -87,7 +89,7 @@ printf("%s\n","<< Error at fn. cl_kb_beta()");
 return(0x00);
 }
 
-r = embed_to(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),0x00,CLI_BUFF);
+r = embed_to(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),0x00,i);
 if(!r) {
 printf("%s\n","<< Error at fn. embed_to()");
 return(0x00);

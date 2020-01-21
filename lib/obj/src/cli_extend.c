@@ -39,9 +39,10 @@ printf("%s\n","<< Error at fn. cli_init_workspace()");
 return(0x00);
 }
 
-if(!cue) {
 R(gauge,R(debug,*argp)) = (extra);
 R(gauge,*argp) = (extra);
+
+if(!cue) {
 p = (*(CLI_BASE+(R(cur,*argp))));
 while(i) {
 INC(p);

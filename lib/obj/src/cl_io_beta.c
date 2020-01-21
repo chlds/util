@@ -64,7 +64,7 @@ auto signed char const(SP) = (' ');
 auto signed char const(CR) = ('\r');
 auto signed char const(LF) = ('\n');
 
-auto signed char *p;
+auto signed char *base,*p;
 auto signed diff;
 auto signed i,r;
 auto signed short flag;
@@ -75,8 +75,14 @@ if(!argp) return(0x00);
 
 // limit
 if(size<(CLI_EMPTY)) {
-*cur = (0x00);
-return(0x01);
+r = cl_extend(0x01/* cue */,CLI_EMPTY,&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cl_extend()");
+return(0x00);
+}
+size = (CLI_EMPTY);
+cur = (*(CLI_INDEX+(R(cur,R(commandline,R(ty,*argp))))));
+cur = (cur+(R(offset,R(commandline,R(ty,*argp)))));
 }
 
 // break
@@ -102,7 +108,7 @@ printf("%s\n","<< Error at fn. cpy()");
 return(0x00);
 }}
 
-*(CLI_INDEX+(R(append,R(commandline,R(ty,*argp))))) = (p);
+*(CLI_BASE+(R(append,R(commandline,R(ty,*argp))))) = (p);
 
 // monitor
 if(CLI_DBG_D<(CLI_DBG)) {
@@ -177,7 +183,18 @@ return(0x00);
 
 if(p) free(p);
 p = (0x00);
-*(CLI_INDEX+(R(append,R(commandline,R(ty,*argp))))) = (p);
+*(CLI_BASE+(R(append,R(commandline,R(ty,*argp))))) = (p);
+
+i = (0x00);
+base = (*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))));
+while(0x01) {
+if(base<(cur)) {
+base++;
+i++;
+}
+else break;
+}
+R(offset,R(commandline,R(ty,*argp))) = (i);
 
 return(0x01+(cl_io_beta(cur,size,argp)));
 }

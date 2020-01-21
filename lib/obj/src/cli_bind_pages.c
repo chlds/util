@@ -33,6 +33,8 @@ printf("%s\n","<< Error at fn. malloc()");
 return(0x00);
 }
 
+R(redo,R(history,*cache)) = (0x00);
+R(undo,R(history,*cache)) = (0x00);
 R(insert,R(history,*cache)) = (0x00);
 
 i = (CLI_OBJS);
