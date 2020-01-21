@@ -1,6 +1,6 @@
 /*
 
-Undo.
+Undo or redo.
 
 Along with C and Windows libraries
 
@@ -17,7 +17,7 @@ Refer at util/lib/obj/src/cli_io_beta.c
 # include <stdlib.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_undo_beta(CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_do_beta(signed short(arg),CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto CLI_COORD coord;
@@ -43,7 +43,10 @@ printf("%s\n","<< Could not find the index snapshot at *(CLI_INDEX+(R(snapshot,R
 return(0x00);
 }
 
-snapshot = (R(s,*snapshot));
+// undo or redo
+if(!arg) snapshot = (R(s,*snapshot));
+else snapshot = (R(d,*snapshot));
+
 if(!snapshot) return(0x01);
 
 *(CLI_INDEX+(R(snapshot,R(history,*page)))) = (snapshot);
@@ -84,6 +87,7 @@ return(0x00);
 else {
 ADD(R(gauge,R(debug,R(ty,*argp))),-i);
 ADD(R(gauge,R(ty,*argp)),-i);
+ADD(*(CLI_LEAD+(R(cur,R(ty,*argp)))),i);
 }
 
 coord.y = (R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))));
@@ -101,7 +105,7 @@ return(0x00);
 }
 
 i = (R(offset,*snapshot));
-
+// e.g., ADD(*(CLI_INDEX+(R(cur,R(ty,*argp)))),i);
 while(i) {
 INC(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 --i;

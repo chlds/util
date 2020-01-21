@@ -81,11 +81,15 @@ CTRL_RS,CTRL_RSB,CTRL_CA,CTRL_LL,
 };
 
 enum {
+CLI_BASE,CLI_OFFSET,CLI_INDEX,CLI_LEAD,
+};
+
+enum {
 CLI_IN,CLI_OUT,CLI_ERR,
 };
 
 enum {
-CLI_BASE,CLI_OFFSET,CLI_INDEX,CLI_LEAD,
+CLI_UNDO,CLI_REDO,
 };
 
 typedef struct cli_codepage {
@@ -301,7 +305,7 @@ signed(__cdecl cli_unmap_snapshots(CLI_HISTORY(*argp)));
 
 signed(__cdecl cli_diff_history(signed short(*diff),signed char(*base),CLI_PAGE(*argp)));
 signed(__cdecl cli_history(CLI_PAGE(*argp)));
-// take snapshots to redo and undo.
+// take snapshots to undo and redo.
 
 signed(__cdecl cl_ctrl_at(void(*argp)));
 signed(__cdecl cl_ctrl_a(void(*argp)));

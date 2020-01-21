@@ -36,9 +36,9 @@ printf("%s\n","<< Error at fn. cli_book()");
 return(0x00);
 }}
 
-r = cli_undo_beta(argp);
+r = cli_do_beta(CLI_UNDO,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_undo_beta()");
+printf("%s\n","<< Error at fn. cli_do_beta()");
 return(0x00);
 }
 

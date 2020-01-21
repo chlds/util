@@ -9,6 +9,7 @@ Refer at util/lib/obj/src/cli_io_beta.c
 */
 
 
+# define CLI_MACRO
 # define CLI_W32
 
 # include <conio.h>
@@ -18,13 +19,21 @@ Refer at util/lib/obj/src/cli_io_beta.c
 
 signed(__cdecl cli_ctrl_rsb_beta(CLI_W32_STAT(*argp))) {
 
+/* **** DATA, BSS and STACK */
 auto signed char *p;
 auto signed c,i,r;
 auto signed short flag;
 
+/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-if(CLI_DBG) printf("%s","<Ctrl-]>");
+if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-]>");
+
+r = cli_do_beta(CLI_REDO,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_do_beta()");
+return(0x00);
+}
 
 return(0x01);
 }

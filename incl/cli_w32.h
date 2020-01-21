@@ -153,6 +153,9 @@ signed(__cdecl cli_coord_outs_beta(signed char(*cur),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_coord_out_beta(signed char(*cur),CLI_W32_STAT(*argp)));
 /* Form a column in the console screen. */
 
+signed(__cdecl cli_do_beta(signed short(arg),CLI_W32_STAT(*argp)));
+/* undo or redo */
+
 signed(__cdecl cli_empty_beta(CLI_W32_STAT(*argp)));
 signed(__cdecl cli_clip_beta(CLI_W32_STAT(*argp)));
 signed(__cdecl cli_paste_beta(CLI_W32_STAT(*argp)));

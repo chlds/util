@@ -32,11 +32,13 @@ if(!argp) return(0x00);
 
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-D>");
 
+/*
 r = cli_book(&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_book()");
 return(0x00);
 }
+//*/
 
 r = cli_coord_beta(CLI_IN,coord+(CLI_BASE),argp);
 if(!r) {
