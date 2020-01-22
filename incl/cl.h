@@ -62,4 +62,7 @@ signed(__cdecl cmpr_partially(signed(*cache),signed char(*di),signed char(*si)))
 signed(__cdecl cmpr(signed(*cache),signed char(*di),signed char(*si)));
 /* Compare strings. */
 
+signed(__cdecl compare(signed char(*di),signed char(*si)));
+/* Compare addresses. */
+
 // and more..

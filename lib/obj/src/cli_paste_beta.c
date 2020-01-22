@@ -20,6 +20,8 @@ Refer at util/lib/obj/src/cli_init_roll.c and util/bin/obj/src/ty.c
 signed(__cdecl cli_paste_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto CLI_PAGE *page;
+
 auto void *g;
 auto signed short *w;
 auto signed char *cur,*base,*p;
@@ -29,13 +31,6 @@ auto signed short flag;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
-
-
-//* temporarily disable
-
-return(0x01);
-//*/
-
 
 flag = (0x00);
 
@@ -74,17 +69,12 @@ return(0x00);
 return(0x00);
 }
 
+page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
+
 cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 base = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
-offset = (0x00);
-
-while(0x01) {
-if(base<(cur)) {
-base++;
-offset++;
-}
-else break;
-}
+r = compare(cur,base);
+offset = (r);
 
 // to append
 r = ct(cur);
@@ -119,24 +109,28 @@ break;
 i = (CLI_EMPTY);
 cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 }
-if(!(*w)) break;
 r = encode2uni(i,cur,*w);
 if(!r) {
 printf("%s\n","<< Error at fn. encode2uni()");
 return(0x00);
 }
+if(!(*cur)) break;
 i = (-r+(i));
 cur = (r+(cur));
 w++;
 }
-*cur = (0x00);
+
+r = cli_book(&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_book()");
+return(0x00);
+}
 
 *(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
 R(gauge,R(debug,R(ty,*argp))) = (i);
 R(gauge,R(ty,*argp)) = (i);
 
-/*
-// Aux.
+//* Aux.
 if(!flag) {
 r = (R(offset,R(ty,*argp)));
 r = cpy(*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))),r+(*(CLI_BASE+(R(cur,R(ty,*argp))))));
@@ -157,28 +151,20 @@ if(!r) {
 //*/
 
 if(!flag) {
-r = cli_clear_rows_beta(argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
-// return(0x00);
-}}
-
-if(!flag) {
-r = cli_output_beta(0x00/* comeback */,offset+(*(CLI_BASE+(R(cur,R(ty,*argp))))),argp);
+r = cli_coord_outs_beta(offset+(*(CLI_BASE+(R(base,*page)))),argp);
 if(!r) {
 /* empty or..
-printf("%s\n","<< Error at fn. cli_output_beta()");
+printf("%s\n","<< Error at fn. cli_coord_outs_beta()");
 // return(0x00);
 //*/
 }}
 
-/*
 if(!flag) {
-while(r) {
-INC(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
---r;
+r = cli_clear_row_beta(0x01/* comeback */,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_clear_row_beta()");
+// return(0x00);
 }}
-//*/
 
 if(!flag) {
 // to copy

@@ -1,6 +1,6 @@
 /* **** Notes
 
-Compare strings
+Compare strings.
 */
 
 
@@ -10,6 +10,7 @@ signed(__cdecl cmpr(signed(*cache),signed char(*di),signed char(*si))) {
 auto signed char(c);
 
 /* **** CODE/TEXT */
+if(!cache) return(0x00);
 if(!di) return(0x00);
 if(!si) return(0x00);
 
