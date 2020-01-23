@@ -245,6 +245,7 @@ signed(__cdecl cli_prev_word_internal(signed char(**retrv),CLI_TYPEWRITER(*argp)
 signed(__cdecl cli_prev_word(signed char(**retrv),CLI_TYPEWRITER(*argp)));
 // retrieve an address of the previous word.
 
+signed(__cdecl cl_extend(signed short(cue),signed(extra),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_extend(signed short(cue),signed(extra),CLI_TYPEWRITER(*argp)));
 // extend workspace
 

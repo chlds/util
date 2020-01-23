@@ -1,57 +1,57 @@
-/* **** Notes
+/*
 
-Clear a row.
+Coordinate and output pages to the console screen.
 
 Remarks:
-Refer at fn. cli_clear_rows_beta.
-Return the number of space embedded to the row.
+Refer at fn. cli_load, fn. cli_load_internal, fn. cli_bind_pages and fn. cli_book.
+Based on fn. cli_col_outs_beta, fn. cli_col_out_beta and fn. cli_out
+Return the number of output pages.
 */
 
 
 # define CLI_MACRO
 # define CLI_W32
 
+# include <stdio.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_clear_row_beta(signed short(comeback_flag),CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_coord_output_pages_beta(signed short(comeback),CLI_PAGE(*page),CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char sp = (' ');
-
 auto CLI_COORD coord[0x02];
+
+auto signed char *p;
 auto signed i,r;
 auto signed short flag;
-auto signed short x,y;
+auto signed short edge;
+auto signed short y;
 
 /* **** CODE/TEXT */
+if(!page) return(0x00);
 if(!argp) return(0x00);
 
 r = cli_coord_beta(CLI_IN,coord+(CLI_BASE),argp);
 if(!r) {
-printf("<< Error at fn. cli_coord_beta()");
+printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
+edge = (R(Bottom,R(srWindow,R(csbi,*argp))));
 y = (R(Top,R(srWindow,R(csbi,*argp))));
-x = (R(x,*(coord+(CLI_BASE))));
-x = (0x01+(~(x)));
-x = (x+(0x01+(R(Right,R(srWindow,R(csbi,*argp))))));
 
-i = (signed) (x);
-
-while(x) {
---x;
-r = cli_coord_out_beta(&sp,argp);
+r = cli_coord_output_pages_internal_beta(edge,page,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_out_beta()");
+printf("%s\n","<< Error at fn. cli_coord_output_pages_internal_beta()");
 return(0x00);
-}}
+}
 
-if(comeback_flag) {
-// fix the frame
+i = (r);
+
+if(comeback) {
+/* fix the frame */
 r = cli_get_csbi_beta(argp);
 if(!r) {
-printf("<< Error at fn. cli_get_csbi_beta()");
+printf("%s\n","<< Error at fn. cli_get_csbi_beta()");
 return(0x00);
 }
 if(y^(R(Top,R(srWindow,R(csbi,*argp))))) {
@@ -62,7 +62,7 @@ if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }}
-// come back
+/* come back */
 r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
