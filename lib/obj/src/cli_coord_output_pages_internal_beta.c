@@ -52,13 +52,14 @@ return(0x00);
 //*/
 }
 
+page = (R(d,*page));
+
+if(page) {
 r = cli_clear_row_beta(0x00/* comeback */,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_clear_row_beta()");
 return(0x00);
-}
-
-page = (R(d,*page));
+}}
 
 return(0x01+(cli_coord_output_pages_internal_beta(edge,page,argp)));
 }

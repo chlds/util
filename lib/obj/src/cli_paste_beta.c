@@ -20,13 +20,17 @@ Refer at util/lib/obj/src/cli_init_roll.c and util/bin/obj/src/ty.c
 signed(__cdecl cli_paste_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto CLI_PAGE *page;
+auto signed char CR = ('\r');
+auto signed char LF = ('\n');
 
+auto CLI_COORD coord[0x02];
+auto CLI_PAGE *page;
 auto void *g;
 auto signed short *w;
 auto signed char *cur,*base,*p;
 auto signed long long ll;
 auto signed c,i,r,offset;
+auto signed short cr;
 auto signed short flag;
 
 /* **** CODE/TEXT */
@@ -95,8 +99,9 @@ return(0x00);
 
 *(CLI_OFFSET+(R(append,R(ty,*argp)))) = (p);
 
+while(0x02) {
+cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 i = (R(gauge,R(ty,*argp)));
-
 while(0x01) {
 if(i<(CLI_EMPTY)) {
 r = cli_extend(0x00/* cue */,CLI_EMPTY/* extra */,&(R(ty,*argp)));
@@ -114,41 +119,44 @@ if(!r) {
 printf("%s\n","<< Error at fn. encode2uni()");
 return(0x00);
 }
-if(!(*cur)) break;
+w++;
+if(!(*cur)) {
+cr = (0x00);
+cr = (~(cr));
+break;
+}
+if(!(LF^(*cur))) {
+*cur = (0x00);
+if(!(LINEBREAK_CRLF^(R(linebreak_form,R(ty,*argp))))) {
+if(cr) *(--cur) = (0x00);
+}
+break;
+}
+if(!(CR^(*cur))) cr = (0x01);
+else cr = (0x00);
 i = (-r+(i));
 cur = (r+(cur));
-w++;
 }
-
 r = cli_book(&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_book()");
 return(0x00);
 }
+if(!(cr^(~(0x00)))) break;
+r = cli_bind_pages(&(R(spool,R(ty,*argp))));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_bind_pages()");
+return(0x00);
+}
+r = cli_init_workspace(&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_init_workspace()");
+return(0x00);
+}}
 
 *(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
 R(gauge,R(debug,R(ty,*argp))) = (i);
 R(gauge,R(ty,*argp)) = (i);
-
-//* Aux.
-if(!flag) {
-r = (R(offset,R(ty,*argp)));
-r = cpy(*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))),r+(*(CLI_BASE+(R(cur,R(ty,*argp))))));
-if(!r) {
-printf("%s\n","<< Error at fn. cpy()");
-// return(0x00);
-}}
-//*/
-
-/*
-if(!flag) {
-r = cli_append(p,&(R(ty,*argp)));
-if(!r) {
-// empty or..
-// printf("%s\n","<< Error at fn. cli_append()");
-// return(0x00);
-}}
-//*/
 
 if(!flag) {
 r = cli_coord_outs_beta(offset+(*(CLI_BASE+(R(base,*page)))),argp);
@@ -159,12 +167,33 @@ printf("%s\n","<< Error at fn. cli_coord_outs_beta()");
 //*/
 }}
 
+R(cache,R(spool,R(ty,*argp))) = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
+ll = (signed long long) (R(cache,R(spool,R(ty,*argp))));
+if(!(ll^((signed long long) page))) i = (0x00);
+else i = (0x01);
+
+while(i) {
+page = (R(d,*page));
+// if(!page) break;
+if(!(ll^((signed long long) page))) i = (0x00);
+else i = (0x01);
 if(!flag) {
-r = cli_clear_row_beta(0x01/* comeback */,argp);
+r = cli_clear_row_beta(0x00/* comeback */,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_clear_row_beta()");
 // return(0x00);
 }}
+if(!flag) {
+if(page) {
+r = cli_coord_page_beta(0x00/* comeback */,page,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_coord_page_beta()");
+// return(0x00);
+}}}}
+
+// depart.
+R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (R(y,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))));
+R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (0x00);
 
 if(!flag) {
 // to copy
@@ -193,14 +222,45 @@ if(p) free(p);
 p = (0x00);
 *(CLI_OFFSET+(R(append,R(ty,*argp)))) = (p);
 
+r = cli_coord_beta(CLI_IN,coord+(CLI_BASE),argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_coord_beta()");
+return(0x00);
+}
+
 if(!flag) {
-r = cli_output_beta(0x01/* comeback */,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
+r = cli_coord_outs_beta(*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
 if(!r) {
 /* empty or..
-printf("%s\n","<< Error at fn. cli_output_beta()");
+printf("%s\n","<< Error at fn. cli_coord_outs_beta()");
 // return(0x00);
 //*/
 }}
+
+page = (R(d,*page));
+if(!page) r = (0x01);
+else r = (0x00);
+
+if(!flag) {
+r = cli_clear_row_beta(r/* comeback */,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_clear_row_beta()");
+// return(0x00);
+}}
+
+if(!flag) {
+if(page) {
+r = cli_coord_output_pages_beta(0x00/* comeback */,page,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_coord_output_pages_beta()");
+// return(0x00);
+}}}
+
+r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_coord_beta()");
+return(0x00);
+}
 
 r = GlobalUnlock(g);
 if(!r) {
