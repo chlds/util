@@ -86,7 +86,14 @@ printf("%d%s",R(offset,R(ty,*argp)),"/");
 printf("%d%s",R(linebreak,R(ty,*argp)),"/");
 printf("%Xh%s",R(flag,R(ty,*argp)),"/");
 printf("%d%s",R(align_tab,R(ty,*argp)),"/");
-printf("%Xh%s",R(linebreak_form,R(ty,*argp))," at R(gauge/R(offset/R(linebreak/R(flag/R(align_tab/R(linebreak_form, on R(ty,*argp");
+printf("%Xh%s",R(linebreak_form,R(ty,*argp))," at R(gauge/R(offset/R(linebreak/R(flag/R(align_tab/R(linebreak_form, | ");
+printf(\
+"%d%s%d%s",\
+R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))),\
+"/",\
+R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))),\
+" at R(x/y,*(CLI_INDEX+(R(coord, on R(ty,*argp"\
+);
 printf("\n");
 
 r = cli_outs(*(CLI_OFFSET+(R(append,R(ty,*argp)))));
@@ -164,7 +171,14 @@ printf("%d%s",R(offset,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))),"/");
 printf("%d%s",R(insert,R(spool,R(ty,*argp))),"/");
 printf("%d%s",R(undo,R(spool,R(ty,*argp))),"/");
 printf("%d%s",R(redo,R(spool,R(ty,*argp)))," ");
-printf("%s","at R(offset,**(CLI_INDEX+(R(page/R(insert/R(undo/R(redo, on R(spool,R(ty,*argp");
+printf("%s","at R(offset,**(CLI_INDEX+(R(page/R(insert/R(undo/R(redo, | ");
+printf(\
+"%d%s%d%s",\
+R(x,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),\
+"/",\
+R(y,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),\
+" at R(x/y,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page, on R(spool,R(ty,*argp"\
+);
 printf("\n");
 
 printf("%p%s",*(CLI_BASE+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_BASE+(R(page, | ");
@@ -209,15 +223,6 @@ printf("%p%s\n",*(CLI_BASE+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(
 printf("%p%s\n",*(CLI_OFFSET+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))," at *(CLI_OFFSET+(R(snapshot, | ");
 printf("%p%s\n",*(CLI_INDEX+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))," at *(CLI_INDEX+(R(snapshot, | ");
 printf("%p%s\n",*(CLI_LEAD+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))," at *(CLI_LEAD+(R(snapshot, | ");
-
-// Coordinates
-printf("%s\n","Coordinates at R(ty,*argp");
-printf("%d%s%d%s",R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))),"/",R(y,*(CLI_INDEX+(R(coord,R(ty,*argp)))))," at R(x/y,*(CLI_INDEX+(R(coord, | ");
-printf(\
-"%d%s%d%s\n",\
-R(x,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),"/",\
-R(y,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))," at R(x/y,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page,R(spool,"\
-);
 
 // Clipboard Info.
 printf("%s\n","Clipboard info. at R(clipboard,R(ty,*argp");

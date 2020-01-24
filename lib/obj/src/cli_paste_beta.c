@@ -137,6 +137,9 @@ else cr = (0x00);
 i = (-r+(i));
 cur = (r+(cur));
 }
+*(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
+R(gauge,R(debug,R(ty,*argp))) = (i);
+R(gauge,R(ty,*argp)) = (i);
 r = cli_book(&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_book()");
@@ -153,10 +156,6 @@ if(!r) {
 printf("%s\n","<< Error at fn. cli_init_workspace()");
 return(0x00);
 }}
-
-*(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
-R(gauge,R(debug,R(ty,*argp))) = (i);
-R(gauge,R(ty,*argp)) = (i);
 
 if(!flag) {
 r = cli_coord_outs_beta(offset+(*(CLI_BASE+(R(base,*page)))),argp);
