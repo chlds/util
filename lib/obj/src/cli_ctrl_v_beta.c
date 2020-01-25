@@ -9,6 +9,7 @@ Refer at util/lib/obj/src/cli_io_beta.c
 */
 
 
+# define CLI_MACRO
 # define CLI_W32
 
 # include <conio.h>
@@ -24,7 +25,7 @@ auto signed short flag;
 
 if(!argp) return(0x00);
 
-if(CLI_DBG) printf("%s","<Ctrl-V>");
+if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-V>");
 
 return(0x01);
 }

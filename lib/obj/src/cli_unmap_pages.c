@@ -8,11 +8,10 @@ Along with C library
 //*/
 
 
-# define R(D,S) (S).D
-// A local function/object-like macro
+# define CLI_MACRO
 
-# include "../../../incl/cli.h"
 # include <stdlib.h>
+# include "../../../incl/config_ty.h"
 
 signed(__cdecl cli_unmap_pages(CLI_SPOOL(*argp))) {
 
@@ -34,9 +33,11 @@ printf("%s\n","<< No memory block allocated to the current page..");
 return(0x00);
 }
 
+r = ct(p);
+r = embed_to(p,0x00,r);
 free(p);
 p = (0x00);
-*(CLI_BASE+(R(base,*cache))) = (0x00);
+*(CLI_BASE+(R(base,*cache))) = (p);
 
 //* temporarily disable..
 r = cli_unmap_snapshots(&(R(history,*cache)));

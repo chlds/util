@@ -23,8 +23,11 @@ if(!argp) return(0x00);
 
 i = (CLI_WORKSPACE);
 while(i) {
-free(*(--i+(R(base,*argp))));
-*(i+(R(base,*argp))) = (0x00);
+p = (*(--i+(R(base,*argp))));
+r = embed_to(p,0x00,*(i+(R(size,*argp))));
+free(p);
+p = (0x00);
+*(i+(R(base,*argp))) = (p);
 }
 
 return(CLI_WORKSPACE);

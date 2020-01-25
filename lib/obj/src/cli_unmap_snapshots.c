@@ -8,17 +8,17 @@ Along with C library
 //*/
 
 
-# define R(D,S) (S).D
-// A local function/object-like macro
+# define CLI_MACRO
 
-# include "../../../incl/cli.h"
 # include <stdlib.h>
+# include "../../../incl/config_ty.h"
 
 signed(__cdecl cli_unmap_snapshots(CLI_HISTORY(*argp))) {
 
 /* **** DATA */
-auto signed char *p;
 auto CLI_SNAPSHOT *cache;
+auto signed char *p;
+auto signed i,r;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -33,9 +33,11 @@ printf("%s\n","<< No memory block allocated to the current snapshot..");
 return(0x00);
 }
 
+r = ct(p);
+r = embed_to(p,0x00,r);
 free(p);
 p = (0x00);
-*(CLI_BASE+(R(base,*cache))) = (0x00);
+*(CLI_BASE+(R(base,*cache))) = (p);
 
 free(cache);
 cache = (0x00);

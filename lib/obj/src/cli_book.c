@@ -32,8 +32,6 @@ printf("%s\n","<< No index page..");
 return(0x00);
 }
 
-if(*(CLI_BASE+(R(base,**(CLI_INDEX+(R(page,R(spool,*argp)))))))) free(*(CLI_BASE+(R(base,**(CLI_INDEX+(R(page,R(spool,*argp))))))));
-
 r = ct(*(CLI_BASE+(R(base,R(roll,*argp)))));
 if(!r) {
 /* empty or..
@@ -59,18 +57,12 @@ return(0x00);
 //*/
 }
 
+if(*(CLI_BASE+(R(base,**(CLI_INDEX+(R(page,R(spool,*argp)))))))) free(*(CLI_BASE+(R(base,**(CLI_INDEX+(R(page,R(spool,*argp))))))));
 *(CLI_BASE+(R(base,**(CLI_INDEX+(R(page,R(spool,*argp))))))) = (p);
 
 p = (*(CLI_BASE+(R(base,R(roll,*argp)))));
-i = (0x00);
-
-while(0x01) {
-if(p<(*(CLI_INDEX+(R(cur,*argp))))) i++;
-else break;
-p++;
-}
-
-R(offset,**(CLI_INDEX+(R(page,R(spool,*argp))))) = (i);
+r = compare(*(CLI_INDEX+(R(cur,*argp))),p);
+R(offset,**(CLI_INDEX+(R(page,R(spool,*argp))))) = (r);
 
 r = cli_diff_history(&flag,*(CLI_BASE+(R(base,R(roll,*argp)))),*(CLI_INDEX+(R(page,R(spool,*argp)))));
 if(!r) {
