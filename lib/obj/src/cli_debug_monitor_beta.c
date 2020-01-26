@@ -84,9 +84,9 @@ printf("%s","Workspace: ");
 printf("%d%s",R(gauge,R(ty,*argp)),"/");
 printf("%d%s",R(offset,R(ty,*argp)),"/");
 printf("%d%s",R(linebreak,R(ty,*argp)),"/");
-printf("%Xh%s",R(flag,R(ty,*argp)),"/");
+printf("%Xh%s",R(flag,R(ty,*argp))," at R(gauge/R(offset/R(linebreak/R(flag, | ");
 printf("%d%s",R(align_tab,R(ty,*argp)),"/");
-printf("%Xh%s",R(linebreak_form,R(ty,*argp))," at R(gauge/R(offset/R(linebreak/R(flag/R(align_tab/R(linebreak_form, | ");
+printf("%Xh%s",R(linebreak_form,R(ty,*argp))," at R(align_tab/R(linebreak_form, | ");
 printf(\
 "%d%s%d%s",\
 R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))),\
@@ -96,6 +96,21 @@ R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))),\
 );
 printf("\n");
 
+// Workspace for CL
+printf("%d%s",R(gauge,R(commandline,R(ty,*argp))),"/");
+printf("%d%s",R(offset,R(commandline,R(ty,*argp))),"/");
+printf("%d%s",R(linebreak,R(commandline,R(ty,*argp))),"/");
+printf("%Xh%s",R(flag,R(commandline,R(ty,*argp)))," at R(gauge/R(offset/R(linebreak/R(flag, | ");
+printf(\
+"%d%s%d%s",\
+R(x,*(CLI_INDEX+(R(coord,R(commandline,R(ty,*argp)))))),\
+"/",\
+R(y,*(CLI_INDEX+(R(coord,R(commandline,R(ty,*argp)))))),\
+" at R(x/y,*(CLI_INDEX+(R(coord, on R(commandline,R(ty,*argp"\
+);
+printf("\n");
+
+// append
 r = cli_outs(*(CLI_OFFSET+(R(append,R(ty,*argp)))));
 if(!r) printf("%s\n","<< *(CLI_OFFSET+(R(append, is empty or..");
 else printf("\n");
@@ -117,13 +132,6 @@ else printf("\n");
 r = cli_outs(*(CLI_OFFSET+(R(append,R(commandline,R(ty,*argp))))));
 if(!r) printf("%s\n","<< *(CLI_OFFSET+(R(append,R(commandline, is empty or..");
 else printf("\n");
-
-// Gauges
-printf("%d%s",R(gauge,R(commandline,R(ty,*argp))),"/");
-printf("%d%s",R(offset,R(commandline,R(ty,*argp))),"/");
-printf("%d%s",R(linebreak,R(commandline,R(ty,*argp))),"/");
-printf("%Xh%s",R(flag,R(commandline,R(ty,*argp)))," at R(gauge/R(offset/R(linebreak/R(flag, on R(commandline,");
-printf("\n");
 
 // Addresses
 printf(\

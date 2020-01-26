@@ -293,6 +293,7 @@ signed(__cdecl cli_merge_pages(CLI_SPOOL(*argp)));
 signed(__cdecl cli_reconcat_pages(signed short(*backward),CLI_SPOOL(*argp)));
 signed(__cdecl cli_unmap_pages(CLI_SPOOL(*argp)));
 
+signed(__cdecl cli_copy_pages(signed short(linebreak_form),signed(count),signed(size),signed short(*w),CLI_PAGE(*argp)));
 signed(__cdecl cli_count_pages(CLI_PAGE(*argp)));
 
 signed(__cdecl cli_page_internal(CLI_SPOOL(*argp),signed(n)));

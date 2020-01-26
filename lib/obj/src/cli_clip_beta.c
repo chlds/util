@@ -29,7 +29,8 @@ auto signed short *w;
 auto signed char *p;
 auto signed long long sll;
 auto signed count;
-auto signed c,i,r;
+auto signed size;
+auto signed i,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
@@ -74,7 +75,7 @@ r = (r*(sizeof(signed short)));
 
 g = GlobalAlloc(GMEM_SHARE|(GHND),r);
 
-i = (r);
+size = (r);
 
 *(CLI_BASE+(R(base,R(clipboard,R(ty,*argp))))) = (g);
 R(flag,R(clipboard,R(ty,*argp))) = GlobalFlags(g);
@@ -89,7 +90,24 @@ return(0x00);
 
 p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 
-r = decode2w(r,w,p);
+r = ct(p);
+if(!r) {
+/* empty or..
+printf("%s\n","<< Error at fn. ct()");
+return(0x00);
+//*/
+}
+
+INC(r);
+r = (r*(sizeof(signed short)));
+i = (size);
+size = (-r+(size));
+if(size<(0x00)) {
+printf("%s\n","<< Could not assign..");
+return(0x00);
+}
+
+r = decode2w(i,w,p);
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. decode2w()");
@@ -97,48 +115,39 @@ return(0x00);
 //*/
 }
 
-
-//* to copy pages (2 of 2)
-ADD(i,-r);
-if(i<(0x00)) {
-printf("%s\n","<< Could not assign..");
-return(0x00);
-}
 while(r) {
 w++;
 --r;
 }
-page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
+
 count = (R(clip,R(clipboard,R(ty,*argp))));
-while(--count) {
+--count;
+if(!count) *w = (0x00);
+else {
+page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
 page = (R(d,*page));
-if(!page) break;
+if(!page) *w = (0x00);
+else {
 if(!(LINEBREAK_CRLF^(R(linebreak_form,R(ty,*argp))))) {
+r = (0x01);
+r = (r*(sizeof(signed short)));
+size = (-r+(size));
+if(size<(0x00)) {
+printf("%s\n","<< Could not assign..");
+return(0x00);
+}
 *w = (CR);
 w++;
---i;
 }
 *w = (LF);
 w++;
---i;
-r = decode2w(i,w,*(CLI_BASE+(R(base,*page))));
+r = cli_copy_pages(R(linebreak_form,R(ty,*argp)),count,size,w,page);
 if(!r) {
 /* empty or..
-printf("%s\n","<< Error at fn. decode2w()");
+printf("%s\n","<< Error at fn. cli_copy_pages()");
 return(0x00);
 //*/
-}
-ADD(i,-r);
-if(i<(0x00)) {
-printf("%s\n","<< Could not assign..");
-return(0x00);
-}
-while(r) {
-w++;
---r;
-}}
-//*/
-
+}}}
 
 r = GlobalUnlock(g);
 if(!r) {
@@ -183,13 +192,16 @@ printf("%s%d%s%X\n","<< Error at fn. CloseClipboard() with ",r," or ",r);
 return(0x00);
 }
 
-if(*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp)))))) {
-*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp))))) = GlobalFree(*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp))))));
-if(*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp)))))) {
+g = (*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp))))));
+if(g) {
+g = GlobalFree(g);
+if(g) {
 r = GetLastError();
 printf("%s%d%s%X\n","<< Error at fn. GlobalFree() with ",r," or ",r);
 return(0x00);
-}}
+}
+*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp))))) = (g);
+}
 
 if(flag) {
 R(clip,R(clipboard,R(ty,*argp))) = (0x00);
