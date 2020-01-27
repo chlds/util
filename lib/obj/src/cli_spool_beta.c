@@ -61,12 +61,7 @@ return(0x00);
 free(p);
 p = (0x00);
 *(CLI_BASE+(R(append,R(ty,*argp)))) = (p);
-// output after appending
-r = cli_output_beta(0x01/* comeback */,*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_output_beta()");
-return(0x00);
-}}
+}
 r = cli_bind_pages(&(R(spool,R(ty,*argp))));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_bind_pages()");
@@ -93,6 +88,12 @@ R(x,*(i+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))) = (coord.x);
 
 R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (coord.y);
 R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (coord.x);
+
+r = cli_coord_output_pages_beta(0x01/* comeback */,*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))),argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_coord_output_pages_beta()");
+return(0x00);
+}
 
 r = cli_kb_beta(argp);
 if(!r) {

@@ -41,8 +41,14 @@ return(0x00);
 }
 
 i = (*(CLI_BASE+(R(size,R(roll,*argp)))));
-if(CLI_BUFF^(i)) {
+if(i<(CLI_EMPTY)) {
 printf("%s\n","<< Assign size at *(CLI_BASE+(R(size,R(roll,*argp..");
+return(0x00);
+}
+
+r = cli_init_workspace(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_init_workspace()");
 return(0x00);
 }
 
@@ -51,9 +57,14 @@ flag = (0x00);
 while(0x01) {
 if(i<(CLI_EMPTY)) {
 *p = (0x00);
+r = cli_extend(0x00/* cue */,CLI_EMPTY/* extra */,argp);
+if(!r) {
 OR(R(flag,*argp),CLI_IRR);
-printf("%s\n","<< Reach the limit..");
+printf("%s\n","<< Error at fn. cli_extend()");
 return(0x00);
+}
+i = (CLI_EMPTY);
+p = (*(CLI_INDEX+(R(cur,*argp))));
 }
 r = read(R(fd,R(edit,*argp)),&c,sizeof(signed char));
 if(!(r^(~(0x00)))) {

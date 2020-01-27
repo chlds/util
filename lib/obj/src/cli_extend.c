@@ -44,6 +44,7 @@ R(gauge,*argp) = (extra);
 
 if(!cue) {
 p = (*(CLI_BASE+(R(cur,*argp))));
+R(offset,*argp) = (i);
 while(i) {
 INC(p);
 --i;

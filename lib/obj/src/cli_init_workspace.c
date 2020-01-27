@@ -27,9 +27,9 @@ auto signed short flag;
 if(!argp) return(0x00);
 
 // initialise
+R(flag,*argp) = (0x00);
 R(linebreak,*argp) = (0x00);
-// R(append,*argp) = (0x00);
-// R(flag,*argp) = (0x00);
+R(offset,*argp) = (0x00);
 
 r = (*(CLI_BASE+(R(size,R(roll,*argp)))));
 R(gauge,R(debug,*argp)) = (r);

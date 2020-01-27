@@ -97,6 +97,8 @@ R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))),\
 printf("\n");
 
 // Workspace for CL
+printf("%s","Workspace: ");
+
 printf("%d%s",R(gauge,R(commandline,R(ty,*argp))),"/");
 printf("%d%s",R(offset,R(commandline,R(ty,*argp))),"/");
 printf("%d%s",R(linebreak,R(commandline,R(ty,*argp))),"/");
