@@ -31,6 +31,9 @@ void *(device[CLI_DEVICES]);
 void *optl;
 } CLI_W32_STAT;
 
+signed(__cdecl cli_display_header_beta(CLI_W32_STAT(*argp)));
+/* Display the two-row header */
+
 signed(__cdecl cli_display_footer_beta(signed short(comeback_flag),signed char(*label),CLI_W32_STAT(*argp)));
 /* Display the footer */
 

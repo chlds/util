@@ -37,7 +37,7 @@ Refer at ./config_ty.h
 # define CL_IRR (0x20)
 # define CLI_ALREADY_EXIST (0x40)
 # define CLI_OVERWRITE (0x80)
-// # define CLI_DIFF_HISTORY (0x100)
+# define CLI_REFRESH (0x100)
 
 # define CLI_DBG_Q (0x08)
 # define CLI_DBG_D (0x04)

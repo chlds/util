@@ -197,16 +197,13 @@ p = (0x00);
 *(CLI_BASE+(R(append,R(ty,*argp)))) = (p);
 }
 
-i = (0x00);
 base = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
-while(0x01) {
-if(base<(cur)) {
-base++;
-i++;
+r = compare(cur,base);
+R(offset,R(ty,*argp)) = (r);
+
+if(CLI_REFRESH&(R(flag,R(ty,*argp)))) {
+// refresh
 }
-else break;
-}
-R(offset,R(ty,*argp)) = (i);
 
 return(0x01+(cli_io_beta(cur,size,argp)));
 }

@@ -108,9 +108,9 @@ Sleep(1000);
 system("cls");
 
 
-r = cli_display_header(&(R(ty,cli_w32_stat)));
+r = cli_display_header_beta(&cli_w32_stat);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_display_header()");
+printf("%s\n","<< Error at fn. cli_display_header_beta()");
 return(0x00);
 }
 

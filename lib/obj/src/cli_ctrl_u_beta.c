@@ -62,9 +62,9 @@ printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
 return(0x00);
 }
 if(!(R(s,*page))) {
-r = cli_display_header(&(R(ty,*argp)));
+r = cli_display_header_beta(argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_display_header()");
+printf("%s\n","<< Error at fn. cli_display_header_beta()");
 return(0x00);
 }}
 else page = (R(s,*page));
