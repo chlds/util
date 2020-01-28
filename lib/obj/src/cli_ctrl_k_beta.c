@@ -26,6 +26,8 @@ auto CLI_COORD coord[0x02];
 auto signed char *p;
 auto signed c,i,r;
 auto signed short flag;
+auto signed short edge;
+auto signed short y;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -46,29 +48,29 @@ return(0x00);
 }
 //*/
 
-flag = (0x00);
-
 r = ct(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 ADD(R(gauge,R(ty,*argp)),r);
 **(CLI_INDEX+(R(cur,R(ty,*argp)))) = (0x00);
 
 if(!r) {
-// re-concatenate pages
-r = cli_reconcat_pages(&flag/* backward */,&(R(spool,R(ty,*argp))));
+r = cli_ctrl_d_beta(argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_reconcat_pages()");
+printf("%s\n","<< Error at fn. cli_ctrl_d_beta()");
 return(0x00);
 }
-if(!(0x01^(flag))) flag = (0x02);
-if(!flag) flag = (0x01);
+return(0x01);
 }
 
-if(!(flag^(~(0x00)))) return(0x01);
+page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
+page = (R(d,*page));
 
+if(!page) {
 r = cli_clear_rows_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
 return(0x00);
+}
+return(0x01);
 }
 
 r = cli_coord_beta(CLI_IN,coord+(CLI_BASE),argp);
@@ -77,53 +79,45 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
-if(!flag) {
-//* i.e., printf("\n");
-R(y,*(coord+(CLI_OFFSET))) = (R(y,*(coord+(CLI_BASE))));
-ADD(R(y,*(coord+(CLI_OFFSET))),0x01);
+edge = (R(Bottom,R(srWindow,R(csbi,*argp))));
+y = (R(Top,R(srWindow,R(csbi,*argp))));
+
+r = cli_clear_row_beta(0x00/* comeback */,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_clear_row_beta()");
+return(0x00);
+}
+
+r = cli_coord_output_pages_beta(0x00/* comeback */,page,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_coord_output_pages_beta()");
+return(0x00);
+}
+
+/* fix the frame */
+r = cli_get_csbi_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_get_csbi_beta()");
+return(0x00);
+}
+if(edge<(R(Bottom,R(srWindow,R(csbi,*argp))))) flag = (0x00);
+else flag = (0x01);
+if(flag) {
+r = cli_clear_rows_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
+return(0x00);
+}}
+if(y^(R(Top,R(srWindow,R(csbi,*argp))))) {
+R(y,*(coord+(CLI_OFFSET))) = (y);
 R(x,*(coord+(CLI_OFFSET))) = (0x00);
 r = cli_coord_beta(CLI_OUT,coord+(CLI_OFFSET),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
-}
-//*/
-page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
-page = (R(d,*page));
-if(page) {
-r = cli_output_pages_beta(0x00/* connect with workspace */,page,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_output_pages_beta()");
-return(0x00);
-}}}
-
-if(!(0x01^(flag))) {
-page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
-r = cli_output_pages_beta(0x01/* connect with workspace */,page,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_output_pages_beta()");
-return(0x00);
-}
-return(0x01);
-}
-
-if(!(0x02^(flag))) {
-page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
-if(!(R(y,*(coord+(CLI_BASE))))) {
-r = cli_output_pages_beta(0x01/* connect with workspace */,page,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_output_pages_beta()");
-return(0x00);
 }}
-else {
-r = cli_coord_beta(CLI_OUT,CLI_BASE+(R(coord,*page)),argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
-return(0x00);
-}}
-return(0x01);
-}
 
+/* come back */
 r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
