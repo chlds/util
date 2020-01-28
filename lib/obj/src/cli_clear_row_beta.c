@@ -11,6 +11,8 @@ Return the number of space embedded to the row.
 # define CLI_MACRO
 # define CLI_W32
 
+# include <conio.h>
+# include <stdio.h>
 # include "../../../incl/config_ty.h"
 
 signed(__cdecl cli_clear_row_beta(signed short(comeback_flag),CLI_W32_STAT(*argp))) {
@@ -39,13 +41,18 @@ x = (x+(0x01+(R(Right,R(srWindow,R(csbi,*argp))))));
 
 i = (signed) (x);
 
-while(x) {
---x;
+while(--x) {
+r = _putch(sp);
+if(!(EOF^(r))) {
+printf("%s\n","<< Error at fn. _putch()");
+return(0x00);
+}}
+
 r = cli_coord_out_beta(&sp,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_out_beta()");
 return(0x00);
-}}
+}
 
 if(comeback_flag) {
 // fix the frame

@@ -34,9 +34,9 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }}
 
-r = cli_col_outs_beta(cur,argp);
+r = cli_coord_outs_beta(cur,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_col_outs_beta()");
+printf("%s\n","<< Error at fn. cli_coord_outs_beta()");
 return(0x00);
 }
 
