@@ -52,12 +52,10 @@ return(0x01);
 
 p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 
-r = cli_output_beta(0x00,p,argp);
+r = cli_clear_output_beta(0x00/* comeback */,p,argp);
 if(!r) {
-/* empty or..
-printf("%s\n","<< Error at fn. cli_output_beta()");
+printf("%s\n","<< Error at fn. cli_clear_output_beta()");
 return(0x00);
-//*/
 }
 
 r = cli_coord_beta(CLI_IN,&coord,argp);
@@ -65,9 +63,6 @@ if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
-
-ADD(coord.y,0x01);
-coord.x = (0x00);
 
 R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (coord.y);
 R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (coord.x);
@@ -77,12 +72,6 @@ while(i) {
 --i;
 R(y,*(i+(R(coord,*page)))) = (coord.y);
 R(x,*(i+(R(coord,*page)))) = (coord.x);
-}
-
-r = cli_coord_beta(CLI_OUT,&coord,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
-return(0x00);
 }
 
 *(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))) = (page);
