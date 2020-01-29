@@ -285,6 +285,9 @@ signed(__cdecl cli_book(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_init_workspace(CLI_TYPEWRITER(*argp)));
 // initialise workspace.
 
+signed(__cdecl cli_connect_with_workspace(CLI_PAGE(*page),CLI_TYPEWRITER(*argp)));
+// connect a page with workspace.
+
 signed(__cdecl cli_init_pages(CLI_SPOOL(*argp)));
 
 signed(__cdecl cli_concat_pages(CLI_PAGE(*cache),CLI_SPOOL(*argp)));
