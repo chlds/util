@@ -81,24 +81,16 @@ else printf("\n");
 // Workspace
 printf("%s","Workspace: ");
 
-printf("%d%s",R(gauge,R(ty,*argp)),"/");
 printf("%d%s",R(offset,R(ty,*argp)),"/");
 printf("%d%s",R(linebreak,R(ty,*argp)),"/");
-printf("%Xh%s",R(flag,R(ty,*argp))," at R(gauge/R(offset/R(linebreak/R(flag, | ");
+printf("%Xh%s",R(flag,R(ty,*argp)),"/");
 printf("%d%s",R(align_tab,R(ty,*argp)),"/");
-printf("%Xh%s",R(linebreak_form,R(ty,*argp))," at R(align_tab/R(linebreak_form, | ");
-printf(\
-"%d%s%d%s",\
-R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))),\
-"/",\
-R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))),\
-" at R(x/y,*(CLI_INDEX+(R(coord, on R(ty,*argp"\
-);
+printf("%Xh%s",R(linebreak_form,R(ty,*argp))," at R(offset/R(linebreak/R(flag/R(align_tab/R(linebreak_form,");
 printf("\n");
 
+/* temporarily disabled..
 // Workspace for CL
 printf("%s","Workspace: ");
-
 printf("%d%s",R(gauge,R(commandline,R(ty,*argp))),"/");
 printf("%d%s",R(offset,R(commandline,R(ty,*argp))),"/");
 printf("%d%s",R(linebreak,R(commandline,R(ty,*argp))),"/");
@@ -111,6 +103,7 @@ R(y,*(CLI_INDEX+(R(coord,R(commandline,R(ty,*argp)))))),\
 " at R(x/y,*(CLI_INDEX+(R(coord, on R(commandline,R(ty,*argp"\
 );
 printf("\n");
+//*/
 
 // append
 r = cli_outs(*(CLI_OFFSET+(R(append,R(ty,*argp)))));
@@ -135,20 +128,43 @@ r = cli_outs(*(CLI_OFFSET+(R(append,R(commandline,R(ty,*argp))))));
 if(!r) printf("%s\n","<< *(CLI_OFFSET+(R(append,R(commandline, is empty or..");
 else printf("\n");
 
-// Addresses
+//* deprecated
 printf(\
 "%p%s%d%s\n",\
 R(cur,R(debug,R(commandline,R(ty,*argp)))),"/",\
 R(gauge,R(debug,R(commandline,R(ty,*argp))))," at R(cur/gauge,R(debug,R(commandline,"\
 );
-
 printf(\
 "%p%s%d%s\n",\
 R(cur,R(debug,R(ty,*argp))),"/",\
 R(gauge,R(debug,R(ty,*argp)))," at R(cur/gauge,R(debug,"\
 );
+//*/
 
-printf("%p%s\n",*(CLI_LEAD+(R(cur,R(ty,*argp))))," at *(CLI_LEAD+(R(cur,");
+// Coordinates
+printf("%d%s%d%s",\
+R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))),"/",\
+R(y,*(CLI_LEAD+(R(coord,R(ty,*argp)))))," | "\
+);
+printf("%d%s%d%s",\
+R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))),"/",\
+R(y,*(CLI_INDEX+(R(coord,R(ty,*argp)))))," | "\
+);
+printf("%d%s%d%s",\
+R(x,*(CLI_OFFSET+(R(coord,R(ty,*argp))))),"/",\
+R(y,*(CLI_OFFSET+(R(coord,R(ty,*argp)))))," | "\
+);
+printf("%d%s%d%s\n",\
+R(x,*(CLI_BASE+(R(coord,R(ty,*argp))))),"/",\
+R(y,*(CLI_BASE+(R(coord,R(ty,*argp)))))," at R(x/y,*(CLI_LEAD/CLI_INDEX/CLI_OFFSET/CLI_BASE+(R(coord,"\
+);
+
+// Addresses
+printf("%p%s%d%s\n",\
+*(CLI_LEAD+(R(cur,R(ty,*argp)))),"/",\
+R(gauge,R(ty,*argp))," at *(CLI_LEAD+(R(cur/R(gauge,"\
+);
+
 printf("%p%s\n",*(CLI_INDEX+(R(cur,R(ty,*argp))))," at *(CLI_INDEX+(R(cur, (updated by fn. calls but always monitored)");
 printf("%p%s\n",*(CLI_OFFSET+(R(cur,R(ty,*argp))))," at *(CLI_OFFSET+(R(cur,");
 printf("%p%s\n",*(CLI_BASE+(R(cur,R(ty,*argp))))," at *(CLI_BASE+(R(cur,");

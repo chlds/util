@@ -75,6 +75,15 @@ auto size_t(filesize);
 auto signed char *loc;
 
 /* **** CODE/TEXT */
+printf("\n");
+printf("%s\n","  VU is currently suspended due to defects in design.");
+
+printf("\n");
+printf("%s\n","  TY was born after the redesign of VU.");
+printf("%s\n","  TY is being developed as a replacement for VU.");
+
+return(0x01);
+
 loc = setlocale(LC_CTYPE,"");
 loc = setlocale(LC_ALL,loc);
 printf("%s\n",loc);

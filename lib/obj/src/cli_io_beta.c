@@ -114,8 +114,12 @@ return(0x00);
 
 // monitor
 if(CLI_DBG_B<(CLI_DBG)) {
+//* deprecated
 R(cur,R(debug,R(ty,*argp))) = (cur);
 R(gauge,R(debug,R(ty,*argp))) = (size);
+//*/
+*(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
+R(gauge,R(ty,*argp)) = (size);
 r = cli_debug_monitor_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_debug_monitor_beta()");
@@ -204,6 +208,9 @@ R(offset,R(ty,*argp)) = (r);
 if(CLI_REFRESH&(R(flag,R(ty,*argp)))) {
 // refresh
 }
+
+base = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
+*(CLI_LEAD+(R(cur,R(ty,*argp)))) = (base+(ct(base)));
 
 return(0x01+(cli_io_beta(cur,size,argp)));
 }
