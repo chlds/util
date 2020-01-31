@@ -22,6 +22,7 @@ auto signed char name[CLI_NAME] = {
 (signed char) (0x00),
 };
 
+auto CLI_PAGE *page;
 auto signed long long ll;
 auto signed short *config,*edit;
 auto signed char *cur,*p;
@@ -115,9 +116,15 @@ return(0x00);
 }
 
 if(R(fd,R(edit,R(ty,cli_w32_stat)))) {
-r = cli_output_pages_beta(0x01/* connect with workspace */,*(CLI_BASE+(R(page,R(spool,R(ty,cli_w32_stat))))),&cli_w32_stat);
+page = (*(CLI_BASE+(R(page,R(spool,R(ty,cli_w32_stat))))));
+r = cli_coord_output_pages_beta(0x01/* comeback */,page,&cli_w32_stat);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_output_pages_beta()");
+printf("%s\n","<< Error at fn. cli_coord_output_pages_beta()");
+return(0x00);
+}
+r = cli_connect_with_workspace(page,&(R(ty,cli_w32_stat)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_connect_with_workspace()");
 return(0x00);
 }}
 
