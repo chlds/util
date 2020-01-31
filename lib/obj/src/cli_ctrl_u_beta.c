@@ -72,10 +72,8 @@ else {
 page = (R(s,*page));
 r = cli_connect_with_workspace(page,&(R(ty,*argp)));
 if(!r) {
-/* empty or..
 printf("%s\n","<< Error at fn. cli_connect_with_workspace()");
 return(0x00);
-//*/
 }
 r = cli_coord_beta(CLI_IN,&coord,argp);
 if(!r) {

@@ -23,7 +23,7 @@ signed(__cdecl cli_ctrl_x_beta(CLI_W32_STAT(*argp))) {
 auto CLI_COORD coord[0x02];
 auto CLI_PAGE *page;
 
-auto signed char *p;
+auto signed char *base,*p;
 auto signed c,i,r;
 auto signed short flag;
 auto signed short edge;
@@ -40,9 +40,11 @@ printf("%s\n","<< Error at fn. cli_book()");
 return(0x00);
 }
 
-p = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
-r = cpy(p,*(CLI_INDEX+(R(cur,R(ty,*argp)))));
-*(CLI_INDEX+(R(cur,R(ty,*argp)))) = (p);
+if(!(R(offset,R(ty,*argp)))) return(0x01);
+
+base = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
+r = cpy(base,*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+*(CLI_INDEX+(R(cur,R(ty,*argp)))) = (base);
 R(offset,R(ty,*argp)) = (0x00);
 
 r = cli_book(&(R(ty,*argp)));

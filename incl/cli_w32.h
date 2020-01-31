@@ -149,12 +149,20 @@ signed(__cdecl cli_io_beta(signed char(*cur),signed(size),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_coord_output_pages_internal_beta(signed short(edge),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_coord_output_pages_beta(signed short(comeback),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_coord_page_beta(signed short(comeback),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
+
 signed(__cdecl cli_output_pages_internal_beta(signed short(edge),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_output_pages_beta(signed short(connect_with/* workspace */),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
-signed(__cdecl cli_clear_output_beta(signed short(comeback_flag),signed char(*cur),CLI_W32_STAT(*argp)));
-signed(__cdecl cli_output_beta(signed short(comeback_flag),signed char(*cur),CLI_W32_STAT(*argp)));
+// deprecated
+
+signed(__cdecl cli_coord_clear_output_beta(signed short(comeback),signed char(*cur),CLI_W32_STAT(*argp)));
+signed(__cdecl cli_coord_output_beta(signed short(comeback),signed char(*cur),CLI_W32_STAT(*argp)));
+signed(__cdecl cli_clear_output_beta(signed short(comeback),signed char(*cur),CLI_W32_STAT(*argp)));
+signed(__cdecl cli_output_beta(signed short(comeback),signed char(*cur),CLI_W32_STAT(*argp)));
+
 signed(__cdecl cli_col_outs_beta(signed char(*cur),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_col_out_beta(signed char(*cur),CLI_W32_STAT(*argp)));
+// deprecated
+
 signed(__cdecl cli_coord_outs_beta(signed char(*cur),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_coord_out_beta(signed char(*cur),CLI_W32_STAT(*argp)));
 /* Form a column in the console screen. */

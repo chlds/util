@@ -61,6 +61,20 @@ return(0x00);
 return(0x01);
 }
 
+r = cli_coord_beta(CLI_IN,coord+(CLI_BASE),argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_coord_beta()");
+return(0x00);
+}
+
+edge = (R(Bottom,R(srWindow,R(csbi,*argp))));
+y = (R(Top,R(srWindow,R(csbi,*argp))));
+
+R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (R(y,*(coord+(CLI_BASE))));
+R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (R(x,*(coord+(CLI_BASE))));
+R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (R(y,*(coord+(CLI_BASE))));
+R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (R(x,*(coord+(CLI_BASE))));
+
 page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
 page = (R(d,*page));
 
@@ -72,15 +86,6 @@ return(0x00);
 }
 return(0x01);
 }
-
-r = cli_coord_beta(CLI_IN,coord+(CLI_BASE),argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
-return(0x00);
-}
-
-edge = (R(Bottom,R(srWindow,R(csbi,*argp))));
-y = (R(Top,R(srWindow,R(csbi,*argp))));
 
 r = cli_clear_row_beta(0x00/* comeback */,argp);
 if(!r) {

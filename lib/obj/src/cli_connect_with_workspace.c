@@ -5,7 +5,7 @@ Connect a page with workspace.
 Along with C library
 
 Remarks:
-Return the number of bytes copied to workspace.
+Refer at fn. cli_init_workspace.
 */
 
 
@@ -29,6 +29,28 @@ if(!page) return(0x00);
 if(!argp) return(0x00);
 
 *(CLI_INDEX+(R(page,R(spool,*argp)))) = (page);
+
+// to copy
+r = ct(*(CLI_BASE+(R(base,*page))));
+if(!r) {
+/* empty or..
+printf("%s\n","<< Error at fn. ct()");
+return(0x00);
+//*/
+}
+i = (r);
+r = (-r+(*(CLI_BASE+(R(size,R(roll,*argp))))));
+if(r<(CLI_EMPTY)) {
+INC(i);
+ADD(i,CLI_EMPTY);
+i = (i*(sizeof(signed char)));
+r = recharge(CLI_BASE+(R(base,R(roll,*argp))),i);
+if(!r) {
+printf("%s\n","<< Error at fn. recharge()");
+return(0x00);
+}
+*(CLI_BASE+(R(size,R(roll,*argp)))) = (r);
+}
 
 r = cli_init_workspace(argp);
 if(!r) {
@@ -54,5 +76,5 @@ R(x,*(CLI_LEAD+(R(coord,*argp)))) = (coord.x);
 R(y,*(CLI_INDEX+(R(coord,*argp)))) = (coord.y);
 R(x,*(CLI_INDEX+(R(coord,*argp)))) = (coord.x);
 
-return(r);
+return(0x01);
 }

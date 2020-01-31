@@ -20,6 +20,8 @@ Refer at util/lib/obj/src/cli_io_beta.c
 signed(__cdecl cli_ctrl_t_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto CLI_PAGE *page;
+
 auto signed char *p;
 auto signed c,i,r;
 auto signed short flag;
@@ -41,15 +43,17 @@ printf("%s\n","<< Error at fn. cli_display_header_beta()");
 return(0x00);
 }
 
-r = cli_output_pages_beta(0x01/* connect with workspace */,*(CLI_BASE+(R(page,R(spool,R(ty,*argp))))),argp);
+page = (*(CLI_BASE+(R(page,R(spool,R(ty,*argp))))));
+
+r = cli_coord_output_pages_beta(0x01/* comeback */,page,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_output_pages_beta()");
+printf("%s\n","<< Error at fn. cli_coord_output_pages_beta()");
 return(0x00);
 }
 
-r = cli_init_workspace(&(R(ty,*argp)));
+r = cli_connect_with_workspace(page,&(R(ty,*argp)));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_init_workspace()");
+printf("%s\n","<< Error at fn. cli_connect_with_workspace()");
 return(0x00);
 }
 
