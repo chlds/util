@@ -32,6 +32,7 @@ auto signed long long ll;
 auto signed c,i,r,offset;
 auto signed short cr;
 auto signed short flag;
+auto signed short y;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -227,6 +228,8 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
+y = (R(Top,R(srWindow,R(csbi,*argp))));
+
 if(!flag) {
 r = cli_coord_outs_beta(*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
 if(!r) {
@@ -255,6 +258,21 @@ printf("%s\n","<< Error at fn. cli_coord_output_pages_beta()");
 // return(0x00);
 }}}
 
+// fix the frame
+r = cli_get_csbi_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_get_csbi_beta()");
+return(0x00);
+}
+if(y^(R(Top,R(srWindow,R(csbi,*argp))))) {
+R(y,*(coord+(CLI_OFFSET))) = (y);
+R(x,*(coord+(CLI_OFFSET))) = (0x00);
+r = cli_coord_beta(CLI_OUT,coord+(CLI_OFFSET),argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_coord_beta()");
+return(0x00);
+}}
+// come back
 r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
