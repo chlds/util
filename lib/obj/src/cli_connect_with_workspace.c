@@ -71,8 +71,6 @@ ADD(R(gauge,*argp),-r);
 
 coord.y = (R(y,*(CLI_BASE+(R(coord,*page)))));
 coord.x = (0x00);
-R(y,*(CLI_LEAD+(R(coord,*argp)))) = (coord.y);
-R(x,*(CLI_LEAD+(R(coord,*argp)))) = (coord.x);
 R(y,*(CLI_INDEX+(R(coord,*argp)))) = (coord.y);
 R(x,*(CLI_INDEX+(R(coord,*argp)))) = (coord.x);
 

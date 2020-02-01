@@ -31,12 +31,12 @@ auto signed short flag;
 if(!cur) return(0x00);
 if(!argp) return(0x00);
 
+if(CLI_DBG_D<(CLI_DBG)) {
+printf("%s%p\n","An offset address for a handle to the specified standard output device is: ",*(CLI_OUT+(R(device,*argp))));
 if(!(*(CLI_OUT+(R(device,*argp))))) {
 printf("%s\n","<< Get a handle to the specified standard output device.");
 return(0x00);
-}
-
-if(CLI_DBG_D<(CLI_DBG)) printf("%s%p\n","An offset address for a handle to the specified standard output device is: ",*(CLI_OUT+(R(device,*argp))));
+}}
 
 if(!(HT^(*cur))) {
 r = cli_indent_beta(argp);
@@ -76,8 +76,8 @@ return(0x00);
 }
 y = (R(Y,R(dwCursorPosition,R(csbi,*argp))));
 if(!(y^(coord.y))) {
-coord.x = (0x00);
 coord.y = (0x01+(coord.y));
+coord.x = (0x00);
 r = cli_coord_beta(CLI_OUT,&coord,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");

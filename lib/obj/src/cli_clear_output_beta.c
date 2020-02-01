@@ -43,16 +43,6 @@ return(0x00);
 
 i = (r);
 
-if(comeback) {
-r = cli_coord_beta(CLI_IN,coord+(CLI_OFFSET),argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
-return(0x00);
-}
-R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (R(y,*(coord+(CLI_OFFSET))));
-R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (R(x,*(coord+(CLI_OFFSET))));
-}
-
 r = cli_clear_row_beta(0x00/* come back */,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_clear_row_beta()");
@@ -67,6 +57,11 @@ if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }}
+
+else {
+R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (0x00);
+R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (0x00);
+}
 
 return(i);
 }
