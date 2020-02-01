@@ -1,0 +1,137 @@
+/*
+
+Display the version.
+
+Along with C and Windows libraries
+
+Remarks:
+Refer at util/lib/obj/src/cli_io_beta.c
+*/
+
+
+# define CLI_MACRO
+# define CLI_W32
+
+# include <conio.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include "../../../incl/config_ty.h"
+
+signed(__cdecl cli_vers(CLI_W32_STAT(*argp))) {
+
+/* **** DATA, BSS and STACK */
+auto signed char CR = ('\r');
+auto signed char LF = ('\n');
+auto signed char SP = (' ');
+
+auto signed char character[] = {
+(signed char) (CR),
+(signed char) (LF),
+(signed char) (SP),
+(signed char) ('q'),
+(signed char) ('Q'),
+(signed char) (0x00),
+};
+
+auto signed char *p = ("\
+\n\
+\n\
+\n\
+\n\
+  WELCOME TO TY.EXE :)\n\
+\n\
+\n\
+  Version: 0.4\n\
+  GitHub: github.com/chlds/util/\n\
+");
+
+auto SMALL_RECT sr;
+auto COORD coord;
+auto void *ccsb;
+auto signed char *cur;
+auto signed long long ll;
+auto signed i,r;
+auto signed short flag;
+
+/* **** CODE/TEXT */
+if(!argp) return(0x00);
+
+r = cli_get_csbi_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_get_csbi_beta()");
+return(0x00);
+}
+
+ccsb = (void*) CreateConsoleScreenBuffer(
+GENERIC_READ|(GENERIC_WRITE),
+0x00/* FILE_SHARE_READ|(FILE_SHARE_WRITE) */,
+0x00,
+CONSOLE_TEXTMODE_BUFFER,
+0x00
+);
+ll = ((signed long long) ccsb);
+if(!(ll^((signed long long) INVALID_HANDLE_VALUE))) {
+r = GetLastError();
+printf("%s%d%s%Xh\n","<< Error at fn. CreateConsoleScreenBuffer() with error no. ",r," or ",r);
+return(0x00);
+}
+
+coord.Y = (R(Y,R(dwSize,R(csbi,*argp))));
+coord.X = (R(X,R(dwSize,R(csbi,*argp))));
+r = SetConsoleScreenBufferSize(ccsb,coord);
+if(!r) {
+r = GetLastError();
+printf("%s%d%s%Xh\n","<< Error at fn. SetConsoleScreenBufferSize() with error no. ",r," or ",r);
+return(0x00);
+}
+
+sr.Top = (0x00);
+sr.Left = (0x00);
+sr.Bottom = (-0x01+(R(Y,R(dwMaximumWindowSize,R(csbi,*argp)))));
+sr.Right = (-0x01+(R(X,R(dwMaximumWindowSize,R(csbi,*argp)))));
+r = SetConsoleWindowInfo(ccsb,0x01,&sr);
+if(!r) {
+r = GetLastError();
+printf("%s%d%s%Xh\n","<< Error at fn. SetConsoleWindowInfo() with error no. ",r," or ",r);
+return(0x00);
+}
+
+r = WriteConsole(ccsb,p,ct(p),&i,0x00);
+if(!r) {
+r = GetLastError();
+printf("%s%d%s%Xh\n","<< Error at fn. WriteConsole() with error no. ",r," or ",r);
+return(0x00);
+}
+
+r = SetConsoleActiveScreenBuffer(ccsb);
+if(!r) {
+r = GetLastError();
+printf("%s%d%s%Xh\n","<< Error at fn. SetConsoleActiveScreenBuffer() with error no. ",r," or ",r);
+return(0x00);
+}
+
+flag = (0x00);
+while(0x01) {
+if(flag) break;
+r = _getch();
+i = (0x00);
+while(*(character+(i))) {
+if(!(r^(*(character+(i++))))) flag++;
+}}
+
+r = SetConsoleActiveScreenBuffer(*(CLI_OUT+(R(device,*argp))));
+if(!r) {
+r = GetLastError();
+printf("%s%d%s%Xh\n","<< Error at fn. SetConsoleActiveScreenBuffer() with error no. ",r," or ",r);
+return(0x00);
+}
+
+r = CloseHandle(ccsb);
+if(!r) {
+r = GetLastError();
+printf("%s%d%s%Xh\n","<< Error at fn. CloseHandle() with error no. ",r," or ",r);
+return(0x00);
+}
+
+return(0x01);
+}
