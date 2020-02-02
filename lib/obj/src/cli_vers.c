@@ -20,16 +20,18 @@ Refer at util/lib/obj/src/cli_io_beta.c
 signed(__cdecl cli_vers(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto signed char SP = (' ');
+auto signed char ESC = (0x1B);
 auto signed char CR = ('\r');
 auto signed char LF = ('\n');
-auto signed char SP = (' ');
 
 auto signed char character[] = {
-(signed char) (CR),
-(signed char) (LF),
-(signed char) (SP),
 (signed char) ('q'),
 (signed char) ('Q'),
+(signed char) (SP),
+(signed char) (ESC),
+(signed char) (CR),
+(signed char) (LF),
 (signed char) (0x00),
 };
 

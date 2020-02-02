@@ -80,5 +80,11 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
+r = cli_ctrl_e_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_ctrl_e_beta()");
+return(0x00);
+}
+
 return(0x01);
 }

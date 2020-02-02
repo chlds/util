@@ -51,6 +51,13 @@ signed(__cdecl recharge(signed char(**argp),signed(arg)));
 signed(__cdecl cli_unmap(signed(times),signed char(**argp)));
 // Unmap.
 
+signed(__cdecl cv_da_internal(signed short(radix),signed char(*table),signed(*di),signed char(*si)));
+signed(__cdecl cv_da(signed short(radix),signed(*di),signed char(*si)));
+// convert to a signed/unsigned double word out of characters.
+
+signed(__cdecl ord(signed char(*di),signed char(si)));
+// check the ordinal number.
+
 signed(__cdecl countback_to(signed char(*edge),signed char(*sym),signed char(*argp)));
 // count back to a symbol or to the leading address.
 
