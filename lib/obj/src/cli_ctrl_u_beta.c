@@ -70,11 +70,6 @@ return(0x00);
 
 else {
 page = (R(s,*page));
-r = cli_connect_with_workspace(page,&(R(ty,*argp)));
-if(!r) {
-printf("%s\n","<< Error at fn. cli_connect_with_workspace()");
-return(0x00);
-}
 r = cli_coord_beta(CLI_IN,&coord,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
@@ -95,21 +90,27 @@ r = cli_coord_beta(CLI_OUT,&coord,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
-}
-if(flag) {
-r = cli_output_beta(0x01/* comeback */,*(CLI_BASE+(R(base,*page))),argp);
-if(!r) {
-/* empty or..
-printf("%s\n","<< Error at fn. cli_output_beta()");
-return(0x00);
-//*/
-}
-return(0x01);
 }}
 
+if(flag) {
+r = cli_coord_page_beta(0x01/* comeback */,page,argp);
+if(!r) {
+/* empty or..
+printf("%s\n","<< Error at fn. cli_coord_page_beta()");
+return(0x00);
+//*/
+}}
+
+else {
 r = cli_coord_output_pages_beta(0x01/* comeback */,page,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_output_pages_beta()");
+return(0x00);
+}}
+
+r = cli_connect_with_workspace(page,&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_connect_with_workspace()");
 return(0x00);
 }
 

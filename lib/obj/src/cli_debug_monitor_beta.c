@@ -143,20 +143,20 @@ R(gauge,R(debug,R(ty,*argp)))," at R(cur/gauge,R(debug,"\
 
 // Coordinates
 printf("%d%s%d%s",\
-R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))),"/",\
-R(y,*(CLI_LEAD+(R(coord,R(ty,*argp)))))," | "\
+R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))),"/",\
+R(x,*(CLI_LEAD+(R(coord,R(ty,*argp)))))," | "\
 );
 printf("%d%s%d%s",\
-R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))),"/",\
-R(y,*(CLI_INDEX+(R(coord,R(ty,*argp)))))," | "\
+R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))),"/",\
+R(x,*(CLI_INDEX+(R(coord,R(ty,*argp)))))," | "\
 );
 printf("%d%s%d%s",\
-R(x,*(CLI_OFFSET+(R(coord,R(ty,*argp))))),"/",\
-R(y,*(CLI_OFFSET+(R(coord,R(ty,*argp)))))," | "\
+R(y,*(CLI_OFFSET+(R(coord,R(ty,*argp))))),"/",\
+R(x,*(CLI_OFFSET+(R(coord,R(ty,*argp)))))," | "\
 );
 printf("%d%s%d%s\n",\
-R(x,*(CLI_BASE+(R(coord,R(ty,*argp))))),"/",\
-R(y,*(CLI_BASE+(R(coord,R(ty,*argp)))))," at R(x/y,*(CLI_LEAD/CLI_INDEX/CLI_OFFSET/CLI_BASE+(R(coord,"\
+R(y,*(CLI_BASE+(R(coord,R(ty,*argp))))),"/",\
+R(x,*(CLI_BASE+(R(coord,R(ty,*argp)))))," at R(y/x,*(CLI_LEAD/CLI_INDEX/CLI_OFFSET/CLI_BASE+(R(coord,"\
 );
 
 // Addresses
@@ -200,36 +200,36 @@ printf("%d%s",R(redo,R(spool,R(ty,*argp)))," ");
 printf("%s","at R(offset,**(CLI_INDEX+(R(page/R(insert/R(undo/R(redo, | ");
 printf(\
 "%d%s%d%s",\
-R(x,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),\
-"/",\
 R(y,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),\
-" at R(x/y,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page, on R(spool,R(ty,*argp"\
+"/",\
+R(x,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),\
+" at R(y/x,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page, on R(spool,R(ty,*argp"\
 );
 printf("\n");
 
 printf("%p%s",*(CLI_BASE+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_BASE+(R(page, | ");
 printf(\
 "%d%s%d\n",\
-R(x,*(CLI_BASE+(R(coord,**(CLI_BASE+(R(page,R(spool,R(ty,*argp))))))))),"/",\
-R(y,*(CLI_BASE+(R(coord,**(CLI_BASE+(R(page,R(spool,R(ty,*argp)))))))))\
+R(y,*(CLI_BASE+(R(coord,**(CLI_BASE+(R(page,R(spool,R(ty,*argp))))))))),"/",\
+R(x,*(CLI_BASE+(R(coord,**(CLI_BASE+(R(page,R(spool,R(ty,*argp)))))))))\
 );
 printf("%p%s",*(CLI_OFFSET+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_OFFSET+(R(page, | ");
 printf(\
 "%d%s%d\n",\
-R(x,*(CLI_BASE+(R(coord,**(CLI_OFFSET+(R(page,R(spool,R(ty,*argp))))))))),"/",\
-R(y,*(CLI_BASE+(R(coord,**(CLI_OFFSET+(R(page,R(spool,R(ty,*argp)))))))))\
+R(y,*(CLI_BASE+(R(coord,**(CLI_OFFSET+(R(page,R(spool,R(ty,*argp))))))))),"/",\
+R(x,*(CLI_BASE+(R(coord,**(CLI_OFFSET+(R(page,R(spool,R(ty,*argp)))))))))\
 );
 printf("%p%s",*(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_INDEX+(R(page, | ");
 printf(\
 "%d%s%d\n",\
-R(x,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),"/",\
-R(y,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))\
+R(y,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),"/",\
+R(x,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))\
 );
 printf("%p%s",*(CLI_LEAD+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_LEAD+(R(page, | ");
 printf(\
 "%d%s%d\n",\
-R(x,*(CLI_BASE+(R(coord,**(CLI_LEAD+(R(page,R(spool,R(ty,*argp))))))))),"/",\
-R(y,*(CLI_BASE+(R(coord,**(CLI_LEAD+(R(page,R(spool,R(ty,*argp)))))))))\
+R(y,*(CLI_BASE+(R(coord,**(CLI_LEAD+(R(page,R(spool,R(ty,*argp))))))))),"/",\
+R(x,*(CLI_BASE+(R(coord,**(CLI_LEAD+(R(page,R(spool,R(ty,*argp)))))))))\
 );
 
 // Snapshots

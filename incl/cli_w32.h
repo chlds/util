@@ -34,7 +34,7 @@ void *optl;
 signed(__cdecl cli_display_header_beta(CLI_W32_STAT(*argp)));
 /* Display the two-row header */
 
-signed(__cdecl cli_display_footer_beta(signed short(comeback_flag),signed char(*label),CLI_W32_STAT(*argp)));
+signed(__cdecl cli_display_footer_beta(signed short(comeback),signed char(*label),CLI_W32_STAT(*argp)));
 /* Display the footer */
 
 signed(__cdecl cli_confirm_save_beta(CLI_W32_STAT(*argp)));

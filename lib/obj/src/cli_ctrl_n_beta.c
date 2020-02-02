@@ -47,6 +47,11 @@ if(!r) {
 printf("%s\n","<< Error at fn. cli_ctrl_e_beta()");
 return(0x00);
 }
+r = cli_clear_rows_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
+return(0x00);
+}
 return(0x01);
 }
 

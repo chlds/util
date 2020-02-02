@@ -15,7 +15,7 @@ Along with C and Windows libraries
 # include <stdlib.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_display_footer_beta(signed short(comeback_flag),signed char(*label),CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_display_footer_beta(signed short(comeback),signed char(*label),CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto CLI_COORD coord[CLI_OBJS];
@@ -95,7 +95,7 @@ printf("%s\n","<< Error at fn. embed_to()");
 return(0x00);
 }
 
-if(comeback_flag) {
+if(comeback) {
 // fix the frame
 r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
 if(!r) {
