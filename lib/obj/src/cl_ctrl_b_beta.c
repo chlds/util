@@ -54,9 +54,9 @@ return(0x00);
 
 while(0x01) {
 if(cur<(p)) {
-r = cli_col_out_beta(cur,argp);
+r = cli_coord_out_beta(cur,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_col_out_beta()");
+printf("%s\n","<< Error at fn. cli_coord_out_beta()");
 return(0x00);
 }}
 else break;

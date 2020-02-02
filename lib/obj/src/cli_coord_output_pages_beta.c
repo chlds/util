@@ -4,7 +4,6 @@ Coordinate and output pages to the console screen.
 
 Remarks:
 Refer at fn. cli_load, fn. cli_load_internal, fn. cli_bind_pages and fn. cli_book.
-Based on fn. cli_col_outs_beta, fn. cli_col_out_beta and fn. cli_out
 Return the number of output pages.
 */
 

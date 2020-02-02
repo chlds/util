@@ -42,9 +42,9 @@ INC(*(CLI_LEAD+(R(cur,R(commandline,R(ty,*argp))))));
 ll = ((signed long long) *(CLI_LEAD+(R(cur,R(commandline,R(ty,*argp))))));
 if(!(ll^((signed long long) *(CLI_INDEX+(R(cur,R(commandline,R(ty,*argp)))))))) return(0x01);
 
-r = cli_col_out_beta(*(CLI_INDEX+(R(cur,R(commandline,R(ty,*argp))))),argp);
+r = cli_coord_out_beta(*(CLI_INDEX+(R(cur,R(commandline,R(ty,*argp))))),argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_col_out_beta()");
+printf("%s\n","<< Error at fn. cli_coord_out_beta()");
 return(0x00);
 }
 

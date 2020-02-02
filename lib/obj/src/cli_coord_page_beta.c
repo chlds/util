@@ -3,7 +3,6 @@
 Coordinate and output a page to the console screen.
 
 Remarks:
-Based on fn. cli_col_outs_beta, fn. cli_col_out_beta and fn. cli_out
 Return the number of output pages.
 */
 

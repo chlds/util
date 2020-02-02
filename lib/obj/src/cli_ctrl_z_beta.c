@@ -20,7 +20,7 @@ Refer at util/lib/obj/src/cli_io_beta.c
 signed(__cdecl cli_ctrl_z_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char *label = ("Descend (-n) or ascend (n) by: ");
+auto signed char *label = ("Descend (n) or ascend (-n) by: ");
 auto signed short radix = (0x0A);
 
 auto CLI_COORD coord;

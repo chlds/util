@@ -3,7 +3,6 @@
 Output characters based on UTF-8 to the console screen.
 
 Remarks:
-Based on fn. cli_col_outs_beta, fn. cli_col_out_beta and fn. cli_out
 Return the number of bytes for output characters.
 */
 
@@ -45,15 +44,6 @@ return(0x00);
 }
 
 i = (r);
-
-r = cli_coord_beta(CLI_IN,coord+(CLI_OFFSET),argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
-return(0x00);
-}
-
-R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (R(y,*(coord+(CLI_OFFSET))));
-R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (R(x,*(coord+(CLI_OFFSET))));
 
 if(comeback) {
 /* fix the frame */
