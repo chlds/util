@@ -52,6 +52,9 @@ return(0x00);
 //*/
 }
 
+R(y,*(CLI_LEAD+(R(coord,*page)))) = (R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
+R(x,*(CLI_LEAD+(R(coord,*page)))) = (R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
+
 if(comeback) {
 /* fix the frame */
 r = cli_get_csbi_beta(argp);

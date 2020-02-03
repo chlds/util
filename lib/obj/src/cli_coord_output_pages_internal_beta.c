@@ -51,6 +51,9 @@ return(0x00);
 //*/
 }
 
+R(y,*(CLI_LEAD+(R(coord,*page)))) = (R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
+R(x,*(CLI_LEAD+(R(coord,*page)))) = (R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
+
 page = (R(d,*page));
 
 if(page) {

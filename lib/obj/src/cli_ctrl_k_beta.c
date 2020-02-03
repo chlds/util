@@ -72,8 +72,6 @@ y = (R(Top,R(srWindow,R(csbi,*argp))));
 
 R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (R(y,*(coord+(CLI_BASE))));
 R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (R(x,*(coord+(CLI_BASE))));
-R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (R(y,*(coord+(CLI_BASE))));
-R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (R(x,*(coord+(CLI_BASE))));
 
 page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
 page = (R(d,*page));

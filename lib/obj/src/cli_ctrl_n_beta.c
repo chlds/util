@@ -26,6 +26,7 @@ auto CLI_COORD coord;
 auto signed char *p;
 auto signed c,i,r;
 auto signed short flag;
+auto signed short y;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -79,32 +80,34 @@ R(y,*(i+(R(coord,*page)))) = (coord.y);
 R(x,*(i+(R(coord,*page)))) = (coord.x);
 }
 
-*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))) = (page);
+y = (coord.y);
+if(!(y^(R(Bottom,R(srWindow,R(csbi,*argp)))))) flag = (0x01);
+else flag = (0x00);
 
-r = cli_init_workspace(&(R(ty,*argp)));
+r = cli_connect_with_workspace(page,&(R(ty,*argp)));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_init_workspace()");
+printf("%s\n","<< Error at fn. cli_connect_with_workspace()");
 return(0x00);
 }
 
-r = cpy(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(base,*page))));
+if(flag) {
+r = cli_coord_clear_output_beta(0x01,*(CLI_BASE+(R(base,*page))),argp);
 if(!r) {
-/* empty or..
-printf("%s\n","<< Error at fn. cpy()");
+printf("%s\n","<< Error at fn. cli_coord_clear_output_beta()");
 return(0x00);
-//*/
-}
+}}
 
-ADD(R(gauge,R(debug,R(ty,*argp))),-r);
-ADD(R(gauge,R(ty,*argp)),-r);
-
+else {
 r = cli_output_beta(0x01,*(CLI_BASE+(R(base,*page))),argp);
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cli_output_beta()");
 return(0x00);
 //*/
-}
+}}
+
+R(y,*(CLI_LEAD+(R(coord,*page)))) = (R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
+R(x,*(CLI_LEAD+(R(coord,*page)))) = (R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
 
 return(0x01);
 }
