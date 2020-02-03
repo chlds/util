@@ -51,6 +51,8 @@ return(0x00);
 return(0x01);
 }
 
+flag = (0x00);
+
 page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
 
 if(!(R(s,*page))) {
@@ -79,7 +81,6 @@ y = (R(Top,R(srWindow,R(csbi,*argp))));
 if(!(y^(coord.y))) {
 coord.y = (0x00);
 coord.x = (0x00);
-flag = (0x00);
 }
 else {
 coord.y = (R(y,*(CLI_BASE+(R(coord,*page)))));

@@ -17,7 +17,7 @@ Refer at util/lib/obj/src/cli_io_beta.c
 # include <stdlib.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_vers(CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_vers_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char SP = (' ');
@@ -35,14 +35,17 @@ auto signed char character[] = {
 (signed char) (0x00),
 };
 
-auto signed char *p = ("\
-\n\
-\n\
-\n\
-\n\
+auto signed char *header = ("\n\n\n\n\
   WELCOME TO TY.EXE :)\n\
-\n\
-\n\
+");
+
+auto signed char *edit = ("\n\n\n\n\
+  Currently being edited: \
+");
+
+auto signed char *no_file = ("No file");
+
+auto signed char *footer = ("\n\n\
   Version: 0.4\n\
   GitHub: github.com/chlds/util/\n\
 ");
@@ -50,7 +53,7 @@ auto signed char *p = ("\
 auto SMALL_RECT sr;
 auto COORD coord;
 auto void *ccsb;
-auto signed char *cur;
+auto signed char *cur,*p;
 auto signed long long ll;
 auto signed i,r;
 auto signed short flag;
@@ -98,7 +101,33 @@ printf("%s%d%s%Xh\n","<< Error at fn. SetConsoleWindowInfo() with error no. ",r,
 return(0x00);
 }
 
+r = WriteConsole(ccsb,header,ct(header),&i,0x00);
+if(!r) {
+r = GetLastError();
+printf("%s%d%s%Xh\n","<< Error at fn. WriteConsole() with error no. ",r," or ",r);
+return(0x00);
+}
+
+r = WriteConsole(ccsb,edit,ct(edit),&i,0x00);
+if(!r) {
+r = GetLastError();
+printf("%s%d%s%Xh\n","<< Error at fn. WriteConsole() with error no. ",r," or ",r);
+return(0x00);
+}
+
+p = (R(file,R(edit,R(ty,*argp))));
+if(!p) p = (no_file);
+
 r = WriteConsole(ccsb,p,ct(p),&i,0x00);
+if(!r) {
+r = GetLastError();
+printf("%s%d%s%Xh\n","<< Error at fn. WriteConsole() with error no. ",r," or ",r);
+return(0x00);
+}
+
+p = (0x00);
+
+r = WriteConsole(ccsb,footer,ct(footer),&i,0x00);
 if(!r) {
 r = GetLastError();
 printf("%s%d%s%Xh\n","<< Error at fn. WriteConsole() with error no. ",r," or ",r);

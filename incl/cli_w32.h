@@ -31,6 +31,9 @@ void *(device[CLI_DEVICES]);
 void *optl;
 } CLI_W32_STAT;
 
+signed(__cdecl cli_vers_beta(CLI_W32_STAT(*argp)));
+/* Display the version and more */
+
 signed(__cdecl cli_display_header_beta(CLI_W32_STAT(*argp)));
 /* Display the two-row header */
 

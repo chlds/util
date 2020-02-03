@@ -29,9 +29,9 @@ if(!argp) return(0x00);
 
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-V>");
 
-r = cli_vers(argp);
+r = cli_vers_beta(argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_vers()");
+printf("%s\n","<< Error at fn. cli_vers_beta()");
 return(0x00);
 }
 
