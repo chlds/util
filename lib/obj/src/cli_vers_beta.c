@@ -24,6 +24,7 @@ auto signed char SP = (' ');
 auto signed char ESC = (0x1B);
 auto signed char CR = ('\r');
 auto signed char LF = ('\n');
+auto signed char BS = (0x08);
 
 auto signed char character[] = {
 (signed char) ('q'),
@@ -32,6 +33,7 @@ auto signed char character[] = {
 (signed char) (ESC),
 (signed char) (CR),
 (signed char) (LF),
+(signed char) (BS),
 (signed char) (0x00),
 };
 
