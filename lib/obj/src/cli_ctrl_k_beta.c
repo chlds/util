@@ -26,6 +26,7 @@ auto CLI_COORD coord[0x02];
 auto signed char *p;
 auto signed c,i,r;
 auto signed short flag;
+auto signed short inte,exte;
 auto signed short y;
 
 /* **** CODE/TEXT */
@@ -69,6 +70,9 @@ return(0x00);
 R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (R(y,*(coord+(CLI_BASE))));
 R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (R(x,*(coord+(CLI_BASE))));
 
+inte = (R(Bottom,R(srWindow,R(csbi,*argp))));
+exte = (R(Top,R(srWindow,R(csbi,*argp))));
+
 page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
 
 if(!(R(d,*page))) {
@@ -86,19 +90,53 @@ r = cli_clear_row_beta(0x01/* comeback */,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_clear_row_beta()");
 return(0x00);
-}}
-else {
+}
+return(0x01);
+}
+
 r = cli_clear_row_beta(0x00/* comeback */,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_clear_row_beta()");
 return(0x00);
 }
+
 page = (R(d,*page));
+
 r = cli_coord_output_pages_beta(0x00/* comeback */,page,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_output_pages_beta()");
 return(0x00);
+}
+
+/* fix the frame */
+r = cli_get_csbi_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_get_csbi_beta()");
+return(0x00);
+}
+if(inte<(R(Bottom,R(srWindow,R(csbi,*argp))))) flag = (0x00);
+else flag = (0x01);
+if(flag) {
+r = cli_clear_rows_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
+return(0x00);
 }}
+if(exte^(R(Top,R(srWindow,R(csbi,*argp))))) {
+R(y,*(coord+(CLI_OFFSET))) = (exte);
+R(x,*(coord+(CLI_OFFSET))) = (0x00);
+r = cli_coord_beta(CLI_OUT,coord+(CLI_OFFSET),argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_coord_beta()");
+return(0x00);
+}}
+
+/* come back */
+r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_coord_beta()");
+return(0x00);
+}
 
 return(0x01);
 }

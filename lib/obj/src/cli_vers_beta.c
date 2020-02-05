@@ -50,6 +50,7 @@ auto signed char *no_file = ("No file");
 auto signed char *footer = ("\n\n\
   Version: 0.4\n\
   GitHub: github.com/chlds/util/\n\
+  \
 ");
 
 auto SMALL_RECT sr;
