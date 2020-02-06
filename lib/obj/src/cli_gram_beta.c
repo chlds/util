@@ -13,10 +13,11 @@ Return the number of output pages.
 # include <stdio.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_coord_page_beta(signed short(comeback),CLI_PAGE(*page),CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_gram_beta(signed short(comeback),signed char(*cur),CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto CLI_COORD coord[0x02];
+auto CLI_PAGE *page;
 
 auto signed char *p;
 auto signed i,r;
@@ -25,7 +26,7 @@ auto signed short inte;
 auto signed short exte;
 
 /* **** CODE/TEXT */
-if(!page) return(0x00);
+if(!cur) return(0x00);
 if(!argp) return(0x00);
 
 r = cli_coord_beta(CLI_IN,coord+(CLI_BASE),argp);
@@ -37,14 +38,9 @@ return(0x00);
 // inte = (R(Bottom,R(srWindow,R(csbi,*argp))));
 exte = (R(Top,R(srWindow,R(csbi,*argp))));
 
-i = (CLI_OBJS);
-while(i) {
---i;
-R(y,*(i+(R(coord,*page)))) = (R(y,*(coord+(CLI_BASE))));
-R(x,*(i+(R(coord,*page)))) = (R(x,*(coord+(CLI_BASE))));
-}
+page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
 
-r = cli_coord_outs_beta(*(CLI_BASE+(R(base,*page))),argp);
+r = cli_coord_outs_beta(cur,argp);
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cli_coord_outs_beta()");
@@ -54,6 +50,12 @@ return(0x00);
 
 R(y,*(CLI_LEAD+(R(coord,*page)))) = (R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
 R(x,*(CLI_LEAD+(R(coord,*page)))) = (R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
+
+r = cli_clear_row_beta(0x00/* comeback */,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_clear_row_beta()");
+return(0x00);
+}
 
 if(comeback) {
 /* fix the frame */

@@ -21,7 +21,8 @@ auto CLI_COORD coord[0x02];
 auto signed char *p;
 auto signed i,r;
 auto signed short flag;
-auto signed short y;
+auto signed short inte;
+auto signed short exte;
 
 /* **** CODE/TEXT */
 if(!page) return(0x00);
@@ -33,7 +34,8 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
-y = (R(Top,R(srWindow,R(csbi,*argp))));
+// inte = (R(Bottom,R(srWindow,R(csbi,*argp))));
+exte = (R(Top,R(srWindow,R(csbi,*argp))));
 
 i = (CLI_OBJS);
 while(i) {
@@ -66,8 +68,8 @@ if(!r) {
 printf("%s\n","<< Error at fn. cli_get_csbi_beta()");
 return(0x00);
 }
-if(y^(R(Top,R(srWindow,R(csbi,*argp))))) {
-R(y,*(coord+(CLI_OFFSET))) = (y);
+if(exte^(R(Top,R(srWindow,R(csbi,*argp))))) {
+R(y,*(coord+(CLI_OFFSET))) = (exte);
 R(x,*(coord+(CLI_OFFSET))) = (0x00);
 r = cli_coord_beta(CLI_OUT,coord+(CLI_OFFSET),argp);
 if(!r) {
