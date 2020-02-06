@@ -239,6 +239,9 @@ printf("%s\n","<< Error at fn. cli_coord_outs_beta()");
 //*/
 }}
 
+R(y,*(CLI_LEAD+(R(coord,*page)))) = (R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
+R(x,*(CLI_LEAD+(R(coord,*page)))) = (R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
+
 page = (R(d,*page));
 if(!page) r = (0x01);
 else r = (0x00);

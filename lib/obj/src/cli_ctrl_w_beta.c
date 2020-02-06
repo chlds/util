@@ -19,10 +19,12 @@ Refer at util/lib/obj/src/cli_io_beta.c
 
 signed(__cdecl cli_ctrl_w_beta(CLI_W32_STAT(*argp))) {
 
+/* **** DATA, BSS and STACK */
 auto signed char *p;
 auto signed c,i,r;
 auto signed short flag;
 
+/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-W>");
