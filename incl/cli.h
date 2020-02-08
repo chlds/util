@@ -192,6 +192,13 @@ signed flag;
 void *optl;
 } CLI_CLIPBOARD;
 
+typedef struct cli_search {
+signed char *(cur[CLI_OBJS]);
+signed offset;
+signed short flag;
+void *optl;
+} CLI_SEARCH;
+
 typedef struct cli_debug {
 signed char *cur;
 signed gauge;
@@ -225,6 +232,7 @@ signed short align_tab;
 signed short linebreak_form;
 CLI_COMMANDLINE commandline;
 CLI_DEBUG debug;
+CLI_SEARCH search;
 CLI_CLIPBOARD clipboard;
 CLI_CONFIG config;
 CLI_EDIT edit;
@@ -265,8 +273,8 @@ signed(__cdecl cli_init_rolls(signed(size),CLI_ROLL(*argp)));
 signed(__cdecl cli_unmap_rolls(CLI_ROLL(*argp)));
 // charge rolls
 
-signed(__cdecl cli_search_pages_internal(signed char(*characters),CLI_TYPEWRITER(*argp)));
-signed(__cdecl cli_search_pages(signed char(*characters),CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_search_pages_internal(CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_search_pages(CLI_TYPEWRITER(*argp)));
 // search pages out of the index page to find characters.
 
 signed(__cdecl cli_load_internal(signed(count),CLI_TYPEWRITER(*argp)));
