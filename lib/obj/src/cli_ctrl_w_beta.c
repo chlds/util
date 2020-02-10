@@ -40,13 +40,14 @@ printf("%s\n","<< Error at fn. cli_book()");
 return(0x00);
 }
 
+if(!(CL_SEARCH&(R(flag,R(ty,*argp))))) {
 r = cli_display_footer_beta(0x01/* comeback */,label,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_display_footer_beta()");
 return(0x00);
 }
-
 if(!(**(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))))) return(0x01);
+}
 
 r = cli_search_pages(&(R(ty,*argp)));
 if(!r) {
@@ -55,6 +56,16 @@ return(0x00);
 }
 
 if(!(R(flag,R(search,R(ty,*argp))))) {
+flag = (~(CL_SEARCH));
+AND(R(flag,R(ty,*argp)),flag);
+/*
+r = (*(CLI_LEAD+(R(size,R(roll,R(ty,*argp))))));
+r = embed_to(*(CLI_LEAD+(R(base,R(roll,R(ty,*argp))))),0x00,r);
+if(!r) {
+printf("%s\n","<< Error at fn. embed_to()");
+return(0x00);
+}
+//*/
 return(0x01);
 }
 
@@ -125,6 +136,10 @@ return(0x00);
 else break;
 cur = (r+(cur));
 }
+
+R(offset,R(ty,*argp)) = (R(offset,R(search,R(ty,*argp))));
+
+OR(R(flag,R(ty,*argp)),CL_SEARCH);
 
 return(0x01);
 }

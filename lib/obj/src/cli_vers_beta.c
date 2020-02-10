@@ -37,17 +37,18 @@ auto signed char character[] = {
 (signed char) (0x00),
 };
 
-auto signed char *header = ("\n\n\n\n\
-  WELCOME TO TY.EXE :)\n\
-");
-
-auto signed char *edit = ("\n\n\n\n\
-  Currently being edited: \
+auto signed char *header = ("\n\n\
+  < \
 ");
 
 auto signed char *no_file = ("No file");
 
-auto signed char *footer = ("\n\n\
+auto signed char *edit = ("\n\n\n\n\
+  Currently being edited by \
+");
+
+auto signed char *footer = ("\n\n\n\n\
+  WELCOME TO TY.EXE :)\n\n\
   Version: 0.4\n\
   GitHub: github.com/chlds/util/\n\
   \
@@ -56,6 +57,7 @@ auto signed char *footer = ("\n\n\
 auto SMALL_RECT sr;
 auto COORD coord;
 auto void *ccsb;
+auto signed short *w;
 auto signed char *cur,*p;
 auto signed long long ll;
 auto signed i,r;
@@ -111,6 +113,35 @@ printf("%s%d%s%Xh\n","<< Error at fn. WriteConsole() with error no. ",r," or ",r
 return(0x00);
 }
 
+p = (R(file,R(edit,R(ty,*argp))));
+
+if(!p) {
+p = (no_file);
+r = WriteConsole(ccsb,p,ct(p),&i,0x00);
+if(!r) {
+r = GetLastError();
+printf("%s%d%s%Xh\n","<< Error at fn. WriteConsole() with error no. ",r," or ",r);
+return(0x00);
+}
+p = (0x00);
+}
+
+else {
+r = keep_w(&w,p);
+if(!r) {
+printf("%s\n","<< Error at fn. keep_w()");
+return(0x00);
+}
+r = WriteConsoleW(ccsb,w,ct_w(w),&i,0x00);
+if(!r) {
+r = GetLastError();
+printf("%s%d%s%Xh\n","<< Error at fn. WriteConsoleW() with error no. ",r," or ",r);
+return(0x00);
+}
+free(w);
+w = (0x00);
+}
+
 r = WriteConsole(ccsb,edit,ct(edit),&i,0x00);
 if(!r) {
 r = GetLastError();
@@ -118,8 +149,11 @@ printf("%s%d%s%Xh\n","<< Error at fn. WriteConsole() with error no. ",r," or ",r
 return(0x00);
 }
 
-p = (R(file,R(edit,R(ty,*argp))));
-if(!p) p = (no_file);
+p = getenv("USERNAME");
+if(!p) {
+printf("%s\n","<< Error at fn. getenv()");
+return(0x00);
+}
 
 r = WriteConsole(ccsb,p,ct(p),&i,0x00);
 if(!r) {

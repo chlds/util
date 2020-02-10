@@ -141,6 +141,12 @@ size = (-diff+(size));
 if(!(CTRL_L^(i))) INC(R(clip,R(clipboard,R(ty,*argp))));
 else R(clip,R(clipboard,R(ty,*argp))) = (0x00);
 
+// to search
+if(CTRL_W^(i)) {
+flag = (~(CL_SEARCH));
+AND(R(flag,R(ty,*argp)),flag);
+}
+
 if(i<(0x20)) {
 // fix
 *(--cur) = (signed char) (0x00);

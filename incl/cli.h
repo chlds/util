@@ -38,6 +38,7 @@ Refer at ./config_ty.h
 # define CLI_ALREADY_EXIST (0x40)
 # define CLI_OVERWRITE (0x80)
 # define CLI_REFRESH (0x100)
+# define CL_SEARCH (0x200)
 
 # define CLI_DBG_Q (0x08)
 # define CLI_DBG_D (0x04)

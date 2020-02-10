@@ -41,6 +41,7 @@ signed(__cdecl cue_backward(signed char(**retrv),signed char(*base),signed char(
 signed(__cdecl embed_to(signed char(*argp),signed char(arg),signed(times)));
 // Embed
 
+signed(__cdecl keep_w(signed short(**di),signed char(*si)));
 signed(__cdecl keep(signed char(**di),signed char(*si)));
 /* Please be sure to release. */
 
@@ -71,5 +72,9 @@ signed(__cdecl cmpr(signed(*cache),signed char(*di),signed char(*si)));
 
 signed(__cdecl compare(signed char(*di),signed char(*si)));
 /* Compare addresses. */
+
+signed(__cdecl ct_w(signed short(*argp)));
+signed(__cdecl ct(signed char(*argp)));
+/* Count. */
 
 // and more..

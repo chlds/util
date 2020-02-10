@@ -37,7 +37,7 @@ printf("%s\n","<< Error at fn. cmpr_partially()");
 return(0x00);
 }
 if(!i) {
-r = compare(cur,*(CLI_OUT+(R(cur,R(search,*argp)))));
+r = compare(cur,*(CLI_BASE+(R(base,*(R(cache,R(spool,*argp)))))));
 R(offset,R(search,*argp)) = (r);
 R(flag,R(search,*argp)) = (0x01);
 return(0x01);
