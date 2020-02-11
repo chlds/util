@@ -60,7 +60,7 @@ auto void *ccsb;
 auto signed short *w;
 auto signed char *cur,*p;
 auto signed long long ll;
-auto signed i,r;
+auto signed i,l,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
@@ -132,15 +132,18 @@ if(!r) {
 printf("%s\n","<< Error at fn. keep_w()");
 return(0x00);
 }
+l = (r);
 r = WriteConsoleW(ccsb,w,ct_w(w),&i,0x00);
 if(!r) {
 r = GetLastError();
 printf("%s%d%s%Xh\n","<< Error at fn. WriteConsoleW() with error no. ",r," or ",r);
 return(0x00);
 }
-free(w);
-w = (0x00);
-}
+r = release(l,&w);
+if(!r) {
+printf("%s\n","<< Error at fn. release()");
+return(0x00);
+}}
 
 r = WriteConsole(ccsb,edit,ct(edit),&i,0x00);
 if(!r) {

@@ -173,6 +173,7 @@ void *optl;
 
 typedef struct cli_edit {
 signed char *file;
+signed l;
 signed size;
 signed fd;
 void *optl;
@@ -180,6 +181,7 @@ void *optl;
 
 typedef struct cli_config {
 signed char *file;
+signed l;
 signed size;
 signed fd;
 void *optl;

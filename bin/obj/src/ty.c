@@ -62,7 +62,9 @@ r = keep(&(R(file,R(config,R(ty,cli_w32_stat)))),name);
 if(!r) {
 printf("%s\n","<< Error at fn. keep()");
 return(0x00);
-}}
+}
+R(l,R(config,R(ty,cli_w32_stat))) = (r);
+}
 
 if(edit) {
 r = encode2b(CLI_NAME,name,edit);
@@ -74,7 +76,9 @@ r = keep(&(R(file,R(edit,R(ty,cli_w32_stat)))),name);
 if(!r) {
 printf("%s\n","<< Error at fn. keep()");
 return(0x00);
-}}
+}
+R(l,R(edit,R(ty,cli_w32_stat))) = (r);
+}
 
 
 // Parse a config file
@@ -153,15 +157,27 @@ return(0x00);
 
 if(CLI_DBG) printf("%s%d%s\n","Unmapped ",r," rolls");
 
-p = (R(file,R(config,R(ty,cli_w32_stat))));
-if(p) free(p);
-p = (0x00);
-R(file,R(config,R(ty,cli_w32_stat))) = (0x00);
+if(R(file,R(config,R(ty,cli_w32_stat)))) {
+r = (R(l,R(config,R(ty,cli_w32_stat))));
+r = release(r,&(R(file,R(config,R(ty,cli_w32_stat)))));
+if(!r) {
+printf("%s\n","<< Error at fn. release()");
+return(0x00);
+}
+if(CLI_DBG) printf("%s%d%s\n","Unmapped ",r," bytes for a config file name");
+R(l,R(config,R(ty,cli_w32_stat))) = (0x00);
+}
 
-p = (R(file,R(edit,R(ty,cli_w32_stat))));
-if(p) free(p);
-p = (0x00);
-R(file,R(edit,R(ty,cli_w32_stat))) = (0x00);
+if(R(file,R(edit,R(ty,cli_w32_stat)))) {
+r = (R(l,R(edit,R(ty,cli_w32_stat))));
+r = release(r,&(R(file,R(edit,R(ty,cli_w32_stat)))));
+if(!r) {
+printf("%s\n","<< Error at fn. release()");
+return(0x00);
+}
+if(CLI_DBG) printf("%s%d%s\n","Unmapped ",r," bytes for a file name");
+R(l,R(edit,R(ty,cli_w32_stat))) = (0x00);
+}
 
 return(0x01);
 }

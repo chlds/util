@@ -43,6 +43,7 @@ signed(__cdecl embed_to(signed char(*argp),signed char(arg),signed(times)));
 
 signed(__cdecl keep_w(signed short(**di),signed char(*si)));
 signed(__cdecl keep(signed char(**di),signed char(*si)));
+signed(__cdecl release(signed(n),void(**argp)));
 /* Please be sure to release. */
 
 signed(__cdecl extend(signed char(**argp),signed(*total),signed(extra)));
