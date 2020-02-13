@@ -208,6 +208,16 @@ signed gauge;
 void *optl;
 } CLI_DEBUG;
 
+typedef struct cli_emul {
+signed char *(cur[CLI_OBJS]);
+signed char *(append[CLI_OBJS]);
+// signed appendant[CLI_OBJS];
+signed gauge;
+signed short offset;
+signed short linebreak;
+signed short flag;
+} CLI_EMUL;
+
 typedef struct cli_commandline {
 signed char *(cur[CLI_OBJS]);
 signed char *(append[CLI_OBJS]);
@@ -234,6 +244,7 @@ signed short flag;
 signed short align_tab;
 signed short linebreak_form;
 CLI_COMMANDLINE commandline;
+CLI_EMUL emul;
 CLI_DEBUG debug;
 CLI_SEARCH search;
 CLI_CLIPBOARD clipboard;
@@ -255,6 +266,9 @@ void *optl;
 signed(__cdecl cli_prev_word_internal(signed char(**retrv),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_prev_word(signed char(**retrv),CLI_TYPEWRITER(*argp)));
 // retrieve an address of the previous word.
+
+signed(__cdecl cli_emul(signed short(emul),CLI_TYPEWRITER(*argp)));
+// backup or restore parameters for workspace
 
 signed(__cdecl cl_extend(signed short(cue),signed(extra),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_extend(signed short(cue),signed(extra),CLI_TYPEWRITER(*argp)));
