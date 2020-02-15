@@ -28,8 +28,10 @@ flag = (0x00);
 
 r = cue_backward_internal(flag,retrv,base);
 if(!r) {
+/* empty or..
 printf("%s\n","<< Error at fn. cue_backward_internal()");
 return(0x00);
+//*/
 }
 
 return(r);

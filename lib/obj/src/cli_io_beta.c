@@ -213,7 +213,11 @@ R(offset,R(ty,*argp)) = (r);
 
 if(CLI_REFRESH&(R(flag,R(ty,*argp)))) {
 // refresh
-}
+r = cli_coord_clear_output_pages_beta(0x01/* comeback */,cur,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_coord_clear_output_pages_beta()");
+return(0x00);
+}}
 
 base = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
 *(CLI_LEAD+(R(cur,R(ty,*argp)))) = (base+(ct(base)));

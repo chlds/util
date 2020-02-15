@@ -29,6 +29,12 @@ auto signed short y;
 if(!page) return(0x00);
 if(!argp) return(0x00);
 
+r = cli_emul(CLI_IN,&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_emul()");
+return(0x00);
+}
+
 r = cli_coord_beta(CLI_IN,coord+(CLI_BASE),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
@@ -67,6 +73,12 @@ if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }}
+
+r = cli_emul(CLI_OUT,&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_emul()");
+return(0x00);
+}
 
 return(i);
 }

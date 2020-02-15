@@ -28,6 +28,12 @@ auto signed short exte;
 if(!page) return(0x00);
 if(!argp) return(0x00);
 
+r = cli_emul(CLI_IN,&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_emul()");
+return(0x00);
+}
+
 r = cli_coord_beta(CLI_IN,coord+(CLI_BASE),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
@@ -44,7 +50,14 @@ R(y,*(i+(R(coord,*page)))) = (R(y,*(coord+(CLI_BASE))));
 R(x,*(i+(R(coord,*page)))) = (R(x,*(coord+(CLI_BASE))));
 }
 
-r = cli_coord_outs_beta(*(CLI_BASE+(R(base,*page))),argp);
+p = (*(CLI_BASE+(R(base,*page))));
+i = (CLI_OBJS);
+while(i) {
+--i;
+*(i+(R(cur,R(ty,*argp)))) = (p);
+}
+
+r = cli_coord_outs_beta(p,argp);
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cli_coord_outs_beta()");
@@ -76,6 +89,12 @@ if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }}
+
+r = cli_emul(CLI_OUT,&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_emul()");
+return(0x00);
+}
 
 return(0x01);
 }
