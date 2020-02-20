@@ -31,11 +31,15 @@ auto signed short flag;
 
 /* **** CODE/TEXT */
 R(file,R(config,R(ty,cli_w32_stat))) = (0x00);
+R(l,R(config,R(ty,cli_w32_stat))) = (0x00);
 R(size,R(config,R(ty,cli_w32_stat))) = (0x00);
+R(modified,R(config,R(ty,cli_w32_stat))) = (0x00);
 R(fd,R(config,R(ty,cli_w32_stat))) = (0x00);
 
 R(file,R(edit,R(ty,cli_w32_stat))) = (0x00);
+R(l,R(edit,R(ty,cli_w32_stat))) = (0x00);
 R(size,R(edit,R(ty,cli_w32_stat))) = (0x00);
+R(modified,R(edit,R(ty,cli_w32_stat))) = (0x00);
 R(fd,R(edit,R(ty,cli_w32_stat))) = (0x00);
 
 

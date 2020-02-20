@@ -15,7 +15,7 @@ Return the number of space embedded to the row.
 # include <stdio.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_clear_row_beta(signed short(comeback_flag),CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_clear_row_beta(signed short(comeback),CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char sp = (' ');
@@ -54,7 +54,7 @@ printf("%s\n","<< Error at fn. cli_coord_out_beta()");
 return(0x00);
 }
 
-if(comeback_flag) {
+if(comeback) {
 // fix the frame
 r = cli_get_csbi_beta(argp);
 if(!r) {

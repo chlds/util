@@ -175,6 +175,7 @@ typedef struct cli_edit {
 signed char *file;
 signed l;
 signed size;
+signed modified;
 signed fd;
 void *optl;
 } CLI_EDIT;
@@ -183,6 +184,7 @@ typedef struct cli_config {
 signed char *file;
 signed l;
 signed size;
+signed modified;
 signed fd;
 void *optl;
 } CLI_CONFIG;

@@ -15,14 +15,18 @@ Refer at fn. cli_load_internal, fn. cli_bind_pages and fn. cli_concat_pages.
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <time.h>
 # include <fcntl.h>
-# include <sys/stat.h>
 # include <sys/types.h>
+# include <sys/stat.h>
+# include <errno.h>
 # include "../../../incl/config_ty.h"
 
 signed(__cdecl cli_load(CLI_TYPEWRITER(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto struct _stat wstat;
+
 auto signed short *cur,*w;
 auto signed char *p;
 auto signed fd;
@@ -52,8 +56,17 @@ printf("%s\n","<< Error at fn. decode2w()");
 return(0x00);
 }
 
-access = (_O_RDONLY|(_O_BINARY));
+r = _wstat(w,&wstat);
+if(!(r^(~(0x00)))) {
+printf("%s\n","<< Error at fn. _wstat()");
+if(!(ENOENT^(errno))) printf("%s\n","No file..");
+return(0x00);
+}
 
+R(modified,R(edit,*argp)) = (R(st_mtime,wstat));
+R(size,R(edit,*argp)) = (R(st_size,wstat));
+
+access = (_O_RDONLY|(_O_BINARY));
 fd = _wopen(w,access);
 if(!(fd^(~(0x00)))) {
 printf("%s\n","<< Error at fn. _wopen()");

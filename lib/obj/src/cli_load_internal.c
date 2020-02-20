@@ -109,7 +109,7 @@ return(0x00);
 }
 
 // announcements
-printf("\r%d%s",count," bytes");
+printf("\r%d%s%d%s",count,"/",R(size,R(edit,*argp)),"bytes");
 
 if(!(CLI_MORPH^(flag))) return(0x01);
 
