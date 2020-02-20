@@ -16,6 +16,9 @@ The beta edition is for Windows 10 64-bit OS.
 signed(__cdecl cli_init_stat_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto signed ROWS = (0x1000);
+
+auto COORD coord;
 auto signed long long ll;
 auto signed char *p;
 auto signed i,r;
@@ -65,6 +68,25 @@ printf("%s%d%s%d\n","/",(*argp).csbi.srWindow.Right,"/",(*argp).csbi.srWindow.Bo
 // .dwMaximumWindowSize
 printf("%s\n","A COORD structure that contains the maximum size of the console window, in character columns and rows, given the current screen buffer size and font and the screen size.");
 printf("%s%d%s%d\n","csbi.dwMaximumWindowSize.X/Y: ",(*argp).csbi.dwMaximumWindowSize.X,"/",(*argp).csbi.dwMaximumWindowSize.Y);
+}
+
+/* change console screen buffer size. */
+coord.Y = (ROWS);
+coord.X = (R(X,R(dwSize,R(csbi,*argp))));
+r = SetConsoleScreenBufferSize(*(CLI_OUT+(R(device,*argp))),coord);
+if(!r) {
+r = GetLastError();
+printf("%s%d%s%Xh\n","<< Error at fn. SetConsoleScreenBufferSize() with error no. ",r," or ",r);
+return(0x00);
+}
+
+if(CLI_DBG) {
+r = cli_get_csbi_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_get_csbi_beta()");
+return(0x00);
+}
+printf("%s%d%s%d\n","Changed console screen buffer size: ",R(X,R(dwSize,R(csbi,*argp))),"/",R(Y,R(dwSize,R(csbi,*argp))));
 }
 
 return(0x01);

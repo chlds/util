@@ -43,7 +43,14 @@ R(y,*(i+(R(coord,*page)))) = (coord.y);
 R(x,*(i+(R(coord,*page)))) = (coord.x);
 }
 
-r = cli_coord_outs_beta(*(CLI_BASE+(R(base,*page))),argp);
+p = (*(CLI_BASE+(R(base,*page))));
+i = (CLI_OBJS);
+while(i) {
+--i;
+*(i+(R(cur,R(ty,*argp)))) = (p);
+}
+
+r = cli_coord_outs_beta(p,argp);
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cli_coord_outs_beta()");
