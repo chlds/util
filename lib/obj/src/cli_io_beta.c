@@ -213,7 +213,7 @@ R(offset,R(ty,*argp)) = (r);
 
 if(CLI_REFRESH&(R(flag,R(ty,*argp)))) {
 // refresh
-r = cli_coord_clear_output_pages_beta(0x01/* comeback */,cur,argp);
+r = cli_coord_clear_output_pages_beta(cur,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_clear_output_pages_beta()");
 return(0x00);
