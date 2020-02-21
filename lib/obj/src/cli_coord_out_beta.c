@@ -82,9 +82,7 @@ r = cli_coord_beta(CLI_OUT,&coord,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
-}
-OR(R(flag,R(ty,*argp)),CLI_REFRESH);
-}}
+}}}
 
 return(nbyte);
 }
