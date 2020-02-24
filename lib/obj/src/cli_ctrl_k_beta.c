@@ -76,7 +76,7 @@ exte = (R(Top,R(srWindow,R(csbi,*argp))));
 page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
 
 if(!(R(d,*page))) {
-r = cli_clear_rows_beta(argp);
+r = cli_clear_rows_beta(0x01/* comeback */,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
 return(0x00);
@@ -117,7 +117,7 @@ return(0x00);
 if(inte<(R(Bottom,R(srWindow,R(csbi,*argp))))) flag = (0x00);
 else flag = (0x01);
 if(flag) {
-r = cli_clear_rows_beta(argp);
+r = cli_clear_rows_beta(0x01/* comeback */,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
 return(0x00);

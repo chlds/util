@@ -103,7 +103,7 @@ if(inte<(coord.y)) flag = (0x00);
 else flag = (0x01);
 
 if(flag) {
-r = cli_clear_rows_beta(argp);
+r = cli_clear_rows_beta(0x01/* comeback */,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
 return(0x00);

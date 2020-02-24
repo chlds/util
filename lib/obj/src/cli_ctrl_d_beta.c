@@ -90,12 +90,12 @@ return(0x00);
 //*/
 }
 i = (*(CLI_BASE+(R(size,R(roll,R(ty,*argp))))));
-R(gauge,R(debug,R(ty,*argp))) = (-r+(i));
+// R(gauge,R(debug,R(ty,*argp))) = (-r+(i));
 R(gauge,R(ty,*argp)) = (-r+(i));
+OR(R(flag,R(ty,*argp)),CLI_REFRESH);
+return(0x01);
 }
 
-else {
-flag = (0x00);
 r = nbytechar(*p);
 if(!r) {
 printf("%s\n","<< Error at fn. nbytechar()");
@@ -105,38 +105,35 @@ if(!(0x80^(r))) {
 printf("%s\n","<< Error at fn. nbytechar() with (0x80)");
 return(0x00);
 }
+
 ADD(R(gauge,R(ty,*argp)),r);
 while(r) {
 INC(p);
 --r;
 }
+
 **(CLI_INDEX+(R(cur,R(ty,*argp)))) = (0x00);
 r = concats(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(cur,R(ty,*argp)))),p,(void*) 0x00);
 if(!r) {
 printf("%s\n","<< Error at fn. concats()");
 return(0x00);
-}}
-
-if(!flag) {
-page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
-y = (R(y,*(CLI_LEAD+(R(coord,*page)))));
-if(y^(R(y,*(coord+(CLI_BASE))))) flag = (0x01);
 }
 
-if(!flag) {
+page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
+y = (R(y,*(CLI_LEAD+(R(coord,*page)))));
+
 r = cli_gram_beta(0x01/* come back */,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_gram_beta()");
 return(0x00);
 }
-return(0x01);
-}
 
-r = cli_coord_clear_output_pages_beta(*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
+if(y^(R(y,*(CLI_LEAD+(R(coord,*page)))))) {
+r = cli_coord_clear_output_pages_beta(0x01/* comeback */,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_clear_output_pages_beta()");
 return(0x00);
-}
+}}
 
 return(0x01);
 }

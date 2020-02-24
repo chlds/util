@@ -24,6 +24,7 @@ auto signed char *cur,*old,*p;
 auto signed long long ll;
 auto signed i,r;
 auto signed short flag;
+auto signed short y;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -92,11 +93,15 @@ else break;
 ADD(R(gauge,R(debug,R(ty,*argp))),i);
 ADD(R(gauge,R(ty,*argp)),i);
 
-r = cli_clear_output_beta(0x01/* comeback */,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
+y = (R(y,*(CLI_LEAD+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))));
+
+r = cli_gram_beta(0x01/* comeback */,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_clear_output_beta()");
+printf("%s\n","<< Error at fn. cli_gram_beta()");
 return(0x00);
 }
+
+if(y^(R(y,*(CLI_LEAD+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))))) OR(R(flag,R(ty,*argp)),CLI_REFRESH);
 
 return(0x01);
 }

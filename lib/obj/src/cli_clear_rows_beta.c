@@ -13,7 +13,7 @@ Return the number of cleared rows.
 
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_clear_rows_beta(CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_clear_rows_beta(signed short(comeback),CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto CLI_COORD coord[0x02];
@@ -43,21 +43,27 @@ return(0x00);
 
 i = (r);
 
+if(comeback) {
 // fix the frame
+r = cli_get_csbi_beta(argp);
+if(!r) {
+printf("<< Error at fn. cli_get_csbi_beta()");
+return(0x00);
+}
+if(y^(R(Top,R(srWindow,R(csbi,*argp))))) {
 R(y,*(coord+(CLI_OFFSET))) = (y);
 R(x,*(coord+(CLI_OFFSET))) = (0x00);
 r = cli_coord_beta(CLI_OUT,coord+(CLI_OFFSET),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
-}
-
+}}
 // come back
 r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
-}
+}}
 
 return(i);
 }

@@ -14,7 +14,7 @@ Return the number of output pages.
 # include <stdio.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_coord_clear_output_pages_beta(signed char(*cur),CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_coord_clear_output_pages_beta(signed short(comeback),signed char(*cur),CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto CLI_COORD coord[0x02];
@@ -79,27 +79,33 @@ i++;
 
 y = (R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
 if(y<(inte)) {
-r = cli_clear_rows_beta(argp);
+r = cli_clear_rows_beta(0x00/* comeback */,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
 return(0x00);
 }}
 
+if(comeback) {
 /* fix the frame */
+r = cli_get_csbi_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_get_csbi_beta()");
+return(0x00);
+}
+if(exte^(R(Top,R(srWindow,R(csbi,*argp))))) {
 R(y,*(coord+(CLI_OFFSET))) = (exte);
 R(x,*(coord+(CLI_OFFSET))) = (0x00);
 r = cli_coord_beta(CLI_OUT,coord+(CLI_OFFSET),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
-}
-
+}}
 /* come back */
 r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
-}
+}}
 
 r = cli_emul(CLI_OUT,&(R(ty,*argp)));
 if(!r) {

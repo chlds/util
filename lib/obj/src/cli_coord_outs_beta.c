@@ -34,14 +34,16 @@ if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
-y = (R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
+// y = (R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
 R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (coord.y);
 R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (coord.x);
+/*
 if(y^(coord.y)) OR(R(flag,R(ty,*argp)),CLI_REFRESH);
 else {
 flag = (~(CLI_REFRESH));
 AND(R(flag,R(ty,*argp)),flag);
 }
+//*/
 return(0x00);
 }
 

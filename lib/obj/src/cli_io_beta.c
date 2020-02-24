@@ -68,6 +68,7 @@ auto signed char *base,*p;
 auto signed diff;
 auto signed i,r;
 auto signed short flag;
+auto signed short y;
 
 /* **** CODE/TEXT */
 if(!cur) return(0x00);
@@ -173,6 +174,8 @@ cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 }
 
 else {
+// to refresh
+y = (R(y,*(CLI_LEAD+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))));
 // append
 r = cpy(cur,p);
 if(!r) {
@@ -190,12 +193,14 @@ printf("%s\n","<< Error at fn. cli_coord_out_beta()");
 return(0x00);
 }
 // also put
-r = cli_output_beta(0x01/* comeback */,cur,argp);
+r = cli_gram_beta(0x01/* comeback */,cur,argp);
 if(!r) {
 if(p) {
-printf("%s\n","<< Error at fn. cli_output_beta()");
+printf("%s\n","<< Error at fn. cli_gram_beta()");
 return(0x00);
-}}}
+}}
+if(y^(R(y,*(CLI_LEAD+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))))) OR(R(flag,R(ty,*argp)),CLI_REFRESH);
+}
 
 // to undo and redo
 if(!(CTRL_LSB^(i))) R(undo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))) = (0x01);
@@ -211,9 +216,20 @@ base = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
 r = compare(cur,base);
 R(offset,R(ty,*argp)) = (r);
 
-if(CLI_REFRESH&(R(flag,R(ty,*argp)))) {
+// qrefresh
+if(CLI_QREFRESH&(R(flag,R(ty,*argp)))) {
+r = cli_gram_beta(0x01/* comeback */,cur,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_gram_beta()");
+return(0x00);
+}
+flag = (~(CLI_QREFRESH));
+AND(R(flag,R(ty,*argp)),flag);
+}
+
 // refresh
-r = cli_coord_clear_output_pages_beta(cur,argp);
+if(CLI_REFRESH&(R(flag,R(ty,*argp)))) {
+r = cli_coord_clear_output_pages_beta(0x01/* comeback */,cur,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_clear_output_pages_beta()");
 return(0x00);

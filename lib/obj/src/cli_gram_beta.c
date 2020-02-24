@@ -1,9 +1,10 @@
 /*
 
-Coordinate and output a page to the console screen.
+Output to the console screen.
 
 Remarks:
-Return the number of output pages.
+Return the number of output bytes.
+Refer at fn. cli_io_beta.
 */
 
 
@@ -24,6 +25,7 @@ auto signed i,r;
 auto signed short flag;
 auto signed short inte;
 auto signed short exte;
+auto signed short y;
 
 /* **** CODE/TEXT */
 if(!cur) return(0x00);
@@ -35,10 +37,11 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
-// inte = (R(Bottom,R(srWindow,R(csbi,*argp))));
+inte = (R(Bottom,R(srWindow,R(csbi,*argp))));
 exte = (R(Top,R(srWindow,R(csbi,*argp))));
 
 page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
+y = (R(y,*(CLI_LEAD+(R(coord,*page)))));
 
 r = cli_coord_outs_beta(cur,argp);
 if(!r) {
@@ -48,14 +51,17 @@ return(0x00);
 //*/
 }
 
+i = (r);
 R(y,*(CLI_LEAD+(R(coord,*page)))) = (R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
 R(x,*(CLI_LEAD+(R(coord,*page)))) = (R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
 
-r = cli_clear_row_beta(0x00/* comeback */,argp);
+r = cli_clear_row_beta(0x00/* come back */,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_clear_row_beta()");
 return(0x00);
 }
+
+ADD(i,r);
 
 if(comeback) {
 /* fix the frame */
@@ -79,5 +85,5 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }}
 
-return(0x01);
+return(i);
 }
