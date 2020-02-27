@@ -85,13 +85,6 @@ R(l,R(edit,R(ty,cli_w32_stat))) = (r);
 }
 
 
-// Parse a config file
-r = cli_parse(&(R(ty,cli_w32_stat)));
-if(!r) {
-printf("%s\n","<< Error at fn. cli_parse()");
-return(0x00);
-}
-
 r = cli_init_ty(CLI_BUFF,&(R(ty,cli_w32_stat)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_init_ty()");
@@ -101,6 +94,13 @@ return(0x00);
 r = cli_init_stat_beta(&cli_w32_stat);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_init_stat_beta()");
+return(0x00);
+}
+
+// Parse a config file
+r = cli_parse(&(R(ty,cli_w32_stat)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_parse()");
 return(0x00);
 }
 

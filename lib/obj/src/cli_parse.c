@@ -115,10 +115,10 @@ printf("%s\n","<< Error at fn. _wstat()");
 return(0x00);
 }}}
 
-R(size,R(config,*argp)) = (stats.st_size);
+R(size,R(config,*argp)) = (R(st_size,stats));
 if(CLI_DBG) printf("%d%s\n",R(size,R(config,*argp))," bytes at (R(size,R(config,*argp");
 
-if(CLI_CONFIG_FILE<(stats.st_size)) {
+if(CLI_CONFIG_FILE<(R(st_size,stats))) {
 printf("%s%d%s\n","<< Could not load because the config file size exceeds ",CLI_CONFIG_FILE,"..");
 return(0x00);
 }
@@ -138,7 +138,11 @@ printf("%s\n","<< Error at fn. _wopen()");
 return(0x00);
 }}
 // parse
-// R(linebreak_form,*argp) = (LINEBREAK_LF);
+r = cli_eq(fd,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_eq()");
+return(0x00);
+}
 // close
 r = _close(fd);
 if(!(r^(~(0x00)))) {
@@ -146,14 +150,18 @@ printf("%s\n","<< Error at fn. _close()");
 return(0x00);
 }
 
-// open to edit
-// load
-// close
-
 if(flag) {
 if(path) free(path);
 path = (0x00);
 }
+
+else {
+p = (signed char(*)) (name);
+r = embed_to(p,0x00,CLI_NAME);
+if(!r) {
+printf("%s\n","<< Error at fn. embed_to()");
+return(0x00);
+}}
 
 return(0x01);
 }

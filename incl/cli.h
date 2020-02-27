@@ -284,6 +284,10 @@ signed(__cdecl cli_append(signed char(*appendant),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_display_header(CLI_TYPEWRITER(*argp)));
 // display the two-row header
 
+signed(__cdecl cli_eq_tab(CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_eq_eol(CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_eq_internal(signed short(term),signed(fd),CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_eq(signed(fd),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp)));
 // parse a config file for the typewriter
 

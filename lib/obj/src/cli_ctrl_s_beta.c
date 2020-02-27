@@ -30,12 +30,8 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-
-//* temporarily disable
-
+// temporarily disable
 return(0x01);
-//*/
-
 
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-S>");
 
@@ -67,7 +63,7 @@ return(0x00);
 return(0x01);
 }
 r = ct(*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))));
-R(size,R(edit,R(ty,*argp))) = (r);
+R(l,R(edit,R(ty,*argp))) = (r);
 r = keep(&(R(file,R(edit,R(ty,*argp)))),*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))));
 if(!r) {
 printf("%s\n","<< Error at fn. keep()");
