@@ -247,6 +247,7 @@ signed short linebreak;
 signed short flag;
 signed short align_tab;
 signed short linebreak_form;
+signed old[CLI_OBJS];
 CLI_COMMANDLINE commandline;
 CLI_EMUL emul;
 CLI_DEBUG debug;

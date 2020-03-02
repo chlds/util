@@ -113,6 +113,9 @@ return(0x00);
 
 *(CLI_BASE+(R(append,R(ty,*argp)))) = (p);
 
+i = (*(CLI_OUT+(R(old,R(ty,*argp)))));
+*(CLI_IN+(R(old,R(ty,*argp)))) = (i);
+
 // monitor
 if(CLI_DBG_B<(CLI_DBG)) {
 //* deprecated
@@ -137,6 +140,8 @@ return(0x00);
 diff = (r);
 cur = (diff+(cur));
 size = (-diff+(size));
+
+*(CLI_OUT+(R(old,R(ty,*argp)))) = (i);
 
 // count to copy and paste
 if(!(CTRL_L^(i))) INC(R(clip,R(clipboard,R(ty,*argp))));

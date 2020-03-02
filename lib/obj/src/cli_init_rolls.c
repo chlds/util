@@ -20,7 +20,7 @@ auto signed char *p;
 auto signed i,r;
 
 /* **** CODE/TEXT */
-if(size<(0x01)) return(0x00);
+if(size<(CLI_EMPTY)) return(0x00);
 if(!argp) return(0x00);
 
 // charge rolls
@@ -36,6 +36,19 @@ return(0x00);
 
 // charged rolls
 if(CLI_DBG) printf("%s%d%s\n","Charged ",CLI_WORKSPACE," rolls");
+
+/* aux.
+i = (CLI_WORKSPACE);
+while(i) {
+DEC(i);
+r = embed_to(*(i+(R(base,*argp))),0x00,*(i+(R(size,*argp))));
+if(r^(*(i+(R(size,*argp))))) {
+printf("%s\n","<< Error at fn. embed_to()");
+return(0x00);
+}}
+// cleared rolls
+if(CLI_DBG) printf("%s%d%s\n","Cleared ",CLI_WORKSPACE," rolls");
+//*/
 
 return(CLI_WORKSPACE);
 }
