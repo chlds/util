@@ -51,6 +51,9 @@ signed(__cdecl cli_clear_rows_beta(signed short(comeback),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_clear_row_beta(signed short(comeback),CLI_W32_STAT(*argp)));
 // Clear the row/rows.
 
+signed(__cdecl cli_rect_beta(signed short(flag),CLI_RECT(*cache),CLI_W32_STAT(*argp)));
+// Get the current frame or set the frame.
+
 signed(__cdecl cli_coord_beta(signed short(flag),CLI_COORD(*cache),CLI_W32_STAT(*argp)));
 // Get the current cursor position or set the cursor position.
 

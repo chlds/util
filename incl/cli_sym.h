@@ -36,7 +36,7 @@ Refer command charmap
 
 // U+005B
 # define SYM_LEFT_SQUARE_BRACKET ('[')
-# define SYM_REVERSE_SOLIDUS ('\')
+# define SYM_REVERSE_SOLIDUS ('\\')
 # define SYM_RIGHT_SQUARE_BRACKET (']')
 # define SYM_CIRCUMFLEX_ACCENT ('^')
 # define SYM_LOW_LINE ('_')

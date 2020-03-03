@@ -1,9 +1,9 @@
 /*
 
-Set flag CLI_IN to get the current cursor position or flag CLI_OUT to set the cursor position.
+Set flag CLI_IN to get the current frame or flag CLI_OUT to set the frame.
 
 Remarks:
-Refer at fn. cli_init_ty_beta.
+Refer at fn. cli_init_stat_beta.
 The beta edition is for Windows 10 64-bit OS.
 */
 
@@ -12,11 +12,12 @@ The beta edition is for Windows 10 64-bit OS.
 # define CLI_W32
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_coord_beta(signed short(flag),CLI_COORD(*cache),CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_rect_beta(signed short(flag),CLI_RECT(*cache),CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto COORD coord;
+auto signed absolute = (0x01);
 
+auto SMALL_RECT rect;
 auto signed long long ll;
 auto signed char *p;
 auto signed i,r;
@@ -41,29 +42,34 @@ r = GetLastError();
 printf("%s%d%s%X\n","<< Error at fn. GetConsoleScreenBufferInfo() with error no. ",r," or ",r);
 return(0x00);
 }
-R(x,*cache) = (R(X,R(dwCursorPosition,R(csbi,*argp))));
-R(y,*cache) = (R(Y,R(dwCursorPosition,R(csbi,*argp))));
-// aux.
 point = (R(Left,R(srWindow,R(csbi,*argp))));
 R(left,R(rect,R(ty,*argp))) = (point);
+R(left,*cache) = (point);
 point = (R(Top,R(srWindow,R(csbi,*argp))));
 R(top,R(rect,R(ty,*argp))) = (point);
+R(top,*cache) = (point);
 point = (R(Right,R(srWindow,R(csbi,*argp))));
 R(right,R(rect,R(ty,*argp))) = (point);
+R(right,*cache) = (point);
 point = (R(Bottom,R(srWindow,R(csbi,*argp))));
 R(bottom,R(rect,R(ty,*argp))) = (point);
+R(bottom,*cache) = (point);
 return(0x01);
 }
 
 if(!(CLI_OUT^(flag))) {
-coord.X = (R(x,*cache));
-coord.Y = (R(y,*cache));
-r = SetConsoleCursorPosition(*(CLI_OUT+(R(device,*argp))),coord);
+rect.Left = (R(left,*cache));
+rect.Top = (R(top,*cache));
+rect.Right = (R(right,*cache));
+rect.Bottom = (R(bottom,*cache));
+/*
+r = SetConsoleWindowInfo(*(CLI_OUT+(R(device,*argp))),absolute,&rect);
 if(!r) {
 r = GetLastError();
-printf("%s%d%s%X\n","<< Error at fn. SetConsoleCursorPosition() with error no. ",r," or ",r);
+printf("%s%d%s%X\n","<< Error at fn. SetConsoleWindowInfo() with error no. ",r," or ",r);
 return(0x00);
 }
+//*/
 return(0x01);
 }
 
