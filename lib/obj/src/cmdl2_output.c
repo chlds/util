@@ -45,9 +45,10 @@ if((*cache).flag) {
 }
 else {
 printf("%6d%s", i++, ".  ");
-printf("%s\n", (*cache).p);
+if(R(p,*cache)) printf("%s",R(p,*cache));
+printf("\n");
 }
-cache = (struct knot(*)) (*cache).d;
+cache = (R(d,*cache));
 }
 
 --Running;

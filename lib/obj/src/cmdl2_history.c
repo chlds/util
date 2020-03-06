@@ -41,8 +41,9 @@ while(cache) {
 if(Announcements) break;
 Sleep(DELAY);
 printf("%6d%s", i++, ".  ");
-printf("%s\n", (*cache).p);
-cache = (struct knot(*)) (*cache).d;
+if(R(p,*cache)) printf("%s",R(p,*cache));
+printf("\n");
+cache = (R(d,*cache));
 }
 
 --Running;

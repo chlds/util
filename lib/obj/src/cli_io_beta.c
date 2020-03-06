@@ -76,12 +76,12 @@ if(!argp) return(0x00);
 
 // limit
 if(size<(CLI_EMPTY)) {
-r = cli_extend(0x01/* cue */,CLI_EMPTY,&(R(ty,*argp)));
+r = cli_extend(0x01/* cue */,CLI_EMPTY+(CLI_EXTEND),&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_extend()");
 return(0x00);
 }
-size = (CLI_EMPTY);
+size = (CLI_EMPTY+(CLI_EXTEND));
 // R(gauge,R(ty,*argp)) = (size);
 cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 cur = (cur+(R(offset,R(ty,*argp))));

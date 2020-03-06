@@ -16,15 +16,23 @@ Please look at util/incl/ll.h
 signed int(__cdecl unmap2_ll(struct knot(*argp))) {
 
 /* **** DATA */
-auto struct knot(*cache);
+auto struct knot *cache;
+auto signed r;
 
 /* **** CODE/TEXT */
-if(!argp) return(NIL);
+if(!argp) return(0x00);
 
 cache = (argp);
-argp = (*argp).s;
-free((*cache).p);
-free(cache);
+argp = R(s,*argp);
 
-return(1+(unmap2_ll(argp)));
+r = embed_to(R(p,*cache),0x00,ct(R(p,*cache)));
+// printf("%s%d%s","<",r,"> ");
+
+free(R(p,*cache));
+R(p,*cache) = (0x00);
+
+free(cache);
+cache = (0x00);
+
+return(0x01+(unmap2_ll(argp)));
 }

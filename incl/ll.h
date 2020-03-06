@@ -15,18 +15,35 @@ Based on a doubly linked list (i.e., not a circular linked list). */
 # define REBASE2LL (0x02)
 # define ABSORB2LL (0x04)
 
-struct card {
+# define COMMON_OBJS (0x04)
+
+enum {
+CARD_EXIT,
+CARD_HELP,
+CARD_CLEAR,
+CARD_TIME,
+CARD_SAVE,
+CARD_OPEN,
+CARD_OUTPUT,
+CARD_HISTORY,
+CARDS,
+};
+
+typedef struct card {
+signed char(*(base[COMMON_OBJS]));
+signed(*(gauge[COMMON_OBJS]));
+signed(*(size[COMMON_OBJS]));
 signed char(*p);
+signed(serial);
+signed(order);
+signed(uid);
+signed(tid);
 signed short(flag);
-signed int(uid);
-signed int(numbering);
-signed int(curr_order);
-signed int(__cdecl*(fn)) (void(*argp));
+signed(__cdecl*(fn)) (void(*argp));
 void(*argp);
 void(*hdl);
-unsigned int(thread_id);
 void(*optl);
-};
+} CARD;
 
 struct yarn {
 signed char(*p);

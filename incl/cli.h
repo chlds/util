@@ -54,12 +54,13 @@ Refer at ./config_ty.h
 # define LINEBREAK_CRLF (0x0A0D)
 # define LINEBREAK_LF (0x0A)
 
-# define CLI_CONFIG_FILE (0x100000)
+# define CLI_CONFIG_FILE (0x04*(0x1000))
 # define CLI_EDIT_FILE (0x100000)
 # define CLI_NAME (0x02*(0x100))
 
+# define CLI_BUFF (0x02*(0x10000))
 # define CLI_EMPTY (0x01+(0x07))
-# define CLI_BUFF (0x100000)
+# define CLI_EXTEND (0x01+(0x07))
 
 # define CLI_HEADER_HEIGHT (0x02)
 # define CLI_FOOTER_HEIGHT (0x02)
@@ -81,18 +82,25 @@ CTRL_P,CTRL_Q,CTRL_R,CTRL_S,
 CTRL_T,CTRL_U,CTRL_V,CTRL_W,
 CTRL_X,CTRL_Y,CTRL_Z,CTRL_LSB,
 CTRL_RS,CTRL_RSB,CTRL_CA,CTRL_LL,
+CTRL_KEYS,
 };
 
 enum {
-CLI_BASE,CLI_OFFSET,CLI_INDEX,CLI_LEAD,
+CLI_BASE,
+CLI_OFFSET,
+CLI_INDEX,
+CLI_LEAD,
 };
 
 enum {
-CLI_IN,CLI_OUT,CLI_ERR,
+CLI_IN,
+CLI_OUT,
+CLI_ERR,
 };
 
 enum {
-CLI_UNDO,CLI_REDO,
+CLI_UNDO,
+CLI_REDO,
 };
 
 typedef struct cli_codepage {

@@ -1,19 +1,15 @@
 /* **** light
 
 Circ. XNOR, XOR, NOR, OR, NAND, AND and/or NOT
-Standards: STDIN, STDOUT and STDERR */
+Standards: STDIN, STDOUT and STDERR
+*/
 
 
-
-
-
-
+# define R(D,S) (S).D
 
 # define DBG (0x00)
 
-
 # define ALIGN_TAB (0x08)
-
 
 # define XNOR(A)    A = (~((A)^(A)))
 
@@ -33,7 +29,6 @@ Standards: STDIN, STDOUT and STDERR */
 # define  INC(A)    (++(A))
 
 # define  NIL       (0x00)
-
 
 enum {
 CIN, COUT, CERR
