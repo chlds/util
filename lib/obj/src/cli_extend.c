@@ -1,9 +1,9 @@
 /* **** Notes
 
-Extend workspace.
+Extend the base workspace.
 
 Remarks:
-Based on fn. extend and fn. recharge
+Return the number of copied bytes.
 Along with C library
 //*/
 
@@ -39,8 +39,8 @@ printf("%s\n","<< Error at fn. cli_init_workspace()");
 return(0x00);
 }
 
-R(gauge,R(debug,*argp)) = (extra);
 R(gauge,*argp) = (extra);
+r = (i);
 
 if(!cue) {
 p = (*(CLI_BASE+(R(cur,*argp))));
@@ -54,5 +54,5 @@ INC(p);
 p = (0x00);
 }
 
-return(*(CLI_BASE+(R(size,R(roll,*argp)))));
+return(r);
 }

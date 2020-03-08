@@ -66,6 +66,7 @@ auto signed char const(LF) = ('\n');
 
 auto signed char *base,*p;
 auto signed diff;
+auto signed offset;
 auto signed i,r;
 auto signed short flag;
 auto signed short y;
@@ -76,16 +77,17 @@ if(!argp) return(0x00);
 
 // limit
 if(size<(CLI_EMPTY)) {
-r = cli_extend(0x01/* cue */,CLI_EMPTY+(CLI_EXTEND),&(R(ty,*argp)));
+offset = (R(offset,R(ty,*argp)));
+size = (CLI_EMPTY+(*(CLI_BASE+(R(size,R(roll,R(ty,*argp)))))));
+r = cli_extend(0x01/* cue */,size/* extra */,&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_extend()");
 return(0x00);
 }
-size = (CLI_EMPTY+(CLI_EXTEND));
-// R(gauge,R(ty,*argp)) = (size);
 cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
-cur = (cur+(R(offset,R(ty,*argp))));
+cur = (cur+(offset));
 // *(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
+R(offset,R(ty,*argp)) = (offset);
 }
 
 // break

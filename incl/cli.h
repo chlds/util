@@ -60,7 +60,6 @@ Refer at ./config_ty.h
 
 # define CLI_BUFF (0x02*(0x10000))
 # define CLI_EMPTY (0x01+(0x07))
-# define CLI_EXTEND (0x01+(0x07))
 
 # define CLI_HEADER_HEIGHT (0x02)
 # define CLI_FOOTER_HEIGHT (0x02)

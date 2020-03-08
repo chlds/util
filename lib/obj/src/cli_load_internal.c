@@ -57,13 +57,13 @@ flag = (0x00);
 while(0x01) {
 if(i<(CLI_EMPTY)) {
 *p = (0x00);
-r = cli_extend(0x00/* cue */,CLI_EMPTY+(CLI_EXTEND)/* extra */,argp);
+i = (CLI_EMPTY+(*(CLI_BASE+(R(size,R(roll,*argp))))));
+r = cli_extend(0x00/* cue */,i/* extra */,argp);
 if(!r) {
 OR(R(flag,*argp),CLI_IRR);
 printf("%s\n","<< Error at fn. cli_extend()");
 return(0x00);
 }
-i = (CLI_EMPTY+(CLI_EXTEND));
 p = (*(CLI_INDEX+(R(cur,*argp))));
 }
 r = read(R(fd,R(edit,*argp)),&c,sizeof(signed char));

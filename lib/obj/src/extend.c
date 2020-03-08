@@ -3,7 +3,7 @@
 Unmap and map.
 
 Remarks:
-Return the number of offset.
+Return the number of copied bytes.
 Along with C library
 //*/
 
@@ -18,7 +18,7 @@ signed(__cdecl extend(signed char(**argp),signed(*total),signed(extra))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *p;
-auto signed i,r;
+auto signed i,l,r;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -28,11 +28,12 @@ if(extra<(0x01)) return(0x00);
 if(!(*argp)) return(0x00);
 
 r = ct(*argp);
-// r++;
-
-*total = (r+(extra));
-i = (*total);
+i = (r+(extra));
+l = (i);
+if(0x01&(l)) i++;
 if(i<(0x01)) return(0x00);
+
+*total = (i);
 
 INC(r);
 r = (r*(sizeof(signed char)));

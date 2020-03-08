@@ -31,7 +31,15 @@ if(!argp) return(0x00);
 // quit
 if(!(CLI_QUIT^(R(flag,R(ty,*argp))))) return(0x01);
 
-if(R(fd,R(edit,R(ty,*argp)))) R(fd,R(edit,R(ty,*argp))) = (0x00);
+if(R(fd,R(edit,R(ty,*argp)))) {
+R(fd,R(edit,R(ty,*argp))) = (0x00);
+i = (CLI_WORKSPACE);
+while(--i) {
+r = embed_to(*(i+(R(base,R(roll,R(ty,*argp))))),0x00,*(i+(R(size,R(roll,R(ty,*argp))))));
+if(r^(*(i+(R(size,R(roll,R(ty,*argp))))))) {
+printf("%s\n","<< Error at fn. embed_to()");
+return(0x00);
+}}}
 
 else {
 // initialise
