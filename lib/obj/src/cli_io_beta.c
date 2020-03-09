@@ -67,6 +67,7 @@ auto signed char const(LF) = ('\n');
 auto signed char *base,*p;
 auto signed diff;
 auto signed offset;
+auto signed kept;
 auto signed i,r;
 auto signed short flag;
 auto signed short y;
@@ -100,16 +101,9 @@ if(!(CLI_QUIT^(R(flag,R(ty,*argp))))) return(0x01);
 r = ct(cur);
 if(!r) p = (0x00);
 else {
-INC(r);
-r = (r*(sizeof(signed char)));
-p = (signed char(*)) malloc(r);
-if(!p) {
-printf("%s\n","<< Error at fn. malloc()");
-return(0x00);
-}
-r = cpy(p,cur);
-if(!r) {
-printf("%s\n","<< Error at fn. cpy()");
+kept = keep(&p,cur);
+if(!kept) {
+printf("%s\n","<< Error at fn. keep()");
 return(0x00);
 }}
 
@@ -214,10 +208,15 @@ if(!(CTRL_LSB^(i))) R(undo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))
 else R(undo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))) = (0x00);
 
 if(!(R(linebreak,R(ty,*argp)))) {
-if(p) free(p);
-p = (0x00);
-*(CLI_BASE+(R(append,R(ty,*argp)))) = (p);
+// release an appendant
+if(p) {
+r = release(kept,&p);
+if(kept^(r)) {
+printf("%s\n","<< Error at fn. release()");
+return(0x00);
 }
+*(CLI_BASE+(R(append,R(ty,*argp)))) = (p);
+}}
 
 base = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
 r = compare(cur,base);
