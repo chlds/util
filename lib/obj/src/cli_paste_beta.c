@@ -29,7 +29,9 @@ auto void *g;
 auto signed short *w;
 auto signed char *cur,*base,*p;
 auto signed long long ll;
-auto signed c,i,r,offset;
+auto signed c,i,r;
+auto signed offset;
+auto signed kept;
 auto signed short cr;
 auto signed short flag;
 auto signed short y;
@@ -85,16 +87,9 @@ offset = (r);
 r = ct(cur);
 if(!r) p = (0x00);
 else {
-INC(r);
-r = (r*(sizeof(signed char)));
-p = (signed char(*)) malloc(r);
-if(!p) {
-printf("%s\n","<< Error at fn. malloc()");
-return(0x00);
-}
-r = cpy(p,cur);
-if(!r) {
-printf("%s\n","<< Error at fn. cpy()");
+kept = keep(&p,cur);
+if(!kept) {
+printf("%s\n","<< Error at fn. keep()");
 return(0x00);
 }}
 
@@ -218,9 +213,15 @@ ADD(R(gauge,R(debug,R(ty,*argp))),-r);
 ADD(R(gauge,R(ty,*argp)),-r);
 }
 
-if(p) free(p);
-p = (0x00);
+// release an appendant
+if(p) {
+r = release(kept,&p);
+if(kept^(r)) {
+printf("%s\n","<< Error at fn. release()");
+return(0x00);
+}
 *(CLI_OFFSET+(R(append,R(ty,*argp)))) = (p);
+}
 
 r = cli_coord_beta(CLI_IN,coord+(CLI_BASE),argp);
 if(!r) {
