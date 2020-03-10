@@ -39,6 +39,8 @@ signed(__cdecl cue_backward(signed char(**retrv),signed char(*base),signed char(
 /* Retrieve the leading address to a previous word. */
 
 signed(__cdecl embed_to(signed char(*argp),signed char(arg),signed(times)));
+signed(__cdecl embed_internal(signed char(*argp)));
+signed(__cdecl embed(signed short(flag),signed char(*argp)));
 // Embed
 
 signed(__cdecl keep_w(signed short(**di),signed char(*si)));

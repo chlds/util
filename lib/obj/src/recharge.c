@@ -15,9 +15,13 @@ signed(__cdecl recharge(signed char(**argp),signed(arg))) {
 if(!argp) return(0x00);
 if(arg<(0x01)) return(0x00);
 
-if(*argp) free(*argp);
+if(*argp) {
+embed(0x00/* flag */,*argp);
+free(*argp);
+}
 
-*argp = (signed char(*)) malloc(arg*(sizeof(signed char)));
+arg = (arg*(sizeof(signed char)));
+*argp = (signed char(*)) malloc(arg);
 if(!(*argp)) return(0x00);
 
 return(arg);

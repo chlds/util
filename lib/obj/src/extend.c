@@ -65,6 +65,14 @@ return(0x00);
 //*/
 }
 
+i = (r);
+
+r = embed(0x00/* flag */,p);
+if(i^(r)) {
+printf("%s\n","<< Error at fn. embed()");
+return(0x00);
+}
+
 free(p);
 
 return(r);
