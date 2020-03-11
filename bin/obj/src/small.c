@@ -105,6 +105,7 @@ XOR(total,total);
 XOR(flag,flag);
 
 while(2) {
+if(Announcements) break;
 cache = (struct knot(*)) malloc(sizeof(struct knot));
 if(!cache) {
 printf("%s\n","<< Error at fn. malloc()");
@@ -174,13 +175,18 @@ if(!i) break;
 /* Monitor behavior of the other sub-threads to be stopped by sub-thread cmdl2_exit. */
 printf("\n");
 
+i = (0x00);
 while(0x01) {
 if(!Running) break;
 // printf("%s\n", "Waiting for all the sub-threads to stop");
 if(DBG) printf(".. ");
 /* CPU idling */
 Sleep(DELAY);
-}
+i++;
+if(0x10<(i)) {
+printf("%s\n","<< Oops..");
+break;
+}}
 
 /* Close/unmap the thread handles */
 printf("\n");

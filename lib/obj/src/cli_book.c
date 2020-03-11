@@ -20,6 +20,8 @@ Along with C library
 signed(__cdecl cli_book(CLI_TYPEWRITER(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto CLI_PAGE *page;
+
 auto signed char *p;
 auto signed i,r;
 auto signed short flag;
@@ -27,7 +29,8 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-if(!(*(CLI_INDEX+(R(page,R(spool,*argp)))))) {
+page = (*(CLI_INDEX+(R(page,R(spool,*argp)))));
+if(!page) {
 printf("%s\n","<< No index page..");
 return(0x00);
 }
@@ -57,21 +60,25 @@ return(0x00);
 //*/
 }
 
-if(*(CLI_BASE+(R(base,**(CLI_INDEX+(R(page,R(spool,*argp)))))))) free(*(CLI_BASE+(R(base,**(CLI_INDEX+(R(page,R(spool,*argp))))))));
-*(CLI_BASE+(R(base,**(CLI_INDEX+(R(page,R(spool,*argp))))))) = (p);
+if(*(CLI_BASE+(R(base,*page)))) {
+embed(0x00/* flag */,*(CLI_BASE+(R(base,*page))));
+free(*(CLI_BASE+(R(base,*page))));
+}
+
+*(CLI_BASE+(R(base,*page))) = (p);
 
 p = (*(CLI_BASE+(R(base,R(roll,*argp)))));
 r = compare(*(CLI_INDEX+(R(cur,*argp))),p);
-R(offset,**(CLI_INDEX+(R(page,R(spool,*argp))))) = (r);
+R(offset,*page) = (r);
 
-r = cli_diff_history(&flag,*(CLI_BASE+(R(base,R(roll,*argp)))),*(CLI_INDEX+(R(page,R(spool,*argp)))));
+r = cli_diff_history(&flag,*(CLI_BASE+(R(base,R(roll,*argp)))),page);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_diff_history()");
 return(0x00);
 }
 
 if(flag) {
-r = cli_history(*(CLI_INDEX+(R(page,R(spool,*argp)))));
+r = cli_history(page);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_history()");
 return(0x00);
