@@ -100,7 +100,7 @@ cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 i = (R(gauge,R(ty,*argp)));
 while(0x01) {
 if(i<(CLI_EMPTY)) {
-r = cli_extend(0x00/* cue */,CLI_EMPTY/* extra */,&(R(ty,*argp)));
+r = cli_extend(CLI_BASE,0x00/* cue */,CLI_EMPTY/* extra */,&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_extend()");
 // return(0x00);
@@ -197,7 +197,7 @@ r = (r+(ct(p)));
 INC(r);
 i = (*(CLI_BASE+(R(size,R(roll,R(ty,*argp))))));
 if(i<(r)) {
-r = cli_extend(0x00/* cue */,CLI_EMPTY+(-i+(r))/* extra */,&(R(ty,*argp)));
+r = cli_extend(CLI_BASE,0x00/* cue */,CLI_EMPTY+(-i+(r))/* extra */,&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_extend()");
 return(0x00);

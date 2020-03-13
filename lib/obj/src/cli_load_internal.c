@@ -58,7 +58,7 @@ while(0x01) {
 if(i<(CLI_EMPTY)) {
 *p = (0x00);
 i = (CLI_EMPTY+(*(CLI_BASE+(R(size,R(roll,*argp))))));
-r = cli_extend(0x00/* cue */,i/* extra */,argp);
+r = cli_extend(CLI_BASE,0x00/* cue */,i/* extra */,argp);
 if(!r) {
 OR(R(flag,*argp),CLI_IRR);
 printf("%s\n","<< Error at fn. cli_extend()");

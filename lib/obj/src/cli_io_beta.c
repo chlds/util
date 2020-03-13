@@ -80,7 +80,7 @@ if(!argp) return(0x00);
 if(size<(CLI_EMPTY)) {
 offset = (R(offset,R(ty,*argp)));
 size = (CLI_EMPTY+(*(CLI_BASE+(R(size,R(roll,R(ty,*argp)))))));
-r = cli_extend(0x01/* cue */,size/* extra */,&(R(ty,*argp)));
+r = cli_extend(CLI_BASE,0x01/* cue */,size/* extra */,&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_extend()");
 return(0x00);

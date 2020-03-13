@@ -63,7 +63,7 @@ r = (r*(sizeof(signed char)));
 
 i = (*(CLI_BASE+(R(size,R(roll,R(ty,*argp))))));
 if(i<(r)) {
-r = cli_extend(0x01/* cue */,CLI_EMPTY+(-i+(r))/* extra */,&(R(ty,*argp)));
+r = cli_extend(CLI_BASE,0x01/* cue */,CLI_EMPTY+(-i+(r))/* extra */,&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_extend()");
 return(0x00);

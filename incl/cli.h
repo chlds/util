@@ -284,7 +284,7 @@ signed(__cdecl cli_emul(signed short(emul),CLI_TYPEWRITER(*argp)));
 // backup or restore parameters for workspace
 
 signed(__cdecl cl_extend(signed short(cue),signed(extra),CLI_TYPEWRITER(*argp)));
-signed(__cdecl cli_extend(signed short(cue),signed(extra),CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_extend(signed short(channel),signed short(cue),signed(extra),CLI_TYPEWRITER(*argp)));
 // extend workspace
 
 signed(__cdecl cli_append(signed char(*appendant),CLI_TYPEWRITER(*argp)));
