@@ -8,8 +8,22 @@ Along with C library
 # include "./cli_macro.h"
 # endif
 
+typedef struct encode_pack {
+signed gauge;
+signed size;
+signed char *base;
+signed char *b;
+signed short *w;
+signed *d;
+signed long long *q;
+void *optl;
+} ENCODE_PACK;
+
 signed(__cdecl cli_support_meta_keys(signed(*character),signed char(first),signed char(second)));
 /* Support for function and arrow keys */
+
+signed(__cdecl encode_bw_internal(ENCODE_PACK(*argp)));
+signed(__cdecl encode_bw(signed char(**di),signed short(*si)));
 
 signed(__cdecl encode2b(signed(size),signed char(*di),signed short(*si)));
 signed(__cdecl decode2w(signed(size),signed short(*di),signed char(*si)));
