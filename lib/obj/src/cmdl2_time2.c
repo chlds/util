@@ -134,7 +134,7 @@ auto signed char buff[BUFF] = {
 
 auto signed char c;
 auto signed i,l,r;
-
+auto signed short urgent;
 
 auto void *(module[COUNT_MODULES]) = {
 (void(*)) (0x00)
@@ -457,16 +457,15 @@ printf("%s%zd\n","Now this is: ",t);
 
 
 /* A loop */
+urgent = (0x00);
 while(t<(deadline)) {
 if(Announcements) break;
+if(urgent) break;
 if(!cmdl_time_Toggle) break;
-
 /* CPU idling */
 Sleep(DELAY);
-
 time(&t);
 zzz = (-t+(deadline));
-
 // One second: Get and release a handle of the common device context to transfer a bit block to an off-screen buffer.
 *(dc+(CACHE)) = (void(*)) GetDC((void(*)) *(window+(ACTIVE)));
 if(!(*(dc+(CACHE)))) {
@@ -477,16 +476,14 @@ r = BitBlt(*(dc+(DI)),0x00,0x00,*(region+(X)),*(region+(Y)),*(dc+(CACHE)),0x00,0
 if(!r) {
 r = GetLastError();
 printf("%s%d%s%Xh\n","<< Error at fn. BitBlt() with error no. ",r," or ",r);
-Announcements = (0x01);
+urgent++;
 }
 r = ReleaseDC(*(window+(ACTIVE)),*(dc+(CACHE)));
 if(!r) {
 printf("%s\n","<< Error at ReleaseDC()");
 return(XNOR(r));
 }
-
-if(Announcements) break;
-
+if(urgent) break;
 // 3/4. transparency
 //* Fill the region on a back-screen buffer
 r = FillRgn(*(dc+(SI)),(void(*)) *(obj+(REGION)),(void(*)) lace);
@@ -495,20 +492,17 @@ printf("%s\n","<< Error at FillRgn()");
 return(XNOR(r));
 }
 //*/
-
 //* Map a loaded bitmap image to a destination back-screen buffer out of a source back-screen (e.g., off-screen) buffer.
 r = BitBlt(*(dc+(DI)),0x00,0x00,*(region+(X)),*(region+(Y)),*(dc+(SI)),0x00,0x00,SRCAND);
 if(!r) {
 r = GetLastError();
 printf("%s%d%s%Xh\n","<< Error at fn. BitBlt() with error no. ",r," or ",r);
-Announcements = (0x01);
+urgent++;
 break;
 }
 //*/
-
 GetLocalTime(&st);
 st.wMilliseconds = (st.wMilliseconds/(100));
-
 sprintf(
 buff,\
 "%s %d %s %d,  %d:%02d:%02d %01d  |  %zd%s",\
@@ -516,7 +510,6 @@ buff,\
 st.wHour,st.wMinute,st.wSecond,st.wMilliseconds,\
 zzz,"\" left"
 );
-
 // 1st outputting
 old_textcolor = SetTextColor(*(dc+(DI)),SHADE_TEXTCOLOR);
 if(!(old_textcolor^(CLR_INVALID))) printf("%s\n","<< Error at fn. SetTextColor()");
@@ -526,7 +519,6 @@ else r = TextOut(*(dc+(DI)),SHADE_XPOS+(*(pos+(X))),SHADE_YPOS+(*(pos+(Y))),buff
 if(!r) printf("%s\n","<< Error at fn. TextOut()");
 old_textcolor = SetTextColor(*(dc+(DI)),old_textcolor);
 if(!(old_textcolor^(CLR_INVALID))) printf("%s\n","<< Error at fn. SetTextColor() to restore");
-
 // 2nd outputting
 old_textcolor = SetTextColor(*(dc+(DI)),TEXTCOLOR);
 if(!(old_textcolor^(CLR_INVALID))) printf("%s\n","<< Error at SetTextColor() the second");
@@ -536,7 +528,6 @@ else r = TextOut(*(dc+(DI)),*(pos+(X)),*(pos+(Y)),buff,r);
 if(!r) printf("%s\n","<< Error at fn. TextOut() the second");
 old_textcolor = SetTextColor(*(dc+(DI)),old_textcolor);
 if(!(old_textcolor^(CLR_INVALID))) printf("%s\n","<< Error at SetTextColor() the second to restore");
-
 // Two seconds: Get and release a handle of the common device context to transfer a bit block to the primary screen.
 *(dc+(CACHE)) = (void(*)) GetDC((void(*)) *(window+(ACTIVE)));
 if(!(*(dc+(CACHE)))) {
@@ -547,7 +538,7 @@ r = BitBlt(*(dc+(CACHE)),0x00,0x00,*(region+(X)),*(region+(Y)),*(dc+(DI)),0x00,0
 if(!r) {
 r = GetLastError();
 printf("%s%d%s%Xh\n","<< Error at fn. BitBlt() with error no. ",r," or ",r);
-Announcements = (0x01);
+urgent++;
 }
 r = ReleaseDC(*(window+(ACTIVE)),*(dc+(CACHE)));
 if(!r) {
