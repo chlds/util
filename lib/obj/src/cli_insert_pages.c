@@ -12,26 +12,27 @@ Based on a doubly linked list (i.e., not a circular linked list)
 
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_insert_pages(CLI_PAGE(*cache),CLI_SPOOL(*argp))) {
+signed(__cdecl cli_insert_pages(CLI_SPOOL(*di),CLI_SPOOL(*si))) {
 
 /* **** DATA, BSS and STACK */
-auto CLI_PAGE *di,*si;
-auto signed i,r;
+auto CLI_PAGE *l,*i,*b;
+auto signed r;
 
 /* **** CODE/TEXT */
-if(!cache) return(0x00);
-if(!argp) return(0x00);
+if(!di) return(0x00);
+if(!si) return(0x00);
 
-di = (R(d,*cache));
-si = (*(CLI_BASE+(R(page,*argp))));
+i = (*(CLI_INDEX+(R(page,*di))));
+l = R(d,*i);
 
-R(d,*cache) = (si);
-R(s,*si) = (cache);
+b = (*(CLI_BASE+(R(page,*si))));
+R(d,*i) = (b);
+R(s,*b) = (i);
 
-si = (*(CLI_LEAD+(R(page,*argp))));
-
-R(d,*si) = (di);
-if(di) R(s,*di) = (si);
+i = (*(CLI_LEAD+(R(page,*si))));
+R(d,*i) = (l);
+if(l) R(s,*l) = (i);
+else *(CLI_LEAD+(R(page,*di))) = (i);
 
 return(0x01);
 }

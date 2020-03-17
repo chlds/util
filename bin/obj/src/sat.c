@@ -16,13 +16,13 @@ on branch develop
 
 # define global
 
-global signed short(cmdl_time_Toggle) = (0x00);
-global signed short(Announcements) = (0x00);
-global signed(Running) = (0x01);
+global signed short cmdl_time_Toggle = (0x00);
+global signed short Announcements = (0x00);
+global signed Running = (0x01);
 // fn. cmdl_exit() to finally subtract the value.
 
-global struct knot(*base);
-global struct knot(*lead);
+global struct knot *base;
+global struct knot *lead;
 
 /* **** entry point */
 signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
