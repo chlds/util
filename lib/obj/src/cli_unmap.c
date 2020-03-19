@@ -17,6 +17,7 @@ if(!argp) return(0x00);
 if(times<(0x01)) return(0x00);
 
 if(*argp) {
+embed(0x00/* flag */,*argp);
 free(*argp);
 *argp = (0x00);
 }

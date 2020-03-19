@@ -54,7 +54,10 @@ if(!r) {
 printf("%s\n","<< Error at fn. concats()");
 return(0x00);
 }
-if(*(CLI_BASE+(R(base,*(R(s,*page)))))) free(*(CLI_BASE+(R(base,*(R(s,*page))))));
+if(*(CLI_BASE+(R(base,*(R(s,*page)))))) {
+embed(0x00/* flag */,*(CLI_BASE+(R(base,*(R(s,*page))))));
+free(*(CLI_BASE+(R(base,*(R(s,*page))))));
+}
 *(CLI_BASE+(R(base,*(R(s,*page))))) = (p);
 
 r = cli_unmap_snapshots(&(R(history,*page)));

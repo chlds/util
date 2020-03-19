@@ -22,6 +22,7 @@ signed(__cdecl cli_copy_to_pages_internal(CLI_SPOOL(*argp),signed char(*buff),si
 static signed char CR = ('\r');
 static signed char LF = ('\n');
 
+auto CLI_SNAPSHOT *snapshot;
 auto CLI_PAGE *page;
 auto signed char *p;
 auto signed i,l,r;
@@ -61,9 +62,8 @@ printf("%s\n","<< Error at fn. cli_bind_pages()");
 return(0x00);
 }
 
-// aux..
-if(*(CLI_INDEX+(R(page,*argp)))) page = (*(CLI_INDEX+(R(page,*argp))));
-else {
+page = (*(CLI_INDEX+(R(page,*argp))));
+if(!page) {
 printf("%s\n","No index page at *(CLI_INDEX+(R(page,*argp..");
 return(0x00);
 }
@@ -73,6 +73,28 @@ if(!r) {
 printf("%s\n","<< Error at fn. keep()");
 return(0x00);
 }
+
+r = cli_bind_snapshots(&(R(history,*page)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_bind_snapshots()");
+return(0x00);
+}
+
+snapshot = (*(CLI_INDEX+(R(snapshot,R(history,*page)))));
+if(!snapshot) {
+printf("%s\n","No index page at *(CLI_INDEX+(R(snapshot,R(history,*page..");
+return(0x00);
+}
+
+r = (0x00);
+r++;
+r = (r*(sizeof(signed char)));
+p = (signed char(*)) malloc(r);
+*(CLI_BASE+(R(base,*snapshot))) = (p);
+R(offset,*snapshot) = (0x00);
+
+snapshot = (0x00);
+page = (0x00);
 
 if(flag) return(0x01);
 

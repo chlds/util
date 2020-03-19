@@ -27,7 +27,7 @@ auto CLI_COORD coord[0x02];
 auto CLI_PAGE *page;
 auto void *g;
 auto signed short *w;
-auto signed char *cur,*base,*p;
+auto signed char *cur,*base,*p,*b;
 auto signed long long ll;
 auto signed c,i,r;
 auto signed offset;
