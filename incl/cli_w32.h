@@ -180,6 +180,7 @@ signed(__cdecl cli_do_beta(signed short(arg),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_empty_beta(CLI_W32_STAT(*argp)));
 signed(__cdecl cli_clip_beta(CLI_W32_STAT(*argp)));
 signed(__cdecl cli_paste_beta(CLI_W32_STAT(*argp)));
+signed(__cdecl cli_pasting_beta(CLI_W32_STAT(*argp)));
 /* Operate the clipboard. */
 
 // and more..
