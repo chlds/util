@@ -207,7 +207,7 @@ void *optl;
 
 typedef struct cli_clipboard {
 void *(base[CLI_WORKSPACE]);
-size_t size;
+size_t size[CLI_WORKSPACE];
 signed clip;
 signed flag;
 CLI_SPOOL spool;

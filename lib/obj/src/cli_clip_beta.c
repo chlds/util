@@ -74,12 +74,18 @@ INC(r);
 r = (r*(sizeof(signed short)));
 
 g = GlobalAlloc(GMEM_SHARE|(GHND),r);
+if(!g) {
+r = GetLastError();
+printf("%s%d%s%Xh\n","<< Error at fn. GlobalAlloc() with error no. ",r," or ",r);
+return(0x00);
+}
 
+*(CLI_W+(R(size,R(clipboard,R(ty,*argp))))) = (r);
 size = (r);
 
 *(CLI_BASE+(R(base,R(clipboard,R(ty,*argp))))) = (g);
+*(CLI_BASE+(R(size,R(clipboard,R(ty,*argp))))) = GlobalSize(g);
 R(flag,R(clipboard,R(ty,*argp))) = GlobalFlags(g);
-R(size,R(clipboard,R(ty,*argp))) = GlobalSize(g);
 
 w = (signed short(*)) GlobalLock(g);
 if(!w) {
@@ -88,6 +94,7 @@ printf("%s%d%s%X\n","<< Error at fn. GlobalLock() with ",r," or ",r);
 return(0x00);
 }
 
+*(CLI_W+(R(base,R(clipboard,R(ty,*argp))))) = (w);
 p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 
 r = ct(p);
@@ -201,6 +208,9 @@ printf("%s%d%s%X\n","<< Error at fn. GlobalFree() with ",r," or ",r);
 return(0x00);
 }
 *(CLI_BASE+(R(base,R(clipboard,R(ty,*argp))))) = (g);
+*(CLI_BASE+(R(size,R(clipboard,R(ty,*argp))))) = (0x00);
+*(CLI_W+(R(size,R(clipboard,R(ty,*argp))))) = (0x00);
+*(CLI_W+(R(base,R(clipboard,R(ty,*argp))))) = (0x00);
 }
 
 if(flag) {

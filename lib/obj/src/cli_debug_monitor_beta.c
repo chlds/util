@@ -264,17 +264,19 @@ printf("%s","at R(offset,**(CLI_INDEX+(R(snapshot/R(insert/R(undo/R(redo, on R(h
 
 printf("\n");
 
-printf("%p%s\n",*(CLI_BASE+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))," at *(CLI_BASE+(R(snapshot, | ");
-printf("%p%s\n",*(CLI_OFFSET+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))," at *(CLI_OFFSET+(R(snapshot, | ");
-printf("%p%s\n",*(CLI_INDEX+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))," at *(CLI_INDEX+(R(snapshot, | ");
-printf("%p%s\n",*(CLI_LEAD+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))," at *(CLI_LEAD+(R(snapshot, | ");
+printf("%p%s",*(CLI_BASE+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),"/");
+printf("%p%s",*(CLI_OFFSET+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),"/");
+printf("%p%s",*(CLI_INDEX+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),"/");
+printf("%p%s\n",*(CLI_LEAD+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))," at *(CLI_BASE/OFFSET/INDEX/LEAD+(R(snapshot,");
 
 // Clipboard Info.
 printf("%s\n","Clipboard info. at R(clipboard,R(ty,*argp");
-printf("%p%s",*(CLI_BASE+(R(base,R(clipboard,R(ty,*argp)))))," at *(CLI_BASE+(R(base, | ");
-printf("%zd%s",R(size,R(clipboard,R(ty,*argp)))," at R(size, | ");
-printf("%d%s",R(clip,R(clipboard,R(ty,*argp)))," at R(clip, | ");
-printf("%d%s\n",R(flag,R(clipboard,R(ty,*argp)))," at R(flag,");
+printf("%p%s",*(CLI_B+(R(base,R(clipboard,R(ty,*argp))))),"/");
+printf("%p%s",*(CLI_W+(R(base,R(clipboard,R(ty,*argp)))))," at *(CLI_B/W+(R(base, | ");
+printf("%zd%s",*(CLI_B+(R(size,R(clipboard,R(ty,*argp))))),"/");
+printf("%zd%s",*(CLI_W+(R(size,R(clipboard,R(ty,*argp)))))," at *(CLI_B/W+(R(size, | ");
+printf("%d%s",R(flag,R(clipboard,R(ty,*argp)))," at R(flag, | ");
+printf("%d%s\n",R(clip,R(clipboard,R(ty,*argp)))," at R(clip,");
 
 /* fix the frame */
 r = cli_coord_beta(CLI_OUT,coord+(CLI_OFFSET),argp);
