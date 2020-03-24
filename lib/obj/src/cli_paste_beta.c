@@ -42,11 +42,11 @@ flag = (0x00);
 g = GetClipboardData(CF_UNICODETEXT);
 if(!g) {
 r = GetLastError();
-if(r) {
-if(CLI_DBG) printf("%s%d%s%X\n","<< Error at fn. GetClipboardData() with ",r," or ",r);
-}
+// if(CLI_DBG) printf("%s%d%s%X\n","<< Error at fn. GetClipboardData() with ",r," or ",r);
 flag = (0x03);
 }
+
+w = (*(CLI_W+(R(base,R(clipboard,R(ty,*argp))))));
 
 if(!flag) {
 w = (signed short(*)) GlobalLock(g);
@@ -58,6 +58,19 @@ flag = (0x02);
 
 *(CLI_W+(R(base,R(clipboard,R(ty,*argp))))) = (void*) (w);
 
+b = (signed char(*)) (*(CLI_B+(R(base,R(clipboard,R(ty,*argp))))));
+
+if(!flag) {
+r = encode_bw(&b,w);
+if(!r) {
+/* empty or..
+printf("%s\n","<< Error at fn. encode_bw()");
+flag++;
+//*/
+}}
+
+*(CLI_B+(R(base,R(clipboard,R(ty,*argp))))) = (void*) (b);
+
 if(!flag) {
 r = cli_pasting_beta(argp);
 if(!r) {
@@ -65,16 +78,36 @@ printf("%s\n","<< Error at fn. cli_pasting_beta()");
 flag = (0x01);
 }}
 
-/*
+b = (signed char(*)) (*(CLI_B+(R(base,R(clipboard,R(ty,*argp))))));
+
+if(!flag) {
+if(b) {
+embed(0x00,b);
+free(b);
+b = (0x00);
+}}
+
+*(CLI_B+(R(base,R(clipboard,R(ty,*argp))))) = (void*) (b);
+
 w = (signed short(*)) (*(CLI_W+(R(base,R(clipboard,R(ty,*argp))))));
+
+/*
 if(w) {
+r = ct_w(w);
+r = (r*(sizeof(signed short)));
+i = (r);
 p = (signed char(*)) (w);
-embed(0x00,p);
+r = embed_to(p,0x00,r);
+if(i^(r)) {
+printf("%s\n","<< Error at fn. embed_to()");
+flag++;
+}
 free(w);
 w = (0x00);
 p = (0x00);
 }
 //*/
+
 *(CLI_W+(R(base,R(clipboard,R(ty,*argp))))) = (void*) (0x00);
 
 if(flag<(0x02)) {
@@ -93,6 +126,7 @@ printf("%s%d%s%X\n","<< Error at fn. CloseClipboard() with ",r," or ",r);
 return(0x00);
 }
 
+if(!(0x03^(flag))) return(0x01);
 if(flag) return(0x00);
 
 return(0x01);

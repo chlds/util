@@ -40,6 +40,7 @@ printf("%s\n","<< Error at fn. malloc()");
 return(0x00);
 }
 
+R(flag,pack) = (0x00);
 R(gauge,pack) = (buff);
 R(size,pack) = (buff);
 R(base,pack) = (p);
@@ -51,11 +52,14 @@ R(optl,pack) = (0x00);
 
 flag = (0x00);
 r = encode_bw_internal(&pack);
-if(!(R(base,pack))) flag++;
-if(!r) flag++;
+if(R(flag,pack)) flag++;
+// if(!r) flag++;
 if(flag) {
 printf("%s\n","<< Error at fn. encode_bw_internal()");
-return(0x00);
+free(R(base,pack));
+R(base,pack) = (0x00);
+p = (R(base,pack));
+r = (0x00);
 }
 
 *di = R(base,pack);
@@ -67,8 +71,9 @@ R(d,pack) = (0x00);
 R(w,pack) = (0x00);
 R(b,pack) = (p);
 R(base,pack) = (p);
-// R(size,pack) = (0x00);
-// R(gauge,pack) = (0x00);
+R(size,pack) = (0x00);
+R(gauge,pack) = (0x00);
+R(flag,pack) = (0x00);
 
 return(r);
 }

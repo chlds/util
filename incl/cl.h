@@ -11,6 +11,7 @@ Along with C library
 # include "./cli_enum.h"
 
 typedef struct encode_pack {
+signed short flag;
 signed gauge;
 signed size;
 signed char *base;

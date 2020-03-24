@@ -39,7 +39,7 @@ size = R(size,*argp);
 if(size<(0x01)) flag++;
 
 if(flag) {
-R(base,*argp) = (0x00);
+R(flag,*argp) = (0x01);
 return(0x00);
 }
 
@@ -48,7 +48,7 @@ if(gauge<(0x08)) {
 r = extend(&(R(base,*argp)),&(R(size,*argp)),R(size,*argp)/* extra */);
 if(!r) {
 printf("%s\n","<< Error at fn. extend()");
-R(base,*argp) = (0x00);
+R(flag,*argp) = (0x01);
 return(0x00);
 }
 b = R(base,*argp);
@@ -67,7 +67,7 @@ return(0x00);
 r = encode2uni(gauge,b,*w);
 if(!r) {
 printf("%s\n","<< Error at fn. encode2uni()");
-R(base,*argp) = (0x00);
+R(flag,*argp) = (0x01);
 return(0x00);
 }
 
