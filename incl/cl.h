@@ -8,6 +8,8 @@ Along with C library
 # include "./cli_macro.h"
 # endif
 
+# include "./cli_enum.h"
+
 typedef struct encode_pack {
 signed gauge;
 signed size;

@@ -22,6 +22,7 @@ signed(__cdecl cli_paste_beta(CLI_W32_STAT(*argp))) {
 /* **** DATA, BSS and STACK */
 auto void *g;
 auto signed short *w;
+auto signed char *b;
 auto signed char *p;
 auto signed i,r;
 auto signed short flag;
@@ -45,15 +46,6 @@ if(r) {
 if(CLI_DBG) printf("%s%d%s%X\n","<< Error at fn. GetClipboardData() with ",r," or ",r);
 }
 flag = (0x03);
-}
-
-w = (signed short(*)) (*(CLI_W+(R(base,R(clipboard,R(ty,*argp))))));
-if(w) {
-p = (signed char(*)) (w);
-embed(0x00,p);
-free(w);
-w = (0x00);
-p = (0x00);
 }
 
 if(!flag) {

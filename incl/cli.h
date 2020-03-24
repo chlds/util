@@ -29,6 +29,8 @@ Refer at ./config_ty.h
 # include <process.h>
 //*/
 
+# include "./cl.h"
+
 # define CLI_QUIT (0x01)
 # define CLI_IRR (0x02)
 # define CLI_MORPH (0x04)
@@ -71,43 +73,6 @@ Refer at ./config_ty.h
 # define CLI_SNAPSHOTS (CLI_OBJS)
 # define CLI_PAGES (CLI_OBJS)
 # define CLI_ROLLS (CLI_OBJS)
-
-enum {
-CTRL_AT,CTRL_A,CTRL_B,CTRL_C,
-CTRL_D,CTRL_E,CTRL_F,CTRL_G,
-CTRL_H,CTRL_I,CTRL_J,CTRL_K,
-CTRL_L,CTRL_M,CTRL_N,CTRL_O,
-CTRL_P,CTRL_Q,CTRL_R,CTRL_S,
-CTRL_T,CTRL_U,CTRL_V,CTRL_W,
-CTRL_X,CTRL_Y,CTRL_Z,CTRL_LSB,
-CTRL_RS,CTRL_RSB,CTRL_CA,CTRL_LL,
-CTRL_KEYS,
-};
-
-enum {
-CLI_BASE,
-CLI_OFFSET,
-CLI_INDEX,
-CLI_LEAD,
-};
-
-enum {
-CLI_B,
-CLI_W,
-CLI_D,
-CLI_Q,
-};
-
-enum {
-CLI_IN,
-CLI_OUT,
-CLI_ERR,
-};
-
-enum {
-CLI_UNDO,
-CLI_REDO,
-};
 
 typedef struct cli_codepage {
 unsigned (io[CLI_CODEPAGE_IO]);
