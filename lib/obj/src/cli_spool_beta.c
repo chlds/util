@@ -115,6 +115,7 @@ printf("%s\n","<< Error at fn. cli_book()");
 return(0x00);
 }
 
-// return(0x01+(cli_spool_beta(argp)));
-return(0x01);
+if(CLI_MONO) return(0x01);
+
+return(0x01+(cli_spool_beta(argp)));
 }

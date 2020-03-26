@@ -60,7 +60,7 @@ return(0x00);
 }
 
 
-if(CLI_DBG) {
+if(CLI_MONO) {
 Sleep(250);
 system("cls");
 }

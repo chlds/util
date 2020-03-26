@@ -50,6 +50,8 @@ Refer at ./config_ty.h
 # define CLI_DBG_B (0x01)
 # define CLI_DBG (CLI_DBG_D)
 
+# define CLI_MONO (0x01)
+
 # define CTRL_MASK (0x1F)
 
 # define ALIGN_TAB (0x08)
