@@ -43,6 +43,7 @@ i.e., delete the enhmeta file.
 # define COUNT_DC (3)
 
 # define DEFAULT_SECS (10)
+# define RADIX (0x0A)
 # define BUFF (0x200)
 
 # define external extern
@@ -100,6 +101,7 @@ auto signed const DELAY = (0x03*(QUANTUM));
 auto time_t deadline,t,zzz;
 auto time_t secs = (DEFAULT_SECS);
 
+auto signed radix = (RADIX);
 
 auto signed old_bkmode,old_bkcolor,old_textcolor;
 auto unsigned old_textalign;
@@ -224,15 +226,16 @@ if(r<(2)) secs = (DEFAULT_SECS);
 
 else {
 XOR(i,i);
-c = (signed char) cv_lett(&i,argp);
-if(!(c^(~(0x00)))) {
-printf("%s\n","<< Error at fn. cv_lett()");
+r = cv_da(radix,&i,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cv_da()");
 return(XNOR(r));
 }
-// printf("%s%d\n","i after fn. cv_lett() is: ",i);
+// printf("%s%d\n","i is: ",i);
+if(i<(0x00)) i = (0x01+(~i));
 secs = (i);
+secs = (secs%(LIMIT));
 if(!secs) secs = (DEFAULT_SECS);
-else secs = (secs%(LIMIT));
 }
 
 /* Screen Metrics */
