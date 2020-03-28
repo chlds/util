@@ -75,7 +75,7 @@ printf("%s%s%d"," | ","Tab: ",R(align_tab,*argp));
 flag = (0x00);
 if(!(LINEBREAK_CRLF^(R(linebreak_form,*argp)))) {
 flag++;
-printf("%s%s"," | ","EOL: CR (0x0D) and LF (0x0A)");
+printf("%s%s"," | ","EOL: CRLF (0x0D and 0x0A)");
 }
 if(!flag) {
 if(!(LINEBREAK_LF^(R(linebreak_form,*argp)))) printf("%s%s"," | ","EOL: LF (0x0A)");

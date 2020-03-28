@@ -81,11 +81,12 @@ else printf("\n");
 // Workspace
 printf("%s","Workspace: ");
 
+printf("%d%s",R(gauge,R(ty,*argp)),"/");
 printf("%d%s",R(offset,R(ty,*argp)),"/");
 printf("%d%s",R(linebreak,R(ty,*argp)),"/");
 printf("%Xh%s",R(flag,R(ty,*argp)),"/");
 printf("%d%s",R(align_tab,R(ty,*argp)),"/");
-printf("%Xh%s",R(linebreak_form,R(ty,*argp))," at R(offset/R(linebreak/R(flag/R(align_tab/R(linebreak_form,");
+printf("%Xh%s",R(linebreak_form,R(ty,*argp))," at R(gauge/offset/linebreak/flag/align_tab/linebreak_form,");
 printf("\n");
 
 /* temporarily disabled..
@@ -153,11 +154,7 @@ printf("%d,%d%s",R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))),R(x,*(CLI_LEAD+(R(coord
 printf("\n");
 
 // Addresses
-printf("%p%s%d%s\n",\
-*(CLI_LEAD+(R(cur,R(ty,*argp)))),"/",\
-R(gauge,R(ty,*argp))," at *(CLI_LEAD+(R(cur/R(gauge,"\
-);
-
+printf("%p%s\n",*(CLI_LEAD+(R(cur,R(ty,*argp))))," at *(CLI_LEAD+(R(cur,");
 printf("%p%s\n",*(CLI_INDEX+(R(cur,R(ty,*argp))))," at *(CLI_INDEX+(R(cur, (updated by fn. calls but always monitored)");
 printf("%p%s\n",*(CLI_OFFSET+(R(cur,R(ty,*argp))))," at *(CLI_OFFSET+(R(cur,");
 printf("%p%s\n",*(CLI_BASE+(R(cur,R(ty,*argp))))," at *(CLI_BASE+(R(cur,");
