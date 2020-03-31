@@ -99,9 +99,7 @@ break;
 }
 if(!(LF^(*cur))) {
 *cur = (0x00);
-if(!(LINEBREAK_CRLF^(R(linebreak_form,R(ty,*argp))))) {
 if(cr) *(--cur) = (0x00);
-}
 break;
 }
 if(!(CR^(*cur))) cr = (0x01);
