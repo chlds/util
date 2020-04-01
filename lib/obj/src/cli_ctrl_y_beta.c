@@ -38,8 +38,8 @@ printf("%s\n","<< Error at fn. cli_book()");
 return(0x00);
 }
 
-coord.y = (0x00);
-coord.x = (0x00);
+coord.y = R(y,*(CLI_BASE+(R(coord,R(ty,*argp)))));
+coord.x = R(x,*(CLI_BASE+(R(coord,R(ty,*argp)))));
 r = cli_coord_beta(CLI_OUT,&coord,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");

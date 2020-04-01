@@ -22,6 +22,7 @@ auto signed LF = ('\n');
 auto CLI_COORD coord;
 auto signed char *p;
 auto signed i,r;
+auto signed short br;
 
 /* **** CODE/TEXT */
 if(!page) return(0x00);
@@ -59,21 +60,24 @@ return(0x00);
 
 R(y,*(CLI_LEAD+(R(coord,*page)))) = (R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
 R(x,*(CLI_LEAD+(R(coord,*page)))) = (R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
+page = (R(d,*page));
+br = (0x00);
 
 if(CLEAR&(flag)) {
+br = (0x01);
 r = cli_clear_row_beta(0x00/* comeback */,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_clear_row_beta()");
 return(0x00);
 }}
-else {
+
+if(!br) {
+if(page) {
 r = _putch(LF);
 if(!(EOF^(r))) {
 printf("%s\n","<< Error at fn. _putch()");
 return(0x00);
-}}
-
-page = (R(d,*page));
+}}}
 
 return(0x01+(cli_grams_internal_beta(flag,edge,page,argp)));
 }
