@@ -154,7 +154,7 @@ printf("%s\n","<< Error at fn. cli_clear_row_beta()");
 }}
 if(!flag) {
 if(page) {
-r = cli_coord_page_beta(0x00/* comeback */,page,argp);
+r = cli_coord_page_beta(CG_EMUL,page,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_page_beta()");
 // return(0x00);

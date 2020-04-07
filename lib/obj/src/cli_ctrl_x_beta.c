@@ -74,9 +74,9 @@ exte = (R(Top,R(srWindow,R(csbi,*argp))));
 page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
 y = (R(y,*(CLI_LEAD+(R(coord,*page)))));
 
-r = cli_coord_clear_page_beta(0x01/* comeback */,page,argp);
+r = cli_coord_page_beta(CG_COMEBACK|CG_CLEAR|CG_EMUL,page,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_clear_page_beta()");
+printf("%s\n","<< Error at fn. cli_coord_page_beta()");
 return(0x00);
 }
 

@@ -74,21 +74,14 @@ y = (coord.y);
 if(!(y^(R(Bottom,R(srWindow,R(csbi,*argp)))))) flag = (0x01);
 else flag = (0x00);
 
-if(flag) {
-r = cli_coord_clear_page_beta(0x01/* comeback */,page,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_clear_page_beta()");
-return(0x00);
-}}
+if(flag) flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
+else flag = (CG_COMEBACK|CG_EMUL);
 
-else {
-r = cli_coord_page_beta(0x01/* comeback */,page,argp);
+r = cli_coord_page_beta(flag,page,argp);
 if(!r) {
-/* empty or..
 printf("%s\n","<< Error at fn. cli_coord_page_beta()");
 return(0x00);
-//*/
-}}
+}
 
 r = cli_connect_with_workspace(page,&(R(ty,*argp)));
 if(!r) {

@@ -14,6 +14,11 @@ Refer at ./config_ty.h
 
 # include <windows.h>
 
+# define CG_COMEBACK (0x08)
+# define CG_CLEAR (0x04)
+# define CG_SYNC (0x02)
+# define CG_EMUL (0x01)
+
 # define CLI_W32_OBJS (0x01+(0x03))
 # define CLI_DEVICES (CLI_W32_OBJS)
 # define CLI_MODULES (CLI_W32_OBJS)
@@ -156,11 +161,10 @@ signed(__cdecl cli_coord_clear_output_pages_internal_beta(signed short(edge),CLI
 signed(__cdecl cli_coord_clear_output_pages_beta(signed short(comeback),signed char(*cur),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_coord_output_pages_internal_beta(signed short(edge),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_coord_output_pages_beta(signed short(comeback),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
-signed(__cdecl cli_coord_clear_page_beta(signed short(comeback),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
-signed(__cdecl cli_coord_page_beta(signed short(comeback),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
+signed(__cdecl cli_coord_page_beta(signed short(flag),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_grams_internal_beta(signed short(flag),signed short(edge),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_grams_beta(signed short(flag),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
-signed(__cdecl cli_gram_beta(signed short(flag/* CLEAR (0x01) and COMEBACK (0x10) */),signed char(*cur),CLI_W32_STAT(*argp)));
+signed(__cdecl cli_gram_beta(signed short(flag),signed char(*cur),CLI_W32_STAT(*argp)));
 
 signed(__cdecl cli_coord_clear_output_beta(signed short(comeback),signed char(*cur),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_coord_output_beta(signed short(comeback),signed char(*cur),CLI_W32_STAT(*argp)));
