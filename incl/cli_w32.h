@@ -166,7 +166,6 @@ signed(__cdecl cli_grams_internal_beta(signed short(flag),signed short(edge),CLI
 signed(__cdecl cli_grams_beta(signed short(flag),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_gram_beta(signed short(flag),signed char(*cur),CLI_W32_STAT(*argp)));
 
-signed(__cdecl cli_coord_clear_output_beta(signed short(comeback),signed char(*cur),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_coord_output_beta(signed short(comeback),signed char(*cur),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_output_beta(signed short(comeback),signed char(*cur),CLI_W32_STAT(*argp)));
 
