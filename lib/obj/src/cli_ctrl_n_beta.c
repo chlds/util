@@ -58,10 +58,13 @@ return(0x01);
 
 p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 
-r = cli_clear_output_beta(0x00/* comeback */,p,argp);
+flag = (CG_CLEAR|(CG_EMUL));
+r = cli_gram_beta(flag,p,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_clear_output_beta()");
+/* empty or..
+printf("%s\n","<< Error at fn. cli_gram_beta()");
 return(0x00);
+//*/
 }
 
 r = cli_coord_beta(CLI_IN,&coord,argp);

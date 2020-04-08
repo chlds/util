@@ -98,10 +98,13 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
-r = cli_clear_output_beta(0x01/* comeback */,*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),argp);
+flag = (CG_COMEBACK|(CG_CLEAR|(CG_EMUL)));
+r = cli_gram_beta(flag,*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_clear_output_beta()");
+/* empty or..
+printf("%s\n","<< Error at fn. cli_gram_beta()");
 return(0x00);
+//*/
 }
 
 i = (R(offset,*snapshot));

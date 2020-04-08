@@ -194,7 +194,7 @@ printf("%s\n","<< Error at fn. cli_coord_out_beta()");
 return(0x00);
 }
 // also put
-r = cli_gram_beta(0x11/* clear (0x01) and comeback (0x10) */,cur,argp);
+r = cli_gram_beta(CG_COMEBACK|CG_CLEAR|CG_EMUL,cur,argp);
 if(!r) {
 if(p) {
 printf("%s\n","<< Error at fn. cli_gram_beta()");
@@ -224,7 +224,7 @@ R(offset,R(ty,*argp)) = (r);
 
 // qrefresh
 if(CLI_QREFRESH&(R(flag,R(ty,*argp)))) {
-r = cli_gram_beta(0x11/* clear (0x01) and comeback (0x10) */,cur,argp);
+r = cli_gram_beta(CG_COMEBACK|CG_CLEAR|CG_EMUL,cur,argp);
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cli_gram_beta()");
