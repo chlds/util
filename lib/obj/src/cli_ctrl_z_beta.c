@@ -81,7 +81,8 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
-r = cli_coord_output_pages_beta(0x00/* comeback */,page,argp);
+flag = (CG_CLEAR|CG_EMUL);
+r = cli_coord_output_pages_beta(flag,page,argp);
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cli_coord_output_pages_beta()");

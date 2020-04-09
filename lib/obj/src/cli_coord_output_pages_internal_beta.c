@@ -13,16 +13,14 @@ Return the number of output pages.
 # include <stdio.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_coord_output_pages_internal_beta(signed short(edge),CLI_PAGE(*page),CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_coord_output_pages_internal_beta(signed short(flag),signed short(edge),CLI_PAGE(*page),CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char sp = (' ');
+auto signed LF = ('\n');
 
 auto CLI_COORD coord;
 auto signed char *p;
 auto signed i,r;
-auto signed short flag;
-auto signed short x;
 
 /* **** CODE/TEXT */
 if(!page) return(0x00);
@@ -64,11 +62,18 @@ R(x,*(CLI_LEAD+(R(coord,*page)))) = (R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
 page = (R(d,*page));
 
 if(page) {
+if(CG_CLEAR&(flag)) {
 r = cli_clear_row_beta(0x00/* comeback */,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_clear_row_beta()");
 return(0x00);
 }}
+else {
+r = _putch(LF);
+if(!(EOF^(r))) {
+printf("%s\n","<< Error at fn. _putch()");
+return(0x00);
+}}}
 
-return(0x01+(cli_coord_output_pages_internal_beta(edge,page,argp)));
+return(0x01+(cli_coord_output_pages_internal_beta(flag,edge,page,argp)));
 }

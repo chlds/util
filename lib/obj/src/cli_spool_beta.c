@@ -97,7 +97,8 @@ R(x,*(i+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))) = (coord.x);
 R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (coord.y);
 R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (coord.x);
 
-r = cli_coord_output_pages_beta(0x01/* comeback */,*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))),argp);
+flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
+r = cli_coord_output_pages_beta(flag,*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_output_pages_beta()");
 return(0x00);

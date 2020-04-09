@@ -87,7 +87,7 @@ inte = (R(Bottom,R(srWindow,R(csbi,*argp))));
 
 page = (R(cache,R(spool,R(ty,*argp))));
 
-r = cli_coord_output_pages_beta(0x00/* comeback */,page,argp);
+r = cli_coord_output_pages_beta(CG_CLEAR|CG_EMUL,page,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_output_pages_beta()");
 return(0x00);

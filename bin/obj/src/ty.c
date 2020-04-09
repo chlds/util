@@ -125,7 +125,8 @@ return(0x00);
 
 if(R(fd,R(edit,R(ty,cli_w32_stat)))) {
 page = (*(CLI_BASE+(R(page,R(spool,R(ty,cli_w32_stat))))));
-r = cli_coord_output_pages_beta(0x01/* comeback */,page,&cli_w32_stat);
+flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
+r = cli_coord_output_pages_beta(flag,page,&cli_w32_stat);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_output_pages_beta()");
 return(0x00);
