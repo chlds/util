@@ -20,10 +20,8 @@ Refer at util/lib/obj/src/cli_io_beta.c
 signed(__cdecl cli_ctrl_t_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed short COMEBACK = (0x10);
-auto signed short CLEAR = (0x01);
-
 auto CLI_PAGE *page;
+
 auto signed char *p;
 auto signed c,i,r;
 auto signed short flag;
@@ -49,10 +47,10 @@ return(0x00);
 }
 
 page = (*(CLI_BASE+(R(page,R(spool,R(ty,*argp))))));
-
-r = cli_grams_beta(COMEBACK/*|CLEAR*/,page,argp);
+flag = (CG_COMEBACK|CG_EMUL);
+r = cli_coord_output_pages_beta(flag,page,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_grams_beta()");
+printf("%s\n","<< Error at fn. cli_coord_output_pages_beta()");
 return(0x00);
 }
 
