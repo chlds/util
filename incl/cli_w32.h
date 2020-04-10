@@ -157,13 +157,10 @@ signed(__cdecl cli_kb_beta(CLI_W32_STAT(*argp)));
 signed(__cdecl cli_io_beta(signed char(*cur),signed(size),CLI_W32_STAT(*argp)));
 /* Input/Output Unicode bytes/characters in UTF-8 out of the key board to the console screen along with fn. cli_in/cli_out. */
 
-signed(__cdecl cli_coord_clear_output_pages_internal_beta(signed short(edge),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
-signed(__cdecl cli_coord_clear_output_pages_beta(signed short(comeback),signed char(*cur),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_coord_output_pages_internal_beta(signed short(flag),signed short(edge),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_coord_output_pages_beta(signed short(flag),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_coord_page_beta(signed short(flag),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
-signed(__cdecl cli_grams_internal_beta(signed short(flag),signed short(edge),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
-signed(__cdecl cli_grams_beta(signed short(flag),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
+signed(__cdecl cli_grams_beta(signed short(flag),signed char(*cur),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_gram_beta(signed short(flag),signed char(*cur),CLI_W32_STAT(*argp)));
 
 signed(__cdecl cli_coord_output_beta(signed short(comeback),signed char(*cur),CLI_W32_STAT(*argp)));

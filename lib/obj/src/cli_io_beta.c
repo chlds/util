@@ -237,9 +237,10 @@ AND(R(flag,R(ty,*argp)),flag);
 
 // refresh
 if(CLI_REFRESH&(R(flag,R(ty,*argp)))) {
-r = cli_coord_clear_output_pages_beta(0x01/* comeback */,cur,argp);
+flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
+r = cli_grams_beta(flag,cur,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_clear_output_pages_beta()");
+printf("%s\n","<< Error at fn. cli_grams_beta()");
 return(0x00);
 }
 flag = (~(CLI_REFRESH));

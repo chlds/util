@@ -131,9 +131,10 @@ return(0x00);
 }
 
 if(y^(R(y,*(CLI_LEAD+(R(coord,*page)))))) {
-r = cli_coord_clear_output_pages_beta(0x01/* comeback */,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
+flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
+r = cli_grams_beta(flag,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_clear_output_pages_beta()");
+printf("%s\n","<< Error at fn. cli_grams_beta()");
 return(0x00);
 }}
 
