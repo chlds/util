@@ -25,17 +25,6 @@ auto signed c,i,r;
 if(!cur) return(0x00);
 if(!argp) return(0x00);
 
-if(!(*cur)) {
-r = cli_coord_beta(CLI_IN,coord+(CLI_OFFSET),argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
-return(0x00);
-}
-R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (R(y,*(coord+(CLI_OFFSET))));
-R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (R(x,*(coord+(CLI_OFFSET))));
-return(0x00);
-}
-
 if(comeback) {
 r = cli_coord_beta(CLI_IN,coord+(CLI_BASE),argp);
 if(!r) {
@@ -45,8 +34,10 @@ return(0x00);
 
 r = cli_coord_outs_beta(cur,argp);
 if(!r) {
+/* empty or..
 printf("%s\n","<< Error at fn. cli_coord_outs_beta()");
 return(0x00);
+//*/
 }
 
 i = (r);
