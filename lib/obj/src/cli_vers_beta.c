@@ -49,7 +49,7 @@ auto signed char *edit = ("\n\n\n\n\
 
 auto signed char *footer = ("\n\n\n\n\
   WELCOME TO TY.EXE :)\n\n\
-  Version: 0.4\n\
+  Version: 0.4.1\n\
   GitHub: github.com/chlds/util/\n\
   \
 ");

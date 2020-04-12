@@ -91,7 +91,7 @@ enum {
 X, Y, OFFSET_X, OFFSET_Y
 };
 
-auto signed const LIMIT = (7200); // for 2h
+auto signed const LIMIT = (3*(3600)); // for 3h
 
 auto signed const QUANTUM = (0x10);
 auto signed const SNOOZE = (0x04);
