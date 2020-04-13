@@ -27,6 +27,7 @@ auto CLI_PAGE *page;
 auto signed char *base,*p;
 auto signed i,r;
 auto signed short flag;
+auto signed short y;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -98,6 +99,9 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
+// to refresh
+y = (R(y,*(CLI_LEAD+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))));
+
 flag = (CG_COMEBACK|(CG_CLEAR|(CG_EMUL)));
 r = cli_gram_beta(flag,*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),argp);
 if(!r) {
@@ -106,6 +110,9 @@ printf("%s\n","<< Error at fn. cli_gram_beta()");
 return(0x00);
 //*/
 }
+
+// refresh
+if(y^(R(y,*(CLI_LEAD+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))))) OR(R(flag,R(ty,*argp)),CLI_REFRESH);
 
 i = (R(offset,*snapshot));
 // e.g., ADD(*(CLI_INDEX+(R(cur,R(ty,*argp)))),i);
