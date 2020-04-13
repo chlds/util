@@ -34,11 +34,13 @@ if(!argp) return(0x00);
 
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-Z>");
 
+/*
 r = cli_book(&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_book()");
 return(0x00);
 }
+//*/
 
 r = cli_display_footer_beta(0x01/* comeback */,label,argp);
 if(!r) {

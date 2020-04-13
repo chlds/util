@@ -29,12 +29,14 @@ if(!argp) return(0x00);
 
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-[>");
 
+/*
 if(!(R(undo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))) {
 r = cli_book(&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_book()");
 return(0x00);
 }}
+//*/
 
 r = cli_do_beta(CLI_UNDO,argp);
 if(!r) {

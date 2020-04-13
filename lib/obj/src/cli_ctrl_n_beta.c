@@ -33,14 +33,15 @@ if(!argp) return(0x00);
 
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-N>");
 
+/*
 r = cli_book(&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_book()");
 return(0x00);
 }
+//*/
 
 page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
-
 page = (R(d,*page));
 if(!page) {
 r = cli_ctrl_e_beta(argp);

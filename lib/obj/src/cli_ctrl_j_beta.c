@@ -35,11 +35,13 @@ p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 ll = ((signed long long) p);
 if(!(ll^((signed long long) *(CLI_BASE+(R(base,R(roll,R(ty,*argp)))))))) return(0x01);
 
+/*
 r = cli_book(&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_book()");
 return(0x00);
 }
+//*/
 
 old = (p);
 

@@ -160,6 +160,13 @@ if(!r) {
 printf("%s\n","<< Error at fn. concats()");
 return(0x00);
 }}
+//*
+r = cli_book(&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_book()");
+return(0x00);
+}
+//*/
 // to invoke
 *(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
 R(gauge,R(ty,*argp)) = (size);

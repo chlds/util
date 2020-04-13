@@ -34,11 +34,13 @@ if(!argp) return(0x00);
 
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-U>");
 
+/*
 r = cli_book(&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_book()");
 return(0x00);
 }
+//*/
 
 cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 ll = ((signed long long) cur);
