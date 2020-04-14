@@ -43,7 +43,16 @@ return(0x00);
 }
 //*/
 
-if(!(R(offset,R(ty,*argp)))) return(0x01);
+if(!(R(offset,R(ty,*argp)))) {
+//* aux.
+r = cli_ctrl_h_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_ctrl_h_beta()");
+return(0x00);
+}
+//*/
+return(0x01);
+}
 
 base = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
 r = cpy(base,*(CLI_INDEX+(R(cur,R(ty,*argp)))));
