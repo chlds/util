@@ -31,6 +31,7 @@ auto signed char *cur,*base,*p,*b;
 auto signed long long ll;
 auto signed c,i,r;
 auto signed offset;
+auto signed pages;
 auto signed kept;
 auto signed short cr;
 auto signed short flag;
@@ -40,6 +41,14 @@ auto signed short y;
 if(!argp) return(0x00);
 
 flag = (0x00);
+
+/*
+b = (signed char(*)) (*(CLI_B+(R(base,R(clipboard,R(ty,*argp))))));
+if(!b) {
+printf("%s\n","<< Empty at *(CLI_B+(R(base,R(clipboard,R(ty,*argp..");
+return(0x00);
+}
+//*/
 
 w = (signed short(*)) (*(CLI_W+(R(base,R(clipboard,R(ty,*argp))))));
 if(!w) {
@@ -68,8 +77,21 @@ if(!kept) {
 printf("%s\n","<< Error at fn. keep()");
 return(0x00);
 }}
-
 *(CLI_OFFSET+(R(append,R(ty,*argp)))) = (p);
+
+/*
+r = cli_copy_to_pages(&(R(spool,R(clipboard,R(ty,*argp)))),b);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_copy_to_pages()");
+return(0x00);
+}
+pages = (r);
+r = cli_insert_pages(&(R(spool,R(ty,*argp))),&(R(spool,R(clipboard,R(ty,*argp)))));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_insert_pages()");
+return(0x00);
+}
+//*/
 
 while(0x02) {
 cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));

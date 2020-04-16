@@ -73,6 +73,8 @@ if(!r) {
 printf("%s\n","<< Error at fn. keep()");
 return(0x00);
 }
+// R(offset,*page) = (ct(*(CLI_BASE+(R(base,*page)))));
+R(offset,*page) = (0x00);
 
 r = cli_bind_snapshots(&(R(history,*page)));
 if(!r) {
@@ -90,9 +92,15 @@ r = (0x00);
 r++;
 r = (r*(sizeof(signed char)));
 p = (signed char(*)) malloc(r);
+if(!p) {
+printf("%s\n","<< Error at fn. malloc()");
+return(0x00);
+}
+*p = (0x00);
 *(CLI_BASE+(R(base,*snapshot))) = (p);
 R(offset,*snapshot) = (0x00);
 
+p = (0x00);
 snapshot = (0x00);
 page = (0x00);
 
