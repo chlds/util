@@ -27,7 +27,7 @@ auto CLI_COORD coord[0x02];
 auto CLI_PAGE *page;
 auto void *g;
 auto signed short *w;
-auto signed char *cur,*base,*p,*b;
+auto signed char *cur,*base,*buff,*p,*b;
 auto signed long long ll;
 auto signed c,i,r;
 auto signed offset;
@@ -40,19 +40,9 @@ auto signed short y;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-flag = (0x00);
-
-/*
 b = (signed char(*)) (*(CLI_B+(R(base,R(clipboard,R(ty,*argp))))));
 if(!b) {
 printf("%s\n","<< Empty at *(CLI_B+(R(base,R(clipboard,R(ty,*argp..");
-return(0x00);
-}
-//*/
-
-w = (signed short(*)) (*(CLI_W+(R(base,R(clipboard,R(ty,*argp))))));
-if(!w) {
-printf("%s\n","<< Empty at *(CLI_W+(R(base,R(clipboard,R(ty,*argp..");
 return(0x00);
 }
 
@@ -79,135 +69,98 @@ return(0x00);
 }}
 *(CLI_OFFSET+(R(append,R(ty,*argp)))) = (p);
 
-/*
+// to merge pages
+*cur = (0x00);
+r = cli_book(&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_book()");
+return(0x00);
+}
+
 r = cli_copy_to_pages(&(R(spool,R(clipboard,R(ty,*argp)))),b);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_copy_to_pages()");
 return(0x00);
 }
 pages = (r);
+
 r = cli_insert_pages(&(R(spool,R(ty,*argp))),&(R(spool,R(clipboard,R(ty,*argp)))));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_insert_pages()");
 return(0x00);
 }
-//*/
 
-while(0x02) {
-cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
-i = (R(gauge,R(ty,*argp)));
-while(0x01) {
-if(i<(CLI_EMPTY)) {
-r = cli_extend(CLI_BASE,0x00/* cue */,CLI_EMPTY/* extra */,&(R(ty,*argp)));
+r = cli_merge_pages(&(R(spool,R(ty,*argp))));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_extend()");
-// return(0x00);
-flag++;
-break;
-}
-i = (CLI_EMPTY);
-cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
-}
-r = encode2uni(i,cur,*w);
-if(!r) {
-printf("%s\n","<< Error at fn. encode2uni()");
+printf("%s\n","<< Error at fn. cli_merge_pages()");
 return(0x00);
 }
-w++;
-if(!(*cur)) {
-cr = (0x00);
-cr = (~(cr));
-break;
-}
-if(!(LF^(*cur))) {
-*cur = (0x00);
-if(cr) *(--cur) = (0x00);
-break;
-}
-if(!(CR^(*cur))) cr = (0x01);
-else cr = (0x00);
-i = (-r+(i));
-cur = (r+(cur));
-}
-*(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
-R(gauge,R(debug,R(ty,*argp))) = (i);
-R(gauge,R(ty,*argp)) = (i);
-r = cli_book(&(R(ty,*argp)));
-if(!r) {
-printf("%s\n","<< Error at fn. cli_book()");
-return(0x00);
-}
-if(!(cr^(~(0x00)))) break;
-r = cli_bind_pages(&(R(spool,R(ty,*argp))));
-if(!r) {
-printf("%s\n","<< Error at fn. cli_bind_pages()");
-return(0x00);
-}
-r = cli_init_workspace(&(R(ty,*argp)));
-if(!r) {
-printf("%s\n","<< Error at fn. cli_init_workspace()");
-return(0x00);
-}}
 
-if(!flag) {
-r = cli_coord_outs_beta(offset+(*(CLI_BASE+(R(base,*page)))),argp);
+r = cli_connect_with_workspace(page,&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_connect_with_workspace()");
+return(0x00);
+}
+R(offset,R(ty,*argp)) = (offset);
+ADD(*(CLI_INDEX+(R(cur,R(ty,*argp)))),R(offset,R(ty,*argp)));
+cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+
+i = (pages);
+if(0x01<(i)) flag = (CG_CLEAR|CG_EMUL);
+else flag = (CG_EMUL);
+
+r = cli_gram_beta(flag,cur,argp);
 if(!r) {
 /* empty or..
-printf("%s\n","<< Error at fn. cli_coord_outs_beta()");
-// return(0x00);
+printf("%s\n","<< Error at fn. cli_gram_beta()");
+return(0x00);
 //*/
-}}
+}
 
-R(cache,R(spool,R(ty,*argp))) = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
-ll = (signed long long) (R(cache,R(spool,R(ty,*argp))));
-if(!(ll^((signed long long) page))) i = (0x00);
-else i = (0x01);
-
-while(i) {
-page = (R(d,*page));
-// if(!page) break;
-if(!(ll^((signed long long) page))) i = (0x00);
-else i = (0x01);
-if(!flag) {
-r = cli_clear_row_beta(0x00/* comeback */,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_clear_row_beta()");
-// return(0x00);
-}}
-if(!flag) {
-if(page) {
-r = cli_coord_page_beta(CG_EMUL,page,argp);
+while(--i) {
+page = R(d,*page);
+if(!page) {
+printf("%s\n","<< Could not find a page..");
+return(0x00);
+}
+if(0x01<(i)) flag = (CG_CLEAR|CG_EMUL);
+else flag = (CG_EMUL);
+r = cli_coord_page_beta(flag,page,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_page_beta()");
-// return(0x00);
-}}}}
+return(0x00);
+}}
 
 // depart.
-R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (R(y,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))));
+R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (R(y,*(CLI_BASE+(R(coord,*page)))));
 R(x,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (0x00);
 
-if(!flag) {
-// to copy
-r = ct(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
-r = (r+(ct(p)));
-INC(r);
-i = (*(CLI_BASE+(R(size,R(roll,R(ty,*argp))))));
-if(i<(r)) {
-r = cli_extend(CLI_BASE,0x00/* cue */,CLI_EMPTY+(-i+(r))/* extra */,&(R(ty,*argp)));
-if(!r) {
-printf("%s\n","<< Error at fn. cli_extend()");
+*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))) = (page);
+
+// add appendant p.
+r = ct(*(CLI_BASE+(R(base,*page))));
+offset = (r);
+R(offset,R(ty,*argp)) = (offset);
+i = (0x00);
+ADD(i,R(offset,R(ty,*argp)));
+r = ct(p);
+ADD(i,r);
+i++;
+i = (i*(sizeof(signed char)));
+buff = (signed char(*)) malloc(i);
+if(!buff) {
+printf("%s\n","<< Error at fn. malloc()");
 return(0x00);
-}}
-r = cpy(*(CLI_INDEX+(R(cur,R(ty,*argp)))),p);
-// i.e., r = cpy(*(CLI_INDEX+(R(cur,R(ty,*argp)))),*(CLI_OFFSET+(R(append,R(ty,*argp)))));
-if(!r) {
-if(p) {
-printf("%s\n","<< Error at fn. cpy()");
-return(0x00);
-}}
-ADD(R(gauge,R(debug,R(ty,*argp))),-r);
-ADD(R(gauge,R(ty,*argp)),-r);
 }
+r = concats(buff,*(CLI_BASE+(R(base,*page))),p,(void*) 0x00);
+if(!r) {
+printf("%s\n","<< Error at fn. concats()");
+return(0x00);
+}
+r = embed(0x00/* flag */,*(CLI_BASE+(R(base,*page))));
+free(*(CLI_BASE+(R(base,*page))));
+*(CLI_BASE+(R(base,*page))) = (buff);
+buff = (0x00);
 
 // release an appendant
 if(p) {
@@ -219,67 +172,22 @@ return(0x00);
 *(CLI_OFFSET+(R(append,R(ty,*argp)))) = (p);
 }
 
-r = cli_coord_beta(CLI_IN,coord+(CLI_BASE),argp);
+
+r = cli_connect_with_workspace(page,&(R(ty,*argp)));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
+printf("%s\n","<< Error at fn. cli_connect_with_workspace()");
 return(0x00);
 }
+R(offset,R(ty,*argp)) = (offset);
+ADD(*(CLI_INDEX+(R(cur,R(ty,*argp)))),R(offset,R(ty,*argp)));
+cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 
-y = (R(Top,R(srWindow,R(csbi,*argp))));
-
-if(!flag) {
-r = cli_coord_outs_beta(*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
+flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
+r = cli_grams_beta(flag,cur,argp);
 if(!r) {
-/* empty or..
-printf("%s\n","<< Error at fn. cli_coord_outs_beta()");
-// return(0x00);
-//*/
-}}
-
-R(y,*(CLI_LEAD+(R(coord,*page)))) = (R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
-R(x,*(CLI_LEAD+(R(coord,*page)))) = (R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
-
-page = (R(d,*page));
-if(!page) r = (0x01);
-else r = (0x00);
-
-if(!flag) {
-r = cli_clear_row_beta(r/* comeback */,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_clear_row_beta()");
-// return(0x00);
-}}
-
-if(!flag) {
-if(page) {
-r = cli_coord_output_pages_beta(CG_CLEAR|CG_EMUL,page,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_output_pages_beta()");
-// return(0x00);
-}}}
-
-// fix the frame
-r = cli_get_csbi_beta(argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_get_csbi_beta()");
+printf("%s\n","<< Error at fn. cli_grams_beta()");
 return(0x00);
 }
-if(y^(R(Top,R(srWindow,R(csbi,*argp))))) {
-R(y,*(coord+(CLI_OFFSET))) = (y);
-R(x,*(coord+(CLI_OFFSET))) = (0x00);
-r = cli_coord_beta(CLI_OUT,coord+(CLI_OFFSET),argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
-return(0x00);
-}}
-// come back
-r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
-return(0x00);
-}
-
-if(flag) return(0x00);
 
 return(0x01);
 }
