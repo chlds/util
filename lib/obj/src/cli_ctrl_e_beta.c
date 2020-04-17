@@ -20,8 +20,8 @@ Refer at util/lib/obj/src/cli_io_beta.c
 signed(__cdecl cli_ctrl_e_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char *p;
-auto signed long long sll;
+auto signed char *cur,*p;
+auto signed long long ll;
 auto signed c,i,r;
 auto signed short flag;
 
@@ -39,8 +39,15 @@ INC(*(CLI_LEAD+(R(cur,R(ty,*argp)))));
 --r;
 }
 
-sll = ((signed long long) *(CLI_LEAD+(R(cur,R(ty,*argp)))));
-if(!(sll^((signed long long) *(CLI_INDEX+(R(cur,R(ty,*argp))))))) return(0x01);
+ll = ((signed long long) *(CLI_LEAD+(R(cur,R(ty,*argp)))));
+if(!(ll^((signed long long) *(CLI_INDEX+(R(cur,R(ty,*argp))))))) {
+r = cli_ctrl_n_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_ctrl_n_beta()");
+return(0x00);
+}
+return(0x01);
+}
 
 r = cli_output_beta(0x00/* a comeback flag */,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
 if(!r) {

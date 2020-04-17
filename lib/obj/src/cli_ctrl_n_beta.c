@@ -23,7 +23,7 @@ signed(__cdecl cli_ctrl_n_beta(CLI_W32_STAT(*argp))) {
 auto CLI_PAGE *page;
 
 auto CLI_COORD coord;
-auto signed char *p;
+auto signed char *cur,*p;
 auto signed c,i,r;
 auto signed short flag;
 auto signed short y;
@@ -44,10 +44,18 @@ return(0x00);
 page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
 page = (R(d,*page));
 if(!page) {
-r = cli_ctrl_e_beta(argp);
+flag = (CG_EMUL);
+cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+r = cli_gram_beta(flag,cur,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_ctrl_e_beta()");
+/* empty or..
+printf("%s\n","<< Error at fn. cli_gram_beta()");
 return(0x00);
+//*/
+}
+while(r) {
+INC(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+--r;
 }
 r = cli_clear_rows_beta(0x01/* comeback */,argp);
 if(!r) {
