@@ -30,37 +30,19 @@ if(!argp) return(0x00);
 
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-E>");
 
-p = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
-*(CLI_LEAD+(R(cur,R(ty,*argp)))) = (p);
-
-r = ct(p);
-while(r) {
-INC(*(CLI_LEAD+(R(cur,R(ty,*argp)))));
---r;
-}
-
-ll = ((signed long long) *(CLI_LEAD+(R(cur,R(ty,*argp)))));
-if(!(ll^((signed long long) *(CLI_INDEX+(R(cur,R(ty,*argp))))))) {
+if(!(**(CLI_INDEX+(R(cur,R(ty,*argp)))))) {
 r = cli_ctrl_n_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_ctrl_n_beta()");
 return(0x00);
-}
-return(0x01);
-}
+}}
 
-r = cli_output_beta(0x00/* a comeback flag */,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
+else {
+r = cli_to_eol_beta(argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_output_beta()");
+printf("%s\n","<< Error at fn. cli_to_eol_beta()");
 return(0x00);
-}
-
-// ADD(R(gauge,R(ty,*argp)),-r);
-
-while(r) {
-INC(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
---r;
-}
+}}
 
 return(0x01);
 }

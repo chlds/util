@@ -48,20 +48,27 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
+flag = (CG_EMUL);
 page = (*(CLI_LEAD+(R(page,R(spool,R(ty,*argp))))));
-flag = (CG_CLEAR|CG_EMUL);
-r = cli_coord_output_pages_beta(flag,page,argp);
+r = cli_coord_page_beta(flag,page,argp);
 if(!r) {
 /* empty or..
-printf("%s\n","<< Error at fn. cli_coord_output_pages_beta()");
+printf("%s\n","<< Error at fn. cli_coord_page_beta()");
 return(0x00);
 //*/
 }
+
+i = (r);
 
 r = cli_connect_with_workspace(page,&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_connect_with_workspace()");
 return(0x00);
+}
+
+while(i) {
+INC(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+--i;
 }
 
 r = cli_book(&(R(ty,*argp)));
@@ -73,18 +80,6 @@ return(0x00);
 r = cli_clear_rows_beta(0x01/* comeback */,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
-return(0x00);
-}
-
-r = cli_coord_beta(CLI_OUT,&coord,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
-return(0x00);
-}
-
-r = cli_ctrl_e_beta(argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_ctrl_e_beta()");
 return(0x00);
 }
 

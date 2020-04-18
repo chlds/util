@@ -87,8 +87,10 @@ y = (R(y,*(CLI_LEAD+(R(coord,*page)))));
 
 r = cli_coord_page_beta(CG_COMEBACK|CG_CLEAR|CG_EMUL,page,argp);
 if(!r) {
+/* empty or..
 printf("%s\n","<< Error at fn. cli_coord_page_beta()");
 return(0x00);
+//*/
 }
 
 if(y^(R(y,*(CLI_LEAD+(R(coord,*page)))))) OR(R(flag,R(ty,*argp)),CLI_REFRESH);

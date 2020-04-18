@@ -41,9 +41,9 @@ if(!r) {
 printf("%s\n","<< Error at fn. cli_ctrl_u_beta()");
 return(0x00);
 }
-r = cli_ctrl_e_beta(argp);
+r = cli_to_eol_beta(argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_ctrl_e_beta()");
+printf("%s\n","<< Error at fn. cli_to_eol_beta()");
 return(0x00);
 }
 r = cli_ctrl_d_beta(argp);

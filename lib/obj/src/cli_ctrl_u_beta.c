@@ -96,7 +96,8 @@ return(0x00);
 }}
 
 if(flag) {
-r = cli_coord_page_beta(CG_COMEBACK|CG_EMUL,page,argp);
+flag = (CG_COMEBACK|CG_EMUL);
+r = cli_coord_page_beta(flag,page,argp);
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cli_coord_page_beta()");

@@ -41,11 +41,12 @@ return(0x00);
 }
 //*/
 
+cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
 page = (R(d,*page));
+
 if(!page) {
 flag = (CG_EMUL);
-cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 r = cli_gram_beta(flag,cur,argp);
 if(!r) {
 /* empty or..
@@ -65,10 +66,8 @@ return(0x00);
 return(0x01);
 }
 
-p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
-
-flag = (CG_CLEAR|(CG_EMUL));
-r = cli_gram_beta(flag,p,argp);
+flag = (CG_CLEAR|CG_EMUL);
+r = cli_gram_beta(flag,cur,argp);
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cli_gram_beta()");
@@ -91,8 +90,10 @@ else flag = (CG_COMEBACK|CG_EMUL);
 
 r = cli_coord_page_beta(flag,page,argp);
 if(!r) {
+/* empty or..
 printf("%s\n","<< Error at fn. cli_coord_page_beta()");
 return(0x00);
+//*/
 }
 
 r = cli_connect_with_workspace(page,&(R(ty,*argp)));

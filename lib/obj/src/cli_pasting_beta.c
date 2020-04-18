@@ -127,8 +127,10 @@ if(0x01<(i)) flag = (CG_CLEAR|CG_EMUL);
 else flag = (CG_EMUL);
 r = cli_coord_page_beta(flag,page,argp);
 if(!r) {
+/* empty or..
 printf("%s\n","<< Error at fn. cli_coord_page_beta()");
 return(0x00);
+//*/
 }}
 
 // depart.

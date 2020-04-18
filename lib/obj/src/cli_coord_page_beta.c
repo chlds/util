@@ -65,6 +65,7 @@ return(0x00);
 //*/
 }
 
+i = (r);
 R(y,*(CLI_LEAD+(R(coord,*page)))) = (R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
 R(x,*(CLI_LEAD+(R(coord,*page)))) = (R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
 
@@ -104,5 +105,5 @@ printf("%s\n","<< Error at fn. cli_emul()");
 return(0x00);
 }}
 
-return(0x01);
+return(i);
 }
