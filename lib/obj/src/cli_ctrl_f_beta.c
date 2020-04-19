@@ -40,7 +40,14 @@ INC(*(CLI_LEAD+(R(cur,R(ty,*argp)))));
 }
 
 ll = ((signed long long) *(CLI_LEAD+(R(cur,R(ty,*argp)))));
-if(!(ll^((signed long long) *(CLI_INDEX+(R(cur,R(ty,*argp))))))) return(0x01);
+if(!(ll^((signed long long) *(CLI_INDEX+(R(cur,R(ty,*argp))))))) {
+r = cli_ctrl_n_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_ctrl_n_beta()");
+return(0x00);
+}
+return(0x01);
+}
 
 r = cli_coord_out_beta(*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
 if(!r) {
