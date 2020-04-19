@@ -170,6 +170,13 @@ return(0x00);
 // to invoke
 *(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
 R(gauge,R(ty,*argp)) = (size);
+/* aux. check
+r = cli_rule(&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_rule()");
+return(0x00);
+}
+//*/
 // invoke ..and run in an array of function pointers e.g.,
 // r = *(cli_fn+(i)) (*(cli_fn_argp+(i)));
 r = (*(cli_fn+(i)))(argp);

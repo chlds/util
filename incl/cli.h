@@ -254,6 +254,8 @@ signed(__cdecl cli_prev_word_internal(signed char(**retrv),CLI_TYPEWRITER(*argp)
 signed(__cdecl cli_prev_word(signed char(**retrv),CLI_TYPEWRITER(*argp)));
 // retrieve an address of the previous word.
 
+signed(__cdecl cli_rule(CLI_TYPEWRITER(*argp)));
+
 signed(__cdecl cli_emul(signed short(emul),CLI_TYPEWRITER(*argp)));
 // backup or restore parameters for workspace
 
