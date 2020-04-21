@@ -47,6 +47,7 @@ if(!argp) return(0x00);
 // default
 R(linebreak_form,*argp) = (LINEBREAK_CRLF);
 R(align_tab,*argp) = (ALIGN_TAB);
+R(compact_frame,*argp) = (CLI_DEFAULT);
 
 flag = (0x00);
 

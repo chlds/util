@@ -104,6 +104,14 @@ printf("%s\n","<< Error at fn. cli_parse()");
 return(0x00);
 }
 
+// aux. compact frames
+if(R(compact_frame,R(ty,cli_w32_stat))) {
+r = cli_frame_beta(&cli_w32_stat);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_frame_beta()");
+return(0x00);
+}}
+
 /*
 r = cli_load(&(R(ty,cli_w32_stat)));
 if(!r) {

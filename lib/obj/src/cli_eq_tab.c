@@ -1,9 +1,9 @@
 /*
 
-Along with C and Windows libraries
+Along with C library
 
 Remarks:
-Refer at util/lib/obj/src/cli_io_beta.c
+Refer at util/lib/obj/src/cli_parse.c
 */
 
 

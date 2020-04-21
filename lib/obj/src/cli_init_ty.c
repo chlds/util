@@ -45,12 +45,12 @@ while(i) {
 
 if(!(R(linebreak_form,*argp))) R(linebreak_form,*argp) = (LINEBREAK_CRLF);
 if(!(R(align_tab,*argp))) R(align_tab,*argp) = (ALIGN_TAB);
+R(compact_frame,*argp) = (CLI_DEFAULT);
 R(flag,*argp) = (0x00);
 R(linebreak,*argp) = (0x00);
 R(offset,*argp) = (0x00);
-
-R(gauge,R(debug,*argp)) = (size);
 R(gauge,*argp) = (size);
+R(gauge,R(debug,*argp)) = (size);
 
 p = (*(CLI_BASE+(R(base,R(roll,*argp)))));
 R(cur,R(debug,*argp)) = (p);
@@ -71,6 +71,9 @@ R(x,*(i+(R(coord,*argp)))) = (0x00);
 }
 R(y,*(CLI_BASE+(R(coord,*argp)))) = (0x00);
 R(x,*(CLI_BASE+(R(coord,*argp)))) = (0x00);
+
+R(y,R(pixel,*argp)) = (0x00);
+R(x,R(pixel,*argp)) = (0x00);
 
 return(0x01);
 }

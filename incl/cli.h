@@ -80,6 +80,11 @@ typedef struct cli_codepage {
 unsigned (io[CLI_CODEPAGE_IO]);
 } CLI_CODEPAGE;
 
+typedef struct cli_pixel {
+signed x;
+signed y;
+} CLI_PIXEL;
+
 typedef struct cli_coord {
 signed short x;
 signed short y;
@@ -227,6 +232,7 @@ signed gauge;
 signed short offset;
 signed short linebreak;
 signed short flag;
+signed short compact_frame;
 signed short align_tab;
 signed short linebreak_form;
 signed old[CLI_OBJS];
@@ -241,6 +247,7 @@ CLI_ROLL roll;
 CLI_SPOOL spool;
 CLI_COORD coord[CLI_OBJS];
 CLI_RECT rect;
+CLI_PIXEL pixel;
 void *optl;
 } CLI_TYPEWRITER;
 
@@ -271,6 +278,7 @@ signed(__cdecl cli_display_header(CLI_TYPEWRITER(*argp)));
 
 signed(__cdecl cli_eq_tab(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_eol(CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_eq_frame(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_internal(signed short(term),signed(fd),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq(signed(fd),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp)));
