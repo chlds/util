@@ -54,6 +54,7 @@ Refer at ./config_ty.h
 
 # define CTRL_MASK (0x1F)
 
+# define CLI_SIMPLE (0x01)
 # define ALIGN_TAB (0x08)
 # define LINEBREAK_CRLF (0x0A0D)
 # define LINEBREAK_LF (0x0A)
@@ -174,6 +175,12 @@ signed l;
 signed size;
 signed modified;
 signed fd;
+//* to be overridden in a config file
+signed short compact_frame;
+signed short display_header;
+signed short align_tab;
+signed short linebreak_form;
+//*/
 void *optl;
 } CLI_CONFIG;
 
@@ -232,9 +239,11 @@ signed gauge;
 signed short offset;
 signed short linebreak;
 signed short flag;
+//* deprecated..
 signed short compact_frame;
 signed short align_tab;
 signed short linebreak_form;
+//*/
 signed old[CLI_OBJS];
 CLI_COMMANDLINE commandline;
 CLI_EMUL emul;
@@ -279,6 +288,7 @@ signed(__cdecl cli_display_header(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_tab(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_eol(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_frame(CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_eq_display(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_internal(signed short(term),signed(fd),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq(signed(fd),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp)));

@@ -69,17 +69,21 @@ return(0x00);
 
 /* The two-row header */
 printf("%s %d %s %d",*(day_of_the_week+(R(tm_wday,*tp))),R(tm_mday,*tp),*(mon+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
+
+if(!(CLI_DEFAULT^(R(display_header,R(config,*argp))))) {
 printf("%s%s"," | ","Ctrl-Q to quit");
 printf("%s%s"," | ","UTF-8");
 printf("%s%s%d"," | ","Tab: ",R(align_tab,*argp));
 flag = (0x00);
 if(!(LINEBREAK_CRLF^(R(linebreak_form,*argp)))) {
-flag++;
 printf("%s%s"," | ","EOL: CRLF (0x0D and 0x0A)");
+flag++;
+}
+if(!(LINEBREAK_LF^(R(linebreak_form,*argp)))) {
+printf("%s%s"," | ","EOL: LF (0x0A)");
+flag++;
 }
 if(!flag) {
-if(!(LINEBREAK_LF^(R(linebreak_form,*argp)))) printf("%s%s"," | ","EOL: LF (0x0A)");
-else {
 printf("%s\n","<< Set the linebreak form at (R(linebreak,*argp..");
 return(0x00);
 }}
