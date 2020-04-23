@@ -84,9 +84,13 @@ printf("%s","Workspace: ");
 printf("%d%s",R(gauge,R(ty,*argp)),"/");
 printf("%d%s",R(offset,R(ty,*argp)),"/");
 printf("%d%s",R(linebreak,R(ty,*argp)),"/");
-printf("%Xh%s",R(flag,R(ty,*argp)),"/");
-printf("%d%s",R(align_tab,R(ty,*argp)),"/");
-printf("%Xh%s",R(linebreak_form,R(ty,*argp))," at R(gauge/offset/linebreak/flag/align_tab/linebreak_form,");
+printf("%Xh%s",R(flag,R(ty,*argp))," at R(gauge/offset/linebreak/flag,");
+printf("\n");
+
+printf("%d%s",R(compact_frame,R(config,R(ty,*argp))),"/");
+printf("%d%s",R(display_header,R(config,R(ty,*argp))),"/");
+printf("%d%s",R(align_tab,R(config,R(ty,*argp))),"/");
+printf("%Xh%s",R(linebreak_form,R(config,R(ty,*argp)))," at R(compact_frame/display_header/align_tab/linebreak_form,R(config,");
 printf("\n");
 
 /* temporarily disabled..
