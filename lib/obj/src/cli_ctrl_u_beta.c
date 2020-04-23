@@ -53,41 +53,45 @@ return(0x00);
 return(0x01);
 }
 
-flag = (0x00);
-
-page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
-
-if(!(R(s,*page))) {
-// update the header
-coord.y = (0x00);
-coord.x = (0x00);
-r = cli_coord_beta(CLI_OUT,&coord,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
-return(0x00);
-}
-r = cli_display_header_beta(argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_display_header_beta()");
-return(0x00);
-}}
-
-else {
-page = (R(s,*page));
 r = cli_coord_beta(CLI_IN,&coord,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
+
+flag = (0x00);
+page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
+
+if(!(R(s,*page))) {
+// update the header
+y = (coord.y);
+coord.y = (0x00);
+coord.x = (0x00);
+r = cli_coord_beta(CLI_OUT,&coord,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_coord_beta()");
+return(0x00);
+}
+if(CLI_NONE^(R(display_header,R(config,R(ty,*argp))))) {
+r = cli_display_header_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_display_header_beta()");
+return(0x00);
+}}
+if(y^(R(y,*(CLI_OFFSET+(R(coord,R(ty,*argp))))))) flag = (0x01);
+}
+
+else {
+page = (R(s,*page));
 y = (R(Top,R(srWindow,R(csbi,*argp))));
 if(!(y^(coord.y))) {
 coord.y = (0x00);
 coord.x = (0x00);
+flag = (0x01);
 }
 else {
 coord.y = (R(y,*(CLI_BASE+(R(coord,*page)))));
 coord.x = (0x00);
-flag = (0x01);
 }
 r = cli_coord_beta(CLI_OUT,&coord,argp);
 if(!r) {
@@ -95,7 +99,7 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }}
 
-if(flag) {
+if(!flag) {
 flag = (CG_COMEBACK|CG_EMUL);
 r = cli_coord_page_beta(flag,page,argp);
 if(!r) {

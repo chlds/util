@@ -43,11 +43,14 @@ printf("%s\n","<< Error at fn. cli_display_header()");
 return(0x00);
 }
 
+i = (0x02);
+while(i) {
+--i;
 r = cli_clear_row_beta(0x00/* comeback */,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_clear_row_beta()");
 return(0x00);
-}
+}}
 
 r = cli_coord_beta(CLI_IN,&coord,argp);
 if(!r) {
@@ -56,22 +59,9 @@ return(0x00);
 }
 
 y = (coord.y);
-if(y<(CLI_HEADER_HEIGHT)) {
-r = cli_clear_row_beta(0x00/* comeback */,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_clear_row_beta()");
-return(0x00);
-}
-return(0x01);
-}
-
-coord.y = (CLI_HEADER_HEIGHT);
-coord.x = (0x00);
-r = cli_coord_beta(CLI_OUT,&coord,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
-return(0x00);
-}
+R(y,*(CLI_OFFSET+(R(coord,R(ty,*argp))))) = (y);
+R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))) = (y);
+R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (y);
 
 return(0x01);
 }

@@ -42,11 +42,12 @@ return(0x00);
 // aux.
 system("cls");
 
+if(CLI_NONE^(R(display_header,R(config,R(ty,*argp))))) {
 r = cli_display_header_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_display_header_beta()");
 return(0x00);
-}
+}}
 
 page = (*(CLI_BASE+(R(page,R(spool,R(ty,*argp))))));
 flag = (CG_COMEBACK|CG_EMUL);

@@ -54,6 +54,7 @@ Refer at ./config_ty.h
 
 # define CTRL_MASK (0x1F)
 
+# define CLI_NONE (0x02)
 # define CLI_SIMPLE (0x01)
 # define ALIGN_TAB (0x08)
 # define LINEBREAK_CRLF (0x0A0D)

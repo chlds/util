@@ -17,22 +17,34 @@ Refer at util/lib/obj/src/cli_parse.c
 signed(__cdecl cli_eq_display(CLI_TYPEWRITER(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char *operand = ("simple");
+auto signed char *(operand[]) = {
+("default"),
+("simple"),
+("none"),
+(0x00),
+};
 
-auto signed i,r;
+auto signed i,l,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-r = cmpr_parts(&i,*(CLI_OFFSET+(R(base,R(roll,*argp)))),operand);
+R(display_header,R(config,*argp)) = (CLI_DEFAULT);
+
+i = (0x00);
+while(*(operand+(i))) {
+r = cmpr_parts(&l,*(CLI_OFFSET+(R(base,R(roll,*argp)))),*(operand+(i)));
 if(!r) {
 printf("%s\n","<< Error at fn. cmpr_parts()");
 return(0x00);
 }
-
-if(!i) R(display_header,R(config,*argp)) = (CLI_SIMPLE);
-else R(display_header,R(config,*argp)) = (CLI_DEFAULT);
+if(!l) {
+R(display_header,R(config,*argp)) = (i);
+break;
+}
+i++;
+}
 
 return(0x01);
 }

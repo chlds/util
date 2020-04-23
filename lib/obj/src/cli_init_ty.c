@@ -63,12 +63,11 @@ while(i) {
 // coordinate
 i = (CLI_OBJS);
 while(--i) {
-R(y,*(i+(R(coord,*argp)))) = (CLI_HEADER_HEIGHT);
+R(y,*(i+(R(coord,*argp)))) = (0x00);
 R(x,*(i+(R(coord,*argp)))) = (0x00);
 }
-R(y,*(CLI_BASE+(R(coord,*argp)))) = (0x00);
-R(x,*(CLI_BASE+(R(coord,*argp)))) = (0x00);
 
+// system parameters
 R(y,R(pixel,*argp)) = (0x00);
 R(x,R(pixel,*argp)) = (0x00);
 
