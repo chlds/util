@@ -55,13 +55,13 @@ printf("%s\n","<< Error at fn. cmpr_parts()");
 return(0x00);
 }
 if(!l) {
-R(compact_frame,*argp) = (i);
+R(compact_frame,R(config,*argp)) = (i);
 break;
 }
 i++;
 }
 
-if(lim<(i)) R(compact_frame,*argp) = (CLI_DEFAULT);
+if(lim<(i)) R(compact_frame,R(config,*argp)) = (CLI_DEFAULT);
 
 return(0x01);
 }

@@ -33,9 +33,9 @@ return(0x00);
 
 AND(i,0xFFFF);
 
-R(align_tab,*argp) = (i);
-if(ALIGN_TAB<(i)) R(align_tab,*argp) = (ALIGN_TAB);
-if(i<(0x02)) R(align_tab,*argp) = (ALIGN_TAB);
+R(align_tab,R(config,*argp)) = (i);
+if(ALIGN_TAB<(i)) R(align_tab,R(config,*argp)) = (ALIGN_TAB);
+if(i<(0x02)) R(align_tab,R(config,*argp)) = (ALIGN_TAB);
 
 return(0x01);
 }

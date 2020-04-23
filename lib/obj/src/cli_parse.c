@@ -45,9 +45,10 @@ auto signed short flag;
 if(!argp) return(0x00);
 
 // default
-R(linebreak_form,*argp) = (LINEBREAK_CRLF);
-R(align_tab,*argp) = (ALIGN_TAB);
-R(compact_frame,*argp) = (CLI_DEFAULT);
+R(compact_frame,R(config,*argp)) = (CLI_DEFAULT);
+R(display_header,R(config,*argp)) = (CLI_DEFAULT);
+R(align_tab,R(config,*argp)) = (ALIGN_TAB);
+R(linebreak_form,R(config,*argp)) = (LINEBREAK_CRLF);
 
 flag = (0x00);
 

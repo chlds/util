@@ -73,18 +73,18 @@ printf("%s %d %s %d",*(day_of_the_week+(R(tm_wday,*tp))),R(tm_mday,*tp),*(mon+(R
 if(!(CLI_DEFAULT^(R(display_header,R(config,*argp))))) {
 printf("%s%s"," | ","Ctrl-Q to quit");
 printf("%s%s"," | ","UTF-8");
-printf("%s%s%d"," | ","Tab: ",R(align_tab,*argp));
+printf("%s%s%d"," | ","Tab: ",R(align_tab,R(config,*argp)));
 flag = (0x00);
-if(!(LINEBREAK_CRLF^(R(linebreak_form,*argp)))) {
+if(!(LINEBREAK_CRLF^(R(linebreak_form,R(config,*argp))))) {
 printf("%s%s"," | ","EOL: CRLF (0x0D and 0x0A)");
 flag++;
 }
-if(!(LINEBREAK_LF^(R(linebreak_form,*argp)))) {
+if(!(LINEBREAK_LF^(R(linebreak_form,R(config,*argp))))) {
 printf("%s%s"," | ","EOL: LF (0x0A)");
 flag++;
 }
 if(!flag) {
-printf("%s\n","<< Set the linebreak form at (R(linebreak,*argp..");
+printf("%s\n","<< Set the linebreak form at (R(linebreak,R(config,*argp..");
 return(0x00);
 }}
 

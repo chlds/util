@@ -78,19 +78,19 @@ r = cli_outs(*(CLI_LEAD+(R(base,R(roll,R(ty,*argp))))));
 if(!r) printf("%s\n","<< *(CLI_LEAD+(R(base,R(roll,R(ty,*argp is empty or..");
 else printf("\n");
 
-// Workspace
-printf("%s","Workspace: ");
-
-printf("%d%s",R(gauge,R(ty,*argp)),"/");
-printf("%d%s",R(offset,R(ty,*argp)),"/");
-printf("%d%s",R(linebreak,R(ty,*argp)),"/");
-printf("%Xh%s",R(flag,R(ty,*argp))," at R(gauge/offset/linebreak/flag,");
-printf("\n");
-
+// Configure Workspace
+printf("%s","Configure: ");
 printf("%d%s",R(compact_frame,R(config,R(ty,*argp))),"/");
 printf("%d%s",R(display_header,R(config,R(ty,*argp))),"/");
 printf("%d%s",R(align_tab,R(config,R(ty,*argp))),"/");
 printf("%Xh%s",R(linebreak_form,R(config,R(ty,*argp)))," at R(compact_frame/display_header/align_tab/linebreak_form,R(config,");
+printf("\n");
+
+printf("%s","Workspace: ");
+printf("%d%s",R(gauge,R(ty,*argp)),"/");
+printf("%d%s",R(offset,R(ty,*argp)),"/");
+printf("%d%s",R(linebreak,R(ty,*argp)),"/");
+printf("%Xh%s",R(flag,R(ty,*argp))," at R(gauge/offset/linebreak/flag,");
 printf("\n");
 
 /* temporarily disabled..

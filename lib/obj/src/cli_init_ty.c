@@ -43,9 +43,6 @@ while(i) {
 *(--i+(R(old,*argp))) = (0x00);
 }
 
-if(!(R(linebreak_form,*argp))) R(linebreak_form,*argp) = (LINEBREAK_CRLF);
-if(!(R(align_tab,*argp))) R(align_tab,*argp) = (ALIGN_TAB);
-R(compact_frame,*argp) = (CLI_DEFAULT);
 R(flag,*argp) = (0x00);
 R(linebreak,*argp) = (0x00);
 R(offset,*argp) = (0x00);

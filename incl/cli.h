@@ -239,11 +239,6 @@ signed gauge;
 signed short offset;
 signed short linebreak;
 signed short flag;
-//* deprecated..
-signed short compact_frame;
-signed short align_tab;
-signed short linebreak_form;
-//*/
 signed old[CLI_OBJS];
 CLI_COMMANDLINE commandline;
 CLI_EMUL emul;

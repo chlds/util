@@ -31,7 +31,7 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-align_tab = (R(align_tab,R(ty,*argp)));
+align_tab = (R(align_tab,R(config,R(ty,*argp))));
 if(align_tab<(0x00)) {
 printf("%s\n","<< Could not align..");
 return(0x00);

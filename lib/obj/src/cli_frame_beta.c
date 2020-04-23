@@ -40,7 +40,7 @@ auto signed i,l,r;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-p = (*(frame+(R(compact_frame,R(ty,*argp)))));
+p = (*(frame+(R(compact_frame,R(config,R(ty,*argp))))));
 if(!p) return(0x00);
 
 printf("%s%s\n","Frame: ",p);
@@ -85,7 +85,7 @@ y = (height);
 y = (-y+(R(bottom,rect)));
 SHR(y,0x01);
 
-i = R(compact_frame,R(ty,*argp));
+i = R(compact_frame,R(config,R(ty,*argp)));
 if(!(CLI_RIGHT^(i))) {
 x = R(right,rect);
 x = (-margin+(x));

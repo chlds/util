@@ -63,7 +63,7 @@ return(0x00);
 while(--count) {
 page = (R(d,*page));
 if(!page) break;
-if(!(LINEBREAK_CRLF^(R(linebreak_form,R(ty,*argp))))) INC(r);
+if(!(LINEBREAK_CRLF^(R(linebreak_form,R(config,R(ty,*argp)))))) INC(r);
 INC(r);
 ADD(r,ct(*(CLI_BASE+(R(base,*page)))));
 }
@@ -135,7 +135,7 @@ page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
 page = (R(d,*page));
 if(!page) *w = (0x00);
 else {
-if(!(LINEBREAK_CRLF^(R(linebreak_form,R(ty,*argp))))) {
+if(!(LINEBREAK_CRLF^(R(linebreak_form,R(config,R(ty,*argp)))))) {
 r = (0x01);
 r = (r*(sizeof(signed short)));
 size = (-r+(size));
@@ -148,7 +148,7 @@ w++;
 }
 *w = (LF);
 w++;
-r = cli_copy_pages(R(linebreak_form,R(ty,*argp)),count,size,w,page);
+r = cli_copy_pages(R(linebreak_form,R(config,R(ty,*argp))),count,size,w,page);
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cli_copy_pages()");

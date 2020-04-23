@@ -40,7 +40,7 @@ if(!argp) return(0x00);
 
 i = (0x00);
 
-if(!(LINEBREAK_CRLF^(R(linebreak_form,*argp)))) flag = (0x01);
+if(!(LINEBREAK_CRLF^(R(linebreak_form,R(config,*argp))))) flag = (0x01);
 else flag = (0x00);
 
 page = (*(CLI_BASE+(R(page,R(spool,*argp)))));
