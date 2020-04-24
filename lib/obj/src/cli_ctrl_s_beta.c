@@ -30,10 +30,8 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-// temporarily disable
-return(0x01);
-
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-S>");
+if(CLI_DBG) return(0x01);
 
 /*
 r = cli_book(&(R(ty,*argp)));
