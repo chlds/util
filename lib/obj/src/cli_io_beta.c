@@ -113,7 +113,7 @@ i = (*(CLI_OUT+(R(old,R(ty,*argp)))));
 *(CLI_IN+(R(old,R(ty,*argp)))) = (i);
 
 // monitor
-if(CLI_DBG_B<(CLI_DBG)) {
+if(R(debug_monitor,R(config,R(ty,*argp)))) {
 //* deprecated
 R(cur,R(debug,R(ty,*argp))) = (cur);
 R(gauge,R(debug,R(ty,*argp))) = (size);

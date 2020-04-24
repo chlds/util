@@ -38,6 +38,7 @@ R(fd,R(config,R(ty,cli_w32_stat))) = (0x00);
 // also
 R(compact_frame,R(config,R(ty,cli_w32_stat))) = (CLI_DEFAULT);
 R(display_header,R(config,R(ty,cli_w32_stat))) = (CLI_DEFAULT);
+R(debug_monitor,R(config,R(ty,cli_w32_stat))) = (CLI_DEFAULT);
 R(align_tab,R(config,R(ty,cli_w32_stat))) = (ALIGN_TAB);
 R(linebreak_form,R(config,R(ty,cli_w32_stat))) = (LINEBREAK_CRLF);
 
