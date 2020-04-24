@@ -176,6 +176,7 @@ signed fd;
 //* to be overridden in a config file
 signed short compact_frame;
 signed short display_header;
+signed short load_file;
 signed short debug_monitor;
 signed short align_tab;
 signed short linebreak_form;
@@ -279,11 +280,12 @@ signed(__cdecl cli_append(signed char(*appendant),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_display_header(CLI_TYPEWRITER(*argp)));
 // display the two-row header
 
-signed(__cdecl cli_eq_tab(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_eol(CLI_TYPEWRITER(*argp)));
-signed(__cdecl cli_eq_frame(CLI_TYPEWRITER(*argp)));
-signed(__cdecl cli_eq_display(CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_eq_tab(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_monitor(CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_eq_load(CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_eq_display(CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_eq_frame(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_internal(signed short(term),signed(fd),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq(signed(fd),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp)));

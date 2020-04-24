@@ -18,20 +18,22 @@ signed(__cdecl cli_eq_internal(signed short(term),signed(fd),CLI_TYPEWRITER(*arg
 
 /* **** DATA, BSS and STACK */
 static signed(__cdecl*(fn[])) (void(*argp)) = {
-(signed(__cdecl*)(void(*))) (cli_eq_display),
 (signed(__cdecl*)(void(*))) (cli_eq_frame),
+(signed(__cdecl*)(void(*))) (cli_eq_display),
+(signed(__cdecl*)(void(*))) (cli_eq_load),
 (signed(__cdecl*)(void(*))) (cli_eq_monitor),
-(signed(__cdecl*)(void(*))) (cli_eq_eol),
 (signed(__cdecl*)(void(*))) (cli_eq_tab),
+(signed(__cdecl*)(void(*))) (cli_eq_eol),
 (signed(__cdecl*)(void(*))) (0x00),
 };
 
 static signed char(*(eq[])) = {
-(signed char(*)) ("eq display,"),
 (signed char(*)) ("eq frame,"),
+(signed char(*)) ("eq display,"),
+(signed char(*)) ("eq load,"),
 (signed char(*)) ("eq monitor,"),
-(signed char(*)) ("eq eol,"),
 (signed char(*)) ("eq tab,"),
+(signed char(*)) ("eq eol,"),
 (signed char(*)) (0x00),
 };
 

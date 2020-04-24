@@ -38,6 +38,7 @@ R(fd,R(config,R(ty,cli_w32_stat))) = (0x00);
 // also
 R(compact_frame,R(config,R(ty,cli_w32_stat))) = (CLI_DEFAULT);
 R(display_header,R(config,R(ty,cli_w32_stat))) = (CLI_DEFAULT);
+R(load_file,R(config,R(ty,cli_w32_stat))) = (0x01);
 R(debug_monitor,R(config,R(ty,cli_w32_stat))) = (CLI_DEFAULT);
 R(align_tab,R(config,R(ty,cli_w32_stat))) = (ALIGN_TAB);
 R(linebreak_form,R(config,R(ty,cli_w32_stat))) = (LINEBREAK_CRLF);
@@ -110,7 +111,6 @@ printf("%s\n","<< Error at fn. cli_parse()");
 return(0x00);
 }
 
-// a compact frame
 if(R(compact_frame,R(config,R(ty,cli_w32_stat)))) {
 r = cli_frame_beta(&cli_w32_stat);
 if(!r) {
@@ -118,13 +118,12 @@ printf("%s\n","<< Error at fn. cli_frame_beta()");
 return(0x00);
 }}
 
-/*
+if(R(load_file,R(config,R(ty,cli_w32_stat)))) {
 r = cli_load(&(R(ty,cli_w32_stat)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_load()");
 return(0x00);
-}
-//*/
+}}
 
 if(CLI_DBG) Sleep(1000);
 
@@ -156,6 +155,8 @@ if(!r) {
 printf("%s\n","<< Error at fn. cli_spool_beta()");
 return(0x00);
 }
+
+system("cls");
 
 r = cli_unmap_pages(&(R(spool,R(ty,cli_w32_stat))));
 if(!r) {
