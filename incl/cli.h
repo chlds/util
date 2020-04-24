@@ -30,6 +30,11 @@ Refer at ./config_ty.h
 //*/
 
 # include "./cl.h"
+# include "./cli_dbg.h"
+
+# define CLI_DBG (CLI_DBG_D)
+
+# define CLI_MONO (0x01)
 
 # define CLI_QUIT (0x01)
 # define CLI_IRR (0x02)
@@ -43,14 +48,6 @@ Refer at ./config_ty.h
 # define CLI_OVERWRITE (0x200)
 # define CLI_REFRESH (0x400)
 # define CLI_QREFRESH (0x800)
-
-# define CLI_DBG_Q (0x08)
-# define CLI_DBG_D (0x04)
-# define CLI_DBG_W (0x02)
-# define CLI_DBG_B (0x01)
-# define CLI_DBG (CLI_DBG_D)
-
-# define CLI_MONO (0x01)
 
 # define CTRL_MASK (0x1F)
 
