@@ -20,11 +20,12 @@ Refer at util/lib/obj/src/cli_io_beta.c
 signed(__cdecl cli_ctrl_s_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-static signed char *label = ("Save as: ");
+auto CLI_COORD coord[0x02];
 
-auto CLI_COORD coord;
 auto signed char *p;
 auto signed c,i,r;
+auto signed short inte;
+auto signed short exte;
 auto signed short flag;
 
 /* **** CODE/TEXT */
@@ -33,69 +34,54 @@ if(!argp) return(0x00);
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-S>");
 if(CLI_DBG) return(0x01);
 
-/*
-r = cli_book(&(R(ty,*argp)));
+r = cli_emul(CLI_IN,&(R(ty,*argp)));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_book()");
+printf("%s\n","<< Error at fn. cli_emul()");
 return(0x00);
 }
-//*/
 
-if(!(R(file,R(edit,R(ty,*argp))))) {
-flag = (0x00);
-r = cli_coord_beta(CLI_IN,&coord,argp);
+r = cli_coord_beta(CLI_IN,coord+(CLI_BASE),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
-r = cli_display_footer_beta(0x00/* a comeback flag */,label,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_display_footer_beta()");
-return(0x00);
-}
-if(!(CL_QUIT^(R(flag,R(commandline,R(ty,*argp)))))) {
-// R(flag,R(commandline,R(ty,*argp))) = (0x00);
-r = cli_coord_beta(CLI_OUT,&coord,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
-return(0x00);
-}
-return(0x01);
-}
-r = ct(*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))));
-R(l,R(edit,R(ty,*argp))) = (r);
-r = keep(&(R(file,R(edit,R(ty,*argp)))),*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))));
-if(!r) {
-printf("%s\n","<< Error at fn. keep()");
-return(0x00);
-}}
-else flag = (0x01);
 
-r = ct(R(file,R(edit,R(ty,*argp))));
-if(!r) {
-if(R(file,R(edit,R(ty,*argp)))) free(R(file,R(edit,R(ty,*argp))));
-R(file,R(edit,R(ty,*argp))) = (0x00);
-}
-else {
-r = cli_save(flag/* an update flag */,&(R(ty,*argp)));
-if(!r) {
-printf("%s\n","<< Error at fn. cli_save()");
-return(0x00);
-}
-if(!(CLI_OVERWRITE&(R(flag,R(ty,*argp))))) {
-if(CLI_ALREADY_EXIST&(R(flag,R(ty,*argp)))) {
-r = cli_confirm_save_beta(argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_confirm_save_beta()");
-return(0x00);
-}}}}
+inte = (R(Bottom,R(srWindow,R(csbi,*argp))));
+exte = (R(Top,R(srWindow,R(csbi,*argp))));
 
-if(!flag) {
-r = cli_coord_beta(CLI_OUT,&coord,argp);
+r = cli_save_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_save_beta()");
+return(0x00);
+}
+
+/* fix the frame */
+r = cli_get_csbi_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_get_csbi_beta()");
+return(0x00);
+}
+if(exte^(R(Top,R(srWindow,R(csbi,*argp))))) {
+R(y,*(coord+(CLI_OFFSET))) = (exte);
+R(x,*(coord+(CLI_OFFSET))) = (0x00);
+r = cli_coord_beta(CLI_OUT,coord+(CLI_OFFSET),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }}
+
+/* come back */
+r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_coord_beta()");
+return(0x00);
+}
+
+r = cli_emul(CLI_OUT,&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_emul()");
+return(0x00);
+}
 
 return(0x01);
 }

@@ -1,6 +1,6 @@
 /*
 
-Save.
+Save as.
 
 Along with C and Windows libraries
 
@@ -21,7 +21,7 @@ Refer at util/lib/obj/src/cl_io_beta.c
 # include <sys/types.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_save(signed short(update_flag),CLI_TYPEWRITER(*argp))) {
+signed(__cdecl cli_save_as(signed short(update),CLI_TYPEWRITER(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed short *cur,*w;
@@ -64,7 +64,7 @@ p = (r+(p));
 
 permission = (_S_IREAD|(_S_IWRITE));
 
-if(!update_flag) access = (_O_CREAT|(_O_EXCL|(_O_WRONLY|(_O_BINARY))));
+if(!update) access = (_O_CREAT|(_O_EXCL|(_O_WRONLY|(_O_BINARY))));
 
 else {
 access = (_O_CREAT|(_O_TRUNC|(_O_WRONLY|(_O_BINARY))));

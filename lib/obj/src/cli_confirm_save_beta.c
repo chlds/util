@@ -66,9 +66,9 @@ R(file,R(edit,R(ty,*argp))) = (0x00);
 
 else {
 OR(R(flag,R(ty,*argp)),CLI_OVERWRITE);
-r = cli_save(0x01/* an update flag */,&(R(ty,*argp)));
+r = cli_save_as(0x01/* update */,&(R(ty,*argp)));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_save()");
+printf("%s\n","<< Error at fn. cli_save_as()");
 return(0x00);
 }}
 
