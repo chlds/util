@@ -1,6 +1,6 @@
 /*
 
-Along with C library
+Rewrite without loading the content if the operand is "none".
 
 Remarks:
 Refer at util/lib/obj/src/cli_parse.c

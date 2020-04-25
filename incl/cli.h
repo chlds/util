@@ -32,9 +32,10 @@ Refer at ./config_ty.h
 # include "./cl.h"
 # include "./cli_dbg.h"
 
-# define CLI_DBG (CLI_DBG_D)
-
-# define CLI_MONO (0x01)
+// # define CLI_DBG (CLI_DBG_D)
+// # define CLI_MONO (0x01)
+# define CLI_MONO (0x00)
+# define CLI_DBG (0x00)
 
 # define CLI_QUIT (0x01)
 # define CLI_IRR (0x02)
