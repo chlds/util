@@ -16,23 +16,37 @@ is for a doubly LL i.e.,
 unsigned(__stdcall cmdl2_output(void(*argp))) {
 
 /* **** DATA */
-external signed short(Announcements);
-external signed(Running);
+external signed short Announcements;
+external signed Running;
 
-external struct knot(*base);
-external struct knot(*lead);
+external struct knot *base;
+external struct knot *lead;
 
-auto signed const(QUANTUM) = (0x10);
-auto signed const(DELAY) = (0x02*(QUANTUM));
+auto signed const QUANTUM = (0x10);
+auto signed const DELAY = (0x01*(QUANTUM));
 
-auto signed(i);
+auto struct knot *cache;
 
-auto struct knot(*cache);
+auto signed char *p;
+auto signed i,r;
+auto signed short flag;
 
 /* **** CODE/TEXT */
+if(!argp) return(0x00);
+
 Running++;
 
-printf("\n");
+r = ct_ars(&i,argp);
+if(!r) {
+--Running;
+printf("%s\n","<< Error at fn. ct_ars()");
+return(0x00);
+}
+
+if(0x01<(i)) flag = (0x01);
+else flag = (0x00);
+
+if(flag) printf("\n");
 
 i = (i^(i));
 cache = (struct knot(*)) (base);
@@ -41,16 +55,17 @@ while(cache) {
 if(Announcements) break;
 Sleep(DELAY);
 // Check the command flag i.e., CMDFLAG to be set
-if((*cache).flag) {
-}
-else {
-printf("%6d%s", i++, ".  ");
+if(!(R(flag,*cache))) {
+if(flag) printf("  %d%s",i++,". ");
 if(R(p,*cache)) printf("%s",R(p,*cache));
 printf("\n");
 }
-cache = (R(d,*cache));
+cache = R(d,*cache);
 }
 
+if(flag) printf("\n");
+
 --Running;
+
 return(0x00);
 }

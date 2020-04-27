@@ -24,7 +24,6 @@ flag = (0x00);
 *retv = (0x00);
 
 r = ct_ars_internal(flag,retv,base);
-if(!r) return(0x00);
 
 return(r);
 }
