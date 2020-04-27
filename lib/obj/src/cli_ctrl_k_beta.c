@@ -87,58 +87,21 @@ return(0x01);
 }
 
 y = (R(y,*(CLI_LEAD+(R(coord,*page)))));
+
 if(!(y^(R(y,*(coord+(CLI_BASE)))))) {
 r = cli_clear_row_beta(0x01/* comeback */,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_clear_row_beta()");
 return(0x00);
-}
-return(0x01);
-}
-
-r = cli_clear_row_beta(0x00/* comeback */,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_clear_row_beta()");
-return(0x00);
-}
-
-page = (R(d,*page));
-flag = (CG_CLEAR|CG_EMUL);
-r = cli_coord_output_pages_beta(flag,page,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_output_pages_beta()");
-return(0x00);
-}
-
-/* fix the frame */
-r = cli_get_csbi_beta(argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_get_csbi_beta()");
-return(0x00);
-}
-if(inte<(R(Bottom,R(srWindow,R(csbi,*argp))))) flag = (0x00);
-else flag = (0x01);
-if(flag) {
-r = cli_clear_rows_beta(0x01/* comeback */,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
-return(0x00);
-}}
-if(exte^(R(Top,R(srWindow,R(csbi,*argp))))) {
-R(y,*(coord+(CLI_OFFSET))) = (exte);
-R(x,*(coord+(CLI_OFFSET))) = (0x00);
-r = cli_coord_beta(CLI_OUT,coord+(CLI_OFFSET),argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
-return(0x00);
 }}
 
-/* come back */
-r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
+else {
+flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
+r = cli_grams_beta(flag,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
+printf("%s\n","<< Error at fn. cli_grams_beta()");
 return(0x00);
-}
+}}
 
 return(0x01);
 }

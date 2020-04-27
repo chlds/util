@@ -173,8 +173,6 @@ if(!i) break;
 
 
 /* Monitor behavior of the other sub-threads to be stopped by sub-thread cmdl2_exit. */
-printf("\n");
-
 i = (0x00);
 while(0x01) {
 if(!Running) break;
