@@ -23,7 +23,8 @@ auto signed char sp = (' ');
 auto CLI_COORD coord[0x02];
 auto signed i,r;
 auto signed short flag;
-auto signed short x,y;
+auto signed short exte;
+auto signed short x;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -34,14 +35,15 @@ printf("<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
-y = (R(Top,R(srWindow,R(csbi,*argp))));
+exte = (R(Top,R(srWindow,R(csbi,*argp))));
+
 x = (R(x,*(coord+(CLI_BASE))));
 x = (0x01+(~(x)));
 x = (x+(0x01+(R(Right,R(srWindow,R(csbi,*argp))))));
 
 i = (signed) (x);
 
-while(--x) {
+while(--i) {
 r = _putch(sp);
 if(!(EOF^(r))) {
 printf("%s\n","<< Error at fn. _putch()");
@@ -61,12 +63,20 @@ if(!r) {
 printf("<< Error at fn. cli_get_csbi_beta()");
 return(0x00);
 }
-if(y^(R(Top,R(srWindow,R(csbi,*argp))))) {
-R(y,*(coord+(CLI_OFFSET))) = (y);
+if(exte^(R(Top,R(srWindow,R(csbi,*argp))))) {
+/* by scrolling the content
+exte = (-exte+(R(Top,R(srWindow,R(csbi,*argp)))));
+r = cli_scroll_beta(-exte,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_scroll_beta()");
+//*/
+//* by putting the cursor
+R(y,*(coord+(CLI_OFFSET))) = (exte);
 R(x,*(coord+(CLI_OFFSET))) = (0x00);
 r = cli_coord_beta(CLI_OUT,coord+(CLI_OFFSET),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
+//*/
 return(0x00);
 }}
 // come back
@@ -76,5 +86,5 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }}
 
-return(i);
+return(x);
 }

@@ -20,8 +20,8 @@ auto CLI_COORD coord[0x02];
 
 auto signed i,r;
 auto signed short flag;
-auto signed short edge;
-auto signed short y;
+auto signed short inte;
+auto signed short exte;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -32,10 +32,10 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
-edge = (R(Bottom,R(srWindow,R(csbi,*argp))));
-y = (R(Top,R(srWindow,R(csbi,*argp))));
+inte = (R(Bottom,R(srWindow,R(csbi,*argp))));
+exte = (R(Top,R(srWindow,R(csbi,*argp))));
 
-r = cli_clear_rows_internal_beta(edge,argp);
+r = cli_clear_rows_internal_beta(inte,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_clear_rows_internal_beta()");
 return(0x00);
@@ -50,12 +50,20 @@ if(!r) {
 printf("<< Error at fn. cli_get_csbi_beta()");
 return(0x00);
 }
-if(y^(R(Top,R(srWindow,R(csbi,*argp))))) {
-R(y,*(coord+(CLI_OFFSET))) = (y);
+if(exte^(R(Top,R(srWindow,R(csbi,*argp))))) {
+/* by scrolling the content
+exte = (-exte+(R(Top,R(srWindow,R(csbi,*argp)))));
+r = cli_scroll_beta(-exte,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_scroll_beta()");
+//*/
+//* by putting the cursor
+R(y,*(coord+(CLI_OFFSET))) = (exte);
 R(x,*(coord+(CLI_OFFSET))) = (0x00);
 r = cli_coord_beta(CLI_OUT,coord+(CLI_OFFSET),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
+//*/
 return(0x00);
 }}
 // come back
