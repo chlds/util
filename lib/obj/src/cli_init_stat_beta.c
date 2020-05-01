@@ -17,6 +17,12 @@ signed(__cdecl cli_init_stat_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed ROWS = (0x1000);
+auto signed device[/*CLI_DEVICES*/] = {
+(signed) (STD_INPUT_HANDLE),
+(signed) (STD_OUTPUT_HANDLE),
+(signed) (STD_ERROR_HANDLE),
+(signed) (0x00),
+};
 
 auto COORD coord;
 auto signed long long ll;
@@ -30,27 +36,33 @@ if(!(*(CLI_BASE+(R(window,*argp))))) {
 printf("%s\n","<< Error at fn. GetConsoleWindow()");
 return(0x00);
 }
-
 if(CLI_DBG) printf("%s%p\n","An offset address for a handle to the console window is: ",*(CLI_BASE+(R(window,*argp))));
 
-// Get a handle to the specified standard output device
-*(CLI_OUT+(R(device,*argp))) = (void(*)) GetStdHandle(STD_OUTPUT_HANDLE);
-ll = (signed long long) (*(CLI_OUT+(R(device,*argp))));
+// Get handles to their specified standard devices
+i = (CLI_ERR+(0x01));
+while(i) {
+--i;
+*(i+(R(device,*argp))) = (void(*)) GetStdHandle(*(device+(i)));
+ll = (signed long long) (*(i+(R(device,*argp))));
 if(!(ll^((signed long long) INVALID_HANDLE_VALUE))) {
-printf("%s\n","<< Error at fn. GetStdHandle()");
+r = GetLastError();
+printf("%s%d%s%Xh%s%d\n","<< Error at fn. GetStdHandle() with error no. ",r,"/",r," and i is: ",i);
 return(0x00);
 }
-
-if(CLI_DBG) printf("%s%p\n","An offset address for a handle to the specified standard output device is: ",*(CLI_OUT+(R(device,*argp))));
+if(!(*(i+(R(device,*argp))))) {
+r = GetLastError();
+printf("%s%d%s%Xh%s%d\n","<< Error at fn. GetStdHandle() with (0x00) and error no. ",r,"/",r," and i is: ",i);
+return(0x00);
+}
+if(CLI_DBG) printf("%d%s%p\n",i,". An offset address for a handle to the specified standard device is: ",*(i+(R(device,*argp))));
+}
 
 r = GetConsoleScreenBufferInfo(*(CLI_OUT+(R(device,*argp))),&(R(csbi,*argp)));
-
 if(!r) {
 r = GetLastError();
 printf("%s%d%s%X\n","<< Error at fn. GetConsoleScreenBufferInfo() with error no. ",r," or ",r);
 return(0x00);
 }
-
 if(CLI_DBG) {
 // .dwSize
 printf("%s\n","A COORD structure that contains the size of the console screen buffer, in character columns and rows.");
