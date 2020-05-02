@@ -23,6 +23,7 @@ Based on UTF-8
 signed(__cdecl cli_diff_history(signed short(*diff),signed char(*base),CLI_PAGE(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto CLI_SNAPSHOT *snapshot;
 auto signed char *p;
 auto signed i,r;
 auto signed short flag;
@@ -32,19 +33,29 @@ if(!diff) return(0x00);
 if(!base) return(0x00);
 if(!argp) return(0x00);
 
-if(!(*(CLI_INDEX+(R(snapshot,R(history,*argp)))))) {
+snapshot = (*(CLI_INDEX+(R(snapshot,R(history,*argp)))));
+if(!snapshot) {
 *diff = (0x01);
 return(0x01);
 }
 
-r = cmpr(&i,base,*(CLI_BASE+(R(base,**(CLI_INDEX+(R(snapshot,R(history,*argp))))))));
+r = cmpr(&i,base,*(CLI_BASE+(R(base,*snapshot))));
 if(!r) {
 printf("%s\n","<< Error at fn. cmpr()");
 return(0x00);
 }
-
 if(!i) *diff = (0x00);
 else *diff = (0x01);
+
+snapshot = R(d,*snapshot);
+if(snapshot) {
+r = cmpr(&i,base,*(CLI_BASE+(R(base,*snapshot))));
+if(!r) {
+printf("%s\n","<< Error at fn. cmpr()");
+return(0x00);
+}
+if(!i) *diff = (0x00);
+}
 
 return(0x01);
 }

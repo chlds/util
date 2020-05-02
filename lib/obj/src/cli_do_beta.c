@@ -48,7 +48,7 @@ return(0x00);
 if(!arg) snapshot = (R(s,*snapshot));
 else snapshot = (R(d,*snapshot));
 
-if(!snapshot) return(0x01);
+if(!snapshot) snapshot = (*(CLI_INDEX+(R(snapshot,R(history,*page)))));
 
 *(CLI_INDEX+(R(snapshot,R(history,*page)))) = (snapshot);
 

@@ -103,5 +103,18 @@ printf("%s\n","<< Error at fn. cli_grams_beta()");
 return(0x00);
 }}
 
+/* e.g., to remove the line
+r = cli_book(&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_book()");
+return(0x00);
+}
+r = cli_ctrl_d_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_ctrl_d_beta()");
+return(0x00);
+}
+//*/
+
 return(0x01);
 }
