@@ -182,14 +182,8 @@ return(0x00);
 }
 R(offset,R(ty,*argp)) = (offset);
 ADD(*(CLI_INDEX+(R(cur,R(ty,*argp)))),R(offset,R(ty,*argp)));
-cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 
-flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
-r = cli_grams_beta(flag,cur,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_grams_beta()");
-return(0x00);
-}
+OR(R(flag,R(ty,*argp)),CLI_REFRESH);
 
 return(0x01);
 }

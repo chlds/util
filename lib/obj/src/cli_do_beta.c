@@ -58,10 +58,10 @@ printf("%s\n","<< No allocation at *(CLI_BASE+(R(base,*snapshot..");
 return(0x00);
 }
 
+//* aux.
 r = ct(p);
 INC(r);
 r = (r*(sizeof(signed char)));
-
 i = (*(CLI_BASE+(R(size,R(roll,R(ty,*argp))))));
 if(i<(r)) {
 r = cli_extend(CLI_BASE,0x01/* cue */,CLI_EMPTY+(-i+(r))/* extra */,&(R(ty,*argp)));
@@ -69,6 +69,7 @@ if(!r) {
 printf("%s\n","<< Error at fn. cli_extend()");
 return(0x00);
 }}
+//*/
 
 r = cpy(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),p);
 if(!r) {
