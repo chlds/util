@@ -54,10 +54,11 @@ signed(__cdecl cli_save_beta(CLI_W32_STAT(*argp)));
 signed(__cdecl cli_debug_monitor_beta(CLI_W32_STAT(*argp)));
 // Monitor
 
+signed(__cdecl cli_clear2_rows_beta(signed short(comeback),CLI_W32_STAT(*argp)));
+signed(__cdecl cli_clear2_row_beta(signed short(comeback),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_clear_rows_internal_beta(signed short(edge),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_clear_rows_beta(signed short(comeback),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_clear_row_beta(signed short(comeback),CLI_W32_STAT(*argp)));
-signed(__cdecl cli_clear_to_beta(signed short(comeback),CLI_W32_STAT(*argp)));
 // Clear the row/rows.
 
 signed(__cdecl cli_rect_beta(signed short(flag),CLI_RECT(*cache),CLI_W32_STAT(*argp)));
