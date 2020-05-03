@@ -110,7 +110,15 @@ return(0x00);
 }}
 
 else {
-flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
+//* aux.
+r = cli_clear2_rows_beta(0x01/* comeback */,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_clear2_rows_beta()");
+return(0x00);
+}
+flag = (CG_COMEBACK|CG_EMUL);
+//*/
+// flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
 r = cli_coord_output_pages_beta(flag,page,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_output_pages_beta()");
