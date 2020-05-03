@@ -132,13 +132,7 @@ return(0x00);
 //*/
 }
 
-if(y^(R(y,*(CLI_LEAD+(R(coord,*page)))))) {
-flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
-r = cli_grams_beta(flag,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_grams_beta()");
-return(0x00);
-}}
+if(y^(R(y,*(CLI_LEAD+(R(coord,*page)))))) OR(R(flag,R(ty,*argp)),CLI_REFRESH);
 
 return(0x01);
 }
