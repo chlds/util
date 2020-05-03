@@ -78,11 +78,7 @@ exte = (R(Top,R(srWindow,R(csbi,*argp))));
 page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
 
 if(!(R(d,*page))) {
-r = cli_clear_rows_beta(0x01/* comeback */,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
-return(0x00);
-}
+OR(R(flag,R(ty,*argp)),CLI_REFRESH);
 return(0x01);
 }
 
