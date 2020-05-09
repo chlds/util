@@ -9,6 +9,7 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 
 # define CLI_MACRO
 # define CLI_W32
+# define N_ROW (0x05)
 
 # include <stdio.h>
 # include "../../../incl/config_ty.h"
@@ -16,7 +17,7 @@ Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
 signed(__cdecl cli_debug_monitor_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed short nrows = (CLI_HEADER_HEIGHT+(0x03));
+auto signed short n_row = (CLI_HEADER_HEIGHT+(N_ROW));
 
 auto CLI_COORD coord[0x03];
 auto signed i,r;
@@ -38,7 +39,7 @@ R(x,*(coord+(CLI_INDEX))) = (R(X,R(dwCursorPosition,R(csbi,*argp))));
 R(y,*(coord+(CLI_OFFSET))) = (R(Top,R(srWindow,R(csbi,*argp))));
 R(x,*(coord+(CLI_OFFSET))) = (0x00);
 
-R(y,*(coord+(CLI_BASE))) = (nrows+(R(Top,R(srWindow,R(csbi,*argp)))));
+R(y,*(coord+(CLI_BASE))) = (n_row+(R(Top,R(srWindow,R(csbi,*argp)))));
 R(x,*(coord+(CLI_BASE))) = (0x00);
 
 r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
@@ -47,9 +48,12 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
-r = cli_clear_rows_beta(0x01/* comeback */,argp);
+// aux.
+// r = cli_clear_rows_beta(0x01/* comeback */,argp);
+r = cli_clear2_rows_beta(0x01/* comeback */,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
+// printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
+printf("%s\n","<< Error at fn. cli_clear2_rows_beta()");
 return(0x00);
 }
 
