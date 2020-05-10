@@ -87,6 +87,7 @@ if(!(EEXIST^(errno))) {
 OR(R(flag,*argp),CLI_ALREADY_EXIST);
 return(0x01);
 }
+OR(R(flag,R(commandline,*argp)),CLI_IRR);
 printf("%s\n","<< Error at fn. _wopen()");
 return(0x00);
 }

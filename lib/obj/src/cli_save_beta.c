@@ -66,6 +66,12 @@ else {
 r = cli_save_as(flag/* update */,&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_save_as()");
+if(CLI_IRR&(R(flag,R(commandline,R(ty,*argp))))) {
+if(R(file,R(edit,R(ty,*argp)))) free(R(file,R(edit,R(ty,*argp))));
+R(file,R(edit,R(ty,*argp))) = (0x00);
+AND(R(flag,R(commandline,R(ty,*argp))),~CLI_IRR);
+return(0x01);
+}
 return(0x00);
 }
 if(!(CLI_OVERWRITE&(R(flag,R(ty,*argp))))) {
