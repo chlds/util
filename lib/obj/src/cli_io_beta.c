@@ -253,15 +253,7 @@ AND(R(flag,R(ty,*argp)),flag);
 
 // refresh
 if(CLI_REFRESH&(R(flag,R(ty,*argp)))) {
-//* aux.
-r = cli_clear2_rows_beta(0x01/* comeback */,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_clear2_rows_beta()");
-return(0x00);
-}
-flag = (CG_COMEBACK|CG_EMUL);
-//*/
-// flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
+flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
 r = cli_grams_beta(flag,cur,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_grams_beta()");

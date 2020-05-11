@@ -73,31 +73,7 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
-r = cli_get_csbi_beta(argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_get_csbi_beta()");
-return(0x00);
-}
-
-inte = (R(Bottom,R(srWindow,R(csbi,*argp))));
-exte = (R(Top,R(srWindow,R(csbi,*argp))));
-
-page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
-y = (R(y,*(CLI_LEAD+(R(coord,*page)))));
-
-r = cli_coord_page_beta(CG_COMEBACK|CG_CLEAR|CG_EMUL,page,argp);
-if(!r) {
-/* empty or..
-printf("%s\n","<< Error at fn. cli_coord_page_beta()");
-return(0x00);
-//*/
-}
-
-if(y^(R(y,*(CLI_LEAD+(R(coord,*page)))))) OR(R(flag,R(ty,*argp)),CLI_REFRESH);
-else {
-flag = (~(CLI_REFRESH));
-AND(R(flag,R(ty,*argp)),flag);
-}
+OR(R(flag,R(ty,*argp)),CLI_REFRESH);
 
 return(0x01);
 }
