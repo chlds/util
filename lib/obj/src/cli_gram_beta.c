@@ -62,9 +62,10 @@ R(y,*(CLI_LEAD+(R(coord,*page)))) = (R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
 R(x,*(CLI_LEAD+(R(coord,*page)))) = (R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))));
 
 if(CG_CLEAR&(flag)) {
-r = cli_clear_row_beta(0x00/* come back */,argp);
+// r = cli_clear_row_beta(0x00/* come back */,argp);
+r = cli_clear2_row_beta(0x00/* come back */,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_clear_row_beta()");
+printf("%s\n","<< Error at fn. cli_clear2_row_beta()");
 return(0x00);
 }}
 
