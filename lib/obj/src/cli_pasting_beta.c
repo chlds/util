@@ -71,9 +71,10 @@ return(0x00);
 
 // to merge pages
 *cur = (0x00);
-r = cli_book(&(R(ty,*argp)));
+// r = cli_book(&(R(ty,*argp)));
+r = cli_book_no_history(&(R(ty,*argp)));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_book()");
+printf("%s\n","<< Error at fn. cli_book_no_history()");
 return(0x00);
 }
 

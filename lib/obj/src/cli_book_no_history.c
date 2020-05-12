@@ -1,0 +1,75 @@
+/* **** Notes
+
+Copy characters on workspace to the current page.
+
+Remarks:
+Refer at fn. cli_bind_pages.
+Build a doubly linked list
+Along with C library
+*/
+
+
+# define CLI_MACRO
+# define CLI_W32
+
+# include <conio.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include "../../../incl/config_ty.h"
+
+signed(__cdecl cli_book_no_history(CLI_TYPEWRITER(*argp))) {
+
+/* **** DATA, BSS and STACK */
+auto CLI_PAGE *page;
+
+auto signed char *p;
+auto signed i,r;
+auto signed short flag;
+
+/* **** CODE/TEXT */
+if(!argp) return(0x00);
+
+page = (*(CLI_INDEX+(R(page,R(spool,*argp)))));
+if(!page) {
+printf("%s\n","<< No index page..");
+return(0x00);
+}
+
+r = ct(*(CLI_BASE+(R(base,R(roll,*argp)))));
+if(!r) {
+/* empty or..
+printf("%s\n","<< Error at fn. ct()");
+return(0x00);
+//*/
+}
+
+r++;
+r = (r*(sizeof(signed char)));
+
+p = (signed char(*)) malloc(r);
+if(!p) {
+printf("%s\n","<< Error at fn. malloc()");
+return(0x00);
+}
+
+r = cpy(p,*(CLI_BASE+(R(base,R(roll,*argp)))));
+if(!r) {
+/* empty or..
+printf("%s\n","<< Error at fn. cpy()");
+return(0x00);
+//*/
+}
+
+if(*(CLI_BASE+(R(base,*page)))) {
+embed(0x00/* flag */,*(CLI_BASE+(R(base,*page))));
+free(*(CLI_BASE+(R(base,*page))));
+}
+
+*(CLI_BASE+(R(base,*page))) = (p);
+
+p = (*(CLI_BASE+(R(base,R(roll,*argp)))));
+r = compare(*(CLI_INDEX+(R(cur,*argp))),p);
+R(offset,*page) = (r);
+
+return(0x01);
+}

@@ -313,6 +313,7 @@ signed(__cdecl cli_write(signed(descriptor),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_save_as(signed short(update),CLI_TYPEWRITER(*argp)));
 // save as
 
+signed(__cdecl cli_book_no_history(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_book(CLI_TYPEWRITER(*argp)));
 // copy characters on workspace to the current page.
 

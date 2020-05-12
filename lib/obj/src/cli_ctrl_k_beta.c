@@ -100,7 +100,7 @@ printf("%s\n","<< Error at fn. cli_grams_beta()");
 return(0x00);
 }}
 
-/* e.g., to remove the line
+//* e.g., to remove the line
 r = cli_book(&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_book()");
