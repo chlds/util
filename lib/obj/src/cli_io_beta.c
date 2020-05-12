@@ -161,6 +161,11 @@ printf("%s\n","<< Error at fn. concats()");
 return(0x00);
 }}
 //*
+r = cli_rule(cur,&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_rule()");
+return(0x00);
+}
 r = cli_book(&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_book()");
@@ -170,10 +175,10 @@ return(0x00);
 // to invoke
 *(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
 R(gauge,R(ty,*argp)) = (size);
-/* aux. check
-r = cli_rule(&(R(ty,*argp)));
+/* aux. check here
+r = cli_book(&(R(ty,*argp)));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_rule()");
+printf("%s\n","<< Error at fn. cli_book()");
 return(0x00);
 }
 //*/
