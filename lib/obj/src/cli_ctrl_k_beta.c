@@ -51,10 +51,13 @@ return(0x00);
 //*/
 
 r = ct(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+i = (r);
 ADD(R(gauge,R(ty,*argp)),r);
-**(CLI_INDEX+(R(cur,R(ty,*argp)))) = (0x00);
 
-if(!r) {
+// **(CLI_INDEX+(R(cur,R(ty,*argp)))) = (0x00);
+r = embed(0x00/* flag */,*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+
+if(!i) {
 r = cli_ctrl_d_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_ctrl_d_beta()");

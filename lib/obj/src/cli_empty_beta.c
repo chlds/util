@@ -20,6 +20,8 @@ Refer at util/lib/obj/src/cli_init_roll.c and util/bin/obj/src/ty.c
 signed(__cdecl cli_empty_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto signed DENIED = (0x05);
+
 auto signed char *p;
 auto signed c,i,r;
 auto signed short flag;
@@ -30,7 +32,8 @@ if(!argp) return(0x00);
 r = OpenClipboard(*(CLI_BASE+(R(window,*argp))));
 if(!r) {
 r = GetLastError();
-printf("%s%d%s%X\n","<< Error at fn. OpenClipboard() with ",r," or ",r);
+if(!(DENIED^(r))) OR(R(flag,R(ty,*argp)),CLI_IRR);
+else printf("%s%d%s%Xh\n","<< Error at fn. OpenClipboard() with ",r," or ",r);
 return(0x00);
 }
 
@@ -39,14 +42,14 @@ flag = (0x00);
 r = EmptyClipboard();
 if(!r) {
 r = GetLastError();
-printf("%s%d%s%X\n","<< Error at fn. EmptyClipboard() with ",r," or ",r);
+printf("%s%d%s%Xh\n","<< Error at fn. EmptyClipboard() with ",r," or ",r);
 flag = (0x01);
 }
 
 r = CloseClipboard();
 if(!r) {
 r = GetLastError();
-printf("%s%d%s%X\n","<< Error at fn. CloseClipboard() with ",r," or ",r);
+printf("%s%d%s%Xh\n","<< Error at fn. CloseClipboard() with ",r," or ",r);
 return(0x00);
 }
 

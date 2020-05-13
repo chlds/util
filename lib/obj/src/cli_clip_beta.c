@@ -39,6 +39,12 @@ if(!argp) return(0x00);
 //*
 r = cli_empty_beta(argp);
 if(!r) {
+if(CLI_IRR&(R(flag,R(ty,*argp)))) {
+printf("%s","<< Could not access to the clipboard..");
+flag = (signed short) (~(CLI_IRR));
+AND(R(flag,R(ty,*argp)),flag);
+return(0x01);
+}
 printf("%s\n","<< Error at fn. cli_empty_beta()");
 return(0x00);
 }
