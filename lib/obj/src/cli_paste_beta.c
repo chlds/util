@@ -20,6 +20,8 @@ Refer at util/lib/obj/src/cli_init_roll.c and util/bin/obj/src/ty.c
 signed(__cdecl cli_paste_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto signed DENIED = (0x05);
+
 auto void *g;
 auto signed short *w;
 auto signed char *b;
@@ -33,8 +35,12 @@ if(!argp) return(0x00);
 r = OpenClipboard(*(CLI_BASE+(R(window,*argp))));
 if(!r) {
 r = GetLastError();
-if(CLI_DBG) printf("%s%d%s%X\n","<< Error at fn. OpenClipboard() with ",r," or ",r);
+if(!(DENIED^(r))) {
+if(CLI_DBG) printf("%s","<< Could not access to the clipboard..");
 return(0x01);
+}
+printf("%s%d%s%Xh\n","<< Error at fn. OpenClipboard() with ",r," or ",r);
+return(0x00);
 }
 
 flag = (0x00);
@@ -42,7 +48,7 @@ flag = (0x00);
 g = GetClipboardData(CF_UNICODETEXT);
 if(!g) {
 r = GetLastError();
-// if(CLI_DBG) printf("%s%d%s%X\n","<< Error at fn. GetClipboardData() with ",r," or ",r);
+// if(CLI_DBG) printf("%s%d%s%Xh\n","<< Error at fn. GetClipboardData() with ",r," or ",r);
 flag = (0x03);
 }
 
@@ -52,7 +58,7 @@ if(!flag) {
 w = (signed short(*)) GlobalLock(g);
 if(!w) {
 r = GetLastError();
-if(CLI_DBG) printf("%s%d%s%X\n","<< Error at fn. GlobalLock() with ",r," or ",r);
+if(CLI_DBG) printf("%s%d%s%Xh\n","<< Error at fn. GlobalLock() with ",r," or ",r);
 flag = (0x02);
 }}
 
@@ -115,14 +121,14 @@ r = GlobalUnlock(g);
 if(!r) {
 r = GetLastError();
 if(NO_ERROR^(r)) {
-printf("%s%d%s%X\n","<< Error at fn. GlobalUnlock() with ",r," or ",r);
+printf("%s%d%s%Xh\n","<< Error at fn. GlobalUnlock() with ",r," or ",r);
 flag++;
 }}}
 
 r = CloseClipboard();
 if(!r) {
 r = GetLastError();
-printf("%s%d%s%X\n","<< Error at fn. CloseClipboard() with ",r," or ",r);
+printf("%s%d%s%Xh\n","<< Error at fn. CloseClipboard() with ",r," or ",r);
 return(0x00);
 }
 
