@@ -7,44 +7,55 @@ Refer at <corecrt_wtime.h>
 # define C_CODE_STDS
 # define C_CALEND
 # define C_AS
+
 # include "./../../../incl/config.h"
 
-signed(__cdecl main(signed(argc), signed char(**argv), signed char(**envp))) {
+signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 
 /* **** DATA, BSS and STACK */
-auto struct tm(*tp);
-auto time_t(t);
-auto signed(r);
+auto struct tm *tp;
+auto time_t t;
+auto signed d,h;
+auto signed i,r;
+auto signed short flag;
 
 /* **** CODE/TEXT */
+h = (60*(60));
+d = (24*(h));
 time(&t);
-
 tp = localtime(&t);
-
-if(!((signed long long) tp^(~(NIL)))) {
-printf("%s\n", "<< Error at fn. localtime().");
-printf("%s%Xh\n", "<< The errno is: ", errno);
-printf("%s\n", strerror(errno));
-return(XNOR(r));
-}
-
-else {
+if(!((signed long long) tp^(~(0x00)))) {
+r = (errno);
+printf("%s%d%s%Xh\n","<< Error at fn. localtime() with errno. ",r," or ",r);
+printf("%s\n",strerror(r));
+return(0x00);
 }
 
 /* Monitoring
-printf("%s%p\n", "tp is: ", tp);
-printf("%s%Xh\n", "t is: ", t);
+printf("%s%p\n","tp is: ",tp);
+printf("%s%d%s%Xh\n","t is: ",t," or ",t);
 //*/
 
-/* Output */
 printf("\n");
-// printf("%d:%02d:%02d", (*tp).tm_hour, (*tp).tm_min, (*tp).tm_sec);
-printf(" %s %d %s %d\n", *(dayoftheweek+((*tp).tm_wday)), (*tp).tm_mday, *(month+((*tp).tm_mon)), 1900+((*tp).tm_year));
+printf("  %s %d %s %d, ",*(dayoftheweek+(R(tm_wday,*tp))),R(tm_mday,*tp),*(month+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
+printf("%d:%02d:%02d, ",R(tm_hour,*tp),R(tm_min,*tp),R(tm_sec,*tp));
+printf("%s%d, ","Daylight Savings Time ",R(tm_isdst,*tp));
+printf("%d%s\n",R(tm_yday,*tp)," days since January 1");
+printf("\n");
 
-/* Auxiliaries
-printf("%s%Xh\n", "and the flag of the Daylight Savings Time is: ", (*tp).tm_isdst);
-printf("%d%s\n", (*tp).tm_yday, " days since January 1");
-//*/
-
+i = R(tm_mon,*tp);
+while(0x01) {
+if(i^(R(tm_mon,*tp))) break;
+printf("  %2d %s",R(tm_mday,*tp),*(dayofthewk+(R(tm_wday,*tp))));
+printf("\n");
+t = (d+(t));
+tp = localtime(&t);
+if(!((signed long long) tp^(~(0x00)))) {
+r = (errno);
+printf("%s%d%s%Xh\n","<< Error at fn. localtime() with errno. ",r," or ",r);
+printf("%s\n",strerror(r));
 return(0x00);
+}}
+
+return(0x01);
 }
