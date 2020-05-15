@@ -24,8 +24,9 @@ auto CLI_PAGE *page;
 
 auto CLI_COORD coord[0x02];
 auto signed char *p;
+auto signed long long ll;
 auto signed c,i,r;
-auto signed short flag;
+auto signed short flag,flag_b;
 auto signed short inte,exte;
 auto signed short y;
 
@@ -49,6 +50,10 @@ printf("%s\n","<< Error at fn. cli_clip_beta()");
 return(0x00);
 }
 //*/
+
+ll = (signed long long) (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+if(!(ll^((signed long long) *(CLI_BASE+(R(base,R(roll,R(ty,*argp)))))))) flag_b = (0x01);
+else flag_b = (0x00);
 
 r = ct(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 i = (r);
@@ -104,16 +109,17 @@ return(0x00);
 }}
 
 //* e.g., to remove the line
-r = cli_book(&(R(ty,*argp)));
+if(flag_b) {
+r = cli_book_no_history(&(R(ty,*argp)));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_book()");
+printf("%s\n","<< Error at fn. cli_book_no_history()");
 return(0x00);
 }
 r = cli_ctrl_d_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_ctrl_d_beta()");
 return(0x00);
-}
+}}
 //*/
 
 return(0x01);

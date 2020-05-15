@@ -263,7 +263,7 @@ printf("%s","at R(offset,**(CLI_INDEX+(R(snapshot/R(insert/R(undo/R(redo, on R(h
 printf("\n");
 
 printf("%p%s",*(CLI_BASE+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),"/");
-printf("%p%s",*(CLI_OFFSET+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),"/");
+printf("%p%s\n",*(CLI_OFFSET+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),",");
 printf("%p%s",*(CLI_INDEX+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),"/");
 printf("%p%s",*(CLI_LEAD+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))," at *(CLI_B/O/I/L+(R(snapshot,");
 printf("\n");
