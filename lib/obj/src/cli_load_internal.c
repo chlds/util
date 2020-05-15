@@ -52,6 +52,20 @@ printf("%s\n","<< Error at fn. cli_init_workspace()");
 return(0x00);
 }
 
+/* case 1
+r = cli_bind_pages(&(R(spool,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_bind_pages()");
+return(0x00);
+}
+**(CLI_BASE+(R(base,R(roll,*argp)))) = (0x00);
+r = cli_book(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_book()");
+return(0x00);
+}
+//*/
+
 flag = (0x00);
 
 while(0x01) {
@@ -96,11 +110,13 @@ p++;
 count++;
 }
 
+//* or case 2
 r = cli_bind_pages(&(R(spool,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_bind_pages()");
 return(0x00);
 }
+//*/
 
 r = cli_book(argp);
 if(!r) {
