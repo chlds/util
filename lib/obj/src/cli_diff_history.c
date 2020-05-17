@@ -44,7 +44,11 @@ if(!r) {
 printf("%s\n","<< Error at fn. cmpr()");
 return(0x00);
 }
-if(!i) *diff = (0x00);
+if(!i) {
+// replace cursor position only for the snapshot
+R(offset,**(CLI_INDEX+(R(snapshot,R(history,*argp))))) = (R(offset,*argp));
+*diff = (0x00);
+}
 else *diff = (0x01);
 
 snapshot = R(d,*snapshot);
