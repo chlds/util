@@ -78,7 +78,6 @@ else break;
 cur = (cur+(r));
 }
 
-*(CLI_LEAD+(R(cur,R(ty,*argp)))) = (cur);
 *(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
 
 return(0x01);
