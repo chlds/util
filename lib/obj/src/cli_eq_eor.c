@@ -1,5 +1,9 @@
 /*
 
+End of roll
+
+Rows i.e., coordinate Y for console screen buffer size
+
 Along with C library
 
 Remarks:
@@ -14,7 +18,7 @@ Refer at util/lib/obj/src/cli_parse.c
 # include <stdlib.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_eq_tab(CLI_TYPEWRITER(*argp))) {
+signed(__cdecl cli_eq_eor(CLI_TYPEWRITER(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed radix = (0x0A);
@@ -32,9 +36,9 @@ return(0x00);
 }
 
 AND(i,0xFFFF);
-if(ALIGN_TAB<(i)) i = (ALIGN_TAB);
-if(i<(0x02)) i = (ALIGN_TAB);
-R(align_tab,R(config,*argp)) = (i);
+if(CLI_ROWS_LIMITED<(i)) i = (CLI_ROWS_LIMITED);
+if(i<(CLI_ROWS)) i = (CLI_ROWS);
+R(end_of_roll,R(config,*argp)) = (i);
 
 return(0x01);
 }

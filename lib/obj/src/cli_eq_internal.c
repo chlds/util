@@ -20,6 +20,7 @@ signed(__cdecl cli_eq_internal(signed short(term),signed(fd),CLI_TYPEWRITER(*arg
 static signed(__cdecl*(fn[])) (void(*argp)) = {
 (signed(__cdecl*)(void(*))) (cli_eq_frame),
 (signed(__cdecl*)(void(*))) (cli_eq_display),
+(signed(__cdecl*)(void(*))) (cli_eq_eor),
 (signed(__cdecl*)(void(*))) (cli_eq_load),
 (signed(__cdecl*)(void(*))) (cli_eq_monitor),
 (signed(__cdecl*)(void(*))) (cli_eq_tab),
@@ -30,6 +31,7 @@ static signed(__cdecl*(fn[])) (void(*argp)) = {
 static signed char(*(eq[])) = {
 (signed char(*)) ("eq frame,"),
 (signed char(*)) ("eq display,"),
+(signed char(*)) ("eq eor,"),
 (signed char(*)) ("eq load,"),
 (signed char(*)) ("eq monitor,"),
 (signed char(*)) ("eq tab,"),

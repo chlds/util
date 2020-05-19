@@ -38,6 +38,7 @@ R(fd,R(config,R(ty,cli_w32_stat))) = (0x00);
 // also
 R(compact_frame,R(config,R(ty,cli_w32_stat))) = (CLI_DEFAULT);
 R(display_header,R(config,R(ty,cli_w32_stat))) = (CLI_DEFAULT);
+R(end_of_roll,R(config,R(ty,cli_w32_stat))) = (CLI_ROWS);
 R(load_file,R(config,R(ty,cli_w32_stat))) = (0x01);
 R(debug_monitor,R(config,R(ty,cli_w32_stat))) = (CLI_DEFAULT);
 R(align_tab,R(config,R(ty,cli_w32_stat))) = (ALIGN_TAB);
@@ -111,12 +112,11 @@ printf("%s\n","<< Error at fn. cli_parse()");
 return(0x00);
 }
 
-if(R(compact_frame,R(config,R(ty,cli_w32_stat)))) {
 r = cli_frame_beta(&cli_w32_stat);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_frame_beta()");
 return(0x00);
-}}
+}
 
 if(R(load_file,R(config,R(ty,cli_w32_stat)))) {
 r = cli_load(&(R(ty,cli_w32_stat)));

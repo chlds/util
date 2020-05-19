@@ -54,6 +54,8 @@ Refer at ./config_ty.h
 
 # define CLI_NONE (0x02)
 # define CLI_SIMPLE (0x01)
+# define CLI_ROWS_LIMITED (16384)
+# define CLI_ROWS (8000)
 # define ALIGN_TAB (0x08)
 # define LINEBREAK_CRLF (0x0A0D)
 # define LINEBREAK_LF (0x0A)
@@ -177,6 +179,7 @@ signed fd;
 //* to be overridden in a config file
 signed short compact_frame;
 signed short display_header;
+signed short end_of_roll;
 signed short load_file;
 signed short debug_monitor;
 signed short align_tab;
@@ -285,6 +288,7 @@ signed(__cdecl cli_eq_eol(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_tab(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_monitor(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_load(CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_eq_eor(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_display(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_frame(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_internal(signed short(term),signed(fd),CLI_TYPEWRITER(*argp)));
