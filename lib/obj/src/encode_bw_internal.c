@@ -19,11 +19,15 @@ Refer at fn. decode2uni and fn. encode2uni.
 signed(__cdecl encode_bw_internal(ENCODE_PACK(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto signed short SECOND = (0xDC00);
+auto signed short FIRST = (0xD800);
+
 auto signed short *w;
 auto signed char *b;
 auto signed gauge;
 auto signed size;
 auto signed i,r;
+auto signed short second,first;
 auto signed short flag;
 
 /* **** CODE/TEXT */
@@ -64,12 +68,29 @@ if(!(*w)) {
 return(0x00);
 }
 
+first = (*w);
+if(!(FIRST^(first&(FIRST)))) {
+w++;
+second = (*w);
+if(!(SECOND^(second&(SECOND)))) flag = (0x01);
+else --w;
+}
+
+if(flag) {
+r = encode_surrogate_bw(gauge,b,second,first);
+if(!r) {
+printf("%s\n","<< Error at fn. encode_surrogate_bw()");
+R(flag,*argp) = (0x01);
+return(0x00);
+}}
+
+else {
 r = encode2uni(gauge,b,*w);
 if(!r) {
 printf("%s\n","<< Error at fn. encode2uni()");
 R(flag,*argp) = (0x01);
 return(0x00);
-}
+}}
 
 gauge = (-r+(gauge));
 b = (r+(b));
