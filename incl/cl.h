@@ -37,6 +37,7 @@ signed(__cdecl cli_in(signed(*character),signed char(*argp),signed(size)));
 
 signed(__cdecl encode2uni_internal(signed(nbyte),signed(size),signed char(*array),signed(character)));
 signed(__cdecl encode2uni(signed(size),signed char(*array),signed(character)));
+signed(__cdecl encode_surrogate_bw(signed(size),signed char(*array),signed short(second),signed short(first)));
 signed(__cdecl ncharbyte(signed(arg)));
 /* Generate Unicode bytes encoded out of Unicode characters */
 
@@ -44,6 +45,8 @@ signed(__cdecl cli_outs(signed char(*argp)));
 signed(__cdecl cli_out(signed char(*argp)));
 signed(__cdecl decode2uni_internal(signed(nbyte),signed(*character),signed char(*argp)));
 signed(__cdecl decode2uni(signed(*character),signed char(*argp)));
+signed(__cdecl decode_surrogate_second(signed short(*di),signed(si)));
+signed(__cdecl decode_surrogate_first(signed short(*di),signed(si)));
 signed(__cdecl nbytechar(signed char(arg)));
 /* Output Unicode characters decoded out of Unicode bytes */
 
