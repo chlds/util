@@ -42,7 +42,7 @@ if(!argp) return(0x00);
 p = (*(frame+(R(compact_frame,R(config,R(ty,*argp))))));
 if(!p) return(0x00);
 
-printf("%s%s\n","Frame: ",p);
+if(CLI_DBG) printf("%s%s\n","Frame: ",p);
 
 r = GetSystemMetrics(SM_CXSCREEN);
 if(!r) {
