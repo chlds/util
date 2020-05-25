@@ -127,9 +127,10 @@ return(0x00);
 }}
 
 // get
-r = cli_in(&i,cur,size);
+// r = cli_in(&i,cur,size);
+r = cli_in_w(&i,cur,size);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_in()");
+printf("%s\n","<< Error at fn. cli_in_w()");
 return(0x00);
 }
 

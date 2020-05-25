@@ -32,6 +32,7 @@ signed(__cdecl encode2b(signed(size),signed char(*di),signed short(*si)));
 signed(__cdecl decode2w(signed(size),signed short(*di),signed char(*si)));
 /* Decode/encode */
 
+signed(__cdecl cli_in_w(signed(*character),signed char(*argp),signed(size)));
 signed(__cdecl cli_in(signed(*character),signed char(*argp),signed(size)));
 /* Get Unicode bytes in UTF-8 out of the keyboard. */
 
