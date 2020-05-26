@@ -12,11 +12,13 @@ The first call returns (0x00) and the second call returns (0x03)..
 */
 
 
+# define CL_MACRO
 # define BUFF (0x08)
 
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <windows.h>
 # include "../../../incl/cli.h"
 
 signed(__cdecl cli_in_w(signed(*character),signed char(*argp),signed(size))) {
@@ -39,6 +41,11 @@ static signed high[] = {
 };
 
 auto signed short buff[BUFF];
+
+auto KEY_EVENT_RECORD ker;
+auto INPUT_RECORD ir;
+auto void *cin;
+
 auto signed short *w;
 auto signed char *b;
 auto signed surrog;
@@ -79,6 +86,20 @@ low = (0xE0);
 if(!c) flag++;
 
 if(flag) {
+// uniquely identify competing value 0xE0
+cin = (void*) GetStdHandle(STD_INPUT_HANDLE);
+if(cin==(INVALID_HANDLE_VALUE)) {
+printf("%s\n","<< Error at fn. GetStdHandle()");
+return(0x00);
+}
+r = ReadConsoleInput(cin,&ir,0x01,&i);
+if(!r) {
+printf("%s\n","<< Error at fn. ReadConsoleInput()");
+return(0x00);
+}
+if(!(KEY_EVENT^(R(EventType,ir)))) {
+ker = (R(KeyEvent,R(Event,ir)));
+if(!(R(UnicodeChar,R(uChar,ker)))) {
 c = _getwch();
 r = cli_support_meta_keys(character,c/* second */,low/* first */);
 if(!r) {
@@ -86,7 +107,7 @@ printf("%s\n","<< Error at fn. cli_support_meta_keys()");
 return(0x00);
 }
 return(r);
-}
+}}}
 
 if(surrog) {
 r = encode_surrogate_bw(size,argp,surrog/* second */,c/* first */);
