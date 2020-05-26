@@ -55,7 +55,7 @@ else low = (0x00);
 // also
 if(!c) {
 c = _getch();
-r = cli_support_meta_keys(character,0x00/* first */,c/* second */);
+r = cli_support_meta_keys(character,c/* second */,0x00/* first */);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_support_meta_keys()");
 return(0x00);
@@ -81,7 +81,7 @@ if(low) {
 r = nbytechar(c);
 if(!(0x01^(r))) {
 // i.e., not a sequential byte in UTF-8
-r = cli_support_meta_keys(character,0xE0/* first */,c/* second */);
+r = cli_support_meta_keys(character,c/* second */,0xE0/* first */);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_support_meta_keys()");
 return(0x00);
@@ -97,7 +97,7 @@ if(!(c^(*(high+(i))))) low = ((signed char) *(high+(i)));
 i++;
 }
 if(low) {
-r = cli_support_meta_keys(character,LOW,low);
+r = cli_support_meta_keys(character,low/* second */,LOW/* first */);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_support_meta_keys()");
 return(0x00);
@@ -115,7 +115,6 @@ argp++;
 *argp = (signed char) (0x00);
 
 r = decode2uni(character,-r+(argp));
-
 if(!r) {
 printf("%s\n","<< Error at fn. decode2uni()");
 return(0x00);

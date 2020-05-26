@@ -80,7 +80,7 @@ if(!c) flag++;
 
 if(flag) {
 c = _getwch();
-r = cli_support_meta_keys(character,low/* first */,c/* second */);
+r = cli_support_meta_keys(character,c/* second */,low/* first */);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_support_meta_keys()");
 return(0x00);

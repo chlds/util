@@ -16,7 +16,7 @@ Refer at fn. cli_io_beta, fn. cli_in and fn. cli_ctrl_at_beta.
 # include <stdlib.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_support_meta_keys(signed(*character),signed char(first),signed char(second))) {
+signed(__cdecl cli_support_meta_keys(signed(*character),signed char(second),signed char(first))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char const low = (0xE0);
