@@ -30,6 +30,7 @@ auto signed fd;
 auto signed access;
 auto signed permission;
 auto signed i,r;
+auto signed short surrog;
 auto signed short flag;
 
 /* **** CODE/TEXT */
@@ -55,6 +56,24 @@ if(!r) {
 printf("%s\n","<< Error at fn. decode2uni()");
 return(0x00);
 }
+//* save file names in Unicode format
+if(0x03<(r)) {
+r = decode_surrogate_first(&surrog,i);
+if(!r) {
+printf("%s\n","<< Error at fn. decode_surrogate_first()");
+return(0x00);
+}
+*cur = (surrog);
+cur++;
+r = decode_surrogate_second(&surrog,i);
+if(!r) {
+printf("%s\n","<< Error at fn. decode_surrogate_second()");
+return(0x00);
+}
+i = (signed) (surrog);
+r = (0x04);
+}
+//*/
 *cur = (i);
 cur++;
 p = (r+(p));
