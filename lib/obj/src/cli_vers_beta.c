@@ -37,22 +37,41 @@ auto signed char character[] = {
 (signed char) (0x00),
 };
 
-auto signed char *header = ("\n\n\
-  < \
-");
-
+auto signed char *header = ("  < ");
 auto signed char *no_file = ("No file");
 
-auto signed char *edit = ("\n\n\n\n\
-  Currently being edited by \
-");
+auto signed char *(ar_tab[]) = {
+(signed char(*)) ("  Tab: Error\n"),
+(signed char(*)) ("  Tab: Error 1\n"),
+(signed char(*)) ("  Tab: 2\n"),
+(signed char(*)) ("  Tab: 3\n"),
+(signed char(*)) ("  Tab: 4\n"),
+(signed char(*)) ("  Tab: 5\n"),
+(signed char(*)) ("  Tab: 6\n"),
+(signed char(*)) ("  Tab: 7\n"),
+(signed char(*)) ("  Tab: 8\n"),
+(signed char(*)) (0x00),
+};
 
-auto signed char *footer = ("\n\n\n\n\
+auto signed char *(ar_eol[]) = {
+(signed char(*)) ("  EOL: CRLF\n"),
+(signed char(*)) ("  EOL: LF\n"),
+(signed char(*)) ("  EOL: Error\n"),
+(signed char(*)) (0x00),
+};
+
+auto signed char *edit = ("  Currently being edited by ");
+
+auto signed char *footer = ("\n\n\
   WELCOME TO TY.EXE :)\n\n\
   Version: 0.5\n\
   GitHub: github.com/chlds/util/\n\
   \
 ");
+
+auto signed char *break3 = ("\n\n\n");
+auto signed char *break2 = ("\n\n");
+auto signed char *break1 = ("\n");
 
 auto SMALL_RECT sr;
 auto COORD coord;
@@ -106,10 +125,16 @@ printf("%s%d%s%Xh\n","<< Error at fn. SetConsoleWindowInfo() with error no. ",r,
 return(0x00);
 }
 
-r = WriteConsole(ccsb,header,ct(header),&i,0x00);
+// write to a console screen buffer
+r = cli_out_to_beta(ccsb,break2);
 if(!r) {
-r = GetLastError();
-printf("%s%d%s%Xh\n","<< Error at fn. WriteConsole() with error no. ",r," or ",r);
+printf("%s\n","<< Error at fn. cli_out_to_beta()");
+return(0x00);
+}
+
+r = cli_out_to_beta(ccsb,header);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_out_to_beta()");
 return(0x00);
 }
 
@@ -117,10 +142,9 @@ p = (R(file,R(edit,R(ty,*argp))));
 
 if(!p) {
 p = (no_file);
-r = WriteConsole(ccsb,p,ct(p),&i,0x00);
+r = cli_out_to_beta(ccsb,p);
 if(!r) {
-r = GetLastError();
-printf("%s%d%s%Xh\n","<< Error at fn. WriteConsole() with error no. ",r," or ",r);
+printf("%s\n","<< Error at fn. cli_out_to_beta()");
 return(0x00);
 }
 p = (0x00);
@@ -145,10 +169,16 @@ printf("%s\n","<< Error at fn. release()");
 return(0x00);
 }}
 
-r = WriteConsole(ccsb,edit,ct(edit),&i,0x00);
+// edit
+r = cli_out_to_beta(ccsb,break3);
 if(!r) {
-r = GetLastError();
-printf("%s%d%s%Xh\n","<< Error at fn. WriteConsole() with error no. ",r," or ",r);
+printf("%s\n","<< Error at fn. cli_out_to_beta()");
+return(0x00);
+}
+
+r = cli_out_to_beta(ccsb,edit);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_out_to_beta()");
 return(0x00);
 }
 
@@ -158,19 +188,45 @@ printf("%s\n","<< Error at fn. getenv()");
 return(0x00);
 }
 
-r = WriteConsole(ccsb,p,ct(p),&i,0x00);
+r = cli_out_to_beta(ccsb,p);
 if(!r) {
-r = GetLastError();
-printf("%s%d%s%Xh\n","<< Error at fn. WriteConsole() with error no. ",r," or ",r);
+printf("%s\n","<< Error at fn. cli_out_to_beta()");
 return(0x00);
 }
 
 p = (0x00);
 
-r = WriteConsole(ccsb,footer,ct(footer),&i,0x00);
+// about parameters
+r = cli_out_to_beta(ccsb,break2);
 if(!r) {
-r = GetLastError();
-printf("%s%d%s%Xh\n","<< Error at fn. WriteConsole() with error no. ",r," or ",r);
+printf("%s\n","<< Error at fn. cli_out_to_beta()");
+return(0x00);
+}
+
+r = R(linebreak_form,R(config,R(ty,*argp)));
+if(!(LINEBREAK_CRLF^(r))) r = (0x00);
+if(!(LINEBREAK_LF^(r))) r = (0x01);
+if(0x01<(r)) r = (0x02);
+if(r<(0x00)) r = (0x02);
+r = cli_out_to_beta(ccsb,*(ar_eol+(r)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_out_to_beta()");
+return(0x00);
+}
+
+r = R(align_tab,R(config,R(ty,*argp)));
+if(ALIGN_TAB<(r)) r = (0x00);
+if(r<(0x00)) r = (0x00);
+r = cli_out_to_beta(ccsb,*(ar_tab+(r)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_out_to_beta()");
+return(0x00);
+}
+
+// a footer
+r = cli_out_to_beta(ccsb,footer);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_out_to_beta()");
 return(0x00);
 }
 
