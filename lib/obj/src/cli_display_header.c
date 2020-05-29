@@ -84,7 +84,7 @@ printf("%s%s"," | ","EOL: LF (0x0A)");
 flag++;
 }
 if(!flag) {
-printf("%s\n","<< Set the linebreak form at (R(linebreak,R(config,*argp..");
+printf("%s\n","<< Set the linebreak form at (R(linebreak_form,R(config,*argp..");
 return(0x00);
 }}
 
