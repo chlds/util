@@ -21,6 +21,10 @@ signed(__cdecl cli_support_meta_keys(signed(*character),signed char(second),sign
 /* **** DATA, BSS and STACK */
 auto signed char const low = (0xE0);
 auto signed char high[] = {
+(signed char) (0x91),
+(signed char) (0x8D),
+(signed char) (0x74),
+(signed char) (0x73),
 (signed char) (0x50),
 (signed char) (0x4D),
 (signed char) (0x4B),
@@ -29,6 +33,10 @@ auto signed char high[] = {
 };
 
 auto signed ctrl[] = {
+(signed) (CTRL_N),
+(signed) (CTRL_U),
+(signed) (CTRL_G),
+(signed) (CTRL_R),
 (signed) (CTRL_N),
 (signed) (CTRL_F),
 (signed) (CTRL_B),
