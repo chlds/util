@@ -42,6 +42,7 @@ return(0x00);
 // to break
 **(CLI_INDEX+(R(cur,R(ty,*argp)))) = (0x00);
 R(linebreak,R(ty,*argp)) = (0x01);
+OR(R(flag,R(ty,*argp)),CLI_BR);
 
 // clear
 // r = cli_clear_row_beta(0x00/* come back */,argp);

@@ -92,7 +92,7 @@ R(offset,R(ty,*argp)) = (offset);
 }
 
 // break
-if(R(linebreak,R(ty,*argp))) return(0x01);
+if(CLI_BR&(R(flag,R(ty,*argp)))) return(0x01);
 
 // quit
 if(!(CLI_QUIT^(R(flag,R(ty,*argp))))) return(0x01);
@@ -228,7 +228,7 @@ if(y^(R(y,*(CLI_LEAD+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))))
 if(!(CTRL_LSB^(i))) R(undo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))) = (0x01);
 else R(undo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))) = (0x00);
 
-if(!(R(linebreak,R(ty,*argp)))) {
+if(!(CLI_BR&(R(flag,R(ty,*argp))))) {
 // release an appendant
 if(p) {
 r = release(kept,&p);
