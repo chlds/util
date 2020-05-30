@@ -25,8 +25,12 @@ signed(__cdecl cli_load_internal(signed(count),CLI_TYPEWRITER(*argp))) {
 /* **** DATA, BSS and STACK */
 static signed char CR = ('\r');
 static signed char LF = ('\n');
+static signed char SP = (' ');
+static signed RANGE = (0x800);
 
 auto signed char *p;
+auto signed breaker;
+auto signed range;
 auto signed i,r;
 auto signed short flag;
 auto signed char c;
@@ -66,9 +70,18 @@ return(0x00);
 }
 //*/
 
+R(linebreak,*argp) = (0x00);
 flag = (0x00);
+range = (0x00);
 
 while(0x01) {
+/* aux.
+if(RANGE<(range++)) {
+if(breaker) {
+*p = (0x00);
+break;
+}}
+//*/
 if(i<(CLI_EMPTY)) {
 *p = (0x00);
 i = (CLI_EMPTY+(*(CLI_BASE+(R(size,R(roll,*argp))))));
@@ -93,11 +106,13 @@ break;
 }
 if(flag) {
 if(!(LF^(c))) {
+R(linebreak,*argp) = (0x01);
 *(--p) = (0x00);
 count++;
 break;
 }}
 if(!(LF^(c))) {
+R(linebreak,*argp) = (0x01);
 *p = (0x00);
 count++;
 break;
@@ -108,6 +123,10 @@ else flag = (0x00);
 p++;
 --i;
 count++;
+//* opt.
+if(!(SP^(c))) breaker++;
+else breaker = (0x00);
+//*/
 }
 
 //* or case 2
