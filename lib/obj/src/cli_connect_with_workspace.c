@@ -69,7 +69,7 @@ return(0x00);
 ADD(R(gauge,R(debug,*argp)),-r);
 ADD(R(gauge,*argp),-r);
 
-// if(R(linebreak,*page)) OR(R(linebreak,*argp),0x01);
+if(R(linebreak,*page)) OR(R(linebreak,*argp),0x01);
 
 coord.y = (R(y,*(CLI_BASE+(R(coord,*page)))));
 coord.x = (0x00);

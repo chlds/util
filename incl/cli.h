@@ -312,6 +312,7 @@ signed(__cdecl cli_load_internal(signed(count),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_load(CLI_TYPEWRITER(*argp)));
 // load
 
+signed(__cdecl cli_write_old(signed(descriptor),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_write(signed(descriptor),CLI_TYPEWRITER(*argp)));
 // write
 

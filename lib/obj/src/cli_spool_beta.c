@@ -70,6 +70,7 @@ if(!r) {
 printf("%s\n","<< Error at fn. cpy()");
 return(0x00);
 }
+OR(R(linebreak,R(ty,*argp)),0x01);
 free(p);
 p = (0x00);
 *(CLI_BASE+(R(append,R(ty,*argp)))) = (p);
