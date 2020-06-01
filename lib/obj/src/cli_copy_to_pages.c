@@ -16,7 +16,7 @@ Refer at fn. cli_paste_beta.
 # include <stdlib.h>
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_copy_to_pages(CLI_SPOOL(*argp),signed char(*base))) {
+signed(__cdecl cli_copy_to_pages(signed short(lastbreak),CLI_SPOOL(*argp),signed char(*base))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *p;
@@ -43,7 +43,7 @@ printf("%s\n","<< Error at fn. cli_init_pages()");
 return(0x00);
 }
 
-r = cli_copy_to_pages_internal(argp,p,base);
+r = cli_copy_to_pages_internal(lastbreak,argp,p,base);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_copy_to_pages_internal()");
 return(0x00);

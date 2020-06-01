@@ -22,12 +22,16 @@ auto CLI_PAGE *page;
 auto signed char *p;
 auto signed i,r;
 auto signed short flag;
+auto signed short breaker;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 page = R(d,**(CLI_INDEX+(R(page,*argp))));
 if(!page) return(0x01);
+
+breaker = (R(linebreak,*page));
+R(linebreak,*(R(s,*page))) = (breaker);
 
 if(!(R(d,*page))) {
 *(CLI_LEAD+(R(page,*argp))) = (R(s,*page));

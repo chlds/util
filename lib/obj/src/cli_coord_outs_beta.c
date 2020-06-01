@@ -17,12 +17,19 @@ Return the number of bytes for output characters (..or the number of output char
 signed(__cdecl cli_coord_outs_beta(signed char(*cur),CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto CLI_COORD coord;
+static signed char HYPHEN = ('-');
+static signed char SP = (' ');
 
+auto signed char sym[] = {
+SP,HYPHEN,0x00,
+};
+
+auto CLI_COORD coord;
 auto signed char *p;
 auto signed i,r;
 auto signed short flag;
-auto signed short y;
+auto signed short edge;
+auto signed short x,y;
 
 /* **** CODE/TEXT */
 if(!cur) return(0x00);
@@ -46,6 +53,23 @@ AND(R(flag,R(ty,*argp)),flag);
 //*/
 return(0x00);
 }
+
+/* to wrap words
+r = cli_get_csbi_beta(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_get_csbi_beta()");
+return(0x00);
+}
+edge = (R(Right,R(srWindow,R(csbi,*argp))));
+x = (R(X,R(dwCursorPosition,R(csbi,*argp))));
+if(edge<(x+(count_to(sym,cur)))) {
+// wrap words
+r = cli_clear2_row_beta(0x00,argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_clear2_row_beta()");
+return(0x00);
+}}
+//*/
 
 r = cli_coord_out_beta(cur,argp);
 if(!r) {
