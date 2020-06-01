@@ -70,7 +70,11 @@ if(!r) {
 printf("%s\n","<< Error at fn. cpy()");
 return(0x00);
 }
-OR(R(linebreak,R(ty,*argp)),0x01);
+if(CLI_PAGE_BR&(R(flag,R(ty,*argp)))) OR(R(linebreak,R(ty,*argp)),0x01);
+else {
+flag = (signed short) (~CLI_PAGE_BR);
+AND(R(flag,R(ty,*argp)),flag);
+}
 free(p);
 p = (0x00);
 *(CLI_BASE+(R(append,R(ty,*argp)))) = (p);
