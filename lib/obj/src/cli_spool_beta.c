@@ -46,6 +46,8 @@ return(0x00);
 }}}
 
 else {
+if(CLI_PAGE_BR&(R(flag,R(ty,*argp)))) flag = (0x01);
+else flag = (0x00);
 // initialise
 r = cli_init_workspace(&(R(ty,*argp)));
 if(!r) {
@@ -70,15 +72,11 @@ if(!r) {
 printf("%s\n","<< Error at fn. cpy()");
 return(0x00);
 }
-if(CLI_PAGE_BR&(R(flag,R(ty,*argp)))) OR(R(linebreak,R(ty,*argp)),0x01);
-else {
-flag = (signed short) (~CLI_PAGE_BR);
-AND(R(flag,R(ty,*argp)),flag);
-}
 free(p);
 p = (0x00);
 *(CLI_BASE+(R(append,R(ty,*argp)))) = (p);
 }
+if(flag) OR(R(linebreak,R(ty,*argp)),0x01);
 r = cli_bind_pages(&(R(spool,R(ty,*argp))));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_bind_pages()");

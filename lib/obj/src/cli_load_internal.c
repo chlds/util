@@ -75,7 +75,7 @@ flag = (0x00);
 range = (0x00);
 
 while(0x01) {
-/* aux.
+//* aux.
 if(RANGE<(range++)) {
 if(breaker) {
 *p = (0x00);
