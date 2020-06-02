@@ -103,7 +103,6 @@ signed short bottom;
 
 typedef struct cli_snapshot {
 signed char *(base[CLI_WORKSPACE]);
-signed short linebreak;
 signed short offset;
 signed short flag;
 signed c;

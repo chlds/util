@@ -38,7 +38,6 @@ while(i) {
 *(--i+(R(base,*cache))) = (0x00);
 }
 
-R(linebreak,*cache) = (0x00);
 R(offset,*cache) = (0x00);
 R(flag,*cache) = (0x00);
 
