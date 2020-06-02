@@ -86,7 +86,7 @@ cur = (cur+(R(offset,R(commandline,R(ty,*argp)))));
 }
 
 // break
-if(R(linebreak,R(commandline,R(ty,*argp)))) return(0x01);
+if(CLI_BR&(R(flag,R(commandline,R(ty,*argp))))) return(0x01);
 
 // quit
 if(!(CL_QUIT^(R(flag,R(commandline,R(ty,*argp)))))) return(0x01);

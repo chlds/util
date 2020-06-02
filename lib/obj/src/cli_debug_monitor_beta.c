@@ -102,8 +102,7 @@ printf("\n");
 printf("%s","Workspace: ");
 printf("%d%s",R(gauge,R(commandline,R(ty,*argp))),"/");
 printf("%d%s",R(offset,R(commandline,R(ty,*argp))),"/");
-printf("%d%s",R(linebreak,R(commandline,R(ty,*argp))),"/");
-printf("%Xh%s",R(flag,R(commandline,R(ty,*argp)))," at R(gauge/R(offset/R(linebreak/R(flag, | ");
+printf("%Xh%s",R(flag,R(commandline,R(ty,*argp)))," at R(gauge/R(offset/R(flag, | ");
 printf(\
 "%d%s%d%s",\
 R(x,*(CLI_INDEX+(R(coord,R(commandline,R(ty,*argp)))))),\

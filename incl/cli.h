@@ -228,7 +228,6 @@ signed char *(append[CLI_OBJS]);
 // signed appendant[CLI_OBJS];
 signed gauge;
 signed short offset;
-signed short linebreak;
 signed short flag;
 CLI_DEBUG debug;
 CLI_HISTORY history;

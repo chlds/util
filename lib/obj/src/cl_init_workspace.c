@@ -27,8 +27,7 @@ auto signed short flag;
 if(!argp) return(0x00);
 
 // initialise
-R(linebreak,R(commandline,*argp)) = (0x00);
-// R(append,R(commandline,*argp)) = (0x00);
+// R(offset,R(commandline,*argp)) = (0x00);
 // R(flag,R(commandline,*argp)) = (0x00);
 
 r = (*(CLI_INDEX+(R(size,R(roll,*argp)))));

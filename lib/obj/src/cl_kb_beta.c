@@ -44,7 +44,6 @@ while(i) {
 }
 // R(gauge,R(commandline,R(ty,*argp))) = (*(CLI_INDEX+(R(size,R(roll,R(ty,*argp))))));
 R(offset,R(commandline,R(ty,*argp))) = (0x00);
-R(linebreak,R(commandline,R(ty,*argp))) = (0x00);
 R(flag,R(commandline,R(ty,*argp))) = (0x00);
 
 r = cl_backup_codepages_beta(argp);
