@@ -29,7 +29,6 @@ if(!argp) return(0x00);
 if(!emul) {
 // backup
 R(flag,R(emul,*argp)) = (R(flag,*argp));
-R(linebreak,R(emul,*argp)) = (R(linebreak,*argp));
 R(offset,R(emul,*argp)) = (R(offset,*argp));
 R(gauge,R(emul,*argp)) = (R(gauge,*argp));
 i = (CLI_OBJS);
@@ -46,7 +45,6 @@ while(i) {
 else {
 // restore
 R(flag,*argp) = (R(flag,R(emul,*argp)));
-R(linebreak,*argp) = (R(linebreak,R(emul,*argp)));
 R(offset,*argp) = (R(offset,R(emul,*argp)));
 R(gauge,*argp) = (R(gauge,R(emul,*argp)));
 i = (CLI_OBJS);
