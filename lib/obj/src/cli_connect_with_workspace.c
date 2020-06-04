@@ -66,8 +66,11 @@ return(0x00);
 //*/
 }
 
-ADD(R(gauge,R(debug,*argp)),-r);
-ADD(R(gauge,*argp),-r);
+r = (-r+(*(CLI_BASE+(R(size,R(roll,*argp))))));
+R(gauge,*argp) = (r);
+
+flag = (R(flag,*page));
+R(flag,*argp) = (flag);
 
 if(R(linebreak,*page)) OR(R(linebreak,*argp),0x01);
 

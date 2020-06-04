@@ -19,6 +19,8 @@ signed(__cdecl cli_debug_monitor_beta(CLI_W32_STAT(*argp))) {
 /* **** DATA, BSS and STACK */
 auto signed short n_row = (CLI_HEADER_HEIGHT+(N_ROW));
 
+auto CLI_SNAPSHOT *snapshot;
+auto CLI_PAGE *page;
 auto CLI_COORD coord[0x03];
 auto signed i,r;
 auto signed short flag;
@@ -189,19 +191,17 @@ printf(\
 );
 
 // Concatenated pages
-printf("%s","Pages: ");
-printf("%d%s",R(offset,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))),"/");
+printf("%s\n","Pages: ");
+page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
+if(!page) printf("%s","<< No index page.. ");
+else {
+printf("%d%s",R(offset,*page),"/");
+printf("%Xh%s",R(flag,*page)," at R(offset/flag,**(CLI_INDEX+(R(page,");
+printf("\n");
 printf("%d%s",R(insert,R(spool,R(ty,*argp))),"/");
 printf("%d%s",R(undo,R(spool,R(ty,*argp))),"/");
-printf("%d%s",R(redo,R(spool,R(ty,*argp)))," ");
-printf("%s","at R(offset,**(CLI_INDEX+(R(page/R(insert/R(undo/R(redo, | ");
-printf(\
-"%d%s%d%s",\
-R(y,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),\
-"/",\
-R(x,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),\
-" at R(y/x,*(CLI_BASE+(R(coord,**(CLI_INDEX+(R(page, on R(spool,R(ty,*argp"\
-);
+printf("%d%s",R(redo,R(spool,R(ty,*argp)))," at R(insert/undo/redo,R(spool,R(ty,*argp");
+}
 printf("\n");
 
 printf("%p%s",*(CLI_BASE+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_BASE+(R(page,");
@@ -249,16 +249,19 @@ R(x,*(i+(R(coord,**(CLI_LEAD+(R(page,R(spool,R(ty,*argp)))))))))\
 printf("\n");
 
 // Snapshots
-printf("%s","Snapshots: ");
-
-if(*(CLI_INDEX+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))) {
-printf("%d%s",R(offset,**(CLI_INDEX+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))),"/");
+printf("%s\n","Snapshots: ");
+if(!page) printf("%s","<< No index page.. ");
+else {
+snapshot = (*(CLI_INDEX+(R(snapshot,R(history,*page)))));
+if(!snapshot) printf("%s","<< No index snapshot.. ");
+else {
+printf("%d%s",R(offset,*snapshot),"/");
+printf("%Xh%s",R(flag,*snapshot)," at R(offset/flag,**(CLI_INDEX+(R(snapshot,");
+printf("\n");
 printf("%d%s",R(insert,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))),"/");
 printf("%d%s",R(undo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))),"/");
-printf("%d%s",R(redo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))," ");
-printf("%s","at R(offset,**(CLI_INDEX+(R(snapshot/R(insert/R(undo/R(redo, on R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp");
-}
-
+printf("%d%s",R(redo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))," at R(insert/undo/redo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp");
+}}
 printf("\n");
 
 printf("%p%s",*(CLI_BASE+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),"/");
