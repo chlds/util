@@ -78,7 +78,7 @@ printf("%s\n","<< Error at fn. cli_book_no_history()");
 return(0x00);
 }
 
-r = cli_copy_to_pages(R(linebreak,*page),&(R(spool,R(clipboard,R(ty,*argp)))),b);
+r = cli_copy_to_pages(CLI_PBR&(R(flag,*page)),&(R(spool,R(clipboard,R(ty,*argp)))),b);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_copy_to_pages()");
 return(0x00);

@@ -46,7 +46,7 @@ return(0x00);
 }}}
 
 else {
-if(CLI_PAGE_BR&(R(flag,R(ty,*argp)))) flag = (0x01);
+if(CLI_PBR&(R(flag,R(ty,*argp)))) flag = (0x01);
 else flag = (0x00);
 // initialise
 r = cli_init_workspace(&(R(ty,*argp)));
@@ -76,7 +76,7 @@ free(p);
 p = (0x00);
 *(CLI_BASE+(R(append,R(ty,*argp)))) = (p);
 }
-if(flag) OR(R(linebreak,R(ty,*argp)),0x01);
+if(flag) OR(R(flag,R(ty,*argp)),CLI_PBR);
 r = cli_bind_pages(&(R(spool,R(ty,*argp))));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_bind_pages()");

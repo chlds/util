@@ -100,7 +100,7 @@ return(0x00);
 }
 size = (R(gauge,R(ty,*argp)));
 cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
-if(R(linebreak,R(ty,*argp))) return(0x01);
+if(CLI_BR&(R(flag,R(ty,*argp)))) return(0x01);
 }
 
 else {

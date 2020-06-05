@@ -70,7 +70,6 @@ return(0x00);
 }
 //*/
 
-R(linebreak,*argp) = (0x00);
 flag = (0x00);
 range = (0x00);
 
@@ -106,13 +105,13 @@ break;
 }
 if(flag) {
 if(!(LF^(c))) {
-R(linebreak,*argp) = (0x01);
+OR(R(flag,*argp),CLI_PBR);
 *(--p) = (0x00);
 count++;
 break;
 }}
 if(!(LF^(c))) {
-R(linebreak,*argp) = (0x01);
+OR(R(flag,*argp),CLI_PBR);
 *p = (0x00);
 count++;
 break;

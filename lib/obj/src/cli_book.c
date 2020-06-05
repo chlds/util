@@ -66,7 +66,8 @@ free(*(CLI_BASE+(R(base,*page))));
 }
 
 *(CLI_BASE+(R(base,*page))) = (p);
-if(R(linebreak,*argp)) OR(R(linebreak,*page),0x01);
+flag = (CLI_PBR|CLI_BR);
+if(flag&(R(flag,*argp))) OR(R(flag,*page),CLI_PBR);
 
 p = (*(CLI_BASE+(R(base,R(roll,*argp)))));
 r = compare(*(CLI_INDEX+(R(cur,*argp))),p);

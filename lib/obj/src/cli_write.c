@@ -47,7 +47,7 @@ else flag = (0x00);
 page = (*(CLI_BASE+(R(page,R(spool,*argp)))));
 
 while(page) {
-if(R(linebreak,*page)) breaker = (0x01);
+if(CLI_PBR&(R(flag,*page))) breaker = (0x01);
 else breaker = (0x00);
 p = (*(CLI_BASE+(R(base,*page))));
 r = write(descriptor,p,ct(p));

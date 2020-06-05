@@ -28,7 +28,6 @@ if(!argp) return(0x00);
 
 // initialise
 R(flag,*argp) = (0x00);
-R(linebreak,*argp) = (0x00);
 R(offset,*argp) = (0x00);
 
 r = (*(CLI_BASE+(R(size,R(roll,*argp)))));

@@ -74,10 +74,13 @@ printf("%s\n","<< Error at fn. keep()");
 return(0x00);
 }
 
-OR(R(linebreak,*page),0x01);
+OR(R(flag,*page),CLI_PBR);
 if(flag) {
-if(!lastbreak) R(linebreak,*page) = (0x00);
-}
+if(!lastbreak) {
+flag = (~CLI_PBR);
+AND(R(flag,*page),flag);
+// flag = (0x01);
+}}
 
 // R(offset,*page) = (ct(*(CLI_BASE+(R(base,*page)))));
 R(offset,*page) = (0x00);

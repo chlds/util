@@ -44,7 +44,6 @@ while(i) {
 }
 
 R(flag,*argp) = (0x00);
-R(linebreak,*argp) = (0x00);
 R(offset,*argp) = (0x00);
 R(gauge,*argp) = (size);
 R(gauge,R(debug,*argp)) = (size);

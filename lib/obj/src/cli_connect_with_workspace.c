@@ -72,8 +72,6 @@ R(gauge,*argp) = (r);
 flag = (R(flag,*page));
 R(flag,*argp) = (flag);
 
-if(R(linebreak,*page)) OR(R(linebreak,*argp),0x01);
-
 coord.y = (R(y,*(CLI_BASE+(R(coord,*page)))));
 coord.x = (0x00);
 R(y,*(CLI_INDEX+(R(coord,*argp)))) = (coord.y);

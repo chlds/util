@@ -95,8 +95,7 @@ printf("\n");
 printf("%s","Workspace: ");
 printf("%d%s",R(gauge,R(ty,*argp)),"/");
 printf("%d%s",R(offset,R(ty,*argp)),"/");
-printf("%d%s",R(linebreak,R(ty,*argp)),"/");
-printf("%Xh%s",R(flag,R(ty,*argp))," at R(gauge/offset/linebreak/flag,");
+printf("%Xh%s",R(flag,R(ty,*argp))," at R(gauge/offset/flag,");
 printf("\n");
 
 /* temporarily disabled..

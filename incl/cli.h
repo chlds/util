@@ -49,7 +49,7 @@ Refer at ./config_ty.h
 # define CLI_OVERWRITE (0x200)
 # define CLI_REFRESH (0x400)
 # define CLI_QREFRESH (0x800)
-# define CLI_PAGE_BR (0x1000)
+# define CLI_PBR (0x1000)
 # define CLI_BR (0x2000)
 
 # define CTRL_MASK (0x1F)
@@ -126,7 +126,6 @@ void *optl;
 
 typedef struct cli_page {
 signed char *(base[CLI_WORKSPACE]);
-signed short linebreak;
 signed short offset;
 signed short flag;
 signed c;
@@ -240,7 +239,6 @@ signed char *(append[CLI_OBJS]);
 // signed appendant[CLI_OBJS];
 signed gauge;
 signed short offset;
-signed short linebreak;
 signed short flag;
 signed old[CLI_OBJS];
 CLI_COMMANDLINE commandline;
