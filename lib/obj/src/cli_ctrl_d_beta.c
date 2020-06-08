@@ -83,7 +83,10 @@ INC(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 *(CLI_LEAD+(R(cur,R(ty,*argp)))) = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 }
 // connect with workspace
-r = cpy(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(base,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))));
+page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
+flag = (R(flag,*page));
+R(flag,R(ty,*argp)) = (flag);
+r = cpy(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(base,*page))));
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cpy()");
