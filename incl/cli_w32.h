@@ -168,6 +168,7 @@ signed(__cdecl cli_io_beta(signed char(*cur),signed(size),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_scroll_beta(signed short(range),CLI_W32_STAT(*argp)));
 /* Scroll a content on console screen buffer up or down in relative coordinates. */
 
+signed(__cdecl cli_refresh_beta(signed short(forced),signed char(*cur),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_coord_output_pages_internal_beta(signed short(flag),signed short(edge),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_coord_output_pages_beta(signed short(flag),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_coord_page_beta(signed short(flag),CLI_PAGE(*page),CLI_W32_STAT(*argp)));

@@ -27,9 +27,6 @@ auto CLI_PAGE *page;
 auto signed char *p;
 auto signed i,r;
 auto signed short flag;
-auto signed short inte;
-auto signed short exte;
-auto signed short y;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -43,15 +40,6 @@ printf("%s\n","<< Error at fn. cli_book()");
 return(0x00);
 }
 //*/
-
-r = cli_coord_beta(CLI_IN,coord+(CLI_BASE),argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
-return(0x00);
-}
-
-inte = (R(Bottom,R(srWindow,R(csbi,*argp))));
-exte = (R(Top,R(srWindow,R(csbi,*argp))));
 
 p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 
@@ -123,19 +111,11 @@ printf("%s\n","<< Error at fn. concats()");
 return(0x00);
 }
 
-page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
-y = (R(y,*(CLI_LEAD+(R(coord,*page)))));
-
-flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
-r = cli_gram_beta(flag,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
+r = cli_refresh_beta(0x00/* forced */,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
 if(!r) {
-/* empty or..
-printf("%s\n","<< Error at fn. cli_gram_beta()");
+printf("%s\n","<< Error at fn. cli_refresh_beta()");
 return(0x00);
-//*/
 }
-
-if(y^(R(y,*(CLI_LEAD+(R(coord,*page)))))) OR(R(flag,R(ty,*argp)),CLI_REFRESH);
 
 return(0x01);
 }

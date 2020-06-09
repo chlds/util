@@ -26,8 +26,7 @@ auto CLI_COORD coord[0x02];
 auto signed char *p;
 auto signed long long ll;
 auto signed c,i,r;
-auto signed short flag,flag_b;
-auto signed short inte,exte;
+auto signed short flag;
 auto signed short y;
 
 /* **** CODE/TEXT */
@@ -51,18 +50,26 @@ return(0x00);
 }
 //*/
 
-ll = (signed long long) (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
-if(!(ll^((signed long long) *(CLI_BASE+(R(base,R(roll,R(ty,*argp)))))))) flag_b = (0x01);
-else flag_b = (0x00);
-
 r = ct(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 i = (r);
 ADD(R(gauge,R(ty,*argp)),r);
-
 // **(CLI_INDEX+(R(cur,R(ty,*argp)))) = (0x00);
 r = embed(0x00/* flag */,*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 
-if(!i) {
+ll = (signed long long) (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+if(!(ll^((signed long long) *(CLI_BASE+(R(base,R(roll,R(ty,*argp)))))))) flag = (0x01);
+else flag = (0x00);
+
+if(flag) {
+r = cli_book_no_history(&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_book_no_history()");
+return(0x00);
+}}
+
+if(!i) flag++;
+
+if(flag) {
 r = cli_ctrl_d_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_ctrl_d_beta()");
@@ -80,9 +87,6 @@ return(0x00);
 R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (R(y,*(coord+(CLI_BASE))));
 R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (R(x,*(coord+(CLI_BASE))));
 
-inte = (R(Bottom,R(srWindow,R(csbi,*argp))));
-exte = (R(Top,R(srWindow,R(csbi,*argp))));
-
 page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
 
 if(!(R(d,*page))) {
@@ -91,36 +95,8 @@ return(0x01);
 }
 
 y = (R(y,*(CLI_LEAD+(R(coord,*page)))));
-
-if(!(y^(R(y,*(coord+(CLI_BASE)))))) {
-// r = cli_clear_row_beta(0x01/* comeback */,argp);
-r = cli_clear2_row_beta(0x01/* comeback */,argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_clear2_row_beta()");
-return(0x00);
-}}
-
-else {
-flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
-r = cli_grams_beta(flag,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_grams_beta()");
-return(0x00);
-}}
-
-//* e.g., to remove the line
-if(flag_b) {
-r = cli_book_no_history(&(R(ty,*argp)));
-if(!r) {
-printf("%s\n","<< Error at fn. cli_book_no_history()");
-return(0x00);
-}
-r = cli_ctrl_d_beta(argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_ctrl_d_beta()");
-return(0x00);
-}}
-//*/
+if(!(y^(R(y,*(coord+(CLI_BASE)))))) OR(R(flag,R(ty,*argp)),CLI_QREFRESH);
+else OR(R(flag,R(ty,*argp)),CLI_REFRESH);
 
 return(0x01);
 }
