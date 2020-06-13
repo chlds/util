@@ -41,6 +41,7 @@ R(display_header,R(config,R(ty,cli_w32_stat))) = (CLI_DEFAULT);
 R(end_of_roll,R(config,R(ty,cli_w32_stat))) = (CLI_ROWS);
 R(load_file,R(config,R(ty,cli_w32_stat))) = (0x01);
 R(debug_monitor,R(config,R(ty,cli_w32_stat))) = (CLI_DEFAULT);
+R(wrap_words,R(config,R(ty,cli_w32_stat))) = (CLI_DEFAULT);
 R(align_tab,R(config,R(ty,cli_w32_stat))) = (ALIGN_TAB);
 R(linebreak_form,R(config,R(ty,cli_w32_stat))) = (LINEBREAK_CRLF);
 

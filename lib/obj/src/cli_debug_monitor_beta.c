@@ -88,8 +88,9 @@ else printf("\n");
 printf("%s","Configure: ");
 printf("%d%s",R(compact_frame,R(config,R(ty,*argp))),"/");
 printf("%d%s",R(display_header,R(config,R(ty,*argp))),"/");
+printf("%d%s",R(wrap_words,R(config,R(ty,*argp))),"/");
 printf("%d%s",R(align_tab,R(config,R(ty,*argp))),"/");
-printf("%Xh%s",R(linebreak_form,R(config,R(ty,*argp)))," at R(compact_frame/display_header/align_tab/linebreak_form,R(config,");
+printf("%Xh%s",R(linebreak_form,R(config,R(ty,*argp)))," at R(compact_frame/display_header/wrap_words/align_tab/linebreak_form,R(config,");
 printf("\n");
 
 printf("%s","Workspace: ");

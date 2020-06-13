@@ -182,6 +182,7 @@ signed short display_header;
 signed short end_of_roll;
 signed short load_file;
 signed short debug_monitor;
+signed short wrap_words;
 signed short align_tab;
 signed short linebreak_form;
 //*/
@@ -283,6 +284,7 @@ signed(__cdecl cli_display_header(CLI_TYPEWRITER(*argp)));
 
 signed(__cdecl cli_eq_eol(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_tab(CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_eq_wrap(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_monitor(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_load(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_eor(CLI_TYPEWRITER(*argp)));
