@@ -94,7 +94,7 @@ printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
-i = (CLI_OBJS);
+i = (-0x01+(CLI_OBJS));
 while(i) {
 --i;
 R(y,*(i+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))) = (coord.y);
