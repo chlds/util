@@ -8,10 +8,10 @@ Use ALIGN_TAB
 */
 
 
+# define ALIGN_TAB (0x08)
+
 # define C_CODE_STDS
 # define C_AS
-# define C_W32API
-# define C_CMDLN
 # include "../../../incl/config.h"
 
 signed(__cdecl ct_txt2lastsp(signed char(*argp))) {

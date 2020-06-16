@@ -3,7 +3,7 @@
 The n-row debug monitor
 
 Remarks:
-Refer at incl/cmdln.h and incl/config.h for the CMDLN_STAT structure
+Along with C library
 */
 
 

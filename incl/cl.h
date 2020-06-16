@@ -1,5 +1,8 @@
 /*
 
+Return (0x00) if the function fails.
+
+Remarks:
 Along with C library
 */
 

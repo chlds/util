@@ -13,7 +13,6 @@ Add support for Unicode characters
 # define C_CODE_STDS
 # define C_AS
 # define C_W32API // To use fn. Sleep in recursion.
-// # define C_CMDLN
 # include "../../../incl/config.h"
 
 signed(__cdecl column_internal(signed short(cols),signed(algn),signed short(col),signed char(*cur),signed char(*offset))) {

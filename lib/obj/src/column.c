@@ -10,8 +10,6 @@ Wrap words
 
 # define C_CODE_STDS
 # define C_AS
-// # define C_W32API
-// # define C_CMDLN
 # include "../../../incl/config.h"
 
 signed(__cdecl column(signed short(cols),signed(algn),signed char(*base))) {
