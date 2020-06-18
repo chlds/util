@@ -35,12 +35,11 @@ if(!argp) return(0x00);
 r = OpenClipboard(*(CLI_BASE+(R(window,*argp))));
 if(!r) {
 r = GetLastError();
-if(!(DENIED^(r))) {
-if(CLI_DBG) printf("%s","<< Could not access to the clipboard..");
-return(0x01);
+if(CLI_DBG) {
+if(!(DENIED^(r))) printf("%s ","<< Could not access to the clipboard..");
+else printf("%s%d%s%Xh ","<< Error at fn. OpenClipboard() with ",r," or ",r);
 }
-printf("%s%d%s%Xh\n","<< Error at fn. OpenClipboard() with ",r," or ",r);
-return(0x00);
+return(0x01);
 }
 
 flag = (0x00);
