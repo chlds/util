@@ -63,6 +63,7 @@ auto unsigned const UTF_8 = (65001);
 auto signed char const(SP) = (' ');
 auto signed char const(CR) = ('\r');
 auto signed char const(LF) = ('\n');
+auto signed DEL = (0x7F);
 
 auto signed char *base,*p;
 auto signed diff;
@@ -149,6 +150,8 @@ if(CTRL_W^(i)) {
 flag = (~(CL_SEARCH));
 AND(R(flag,R(ty,*argp)),flag);
 }
+
+if(!(DEL^(i))) i = (CTRL_D);
 
 if(i<(0x20)) {
 // fix

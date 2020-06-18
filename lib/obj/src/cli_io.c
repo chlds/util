@@ -62,6 +62,7 @@ auto signed(__cdecl*(cli_fn[CLI_FN])) (void(*cli_fn_argp)) = {
 
 auto unsigned const UTF_8 = (65001);
 auto signed const LIMIT = (0x01+(0x04));
+auto signed DEL = (0x7F);
 
 auto signed char *p;
 auto signed i,r;
@@ -86,7 +87,10 @@ return(0x00);
 cur = (r+(cur));
 size = (-r+(size));
 
+if(!(DEL^(i))) i = (CTRL_D);
+
 if(i<(0x20)) {
+// fix
 *(--cur) = (signed char) (0x00);
 size++;
 *(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);

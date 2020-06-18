@@ -63,6 +63,7 @@ auto unsigned const UTF_8 = (65001);
 auto signed char const(SP) = (' ');
 auto signed char const(CR) = ('\r');
 auto signed char const(LF) = ('\n');
+auto signed DEL = (0x7F);
 
 auto signed char *base,*p;
 auto signed diff;
@@ -131,6 +132,8 @@ return(0x00);
 diff = (r);
 cur = (diff+(cur));
 size = (-diff+(size));
+
+if(!(DEL^(i))) i = (CTRL_D);
 
 if(i<(0x20)) {
 // fix
