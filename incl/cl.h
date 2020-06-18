@@ -3,6 +3,7 @@
 Return (0x00) if the function fails.
 
 Remarks:
+Arguments ..are initialised by wrapper functions
 Along with C library
 */
 
