@@ -75,6 +75,12 @@ if(p<(base)) return(0x00);
 ll = (signed long long) (p);
 if(!(ll^((signed long long) base))) return(0x01);
 
+if(flag) {
+if(SP^(*p)) {
+if(!(HT^(*(--p)))) return(0x00);
+else p++;
+}}
+
 while(0x01) {
 --p;
 r = nbytechar(*p);
