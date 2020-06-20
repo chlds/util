@@ -86,11 +86,10 @@ if(!r) {
 printf("%s\n","<< Error at fn. cli_init_workspace()");
 return(0x00);
 }
-else {
+
 ADD(R(gauge,R(debug,R(ty,*argp))),-i);
 ADD(R(gauge,R(ty,*argp)),-i);
 ADD(*(CLI_LEAD+(R(cur,R(ty,*argp)))),i);
-}
 
 coord.y = (R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))));
 coord.x = (0x00);
@@ -103,7 +102,7 @@ return(0x00);
 // to refresh
 y = (R(y,*(CLI_LEAD+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))));
 
-flag = (CG_COMEBACK|(CG_CLEAR|(CG_EMUL)));
+flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
 r = cli_gram_beta(flag,*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),argp);
 if(!r) {
 /* empty or..
@@ -135,6 +134,8 @@ return(0x00);
 else break;
 base = (r+(base));
 }
+
+R(flag,R(ty,*argp)) = (R(flag,*snapshot));
 
 return(0x01);
 }

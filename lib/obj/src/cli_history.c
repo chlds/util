@@ -68,6 +68,7 @@ return(0x00);
 *(CLI_BASE+(R(base,**(CLI_INDEX+(R(snapshot,*history)))))) = (p);
 
 R(offset,**(CLI_INDEX+(R(snapshot,*history)))) = (R(offset,*argp));
+R(flag,**(CLI_INDEX+(R(snapshot,*history)))) = (R(flag,*argp));
 
 return(0x01);
 }

@@ -103,7 +103,7 @@ signed short bottom;
 
 typedef struct cli_snapshot {
 signed char *(base[CLI_WORKSPACE]);
-signed short offset;
+signed offset;
 signed short flag;
 signed c;
 signed i;
@@ -126,7 +126,7 @@ void *optl;
 
 typedef struct cli_page {
 signed char *(base[CLI_WORKSPACE]);
-signed short offset;
+signed offset;
 signed short flag;
 signed c;
 signed i;
@@ -216,7 +216,7 @@ signed char *(cur[CLI_OBJS]);
 signed char *(append[CLI_OBJS]);
 // signed appendant[CLI_OBJS];
 signed gauge;
-signed short offset;
+signed offset;
 signed short flag;
 } CLI_EMUL;
 
@@ -225,7 +225,7 @@ signed char *(cur[CLI_OBJS]);
 signed char *(append[CLI_OBJS]);
 // signed appendant[CLI_OBJS];
 signed gauge;
-signed short offset;
+signed offset;
 signed short flag;
 CLI_DEBUG debug;
 CLI_HISTORY history;
@@ -239,7 +239,7 @@ signed char *(cur[CLI_OBJS]);
 signed char *(append[CLI_OBJS]);
 // signed appendant[CLI_OBJS];
 signed gauge;
-signed short offset;
+signed offset;
 signed short flag;
 signed old[CLI_OBJS];
 CLI_COMMANDLINE commandline;
