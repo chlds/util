@@ -1,6 +1,6 @@
 /* **** Notes
 
-Convert to a signed/unsigned double word out of characters.
+Convert to a signed double word out of characters.
 //*/
 
 

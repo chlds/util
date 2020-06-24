@@ -73,9 +73,7 @@ signed(__cdecl cv2q(signed short(radix), signed long long(*di), signed char(*bas
 with a wrapper function to initialise arguments for the recursive function. */
 
 signed(__cdecl cv2ud_internal(signed short(radix), unsigned(*di), signed char(*base)));
-signed(__cdecl cv2d_internal(signed short(radix), signed(*di), signed char(*base)));
 signed(__cdecl cv2ud(signed short(radix), unsigned(*di), signed char(*base)));
-signed(__cdecl cv2d(signed short(radix), signed(*di), signed char(*base)));
 /* Convert to a signed and/or unsigned double word out of an array for letters. */
 
 signed(__cdecl cmpr_parts(signed(*cache), signed char(*di), signed char(*si)));
