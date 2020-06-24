@@ -58,24 +58,6 @@ signed(__cdecl splt(signed char(***di), signed char(*base)));
 signed(__cdecl cue2(signed char(*base)));
 /* Cue */
 
-signed(__cdecl cv2a_uq_internal(signed short(radix), signed char(*di), unsigned long long(si)));
-signed(__cdecl cv2a_q_internal(signed short(radix), signed char(*di), signed long long(si)));
-signed(__cdecl cv2a_uq(signed short(radix), signed char(*di), unsigned long long(si)));
-signed(__cdecl cv2a_q(signed short(radix), signed char(*di), signed long long(si)));
-/* Convert to (an array for) letters out of an unsigned and/or signed quad word
-with a wrapper function to initialise arguments for the recursive function. */
-
-signed(__cdecl cv2uq_internal(signed short(radix), unsigned long long(*di), signed char(*base)));
-signed(__cdecl cv2q_internal(signed short(radix), signed long long(*di), signed char(*base)));
-signed(__cdecl cv2uq(signed short(radix), unsigned long long(*di), signed char(*base)));
-signed(__cdecl cv2q(signed short(radix), signed long long(*di), signed char(*base)));
-/* Convert to a signed and/or unsigned quad word out of (an array for) letters
-with a wrapper function to initialise arguments for the recursive function. */
-
-signed(__cdecl cv2ud_internal(signed short(radix), unsigned(*di), signed char(*base)));
-signed(__cdecl cv2ud(signed short(radix), unsigned(*di), signed char(*base)));
-/* Convert to a signed and/or unsigned double word out of an array for letters. */
-
 signed(__cdecl cmpr_parts(signed(*cache), signed char(*di), signed char(*si)));
 signed(__cdecl cmpr_partially(signed(*cache), signed char(*di), signed char(*si)));
 signed(__cdecl cmpr(signed(*cache), signed char(*di), signed char(*si)));
