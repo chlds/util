@@ -9,7 +9,7 @@ Along with C library
 
 # define CLI_MACRO
 # define CLI_W32
-# define N_ROW (0x05)
+# define N_ROW (0x04)
 
 # include <stdio.h>
 # include "../../../incl/config_ty.h"
@@ -162,11 +162,38 @@ printf("%d,%d%s",R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))),R(x,*(CLI_INDEX+(R(coo
 printf("%d,%d%s",R(y,*(CLI_LEAD+(R(coord,R(ty,*argp))))),R(x,*(CLI_LEAD+(R(coord,R(ty,*argp)))))," at R(y/x,*(CLI_B/O/I/L+(R(coord,");
 printf("\n");
 
+// to wrap words
+printf("%s\n","Pages (automatically bound and booked after wrapping words): ");
+page = (*(CLI_INDEX+(R(page,R(spool,R(wrap,R(ty,*argp)))))));
+if(!page) printf("%s","<< No index page (automatically bound and booked after wrapping words).. ");
+else {
+printf("%p%s",*(CLI_BASE+(R(page,R(spool,R(wrap,R(ty,*argp))))))," | ");
+printf("%p%s",*(CLI_OFFSET+(R(page,R(spool,R(wrap,R(ty,*argp))))))," | ");
+printf("%p%s",*(CLI_INDEX+(R(page,R(spool,R(wrap,R(ty,*argp))))))," | ");
+printf("%p%s",*(CLI_LEAD+(R(page,R(spool,R(wrap,R(ty,*argp))))))," at *(CLI_B/O/I/L+(R(page,R(spool,R(wrap,");
+printf("\n");
+printf("%d%s",R(offset,*page),"/");
+printf("%Xh%s",R(flag,*page)," at R(offset/flag,**(CLI_INDEX+(R(page,");
+}
+printf("\n");
+
+printf("%d%s",R(insert,R(spool,R(wrap,R(ty,*argp)))),"/");
+printf("%d%s",R(undo,R(spool,R(wrap,R(ty,*argp)))),"/");
+printf("%d%s",R(redo,R(spool,R(wrap,R(ty,*argp))))," at R(insert/undo/redo,R(spool,R(wrap,R(ty,*argp");
+printf("\n");
+
+printf("%p%s",*(CLI_BASE+(R(cur,R(wrap,R(ty,*argp)))))," | ");
+printf("%p%s",*(CLI_OFFSET+(R(cur,R(wrap,R(ty,*argp)))))," | ");
+printf("%p%s",*(CLI_INDEX+(R(cur,R(wrap,R(ty,*argp)))))," | ");
+printf("%p%s",*(CLI_LEAD+(R(cur,R(wrap,R(ty,*argp)))))," at *(CLI_B/O/I/L+(R(cur,R(wrap,");
+printf("\n");
+
 // Addresses
-printf("%p%s\n",*(CLI_LEAD+(R(cur,R(ty,*argp))))," at *(CLI_LEAD+(R(cur,");
-printf("%p%s\n",*(CLI_INDEX+(R(cur,R(ty,*argp))))," at *(CLI_INDEX+(R(cur, (updated by fn. calls but always monitored)");
-printf("%p%s\n",*(CLI_OFFSET+(R(cur,R(ty,*argp))))," at *(CLI_OFFSET+(R(cur,");
-printf("%p%s\n",*(CLI_BASE+(R(cur,R(ty,*argp))))," at *(CLI_BASE+(R(cur,");
+printf("%p%s",*(CLI_BASE+(R(cur,R(ty,*argp))))," | ");
+printf("%p%s",*(CLI_OFFSET+(R(cur,R(ty,*argp))))," | ");
+printf("%p%s",*(CLI_INDEX+(R(cur,R(ty,*argp))))," | ");
+printf("%p%s",*(CLI_LEAD+(R(cur,R(ty,*argp))))," at *(CLI_B/O/I/L+(R(cur,");
+printf("\n");
 
 // Rolls
 printf(\
@@ -197,14 +224,16 @@ if(!page) printf("%s","<< No index page.. ");
 else {
 printf("%d%s",R(offset,*page),"/");
 printf("%Xh%s",R(flag,*page)," at R(offset/flag,**(CLI_INDEX+(R(page,");
-printf("\n");
-printf("%d%s",R(insert,R(spool,R(ty,*argp))),"/");
-printf("%d%s",R(undo,R(spool,R(ty,*argp))),"/");
-printf("%d%s",R(redo,R(spool,R(ty,*argp)))," at R(insert/undo/redo,R(spool,R(ty,*argp");
 }
 printf("\n");
 
+printf("%d%s",R(insert,R(spool,R(ty,*argp))),"/");
+printf("%d%s",R(undo,R(spool,R(ty,*argp))),"/");
+printf("%d%s",R(redo,R(spool,R(ty,*argp)))," at R(insert/undo/redo,R(spool,R(ty,*argp");
+printf("\n");
+
 printf("%p%s",*(CLI_BASE+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_BASE+(R(page,");
+if(page) {
 i = (CLI_OBJS);
 while(i) {
 --i;
@@ -212,10 +241,11 @@ printf("%s%d%s%d"," | ",\
 R(y,*(i+(R(coord,**(CLI_BASE+(R(page,R(spool,R(ty,*argp))))))))),"/",\
 R(x,*(i+(R(coord,**(CLI_BASE+(R(page,R(spool,R(ty,*argp)))))))))\
 );
-}
+}}
 printf("\n");
 
 printf("%p%s",*(CLI_OFFSET+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_OFFSET+(R(page,");
+if(page) {
 i = (CLI_OBJS);
 while(i) {
 --i;
@@ -223,10 +253,11 @@ printf("%s%d%s%d"," | ",\
 R(y,*(i+(R(coord,**(CLI_OFFSET+(R(page,R(spool,R(ty,*argp))))))))),"/",\
 R(x,*(i+(R(coord,**(CLI_OFFSET+(R(page,R(spool,R(ty,*argp)))))))))\
 );
-}
+}}
 printf("\n");
 
 printf("%p%s",*(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_INDEX+(R(page,");
+if(page) {
 i = (CLI_OBJS);
 while(i) {
 --i;
@@ -234,10 +265,11 @@ printf("%s%d%s%d"," | ",\
 R(y,*(i+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),"/",\
 R(x,*(i+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))\
 );
-}
+}}
 printf("\n");
 
 printf("%p%s",*(CLI_LEAD+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_LEAD+(R(page,");
+if(page) {
 i = (CLI_OBJS);
 while(i) {
 --i;
@@ -245,7 +277,7 @@ printf("%s%d%s%d"," | ",\
 R(y,*(i+(R(coord,**(CLI_LEAD+(R(page,R(spool,R(ty,*argp))))))))),"/",\
 R(x,*(i+(R(coord,**(CLI_LEAD+(R(page,R(spool,R(ty,*argp)))))))))\
 );
-}
+}}
 printf("\n");
 
 // Snapshots
@@ -264,11 +296,14 @@ printf("%d%s",R(redo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))," 
 }}
 printf("\n");
 
+if(page) {
 printf("%p%s",*(CLI_BASE+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),"/");
-printf("%p%s\n",*(CLI_OFFSET+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),",");
+printf("%p%s",*(CLI_OFFSET+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),",");
+printf("\n");
 printf("%p%s",*(CLI_INDEX+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))),"/");
 printf("%p%s",*(CLI_LEAD+(R(snapshot,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))))," at *(CLI_B/O/I/L+(R(snapshot,");
 printf("\n");
+}
 
 // Clipboard Info.
 printf("%s\n","Clipboard info. at R(clipboard,R(ty,*argp");

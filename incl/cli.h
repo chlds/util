@@ -211,6 +211,18 @@ signed gauge;
 void *optl;
 } CLI_DEBUG;
 
+typedef struct cli_wrap {
+signed char *(cur[CLI_OBJS]);
+signed char *(append[CLI_OBJS]);
+signed offset;
+signed short flag;
+CLI_SPOOL spool;
+CLI_COORD coord[CLI_OBJS];
+CLI_RECT rect;
+void *optl;
+} CLI_WRAP;
+/* automatically bound and booked after wrapping words */
+
 typedef struct cli_emul {
 signed char *(cur[CLI_OBJS]);
 signed char *(append[CLI_OBJS]);
@@ -244,6 +256,7 @@ signed short flag;
 signed old[CLI_OBJS];
 CLI_COMMANDLINE commandline;
 CLI_EMUL emul;
+CLI_WRAP wrap;
 CLI_DEBUG debug;
 CLI_SEARCH search;
 CLI_CLIPBOARD clipboard;
@@ -296,6 +309,9 @@ signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp)));
 // parse a config file for the typewriter
 
 signed(__cdecl cli_init_ty(signed(size),CLI_TYPEWRITER(*argp)));
+// initialise
+
+signed(__cdecl cli_init_wraps(CLI_TYPEWRITER(*argp)));
 // initialise
 
 signed(__cdecl cli_init_rolls(signed(size),CLI_ROLL(*argp)));

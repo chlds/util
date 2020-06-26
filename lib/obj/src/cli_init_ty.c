@@ -38,6 +38,12 @@ printf("%s\n","<< Error at fn. cli_init_rolls()");
 return(0x00);
 }
 
+r = cli_init_wraps(argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_init_wraps()");
+return(0x00);
+}
+
 i = (CLI_OBJS);
 while(i) {
 *(--i+(R(old,*argp))) = (0x00);
