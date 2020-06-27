@@ -42,7 +42,7 @@ INC(*(CLI_LEAD+(R(cur,R(commandline,R(ty,*argp))))));
 ll = ((signed long long) *(CLI_LEAD+(R(cur,R(commandline,R(ty,*argp))))));
 if(!(ll^((signed long long) *(CLI_INDEX+(R(cur,R(commandline,R(ty,*argp)))))))) return(0x01);
 
-r = cli_coord_out_beta(*(CLI_INDEX+(R(cur,R(commandline,R(ty,*argp))))),argp);
+r = cli_coord_out_beta(0x00/* wrap */,*(CLI_INDEX+(R(cur,R(commandline,R(ty,*argp))))),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_out_beta()");
 return(0x00);

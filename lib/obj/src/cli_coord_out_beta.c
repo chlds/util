@@ -14,7 +14,7 @@ Refer at fn. cli_init_ty_beta.
 
 # include "../../../incl/config_ty.h"
 
-signed(__cdecl cli_coord_out_beta(signed char(*cur),CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_coord_out_beta(signed short(wrap),signed char(*cur),CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char HT = ('\t');
@@ -54,9 +54,11 @@ return(0x00);
 }
 
 x = (coord.x);
-
 if(!(x^(R(Right,R(srWindow,R(csbi,*argp)))))) flag = (0x01);
 else flag = (0x00);
+
+if(wrap) {
+}
 
 // output
 r = cli_out(cur);

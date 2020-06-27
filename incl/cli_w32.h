@@ -174,15 +174,9 @@ signed(__cdecl cli_coord_output_pages_beta(signed short(flag),CLI_PAGE(*page),CL
 signed(__cdecl cli_coord_page_beta(signed short(flag),CLI_PAGE(*page),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_grams_beta(signed short(flag),signed char(*cur),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_gram_beta(signed short(flag),signed char(*cur),CLI_W32_STAT(*argp)));
-
 signed(__cdecl cli_output_beta(signed short(comeback),signed char(*cur),CLI_W32_STAT(*argp)));
-
-signed(__cdecl cli_col_outs_beta(signed char(*cur),CLI_W32_STAT(*argp)));
-signed(__cdecl cli_col_out_beta(signed char(*cur),CLI_W32_STAT(*argp)));
-// deprecated
-
 signed(__cdecl cli_coord_outs_beta(signed char(*cur),CLI_W32_STAT(*argp)));
-signed(__cdecl cli_coord_out_beta(signed char(*cur),CLI_W32_STAT(*argp)));
+signed(__cdecl cli_coord_out_beta(signed short(wrap),signed char(*cur),CLI_W32_STAT(*argp)));
 signed(__cdecl cli_coord_out_old_beta(signed char(*cur),CLI_W32_STAT(*argp)));
 /* Form a column in the console screen. */
 

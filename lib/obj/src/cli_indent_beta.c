@@ -60,7 +60,7 @@ l = (i);
 
 while(i) {
 --i;
-r = cli_coord_out_beta(&c,argp);
+r = cli_coord_out_beta(0x00/* wrap */,&c,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_out_beta()");
 return(0x00);

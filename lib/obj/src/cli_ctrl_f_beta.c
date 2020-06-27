@@ -49,7 +49,7 @@ return(0x00);
 return(0x01);
 }
 
-r = cli_coord_out_beta(*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
+r = cli_coord_out_beta(R(wrap_words,R(config,R(ty,*argp))),*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_out_beta()");
 return(0x00);

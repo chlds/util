@@ -72,7 +72,7 @@ return(0x00);
 
 while(0x01) {
 if(cur<(p)) {
-r = cli_coord_out_beta(cur,argp);
+r = cli_coord_out_beta(R(wrap_words,R(config,R(ty,*argp))),cur,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_out_beta()");
 return(0x00);

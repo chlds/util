@@ -211,7 +211,7 @@ return(0x00);
 // add a fn. to parse the coordinates.
 
 // put
-r = cli_coord_out_beta(-diff+(cur),argp);
+r = cli_coord_out_beta(R(wrap_words,R(config,R(ty,*argp))),-diff+(cur),argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_out_beta()");
 return(0x00);

@@ -50,7 +50,7 @@ printf("%s\n","<< Error at fn. _putch()");
 return(0x00);
 }}
 
-r = cli_coord_out_beta(&sp,argp);
+r = cli_coord_out_beta(0x00/* wrap */,&sp,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_out_beta()");
 return(0x00);

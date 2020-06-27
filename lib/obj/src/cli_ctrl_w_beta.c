@@ -130,7 +130,7 @@ ADD(*(CLI_INDEX+(R(cur,R(ty,*argp)))),R(offset,R(search,R(ty,*argp))));
 cur = (*(CLI_BASE+(R(cur,R(ty,*argp)))));
 while(0x01) {
 if(cur<(*(CLI_INDEX+(R(cur,R(ty,*argp)))))) {
-r = cli_coord_out_beta(cur,argp);
+r = cli_coord_out_beta(R(wrap_words,R(config,R(ty,*argp))),cur,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_out_beta()");
 return(0x00);
