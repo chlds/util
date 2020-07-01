@@ -3,12 +3,8 @@
 Building a linked list (in C)
 
 Remarks:
-Based on a doubly linked list (i.e., not a circular linked list). */
-
-
-
-
-
+Based on a doubly linked list (i.e., not a circular linked list).
+*/
 
 
 # define CONCAT2LL (0x01)
@@ -119,27 +115,3 @@ unsigned(tid); // a thread id e.g., returned by fn. _beginthreadex
 void(*thread); // a thread handle e.g., returned by fn. _beginthreadex
 void(*optl);
 } KNOT;
-
-typedef struct knot_stat {
-struct knot(*l); // lead
-struct knot(*t); // temporary
-struct knot(*b); // base
-void(*optl);
-} KNOT_STAT;
-
-// Deprecated..
-typedef struct knots {
-struct knot(*l); // lead
-struct knot(*t); // temporary
-struct knot(*b); // base
-} KNOTS;
-
-// Deprecated..
-struct pknot {
-signed char(*p);
-signed short(flag);
-signed int(uid);
-struct knot(*l);
-struct knot(*b);
-void(*optl);
-};

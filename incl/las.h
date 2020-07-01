@@ -5,9 +5,9 @@ Standards: STDIN, STDOUT and STDERR
 */
 
 
-# define R(D,S) (S).D
+# include "dbg.h"
 
-# define DBG (0x00)
+# define R(D,S) (S).D
 
 # define ALIGN_TAB (0x08)
 

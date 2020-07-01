@@ -139,7 +139,7 @@ return(0x00);
 //*/
 }
 // and concatenate
-r = concat_ll(cache);
+r = concat_ll(0x00/* doubly LL */,cache);
 if(!r) {
 printf("%s\n","<< Error at fn. concat_ll()");
 return(0x00);

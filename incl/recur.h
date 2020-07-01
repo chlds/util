@@ -35,9 +35,8 @@ signed(__cdecl unmap_ll(struct knot(*argp)));
 
 signed(__cdecl output_ll(KNOT(*argp)));
 
-signed(__cdecl concat2ll_for_history(SNAPSHOT(*cache),SNAPSHOT(**lead),SNAPSHOT(**base)));
-signed(__cdecl concat2_ll(KNOT(*cache),KNOTS(*argp)));
-/* Based on a doubly linked list */
+signed(__cdecl concat_ll(signed short(flag),KNOT(*argp)));
+/* Build a circular/doubly linked list */
 
 signed(__cdecl concats_internal(signed char(*di), signed char(*bp)));
 signed(__cdecl concats(signed char(*argp), ...));

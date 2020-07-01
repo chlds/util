@@ -1,11 +1,11 @@
 /* **** Notes
 
-Concatenate a knot in a doubly linked list.
+Concatenate a knot in a circular/doubly linked list.
 
+flag: 0x00 is in a doubly linked list and the others are in a circular linked list.
 argp: Put the address of the <knot> structure at.
 
 Remarks:
-Based on a doubly linked list (i.e., not a circular linked list).
 Please look at util/incl/ll.h
 */
 
@@ -13,7 +13,7 @@ Please look at util/incl/ll.h
 # define C_AS
 # include "../../../incl/config.h"
 
-signed(__cdecl concat_ll(struct knot(*argp))) {
+signed(__cdecl concat_ll(signed short(flag),struct knot(*argp))) {
 
 /* **** DATA, BSS and STACK */
 extern struct knot(*lead);
@@ -27,7 +27,12 @@ else (*lead).d = (argp);
 
 (*argp).s = (lead);
 lead = (argp);
-(*lead).d = (0x00);
+
+if(!flag) (*lead).d = (0x00);
+else {
+(*lead).d = (base);
+(*base).s = (lead);
+}
 
 return(0x01);
 }
