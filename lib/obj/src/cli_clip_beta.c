@@ -67,10 +67,14 @@ printf("%s\n","<< Could not count at R(clip,R(clipboard,R(ty,*argp..");
 return(0x00);
 }
 while(--count) {
+flag = (0x00);
+if(CLI_PBR&(R(flag,*page))) flag++;
 page = (R(d,*page));
 if(!page) break;
+if(flag) {
 if(!(LINEBREAK_CRLF^(R(linebreak_form,R(config,R(ty,*argp)))))) INC(r);
 INC(r);
+}
 ADD(r,ct(*(CLI_BASE+(R(base,*page)))));
 }
 //*/
@@ -78,7 +82,6 @@ ADD(r,ct(*(CLI_BASE+(R(base,*page)))));
 
 INC(r);
 r = (r*(sizeof(signed short)));
-
 g = GlobalAlloc(GMEM_SHARE|(GHND),r);
 if(!g) {
 r = GetLastError();
@@ -101,8 +104,8 @@ return(0x00);
 }
 
 *(CLI_W+(R(base,R(clipboard,R(ty,*argp))))) = (w);
-p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 
+p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 r = ct(p);
 if(!r) {
 /* empty or..
@@ -110,7 +113,6 @@ printf("%s\n","<< Error at fn. ct()");
 return(0x00);
 //*/
 }
-
 INC(r);
 r = (r*(sizeof(signed short)));
 i = (size);
@@ -133,14 +135,17 @@ w++;
 --r;
 }
 
+*w = (0x00);
+
 count = (R(clip,R(clipboard,R(ty,*argp))));
 --count;
-if(!count) *w = (0x00);
-else {
+if(count) {
 page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
+flag = (0x00);
+if(CLI_PBR&(R(flag,*page))) flag++;
 page = (R(d,*page));
-if(!page) *w = (0x00);
-else {
+if(page) {
+if(flag) {
 if(!(LINEBREAK_CRLF^(R(linebreak_form,R(config,R(ty,*argp)))))) {
 r = (0x01);
 r = (r*(sizeof(signed short)));
@@ -154,6 +159,7 @@ w++;
 }
 *w = (LF);
 w++;
+}
 r = cli_copy_pages(R(linebreak_form,R(config,R(ty,*argp))),count,size,w,page);
 if(!r) {
 /* empty or..
