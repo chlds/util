@@ -131,6 +131,7 @@ return(0x00);
 
 diff = (r);
 cur = (diff+(cur));
+*cur = (0x00);
 size = (-diff+(size));
 
 if(!(DEL^(i))) i = (CTRL_D);

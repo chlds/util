@@ -137,6 +137,7 @@ return(0x00);
 
 diff = (r);
 cur = (diff+(cur));
+*cur = (0x00);
 size = (-diff+(size));
 
 *(CLI_OUT+(R(old,R(ty,*argp)))) = (i);

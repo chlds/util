@@ -85,6 +85,7 @@ return(0x00);
 }
 
 cur = (r+(cur));
+*cur = (0x00);
 size = (-r+(size));
 
 if(!(DEL^(i))) i = (CTRL_D);
