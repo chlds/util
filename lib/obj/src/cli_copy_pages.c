@@ -69,12 +69,18 @@ w++;
 --r;
 }
 
+*w = (0x00);
+
+flag = (0x00);
+if(CLI_PBR&(R(flag,*argp))) flag++;
+
 --count;
-if(!count) *w = (0x00);
-else {
+if(!count) return(0x00);
+
 argp = (R(d,*argp));
-if(!argp) *w = (0x00);
-else {
+if(!argp) return(0x00);
+
+if(flag) {
 if(!(LINEBREAK_CRLF^(linebreak_form))) {
 r = (0x01);
 r = (r*(sizeof(signed short)));
@@ -88,7 +94,7 @@ w++;
 }
 *w = (LF);
 w++;
-}}
+}
 
 return(0x01+(cli_copy_pages(linebreak_form,count,size,w,argp)));
 }

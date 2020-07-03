@@ -146,9 +146,7 @@ signed(__cdecl ct(signed char(*argp)));
 signed(__cdecl n_putch(signed(n),signed(letter)));
 /* Output the letter n times. */
 
-signed(__cdecl cat_ll_and_histories(KNOT(*argp)));
 signed(__cdecl cat_ll(KNOT(*argp)));
-signed(__cdecl cat_history(SNAPSHOT(*argp)));
 
 signed(__cdecl catppp(signed char(***argp)));
 signed(__cdecl catpp(signed char(**argp)));
