@@ -29,9 +29,10 @@ static signed char SP = (' ');
 static signed RANGE = (0x800);
 
 auto signed char *p;
-auto signed breaker;
-auto signed range;
 auto signed i,r;
+auto signed short criterion;
+auto signed short range;
+auto signed short breaker;
 auto signed short flag;
 auto signed char c;
 
@@ -72,9 +73,11 @@ return(0x00);
 
 flag = (0x00);
 range = (0x00);
+criterion = (R(right,R(rect,*argp)));
 
 while(0x01) {
 //* aux.
+// if(criterion<(range++)) {
 if(RANGE<(range++)) {
 if(breaker) {
 *p = (0x00);

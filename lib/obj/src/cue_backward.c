@@ -12,7 +12,7 @@ Refer at fn. cli_io_beta, fn. cli_ctrl_r_beta and fn. cli_ctrl_b_beta.
 # include <stdio.h>
 # include "../../../incl/cl.h"
 
-signed(__cdecl cue_backward(signed char(**retrv),signed char(*base),signed char(*offset))) {
+signed(__cdecl cue_backward(signed char(**retrv),signed char(*sym),signed char(*base),signed char(*offset))) {
 
 /* **** DATA, BSS and STACK */
 auto signed i,r;
@@ -20,13 +20,14 @@ auto signed short flag;
 
 /* **** CODE/TEXT */
 if(!retrv) return(0x00);
+if(!sym) return(0x00);
 if(!base) return(0x00);
 if(!offset) return(0x00);
 
 flag = (0x00);
 *retrv = (offset);
 
-r = cue_backward_internal(flag,retrv,base);
+r = cue_backward_internal(flag,retrv,sym,base);
 if(!r) {
 //* empty or..
 printf("%s\n","<< Error at fn. cue_backward_internal()");

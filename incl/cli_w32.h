@@ -74,7 +74,7 @@ signed(__cdecl cli_init_stat_beta(CLI_W32_STAT(*argp)));
 // Retrieve a handle to the specified standard output device.
 
 signed(__cdecl cli_to_eol_beta(CLI_W32_STAT(*argp)));
-signed(__cdecl cli_leap_beta(CLI_W32_STAT(*argp)));
+signed(__cdecl cli_leap_beta(signed char(*sym),CLI_W32_STAT(*argp)));
 
 signed(__cdecl cli_spool_beta(CLI_W32_STAT(*argp)));
 /* Build a doubly linked list. */

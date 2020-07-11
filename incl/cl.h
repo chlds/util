@@ -59,8 +59,8 @@ signed(__cdecl cli_wrap_internal(signed char(**wrap),signed char(*di),signed cha
 signed(__cdecl cli_wrap(signed char(**wrap),signed char(*di),signed char(*si)));
 /* Retrieve the leading address after wrapping words. */
 
-signed(__cdecl cue_backward_internal(signed short(flag),signed char(**retrv),signed char(*base)));
-signed(__cdecl cue_backward(signed char(**retrv),signed char(*base),signed char(*offset)));
+signed(__cdecl cue_backward_internal(signed short(flag),signed char(**retrv),signed char(*sym),signed char(*base)));
+signed(__cdecl cue_backward(signed char(**retrv),signed char(*sym),signed char(*base),signed char(*offset)));
 /* Retrieve the leading address to a previous word. */
 
 signed(__cdecl embed_to(signed char(*argp),signed char(arg),signed(times)));

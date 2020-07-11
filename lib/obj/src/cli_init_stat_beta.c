@@ -27,6 +27,7 @@ auto COORD coord;
 auto signed long long ll;
 auto signed char *p;
 auto signed i,r;
+auto signed short criterion;
 
 /* **** CODE/TEXT */
 // Get a handle to the console window
@@ -80,6 +81,9 @@ printf("%s%d%s%d\n","/",(*argp).csbi.srWindow.Right,"/",(*argp).csbi.srWindow.Bo
 printf("%s\n","A COORD structure that contains the maximum size of the console window, in character columns and rows, given the current screen buffer size and font and the screen size.");
 printf("%s%d%s%d\n","csbi.dwMaximumWindowSize.X/Y: ",(*argp).csbi.dwMaximumWindowSize.X,"/",(*argp).csbi.dwMaximumWindowSize.Y);
 }
+
+criterion = (R(Right,R(srWindow,R(csbi,*argp))));
+R(right,R(rect,R(ty,*argp))) = (criterion);
 
 return(0x01);
 }
