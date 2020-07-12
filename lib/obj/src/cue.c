@@ -1,21 +1,14 @@
 /*
 
-Along with C and Windows libraries
-
-Remarks:
-Refer at util/lib/obj/src/cli_ctrl_g_beta.c
+Retrieve bytes to the leading address of a word or symbol.
 */
 
 
 # define CLI_MACRO
-# define CLI_W32
 
-# include <conio.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/cl.h"
 
-signed(__cdecl cli_leap_beta(signed char(*sym),CLI_W32_STAT(*argp))) {
+signed(__cdecl cue(signed char(*sym),signed char(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char HT = ('\t');
@@ -27,9 +20,10 @@ auto signed short flag;
 auto signed char c,old;
 
 /* **** CODE/TEXT */
+if(!sym) return(0x00);
 if(!argp) return(0x00);
 
-c = (**(CLI_INDEX+(R(cur,R(ty,*argp)))));
+c = (*argp);
 if(!c) return(0x00);
 
 old = (c);
@@ -39,13 +33,8 @@ while(*(sym+(i))) {
 if(!(c^(*(sym+(i++))))) flag = (0x01);
 }
 
-r = cli_ctrl_f_beta(argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_ctrl_f_beta()");
-return(0x00);
-}
-
-c = (**(CLI_INDEX+(R(cur,R(ty,*argp)))));
+argp++;
+c = (*argp);
 if(!(HT^(c))) return(0x01);
 
 if(flag) {
@@ -76,5 +65,5 @@ if(!(SP^(c))) flag = (0x00);
 
 if(flag) return(0x01);
 
-return(0x01+(cli_leap_beta(sym,argp)));
+return(0x01+(cue(sym,argp)));
 }

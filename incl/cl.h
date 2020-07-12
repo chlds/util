@@ -61,7 +61,10 @@ signed(__cdecl cli_wrap(signed char(**wrap),signed char(*di),signed char(*si)));
 
 signed(__cdecl cue_backward_internal(signed short(flag),signed char(**retrv),signed char(*sym),signed char(*base)));
 signed(__cdecl cue_backward(signed char(**retrv),signed char(*sym),signed char(*base),signed char(*offset)));
-/* Retrieve the leading address to a previous word. */
+/* Retrieve the leading address to a previous word or symbol. */
+
+signed(__cdecl cue(signed char(*sym),signed char(*argp)));
+/* Retrieve bytes to the leading address of a word or symbol. */
 
 signed(__cdecl embed_to(signed char(*argp),signed char(arg),signed(times)));
 signed(__cdecl embed_internal(signed char(*argp)));
