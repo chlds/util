@@ -64,7 +64,7 @@ auto signed char *edit = ("  Currently being edited by ");
 
 auto signed char *footer = ("\n\n\
   WELCOME TO TY.EXE :)\n\n\
-  Version: 0.5\n\
+  Version: 0.6\n\
   GitHub: github.com/chlds/util/\n\
   \
 ");

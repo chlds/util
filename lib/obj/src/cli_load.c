@@ -78,6 +78,10 @@ i = (0x00);
 
 printf("\n");
 
+p = (*(CLI_BASE+(R(base,R(roll,*argp)))));
+if(!p) return(0x00);
+*p = (0x00);
+
 r = cli_load_internal(i,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_load_internal()");
