@@ -1,35 +1,38 @@
-/* **** Notes
+/*
 
-Retrieve the leading address after wrapping words.
+Load.
+
+Along with C library
 
 Remarks:
-Add support for Unicode characters in UTF-8.
+Refer at fn. cli_bind_pages and fn. cli_concat_pages.
 */
 
 
-signed(__cdecl cli_wrap(signed char(**wrap),signed char(*di),signed char(*si))) {
+# define CLI_MACRO
+
+# include <io.h>
+# include <conio.h>
+# include <stdio.h>
+# include "../../../incl/config_ty.h"
+
+signed(__cdecl cli_wrap(CLI_TYPEWRITER(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed long long sll;
-auto signed r;
+auto signed i,r;
+auto signed short flag;
 
 /* **** CODE/TEXT */
-if(!wrap) return(0x00);
-if(!di) return(0x00);
-if(!si) return(0x00);
-if(!(*si)) return(0x00);
-if(di<(si)) return(0x00);
+if(!argp) return(0x00);
 
-sll = (signed long long) (di);
-if(!(sll^((signed long long) si))) return(0x00);
+i = (0x00);
 
-*wrap = (si);
-
-r = cli_wrap_internal(wrap,di,si);
+r = cli_wrap_internal(i,argp);
 if(!r) {
+if(!(CLI_MORPH&(R(flag,*argp)))) {
 printf("%s\n","<< Error at fn. cli_wrap_internal()");
 return(0x00);
-}
+}}
 
-return(r);
+return(0x01);
 }

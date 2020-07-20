@@ -60,8 +60,9 @@ SYM_TILDE,
 0x00,
 };
 
-static signed char CR = ('\r');
+static signed char HT = ('\t');
 static signed char LF = ('\n');
+static signed char CR = ('\r');
 static signed char SP = (' ');
 
 auto signed char *cur,*p;
@@ -115,43 +116,11 @@ criterion = (R(right,R(rect,*argp)));
 flag = (0x00);
 p = (0x00);
 
-while(0x02) {
-r = ct_txt(R(align_tab,R(config,*argp)),*(CLI_BASE+(R(base,R(roll,*argp)))));
-//*/
-if(criterion<(r)) {
-if(breaker) {
-cur = (*(CLI_BASE+(R(base,R(roll,*argp)))));
-r = ct(cur);
-r++;
-r = (r*(sizeof(signed char)));
-p = (signed char(*)) malloc(r);
-if(!p) {
-OR(R(flag,*argp),CLI_IRR);
-printf("%s\n","<< Error at fn. malloc()");
-return(0x00);
-}
-r = cpy(p,cur);
-l = (0x00);
-v = (0x00);
 while(0x01) {
-r = cue(sym,cur);
-dif = (r);
-l = (dif+(l));
-cur = (dif+(cur));
-*cur = (0x00);
 r = ct_txt(R(align_tab,R(config,*argp)),*(CLI_BASE+(R(base,R(roll,*argp)))));
 if(criterion<(r)) {
-if(v) {
-cur = (-dif+(cur));
-l = (-dif+(l));
+if(breaker) break;
 }
-break;
-}
-r = cpy(*(CLI_BASE+(R(base,R(roll,*argp)))),p);
-v = (0x01);
-}
-break;
-}}
 //*/
 if(i<(CLI_EMPTY)) {
 *cur = (0x00);
@@ -172,7 +141,7 @@ printf("%s\n","<< Error at fn. read()");
 return(0x00);
 }
 if(!r) {
-flag = (CLI_MORPH);
+OR(R(flag,*argp),CLI_MORPH);
 break;
 }
 if(flag) {
@@ -194,39 +163,28 @@ cur++;
 *cur = (0x00);
 --i;
 count++;
+AND(breaker,0x00);
 if(!(SP^(c))) breaker++;
-else breaker = (0x00);
 }
 
 *cur = (0x00);
 
-//* or case 2
-r = cli_bind_pages(&(R(spool,*argp)));
+r = cli_wrap(argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_bind_pages()");
-return(0x00);
-}
-//*/
-
-r = cli_book(argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_book()");
+printf("%s\n","<< Error at fn. cli_wrap() ");
 return(0x00);
 }
 
 // announcements
 printf("\r%d%s%d%s",count,"/",R(size,R(edit,*argp)),"bytes");
 
-if(!(CLI_MORPH^(flag))) return(0x01);
-
-if(p) {
-r = cpy(*(CLI_BASE+(R(base,R(roll,*argp)))),l+(p));
-if(!r) **(CLI_BASE+(R(base,R(roll,*argp)))) = (0x00);
-r = embed(0x00/* flag */,p);
-free(p);
+if(CLI_MORPH&(R(flag,*argp))) {
+// r = embed_to(*(CLI_BASE+(R(base,R(roll,*argp)))),0x00,*(CLI_BASE+(R(size,R(roll,*argp)))));
+// r = embed(0x00/* flag */,*(CLI_BASE+(R(base,R(roll,*argp)))));
+**(CLI_BASE+(R(base,R(roll,*argp)))) = (0x00);
+AND(R(flag,*argp),0x00);
+return(0x01);
 }
-
-else **(CLI_BASE+(R(base,R(roll,*argp)))) = (0x00);
 
 return(0x01+(cli_load_internal(count,argp)));
 }

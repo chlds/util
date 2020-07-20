@@ -55,10 +55,6 @@ signed(__cdecl decode_surrogate_first(signed short(*di),signed(si)));
 signed(__cdecl nbytechar(signed char(arg)));
 /* Output Unicode characters decoded out of Unicode bytes */
 
-signed(__cdecl cli_wrap_internal(signed char(**wrap),signed char(*di),signed char(*si)));
-signed(__cdecl cli_wrap(signed char(**wrap),signed char(*di),signed char(*si)));
-/* Retrieve the leading address after wrapping words. */
-
 signed(__cdecl cue_backward_internal(signed short(flag),signed char(**retrv),signed char(*sym),signed char(*base)));
 signed(__cdecl cue_backward(signed char(**retrv),signed char(*sym),signed char(*base),signed char(*offset)));
 /* Retrieve the leading address to a previous word or symbol. */

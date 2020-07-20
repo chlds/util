@@ -82,9 +82,10 @@ p = (*(CLI_BASE+(R(base,R(roll,*argp)))));
 if(!p) return(0x00);
 *p = (0x00);
 
-r = cli_load_old_internal(i,argp);
+// r = cli_load_old_internal(i,argp);
+r = cli_load_internal(i,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_load_old_internal()");
+printf("%s\n","<< Error at fn. cli_load_internal()");
 return(0x00);
 }
 
