@@ -25,6 +25,7 @@ auto CLI_COORD coord;
 auto CLI_SNAPSHOT *snapshot;
 auto CLI_PAGE *page;
 auto signed char *base,*p;
+auto signed offset;
 auto signed i,r;
 auto signed short flag;
 auto signed short y;
@@ -87,9 +88,21 @@ printf("%s\n","<< Error at fn. cli_init_workspace()");
 return(0x00);
 }
 
-ADD(R(gauge,R(debug,R(ty,*argp))),-i);
 ADD(R(gauge,R(ty,*argp)),-i);
 ADD(*(CLI_LEAD+(R(cur,R(ty,*argp)))),i);
+
+offset = (R(offset,*snapshot));
+ADD(*(CLI_INDEX+(R(cur,R(ty,*argp)))),offset);
+R(offset,R(ty,*argp)) = (offset);
+R(offset,*page) = (offset);
+
+//*
+r = cli_book(&(R(ty,*argp)));
+if(!r) {
+printf("%s\n","<< Error at fn. cli_book()");
+return(0x00);
+}
+//*/
 
 coord.y = (R(y,*(CLI_INDEX+(R(coord,R(ty,*argp))))));
 coord.x = (0x00);
@@ -100,26 +113,7 @@ return(0x00);
 }
 
 // to refresh
-y = (R(y,*(CLI_LEAD+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))));
-
-flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
-r = cli_gram_beta(flag,*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),argp);
-if(!r) {
-/* empty or..
-printf("%s\n","<< Error at fn. cli_gram_beta()");
-return(0x00);
-//*/
-}
-
-// refresh
-if(y^(R(y,*(CLI_LEAD+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))))) OR(R(flag,R(ty,*argp)),CLI_REFRESH);
-
-i = (R(offset,*snapshot));
-// e.g., ADD(*(CLI_INDEX+(R(cur,R(ty,*argp)))),i);
-while(i) {
-INC(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
---i;
-}
+// y = (R(y,*(CLI_LEAD+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))));
 
 base = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
 p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
@@ -135,7 +129,10 @@ else break;
 base = (r+(base));
 }
 
-R(flag,R(ty,*argp)) = (R(flag,*snapshot));
+// refresh
+// if(y^(R(y,*(CLI_LEAD+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))))) OR(R(flag,R(ty,*argp)),CLI_REFRESH);
+
+OR(R(flag,R(ty,*argp)),CLI_REFRESH);
 
 return(0x01);
 }
