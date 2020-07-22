@@ -190,7 +190,7 @@ printf("%s%s\n","B: ",*(CLI_BASE+(R(base,R(roll,*argp)))));
 printf("%s%X\n","F: ",R(flag,*argp));
 }
 
-r = cli_wrap(argp);
+r = cli_wrap(sym,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_wrap() ");
 return(0x00);

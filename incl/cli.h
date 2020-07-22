@@ -317,8 +317,8 @@ signed(__cdecl cli_search_pages_internal(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_search_pages(CLI_TYPEWRITER(*argp)));
 // search pages out of the index page to find characters.
 
-signed(__cdecl cli_wrap_internal(signed short(terminate),CLI_TYPEWRITER(*argp)));
-signed(__cdecl cli_wrap(CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_wrap_internal(signed short(terminate),signed char(*sym),CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_wrap(signed char(*sym),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_load_internal(signed(count),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_load_old_internal(signed(count),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_load(CLI_TYPEWRITER(*argp)));
