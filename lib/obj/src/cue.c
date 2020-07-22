@@ -37,31 +37,20 @@ argp++;
 c = (*argp);
 if(!(HT^(c))) return(0x01);
 
-if(flag) {
 i = (0x00);
 while(*(sym+(i))) {
 if(!(c^(*(sym+(i++))))) {
-flag = (0x00);
+if(!flag) flag = (0x01);
+else flag = (0x00);
 break;
-}}}
-
-else {
-i = (0x00);
-while(*(sym+(i))) {
-if(!(c^(*(sym+(i++))))) {
-flag = (0x01);
-break;
-}}}
-
-if(!(HT^(old))) {
-if(SP^(c)) flag = (0x01);
-}
-
-if(!(SP^(old))) {
-if(SP^(c)) flag = (0x01);
-}
+}}
 
 if(!(SP^(c))) flag = (0x00);
+
+else {
+if(!(HT^(old))) flag = (0x01);
+if(!(SP^(old))) flag = (0x01);
+}
 
 if(flag) return(0x01);
 
