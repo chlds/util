@@ -60,6 +60,8 @@ SYM_TILDE,
 0x00,
 };
 
+static signed short EXTRA = (0x10);
+
 static signed char HT = ('\t');
 static signed char LF = ('\n');
 static signed char CR = ('\r');
@@ -72,6 +74,7 @@ auto signed short criterion;
 auto signed short breaker;
 auto signed short flag;
 auto signed char c;
+auto signed char extra;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
@@ -116,10 +119,13 @@ criterion = (R(right,R(rect,*argp)));
 flag = (0x00);
 p = (0x00);
 
+breaker = (0x00);
+extra = (0x00);
+
 while(0x01) {
 r = ct_txt(R(align_tab,R(config,*argp)),*(CLI_BASE+(R(base,R(roll,*argp)))));
 if(criterion<(r)) {
-if(breaker) break;
+if(breaker) OR(breaker,EXTRA);
 }
 //*/
 if(i<(CLI_EMPTY)) {
@@ -163,16 +169,39 @@ cur++;
 *cur = (0x00);
 --i;
 count++;
+//*/
+if(EXTRA&(breaker)) {
+if(SP^(c)) {
+if(!flag) {
+extra++;
+--cur;
+break;
+}}}
+else {
 AND(breaker,0x00);
-if(!(SP^(c))) breaker++;
-}
+if(!(SP^(c))) OR(breaker,0x01);
+}}
 
 *cur = (0x00);
+
+if(CLI_DBG) {
+printf("\n");
+printf("%s%s\n","B: ",*(CLI_BASE+(R(base,R(roll,*argp)))));
+printf("%s%X\n","F: ",R(flag,*argp));
+}
 
 r = cli_wrap(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_wrap() ");
 return(0x00);
+}
+
+if(extra) {
+cur = (*(CLI_BASE+(R(base,R(roll,*argp)))));
+cur = (cur+(ct(cur)));
+*cur = (c);
+cur++;
+*cur = (0x00);
 }
 
 // announcements
