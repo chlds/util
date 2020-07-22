@@ -75,7 +75,8 @@ r = cpy(p,cur);
 l = (0x00);
 v = (0x00);
 while(0x01) {
-r = cue(sym,cur);
+// r = cue(sym,cur);
+r = cue2l(sym,cur);
 dif = (r);
 l = (dif+(l));
 cur = (dif+(cur));

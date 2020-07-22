@@ -62,6 +62,9 @@ signed(__cdecl cue_backward(signed char(**retrv),signed char(*sym),signed char(*
 signed(__cdecl cue(signed char(*sym),signed char(*argp)));
 /* Retrieve bytes to the leading address of a word or symbol. */
 
+signed(__cdecl cue2l(signed char(*sym),signed char(*argp)));
+/* Retrieve bytes to the leading address of a word. */
+
 signed(__cdecl embed_to(signed char(*argp),signed char(arg),signed(times)));
 signed(__cdecl embed_internal(signed char(*argp)));
 signed(__cdecl embed(signed short(flag),signed char(*argp)));
