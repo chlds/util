@@ -77,7 +77,7 @@ printf("%s\n","<< Error at fn. cli_book()");
 return(0x00);
 }
 
-OR(R(flag,R(ty,*argp)),CLI_REFRESH);
+OR(R(flag,R(ty,*argp)),CLI_FORCED|CLI_REFRESH);
 
 return(0x01);
 }

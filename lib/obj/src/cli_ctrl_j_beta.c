@@ -101,21 +101,9 @@ i++;
 else break;
 }
 
-ADD(R(gauge,R(debug,R(ty,*argp))),i);
 ADD(R(gauge,R(ty,*argp)),i);
 
-y = (R(y,*(CLI_LEAD+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))));
-
-flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
-r = cli_gram_beta(flag,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
-if(!r) {
-/* empty or..
-printf("%s\n","<< Error at fn. cli_gram_beta()");
-return(0x00);
-//*/
-}
-
-if(y^(R(y,*(CLI_LEAD+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))))) OR(R(flag,R(ty,*argp)),CLI_REFRESH);
+OR(R(flag,R(ty,*argp)),CLI_REFRESH);
 
 return(0x01);
 }

@@ -199,8 +199,6 @@ cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 }
 
 else {
-// to refresh
-y = (R(y,*(CLI_LEAD+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))));
 // append
 r = cpy(cur,p);
 if(!r) {
@@ -217,15 +215,7 @@ if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_out_beta()");
 return(0x00);
 }
-// also put
-flag = (CG_COMEBACK/*|CG_CLEAR*/|CG_EMUL);
-r = cli_gram_beta(flag,cur,argp);
-if(!r) {
-if(p) {
-printf("%s\n","<< Error at fn. cli_gram_beta()");
-return(0x00);
-}}
-if(y^(R(y,*(CLI_LEAD+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))))) OR(R(flag,R(ty,*argp)),CLI_REFRESH);
+if(*cur) OR(R(flag,R(ty,*argp)),CLI_REFRESH);
 }
 
 // to undo and redo
@@ -247,31 +237,13 @@ base = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
 r = compare(cur,base);
 R(offset,R(ty,*argp)) = (r);
 
-// qrefresh
-if(CLI_QREFRESH&(R(flag,R(ty,*argp)))) {
-flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
-r = cli_gram_beta(flag,cur,argp);
-if(!r) {
-/* empty or..
-printf("%s\n","<< Error at fn. cli_gram_beta()");
-return(0x00);
-//*/
-}
-flag = (~(CLI_QREFRESH));
-AND(R(flag,R(ty,*argp)),flag);
-}
-
 // refresh
 if(CLI_REFRESH&(R(flag,R(ty,*argp)))) {
-flag = (CG_COMEBACK|CG_CLEAR|CG_EMUL);
-r = cli_grams_beta(flag,cur,argp);
+r = cli_refresh_beta(CLI_FORCED&(R(flag,R(ty,*argp))),cur,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_grams_beta()");
+printf("%s\n","<< Error at fn. cli_refresh_beta()");
 return(0x00);
-}
-flag = (~(CLI_REFRESH));
-AND(R(flag,R(ty,*argp)),flag);
-}
+}}
 
 base = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
 *(CLI_LEAD+(R(cur,R(ty,*argp)))) = (base+(ct(base)));

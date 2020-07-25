@@ -70,10 +70,7 @@ r = cli_grams_beta(flag,cur,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_grams_beta()");
 return(0x00);
-}
-flag = (~(CLI_REFRESH));
-AND(R(flag,R(ty,*argp)),flag);
-}
+}}
 
 else {
 r = cli_clear2_row_beta(0x01/* comeback */,argp);
@@ -82,7 +79,7 @@ printf("%s\n","<< Error at fn. cli_clear2_row_beta()");
 return(0x00);
 }}
 
-flag = (~(CLI_QREFRESH));
+flag = (~(CLI_FORCED|CLI_REFRESH));
 AND(R(flag,R(ty,*argp)),flag);
 
 /* fix the frame */

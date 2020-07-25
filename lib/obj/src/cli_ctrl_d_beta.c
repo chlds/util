@@ -33,14 +33,6 @@ if(!argp) return(0x00);
 
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-D>");
 
-/*
-r = cli_book(&(R(ty,*argp)));
-if(!r) {
-printf("%s\n","<< Error at fn. cli_book()");
-return(0x00);
-}
-//*/
-
 p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 
 if(!(*p)) {
@@ -82,9 +74,8 @@ return(0x00);
 //*/
 }
 i = (*(CLI_BASE+(R(size,R(roll,R(ty,*argp))))));
-// R(gauge,R(debug,R(ty,*argp))) = (-r+(i));
 R(gauge,R(ty,*argp)) = (-r+(i));
-OR(R(flag,R(ty,*argp)),CLI_REFRESH);
+OR(R(flag,R(ty,*argp)),CLI_FORCED|CLI_REFRESH);
 return(0x01);
 }
 
@@ -111,11 +102,7 @@ printf("%s\n","<< Error at fn. concats()");
 return(0x00);
 }
 
-r = cli_refresh_beta(0x00/* forced */,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_refresh_beta()");
-return(0x00);
-}
+OR(R(flag,R(ty,*argp)),CLI_REFRESH);
 
 return(0x01);
 }

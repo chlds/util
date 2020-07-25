@@ -34,14 +34,6 @@ if(!argp) return(0x00);
 
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-K>");
 
-/*
-r = cli_book(&(R(ty,*argp)));
-if(!r) {
-printf("%s\n","<< Error at fn. cli_book()");
-return(0x00);
-}
-//*/
-
 /* optional
 r = cli_clip_beta(argp);
 if(!r) {
@@ -89,14 +81,7 @@ R(x,*(CLI_LEAD+(R(coord,R(ty,*argp))))) = (R(x,*(coord+(CLI_BASE))));
 
 page = (*(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))));
 
-if(!(R(d,*page))) {
 OR(R(flag,R(ty,*argp)),CLI_REFRESH);
-return(0x01);
-}
-
-y = (R(y,*(CLI_LEAD+(R(coord,*page)))));
-if(!(y^(R(y,*(coord+(CLI_BASE)))))) OR(R(flag,R(ty,*argp)),CLI_QREFRESH);
-else OR(R(flag,R(ty,*argp)),CLI_REFRESH);
 
 return(0x01);
 }

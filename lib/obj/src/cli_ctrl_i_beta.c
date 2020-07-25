@@ -66,8 +66,12 @@ printf("%s\n","<< Error at fn. cpy()");
 return(0x00);
 }}
 
-// to refresh
-y = (R(y,*(CLI_LEAD+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))));
+if(p) {
+r = embed(0x00/* flag */,p);
+free(p);
+p = (0x00);
+}
+*(CLI_OFFSET+(R(append,R(ty,*argp)))) = (p);
 
 r = cli_indent_beta(argp);
 if(!r) {
@@ -75,20 +79,7 @@ printf("%s\n","<< Error at fn. cli_indent_beta()");
 return(0x00);
 }
 
-flag = (CG_COMEBACK|CG_EMUL);
-r = cli_gram_beta(flag,*(CLI_INDEX+(R(cur,R(ty,*argp)))),argp);
-if(!r) {
-if(p) {
-printf("%s\n","<< Error at fn. cli_gram_beta()");
-return(0x00);
-}}
-
-// refresh
-if(y^(R(y,*(CLI_LEAD+(R(coord,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))))))) OR(R(flag,R(ty,*argp)),CLI_REFRESH);
-
-if(p) free(p);
-p = (0x00);
-*(CLI_OFFSET+(R(append,R(ty,*argp)))) = (p);
+OR(R(flag,R(ty,*argp)),CLI_REFRESH);
 
 return(0x01);
 }

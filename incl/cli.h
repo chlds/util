@@ -43,7 +43,7 @@ Refer at ./config_ty.h
 # define CLI_ALREADY_EXIST (0x100)
 # define CLI_OVERWRITE (0x200)
 # define CLI_REFRESH (0x400)
-# define CLI_QREFRESH (0x800)
+# define CLI_FORCED (0x800)
 # define CLI_PBR (0x1000)
 # define CLI_BR (0x2000)
 

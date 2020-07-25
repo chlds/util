@@ -71,6 +71,7 @@ nbyte = (r);
 
 // after outputting
 if(flag) {
+OR(R(flag,R(ty,*argp)),CLI_REFRESH);
 r = cli_get_csbi_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_get_csbi_beta()");

@@ -58,6 +58,7 @@ p = (*(CLI_OFFSET+(R(append,R(ty,*argp)))));
 if(p) {
 embed(0x00/* flag */,p);
 free(p);
+p = (0x00);
 }
 r = ct(cur);
 if(!r) p = (0x00);
