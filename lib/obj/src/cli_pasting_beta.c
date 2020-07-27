@@ -107,9 +107,12 @@ R(offset,R(ty,*argp)) = (offset);
 ADD(*(CLI_INDEX+(R(cur,R(ty,*argp)))),R(offset,R(ty,*argp)));
 cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 
+flag = (CG_EMUL);
 i = (pages);
-if(0x01<(i)) flag = (CG_CLEAR|CG_EMUL);
-else flag = (CG_EMUL);
+if(0x01<(i)) {
+OR(R(flag,R(ty,*argp)),CLI_FORCED);
+OR(flag,CG_CLEAR);
+}
 
 r = cli_gram_beta(flag,cur,argp);
 if(!r) {
@@ -176,15 +179,19 @@ return(0x00);
 *(CLI_OFFSET+(R(append,R(ty,*argp)))) = (p);
 }
 
+i = (0x00);
+if(CLI_FORCED&(R(flag,R(ty,*argp)))) i++;
 
 r = cli_connect_with_workspace(page,&(R(ty,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_connect_with_workspace()");
 return(0x00);
 }
+
 R(offset,R(ty,*argp)) = (offset);
 ADD(*(CLI_INDEX+(R(cur,R(ty,*argp)))),R(offset,R(ty,*argp)));
 
+if(i) OR(R(flag,R(ty,*argp)),CLI_FORCED);
 OR(R(flag,R(ty,*argp)),CLI_REFRESH);
 
 return(0x01);
