@@ -42,23 +42,14 @@ signed short(X);
 signed short(Y);
 } COORDS;
 
-typedef struct snapshot {
-signed char(*p);
-signed(offset);
-signed short(flag);
-signed(uid);
-struct snapshot(*d);
-struct snapshot(*s);
-void(*optl);
-} SNAPSHOT;
-
 typedef struct knot {
-signed char(*p);
-signed short(flag);
-signed int(uid);
-struct knot(*d);
-struct knot(*s);
-unsigned(tid); // a thread id e.g., returned by fn. _beginthreadex
-void(*thread); // a thread handle e.g., returned by fn. _beginthreadex
-void(*optl);
+signed char *p;
+signed short flag;
+signed offset;
+signed uid;
+struct knot *d;
+struct knot *s;
+unsigned tid; // a thread id e.g., returned by fn. _beginthreadex
+void *thread; // a thread handle e.g., returned by fn. _beginthreadex
+void *optl;
 } KNOT;

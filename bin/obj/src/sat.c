@@ -21,8 +21,8 @@ global signed short Announcements = (0x00);
 global signed Running = (0x01);
 // fn. cmdl_exit() to finally subtract the value.
 
-global struct knot *base;
-global struct knot *lead;
+global KNOT *base;
+global KNOT *lead;
 
 /* **** entry point */
 signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
@@ -40,8 +40,7 @@ auto unsigned(__stdcall*(fn[COUNT_FUNCTIONS/* i.e., CARDS */])) (void(*argp)) = 
 (unsigned(__stdcall*) (void(*))) (cmdl2_exit),
 (unsigned(__stdcall*) (void(*))) (cmdl2_help),
 (unsigned(__stdcall*) (void(*))) (cmdl2_clear),
-(unsigned(__stdcall*) (void(*))) (cmdl2_time2), // transparency
-// (unsigned(__stdcall*) (void(*))) (cmdl2_time), // solid
+(unsigned(__stdcall*) (void(*))) (cmdl2_time),
 (unsigned(__stdcall*) (void(*))) (cmdl2_save),
 (unsigned(__stdcall*) (void(*))) (cmdl2_open),
 (unsigned(__stdcall*) (void(*))) (cmdl2_output),
@@ -226,10 +225,14 @@ cache = R(d,*cache);
 printf("\n");
 
 /* unmap at */
-r = unmap2_ll(lead);
-printf("%s%d%s\n","Unmapped ",r," knots.");
+r = unmap_ll(&lead);
+if(!r) {
+printf("%s\n","<< Error at fn. unmap_ll() ");
+return(0x00);
+}
+else printf("%s%d%s\n","Unmapped ",r," knots.");
 
 printf("%s\n","All DONE!");
 
-return(0x00);
+return(0x01);
 }

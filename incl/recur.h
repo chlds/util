@@ -29,9 +29,7 @@ signed(__cdecl unmap2_cirll(struct knot(*argp)));
 signed(__cdecl unmap_cirll(struct knot(*argp)));
 /* Based on a circular linked list */
 
-signed(__cdecl unmap_history(SNAPSHOT(**argp)));
-signed(__cdecl unmap2_ll(struct knot(*argp)));
-signed(__cdecl unmap_ll(struct knot(*argp)));
+signed(__cdecl unmap_ll(KNOT(**argp)));
 
 signed(__cdecl output_ll(KNOT(*argp)));
 
