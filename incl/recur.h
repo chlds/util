@@ -17,6 +17,8 @@ signed(__cdecl calc_coord(COORDS(*coords),signed char(*argp),signed(cols)));
 /* Calculate coordinates of the terminating address of an array for characters, taking into account deviations caused by wrapping words. */
 /* Refer at incl/las.h for ALIGN_TAB and at incl/ll.h for COORDS. */
 
+signed(__cdecl reading(signed char(*di),signed(size)));
+
 signed(__cdecl pickfiles(signed char(*di /* path */ ), signed char(*si /* string */ )));
 signed(__cdecl rddir(signed short(cmdln_flag), void /* or struct dir_info_stored */ (*argp)));
 signed(__cdecl finds(signed short(cmdln_flag), signed char(*argp)));
@@ -67,6 +69,7 @@ signed(__cdecl ct_words(signed(*retv),signed char(*base)));
 signed(__cdecl ct_ars_internal(signed short(flag),signed(*retv),signed char(*base)));
 signed(__cdecl ct_ars(signed(*retv),signed char(*base)));
 signed(__cdecl ct_ars2(signed char(*base)));
+signed(__cdecl ct_args(signed char(*argp)));
 /* Count arguments to the terminating null character. */
 
 signed(__cdecl cpy2p(signed char(*di), signed char(*deadline), signed char(*si)));

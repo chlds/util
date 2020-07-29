@@ -2,8 +2,31 @@
 
 Commandlet to output the local time
 
+Flow:
+Create/map all the Objects on the RAM
+----
+Select all the handles of the created, loaded or mapped objects to the handles of the memory device context
+----
+Get a handle of the common device context
+Bit Block Transfer to the common DC
+Release the handle of the common device context
+----
+Get a handle of the common device context
+Bit Block Transfer to the common DC
+Release the handle of the common device context
+----
+De-select all the handles of the created, loaded or mapped objects out of the handles of the memory device context
+----
+Delete/unmap all the Objects on the RAM
+
 Remarks:
 Transparency
+Design and Implementation e.g.,
+double buffering(, off-screen or sprite),
+alpha blending,
+directly access using a vector table of the offset pointers,
+dynamically secure an array of the offset pointers e.g., p = (char signed(**)) malloc(N*(sizeof(char signed(*))));,
+label cpu_idle, cpu_freq and more for an extensible code..
 
 Extra:
 fn. GetStdHandle to retrieve a handle to the specified standard device (standard input, standard output, or standard error).
@@ -67,28 +90,28 @@ external signed char const *(month[]);
 
 // for the module handles
 enum {
-INSTANCE
+INSTANCE,
 };
 
 // for the window handles
 enum {
-ACTIVE
+ACTIVE,
 };
 
 // for the object handles
 // Be careful in the order (with fn. SelectOject() to de-select the 3 objects from and fn. DeleteObject() to delete the 4 ones from the bottom.)
 enum {
-FONT, BRUSH, REGION, BITMAP, LOADEDBITMAP
+FONT,BRUSH,REGION,BITMAP,LOADEDBITMAP,
 };
 
 // for the handles of the memory device context
 enum {
-SI, DI, CACHE
+SI,DI,CACHE,
 };
 
 // for the co-ordinate
 enum {
-X, Y, OFFSET_X, OFFSET_Y
+X,Y,OFFSET_X,OFFSET_Y,
 };
 
 auto signed const LIMIT = (3*(3600)); // for 3h
@@ -120,18 +143,17 @@ auto unsigned SOLIDBRUSH = (0x3F3F3F);
 auto signed const SHADE_TEXTCOLOR = (0x404040|(SOLIDBRUSH));
 auto signed const TEXTCOLOR = (0xF0F0F0&(0x808080|(SHADE_TEXTCOLOR)));
 
-
 auto SYSTEMTIME st;
 
 auto RECT rect = {
-(long) (NIL)
+(long) (0x00),
 };
 
 auto signed char *p;
 auto signed char bmp_filename[] = ("./resource/bg.bmp");
 
 auto signed char buff[BUFF] = {
-(signed char) (0x00)
+(signed char) (0x00),
 };
 
 auto signed char c;
@@ -139,63 +161,62 @@ auto signed i,l,r;
 auto signed short urgent;
 
 auto void *(module[COUNT_MODULES]) = {
-(void(*)) (0x00)
+(void(*)) (0x00),
 };
 
 auto void *(window[COUNT_WINDOWS]) = {
-(void(*)) (0x00)
+(void(*)) (0x00),
 };
 
 auto void *(old_obj[COUNT_OBJS]) = {
-(void(*)) (0x00)
+(void(*)) (0x00),
 };
 
 auto void *(obj[COUNT_OBJS]) = {
-(void(*)) (0x00)
+(void(*)) (0x00),
 };
 
 auto void *(old_bm[COUNT_DC]) = {
-(void(*)) (0x00)
+(void(*)) (0x00),
 };
 
 auto void *(bm[COUNT_DC]) = {
-(void(*)) (0x00)
+(void(*)) (0x00),
 };
 
 auto void *(dc[COUNT_DC]) = {
-(void(*)) (0x00)
+(void(*)) (0x00),
 };
 
-
 auto unsigned region[2] = {
-(unsigned) (0x00)
+(unsigned) (0x00),
 };
 
 auto unsigned scr[2] = {
-(unsigned) (0x00)
+(unsigned) (0x00),
 };
 
 auto unsigned pos[COUNT_POS] = {
-(unsigned) (0x00)
+(unsigned) (0x00),
 };
 
 // 1/4. transparency
 auto void *lace = (0x00);
 
-auto signed(height_font) = (21);
-auto signed(width_font) = (7);
-auto signed(escapement_font) = (0x00);
-auto signed(orientation_font) = (0x00);
-auto signed(weight_font) = (FW_REGULAR);
-auto unsigned(italic_font) = (0x00);
-auto unsigned(underline_font) = (0x00);
-auto unsigned(strikeout_font) = (0x00);
-auto unsigned(charset_font) = (ANSI_CHARSET);
-auto unsigned(outprecision_font) = (OUT_TT_ONLY_PRECIS);
-auto unsigned(clipprecision_font) = (0x00);
-auto unsigned(quality_font) = (0x00);
-auto unsigned(pitchandfamily_font) = (0x00);
-auto signed char(facename_font[]) = ("Tahoma");
+auto signed height_font = (21);
+auto signed width_font = (7);
+auto signed escapement_font = (0x00);
+auto signed orientation_font = (0x00);
+auto signed weight_font = (FW_REGULAR);
+auto unsigned italic_font = (0x00);
+auto unsigned underline_font = (0x00);
+auto unsigned strikeout_font = (0x00);
+auto unsigned charset_font = (ANSI_CHARSET);
+auto unsigned outprecision_font = (OUT_TT_ONLY_PRECIS);
+auto unsigned clipprecision_font = (0x00);
+auto unsigned quality_font = (0x00);
+auto unsigned pitchandfamily_font = (0x00);
+auto signed char facename_font[] = ("Tahoma");
 
 /* **** CODE/TEXT */
 Running++;
