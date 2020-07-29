@@ -20,29 +20,31 @@
 L = czr
 T =
 
+MSG = "Making.. "
+
 HDRS = ./lib/incl/*.h
-
 SRC = ./bin/obj/src/$(T).c
-
 S = ./bin/obj/src/$(T).asm
 SS = ./bin/obj/src/*.asm
-
 OBJ = ./bin/obj/$(T).obj
 OBJS = ./bin/obj/*.obj
 
 MAP = ./bin/obj/$(T).map
 EXE = ./bin/$(T).exe
 
+LIBR3 = ./lib/ccr/ccr.lib
 LIBR2 = ./lib/cbr/cbr.lib
 LIBR1 = ./lib/car/car.lib
+LIBRS = $(LIBR3) $(LIBR2) $(LIBR1)
 LIBR = ./lib/$(L).lib
-LIBRS = user32.lib gdi32.lib
+OS_LIBRS = user32.lib gdi32.lib
 
 UTF_8 = -source-charset:utf-8
 # compiler option for unicode:
 # e.g., define _UNICODE, save files in UTF-8, include <tchar.h>, auto TCHAR *p = (L"...."), fn. _putch/_putwch/_puttch and more..
 
-CFLAGS = -c -Fo$(OBJ) -Fa$(S) # $(UTF_8)
+# CFLAGS = -c -Fo$(OBJ) -Fa$(S) # $(UTF_8)
+CFLAGS = -c -Fo$(OBJ) # -Fa$(S) $(UTF_8)
 CC = cl.exe
 LILFLAGS = -out:$(EXE) -map:$(MAP) -stack:128000000
 LIL = link.exe
@@ -52,9 +54,9 @@ LIL = link.exe
 # e.g.,
 # > nmake T=calend
 
-$(EXE): $(OBJ) $(LIBR) # $(LIBRS)
-	@echo "Stage 0 "
-	$(LIL) $(LILFLAGS) $(OBJ) $(LIBR) $(LIBRS)
+$(EXE): $(OBJ) $(LIBR) $(LIBRS) # $(OS_LIBRS)
+	@echo $(MSG)
+	$(LIL) $(LILFLAGS) $(OBJ) $(LIBR) $(OS_LIBRS)
 
 $(OBJ): $(SRC) $(HDRS)
 	@echo "Stage 1 "
@@ -65,19 +67,23 @@ $(OBJ): $(SRC) $(HDRS)
 # e.g.,
 # > nmake lb L=my
 
-$(LIBR): $(LIBR2) $(LIBR1)
+$(LIBR): $(LIBR3) $(LIBR2) $(LIBR1)
+$(LIBR3):
+	@echo "Making LIBR3.. "
+	cd lib/ccr/
+	nmake
 $(LIBR2):
-	@echo "Stage LIBR2 "
-	cd lib/cbr/
+	@echo "Making LIBR2.. "
+	cd ../cbr/
 	nmake
 $(LIBR1):
-	@echo "Stage LIBR1 "
+	@echo "Making LIBR1.. "
 	cd ../car/
 	nmake
 $(LIBR):
-	@echo "Stage LIBR "
+	@echo "Making LIBR.. "
 	cd ../../
-	lib.exe -out:$(LIBR) $(LIBR2) $(LIBR1)
+	lib.exe -out:$(LIBR) $(LIBRS)
 
 .PHONY: clean
 clean:
@@ -95,6 +101,9 @@ allclean:
 
 .PHONY: allcleanlb
 allcleanlb:
+	del .\lib\ccr\obj\src\*.asm
+	del .\lib\ccr\obj\*.obj
+	del .\lib\ccr\ccr.lib
 	del .\lib\cbr\obj\src\*.asm
 	del .\lib\cbr\obj\*.obj
 	del .\lib\cbr\cbr.lib

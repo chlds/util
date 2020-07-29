@@ -1,7 +1,7 @@
-# Make cbr library
+# Make ccr library
 
-L = cbr
-MSG = "Stage CBR.LIBR2"
+L = ccr
+MSG = "Stage CCR.LIBR3"
 
 LIBR = $(L).lib
 OBJS = ./obj/*.obj
