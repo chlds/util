@@ -303,6 +303,9 @@ signed(__cdecl cli_eq(signed(fd),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp)));
 // parse a config file for the typewriter
 
+signed(__cdecl cli_support_meta_keys(signed(*character),signed char(second),signed char(first)));
+/* Support for function and arrow keys */
+
 signed(__cdecl cli_init_ty(signed(size),CLI_TYPEWRITER(*argp)));
 // initialise
 

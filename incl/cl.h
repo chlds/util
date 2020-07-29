@@ -26,9 +26,6 @@ signed long long *q;
 void *optl;
 } ENCODE_PACK;
 
-signed(__cdecl cli_support_meta_keys(signed(*character),signed char(second),signed char(first)));
-/* Support for function and arrow keys */
-
 signed(__cdecl encode_bw_internal(ENCODE_PACK(*argp)));
 signed(__cdecl encode_bw(signed char(**di),signed short(*si)));
 

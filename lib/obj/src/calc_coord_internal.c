@@ -10,6 +10,8 @@ Refer at incl/recur.h.
 
 # define C_CODE_STDS
 # define C_AS
+# define ALIGN_TAB (0x08)
+
 # include "../../../incl/config.h"
 
 signed(__cdecl calc_coord_internal(COORDS(*coords),signed char(*secure),signed char(*argp),signed char(*base),signed(cols))) {

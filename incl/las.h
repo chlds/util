@@ -9,8 +9,6 @@ Standards: STDIN, STDOUT and STDERR
 
 # define R(D,S) (S).D
 
-# define ALIGN_TAB (0x08)
-
 # define XNOR(A)    A = (~((A)^(A)))
 
 # define  XOR(A,B)  A = ((A)^(B))
