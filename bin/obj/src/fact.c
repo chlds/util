@@ -4,7 +4,7 @@ Factorial: Up to 20 */
 
 
 # define C_CODE_STDS
-# include "./../../../incl/config.h"
+# include "./../../../lib/incl/config.h"
 
 unsigned long long(__cdecl fact(unsigned(arg))) {
 

@@ -10,8 +10,8 @@ Implemented with a flag to be added for code to run as far as possible to the en
 # define MONITORING (0x00)
 # define BUFF (0x400)
 
-# include "./../../../incl/config.h"
-# include "./../../../incl/ascii_table.h"
+# include "./../../../lib/incl/config.h"
+# include "./../../../lib/incl/ascii_table.h"
 
 /* **** entry point */
 signed(__cdecl wmain(signed(argc),signed short(**argv),signed short(**envp))) {

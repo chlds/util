@@ -10,7 +10,7 @@ Based on UTF-8
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/cli.h"
+# include "../../../lib/incl/cli.h"
 
 # define COUNT_CP (0x04)
 # define BUFF (0x1000)

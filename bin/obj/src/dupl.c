@@ -8,7 +8,7 @@ to duplicate/copy to file <di> out of file <si> in the binary format
 
 # define C_CODE_STDS
 # define C_AS
-# include "./../../../incl/config.h"
+# include "./../../../lib/incl/config.h"
 
 # define BUFF (163840)
 # define COUNT_FDS (2)

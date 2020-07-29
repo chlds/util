@@ -8,7 +8,7 @@ Refer at <corecrt_wtime.h>
 # define C_CALEND
 # define C_AS
 
-# include "./../../../incl/config.h"
+# include "./../../../lib/incl/config.h"
 
 signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 

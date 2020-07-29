@@ -9,7 +9,7 @@ Typewriter
 
 # define THRESHOLD (0x02)
 
-# include "../../../incl/config_ty.h"
+# include "../../../lib/incl/config_ty.h"
 
 signed(__cdecl wmain(signed(argc),signed short(**argv),signed short(**envp))) {
 

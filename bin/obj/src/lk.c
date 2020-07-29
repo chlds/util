@@ -10,7 +10,7 @@ This program may immediately cause a stack overflow.
 # define C_CODE_STDS
 # define C_AS
 # define C_W32API
-# include "./../../../incl/config.h"
+# include "./../../../lib/incl/config.h"
 
 # define OPT_RECURSION (0x02)
 # define OPT_ATTRIBS (0x01)

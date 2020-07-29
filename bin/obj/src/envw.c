@@ -5,7 +5,7 @@ Display environment variables.
 
 
 # define CL_MACRO
-# include "../../../incl/cl.h"
+# include "../../../lib/incl/cl.h"
 
 signed(__cdecl wmain(signed(argc),signed short(**argv),signed short(**envp))) {
 

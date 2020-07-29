@@ -10,7 +10,7 @@ e.g.,
 
 
 # define C_CODE_STDS
-# include "./../../../incl/config.h"
+# include "./../../../lib/incl/config.h"
 # include <windows.h>
 
 

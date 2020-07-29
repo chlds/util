@@ -7,7 +7,7 @@ on branch develop
 # define C_CODE_STDS
 # define C_AS
 # define C_MT
-# include "./../../../incl/config.h"
+# include "./../../../lib/incl/config.h"
 
 # define BUFF (0x400)
 

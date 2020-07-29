@@ -11,7 +11,7 @@ Read content out of FILE in column.
 # define C_AS
 # define C_W32API // To use fn. Sleep in a loop.
 
-# include "./../../../incl/config.h"
+# include "./../../../lib/incl/config.h"
 
 signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 

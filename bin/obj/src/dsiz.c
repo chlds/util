@@ -1,14 +1,12 @@
 /* **** Notes
 
 A program to check the size of each data type
-
 */
-
 
 
 # define C_CODE_STDS
 
-# include "./../../../incl/config.h"
+# include "./../../../lib/incl/config.h"
 
 /*
 #ifdef _WIN32
@@ -18,15 +16,10 @@ A program to check the size of each data type
 #endif
 //*/
 
-
-
 /* **** **** entry point */
-
 char signed(__cdecl main(char signed(argc), char signed(**argv), char signed(**envp))) {
 
-
 /* **** **** DATA */
-
 auto char signed(c);
 auto short int signed(s);
 auto int signed(i);

@@ -8,7 +8,7 @@ The command is case-sensitive.
 
 
 # define C_CODE_STDS
-# include "./../../../incl/config.h"
+# include "./../../../lib/incl/config.h"
 
 /* **** Global variables */
 signed TheNumbreOfDirectories = (0x00);
