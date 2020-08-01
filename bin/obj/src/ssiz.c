@@ -5,7 +5,6 @@ Look the stack size
 e.g.,
 > cl -c ssiz.c
 > link -stack:8192000 ssiz.obj
-
 */
 
 
@@ -13,34 +12,32 @@ e.g.,
 # include "./../../../lib/incl/config.h"
 # include <windows.h>
 
+/* **** entry point */
+signed(__cdecl main(signed char(argc),signed char(**argv),signed char(**envp))) {
 
-/* **** **** entry point */
-char signed(__cdecl main(char signed(argc), char signed(**argv), char signed(**envp))) {
+/* **** DATA */
+auto long long unsigned diff,low,high;
+auto signed char c;
 
-/* **** **** DATA */
-auto int long long unsigned(diff), (low), (high);
-auto char signed(c);
-
-/* **** **** CODE/TEXT */
+/* **** CODE/TEXT */
 printf("\n");
-printf("%s%Xh\n", ("_WIN32_WINNT is: "), (_WIN32_WINNT));
+printf("%s%Xh \n","_WIN32_WINNT is: ",_WIN32_WINNT);
+if(_WIN32_WINNT<(0x0602)) return(0x00);
 
-if(_WIN32_WINNT<(0x0602)) return(NIL);
-
-GetCurrentThreadStackLimits(&low, (&high));
+GetCurrentThreadStackLimits(&low,&high);
 
 printf("\n");
-printf("%15I64Xh%s\n", (low), (" : High Limit"));
-printf("%15I64Xh%s\n", (high), (" : Low Limit"));
+printf("%15I64Xh%s\n",low," : High Limit ");
+printf("%15I64Xh%s\n",high," : Low Limit ");
 
 diff = (high+(1+(~(low))));
 
 printf("\n");
-printf("%s\n", ("The stack size allocated by the system for this program:"));
+printf("%s\n","The stack size allocated by the system for this program: ");
 
 printf("\n");
-printf("%15I64Xh%s", (diff), (" ("));
-printf("%I64d%s\n", (diff), (" Bytes)"));
+printf("%15I64Xh%s",diff," (");
+printf("%I64d%s\n",diff," Bytes) ");
 
-return(XOR(c, c));
+return(0x01);
 }

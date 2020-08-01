@@ -60,7 +60,7 @@ i++;
 i = (i*(sizeof(signed char)));
 p = (signed char(*)) malloc(i);
 if(!p) {
-printf("%s\n","<< Error at fn. malloc()");
+printf("%s\n","<< Error at fn. malloc() ");
 return(0x00);
 }
 r = cpy(p,argp);
@@ -81,14 +81,14 @@ if(0x02<(argc)) OR(cmdln_flag,OPT_RECURSION);
 
 r = finds(cmdln_flag,argp);
 if(!r) {
-printf("%s\n","<< An error has occurred at fn. finds().");
+printf("%s\n","<< An error has occurred at fn. finds(). ");
 return(0x00);
 }
 
 if(flag) {
 r = embed(0x00,p);
 if(!r) {
-printf("%s\n","<< Error at fn. embed()");
+printf("%s\n","<< Error at fn. embed() ");
 // return(0x00);
 }
 free(p);
@@ -98,8 +98,8 @@ p = (0x00);
 argp = (p);
 
 printf("\n");
-printf(" %d %s\n",TheNumbreOfDirectories,"directories");
-printf(" %d %s\n",TheNumbreOfFiles,"files");
+printf(" %d %s\n",TheNumbreOfDirectories,"directories ");
+printf(" %d %s\n",TheNumbreOfFiles,"files ");
 
 return(0x00);
 }

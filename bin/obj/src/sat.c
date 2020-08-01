@@ -31,7 +31,8 @@ auto signed const QUANTUM = (0x10);
 auto signed const SNOOZE = (0x04);
 auto signed const DELAY = (0x02*(QUANTUM));
 
-auto struct knot *cache;
+auto REEL reel;
+auto KNOT *cache;
 
 auto CARD **cards;
 auto CARD *card;
@@ -45,7 +46,7 @@ auto unsigned(__stdcall*(fn[COUNT_FUNCTIONS/* i.e., CARDS */])) (void(*argp)) = 
 (unsigned(__stdcall*) (void(*))) (cmdl2_open),
 (unsigned(__stdcall*) (void(*))) (cmdl2_output),
 (unsigned(__stdcall*) (void(*))) (cmdl2_history),
-(unsigned(__stdcall*) (void(*))) (0x00)
+(unsigned(__stdcall*) (void(*))) (0x00),
 };
 
 auto signed char *(term[COUNT_FUNCTIONS/* i.e., CARDS */]) = {
@@ -57,12 +58,12 @@ auto signed char *(term[COUNT_FUNCTIONS/* i.e., CARDS */]) = {
 (char signed(*)) ("--open"),
 (char signed(*)) ("--output"),
 (char signed(*)) ("--history"),
-(char signed(*)) (0x00)
+(char signed(*)) (0x00),
 };
 
 
 auto signed char buff[BUFF] = {
-(signed char) (0x00)
+(signed char) (0x00),
 };
 
 auto unsigned createdflags = (0x00);
@@ -83,14 +84,14 @@ auto signed char *p = (0x00);
 /*
 r = make_cards(term,fn,&cards);
 if(!r) {
-printf("%s\n","<< Error at fn. make_cards()");
+printf("%s\n","<< Error at fn. make_cards() ");
 return(0x00);
 }
 //*/
 
 // announcements
-printf("%s\n","Please type --exit or press <Ctrl-C> to stop.");
-printf("%s\n","Command or text:");
+printf("%s\n","Please type --exit or press <Ctrl-C> to stop. ");
+printf("%s\n","Command or text: ");
 printf("\n");
 
 /* Initialize */
@@ -107,7 +108,7 @@ while(2) {
 if(Announcements) break;
 cache = (struct knot(*)) malloc(sizeof(struct knot));
 if(!cache) {
-printf("%s\n","<< Error at fn. malloc()");
+printf("%s\n","<< Error at fn. malloc() ");
 return(0x00);
 }
 R(thread,*cache) = (0x00);
@@ -115,11 +116,11 @@ R(tid,*cache) = (0x00);
 R(p,*cache) = (0x00);
 r = reading(buff,BUFF);
 if(!(r^(~(0x00)))) {
-printf("%s\n","<< Error at fn. reading() with (~(0x00))");
+printf("%s\n","<< Error at fn. reading() with (~(0x00)) ");
 return(r);
 }
 if(!r) {
-printf("%s\n","<< Error at fn. reading()");
+printf("%s\n","<< Error at fn. reading() ");
 return(0x00);
 }
 length = ct(buff);
@@ -127,20 +128,20 @@ length++;
 length = (length*(sizeof(signed char)));
 R(p,*cache) = (signed char(*)) malloc(length);
 if(!(R(p,*cache))) {
-printf("%s\n","<< Error at fn. malloc()");
+printf("%s\n","<< Error at fn. malloc() ");
 return(0x00);
 }
 r = cpy(R(p,*cache),buff);
 if(!r) {
 /* empty or..
-printf("%s\n","<< Error at fn. cpy()");
+printf("%s\n","<< Error at fn. cpy() ");
 return(0x00);
 //*/
 }
 // and concatenate
 r = concat_ll(0x00/* doubly LL */,cache);
 if(!r) {
-printf("%s\n","<< Error at fn. concat_ll()");
+printf("%s\n","<< Error at fn. concat_ll() ");
 return(0x00);
 }
 /* Is it a command or text.. */
@@ -149,7 +150,7 @@ XOR(i,i);
 while(*(term+(i))) {
 r = cmpr_partially(&dif,buff,*(term+(i)));
 if(!r) {
-printf("%s\n","<< Error at fn. cmpr_partially()");
+printf("%s\n","<< Error at fn. cmpr_partially() ");
 return(0x00);
 }
 if(!dif) {
@@ -159,7 +160,7 @@ OR(R(flag,*lead),CMDFLAG);
 R(thread,*cache) = (void(*)) _beginthreadex(0x00,stacksize,*(fn+(i)),R(p,*lead)/* e.g., *(argp+(i)) */,createdflags,&(R(tid,*cache)));
 if(!(R(thread,*cache))) {
 // e.g., unmap the rest..
-printf("%s\n","<< Error at fn. _beginthreadex()");
+printf("%s\n","<< Error at fn. _beginthreadex() ");
 return(0x00);
 }
 break;
@@ -175,13 +176,13 @@ if(!i) break;
 i = (0x00);
 while(0x01) {
 if(!Running) break;
-// printf("%s\n", "Waiting for all the sub-threads to stop");
+// printf("%s\n", "Waiting for all the sub-threads to stop ");
 if(DBG) printf(".. ");
 /* CPU idling */
 Sleep(DELAY);
 i++;
 if(0x10<(i)) {
-printf("%s\n","<< Oops..");
+printf("%s\n","<< Oops.. ");
 break;
 }}
 
@@ -193,13 +194,13 @@ XOR(i,i);
 cache = base;
 // Attention: Based on a doubly linked list i.e., not a circular linked list.
 while(cache) {
-if(DBG) printf("%s%p%s%u\n","Thread handle/TID: ",R(thread,*cache),"/",R(tid,*cache));
+if(DBG) printf("%s%p%s%u \n","Thread handle/TID: ",R(thread,*cache),"/",R(tid,*cache));
 if(R(thread,*cache)) {
 r = CloseHandle(R(thread,*cache));
 if(!r) {
-printf("%s\n","<< Error at fn. CloseHandle()");
+printf("%s\n","<< Error at fn. CloseHandle() ");
 // e.g., unmap the rest..
-return(~(NIL));
+return(0x00);
 }
 else l++;
 }
@@ -208,16 +209,16 @@ i++;
 }
 
 // Monitoring
-printf("%s%d%s%d\n","Unmapped thread handles/knots: ",l,"/",i);
+printf("%s%d%s%d \n","Unmapped thread handles/knots: ",l,"/",i);
 
 //* Auxiliarilly Outputting
 printf("\n");
-printf("%s\n","<< Auxiliaries: Outputting");
+printf("%s\n","<< Auxiliaries: Outputting ");
 
 i = (0x00);
 cache = base;
 while(cache) {
-printf("%d%s%s\n",i++,". ",R(p,*cache));
+printf("%d%s%s \n",i++,". ",R(p,*cache));
 cache = R(d,*cache);
 }
 //*/
@@ -230,9 +231,9 @@ if(!r) {
 printf("%s\n","<< Error at fn. unmap_ll() ");
 return(0x00);
 }
-else printf("%s%d%s\n","Unmapped ",r," knots.");
+else printf("%s%d%s\n","Unmapped ",r," knots. ");
 
-printf("%s\n","All DONE!");
+printf("%s\n","All DONE! ");
 
 return(0x01);
 }

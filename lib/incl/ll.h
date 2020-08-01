@@ -53,3 +53,12 @@ unsigned tid; // a thread id e.g., returned by fn. _beginthreadex
 void *thread; // a thread handle e.g., returned by fn. _beginthreadex
 void *optl;
 } KNOT;
+
+typedef struct reel {
+signed short insert;
+signed undo;
+signed redo;
+KNOT *(cache);
+KNOT *(knot[COMMON_OBJS/* KNOTS */]);
+void *optl;
+} REEL;

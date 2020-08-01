@@ -25,10 +25,10 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(argc<(0x02)) {
 printf("\n");
-printf(" %s\n","pick <path> [FILE]");
+printf(" %s\n","pick <path> [FILE] ");
 printf("\n");
-printf(" %s\n","Find files that contain the case-sensitive specific string using depth-first search.");
-printf(" %s\n","e.g., pick ./* obj");
+printf(" %s\n","Find files that contain the case-sensitive specific string using depth-first search. ");
+printf(" %s\n","e.g., pick ./* obj ");
 return(0x00);
 }
 
@@ -48,7 +48,7 @@ i++;
 i = (i*(sizeof(signed char)));
 p = (signed char(*)) malloc(i);
 if(!p) {
-printf("%s\n","<< Error at fn. malloc()");
+printf("%s\n","<< Error at fn. malloc() ");
 return(0x00);
 }
 r = cpy(p,path);
@@ -64,12 +64,12 @@ p = (0x00);
 }
 
 r = pickfiles(path,argp);
-if(!r) return(XNOR(r));
+if(!r) return(0x00);
 
 if(flag) {
 r = embed(0x00,p);
 if(!r) {
-printf("%s\n","<< Error at fn. embed()");
+printf("%s\n","<< Error at fn. embed() ");
 // return(0x00);
 }
 free(p);
@@ -80,8 +80,8 @@ path = (p);
 argp = (p);
 
 printf("\n");
-printf(" %d %s\n",TheNumbreOfDirectories,"directories");
-printf(" %d %s\n",TheNumbreOfFiles,"files");
+printf(" %d %s\n",TheNumbreOfDirectories,"directories ");
+printf(" %d %s\n",TheNumbreOfFiles,"files ");
 
 return(0x00);
 }
