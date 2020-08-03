@@ -31,11 +31,13 @@ signed(__cdecl unmap2_cirll(struct knot(*argp)));
 signed(__cdecl unmap_cirll(struct knot(*argp)));
 /* Based on a circular linked list */
 
-signed(__cdecl unmap_ll(KNOT(**argp)));
+signed(__cdecl unmap_ll_internal(KNOT(*argp)));
+signed(__cdecl unmap_ll(REEL(*argp)));
+/* Based on a doubly linked list */
 
 signed(__cdecl output_ll(KNOT(*argp)));
 
-signed(__cdecl concat_ll(signed short(flag),KNOT(*argp)));
+signed(__cdecl concat_ll(signed short(flag),KNOT(*cache),REEL(*argp)));
 /* Build a circular/doubly linked list */
 
 signed(__cdecl concats_internal(signed char(*di), signed char(*bp)));

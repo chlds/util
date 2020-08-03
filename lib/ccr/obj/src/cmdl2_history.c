@@ -14,19 +14,16 @@ is for a doubly LL i.e.,
 # define C_AS
 # include "./../../../incl/config.h"
 
-unsigned(__stdcall cmdl2_history(void(*argp))) {
+unsigned(__stdcall cmdl2_history(SAT(*argp))) {
 
 /* **** DATA */
 external signed short Announcements;
 external signed Running;
 
-external struct knot *base;
-external struct knot *lead;
-
 auto signed const QUANTUM = (0x10);
 auto signed const DELAY = (0x01*(QUANTUM));
 
-auto struct knot *cache;
+auto struct knot *cache,*lead,*base;
 auto signed i,r;
 
 /* **** CODE/TEXT */
@@ -37,14 +34,15 @@ Running++;
 printf("\n");
 
 i = (i^(i));
+
+base = (*(CLI_BASE+(R(knot,R(reel,*argp)))));
 cache = (base);
 
 while(cache) {
 if(Announcements) break;
 Sleep(DELAY);
 printf("  %d%s",i++,". ");
-if(R(p,*cache)) printf("%s",R(p,*cache));
-printf("\n");
+if(R(p,*cache)) printf("%s \n",R(p,*cache));
 cache = R(d,*cache);
 }
 

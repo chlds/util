@@ -17,22 +17,20 @@ Implemented along with fn. spltfree() and with fn. splt()
 # define C_AS
 # include "./../../../incl/config.h"
 
-unsigned(__stdcall cmdl2_save(void(*argp))) {
+unsigned(__stdcall cmdl2_save(SAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 external signed short Announcements;
 external signed Running;
-external struct knot *base;
-external struct knot *lead;
 
 auto signed const QUANTUM = (0x10);
 auto signed const SNOOZE = (0x04);
 auto signed const DELAY = (0x02*(QUANTUM));
 
+auto KNOT *cache,*lead,*base;
+
 auto signed char **pp;
 auto signed char *p;
-
-auto struct knot *cache;
 
 auto signed count;
 auto signed fd;
@@ -44,36 +42,41 @@ auto signed char c;
 auto signed char uncmpltflag;
 
 /* **** CODE/TEXT */
+if(!argp) return(0x00);
+
 Running++;
 
 /* Count arguments */
-r = ct_args(argp);
+cache = (*(CLI_INDEX+(R(knot,R(reel,*argp)))));
+if(!cache) return(0x00);
+p = (R(p,*cache));
 
+r = ct_args(p);
 if(!r) {
-printf("%s\n","<< Error at fn. ct_args()");
+printf("%s \n","<< Error at fn. ct_args()");
 --Running;
-return(XNOR(r));
+return(0x00);
 }
 
-// printf("%s%d\n","The numbre of arguments is: ",r);
+// printf("%s%d \n","The numbre of arguments is: ",r);
 
 if(r<(0x02)) {
-printf("%s\n","Syntax: --save <file>");
+printf("%s \n","Syntax: --save <file>");
 printf("\n");
 --Running;
-return(XNOR(r));
+return(0x00);
 }
 
 /* Split out of the command line */
-r = splt(&pp,argp);
+r = splt(&pp,p);
 if(!r) {
-printf("%s\n","<< Error at fn. splt()");
+printf("%s \n","<< Error at fn. splt()");
 --Running;
-return(XNOR(r));
+return(0x00);
 }
 
 else {
-// printf("%s%d\n","The numbre of splitted arguments is: ",r);
+// printf("%s%d \n","The numbre of splitted arguments is: ",r);
 // Save as file name p.
 p = (signed char(*)) (*(pp+(r+(~(0x00)))));
 }
@@ -82,7 +85,7 @@ p = (signed char(*)) (*(pp+(r+(~(0x00)))));
 flag = (0x00);
 fd = open(p,O_WRONLY|(O_BINARY|(O_CREAT|(O_EXCL|(O_APPEND)))),S_IREAD|(S_IWRITE));
 if(!(fd^(~(0x00)))) {
-printf("%s\n","<< Could not open..");
+printf("%s \n","<< Could not open..");
 flag++;
 }
 
@@ -90,7 +93,8 @@ if(!flag) {
 /* Writing */
 XOR(uncmpltflag,uncmpltflag);
 XOR(i,i);
-cache = (struct knot(*)) (base);
+base = (*(CLI_BASE+(R(knot,R(reel,*argp)))));
+cache = (base);
 while(cache) {
 if(Announcements) {
 uncmpltflag++;
@@ -103,18 +107,18 @@ else {
 count = ct(R(p,*cache));
 if(!count) {
 /* An error has occurred or empty..
-printf("%s\n","<< Error at fn. ct()");
+printf("%s \n","<< Error at fn. ct()");
 break;
 //*/
 }
 r = write(fd,R(p,*cache),count);
 if(!(r^(~(0x00)))) {
-printf("%s\n","<< Error at fn. write()");
+printf("%s \n","<< Error at fn. write()");
 break;
 }
 /*
 if(!r) {
-printf("%s\n","<< Done with (NIL).");
+printf("%s \n","<< Done with (NIL).");
 break;
 }
 //*/
@@ -122,7 +126,7 @@ break;
 c = ('\n');
 r = write(fd,&c,sizeof(c));
 if(!(r^(~(0x00)))) {
-printf("%s\n","<< Error at fn. write()");
+printf("%s \n","<< Error at fn. write()");
 break;
 }}
 cache = (struct knot(*)) R(d,*cache);
@@ -137,21 +141,21 @@ Sleep(DELAY);
 /* closing/unmapping on the RAM */
 r = close(fd);
 if(!(r^(~(0x00)))) {
-printf("%s\n","<< Error at fn. close()");
+printf("%s \n","<< Error at fn. close()");
 --Running;
 return(r);
 }
 /* Notificate */
-r = printf("%s%s\n","Saved as: ",p);
-if(uncmpltflag) printf("%s\n","Attention: There was an interruption during writing..");
+r = printf("%s%s \n","Saved as: ",p);
+if(uncmpltflag) printf("%s \n","Attention: There was an interruption during writing..");
 }
 
 /* Unmap all the buffers allocated by fn. splt() on the RAM */
 r = spltfree(pp);
 if(!r) {
-printf("%s\n","<< Error at fn. spltfree()");
+printf("%s \n","<< Error at fn. spltfree()");
 --Running;
-return(XNOR(r));
+return(0x00);
 }
 
 printf("\n");

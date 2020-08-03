@@ -62,3 +62,11 @@ KNOT *(cache);
 KNOT *(knot[COMMON_OBJS/* KNOTS */]);
 void *optl;
 } REEL;
+
+typedef struct sat {
+signed char *(cur[COMMON_OBJS]);
+signed char *(base[COMMON_OBJS]);
+signed short flag;
+REEL reel;
+void *optl;
+} SAT;

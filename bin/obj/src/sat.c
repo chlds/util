@@ -21,9 +21,6 @@ global signed short Announcements = (0x00);
 global signed Running = (0x01);
 // fn. cmdl_exit() to finally subtract the value.
 
-global KNOT *base;
-global KNOT *lead;
-
 /* **** entry point */
 signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 
@@ -31,8 +28,8 @@ auto signed const QUANTUM = (0x10);
 auto signed const SNOOZE = (0x04);
 auto signed const DELAY = (0x02*(QUANTUM));
 
-auto REEL reel;
-auto KNOT *cache;
+auto SAT sat;
+auto KNOT *cache,*knot;
 
 auto CARD **cards;
 auto CARD *card;
@@ -61,13 +58,10 @@ auto signed char *(term[COUNT_FUNCTIONS/* i.e., CARDS */]) = {
 (char signed(*)) (0x00),
 };
 
-
-auto signed char buff[BUFF] = {
-(signed char) (0x00),
-};
-
 auto unsigned createdflags = (0x00);
 auto unsigned stacksize = (0x00);
+
+auto signed char *cur,*base,*p;
 
 auto signed i,l,r;
 auto signed count,total;
@@ -76,29 +70,36 @@ auto signed dif,length;
 auto signed short flag;
 auto signed char c;
 
-auto signed char *p = (0x00);
-
-
 /* **** CODE/TEXT */
-// make cards
 /*
 r = make_cards(term,fn,&cards);
 if(!r) {
-printf("%s\n","<< Error at fn. make_cards() ");
+printf("%s \n","<< Error at fn. make_cards()");
 return(0x00);
 }
 //*/
 
 // announcements
-printf("%s\n","Please type --exit or press <Ctrl-C> to stop. ");
-printf("%s\n","Command or text: ");
+printf("%s \n","Please type --exit or press <Ctrl-C> to stop.");
+printf("%s \n","Command or text:");
 printf("\n");
 
 /* Initialize */
-base = (0x00);
-lead = (0x00);
-
-i = (i^(i));
+r = (BUFF);
+r = (r*(sizeof(signed char)));
+base = (signed char(*)) malloc(r);
+if(!base) return(0x00);
+cur = (base);
+i = (COMMON_OBJS);
+while(i) {
+*(--i+(R(cur,sat))) = (base);
+*(i+(R(base,sat))) = (base);
+}
+i = (COMMON_OBJS);
+while(i) {
+*(--i+(R(knot,R(reel,sat)))) = (0x00);
+}
+AND(R(insert,R(reel,sat)),0x00);
 
 XOR(count,count);
 XOR(total,total);
@@ -108,59 +109,60 @@ while(2) {
 if(Announcements) break;
 cache = (struct knot(*)) malloc(sizeof(struct knot));
 if(!cache) {
-printf("%s\n","<< Error at fn. malloc() ");
+printf("%s \n","<< Error at fn. malloc()");
 return(0x00);
 }
 R(thread,*cache) = (0x00);
 R(tid,*cache) = (0x00);
 R(p,*cache) = (0x00);
-r = reading(buff,BUFF);
+r = reading(cur,BUFF);
 if(!(r^(~(0x00)))) {
-printf("%s\n","<< Error at fn. reading() with (~(0x00)) ");
+printf("%s \n","<< Error at fn. reading() with (~(0x00))");
 return(r);
 }
 if(!r) {
-printf("%s\n","<< Error at fn. reading() ");
+printf("%s \n","<< Error at fn. reading()");
 return(0x00);
 }
-length = ct(buff);
+length = ct(cur);
 length++;
 length = (length*(sizeof(signed char)));
 R(p,*cache) = (signed char(*)) malloc(length);
 if(!(R(p,*cache))) {
-printf("%s\n","<< Error at fn. malloc() ");
+printf("%s \n","<< Error at fn. malloc()");
 return(0x00);
 }
-r = cpy(R(p,*cache),buff);
+r = cpy(R(p,*cache),cur);
 if(!r) {
 /* empty or..
-printf("%s\n","<< Error at fn. cpy() ");
+printf("%s \n","<< Error at fn. cpy()");
 return(0x00);
 //*/
 }
 // and concatenate
-r = concat_ll(0x00/* doubly LL */,cache);
+r = concat_ll(0x00/* doubly LL */,cache,&(R(reel,sat)));
 if(!r) {
-printf("%s\n","<< Error at fn. concat_ll() ");
+printf("%s \n","<< Error at fn. concat_ll()");
 return(0x00);
 }
 /* Is it a command or text.. */
-AND(R(flag,*lead),0x00);
+// cache = (*(CLI_INDEX+(R(knot,R(reel,sat)))));
+AND(R(flag,*cache),0x00);
 XOR(i,i);
 while(*(term+(i))) {
-r = cmpr_partially(&dif,buff,*(term+(i)));
+r = cmpr_partially(&dif,cur,*(term+(i)));
 if(!r) {
-printf("%s\n","<< Error at fn. cmpr_partially() ");
+printf("%s \n","<< Error at fn. cmpr_partially()");
 return(0x00);
 }
 if(!dif) {
 /* It has a commandlet. Run a multi-threading program or more */
-OR(R(flag,*lead),CMDFLAG);
+OR(R(flag,*cache),CMDFLAG);
 // run in a sub-routine
-R(thread,*cache) = (void(*)) _beginthreadex(0x00,stacksize,*(fn+(i)),R(p,*lead)/* e.g., *(argp+(i)) */,createdflags,&(R(tid,*cache)));
+R(thread,*cache) = (void(*)) _beginthreadex(0x00,stacksize,*(fn+(i)),&sat/* e.g., *(argp+(i)) */,createdflags,&(R(tid,*cache)));
 if(!(R(thread,*cache))) {
 // e.g., unmap the rest..
-printf("%s\n","<< Error at fn. _beginthreadex() ");
+printf("%s \n","<< Error at fn. _beginthreadex()");
 return(0x00);
 }
 break;
@@ -171,34 +173,33 @@ i++;
 if(!i) break;
 }
 
-
 /* Monitor behavior of the other sub-threads to be stopped by sub-thread cmdl2_exit. */
 i = (0x00);
 while(0x01) {
 if(!Running) break;
-// printf("%s\n", "Waiting for all the sub-threads to stop ");
+// printf("%s \n","Waiting for all the sub-threads to stop");
 if(DBG) printf(".. ");
 /* CPU idling */
 Sleep(DELAY);
 i++;
 if(0x10<(i)) {
-printf("%s\n","<< Oops.. ");
+printf("%s \n","<< Oops..");
 break;
 }}
 
-/* Close/unmap the thread handles */
 printf("\n");
 
+/* Close/unmap the thread handles */
 XOR(l,l);
 XOR(i,i);
-cache = base;
+cache = (*(CLI_BASE+(R(knot,R(reel,sat)))));
 // Attention: Based on a doubly linked list i.e., not a circular linked list.
 while(cache) {
 if(DBG) printf("%s%p%s%u \n","Thread handle/TID: ",R(thread,*cache),"/",R(tid,*cache));
 if(R(thread,*cache)) {
 r = CloseHandle(R(thread,*cache));
 if(!r) {
-printf("%s\n","<< Error at fn. CloseHandle() ");
+printf("%s \n","<< Error at fn. CloseHandle()");
 // e.g., unmap the rest..
 return(0x00);
 }
@@ -213,10 +214,10 @@ printf("%s%d%s%d \n","Unmapped thread handles/knots: ",l,"/",i);
 
 //* Auxiliarilly Outputting
 printf("\n");
-printf("%s\n","<< Auxiliaries: Outputting ");
+printf("%s \n","<< Auxiliaries: Outputting");
 
 i = (0x00);
-cache = base;
+cache = (*(CLI_BASE+(R(knot,R(reel,sat)))));
 while(cache) {
 printf("%d%s%s \n",i++,". ",R(p,*cache));
 cache = R(d,*cache);
@@ -225,15 +226,24 @@ cache = R(d,*cache);
 
 printf("\n");
 
-/* unmap at */
-r = unmap_ll(&lead);
+r = unmap_ll(&(R(reel,sat)));
 if(!r) {
-printf("%s\n","<< Error at fn. unmap_ll() ");
+printf("%s \n","<< Error at fn. unmap_ll()");
 return(0x00);
 }
-else printf("%s%d%s\n","Unmapped ",r," knots. ");
+else printf("%s%d%s \n","Unmapped ",r," knots.");
 
-printf("%s\n","All DONE! ");
+embed(0x00,base);
+free(base);
+base = (0x00);
+cur = (base);
+i = (COMMON_OBJS);
+while(i) {
+*(--i+(R(cur,sat))) = (base);
+*(i+(R(base,sat))) = (base);
+}
+
+printf("%s \n","All DONE!");
 
 return(0x01);
 }
