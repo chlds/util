@@ -50,7 +50,10 @@ Running++;
 
 /* **** Check the arguments */
 cache = (*(CLI_INDEX+(R(knot,R(reel,*argp)))));
-if(!cache) return(0x00);
+if(!cache) {
+--Running;
+return(0x00);
+}
 
 p = (R(p,*cache));
 
@@ -85,6 +88,7 @@ p = (*(pp+(r+(~(0x00)))));
 fd = open(p,O_RDONLY|(O_BINARY));
 if(!(fd^(~(0x00)))) {
 printf("%s \n","<< Error at fn. open()");
+--Running;
 return(0x00);
 }
 // else printf("%s%s \n","Opened at file: ",p);

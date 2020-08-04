@@ -27,18 +27,14 @@ signed(__cdecl finds(signed short(cmdln_flag), signed char(*argp)));
 signed(__cdecl descend_ll(KNOT(**di),KNOT(*si)));
 signed(__cdecl ascend_ll(KNOT(**di),KNOT(*si)));
 
-signed(__cdecl unmap2_cirll(struct knot(*argp)));
-signed(__cdecl unmap_cirll(struct knot(*argp)));
-/* Based on a circular linked list */
-
-signed(__cdecl unmap_ll_internal(KNOT(*argp)));
-signed(__cdecl unmap_ll(REEL(*argp)));
-/* Based on a doubly linked list */
+signed(__cdecl unmap_ll_internal(signed short(flag),KNOT(*lead),KNOT(*base)));
+signed(__cdecl unmap_ll(signed short(flag),REEL(*argp)));
+/* Unmap a circular/doubly linked list. */
 
 signed(__cdecl output_ll(KNOT(*argp)));
 
 signed(__cdecl concat_ll(signed short(flag),KNOT(*cache),REEL(*argp)));
-/* Build a circular/doubly linked list */
+/* Build a circular/doubly linked list. */
 
 signed(__cdecl concats_internal(signed char(*di), signed char(*bp)));
 signed(__cdecl concats(signed char(*argp), ...));

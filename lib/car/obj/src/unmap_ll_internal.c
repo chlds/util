@@ -1,6 +1,8 @@
 /* **** Notes
 
-Unmap a doubly linked list
+Unmap a circular/doubly linked list.
+
+flag: 0x00 is in a doubly linked list and the others are in a circular linked list.
 
 Remarks:
 Please look at util/incl/ll.h
@@ -11,15 +13,30 @@ Please look at util/incl/ll.h
 # include "../../../incl/config.h"
 # include <stdlib.h>
 
-signed(__cdecl unmap_ll_internal(KNOT(*argp))) {
+signed(__cdecl unmap_ll_internal(signed short(flag),KNOT(*lead),KNOT(*base))) {
 
+/* **** DATA, BSS and STACK */
 auto KNOT *cache;
+auto signed long long ll;
 auto signed i,r;
 
-if(!argp) return(0x00);
+/* **** CODE/TEXT */
+if(!lead) return(0x00);
+if(!base) return(0x00);
 
-cache = (argp);
-argp = (R(s,*argp));
+if(flag) {
+// i.e., in a circular LL
+ll = (signed long long) (lead);
+if(!(ll^((signed long long) base))) {
+embed(0x00/* flag */,R(p,*lead));
+free(R(p,*lead));
+R(p,*lead) = (signed char(*)) (0x00);
+free(lead);
+return(0x01);
+}}
+
+cache = (lead);
+lead = (R(s,*lead));
 
 if(R(p,*cache)) {
 // r = embed_to(R(p,*cache),0x00,ct(R(p,*cache)));
@@ -31,5 +48,5 @@ R(p,*cache) = (signed char(*)) (0x00);
 free(cache);
 cache = (0x00);
 
-return(0x01+(unmap_ll_internal(argp)));
+return(0x01+(unmap_ll_internal(flag,lead,base)));
 }
