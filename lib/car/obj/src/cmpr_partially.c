@@ -4,10 +4,13 @@ Partially compare strings
 */
 
 
+# define CAR
+# include "../../../incl/config.h"
+
 signed(__cdecl cmpr_partially(signed(*cache),signed char(*di),signed char(*si))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char(c);
+auto signed char c;
 
 /* **** CODE/TEXT */
 if(!di) return(0x00);

@@ -8,9 +8,9 @@ Using along with fn. finds
 
 
 # define C_CODE_STDS
-# define C_AS
 # define C_W32API
-# include "./../../../incl/config.h"
+# define CAR
+# include "../../../incl/config.h"
 
 # define BUFF (0x400)
 
@@ -61,7 +61,7 @@ static signed const(attrib[]) = {
 (signed) (FILE_ATTRIBUTE_SYSTEM),
 (signed) (FILE_ATTRIBUTE_TEMPORARY),
 (signed) (FILE_ATTRIBUTE_VIRTUAL),
-(signed) (NIL)
+(signed) (0x00),
 };
 
 static signed char const(*(attribp[])) = {
@@ -84,7 +84,7 @@ static signed char const(*(attribp[])) = {
 (char signed(*)) ("System"),
 (char signed(*)) ("Temporary"),
 (char signed(*)) ("Virtual"),
-(char signed(*)) (NIL)
+(char signed(*)) (0x00),
 };
 
 auto SYSTEMTIME(st);
@@ -142,7 +142,7 @@ if(!r) {
 printf("%s\n", "<< An error has occurred at fn. cpy().");
 return(0x00);
 }
-*(craft+(r+(~(NIL)))) = (0x00);
+*(craft+(r+(~(0x00)))) = (0x00);
 /* And append to an array craft using fn. append2 (or fn. concat2).
 r = concat2(craft, p, "/*", (void*) 0x00);
 if(!r) {

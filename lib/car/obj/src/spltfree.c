@@ -8,8 +8,8 @@ Using fn. free
 
 
 # define C_CODE_STDS
-# define C_AS
-# include "./../../../incl/config.h"
+# define CAR
+# include "../../../incl/config.h"
 
 signed(__cdecl spltfree(signed char(**argp))) {
 

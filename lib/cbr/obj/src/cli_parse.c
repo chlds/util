@@ -9,7 +9,7 @@ LF (0x0A)
 //*/
 
 
-# define CLI_MACRO
+# define CBR
 
 # include <io.h>
 # include <conio.h>
@@ -20,7 +20,7 @@ LF (0x0A)
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <errno.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp))) {
 

@@ -9,7 +9,7 @@ Please look at util/incl/ll.h
 //*/
 
 
-# define C_AS
+# define CAR
 # include "../../../incl/config.h"
 # include <stdlib.h>
 

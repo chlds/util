@@ -4,7 +4,10 @@ Copy to the <di> out of the <si>
 */
 
 
-signed(__cdecl cpy(signed char(*di), signed char(*si))) {
+# define CAR
+# include "../../../incl/config.h"
+
+signed(__cdecl cpy(signed char(*di),signed char(*si))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char(cache);
@@ -23,5 +26,5 @@ cache = (*si);
 
 di++;
 si++;
-return(1+(cpy(di, si)));
+return(0x01+(cpy(di,si)));
 }

@@ -8,13 +8,15 @@ Along with fn. cpy
 */
 
 
+# define CAR
+# include "../../../incl/config.h"
 # include <stdarg.h>
 
 signed(__cdecl concats_internal(signed char(*argp),signed char(*bp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char(*p);
-auto signed(r);
+auto signed char *p;
+auto signed r;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);

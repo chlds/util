@@ -7,9 +7,10 @@ Refer at fn. keep and fn. keep_w.
 */
 
 
+# define CAR
+# include "../../../incl/config.h"
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/cl.h"
 
 signed(__cdecl release(signed(n),void(**argp))) {
 

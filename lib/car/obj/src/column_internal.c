@@ -11,8 +11,8 @@ Add support for Unicode characters
 
 
 # define C_CODE_STDS
-# define C_AS
 # define C_W32API // To use fn. Sleep in recursion.
+# define CAR
 # include "../../../incl/config.h"
 
 signed(__cdecl column_internal(signed short(cols),signed(algn),signed short(col),signed char(*cur),signed char(*offset))) {
@@ -58,7 +58,7 @@ if(!(LF^(*cur))) flag = (0x01);
 if(!(HYPHEN^(*cur))) {
 ADD(col,0x01);
 if(col<(cols)) XOR(flag,flag);
-else XNOR(flag);
+else flag = (~(0x00));
 r = _putch(HYPHEN);
 if(!(EOF^(r))) {
 printf("%s", "<< Error at fn. _putch/_putwch()");
@@ -68,7 +68,7 @@ return(0x00);
 if(!(SP^(*cur))) {
 ADD(col,0x01);
 if(col<(cols)) XOR(flag,flag);
-else XNOR(flag);
+else flag = (~(0x00));
 r = _putch(SP);
 if(!(EOF^(r))) {
 printf("%s", "<< Error at fn. _putch/_putwch()");
@@ -87,7 +87,7 @@ free(p);
 // output: drain
 ADD(col,r);
 if(col<(cols)) XOR(flag,flag);
-else XNOR(flag);
+else flag = (~(0x00));
 r = n_putch(r,SP);
 if(!r) {
 printf("%s", "<< Error at fn. n_putch()");

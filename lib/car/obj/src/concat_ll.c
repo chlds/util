@@ -10,7 +10,7 @@ Please look at util/incl/ll.h
 */
 
 
-# define C_AS
+# define CAR
 # include "../../../incl/config.h"
 
 signed(__cdecl concat_ll(signed short(flag),KNOT(*cache),REEL(*argp))) {

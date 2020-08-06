@@ -55,9 +55,9 @@ i.e., delete the enhmeta file.
 */
 
 # define C_CODE_STDS
-# define C_CALEND
-# define C_AS
 # define C_W32API
+# define CALEND
+# define CCR
 
 # define COUNT_MODULES (1)
 # define COUNT_WINDOWS (1)
@@ -69,9 +69,7 @@ i.e., delete the enhmeta file.
 # define RADIX (0x0A)
 # define BUFF (0x200)
 
-# define external extern
-
-# include "./../../../incl/config.h"
+# include "../../../incl/config.h"
 
 # include <objbase.h> // for combaseapi.h
 # include <wincodec.h>
@@ -81,10 +79,6 @@ i.e., delete the enhmeta file.
 unsigned(__stdcall cmdl2_time(SAT(*argp))) {
 
 /* **** DATA */
-external signed short cmdl_time_Toggle;
-external signed short Announcements;
-external signed Running;
-
 external signed char const *(dayoftheweek[]);
 external signed char const *(month[]);
 
@@ -223,12 +217,12 @@ auto signed char c;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-Running++;
+INC(R(Running,*argp));
 
-if(!cmdl_time_Toggle) cmdl_time_Toggle++;
+if(!(R(cmdl_time_Toggle,*argp))) INC(R(cmdl_time_Toggle,*argp));
 else {
-XOR(cmdl_time_Toggle,cmdl_time_Toggle);
---Running;
+AND(R(cmdl_time_Toggle,*argp),0x00);
+DEC(R(Running,*argp));
 return(0x00);
 }
 
@@ -482,9 +476,9 @@ printf("%s%zd \n","Now this is: ",t);
 /* A loop */
 urgent = (0x00);
 while(t<(deadline)) {
-if(Announcements) break;
+if(R(Announcements,*argp)) break;
 if(urgent) break;
-if(!cmdl_time_Toggle) break;
+if(!(R(cmdl_time_Toggle,*argp))) break;
 /* CPU idling */
 Sleep(DELAY);
 time(&t);
@@ -670,9 +664,8 @@ return(0x00);
 printf("%s \n","All DONE!");
 //*/
 
-XOR(cmdl_time_Toggle,cmdl_time_Toggle);
-
---Running;
+AND(R(cmdl_time_Toggle,*argp),0x00);
+DEC(R(Running,*argp));
 
 return(0x00);
 }

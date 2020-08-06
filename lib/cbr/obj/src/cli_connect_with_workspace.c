@@ -9,12 +9,12 @@ Refer at fn. cli_init_workspace.
 */
 
 
-# define CLI_MACRO
+# define CBR
 
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_connect_with_workspace(CLI_PAGE(*page),CLI_TYPEWRITER(*argp))) {
 

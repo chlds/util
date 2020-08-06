@@ -8,7 +8,7 @@ size: Put the buffer size at.
 
 
 # define C_CODE_STDS
-# define C_AS
+# define CAR
 # include "../../../incl/config.h"
 
 signed(__cdecl reading(signed char(*di),signed(size))) {

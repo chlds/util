@@ -9,12 +9,12 @@ Refer at fn. cli_clip_beta.
 */
 
 
-# define CLI_MACRO
+# define CBR
 
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_copy_pages(signed short(linebreak_form),signed(count),signed(size),signed short(*w),CLI_PAGE(*argp))) {
 

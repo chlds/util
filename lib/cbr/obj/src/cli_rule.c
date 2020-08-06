@@ -7,12 +7,12 @@ Refer at util/lib/obj/src/cli_io_beta.c
 */
 
 
-# define CLI_MACRO
+# define CBR
 
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_rule(signed char(*cur),CLI_TYPEWRITER(*argp))) {
 

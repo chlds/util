@@ -9,7 +9,7 @@ Please look at util/incl/ll.h
 //*/
 
 
-# define C_AS
+# define CAR
 # include "../../../incl/config.h"
 
 signed(__cdecl unmap_ll(signed short(flag),REEL(*argp))) {

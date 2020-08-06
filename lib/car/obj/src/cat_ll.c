@@ -10,7 +10,7 @@ Use in fn. cmdln_output
 
 
 # define C_CODE_STDS
-# define C_AS
+# define CAR
 # include "../../../incl/config.h"
 
 signed(__cdecl cat_ll(KNOT(*k))) {

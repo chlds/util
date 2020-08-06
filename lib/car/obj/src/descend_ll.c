@@ -16,13 +16,13 @@ Based on a doubly linked list
 
 
 # define C_CODE_STDS
-# define C_AS
+# define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl descend_ll(KNOT(**di), KNOT(*si))) {
+signed(__cdecl descend_ll(KNOT(**di),KNOT(*si))) {
 
 /* **** DATA, BSS and STACK */
-auto KNOT(*cache);
+auto KNOT *cache;
 
 /* **** CODE/TEXT */
 if(!di) return(0x00);

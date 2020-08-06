@@ -7,24 +7,24 @@ unsigned int(__stdcall fn(void(*argp))) for fn. _beginthreadex
 */
 
 
-# define external extern
+# define CCR
+# include "../../../incl/config.h"
 # include <stdio.h>
 
-unsigned(__stdcall cmdl2_exit(void(*argp))) {
+unsigned(__stdcall cmdl2_exit(SAT(*argp))) {
 
 /* **** DATA */
-external signed short(Announcements);
-external signed(Running);
+auto signed i,r;
 
 /* **** CODE/TEXT */
-// Running++;
 
 /* **** Monitoring
 printf("%s\n", "<< cmdl_exit runs.");
 printf("%s\n", (signed char(*)) argp);
 //*/
 
-Announcements++;
---Running;
-return(0x00);
+INC(R(Announcements,*argp));
+DEC(R(Running,*argp));
+
+return(0x01);
 }

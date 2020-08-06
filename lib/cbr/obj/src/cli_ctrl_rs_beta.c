@@ -10,13 +10,13 @@ Along with C and Windows libraries
 */
 
 
-# define CLI_MACRO
+# define CBR
 # define CLI_W32
 
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_ctrl_rs_beta(CLI_W32_STAT(*argp))) {
 

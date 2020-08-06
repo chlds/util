@@ -9,12 +9,12 @@ Refer at fn. cli_init_ty, cli_spool_beta and fn. cli_io_beta.
 */
 
 
-# define CLI_MACRO
+# define CBR
 
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_init_workspace(CLI_TYPEWRITER(*argp))) {
 

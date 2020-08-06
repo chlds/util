@@ -8,9 +8,9 @@ If the function fails, the return value is (0x00).
 
 
 # define C_CODE_STDS
-# define C_AS
 # define C_W32API
-# include "./../../../incl/config.h"
+# define CAR
+# include "../../../incl/config.h"
 
 # define FILE (0x01)
 # define DOT_FILE (0x02)
@@ -23,7 +23,7 @@ If the function fails, the return value is (0x00).
 
 # define BUFF (0x400)
 
-signed(__cdecl pickfiles(signed char(*di), signed char(*si))) {
+signed(__cdecl pickfiles(signed char(*di),signed char(*si))) {
 
 /* **** DATA, BSS and STACK */
 extern signed(TheNumbreOfDirectories);
@@ -49,7 +49,7 @@ auto signed(attrib[]) = {
 (signed) (FILE_ATTRIBUTE_SYSTEM),
 (signed) (FILE_ATTRIBUTE_TEMPORARY),
 (signed) (FILE_ATTRIBUTE_VIRTUAL),
-(signed) (NIL)
+(signed) (0x00),
 };
 
 auto signed char(*(attribp[])) = {
@@ -72,7 +72,7 @@ auto signed char(*(attribp[])) = {
 (char signed(*)) ("System"),
 (char signed(*)) ("Temporary"),
 (char signed(*)) ("Virtual"),
-(char signed(*)) (NIL)
+(char signed(*)) (0x00),
 };
 
 auto signed const(QUANTUM) = (0x10);

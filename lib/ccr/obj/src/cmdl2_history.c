@@ -9,17 +9,13 @@ is for a doubly LL i.e.,
 */
 
 
-# define external extern
 # define C_CODE_STDS
-# define C_AS
-# include "./../../../incl/config.h"
+# define CCR
+# include "../../../incl/config.h"
 
 unsigned(__stdcall cmdl2_history(SAT(*argp))) {
 
 /* **** DATA */
-external signed short Announcements;
-external signed Running;
-
 auto signed const QUANTUM = (0x10);
 auto signed const DELAY = (0x01*(QUANTUM));
 
@@ -29,7 +25,7 @@ auto signed i,r;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-Running++;
+INC(R(Running,*argp));
 
 printf("\n");
 
@@ -39,7 +35,7 @@ base = (*(CLI_BASE+(R(knot,R(reel,*argp)))));
 cache = (base);
 
 while(cache) {
-if(Announcements) break;
+if(R(Announcements,*argp)) break;
 Sleep(DELAY);
 printf("  %d%s",i++,". ");
 if(R(p,*cache)) printf("%s \n",R(p,*cache));
@@ -48,7 +44,7 @@ cache = R(d,*cache);
 
 printf("\n");
 
---Running;
+DEC(R(Running,*argp));
 
 return(0x00);
 }

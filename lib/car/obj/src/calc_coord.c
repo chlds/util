@@ -9,7 +9,7 @@ Refer at incl/recur.h.
 
 
 # define C_CODE_STDS
-# define C_AS
+# define CAR
 # include "../../../incl/config.h"
 
 signed(__cdecl calc_coord(COORDS(*coords),signed char(*argp),signed(cols))) {
@@ -34,8 +34,8 @@ return(0x00);
 }
 
 base = (argp);
-(*coords).X = (0x00);
-(*coords).Y = (0x00);
+(*coords).x = (0x00);
+(*coords).y = (0x00);
 
 r = calc_coord_internal(coords,p,argp,base,cols);
 

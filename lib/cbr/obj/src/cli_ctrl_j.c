@@ -7,10 +7,12 @@ Refer at util/lib/obj/src/cli_io.c
 */
 
 
+# define CBR
+
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/cli.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_ctrl_j(CLI_STAT(*argp))) {
 

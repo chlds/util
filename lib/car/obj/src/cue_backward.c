@@ -9,8 +9,9 @@ Refer at fn. cli_io_beta, fn. cli_ctrl_r_beta and fn. cli_ctrl_b_beta.
 */
 
 
+# define CAR
+# include "../../../incl/config.h"
 # include <stdio.h>
-# include "../../../incl/cl.h"
 
 signed(__cdecl cue_backward(signed char(**retrv),signed char(*sym),signed char(*base),signed char(*offset))) {
 

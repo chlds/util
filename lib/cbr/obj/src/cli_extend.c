@@ -8,11 +8,11 @@ Along with C library
 //*/
 
 
-# define CLI_MACRO
+# define CBR
 
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_extend(signed short(channel),signed short(cue),signed(extra),CLI_TYPEWRITER(*argp))) {
 

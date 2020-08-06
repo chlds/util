@@ -7,10 +7,10 @@ As a wrapper
 */
 
 
-# define CLI_MACRO
+# define CBR
 # define CLI_W32
 
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_out_to_beta(void(*target),signed char(*argp))) {
 

@@ -9,13 +9,13 @@ Along with C library
 */
 
 
-# define CLI_MACRO
+# define CBR
 # define CLI_W32
 
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_book_no_history(CLI_TYPEWRITER(*argp))) {
 

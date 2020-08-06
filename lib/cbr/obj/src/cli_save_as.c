@@ -9,7 +9,7 @@ Refer at util/lib/obj/src/cl_io_beta.c
 */
 
 
-# define CLI_MACRO
+# define CBR
 
 # include <io.h>
 # include <conio.h>
@@ -19,7 +19,7 @@ Refer at util/lib/obj/src/cl_io_beta.c
 # include <errno.h>
 # include <sys/stat.h>
 # include <sys/types.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_save_as(signed short(update),CLI_TYPEWRITER(*argp))) {
 

@@ -7,8 +7,9 @@ Along with C library
 //*/
 
 
+# define CBR
 # include <stdlib.h>
-# include "../../../incl/cl.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_unmap(signed(times),signed char(**argp))) {
 

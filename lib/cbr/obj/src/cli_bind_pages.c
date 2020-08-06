@@ -8,12 +8,12 @@ Along with C library
 */
 
 
-# define CLI_MACRO
+# define CBR
 
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_bind_pages(CLI_SPOOL(*argp))) {
 

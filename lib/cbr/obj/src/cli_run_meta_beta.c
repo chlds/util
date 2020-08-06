@@ -9,13 +9,13 @@ Refer at fn. cli_io_beta, fn. cli_in, fn. cli_ctrl_at_beta and cli_support_meta_
 */
 
 
-# define CLI_MACRO
+# define CBR
 # define CLI_W32
 
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_run_meta_beta(signed short(meta),CLI_W32_STAT(*argp))) {
 

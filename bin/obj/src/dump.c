@@ -7,11 +7,9 @@ Implemented with a flag to be added for code to run as far as possible to the en
 
 
 # define C_CODE_STDS
-# define MONITORING (0x00)
+# define CLI_ASCII
 # define BUFF (0x400)
-
 # include "./../../../lib/incl/config.h"
-# include "./../../../lib/incl/ascii_table.h"
 
 /* **** entry point */
 signed(__cdecl wmain(signed(argc),signed short(**argv),signed short(**envp))) {
@@ -60,7 +58,7 @@ if(LIMIT<(argc)) quickflag++;
 
 if(0x03<(argc)) {
 ascii_flag++;
-p = (signed char(**)) (ascii);
+p = (signed char(**)) (cli_ascii);
 }
 
 r = _wopen(*(argv+(argc+(~(0x00)))),_O_RDONLY|_O_BINARY);
@@ -69,7 +67,7 @@ if(!(r^(~(0x00)))) {
 printf("%s\n","<< Error at fn. _wopen()");
 return(r);
 }
-if(MONITORING) printf("%s%Xh\n","File descriptor to read the file is: ",r);
+if(DBG) printf("%s%Xh\n","File descriptor to read the file is: ",r);
 
 /* Outputting */
 XOR(l,l);
@@ -129,12 +127,12 @@ return(r);
 }
 else {
 printf("\n");
-if(MONITORING) r = printf("%s%Xh\n","Closed/unmapped a file descriptor and the return value is: ",r);
+if(DBG) r = printf("%s%Xh\n","Closed/unmapped a file descriptor and the return value is: ",r);
 r = printf("%d%s\n",line," lines");
 r = printf("%s%d%s\n","Total: ",total," bytes");
 }
 
-if(MONITORING) {
+if(DBG) {
 printf("\n");
 printf("%s\n","All done!");
 }

@@ -8,6 +8,8 @@ Count as a character for the Tab.
 */
 
 
+# define CAR
+# include "../../../incl/config.h"
 # include <stdio.h>
 
 signed(__cdecl count_to(signed char(*sym),signed char(*argp))) {

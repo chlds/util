@@ -5,8 +5,7 @@ Refer at <corecrt_wtime.h>
 
 
 # define C_CODE_STDS
-# define C_CALEND
-# define C_AS
+# define CALEND
 
 # include "./../../../lib/incl/config.h"
 

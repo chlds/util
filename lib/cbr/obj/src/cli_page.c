@@ -8,10 +8,10 @@ Refer at fn. cli_output_pages_beta.
 */
 
 
-# define CLI_MACRO
+# define CBR
 
 # include <stdio.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_page(CLI_PAGE(**di),CLI_SPOOL(*argp),CLI_PAGE(*si),signed(n))) {
 

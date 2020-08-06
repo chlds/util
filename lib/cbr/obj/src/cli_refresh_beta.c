@@ -7,13 +7,13 @@ Based on UTF-8
 */
 
 
-# define CLI_MACRO
+# define CBR
 # define CLI_W32
 
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_refresh_beta(signed short(forced),signed char(*cur),CLI_W32_STAT(*argp))) {
 

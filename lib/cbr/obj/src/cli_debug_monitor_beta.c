@@ -7,12 +7,13 @@ Along with C library
 */
 
 
-# define CLI_MACRO
+# define CBR
 # define CLI_W32
+
 # define N_ROW (0x04)
 
 # include <stdio.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_debug_monitor_beta(CLI_W32_STAT(*argp))) {
 

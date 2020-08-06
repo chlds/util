@@ -5,9 +5,9 @@ Is it a directory or file..?
 
 
 # define C_CODE_STDS
-# define C_AS
 # define C_W32API
-# include "./../../../incl/config.h"
+# define CAR
+# include "../../../incl/config.h"
 
 # define FILE (0x01)
 # define DOT_FILE (0x02)

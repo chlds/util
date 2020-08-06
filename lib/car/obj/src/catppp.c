@@ -4,6 +4,9 @@ Call fn. catpp
 */
 
 
+# define CAR
+# include "../../../incl/config.h"
+
 signed(__cdecl catppp(signed char(***argp))) {
 
 /* **** DATA, BSS and STACK */

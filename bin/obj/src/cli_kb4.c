@@ -7,10 +7,12 @@ Based on UTF-8
 */
 
 
+# define CBR
+
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../lib/incl/cli.h"
+# include "../../../lib/incl/config.h"
 
 # define COUNT_CP (0x04)
 # define BUFF (0x1000)

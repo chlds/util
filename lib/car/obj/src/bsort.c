@@ -9,20 +9,21 @@ base: Put the leading address of an array of values at.
 */
 
 
-# include "./../../../incl/config.h"
+# define CAR
+# include "../../../incl/config.h"
 
-signed int(__cdecl bsort(signed int(count), signed int(*base))) {
+signed(__cdecl bsort(signed(count),signed(*base))) {
 
 /* **** DATA, BSS and STACK */
-auto signed int(r);
+auto signed r;
 
 /* **** CODE/TEXT */
-if(!count) return(NIL);
-if(!base) return(NIL);
+if(!count) return(0x00);
+if(!base) return(0x00);
 
-r = nsort(count, base);
+r = nsort(count,base);
 
-if(!r) return(NIL);
+if(!r) return(0x00);
 
-return(1+(bsort(--count, base)));
+return(0x01+(bsort(--count,base)));
 }

@@ -8,11 +8,11 @@ Return the number of bytes for output characters (..or the number of output char
 */
 
 
-# define CLI_MACRO
+# define CBR
 # define CLI_W32
 
 # include <stdio.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_coord_outs_beta(signed char(*cur),CLI_W32_STAT(*argp))) {
 

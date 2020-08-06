@@ -12,10 +12,10 @@ Refer at fn. cli_init_ty_beta.
 */
 
 
-# define CLI_MACRO
+# define CBR
 # define CLI_W32
 
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_coord_out_old_beta(signed char(*cur),CLI_W32_STAT(*argp))) {
 

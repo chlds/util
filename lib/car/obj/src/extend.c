@@ -8,11 +8,10 @@ Along with C library
 //*/
 
 
-# define CL_MACRO
-
+# define CAR
+# include "../../../incl/config.h"
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/cl.h"
 
 signed(__cdecl extend(signed char(**argp),signed(*total),signed(extra))) {
 

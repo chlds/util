@@ -9,12 +9,11 @@ Refer at fn. decode2uni and fn. encode2uni.
 */
 
 
-# define CL_MACRO
-
+# define CAR
+# include "../../../incl/config.h"
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/cl.h"
 
 signed(__cdecl encode2b(signed(size),signed char(*di),signed short(*si))) {
 

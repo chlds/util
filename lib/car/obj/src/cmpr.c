@@ -4,10 +4,13 @@ Compare strings.
 */
 
 
+# define CAR
+# include "../../../incl/config.h"
+
 signed(__cdecl cmpr(signed(*cache),signed char(*di),signed char(*si))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char(c);
+auto signed char c;
 
 /* **** CODE/TEXT */
 if(!cache) return(0x00);

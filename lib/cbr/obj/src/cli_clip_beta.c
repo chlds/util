@@ -9,13 +9,13 @@ Refer at util/lib/obj/src/cli_init_roll.c and util/bin/obj/src/ty.c
 */
 
 
-# define CLI_MACRO
+# define CBR
 # define CLI_W32
 
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_clip_beta(CLI_W32_STAT(*argp))) {
 

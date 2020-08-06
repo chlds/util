@@ -7,7 +7,8 @@ Refer at fn. cmpr.
 */
 
 
-# include "../../../incl/cl.h"
+# define CAR
+# include "../../../incl/config.h"
 
 signed(__cdecl compare(signed char(*di),signed char(*si))) {
 

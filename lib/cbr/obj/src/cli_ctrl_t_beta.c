@@ -9,13 +9,13 @@ Refer at util/lib/obj/src/cli_io_beta.c
 */
 
 
-# define CLI_MACRO
+# define CBR
 # define CLI_W32
 
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_ctrl_t_beta(CLI_W32_STAT(*argp))) {
 

@@ -13,17 +13,13 @@ And also with a flag to be added for code to run as far as possible to the end.
 */
 
 
-# define external extern
 # define C_CODE_STDS
-# define C_AS
-# include "./../../../incl/config.h"
+# define CCR
+# include "../../../incl/config.h"
 
 unsigned(__stdcall cmdl2_open(SAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-external signed short Announcements;
-external signed Running;
-
 auto signed const QUANTUM = (0x10);
 auto signed const SNOOZE = (0x04);
 auto signed const DELAY = (0x02*(QUANTUM));
@@ -46,12 +42,12 @@ auto signed char c;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-Running++;
+INC(R(Running,*argp));
 
 /* **** Check the arguments */
 cache = (*(CLI_INDEX+(R(knot,R(reel,*argp)))));
 if(!cache) {
---Running;
+DEC(R(Running,*argp));
 return(0x00);
 }
 
@@ -60,14 +56,14 @@ p = (R(p,*cache));
 r = ct_args(p);
 if(!r) {
 printf("%s \n","<< Error at fn. ct_args()");
---Running;
+DEC(R(Running,*argp));
 return(0x00);
 }
 
 if(r<(0x02)) {
 printf("%s \n","--open <file>");
 printf("\n");
---Running;
+DEC(R(Running,*argp));
 return(0x00);
 }
 
@@ -75,7 +71,7 @@ return(0x00);
 r = splt(&pp,p);
 if(!r) {
 printf("%s \n","<< Error at fn. splt()");
---Running;
+DEC(R(Running,*argp));
 return(0x00);
 }
 
@@ -88,7 +84,7 @@ p = (*(pp+(r+(~(0x00)))));
 fd = open(p,O_RDONLY|(O_BINARY));
 if(!(fd^(~(0x00)))) {
 printf("%s \n","<< Error at fn. open()");
---Running;
+DEC(R(Running,*argp));
 return(0x00);
 }
 // else printf("%s%s \n","Opened at file: ",p);
@@ -98,7 +94,7 @@ XOR(interrupt_flag,interrupt_flag);
 XOR(i,i);
 
 while(1) {
-if(Announcements) {
+if(R(Announcements,*argp)) {
 interrupt_flag++;
 break;
 }
@@ -134,7 +130,7 @@ if(interrupt_flag) printf("\n\n%s \n","Attention: There was an interruption duri
 r = close(fd);
 if(!(r^(~(0x00)))) {
 printf("%s \n","<< Error at fn. close()");
---Running;
+DEC(R(Running,*argp));
 return(0x00);
 }
 
@@ -142,12 +138,13 @@ return(0x00);
 r = spltfree(pp);
 if(!r) {
 printf("%s \n","<< Error at fn. spltfree()");
---Running;
+DEC(R(Running,*argp));
 return(0x00);
 }
 
 printf("\n");
 
---Running;
+DEC(R(Running,*argp));
+
 return(0x01);
 }

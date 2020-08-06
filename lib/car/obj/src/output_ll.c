@@ -10,13 +10,13 @@ Use in debugging
 
 
 # define C_CODE_STDS
-# define C_AS
+# define CAR
 # include "../../../incl/config.h"
 
 signed(__cdecl output_ll(KNOT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto KNOT(*cache);
+auto KNOT *cache;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);

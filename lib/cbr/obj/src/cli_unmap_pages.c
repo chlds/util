@@ -8,10 +8,10 @@ Along with C library
 //*/
 
 
-# define CLI_MACRO
+# define CBR
 
 # include <stdlib.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_unmap_pages(CLI_SPOOL(*argp))) {
 

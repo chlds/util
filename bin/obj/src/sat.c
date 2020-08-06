@@ -5,21 +5,14 @@ on branch develop
 
 
 # define C_CODE_STDS
-# define C_AS
 # define C_MT
+# define CCR
 # include "./../../../lib/incl/config.h"
 
 # define BUFF (0x400)
 
 # define COUNT_FUNCTIONS (1+(8))
 # define CMDFLAG (1)
-
-# define global
-
-global signed short cmdl_time_Toggle = (0x00);
-global signed short Announcements = (0x00);
-global signed Running = (0x01);
-// fn. cmdl_exit() to finally subtract the value.
 
 /* **** entry point */
 signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
@@ -71,6 +64,11 @@ auto signed short flag;
 auto signed char c;
 
 /* **** CODE/TEXT */
+sat.Announcements = (0x00);
+sat.cmdl_time_Toggle = (0x00);
+sat.Running = (0x01);
+// fn. cmdl2_exit() to finally subtract the value.
+
 /*
 r = make_cards(term,fn,&cards);
 if(!r) {
@@ -106,7 +104,7 @@ XOR(total,total);
 XOR(flag,flag);
 
 while(2) {
-if(Announcements) break;
+if(sat.Announcements) break;
 cache = (struct knot(*)) malloc(sizeof(struct knot));
 if(!cache) {
 printf("%s \n","<< Error at fn. malloc()");
@@ -176,7 +174,7 @@ if(!i) break;
 /* Monitor behavior of the other sub-threads to be stopped by sub-thread cmdl2_exit. */
 i = (0x00);
 while(0x01) {
-if(!Running) break;
+if(!(sat.Running)) break;
 // printf("%s \n","Waiting for all the sub-threads to stop");
 if(DBG) printf(".. ");
 /* CPU idling */

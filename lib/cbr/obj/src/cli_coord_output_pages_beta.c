@@ -8,11 +8,11 @@ Return the number of output pages.
 */
 
 
-# define CLI_MACRO
+# define CBR
 # define CLI_W32
 
 # include <stdio.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_coord_output_pages_beta(signed short(flag),CLI_PAGE(*page),CLI_W32_STAT(*argp))) {
 

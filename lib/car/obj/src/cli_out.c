@@ -7,7 +7,9 @@ Return the number of bytes decoded out of the array.
 */
 
 
+# define CAR
 # include <stdio.h>
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_out(signed char(*argp))) {
 

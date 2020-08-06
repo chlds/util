@@ -8,10 +8,10 @@ Return the number of cleared rows.
 */
 
 
-# define CLI_MACRO
+# define CBR
 # define CLI_W32
 
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_clear_rows_beta(signed short(comeback),CLI_W32_STAT(*argp))) {
 

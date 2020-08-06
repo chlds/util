@@ -4,18 +4,17 @@ Commandlet to help
 */
 
 
-# define external extern
 # define C_CODE_STDS
-# include "./../../../incl/config.h"
+# define CCR
+# include "../../../incl/config.h"
 
-unsigned(__stdcall cmdl2_help(void(*argp))) {
+unsigned(__stdcall cmdl2_help(SAT(*argp))) {
 
 /* **** DATA */
-external signed short(Announcements);
-external signed(Running);
+auto signed i,r;
 
 /* **** CODE/TEXT */
-Running++;
+INC(R(Running,*argp));
 
 /* Monitoring
 printf("%s\n","<< cmdl_exit runs.");
@@ -35,7 +34,7 @@ printf("  %s\n","--history to output the history");
 
 printf("\n");
 
---Running;
+DEC(R(Running,*argp));
 
 return(0x00);
 }

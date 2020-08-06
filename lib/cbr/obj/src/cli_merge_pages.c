@@ -8,11 +8,11 @@ Based on a doubly linked list (i.e., not a circular linked list)
 //*/
 
 
-# define CLI_MACRO
+# define CBR
 
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_merge_pages(CLI_SPOOL(*argp))) {
 

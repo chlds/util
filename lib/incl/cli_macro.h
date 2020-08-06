@@ -1,15 +1,16 @@
 /*
 
+Circ. XNOR, XOR, NOR, OR, NAND, AND and/or NOT
+Standards: STDIN, STDOUT and STDERR
 The object-like macros and function-like macros for Typewriter
 
 Remarks:
-Refer at ./config_ty.h and cli.h
+Refer at ./config.h
 */
 
 
-typedef void(__cdecl*(SIGHDR_T)) (signed);
-// SIGHDR_T(__cdecl signal(signed(A), SIGHDR_T(B)));
-// void(__cdecl*(__cdecl signal(signed(A), void(__cdecl*(B)) (signed)))) (signed);
+# define external extern
+# define global
 
 # define SHL(A,B) A = (A<<(B))
 # define SHR(A,B) A = (A>>(B))

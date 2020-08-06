@@ -1,4 +1,5 @@
 /* **** Notes
+
 Commandlet to output
 
 Attention:
@@ -8,17 +9,13 @@ is for a doubly LL i.e.,
 */
 
 
-# define external extern
 # define C_CODE_STDS
-# define C_AS
-# include "./../../../incl/config.h"
+# define CCR
+# include "../../../incl/config.h"
 
 unsigned(__stdcall cmdl2_output(SAT(*argp))) {
 
 /* **** DATA */
-external signed short Announcements;
-external signed Running;
-
 auto signed const QUANTUM = (0x10);
 auto signed const DELAY = (0x01*(QUANTUM));
 
@@ -31,7 +28,7 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-Running++;
+INC(R(Running,*argp));
 
 cache = (*(CLI_INDEX+(R(knot,R(reel,*argp)))));
 if(!cache) return(0x00);
@@ -39,7 +36,7 @@ if(!cache) return(0x00);
 p = (R(p,*cache));
 r = ct_ars(&i,p);
 if(!r) {
---Running;
+DEC(R(Running,*argp));
 printf("%s \n","<< Error at fn. ct_ars()");
 return(0x00);
 }
@@ -53,7 +50,7 @@ i = (i^(i));
 cache = (*(CLI_BASE+(R(knot,R(reel,*argp)))));
 
 while(cache) {
-if(Announcements) break;
+if(R(Announcements,*argp)) break;
 Sleep(DELAY);
 // Check the command flag i.e., CMDFLAG to be set
 if(!(R(flag,*cache))) {
@@ -65,7 +62,7 @@ cache = R(d,*cache);
 
 if(flag) printf("\n");
 
---Running;
+DEC(R(Running,*argp));
 
 return(0x00);
 }

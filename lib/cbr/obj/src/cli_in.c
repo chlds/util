@@ -12,8 +12,10 @@ The first call returns (0x00) and the second call returns (0x03)..
 */
 
 
+# define CBR
+
 # include <stdio.h>
-# include "../../../incl/cli.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_in(signed(*character),signed char(*argp),signed(size))) {
 

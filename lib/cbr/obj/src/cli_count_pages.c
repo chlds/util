@@ -7,9 +7,9 @@ Based on a doubly linked list
 */
 
 
-# define CLI_MACRO
+# define CBR
 
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_count_pages(CLI_PAGE(*argp))) {
 

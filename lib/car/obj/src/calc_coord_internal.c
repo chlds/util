@@ -9,7 +9,7 @@ Refer at incl/recur.h.
 
 
 # define C_CODE_STDS
-# define C_AS
+# define CAR
 # define ALIGN_TAB (0x08)
 
 # include "../../../incl/config.h"
@@ -45,47 +45,46 @@ len = (r);
 
 if(!r) {
 if(!(HT^(*argp))) {
-XNOR(flag);
+flag++;
 r = cpy2p(secure,argp,base);
 r = align(ALIGN_TAB,secure); // Align
-ADD((*coords).X,r);
+ADD((*coords).x,r);
 }
-else ADD((*coords).X,0x01);
+else ADD((*coords).x,0x01);
 ADD(argp,0x01);
 }
 
 else {
-ADD((*coords).X,r);
+ADD((*coords).x,r);
 ADD(argp,r);
 }
 
 
 if(!flag) {
-r = ((*coords).X);
+r = ((*coords).x);
 if(r<(cols)) {
 }
 else {
-INC((*coords).Y);
-(*coords).X = (len);
+INC((*coords).y);
+(*coords).x = (len);
 base = (p); // deviations caused by wrapping words.
 while(0x01) {
-r = ((*coords).X);
+r = ((*coords).x);
 if(r<(cols)) break;
-INC((*coords).Y);
-SUB((*coords).X,cols);
+INC((*coords).y);
+ADD(R(x,*coords),(-0x01*(cols)));
 }}}
 
 else {
-r = ((*coords).X);
+r = ((*coords).x);
 if(r<(cols)) {
 }
 else {
-INC((*coords).Y);
-r = ((*coords).X);
+INC((*coords).y);
+r = ((*coords).x);
 r = (r%(cols));
-(*coords).X = (r);
+(*coords).x = (r);
 }}
-
 
 return(0x01+(calc_coord_internal(coords,secure,argp,base,cols)));
 }

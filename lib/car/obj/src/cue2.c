@@ -9,6 +9,9 @@ Using for fn. splt
 */
 
 
+# define CAR
+# include "../../../incl/config.h"
+
 signed(__cdecl cue2(signed char(*base))) {
 
 /* **** DATA, BSS and STACK */
@@ -21,5 +24,6 @@ if(!(*base)) return(0x00);
 if(WS^(*base)) return(0x00);
 
 base++;
-return(1+(cue2(base)));
+
+return(0x01+(cue2(base)));
 }

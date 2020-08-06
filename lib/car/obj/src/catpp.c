@@ -4,6 +4,8 @@ Output character lines out of the argument
 */
 
 
+# define CAR
+# include "../../../incl/config.h"
 # include <stdio.h>
 
 signed(__cdecl catpp(signed char(**argp))) {

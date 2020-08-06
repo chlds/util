@@ -10,10 +10,12 @@ Based on UTF-8
 */
 
 
+# define CBR
+
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/cli.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_set_codepages_beta(unsigned(codepage_input),unsigned(codepage_output))) {
 

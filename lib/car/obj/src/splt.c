@@ -9,8 +9,8 @@ Using along with fn. ct_ars, fn. malloc, fn. cue2, fn. ct2 and fn. cpy2
 
 
 # define C_CODE_STDS
-# define C_AS
-# include "./../../../incl/config.h"
+# define CAR
+# include "../../../incl/config.h"
 
 signed(__cdecl splt(signed char(***di), signed char(*base))) {
 

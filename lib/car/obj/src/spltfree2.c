@@ -8,8 +8,8 @@ A wrapper function for fn. spltfree2_internal
 
 
 # define C_CODE_STDS
-# define C_AS
-# include "./../../../incl/config.h"
+# define CAR
+# include "../../../incl/config.h"
 
 signed(__cdecl spltfree2(signed char(**argp))) {
 

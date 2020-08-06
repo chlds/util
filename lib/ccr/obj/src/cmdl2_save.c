@@ -12,17 +12,13 @@ Implemented along with fn. spltfree() and with fn. splt()
 */
 
 
-# define external extern
 # define C_CODE_STDS
-# define C_AS
-# include "./../../../incl/config.h"
+# define CCR
+# include "../../../incl/config.h"
 
 unsigned(__stdcall cmdl2_save(SAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-external signed short Announcements;
-external signed Running;
-
 auto signed const QUANTUM = (0x10);
 auto signed const SNOOZE = (0x04);
 auto signed const DELAY = (0x02*(QUANTUM));
@@ -35,16 +31,14 @@ auto signed char *p;
 auto signed count;
 auto signed fd;
 auto signed i,r;
-
 auto signed short flag;
-
 auto signed char c;
 auto signed char uncmpltflag;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-Running++;
+INC(R(Running,*argp));
 
 /* Count arguments */
 cache = (*(CLI_INDEX+(R(knot,R(reel,*argp)))));
@@ -54,7 +48,7 @@ p = (R(p,*cache));
 r = ct_args(p);
 if(!r) {
 printf("%s \n","<< Error at fn. ct_args()");
---Running;
+DEC(R(Running,*argp));
 return(0x00);
 }
 
@@ -63,7 +57,7 @@ return(0x00);
 if(r<(0x02)) {
 printf("%s \n","Syntax: --save <file>");
 printf("\n");
---Running;
+DEC(R(Running,*argp));
 return(0x00);
 }
 
@@ -71,7 +65,7 @@ return(0x00);
 r = splt(&pp,p);
 if(!r) {
 printf("%s \n","<< Error at fn. splt()");
---Running;
+DEC(R(Running,*argp));
 return(0x00);
 }
 
@@ -96,7 +90,7 @@ XOR(i,i);
 base = (*(CLI_BASE+(R(knot,R(reel,*argp)))));
 cache = (base);
 while(cache) {
-if(Announcements) {
+if(R(Announcements,*argp)) {
 uncmpltflag++;
 break;
 }
@@ -142,7 +136,7 @@ Sleep(DELAY);
 r = close(fd);
 if(!(r^(~(0x00)))) {
 printf("%s \n","<< Error at fn. close()");
---Running;
+DEC(R(Running,*argp));
 return(r);
 }
 /* Notificate */
@@ -154,12 +148,13 @@ if(uncmpltflag) printf("%s \n","Attention: There was an interruption during writ
 r = spltfree(pp);
 if(!r) {
 printf("%s \n","<< Error at fn. spltfree()");
---Running;
+DEC(R(Running,*argp));
 return(0x00);
 }
 
 printf("\n");
 
---Running;
+DEC(R(Running,*argp));
+
 return(0x00);
 }

@@ -7,12 +7,12 @@ Refer at util/lib/obj/src/cli_parse.c
 */
 
 
-# define CLI_MACRO
+# define CBR
 
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_eq_wrap(CLI_TYPEWRITER(*argp))) {
 

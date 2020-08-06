@@ -9,6 +9,8 @@ Put the null address at the terminating argument.
 */
 
 
+# define CAR
+# include "../../../incl/config.h"
 # include <stdarg.h>
 
 signed(__cdecl concat2(signed char(*argp), ...)) {

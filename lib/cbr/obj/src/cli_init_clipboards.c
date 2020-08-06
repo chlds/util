@@ -7,9 +7,9 @@ Along with C library
 //*/
 
 
-# define CLI_MACRO
+# define CBR
 
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_init_clipboards(CLI_CLIPBOARD(*argp))) {
 

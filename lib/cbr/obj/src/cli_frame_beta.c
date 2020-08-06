@@ -7,13 +7,13 @@ Refer at fn. cli_eq_frame, fn. cli_eq_internal, fn. cli_eq, fn. cli_parse and ut
 */
 
 
-# define CLI_MACRO
+# define CBR
 # define CLI_W32
 
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_frame_beta(CLI_W32_STAT(*argp))) {
 

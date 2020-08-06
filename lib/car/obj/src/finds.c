@@ -5,9 +5,9 @@ A wrapper function to initialise arguments for fn. rddir to search in a director
 
 
 # define C_CODE_STDS
-# define C_AS
 # define C_W32API
-# include "./../../../incl/config.h"
+# define CAR
+# include "../../../incl/config.h"
 
 //* To measure a part of code that overflows
 struct dir_info_stored {

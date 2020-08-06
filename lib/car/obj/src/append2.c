@@ -6,12 +6,14 @@ argp: Put the leading address of a buffer at.
 */
 
 
+# define CAR
+# include "../../../incl/config.h"
 // # include <stdarg.h>
 
-signed(__cdecl append2(signed char(*di), signed char(*si))) {
+signed(__cdecl append2(signed char(*di),signed char(*si))) {
 
 /* **** DATA, BSS and STACK */
-auto signed(r);
+auto signed r;
 
 /* **** CODE/TEXT */
 if(!di) return(0x00);
@@ -22,7 +24,7 @@ r = ct(di);
 
 di = (di+(r));
 
-r = cpy(di, si);
+r = cpy(di,si);
 
 return(r);
 }

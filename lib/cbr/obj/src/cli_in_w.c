@@ -12,14 +12,15 @@ The first call returns (0x00) and the second call returns (0x03)..
 */
 
 
-# define CL_MACRO
+# define CBR
+
 # define BUFF (0x08)
 
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <windows.h>
-# include "../../../incl/cli.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_in_w(signed(*character),signed char(*argp),signed(size))) {
 

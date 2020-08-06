@@ -7,9 +7,8 @@ Return the number of encoded bytes.
 */
 
 
-# define CL_MACRO
-
-# include "../../../incl/cl.h"
+# define CAR
+# include "../../../incl/config.h"
 
 signed(__cdecl encode_surrogate_bw(signed(size),signed char(*array),signed short(second),signed short(first))) {
 

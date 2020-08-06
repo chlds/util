@@ -12,14 +12,14 @@ An array of function pointers is not yet implemented..
 */
 
 
-# define CLI_MACRO
+# define CBR
 
 # define CLI_FN (0x01+(0x20))
 
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_io(signed char(*cur),signed(size),CLI_STAT(*argp))) {
 

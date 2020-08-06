@@ -9,10 +9,11 @@ Please be sure to release.
 */
 
 
+# define CAR
+# include "../../../incl/config.h"
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/cl.h"
 
 signed(__cdecl keep_w(signed short(**di),signed char(*si))) {
 

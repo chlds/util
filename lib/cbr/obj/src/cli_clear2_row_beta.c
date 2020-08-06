@@ -8,12 +8,12 @@ Return the number of space embedded to the row.
 */
 
 
-# define CLI_MACRO
+# define CBR
 # define CLI_W32
 
 # include <conio.h>
 # include <stdio.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_clear2_row_beta(signed short(comeback),CLI_W32_STAT(*argp))) {
 

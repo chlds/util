@@ -9,7 +9,7 @@ Wrap words
 
 
 # define C_CODE_STDS
-# define C_AS
+# define CAR
 # include "../../../incl/config.h"
 
 signed(__cdecl column(signed short(cols),signed(algn),signed char(*base))) {

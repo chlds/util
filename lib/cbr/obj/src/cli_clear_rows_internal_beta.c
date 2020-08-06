@@ -7,10 +7,10 @@ Refer at fn. cli_clear_row_beta.
 */
 
 
-# define CLI_MACRO
+# define CBR
 # define CLI_W32
 
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_clear_rows_internal_beta(signed short(edge),CLI_W32_STAT(*argp))) {
 

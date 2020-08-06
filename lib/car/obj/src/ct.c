@@ -11,5 +11,5 @@ if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
 argp++;
-return(1+(ct(argp)));
+return(0x01+(ct(argp)));
 }

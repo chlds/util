@@ -5,9 +5,8 @@ Remarks:
 */
 
 
-# include "./cl.h"
-# include "./las.h"
-
+# include "./dbg.h"
+# include "./cli_macro.h"
 
 # ifdef C_CODE_STDS
 # include <io.h>
@@ -25,30 +24,34 @@ Remarks:
 # include <wchar.h>
 # endif
 
-
-# ifdef C_CALEND
-# include "./calend.h"
-# endif
-
-
-# ifdef C_AS
-// # include "./ascii_table.h"
-# include "./ll.h"
-# include "./recur.h"
-# include "./cmdl_fn.h"
-# endif
-
-
-# ifdef C_ASCII
-# include "./ascii_table.h"
-# endif
-
-
 # ifdef C_MT
 # include <process.h>
 # endif
 
-
 # ifdef C_W32API
 # include <windows.h>
+# endif
+
+# ifdef CALEND
+# include "./calend.h"
+# endif
+
+# ifdef CLI_SYM
+# include "./cli_sym.h"
+# endif
+
+# ifdef CLI_ASCII
+# include "./cli_ascii.h"
+# endif
+
+# ifdef CAR
+# include "./car.h"
+# endif
+
+# ifdef CBR
+# include "./cbr.h"
+# endif
+
+# ifdef CCR
+# include "./ccr.h"
 # endif

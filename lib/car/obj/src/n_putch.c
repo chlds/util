@@ -5,7 +5,7 @@ Count letters to the terminating null character.
 
 
 # define C_CODE_STDS
-# define C_AS
+# define CAR
 # include "../../../incl/config.h"
 
 signed(__cdecl n_putch(signed(n),signed(letter))) {

@@ -8,9 +8,9 @@ Based on a doubly linked list (i.e., not a circular linked list)
 //*/
 
 
-# define CLI_MACRO
+# define CBR
 
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_insert_pages(CLI_SPOOL(*di),CLI_SPOOL(*si))) {
 

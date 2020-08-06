@@ -4,12 +4,12 @@ Typewriter
 */
 
 
-# define CLI_MACRO
+# define CBR
 # define CLI_W32
 
 # define THRESHOLD (0x02)
 
-# include "../../../lib/incl/config_ty.h"
+# include "../../../lib/incl/config.h"
 
 signed(__cdecl wmain(signed(argc),signed short(**argv),signed short(**envp))) {
 

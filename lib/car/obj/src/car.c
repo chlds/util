@@ -4,12 +4,15 @@ Count column digits for a double word.
 //*/
 
 
+# define CAR
+# include "../../../incl/config.h"
+
 signed(__cdecl car(signed short(radix),signed(arg))) {
 
 /* **** DATA, BSS and STACK */
-auto signed short const(HEXA) = (0x10);
-auto signed short const(DECI) = (0x0A);
-auto signed short const(BINA) = (0x02);
+auto signed short const HEXA = (0x10);
+auto signed short const DECI = (0x0A);
+auto signed short const BINA = (0x02);
 
 /* **** CODE/TEXT */
 if(radix<(BINA)) radix = (DECI);

@@ -9,8 +9,8 @@ Refer at fn. cli_bind_pages and fn. cli_concat_pages.
 */
 
 
-# define CLI_MACRO
 # define CLI_SYM
+# define CBR
 
 # include <io.h>
 # include <conio.h>
@@ -19,7 +19,7 @@ Refer at fn. cli_bind_pages and fn. cli_concat_pages.
 # include <fcntl.h>
 # include <sys/stat.h>
 # include <sys/types.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_load_internal(signed(count),CLI_TYPEWRITER(*argp))) {
 

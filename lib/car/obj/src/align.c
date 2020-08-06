@@ -7,6 +7,9 @@ along with fn. align_backward
 */
 
 
+# define CAR
+# include "../../../incl/config.h"
+
 signed(__cdecl align(signed(arg),signed char(*argp))) {
 
 /* **** DATA, BSS and STACK */

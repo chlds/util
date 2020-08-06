@@ -4,9 +4,9 @@ Initialise.
 */
 
 
-# define CLI_MACRO
+# define CBR
 
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_init_wraps(CLI_TYPEWRITER(*argp))) {
 

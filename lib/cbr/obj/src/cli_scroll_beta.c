@@ -7,11 +7,11 @@ Refer at fn. cli_io_beta.
 */
 
 
-# define CLI_MACRO
+# define CBR
 # define CLI_W32
 
 # include <stdio.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_scroll_beta(signed short(range),CLI_W32_STAT(*argp))) {
 

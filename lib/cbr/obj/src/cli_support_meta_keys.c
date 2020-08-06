@@ -9,12 +9,12 @@ Refer at fn. cli_io_beta, fn. cli_in and fn. cli_ctrl_at_beta.
 */
 
 
-# define CLI_MACRO
+# define CBR
 
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_support_meta_keys(signed(*character),signed char(second),signed char(first))) {
 

@@ -9,7 +9,7 @@ Refer at fn. cli_spool_beta, fn. cli_book, fn. cli_save, fn. cli_parse or..
 */
 
 
-# define CLI_MACRO
+# define CBR
 
 # include <conio.h>
 # include <stdio.h>
@@ -17,7 +17,7 @@ Refer at fn. cli_spool_beta, fn. cli_book, fn. cli_save, fn. cli_parse or..
 # include <fcntl.h>
 # include <sys/stat.h>
 # include <sys/types.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_write_old(signed(descriptor),CLI_TYPEWRITER(*argp))) {
 

@@ -4,9 +4,8 @@ Retrieve bytes to the leading address of a word.
 */
 
 
-# define CLI_MACRO
-
-# include "../../../incl/cl.h"
+# define CAR
+# include "../../../incl/config.h"
 
 signed(__cdecl cue2l(signed char(*sym),signed char(*argp))) {
 

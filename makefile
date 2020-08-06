@@ -62,11 +62,6 @@ $(OBJ): $(SRC) $(HDRS)
 	@echo "Stage 1 "
 	$(CC) $(CFLAGS) $(SRC)
 
-# Type the following command on directory util/ to make a library file on directory ./lib/.
-# > nmake lb L=<a-library-file-name-you-like>
-# e.g.,
-# > nmake lb L=my
-
 $(LIBR): $(LIBR3) $(LIBR2) $(LIBR1)
 $(LIBR3):
 	@echo "Making LIBR3.. "

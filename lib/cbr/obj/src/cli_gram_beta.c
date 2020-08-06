@@ -8,11 +8,11 @@ Refer at fn. cli_io_beta.
 */
 
 
-# define CLI_MACRO
+# define CBR
 # define CLI_W32
 
 # include <stdio.h>
-# include "../../../incl/config_ty.h"
+# include "../../../incl/config.h"
 
 signed(__cdecl cli_gram_beta(signed short(flag),signed char(*cur),CLI_W32_STAT(*argp))) {
 
