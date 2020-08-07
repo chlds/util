@@ -63,22 +63,23 @@ $(OBJ): $(SRC) $(HDRS)
 	$(CC) $(CFLAGS) $(SRC)
 
 $(LIBR): $(LIBR3) $(LIBR2) $(LIBR1)
-$(LIBR3):
+	@echo "Making LIBR.. "
+	lib.exe -out:$(LIBR) $(LIBRS)
+$(LIBR3): "lib/ccr/obj/src/*.c" "lib/incl/ccr*.h"
 	@echo "Making LIBR3.. "
 	cd lib/ccr/
 	nmake
-$(LIBR2):
-	@echo "Making LIBR2.. "
-	cd ../cbr/
-	nmake
-$(LIBR1):
-	@echo "Making LIBR1.. "
-	cd ../car/
-	nmake
-$(LIBR):
-	@echo "Making LIBR.. "
 	cd ../../
-	lib.exe -out:$(LIBR) $(LIBRS)
+$(LIBR2): "lib/cbr/obj/src/*.c" "lib/incl/cbr*.h"
+	@echo "Making LIBR2.. "
+	cd lib/cbr/
+	nmake
+	cd ../../
+$(LIBR1): "lib/car/obj/src/*.c" "lib/incl/car*.h"
+	@echo "Making LIBR1.. "
+	cd lib/car/
+	nmake
+	cd ../../
 
 .PHONY: clean
 clean:
