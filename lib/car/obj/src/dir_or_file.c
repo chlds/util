@@ -9,57 +9,45 @@ Is it a directory or file..?
 # define CAR
 # include "../../../incl/config.h"
 
-# define FILE (0x01)
-# define DOT_FILE (0x02)
-# define DIR (0x04)
-# define DOT_DIR (0x08)
-# define CURR_DIR (0x10)
-# define P_DIR (0x20)
-# define DIRS (P_DIR+(CURR_DIR+(DOT_DIR+(DIR))))
-
 signed short(__cdecl dir_or_file(WIN32_FIND_DATA(*argp))) {
 
-auto signed char const(A_DOT_CHARACTER) = ('.');
+auto signed char const A_DOT_CHARACTER = ('.');
 
-auto signed char(*p);
-auto signed short(flag);
+auto signed char *p;
+auto signed short flag;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-p = ((*argp).cFileName);
-// printf("%s%s\n", "(*argp).cFileName is: ", p);
+p = (R(cFileName,*argp));
+if(DBG) printf("%s %s \n","R(cFileName,*argp) is:",p);
 
-XOR(flag, flag);
+XOR(flag,flag);
 
 /* Dir. Check! */
-if(FILE_ATTRIBUTE_DIRECTORY&((*argp).dwFileAttributes)) OR(flag, DIR);
+if(FILE_ATTRIBUTE_DIRECTORY&(R(dwFileAttributes,*argp))) OR(flag,C_DIR);
 
 /* It is a directory */
 if(flag) {
-
 if(!(A_DOT_CHARACTER^(*p))) {
-XOR(flag, flag);
-OR(flag, DOT_DIR);
+XOR(flag,flag);
+OR(flag,C_DOTDIR);
 }
-
-if(!(flag^(DOT_DIR))) {
-if(!(*(p+(1)))) {
-XOR(flag, flag);
-OR(flag, CURR_DIR);
-}}
-
-if(!(flag^(DOT_DIR))) {
+if(!(flag^(C_DOTDIR))) {
 if(!(A_DOT_CHARACTER^(*(p+(1))))) {
-if(!(*(p+(2)))) {
-XOR(flag, flag);
-OR(flag, P_DIR);
-}}}}
+if(!(*(p+(0x02)))) {
+XOR(flag,flag);
+OR(flag,C_PDIR);
+}}
+if(!(*(p+(0x01)))) {
+XOR(flag,flag);
+OR(flag,C_CURRDIR);
+}}}
 
 /* It is a file i.e., the flag is (0x00). */
 else {
-if(!(A_DOT_CHARACTER^(*p))) OR(flag, DOT_FILE);
-else OR(flag, FILE);
+if(!(A_DOT_CHARACTER^(*p))) OR(flag,C_DOTFILE);
+else OR(flag,C_FILE);
 }
 
 return(flag);

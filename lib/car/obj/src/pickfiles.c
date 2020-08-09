@@ -12,24 +12,15 @@ If the function fails, the return value is (0x00).
 # define CAR
 # include "../../../incl/config.h"
 
-# define FILE (0x01)
-# define DOT_FILE (0x02)
-# define DIR (0x04)
-# define DOT_DIR (0x08)
-# define CURR_DIR (0x10)
-# define P_DIR (0x20)
-# define DIRS (P_DIR+(CURR_DIR+(DOT_DIR+(DIR))))
-// for signed short(flag)
-
 # define BUFF (0x400)
 
 signed(__cdecl pickfiles(signed char(*di),signed char(*si))) {
 
 /* **** DATA, BSS and STACK */
-extern signed(TheNumbreOfDirectories);
-extern signed(TheNumbreOfFiles);
+extern signed TheNumbreOfDirectories;
+extern signed TheNumbreOfFiles;
 
-auto signed(attrib[]) = {
+auto signed attrib[] = {
 (signed) (FILE_ATTRIBUTE_ARCHIVE),
 (signed) (FILE_ATTRIBUTE_COMPRESSED),
 (signed) (FILE_ATTRIBUTE_DEVICE),
@@ -52,7 +43,7 @@ auto signed(attrib[]) = {
 (signed) (0x00),
 };
 
-auto signed char(*(attribp[])) = {
+auto signed char *(attribp[]) = {
 (char signed(*)) ("Archive"),
 (char signed(*)) ("Compressed"),
 (char signed(*)) ("Device"),
@@ -75,66 +66,62 @@ auto signed char(*(attribp[])) = {
 (char signed(*)) (0x00),
 };
 
-auto signed const(QUANTUM) = (0x10);
-auto signed const(SNOOZE) = (0x08);
-auto signed const(DELAY) = (2*(QUANTUM));
+auto signed const QUANTUM = (0x10);
+auto signed const SNOOZE = (0x08);
+auto signed const DELAY = (0x02*(QUANTUM));
 
-auto SYSTEMTIME(st);
+auto SYSTEMTIME st;
 
-auto void(*search);
-auto WIN32_FIND_DATA(wfd);
+auto void *search;
+auto WIN32_FIND_DATA wfd;
 
-auto signed char(buff[BUFF]);
-// auto signed char(*p);
+auto signed char buff[BUFF];
+// auto signed char *p;
 
-auto signed(dif);
-auto signed(i), (l), (r);
-auto signed(differential) = (0x00);
-auto signed short(flag);
+auto signed dif;
+auto signed i,l,r;
+auto signed differential = (0x00);
+auto signed short flag;
 
 /* **** CODE/TEXT */
 if(!si) {
 printf("\n");
-printf("%s\n", di);
+printf("%s \n",di);
 }
 
 /* opendir */
-search = (void(*)) FindFirstFile(di, &wfd);
-
-if(!((signed long long) INVALID_HANDLE_VALUE^(signed long long) (search))) {
+search = (void(*)) FindFirstFile(di,&wfd);
+if(!((signed long long) INVALID_HANDLE_VALUE^((signed long long) search))) {
 r = GetLastError();
-printf("%s%Xh", "<< Error at fn. FindFirstFile() with error no. ", r);
-printf("%s%s\n", " at path ", di);
-if(!(r^(ERROR_FILE_NOT_FOUND))) printf("%s\n", "No matching files.");
+printf("%s %Xh ","<< Error at fn. FindFirstFile() with error no.",r);
+printf("%s %s \n","at path",di);
+if(!(r^(ERROR_FILE_NOT_FOUND))) printf("%s \n","No matching files.");
 return(0x00);
 }
 
-// else printf("%s%p\n", "The search handle is: ", search);
+if(DBG) printf("%s %p \n","The search handle is:",search);
 
 r = ct(di);
 *(di+(r+(~(0x00)))) = (0x00);
-// printf("%s%s\n", "crafted di is: ", di);
+if(DBG) printf("%s %s \n","crafted di is:",di);
 
 /* readdir */
-XOR(l, l);
+XOR(l,l);
 
 while(1) {
 
-if(l<(SNOOZE)) {
-l++;
-}
+if(l<(SNOOZE)) l++;
 else {
-XOR(l, l);
+XOR(l,l);
 Sleep(DELAY);
 }
 
 flag = (signed short) dir_or_file(&wfd);
-
-if(flag&(DOT_DIR|(DIR))) {
+if(flag&(C_DOTDIR|(C_DIR))) {
 // Going to recur
-sprintf(buff, "%s%s%s", di, wfd.cFileName, "/*");
-// printf("%s%s\n", "concatenated buff is: ", buff);
-r = pickfiles(buff, si);
+sprintf(buff,"%s%s%s",di,wfd.cFileName,"/*");
+if(DBG) printf("%s %s \n","concatenated buff is:",buff);
+r = pickfiles(buff,si);
 /* Pay attention to handling of the return value. */
 if(!r) {
 }
@@ -143,32 +130,32 @@ else {
 // Being gone back to the previous directory.
 if(!si) {
 printf("\n");
-printf("%s\n", di);
+printf("%s \n",di);
 }}
 
 /* Output all the dir's and files or the specific dir's and files in a directory tree */
 /* Compare the ones in case-sensitive strings */
-if(si) r = cmpr_parts(&differential, wfd.cFileName, si);
+if(si) r = cmpr_parts(&differential,wfd.cFileName,si);
 else r = (0x01);
 
 if(r) {
 if(!differential) {
 
-if(flag&(DIRS)) {
+if(flag&(C_DIRS)) {
 // Output a directory
-printf("%s%s%s%s", " d ", di, wfd.cFileName, "/");
+printf("%s %s%s%s "," d",di,wfd.cFileName,"/");
 TheNumbreOfDirectories++;
 }
 else {
 // Or output a file
-printf("%s%s%s", " - ", di, wfd.cFileName);
+printf("%s %s%s "," -",di,wfd.cFileName);
 TheNumbreOfFiles++;
 }
 
 // And output the file attributes
-XOR(i, i);
+XOR(i,i);
 while(*(attrib+(i))) {
-if(wfd.dwFileAttributes&(*(attrib+(i)))) printf("%s%s", "  ", *(attribp+(i)));
+if(wfd.dwFileAttributes&(*(attrib+(i)))) printf("  %s ",*(attribp+(i)));
 i++;
 }
 
@@ -176,20 +163,18 @@ printf("\n");
 }}
 
 /* And find the next file */
-r = FindNextFile(search, &wfd);
-
+r = FindNextFile(search,&wfd);
 if(!r) {
 r = GetLastError();
-if(r^(ERROR_NO_MORE_FILES)) printf("%s%Xh\n", "<< Error at fn. FindNextFile() with error no. ", r);
+if(r^(ERROR_NO_MORE_FILES)) printf("%s %Xh \n","<< Error at fn. FindNextFile() with error no.",r);
 break;
 }}
 
 /* closedir */
 r = FindClose(search);
-
 if(!r) {
 r = GetLastError();
-printf("%s%Xh\n", "<< Error at fn. FindClose() with error no. ", r);
+printf("%s %Xh \n","<< Error at fn. FindClose() with error no.",r);
 return(0x00);
 }
 
