@@ -14,10 +14,6 @@ Using along with fn. finds
 
 # define BUFF (0x400)
 
-# define OPT_RECURSION (0x02)
-# define OPT_ATTRIBS (0x01)
-// for signed short(cmdln_flag).
-
 //* To measure a part of code that overflows
 struct dir_info_stored {
 void *search;
@@ -164,8 +160,10 @@ TheNumbreOfFiles++;
 }
 
 /* Check the attributes of a directory or of a file */
-if(cmdln_flag&(OPT_ATTRIBS)) r = attrib_of(R(dwFileAttributes,R(wfd,*argp)),attrib,attribp);
+if(cmdln_flag&(OPT_ATTRIBS)) {
+r = attrib_of(R(dwFileAttributes,R(wfd,*argp)),attrib,attribp);
 if(!r) printf("%s \n","An error has occurred at fn. attrib_of().");
+}
 
 /* To go to the next step */
 printf("\n");

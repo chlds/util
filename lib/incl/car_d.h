@@ -14,6 +14,9 @@ Build a linked list.
 # define C_PDIR (0x20)
 # define C_DIRS (C_DIR+(C_DOTDIR+(C_CURRDIR+(C_PDIR))))
 
+# define OPT_RECURSION (0x02)
+# define OPT_ATTRIBS (0x01)
+
 typedef void(__cdecl*(SIGHDR_T)) (signed);
 // SIGHDR_T(__cdecl signal(signed(A),SIGHDR_T(B)));
 // void(__cdecl*(__cdecl signal(signed(A),void(__cdecl*(B)) (signed)))) (signed);
