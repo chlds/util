@@ -4,8 +4,6 @@ Build a linked list.
 */
 
 
-# define COMMON_OBJS (0x04)
-
 # define C_FILE (0x01)
 # define C_DOTFILE (0x02)
 # define C_DIR (0x04)
@@ -16,6 +14,8 @@ Build a linked list.
 
 # define OPT_RECURSION (0x02)
 # define OPT_ATTRIBS (0x01)
+
+# define COMMON_OBJS (0x04)
 
 typedef void(__cdecl*(SIGHDR_T)) (signed);
 // SIGHDR_T(__cdecl signal(signed(A),SIGHDR_T(B)));
@@ -37,18 +37,6 @@ signed *d;
 signed long long *q;
 void *optl;
 } ENCODE_PACK;
-
-/*
-struct count_info_stored {
-signed directories;
-signed files;
-} typedef COUNT_INFO_STORED;
-struct dir_info_stored {
-signed char(*p_dir);
-void(*search);
-WIN32_FIND_DATA(wfd);
-} typedef DIR_INFO_STORED;
-//*/
 
 typedef struct knot {
 signed char *p;

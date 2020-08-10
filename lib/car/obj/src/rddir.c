@@ -12,22 +12,11 @@ Using along with fn. finds
 # define CAR
 # include "../../../incl/config.h"
 
-# define BUFF (0x400)
+# include "../../../incl/c_dir.h"
 
-//* To measure a part of code that overflows
-struct dir_info_stored {
-void *search;
-signed char *p_dir;
-WIN32_FIND_DATA wfd;
-} typedef DIR_INFO_STORED;
-//*/
-
-signed(__cdecl rddir(signed short(cmdln_flag),DIR_INFO_STORED(*argp))) {
+signed(__cdecl rddir(C_DIRS_INFO(*argp))) {
 
 /* **** DATA, BSS and STACK */
-extern signed TheNumbreOfDirectories;
-extern signed TheNumbreOfFiles;
-
 static signed const attrib[] = {
 (signed) (FILE_ATTRIBUTE_ARCHIVE),
 (signed) (FILE_ATTRIBUTE_COMPRESSED),
@@ -76,39 +65,40 @@ static signed char const *(attribp[]) = {
 
 auto SYSTEMTIME st;
 
-auto signed char craft[BUFF];
-auto signed char *p;
+void *dis;
+auto signed char *path;
 
+auto signed char *craft;
+auto signed char *p;
 auto signed r;
 auto signed short flag;
-// for fn. dir_or_file()
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
-if(!(R(search,*argp))) return(0x00);
-if(!(R(p_dir,*argp))) return(0x00);
+if(!(R(dis,*argp))) return(0x00);
+if(!(R(search,*(R(dis,*argp))))) return(0x00);
+if(!(R(p_dir,*(R(dis,*argp))))) return(0x00);
 
-/* Monitor
-printf("%s %p \n","argp i.e., of data type (DIR_INFO_STORED*) is:",argp);
-printf("%s %p \n","R(search,*argp) is:",R(search,*argp));
-printf("%s %s %s %p \n","R(p_dir,*argp) is:",R(p_dir,*argp),"/",R(p_dir,*argp));
-//*/
+p = (R(cFileName,R(wfd,*(R(dis,*argp)))));
 
-p = (R(cFileName,R(wfd,*argp)));
-
-/* Monitor
-printf("%s %s %s %p \n","R(cFileName,R(wfd,*argp)) is:",R(cFileName,R(wfd,*argp)),"/",R(cFileName,R(wfd,*argp)));
-printf("%s %s %s %p \n","p is:",p,"/",p);
-//*/
-
-flag = (signed short) dir_or_file(&(R(wfd,*argp)));
+flag = (signed short) dir_or_file(&(R(wfd,*(R(dis,*argp)))));
 if(DBG) printf("%s %d \n","The flag after using fn. dir_or_file() is:",flag);
 
-if(cmdln_flag&(OPT_RECURSION)) {
+if(OPT_RECURSION&(R(flag,*argp))) {
 if(flag&(C_DIR+(C_DOTDIR))) {
 
-// Call fn. finds() after crafting the parent path.
-r = cpy(craft,R(p_dir,*argp));
+// backup
+dis = (R(dis,*argp));
+path = (R(path,*argp));
+
+// call fn. finds() after crafting the parent path.
+r = ct("/*");
+r = (r+(ct(p)));
+r = (r+(ct(R(p_dir,*(R(dis,*argp))))));
+r++;
+r = (r*(sizeof(signed char)));
+craft = (signed char(*)) malloc(r);
+r = cpy(craft,R(p_dir,*(R(dis,*argp))));
 if(!r) {
 printf("%s \n","<< An error has occurred at fn. cpy().");
 return(0x00);
@@ -132,15 +122,20 @@ printf("%s \n","<< Error at fn. append2() the second");
 return(0x00);
 }
 if(DBG) printf("%s %s \n","craft is:",craft);
-r = finds(cmdln_flag,craft);
+R(path,*argp) = (craft);
+r = finds(argp);
 /* Pay attention to handling of the return value. */
 if(!r) {
 }
-else {
-}
+embed(0x00,craft);
+free(craft);
+craft = (0x00);
+// restore
+R(path,*argp) = (path);
+R(dis,*argp) = (dis);
 // Being gone back to the previous directory.
 printf("\n");
-printf("%s \n",R(p_dir,*argp));
+printf("%s \n",R(p_dir,*(R(dis,*argp))));
 }}
 
 if(DBG) printf("%s %d \n","flag:",flag);
@@ -149,19 +144,19 @@ if(flag&(C_DIRS)) {
 // Output a directory name
 printf("%s "," d");
 printf("%s ",p);
-TheNumbreOfDirectories++;
+INC(R(directories,*argp));
 }
 
 else {
 // Or output a file name
 printf("%s "," -");
 printf("%s ",p);
-TheNumbreOfFiles++;
+INC(R(files,*argp));
 }
 
 /* Check the attributes of a directory or of a file */
-if(cmdln_flag&(OPT_ATTRIBS)) {
-r = attrib_of(R(dwFileAttributes,R(wfd,*argp)),attrib,attribp);
+if(OPT_ATTRIBS&(R(flag,*argp))) {
+r = attrib_of(R(dwFileAttributes,R(wfd,*(R(dis,*argp)))),attrib,attribp);
 if(!r) printf("%s \n","An error has occurred at fn. attrib_of().");
 }
 
@@ -169,12 +164,12 @@ if(!r) printf("%s \n","An error has occurred at fn. attrib_of().");
 printf("\n");
 
 /* Read i.e., update with the search handle */
-r = FindNextFile(R(search,*argp),&(R(wfd,*argp)));
+r = FindNextFile(R(search,*(R(dis,*argp))),&(R(wfd,*(R(dis,*argp)))));
 if(!r) {
 r = GetLastError();
 if(r^(ERROR_NO_MORE_FILES)) printf("%s %Xh \n","<< Error at fn. FindNextFile() with error no.",r);
 return(0x01);
 }
 
-return(0x01+(rddir(cmdln_flag,argp)));
+return(0x01+(rddir(argp)));
 }

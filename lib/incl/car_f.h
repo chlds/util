@@ -105,8 +105,8 @@ signed(__cdecl calc_coord(COORDS(*coords),signed char(*argp),signed(cols)));
 signed(__cdecl reading(signed char(*di),signed(size)));
 
 signed(__cdecl pickfiles(signed char(*di /* path */ ), signed char(*si /* string */ )));
-signed(__cdecl rddir(signed short(cmdln_flag), void /* or struct dir_info_stored */ (*argp)));
-signed(__cdecl finds(signed short(cmdln_flag), signed char(*argp)));
+signed(__cdecl rddir(void/* C_DIRS_INFO */(*argp)));
+signed(__cdecl finds(void/* C_DIRS_INFO */(*argp)));
 /* Close, read and open a directory entry out of the argp. */
 
 signed(__cdecl descend_ll(KNOT(**di),KNOT(*si)));
