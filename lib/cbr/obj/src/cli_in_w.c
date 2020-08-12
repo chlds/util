@@ -30,6 +30,7 @@ static signed THRESHOLD = (0x01+(0x04));
 static signed SEQ_FLAG = (0x80);
 static signed SECOND = (0xDC00);
 static signed FIRST = (0xD800);
+static signed TEN_B = (0x3FF);
 
 static signed high[] = {
 (signed) (0x91),
@@ -68,9 +69,9 @@ surrog = (0x00);
 c = _getwch();
 *w = (c);
 w++;
-if(!(FIRST^(c&(FIRST)))) {
+if(!(FIRST^(c&(~TEN_B)))) {
 surrog = _getwch();
-if(SECOND^(surrog&(SECOND))) surrog = (0x00);
+if(SECOND^(surrog&(~TEN_B))) surrog = (0x00);
 else {
 *w = (surrog);
 w++;
