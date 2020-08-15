@@ -12,6 +12,7 @@ Build a linked list.
 # define C_PDIR (0x20)
 # define C_DIRS (C_DIR+(C_DOTDIR+(C_CURRDIR+(C_PDIR))))
 
+# define OPT_DEPTH (0x04)
 # define OPT_RECURSION (0x02)
 # define OPT_ATTRIBS (0x01)
 

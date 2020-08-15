@@ -34,10 +34,18 @@ printf("%s \n",R(path,*argp));
 
 Sleep(DELAY);
 
+if(OPT_DEPTH&(R(flag,*argp))) {
+DEC(R(depth,*argp));
+if(!(R(depth,*argp))) {
+INC(R(depth,*argp));
+return(0x01);
+}}
+
 /* Open(, map, store or..) on the RAM */
 dis.p_dir = (R(path,*argp));
 dis.search = (void(*)) FindFirstFile(dis.p_dir,&(R(wfd,dis)));
 if(!((signed long long) INVALID_HANDLE_VALUE^((signed long long) dis.search))) {
+if(OPT_DEPTH&(R(flag,*argp))) INC(R(depth,*argp));
 r = GetLastError();
 printf("%s %Xh \n","<< Error at fn. FindFirstFile() with error no.",r);
 if(!(r^(ERROR_FILE_NOT_FOUND))) printf("%s \n","No matching files can be found.");
@@ -57,6 +65,7 @@ path = (R(path,*argp));
 
 r = rddir(argp);
 if(!r) {
+if(OPT_DEPTH&(R(flag,*argp))) INC(R(depth,*argp));
 printf("%s \n","<< Error at fn. rddir()");
 return(0x00);
 }
@@ -70,10 +79,13 @@ R(dis,*argp) = (&dis);
 /* Close */
 r = FindClose(dis.search);
 if(!r) {
+if(OPT_DEPTH&(R(flag,*argp))) INC(R(depth,*argp));
 r = GetLastError();
 printf("%s %Xh \n","<< Error at fn. FindClose() with error no.",r);
 return(0x00);
 }
+
+if(OPT_DEPTH&(R(flag,*argp))) INC(R(depth,*argp));
 
 return(0x01);
 }

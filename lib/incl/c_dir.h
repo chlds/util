@@ -14,6 +14,7 @@ void *optl;
 struct c_dirs_info {
 signed char *path;
 signed short flag;
+signed depth;
 signed directories;
 signed files;
 DIR_INFO_STORED *dis;

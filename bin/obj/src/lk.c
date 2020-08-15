@@ -33,7 +33,9 @@ r = ct(argp);
 if(!r) return(0x00);
 else i = (r);
 
+p = (0x00);
 if(!('/'^(*(argp+(--r))))) {
+i++;
 i++;
 i = (i*(sizeof(signed char)));
 p = (signed char(*)) malloc(i);
@@ -48,12 +50,24 @@ r++;
 argp = (p);
 }
 
-else p = (0x00);
-
 XOR(flag,flag);
 OR(flag,OPT_ATTRIBS);
-if(0x02<(argc)) OR(flag,OPT_RECURSION);
 
+i = (0x00);
+if(0x02<(argc)) {
+OR(flag,OPT_RECURSION);
+// also
+r = cv_da(0x0A,&i,*(argv+(argc+(~0x01))));
+if(!r) {
+if(p) free(p);
+return(0x00);
+}
+if(i<(0x00)) i = (0x01+(~(i)));
+if(i) OR(flag,OPT_DEPTH);
+i++;
+}
+
+cdi.depth = (i);
 cdi.directories = (0x00);
 cdi.files = (0x00);
 cdi.flag = (flag);
@@ -82,6 +96,8 @@ cdi.path = (p);
 printf("\n");
 printf(" %d %s \n",R(directories,cdi),"directories");
 printf(" %d %s \n",R(files,cdi),"files");
+
+if(DBG) printf(" %s %d \n","Depth:",R(depth,cdi));
 
 return(0x01);
 }
