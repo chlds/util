@@ -69,7 +69,7 @@ void *dis;
 auto signed char *path;
 
 auto signed char *craft;
-auto signed char *p;
+auto signed char *b,*p;
 auto signed r;
 auto signed short flag;
 
@@ -134,25 +134,35 @@ craft = (0x00);
 R(path,*argp) = (path);
 R(dis,*argp) = (dis);
 // Being gone back to the previous directory.
-printf("\n");
-printf("%s \n",R(p_dir,*(R(dis,*argp))));
+// printf("\n");
+// printf("%s \n",R(p_dir,*(R(dis,*argp))));
 }}
 
 if(DBG) printf("%s %d \n","flag:",flag);
 
 if(flag&(C_DIRS)) {
 // Output a directory name
-printf("%s "," d");
-printf("%s ",p);
 INC(R(directories,*argp));
+printf("%s "," d");
 }
 
 else {
 // Or output a file name
-printf("%s "," -");
-printf("%s ",p);
 INC(R(files,*argp));
+printf("%s "," -");
 }
+
+r = ct(R(p_dir,*(R(dis,*argp))));
+r++;
+b = (signed char(*)) malloc(r);
+if(!b) {
+printf("%s \n","<< Error at fn. malloc()");
+return(0x00);
+}
+r = cpy(b,R(p_dir,*(R(dis,*argp))));
+*(-0x01+(r+(b))) = (0x00);
+printf("%s%s ",b,p);
+free(b);
 
 /* Check the attributes of a directory or of a file */
 if(OPT_ATTRIBS&(R(flag,*argp))) {

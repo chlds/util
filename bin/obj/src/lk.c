@@ -93,7 +93,7 @@ p = (0x00);
 argp = (p);
 cdi.path = (p);
 
-printf("\n");
+// printf("\n");
 printf(" %d %s \n",R(directories,cdi),"directories");
 printf(" %d %s \n",R(files,cdi),"files");
 

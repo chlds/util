@@ -29,17 +29,17 @@ auto signed r;
 if(!argp) return(0x00);
 // if(!(R(dis,*argp))) return(0x00);
 
-printf("\n");
-printf("%s \n",R(path,*argp));
-
-Sleep(DELAY);
-
 if(OPT_DEPTH&(R(flag,*argp))) {
 DEC(R(depth,*argp));
 if(!(R(depth,*argp))) {
 INC(R(depth,*argp));
 return(0x01);
 }}
+
+printf("\n");
+// printf("%s \n",R(path,*argp));
+
+Sleep(DELAY);
 
 /* Open(, map, store or..) on the RAM */
 dis.p_dir = (R(path,*argp));
@@ -71,6 +71,7 @@ return(0x00);
 }
 
 printf(" %d %s %s \n",r,"dir/files read on",dis.p_dir);
+printf("\n");
 
 // restore
 R(path,*argp) = (path);
