@@ -29,13 +29,15 @@ if(argc<(0x02)) argp = ("./*");
 else argp = (*(argv+(argc+(~(0x00)))));
 // printf(argp);
 
+p = (0x00);
 r = ct(argp);
 if(!r) return(0x00);
 else i = (r);
 
-p = (0x00);
-if(!('/'^(*(argp+(--r))))) {
+if('*'^(*(argp+(--r)))) {
+if('/'^(*(argp+(r)))) i++;
 i++;
+}
 i++;
 i = (i*(sizeof(signed char)));
 p = (signed char(*)) malloc(i);
@@ -44,11 +46,12 @@ printf("%s \n","<< Error at fn. malloc()");
 return(0x00);
 }
 r = cpy(p,argp);
-*(p+(r)) = ('*');
-r++;
+if('*'^(*(p+(r+(~0x00))))) {
+if('/'^(*(p+(r+(~0x00))))) *(p+(r++)) = ('/');
+*(p+(r++)) = ('*');
 *(p+(r)) = (0x00);
-argp = (p);
 }
+argp = (p);
 
 XOR(flag,flag);
 OR(flag,OPT_ATTRIBS);
@@ -93,7 +96,7 @@ p = (0x00);
 argp = (p);
 cdi.path = (p);
 
-// printf("\n");
+printf("\n");
 printf(" %d %s \n",R(directories,cdi),"directories");
 printf(" %d %s \n",R(files,cdi),"files");
 

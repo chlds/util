@@ -36,7 +36,7 @@ INC(R(depth,*argp));
 return(0x01);
 }}
 
-printf("\n");
+// printf("\n");
 // printf("%s \n",R(path,*argp));
 
 Sleep(DELAY);
@@ -49,10 +49,11 @@ if(OPT_DEPTH&(R(flag,*argp))) INC(R(depth,*argp));
 r = GetLastError();
 printf("%s %Xh \n","<< Error at fn. FindFirstFile() with error no.",r);
 if(!(r^(ERROR_FILE_NOT_FOUND))) printf("%s \n","No matching files can be found.");
-//* Monitoring
-printf("%s %s \n","and dis.p_dir:",dis.p_dir);
-printf("%s %s \n","and R(path,*argp):",R(path,*argp));
-//*/
+if(0x01/* DBG */) {
+// monitoring
+printf(" [%s %s] \n","dis.p_dir:",dis.p_dir);
+printf(" [%s %s] \n","R(path,*argp):",R(path,*argp));
+}
 return(0x00);
 }
 
@@ -70,8 +71,7 @@ printf("%s \n","<< Error at fn. rddir()");
 return(0x00);
 }
 
-printf(" %d %s %s \n",r,"dir/files read on",dis.p_dir);
-printf("\n");
+if(DBG) printf(" %d %s %s \n",r,"dir/files read on",dis.p_dir);
 
 // restore
 R(path,*argp) = (path);
