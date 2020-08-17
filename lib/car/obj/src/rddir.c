@@ -138,31 +138,21 @@ R(dis,*argp) = (dis);
 // printf("%s \n",R(p_dir,*(R(dis,*argp))));
 }}
 
+b = (R(p_dir,*(R(dis,*argp))));
+r = ct(b);
+*(-0x01+(r+(b))) = (0x00);
 if(DBG) printf("%s %d \n","flag:",flag);
-
 if(flag&(C_DIRS)) {
 // Output a directory name
 INC(R(directories,*argp));
-printf("%s "," d");
+printf(" %s %s%s/ ","d",b,p);
 }
-
 else {
 // Or output a file name
 INC(R(files,*argp));
-printf("%s "," -");
+printf(" %s %s%s ","-",b,p);
 }
-
-r = ct(R(p_dir,*(R(dis,*argp))));
-r++;
-b = (signed char(*)) malloc(r);
-if(!b) {
-printf("%s \n","<< Error at fn. malloc()");
-return(0x00);
-}
-r = cpy(b,R(p_dir,*(R(dis,*argp))));
-*(-0x01+(r+(b))) = (0x00);
-printf("%s%s ",b,p);
-free(b);
+*(-0x01+(r+(b))) = ('*');
 
 /* Check the attributes of a directory or of a file */
 if(OPT_ATTRIBS&(R(flag,*argp))) {
@@ -170,7 +160,6 @@ r = attrib_of(R(dwFileAttributes,R(wfd,*(R(dis,*argp)))),attrib,attribp);
 if(!r) printf("%s \n","An error has occurred at fn. attrib_of().");
 }
 
-/* To go to the next step */
 printf("\n");
 
 /* Read i.e., update with the search handle */
