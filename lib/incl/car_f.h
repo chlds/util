@@ -91,6 +91,7 @@ signed(__cdecl cue(signed char(*sym),signed char(*argp)));
 /* Retrieve bytes to the leading address of a word or symbol. */
 
 signed(__cdecl cue2l(signed char(*sym),signed char(*argp)));
+signed(__cdecl deviate(signed char(*sym),signed char(*base),signed char(*index)));
 /* Retrieve bytes to the leading address of a word. */
 
 signed(__cdecl column_internal(signed short(cols),signed(algn),signed short(col),signed char(*cur),signed char(*offset)));
