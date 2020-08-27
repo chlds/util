@@ -39,7 +39,7 @@ return(0x01);
 // printf("\n");
 // printf("%s \n",R(path,*argp));
 
-Sleep(DELAY);
+if(OPT_UNLIMITED^(OPT_UNLIMITED&(R(flag,*argp)))) Sleep(DELAY);
 
 /* Open(, map, store or..) on the RAM */
 dis.p_dir = (R(path,*argp));
