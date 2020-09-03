@@ -55,6 +55,8 @@ argp = (p);
 
 XOR(flag,flag);
 
+if(0x09<(argc)) OR(flag,OPT_VERBOSE);
+
 cdi.target = (0x00);
 if(0x05<(argc)) cdi.target = (*(argv+(0x01)));
 

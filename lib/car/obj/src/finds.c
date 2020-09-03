@@ -47,13 +47,14 @@ dis.search = (void(*)) FindFirstFile(dis.p_dir,&(R(wfd,dis)));
 if(!((signed long long) INVALID_HANDLE_VALUE^((signed long long) dis.search))) {
 if(OPT_DEPTH&(R(flag,*argp))) INC(R(depth,*argp));
 r = GetLastError();
+if(OPT_VERBOSE&(R(flag,*argp))) {
 printf("%s %Xh \n","<< Error at fn. FindFirstFile() with error no.",r);
 if(!(r^(ERROR_FILE_NOT_FOUND))) printf("%s \n","No matching files can be found.");
 if(0x01/* DBG */) {
 // monitoring
 printf(" [%s %s] \n","dis.p_dir:",dis.p_dir);
 printf(" [%s %s] \n","R(path,*argp):",R(path,*argp));
-}
+}}
 return(0x00);
 }
 
