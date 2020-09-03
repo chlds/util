@@ -13,6 +13,7 @@ void *optl;
 
 struct c_dirs_info {
 signed char *path;
+signed char *target;
 signed short flag;
 signed depth;
 signed directories;

@@ -152,7 +152,6 @@ else {
 INC(R(files,*argp));
 printf(" %s %s%s ","-",b,p);
 }
-*(-0x01+(r+(b))) = ('*');
 
 /* Check the attributes of a directory or of a file */
 if(OPT_ATTRIBS&(R(flag,*argp))) {
@@ -161,6 +160,9 @@ if(!r) printf("%s \n","An error has occurred at fn. attrib_of().");
 }
 
 printf("\n");
+
+// restore
+*(b+(ct(b))) = ('*');
 
 /* Read i.e., update with the search handle */
 r = FindNextFile(R(search,*(R(dis,*argp))),&(R(wfd,*(R(dis,*argp)))));

@@ -54,6 +54,10 @@ if('/'^(*(p+(r+(~0x00))))) *(p+(r++)) = ('/');
 argp = (p);
 
 XOR(flag,flag);
+
+cdi.target = (0x00);
+if(0x05<(argc)) cdi.target = (*(argv+(0x01)));
+
 if(0x04<(argc)) OR(flag,OPT_ATTRIBS);
 if(0x03<(argc)) OR(flag,OPT_UNLIMITED);
 
