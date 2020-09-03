@@ -70,7 +70,7 @@ auto signed char *path;
 
 auto signed char *craft;
 auto signed char *b,*p;
-auto signed r;
+auto signed i,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
@@ -142,6 +142,22 @@ b = (R(p_dir,*(R(dis,*argp))));
 r = ct(b);
 *(-0x01+(r+(b))) = (0x00);
 if(DBG) printf("%s %d \n","flag:",flag);
+
+OR(R(flag,*argp),OPT_VISIBLE);
+
+if(R(target,*argp)) {
+AND(R(flag,*argp),(~OPT_VISIBLE));
+i = (0x00);
+r = cmpr_parts(&i,p,R(target,*argp));
+if(r) {
+if(!i) OR(R(flag,*argp),OPT_VISIBLE);
+}
+r = cmpr_parts(&i,b,R(target,*argp));
+if(r) {
+if(!i) OR(R(flag,*argp),OPT_VISIBLE);
+}}
+
+if(OPT_VISIBLE&(R(flag,*argp))) {
 if(flag&(C_DIRS)) {
 // Output a directory name
 INC(R(directories,*argp));
@@ -152,14 +168,13 @@ else {
 INC(R(files,*argp));
 printf(" %s %s%s ","-",b,p);
 }
-
 /* Check the attributes of a directory or of a file */
 if(OPT_ATTRIBS&(R(flag,*argp))) {
 r = attrib_of(R(dwFileAttributes,R(wfd,*(R(dis,*argp)))),attrib,attribp);
 if(!r) printf("%s \n","An error has occurred at fn. attrib_of().");
 }
-
 printf("\n");
+}
 
 // restore
 *(b+(ct(b))) = ('*');
