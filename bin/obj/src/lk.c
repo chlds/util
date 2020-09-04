@@ -18,18 +18,33 @@ This program may immediately cause a stack overflow.
 signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 
 /* **** DATA, BSS and STACK */
-auto C_DIRS_INFO cdi;
+auto signed char *(opt[]) = {
+(signed char(*)) ("a"),
+(signed char(*)) ("r"),
+(signed char(*)) ("u"),
+(signed char(*)) ("v"),
+(signed char(*)) (0x00),
+};
 
+auto signed opt_flags[] = {
+(signed) (OPT_ATTRIBS),
+(signed) (OPT_RECURSION),
+(signed) (OPT_UNLIMITED),
+(signed) (OPT_VERBOSE),
+(signed) (0x00),
+};
+
+auto C_DIRS_INFO cdi;
 auto signed char *argp,*p;
-auto signed i,r;
+auto signed i,l,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
 if(argc<(0x02)) argp = ("./*");
 else argp = (*(argv+(argc+(~(0x00)))));
-// printf(argp);
 
 p = (0x00);
+
 r = ct(argp);
 if(!r) return(0x00);
 else i = (r);
@@ -55,27 +70,32 @@ argp = (p);
 
 XOR(flag,flag);
 
-if(0x09<(argc)) OR(flag,OPT_VERBOSE);
-
-cdi.target = (0x00);
-if(0x05<(argc)) cdi.target = (*(argv+(0x01)));
-
-if(0x04<(argc)) OR(flag,OPT_ATTRIBS);
-if(0x03<(argc)) OR(flag,OPT_UNLIMITED);
-
-i = (0x00);
 if(0x02<(argc)) {
-OR(flag,OPT_RECURSION);
+l = (0x00);
+while(*(opt+(l))) {
+i = (0x00);
+r = cmpr_parts(&i,*(argv+(0x01)),*(opt+(l)));
+if(r) {
+if(!i) OR(flag,*(opt_flags+(l)));
+}
+l++;
+}
 // also
-r = cv_da(0x0A,&i,*(argv+(argc+(~0x01))));
+i = (0x00);
+r = cv_da(0x0A,&i,*(argv+(0x01)));
 if(!r) {
 if(p) free(p);
 return(0x00);
 }
 if(i<(0x00)) i = (0x01+(~(i)));
-if(i) OR(flag,OPT_DEPTH);
+if(i) {
+OR(flag,OPT_RECURSION);
+OR(flag,OPT_DEPTH);
 i++;
-}
+}}
+
+cdi.target = (0x00);
+if(0x03<(argc)) cdi.target = (*(argv+(0x02)));
 
 cdi.depth = (i);
 cdi.directories = (0x00);
