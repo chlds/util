@@ -23,6 +23,7 @@ auto signed char *(opt[]) = {
 (signed char(*)) ("r"),
 (signed char(*)) ("u"),
 (signed char(*)) ("v"),
+(signed char(*)) ("d"),
 (signed char(*)) (0x00),
 };
 
@@ -31,6 +32,7 @@ auto signed opt_flags[] = {
 (signed) (OPT_RECURSION),
 (signed) (OPT_UNLIMITED),
 (signed) (OPT_VERBOSE),
+(signed) (OPT_DIRECTORIES),
 (signed) (0x00),
 };
 
@@ -125,7 +127,7 @@ cdi.path = (p);
 
 printf("\n");
 printf(" %d %s \n",R(directories,cdi),"directories");
-printf(" %d %s \n",R(files,cdi),"files");
+if(!(OPT_DIRECTORIES&(R(flag,cdi)))) printf(" %d %s \n",R(files,cdi),"files");
 
 if(DBG) printf(" %s %d \n","Depth:",R(depth,cdi));
 

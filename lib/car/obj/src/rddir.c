@@ -71,6 +71,7 @@ auto signed char *path;
 auto signed char *craft;
 auto signed char *b,*p;
 auto signed i,r;
+auto signed short disable;
 auto signed short flag;
 
 /* **** CODE/TEXT */
@@ -154,6 +155,7 @@ if(!i) OR(R(flag,*argp),OPT_VISIBLE);
 }}
 
 if(OPT_VISIBLE&(R(flag,*argp))) {
+disable = (0x00);
 if(flag&(C_DIRS)) {
 // Output a directory name
 INC(R(directories,*argp));
@@ -161,16 +163,20 @@ printf(" %s %s%s/ ","d",b,p);
 }
 else {
 // Or output a file name
+if(!(OPT_DIRECTORIES&(R(flag,*argp)))) {
 INC(R(files,*argp));
 printf(" %s %s%s ","-",b,p);
 }
+else disable = (0x01);
+}
 /* Check the attributes of a directory or of a file */
+if(!disable) {
 if(OPT_ATTRIBS&(R(flag,*argp))) {
 r = attrib_of(R(dwFileAttributes,R(wfd,*(R(dis,*argp)))),attrib,attribp);
 if(!r) printf("%s \n","An error has occurred at fn. attrib_of().");
 }
 printf("\n");
-}
+}}
 
 // restore
 *(b+(ct(b))) = ('*');
