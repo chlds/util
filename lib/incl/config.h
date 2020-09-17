@@ -30,6 +30,7 @@ Remarks:
 
 # ifdef C_W32API
 # include <windows.h>
+# include <psapi.h>
 # endif
 
 # ifdef CALEND

@@ -7,6 +7,7 @@ on branch develop
 # define C_CODE_STDS
 # define C_MT
 # define CCR
+# define C_W32API
 # include "./../../../lib/incl/config.h"
 
 # define BUFF (0x400)
@@ -64,6 +65,37 @@ auto signed short flag;
 auto signed char c;
 
 /* **** CODE/TEXT */
+// process priorities
+r = GetPriorityClass(GetCurrentProcess());
+if(!r) {
+r = GetLastError();
+printf("%s %d %s %Xh \n","<< Error at fn. GetPriorityClass() with no.",r,"or",r);
+return(0x00);
+}
+if(r^(ABOVE_NORMAL_PRIORITY_CLASS)) {
+r = SetPriorityClass(GetCurrentProcess(),ABOVE_NORMAL_PRIORITY_CLASS);
+if(!r) {
+r = GetLastError();
+printf("%s %d %s %Xh \n","<< Error at fn. SetPriorityClass() with no.",r,"or",r);
+return(0x00);
+}}
+
+// thread priorities
+r = GetThreadPriority(GetCurrentThread());
+if(!(r^(THREAD_PRIORITY_ERROR_RETURN))) {
+r = GetLastError();
+printf("%s %d %s %Xh \n","<< Error at fn. GetThreadPriority() with no.",r,"or",r);
+return(0x00);
+}
+if(r^(THREAD_PRIORITY_ABOVE_NORMAL)) {
+r = SetThreadPriority(GetCurrentThread(),THREAD_PRIORITY_ABOVE_NORMAL);
+if(!r) {
+r = GetLastError();
+printf("%s %d %s %Xh \n","<< Error at fn. SetThreadPriority() with no.",r,"or",r);
+return(0x00);
+}}
+
+// init.
 sat.Announcements = (0x00);
 sat.cmdl_time_Toggle = (0x00);
 sat.Running = (0x01);
