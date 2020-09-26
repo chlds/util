@@ -31,13 +31,19 @@ auto signed char c;
 
 /* **** CODE/TEXT */
 flag = (0x00);
-if(0x01<(argc)) OR(flag,OPT_VERBOSE);
+i = (0x00);
+if(0x01<(argc)) {
+r = cmpr_parts(&i,*(argv+(0x01)),"v");
+if(r) {
+if(!i) OR(flag,OPT_VERBOSE);
+}}
 
 r = (BUFF);
 r = (r*(sizeof(signed)));
 process_ids = (signed(*)) malloc(r);
 if(!process_ids) return(0x00);
 
+i = (0x00);
 r = EnumProcesses(process_ids,r,&i);
 if(!r) {
 r = GetLastError();

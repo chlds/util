@@ -22,6 +22,7 @@ Remarks:
 # include <sys/utime.h>
 # include <locale.h>
 # include <wchar.h>
+# include <signal.h>
 # endif
 
 # ifdef C_MT
@@ -31,6 +32,7 @@ Remarks:
 # ifdef C_W32API
 # include <windows.h>
 # include <psapi.h>
+# include <tlhelp32.h>
 # endif
 
 # ifdef CALEND
