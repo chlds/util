@@ -116,7 +116,7 @@ printf("\n");
 
 /* Initialize */
 r = (BUFF);
-r = (r*(sizeof(signed char)));
+r = (r*(sizeof(*base)));
 base = (signed char(*)) malloc(r);
 if(!base) return(0x00);
 cur = (base);
@@ -137,7 +137,7 @@ XOR(flag,flag);
 
 while(2) {
 if(sat.Announcements) break;
-cache = (struct knot(*)) malloc(sizeof(struct knot));
+cache = (struct knot(*)) malloc(sizeof(*cache));
 if(!cache) {
 printf("%s \n","<< Error at fn. malloc()");
 return(0x00);
@@ -156,7 +156,7 @@ return(0x00);
 }
 length = ct(cur);
 length++;
-length = (length*(sizeof(signed char)));
+length = (length*(sizeof(*cur)));
 R(p,*cache) = (signed char(*)) malloc(length);
 if(!(R(p,*cache))) {
 printf("%s \n","<< Error at fn. malloc()");

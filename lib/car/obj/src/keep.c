@@ -28,7 +28,7 @@ if(!si) return(0x00);
 
 r = ct(si);
 r++;
-r = (r*(sizeof(signed char)));
+r = (r*(sizeof(**di)));
 
 i = (r);
 

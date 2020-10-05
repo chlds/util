@@ -28,7 +28,7 @@ if(!si) return(0x00);
 
 r = ct(si);
 r++;
-r = (r*(sizeof(signed short)));
+r = (r*(sizeof(**di)));
 
 i = (r);
 

@@ -34,7 +34,7 @@ flag = (0x00);
 if(si<(0x00)) flag++;
 if(flag) r++;
 r++;
-r = (r*(sizeof(signed char)));
+r = (r*(sizeof(**di)));
 p = (signed char(*)) malloc(r);
 if(!p) {
 *di = (0x00);

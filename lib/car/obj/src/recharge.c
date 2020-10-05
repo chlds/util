@@ -20,7 +20,7 @@ embed(0x00/* flag */,*argp);
 free(*argp);
 }
 
-arg = (arg*(sizeof(signed char)));
+arg = (arg*(sizeof(**argp)));
 *argp = (signed char(*)) malloc(arg);
 if(!(*argp)) return(0x00);
 

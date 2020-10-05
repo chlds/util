@@ -56,7 +56,7 @@ if('/'^(*(argp+(r)))) i++;
 i++;
 }
 i++;
-i = (i*(sizeof(signed char)));
+i = (i*(sizeof(*argp)));
 p = (signed char(*)) malloc(i);
 if(!p) {
 printf("%s \n","<< Error at fn. malloc()");

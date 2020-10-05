@@ -97,7 +97,7 @@ r = ct("/*");
 r = (r+(ct(p)));
 r = (r+(ct(R(p_dir,*(R(dis,*argp))))));
 r++;
-r = (r*(sizeof(signed char)));
+r = (r*(sizeof(*p)));
 craft = (signed char(*)) malloc(r);
 r = cpy(craft,R(p_dir,*(R(dis,*argp))));
 if(!r) {

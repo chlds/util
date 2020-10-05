@@ -18,7 +18,7 @@ auto signed char fname[BUFF] = {
 (signed char) (0x00),
 };
 
-auto void **q,**m,**modules;
+auto void **m,**modules;
 auto void *process;
 
 auto signed *d,*process_ids;
@@ -39,7 +39,7 @@ if(!i) OR(flag,OPT_VERBOSE);
 }}
 
 r = (BUFF);
-r = (r*(sizeof(signed)));
+r = (r*(sizeof(*process_ids)));
 process_ids = (signed(*)) malloc(r);
 if(!process_ids) return(0x00);
 
@@ -53,7 +53,7 @@ return(0x00);
 }
 
 if(i) {
-i = (i/(sizeof(signed)));
+i = (i/(sizeof(*process_ids)));
 printf("%3s. %6s %s (%s) \n","No","PID","BaseName","Modules");
 }
 
@@ -74,7 +74,7 @@ if(OPT_VERBOSE&(flag)) printf("%s %d %s %Xh \n","<< Error at fn. OpenProcess() w
 else {
 // display modules for the process id
 r = (BUFF);
-r = (r*(sizeof(void*)));
+r = (r*(sizeof(*m)));
 modules = (void**) malloc(r);
 if(!modules) {
 printf("%s \n","<< Error at fn. malloc()");
@@ -90,7 +90,7 @@ printf("%s %d %s %Xh \n","<< Error at fn. EnumProcessModules() with no.",r,"or",
 }
 if(r<(ii)) {
 }
-ii = (ii/(sizeof(void*)));
+ii = (ii/(sizeof(*m)));
 r = GetModuleBaseName(process,*m,fname,BUFF);
 if(!r) {
 }

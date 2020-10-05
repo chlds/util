@@ -30,7 +30,7 @@ auto signed short flag;
 if(!di) return(0x00);
 if(!si) return(0x00);
 
-buff = (BUFF*(sizeof(signed char)));
+buff = (BUFF*(sizeof(**di)));
 if(buff<(0x08)) return(0x00);
 
 p = (signed char(*)) malloc(buff);

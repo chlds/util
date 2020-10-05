@@ -35,7 +35,7 @@ if(i<(0x01)) return(0x00);
 *total = (i);
 
 INC(r);
-r = (r*(sizeof(signed char)));
+r = (r*(sizeof(**argp)));
 p = (signed char(*)) malloc(r);
 if(!p) {
 printf("%s\n","<< Error at fn. malloc()");
