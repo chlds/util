@@ -82,7 +82,7 @@ ADD(r,ct(*(CLI_BASE+(R(base,*page)))));
 
 
 INC(r);
-r = (r*(sizeof(signed short)));
+r = (r*(sizeof(*w)));
 g = GlobalAlloc(GMEM_SHARE|(GHND),r);
 if(!g) {
 r = GetLastError();
@@ -115,7 +115,7 @@ return(0x00);
 //*/
 }
 INC(r);
-r = (r*(sizeof(signed short)));
+r = (r*(sizeof(*w)));
 i = (size);
 size = (-r+(size));
 if(size<(0x00)) {
@@ -149,7 +149,7 @@ if(page) {
 if(flag) {
 if(!(LINEBREAK_CRLF^(R(linebreak_form,R(config,R(ty,*argp)))))) {
 r = (0x01);
-r = (r*(sizeof(signed short)));
+r = (r*(sizeof(*w)));
 size = (-r+(size));
 if(size<(0x00)) {
 printf("%s\n","<< Could not assign..");

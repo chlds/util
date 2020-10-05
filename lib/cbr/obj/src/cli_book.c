@@ -44,7 +44,7 @@ return(0x00);
 }
 
 r++;
-r = (r*(sizeof(signed char)));
+r = (r*(sizeof(*p)));
 
 p = (signed char(*)) malloc(r);
 if(!p) {

@@ -30,7 +30,7 @@ if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-\\>");
 
 cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 r = (0x01+(ct(cur)));
-r = (r*(sizeof(signed char)));
+r = (r*(sizeof(*cur)));
 p = (signed char(*)) malloc(r);
 if(!p) {
 printf("%s\n","<< Error at fn. malloc() ");

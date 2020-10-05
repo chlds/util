@@ -95,7 +95,7 @@ return(0x00);
 }
 p = (*(CLI_INDEX+(R(cur,*argp))));
 }
-r = read(R(fd,R(edit,*argp)),&c,sizeof(signed char));
+r = read(R(fd,R(edit,*argp)),&c,sizeof(c));
 if(!(r^(~(0x00)))) {
 OR(R(flag,*argp),CLI_IRR);
 printf("%s\n","<< Error at fn. read()");

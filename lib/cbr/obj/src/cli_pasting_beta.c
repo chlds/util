@@ -153,7 +153,7 @@ ADD(i,R(offset,R(ty,*argp)));
 r = ct(p);
 ADD(i,r);
 i++;
-i = (i*(sizeof(signed char)));
+i = (i*(sizeof(*buff)));
 buff = (signed char(*)) malloc(i);
 if(!buff) {
 printf("%s\n","<< Error at fn. malloc()");

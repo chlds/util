@@ -64,7 +64,7 @@ if(criterion<(dif)) {
 cur = (*(CLI_BASE+(R(base,R(roll,*argp)))));
 r = ct(cur);
 r++;
-r = (r*(sizeof(signed char)));
+r = (r*(sizeof(*p)));
 p = (signed char(*)) malloc(r);
 if(!p) {
 OR(R(flag,*argp),CLI_IRR);

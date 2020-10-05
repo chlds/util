@@ -99,7 +99,7 @@ w = (signed short(*)) (*(CLI_W+(R(base,R(clipboard,R(ty,*argp))))));
 /*
 if(w) {
 r = ct_w(w);
-r = (r*(sizeof(signed short)));
+r = (r*(sizeof(*w)));
 i = (r);
 p = (signed char(*)) (w);
 r = embed_to(p,0x00,r);

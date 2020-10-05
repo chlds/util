@@ -46,7 +46,7 @@ i = (r);
 r = ct(*(CLI_BASE+(R(base,*page))));
 INC(r);
 ADD(i,r);
-r = (i*(sizeof(signed char)));
+r = (i*(sizeof(*p)));
 p = (signed char(*)) malloc(r);
 if(!p) {
 printf("%s\n","<< Error at fn. malloc()");

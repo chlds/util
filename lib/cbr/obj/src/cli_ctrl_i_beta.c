@@ -42,7 +42,7 @@ r = ct(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 if(!r) p = (0x00);
 else {
 INC(r);
-r = (r*(sizeof(signed char)));
+r = (r*(sizeof(*p)));
 p = (signed char(*)) malloc(r);
 if(!p) {
 printf("%s\n","<< Error at fn. malloc()");

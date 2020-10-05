@@ -42,7 +42,7 @@ if(!p) return(0x00);
 
 r = ct(p);
 r++;
-r = (r*(sizeof(signed short)));
+r = (r*(sizeof(*w)));
 w = (signed short(*)) malloc(r);
 if(!w) {
 printf("%s\n","<< Error at fn. malloc()");

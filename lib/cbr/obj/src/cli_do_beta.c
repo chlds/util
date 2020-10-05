@@ -62,7 +62,7 @@ return(0x00);
 //* aux.
 r = ct(p);
 INC(r);
-r = (r*(sizeof(signed char)));
+r = (r*(sizeof(*p)));
 i = (*(CLI_BASE+(R(size,R(roll,R(ty,*argp))))));
 if(i<(r)) {
 r = cli_extend(CLI_BASE,0x01/* cue */,CLI_EMPTY+(-i+(r))/* extra */,&(R(ty,*argp)));

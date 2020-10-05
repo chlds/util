@@ -48,7 +48,7 @@ return(0x00);
 }
 
 r++;
-r = (r*(sizeof(signed short)));
+r = (r*(sizeof(*w)));
 i = (size);
 size = (-r+(size));
 if(size<(0x00)) {
@@ -83,7 +83,7 @@ if(!argp) return(0x00);
 if(flag) {
 if(!(LINEBREAK_CRLF^(linebreak_form))) {
 r = (0x01);
-r = (r*(sizeof(signed short)));
+r = (r*(sizeof(*w)));
 size = (-r+(size));
 if(size<(0x00)) {
 printf("%s\n","<< Could not assign..");

@@ -73,7 +73,7 @@ return(0x00);
 }
 i = (i+(r));
 i++;
-i = (i*(sizeof(signed char)));
+i = (i*(sizeof(*path)));
 path = (signed char(*)) malloc(i);
 if(!path) {
 printf("%s\n","<< Error at fn. malloc()");

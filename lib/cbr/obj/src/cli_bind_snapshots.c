@@ -27,7 +27,7 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-cache = (CLI_SNAPSHOT(*)) malloc(0x01*(sizeof(CLI_SNAPSHOT)));
+cache = (CLI_SNAPSHOT(*)) malloc(0x01*(sizeof(*cache)));
 if(!cache) {
 printf("%s\n","<< Error at fn. malloc()");
 return(0x00);
