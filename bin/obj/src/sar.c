@@ -1,4 +1,16 @@
 /* **** Notes
+
+sar [flags] [PID]
+
+flags:
+c: current
+a: all
+m: modules
+s: system
+v: verbose
+
+Remarks:
+Currently under construction
 */
 
 
@@ -7,6 +19,7 @@
 # define CAR
 # define C_W32API
 # include "./../../../lib/incl/config.h"
+// # include <aclapi.h>
 
 # define BUFF (0x04*(0x100))
 
@@ -14,17 +27,33 @@
 signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 
 /* **** DATA, BSS and STACK */
+auto signed char uname[BUFF] = {
+(signed char) (0x00),
+};
+
+auto signed char dname[BUFF] = {
+(signed char) (0x00),
+};
+
 auto signed char fname[BUFF] = {
 (signed char) (0x00),
 };
 
+auto SID_NAME_USE snu;
+
 auto void **m,**modules;
 auto void *process;
+auto void *token;
 
 auto signed *d,*process_ids;
 auto signed char *b,*cur,*base,*p;
 
+auto TOKEN_USER *tu;
+
 auto signed access_right;
+auto signed usize;
+auto signed dsize;
+auto signed tflag;
 auto signed i,ii,l,n,r;
 auto signed short flag;
 auto signed char c;
@@ -37,6 +66,59 @@ r = cmpr_parts(&i,*(argv+(0x01)),"v");
 if(r) {
 if(!i) OR(flag,OPT_VERBOSE);
 }}
+
+
+// map
+tflag = (TOKEN_QUERY);
+r = OpenProcessToken(GetCurrentProcess(),tflag,&token);
+if(!r) {
+r = GetLastError();
+printf("%s %d %s %Xh \n","<< Error at fn. OpenProcessToken() with no. ",r,"or",r);
+return(0x00);
+}
+// sizing
+tflag = (TokenUser);
+l = (0x00);
+r = GetTokenInformation(token,tflag,(void*) 0x00,l,&l);
+if(DBG) {
+printf("%s %p \n","token:",token);
+printf("%s %Xh \n","tflag:",tflag);
+printf("%s %d \n","l:",l);
+}
+// map
+tu = (TOKEN_USER(*)) LocalAlloc(LPTR,l);
+if(!tu) {
+r = GetLastError();
+printf("%s %d %s %Xh \n","<< Error at fn. LocalAlloc() with no. ",r,"or",r);
+CloseHandle(token);
+return(0x00);
+}
+// get
+r = GetTokenInformation(token,tflag,tu,l,&l);
+if(!r) {
+r = GetLastError();
+printf("%s %d %s %Xh \n","<< Error at fn. GetTokenInformation() with no. ",r,"or",r);
+LocalFree(tu);
+CloseHandle(token);
+return(0x00);
+}
+// check
+dsize = (BUFF);
+usize = (BUFF);
+r = LookupAccountSid(0x00,R(Sid,R(User,*tu)),uname,&usize,dname,&dsize,&snu);
+if(!r) {
+r = GetLastError();
+printf("%s %d %s %Xh \n","<< Error at fn. LookupAccountSid() with no. ",r,"or",r);
+LocalFree(tu);
+CloseHandle(token);
+return(0x00);
+}
+LocalFree(tu);
+CloseHandle(token);
+// display
+printf("%s %s@%s \n","user@domain:",uname,dname);
+printf("\n");
+
 
 r = (BUFF);
 r = (r*(sizeof(*process_ids)));
