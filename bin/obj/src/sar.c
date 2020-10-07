@@ -39,6 +39,18 @@ auto signed char fname[BUFF] = {
 (signed char) (0x00),
 };
 
+auto signed char *(vflag_s[]) = {
+(signed char(*)) ("m"),
+(signed char(*)) ("v"),
+(signed char(*)) (0x00),
+};
+
+auto signed vflag[] = {
+(signed) (OPT_MODULES),
+(signed) (OPT_VERBOSE),
+(signed) (0x00),
+};
+
 auto TOKEN_PRIVILEGES priv;
 auto LUID luid;
 auto SID_NAME_USE snu;
@@ -63,11 +75,15 @@ auto signed char c;
 
 /* **** CODE/TEXT */
 flag = (0x00);
+l = (0x00);
 i = (0x00);
 if(0x01<(argc)) {
-r = cmpr_parts(&i,*(argv+(0x01)),"v");
+while(*(vflag+(l))) {
+r = cmpr_parts(&i,*(argv+(0x01)),*(vflag_s+(l)));
 if(r) {
-if(!i) OR(flag,OPT_VERBOSE);
+if(!i) OR(flag,*(vflag+(l)));
+}
+l++;
 }}
 
 
@@ -228,7 +244,7 @@ if(fname) {
 printf("%s ",fname);
 printf("(%d) ",ii);
 //* Aux.
-if(OPT_VERBOSE&(flag)) {
+if(OPT_MODULES&(flag)) {
 printf("\n");
 while(--ii) {
 m++;
