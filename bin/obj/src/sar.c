@@ -39,11 +39,14 @@ auto signed char fname[BUFF] = {
 (signed char) (0x00),
 };
 
+auto TOKEN_PRIVILEGES priv;
+auto LUID luid;
 auto SID_NAME_USE snu;
 
 auto void **m,**modules;
 auto void *process;
 auto void *token;
+auto void *key;
 
 auto signed *d,*process_ids;
 auto signed char *b,*cur,*base,*p;
@@ -53,8 +56,8 @@ auto TOKEN_USER *tu;
 auto signed access_right;
 auto signed usize;
 auto signed dsize;
-auto signed tflag;
 auto signed i,ii,l,n,r;
+auto signed tflag;
 auto signed short flag;
 auto signed char c;
 
@@ -69,7 +72,51 @@ if(!i) OR(flag,OPT_VERBOSE);
 
 
 // map
-tflag = (TOKEN_QUERY);
+tflag = (0x00);
+OR(tflag,TOKEN_ADJUST_PRIVILEGES);
+OR(tflag,TOKEN_QUERY);
+r = OpenProcessToken(GetCurrentProcess(),tflag,&token);
+if(!r) {
+r = GetLastError();
+printf("%s %d %s %Xh \n","<< Error at fn. OpenProcessToken() with no. ",r,"or",r);
+return(0x00);
+}
+// retrieve a local uid
+r = LookupPrivilegeValue((void*) 0x00,(signed char(*)) SE_DEBUG_NAME,&luid);
+if(!r) {
+r = GetLastError();
+printf("%s %d %s %Xh \n","<< Error at fn. LookupPrivilegeValue() with no. ",r,"or",r);
+CloseHandle(token);
+return(0x00);
+}
+// enable the local uid
+R(Attributes,*(R(Privileges,priv))) = (SE_PRIVILEGE_ENABLED);
+R(Luid,*(R(Privileges,priv))) = (luid);
+R(PrivilegeCount,priv) = (0x01);
+r = AdjustTokenPrivileges(token,0x00,&priv,sizeof(TOKEN_PRIVILEGES),(void*) 0x00,(void*) 0x00);
+if(!r) {
+r = GetLastError();
+printf("%s %d %s %Xh \n","<< Error at fn. AdjustTokenPrivileges() with no. ",r,"or",r);
+CloseHandle(token);
+return(0x00);
+}
+else {
+r = GetLastError();
+if(!(r^(ERROR_NOT_ALL_ASSIGNED))) printf("%s \n","As an account,");
+if(!(r^(ERROR_SUCCESS))) printf("%s \n","As an administrative account,");
+}
+// unmap
+r = CloseHandle(token);
+if(!r) {
+r = GetLastError();
+printf("%s %d %s %Xh \n","<< Error at fn. CloseHandle() with no. ",r,"or",r);
+return(0x00);
+}
+
+
+// map
+tflag = (0x00);
+OR(tflag,TOKEN_QUERY);
 r = OpenProcessToken(GetCurrentProcess(),tflag,&token);
 if(!r) {
 r = GetLastError();
@@ -116,7 +163,7 @@ return(0x00);
 LocalFree(tu);
 CloseHandle(token);
 // display
-printf("%s %s@%s \n","user@domain:",uname,dname);
+printf("%s@%s %s \n",uname,dname,"[user@domain]");
 printf("\n");
 
 
