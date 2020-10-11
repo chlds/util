@@ -24,7 +24,7 @@ auto signed device[/*CLI_DEVICES*/] = {
 };
 
 auto COORD coord;
-auto signed long long ll;
+auto void *v;
 auto signed char *p;
 auto signed i,r;
 auto signed short criterion;
@@ -43,8 +43,8 @@ i = (CLI_ERR+(0x01));
 while(i) {
 --i;
 *(i+(R(device,*argp))) = (void(*)) GetStdHandle(*(device+(i)));
-ll = (signed long long) (*(i+(R(device,*argp))));
-if(!(ll^((signed long long) INVALID_HANDLE_VALUE))) {
+v = (*(i+(R(device,*argp))));
+if(EQ(INVALID_HANDLE_VALUE,v)) {
 r = GetLastError();
 printf("%s%d%s%Xh%s%d\n","<< Error at fn. GetStdHandle() with error no. ",r,"/",r," and i is: ",i);
 return(0x00);

@@ -11,7 +11,6 @@ Initialise.
 signed(__cdecl cli_init_ty(signed(size),CLI_TYPEWRITER(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed long long ll;
 auto signed char *p;
 auto signed i,r;
 auto signed short flag;

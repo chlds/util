@@ -18,7 +18,6 @@ signed(__cdecl cli_rule(signed char(*cur),CLI_TYPEWRITER(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *base,*p;
-auto signed long long ll;
 auto signed c,i,r;
 auto signed short flag;
 

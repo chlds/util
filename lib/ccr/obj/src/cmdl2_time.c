@@ -398,7 +398,7 @@ if(!(*(old_obj+(BRUSH)))) {
 printf("%s \n","<< Error at fn. SelectObject() of the Brush with the NULL.");
 return(0x00);
 }
-if(!((signed long long)HGDI_ERROR^ (signed long long) (*(old_obj+(BRUSH))))) {
+if(EQ(HGDI_ERROR,*(old_obj+(BRUSH)))) {
 printf("%s \n","<< Error at fn. SelectObject() of the Brush with the HGDI_ERROR");
 return(0x00);
 }
@@ -408,7 +408,7 @@ if(!(*(old_obj+(FONT)))) {
 printf("%s \n","<< Error at fn. SelectObject(FONT) with the NULL.");
 return(0x00);
 }
-if(!((signed long long)HGDI_ERROR^ (signed long long) (*(old_obj+(FONT))))) {
+if(EQ(HGDI_ERROR,*(old_obj+(FONT)))) {
 printf("%s \n","<< Error at fn. SelectObject(FONT) with the HGDI_ERROR");
 return(0x00);
 }
@@ -422,7 +422,7 @@ if(!(*(old_bm+(i)))) {
 printf("%s \n","<< Error at fn. SelectObject(BITMAP) with the NULL.");
 return(0x00);
 }
-if(!((unsigned long long)HGDI_ERROR^((unsigned long long) (*(old_bm+(i)))))) {
+if(EQ(HGDI_ERROR,*(old_bm+(i)))) {
 printf("%s \n","<< Error at fn. SelectObject(BITMAP) with the HGDI_ERROR");
 return(0x00);
 }}
@@ -433,7 +433,7 @@ if(!(*(old_obj+(LOADEDBITMAP)))) {
 printf("%s \n","<< Error at fn. SelectObject(LOADEDBITMAP) with the NULL.");
 return(0x00);
 }
-if(!((signed long long)HGDI_ERROR^ (signed long long) (*(old_obj+(LOADEDBITMAP))))) {
+if(EQ(HGDI_ERROR,*(old_obj+(LOADEDBITMAP)))) {
 printf("%s \n","<< Error at fn. SelectObject(LOADEDBITMAP) with the HGDI_ERROR");
 return(0x00);
 }
@@ -582,7 +582,7 @@ if(!(*(old_obj+(LOADEDBITMAP)))) {
 printf("%s \n","<< Error at fn. SelectObject to de-select a loaded bitmap to (*(dc+(SI)))");
 return(0x00);
 }
-if(!((signed long long) HGDI_ERROR^ (signed long long) (*(old_obj+(LOADEDBITMAP))))) {
+if(EQ(HGDI_ERROR,*(old_obj+(LOADEDBITMAP)))) {
 printf("%s \n","<< Error at fn. SelectObject to de-select a loaded bitmap to (*(dc+(SI))) with HGDI_ERROR");
 return(0x00);
 }
@@ -598,7 +598,7 @@ if(!(*(old_bm+(i)))) {
 printf("%s%d \n","<< Error at fn. SelectObject to de-select a compatible bitmap object and i is: ",i);
 return(0x00);
 }
-if(!((unsigned long long) HGDI_ERROR^((unsigned long long) *(old_bm+(i))))) {
+if(EQ(HGDI_ERROR,*(old_bm+(i)))) {
 printf("%s%d \n","<< Error at fn. SelectObject to de-select a compatible bitmap object with HGDI_ERROR and i is: ",i);
 return(0x00);
 }}
@@ -613,7 +613,7 @@ if(!(*(old_obj+(i)))) {
 printf("%s%d \n","<< Error at fn. SelectObject to de-select and i is: ",i);
 return(0x00);
 }
-if(!((signed long long) HGDI_ERROR^ (signed long long) (*(old_obj+(i))))) {
+if(EQ(HGDI_ERROR,*(old_obj+(i)))) {
 printf("%s%d \n","<< Error at fn. SelectObject to de-select with HGDI_ERROR and i is: ",i);
 return(0x00);
 }}

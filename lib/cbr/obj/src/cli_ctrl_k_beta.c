@@ -23,8 +23,7 @@ signed(__cdecl cli_ctrl_k_beta(CLI_W32_STAT(*argp))) {
 auto CLI_PAGE *page;
 
 auto CLI_COORD coord[0x02];
-auto signed char *p;
-auto signed long long ll;
+auto signed char *b;
 auto signed c,i,r;
 auto signed short flag;
 auto signed short y;
@@ -48,8 +47,8 @@ ADD(R(gauge,R(ty,*argp)),r);
 // **(CLI_INDEX+(R(cur,R(ty,*argp)))) = (0x00);
 r = embed(0x00/* flag */,*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 
-ll = (signed long long) (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
-if(!(ll^((signed long long) *(CLI_BASE+(R(base,R(roll,R(ty,*argp)))))))) flag = (0x01);
+b = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+if(EQ(b,*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))))) flag = (0x01);
 else flag = (0x00);
 
 if(flag) {

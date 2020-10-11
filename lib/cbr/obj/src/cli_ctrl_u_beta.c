@@ -23,7 +23,6 @@ signed(__cdecl cli_ctrl_u_beta(CLI_W32_STAT(*argp))) {
 auto CLI_COORD coord;
 auto CLI_PAGE *page;
 
-auto signed long long ll;
 auto signed char *cur,*p;
 auto signed c,i,r;
 auto signed short flag;
@@ -43,8 +42,7 @@ return(0x00);
 //*/
 
 cur = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
-ll = ((signed long long) cur);
-if(ll^((signed long long) *(CLI_BASE+(R(base,R(roll,R(ty,*argp))))))) {
+if(!(EQ(cur,*(CLI_BASE+(R(base,R(roll,R(ty,*argp)))))))) {
 r = cli_ctrl_a_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_ctrl_a_beta()");
