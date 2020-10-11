@@ -78,7 +78,6 @@ auto COORD coord;
 auto void *ccsb;
 auto signed short *w;
 auto signed char *cur,*p;
-auto signed long long ll;
 auto signed i,l,r;
 auto signed short flag;
 
@@ -98,8 +97,7 @@ GENERIC_READ|(GENERIC_WRITE),
 CONSOLE_TEXTMODE_BUFFER,
 0x00
 );
-ll = ((signed long long) ccsb);
-if(!(ll^((signed long long) INVALID_HANDLE_VALUE))) {
+if(EQ(INVALID_HANDLE_VALUE,ccsb)) {
 r = GetLastError();
 printf("%s%d%s%Xh\n","<< Error at fn. CreateConsoleScreenBuffer() with error no. ",r," or ",r);
 return(0x00);

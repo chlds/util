@@ -18,6 +18,9 @@ Refer at ./config.h
 # define INC(A) (A)++
 // Op
 
+# define EQ(A,B) (A==(B))
+// Compare
+
 # define R(D,S) (S).D
 // Data
 
