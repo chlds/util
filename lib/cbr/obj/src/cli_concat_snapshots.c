@@ -15,14 +15,14 @@ Based on a doubly linked list (i.e., not a circular linked list)
 signed(__cdecl cli_concat_snapshots(CLI_SNAPSHOT(*cache),CLI_HISTORY(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed long long ll;
+auto CLI_SNAPSHOT *snapshot;
 
 /* **** CODE/TEXT */
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 
-ll = (signed long long) (*(CLI_LEAD+(R(snapshot,*argp))));
-if(!(ll^((signed long long) *(CLI_INDEX+(R(snapshot,*argp)))))) R(insert,*argp) = (0x00);
+snapshot = (*(CLI_LEAD+(R(snapshot,*argp))));
+if(EQ(snapshot,*(CLI_INDEX+(R(snapshot,*argp))))) R(insert,*argp) = (0x00);
 else R(insert,*argp) = (0x01);
 
 if(!(R(insert,*argp))) {

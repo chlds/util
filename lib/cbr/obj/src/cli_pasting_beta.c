@@ -28,8 +28,7 @@ auto CLI_PAGE *page;
 auto void *g;
 auto signed short *w;
 auto signed char *cur,*base,*buff,*p,*b;
-auto signed long long ll;
-auto signed c,i,r;
+auto signed i,r;
 auto signed offset;
 auto signed pages;
 auto signed kept;
@@ -42,7 +41,7 @@ if(!argp) return(0x00);
 
 b = (signed char(*)) (*(CLI_B+(R(base,R(clipboard,R(ty,*argp))))));
 if(!b) {
-printf("%s\n","<< Empty at *(CLI_B+(R(base,R(clipboard,R(ty,*argp..");
+printf("%s \n","<< Empty at *(CLI_B+(R(base,R(clipboard,R(ty,*argp..");
 return(0x00);
 }
 
@@ -65,7 +64,7 @@ if(!r) p = (0x00);
 else {
 kept = keep(&p,cur);
 if(!kept) {
-printf("%s\n","<< Error at fn. keep()");
+printf("%s \n","<< Error at fn. keep()");
 return(0x00);
 }}
 *(CLI_OFFSET+(R(append,R(ty,*argp)))) = (p);
@@ -75,32 +74,32 @@ return(0x00);
 // r = cli_book(&(R(ty,*argp)));
 r = cli_book_no_history(&(R(ty,*argp)));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_book_no_history()");
+printf("%s \n","<< Error at fn. cli_book_no_history()");
 return(0x00);
 }
 
 r = cli_copy_to_pages(CLI_PBR&(R(flag,*page)),&(R(spool,R(clipboard,R(ty,*argp)))),b);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_copy_to_pages()");
+printf("%s \n","<< Error at fn. cli_copy_to_pages()");
 return(0x00);
 }
 pages = (r);
 
 r = cli_insert_pages(&(R(spool,R(ty,*argp))),&(R(spool,R(clipboard,R(ty,*argp)))));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_insert_pages()");
+printf("%s \n","<< Error at fn. cli_insert_pages()");
 return(0x00);
 }
 
 r = cli_merge_pages(&(R(spool,R(ty,*argp))));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_merge_pages()");
+printf("%s \n","<< Error at fn. cli_merge_pages()");
 return(0x00);
 }
 
 r = cli_connect_with_workspace(page,&(R(ty,*argp)));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_connect_with_workspace()");
+printf("%s \n","<< Error at fn. cli_connect_with_workspace()");
 return(0x00);
 }
 R(offset,R(ty,*argp)) = (offset);
@@ -117,7 +116,7 @@ OR(flag,CG_CLEAR);
 r = cli_gram_beta(flag,cur,argp);
 if(!r) {
 /* empty or..
-printf("%s\n","<< Error at fn. cli_gram_beta()");
+printf("%s \n","<< Error at fn. cli_gram_beta()");
 return(0x00);
 //*/
 }
@@ -125,7 +124,7 @@ return(0x00);
 while(--i) {
 page = R(d,*page);
 if(!page) {
-printf("%s\n","<< Could not find a page..");
+printf("%s \n","<< Could not find a page..");
 return(0x00);
 }
 if(0x01<(i)) flag = (CG_CLEAR|CG_EMUL);
@@ -133,7 +132,7 @@ else flag = (CG_EMUL);
 r = cli_coord_page_beta(flag,page,argp);
 if(!r) {
 /* empty or..
-printf("%s\n","<< Error at fn. cli_coord_page_beta()");
+printf("%s \n","<< Error at fn. cli_coord_page_beta()");
 return(0x00);
 //*/
 }}
@@ -156,12 +155,12 @@ i++;
 i = (i*(sizeof(*buff)));
 buff = (signed char(*)) malloc(i);
 if(!buff) {
-printf("%s\n","<< Error at fn. malloc()");
+printf("%s \n","<< Error at fn. malloc()");
 return(0x00);
 }
 r = concats(buff,*(CLI_BASE+(R(base,*page))),p,(void*) 0x00);
 if(!r) {
-printf("%s\n","<< Error at fn. concats()");
+printf("%s \n","<< Error at fn. concats()");
 return(0x00);
 }
 r = embed(0x00/* flag */,*(CLI_BASE+(R(base,*page))));
@@ -173,7 +172,7 @@ buff = (0x00);
 if(p) {
 r = release(kept,&p);
 if(kept^(r)) {
-printf("%s\n","<< Error at fn. release()");
+printf("%s \n","<< Error at fn. release()");
 return(0x00);
 }
 *(CLI_OFFSET+(R(append,R(ty,*argp)))) = (p);
@@ -184,7 +183,7 @@ if(CLI_FORCED&(R(flag,R(ty,*argp)))) i++;
 
 r = cli_connect_with_workspace(page,&(R(ty,*argp)));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_connect_with_workspace()");
+printf("%s \n","<< Error at fn. cli_connect_with_workspace()");
 return(0x00);
 }
 

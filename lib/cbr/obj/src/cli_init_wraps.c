@@ -11,8 +11,7 @@ Initialise.
 signed(__cdecl cli_init_wraps(CLI_TYPEWRITER(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed long long ll;
-auto signed char *p;
+auto signed char *b;
 auto signed i,r;
 auto signed short flag;
 
@@ -21,7 +20,7 @@ if(!argp) return(0x00);
 
 r = cli_init_pages(&(R(spool,R(wrap,*argp))));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_init_pages()");
+printf("%s \n","<< Error at fn. cli_init_pages()");
 return(0x00);
 }
 
@@ -31,9 +30,9 @@ R(offset,R(wrap,*argp)) = (0x00);
 i = (CLI_OBJS);
 while(i) *(--i+(R(append,R(wrap,*argp)))) = (0x00);
 
-p = (*(CLI_BASE+(R(base,R(roll,*argp)))));
+b = (*(CLI_BASE+(R(base,R(roll,*argp)))));
 i = (CLI_OBJS);
-while(i) *(--i+(R(cur,R(wrap,*argp)))) = (p);
+while(i) *(--i+(R(cur,R(wrap,*argp)))) = (b);
 
 // coordinate
 i = (CLI_OBJS);

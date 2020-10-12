@@ -19,8 +19,7 @@ signed(__cdecl cli_rect_beta(signed short(flag),CLI_RECT(*cache),CLI_W32_STAT(*a
 auto signed absolute = (0x01);
 
 auto SMALL_RECT rect;
-auto signed long long ll;
-auto signed char *p;
+auto signed char *b;
 auto signed i,r;
 auto signed short point;
 
@@ -29,18 +28,18 @@ if(!cache) return(0x00);
 if(!argp) return(0x00);
 
 if(!(*(CLI_OUT+(R(device,*argp))))) {
-printf("%s\n","<< Get a handle to the specified standard output device.");
+printf("%s \n","<< Get a handle to the specified standard output device.");
 return(0x00);
 }
 
-if(CLI_DBG_D<(CLI_DBG)) printf("%s%p\n","An offset address for a handle to the specified standard output device is: ",*(CLI_OUT+(R(device,*argp))));
+if(CLI_DBG_D<(CLI_DBG)) printf("%s%p \n","An offset address to the specified standard output device is: ",*(CLI_OUT+(R(device,*argp))));
 
 if(!(CLI_IN^(flag))) {
 // Get the current cursor position.
 r = GetConsoleScreenBufferInfo(*(CLI_OUT+(R(device,*argp))),&(R(csbi,*argp)));
 if(!r) {
 r = GetLastError();
-printf("%s%d%s%X\n","<< Error at fn. GetConsoleScreenBufferInfo() with error no. ",r," or ",r);
+printf("%s%d%s%Xh \n","<< Error at fn. GetConsoleScreenBufferInfo() with error no. ",r," or ",r);
 return(0x00);
 }
 point = (R(Left,R(srWindow,R(csbi,*argp))));
@@ -67,7 +66,7 @@ rect.Bottom = (R(bottom,*cache));
 r = SetConsoleWindowInfo(*(CLI_OUT+(R(device,*argp))),absolute,&rect);
 if(!r) {
 r = GetLastError();
-printf("%s%d%s%X\n","<< Error at fn. SetConsoleWindowInfo() with error no. ",r," or ",r);
+printf("%s%d%s%Xh \n","<< Error at fn. SetConsoleWindowInfo() with error no. ",r," or ",r);
 return(0x00);
 }
 //*/
