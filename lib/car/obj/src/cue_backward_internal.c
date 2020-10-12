@@ -22,8 +22,7 @@ static signed char SP = (' ');
 auto signed short NON_DELIM = (0x20);
 auto signed short DELIM = (0x10);
 
-auto signed char *p;
-auto signed long long ll;
+auto signed char *b;
 auto signed i,l,r;
 auto signed short fini;
 
@@ -31,33 +30,32 @@ auto signed short fini;
 if(!retrv) return(0x00);
 if(!base) return(0x00);
 
-p = (*retrv);
-if(p<(base)) return(0x00);
+b = (*retrv);
+if(b<(base)) return(0x00);
 
-ll = (signed long long) (p);
-if(!(ll^((signed long long) base))) return(0x01);
+if(EQ(b,base)) return(0x01);
 
 if(flag) {
-if(SP^(*p)) {
-if(!(HT^(*(--p)))) return(0x00);
-else p++;
+if(SP^(*b)) {
+if(!(HT^(*(--b)))) return(0x00);
+else b++;
 }}
 
 while(0x01) {
---p;
-r = nbytechar(*p);
+--b;
+r = nbytechar(*b);
 if(!r) {
-printf("%s\n","<< Error at fn. nbytechar()");
+printf("%s \n","<< Error at fn. nbytechar()");
 return(0x00);
 }
 if(0x80^(r)) break;
 }
 
-*retrv = (p);
+*retrv = (b);
 
-r = decode2uni(&i,p);
+r = decode2uni(&i,b);
 if(!r) {
-printf("%s\n","<< Error at fn. decode2uni()");
+printf("%s \n","<< Error at fn. decode2uni()");
 return(0x00);
 }
 
@@ -84,7 +82,7 @@ if(NON_DELIM<(-0x01+(flag))) fini++;
 }
 
 if(fini) {
-*retrv = (r+(p));
+*retrv = (r+(b));
 return(0x00);
 }
 

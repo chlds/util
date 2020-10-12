@@ -19,7 +19,7 @@ Refer at fn. cli_io_beta, fn. cli_ctrl_r_beta and fn. cli_ctrl_b_beta.
 signed(__cdecl cli_prev_word(signed char(**retrv),CLI_TYPEWRITER(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed long long ll;
+auto signed char *b;
 auto signed i,r;
 auto signed short flag;
 
@@ -27,15 +27,15 @@ auto signed short flag;
 if(!retrv) return(0x00);
 if(!argp) return(0x00);
 
-ll = ((signed long long) *(CLI_INDEX+(R(cur,*argp))));
-if(!(ll^((signed long long) *(CLI_BASE+(R(base,R(roll,*argp))))))) {
+b = (*(CLI_INDEX+(R(cur,*argp))));
+if(EQ(b,*(CLI_BASE+(R(base,R(roll,*argp)))))) {
 *retrv = (*(CLI_BASE+(R(base,R(roll,*argp)))));
 return(0x01);
 }
 
 r = cli_prev_word_internal(retrv,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_prev_word_internal()");
+printf("%s \n","<< Error at fn. cli_prev_word_internal()");
 return(0x00);
 }
 

@@ -20,27 +20,26 @@ Refer at util/lib/obj/src/cli_io_beta.c
 signed(__cdecl cli_ctrl_e_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char *cur,*p;
-auto signed long long ll;
-auto signed c,i,r;
+auto signed char *b;
+auto signed i,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-E>");
+if(CLI_DBG_D<(CLI_DBG)) printf("%s ","<Ctrl-E>");
 
 if(!(**(CLI_INDEX+(R(cur,R(ty,*argp)))))) {
 r = cli_ctrl_n_beta(argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_ctrl_n_beta()");
+printf("%s \n","<< Error at fn. cli_ctrl_n_beta()");
 return(0x00);
 }}
 
 else {
 r = cli_to_eol_beta(argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_to_eol_beta()");
+printf("%s \n","<< Error at fn. cli_to_eol_beta()");
 return(0x00);
 }}
 

@@ -17,7 +17,6 @@ signed(__cdecl unmap_ll_internal(signed short(flag),KNOT(*lead),KNOT(*base))) {
 
 /* **** DATA, BSS and STACK */
 auto KNOT *cache;
-auto signed long long ll;
 auto signed i,r;
 
 /* **** CODE/TEXT */
@@ -26,8 +25,7 @@ if(!base) return(0x00);
 
 if(flag) {
 // i.e., in a circular LL
-ll = (signed long long) (lead);
-if(!(ll^((signed long long) base))) {
+if(EQ(lead,base)) {
 embed(0x00/* flag */,R(p,*lead));
 free(R(p,*lead));
 R(p,*lead) = (signed char(*)) (0x00);

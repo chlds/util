@@ -44,7 +44,7 @@ if(OPT_UNLIMITED^(OPT_UNLIMITED&(R(flag,*argp)))) Sleep(DELAY);
 /* Open(, map, store or..) on the RAM */
 dis.p_dir = (R(path,*argp));
 dis.search = (void(*)) FindFirstFile(dis.p_dir,&(R(wfd,dis)));
-if(!((signed long long) INVALID_HANDLE_VALUE^((signed long long) dis.search))) {
+if(EQ(INVALID_HANDLE_VALUE,dis.search)) {
 if(OPT_DEPTH&(R(flag,*argp))) INC(R(depth,*argp));
 r = GetLastError();
 if(OPT_VERBOSE&(R(flag,*argp))) {

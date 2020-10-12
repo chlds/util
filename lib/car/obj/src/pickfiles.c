@@ -76,7 +76,9 @@ auto void *search;
 auto WIN32_FIND_DATA wfd;
 
 auto signed char buff[BUFF];
-// auto signed char *p;
+
+auto void *v;
+// auto signed char *b;
 
 auto signed dif;
 auto signed i,l,r;
@@ -91,7 +93,7 @@ printf("%s \n",di);
 
 /* opendir */
 search = (void(*)) FindFirstFile(di,&wfd);
-if(!((signed long long) INVALID_HANDLE_VALUE^((signed long long) search))) {
+if(EQ(INVALID_HANDLE_VALUE,search)) {
 r = GetLastError();
 printf("%s %Xh ","<< Error at fn. FindFirstFile() with error no.",r);
 printf("%s %s \n","at path",di);

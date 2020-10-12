@@ -23,8 +23,7 @@ signed(__cdecl cli_coord_out_old_beta(signed char(*cur),CLI_W32_STAT(*argp))) {
 auto signed char HT = ('\t');
 
 auto CLI_COORD coord;
-auto signed long long ll;
-auto signed char *p;
+auto signed char *b;
 auto signed nbyte;
 auto signed i,r;
 auto signed short x,y;
@@ -35,16 +34,16 @@ if(!cur) return(0x00);
 if(!argp) return(0x00);
 
 if(CLI_DBG_D<(CLI_DBG)) {
-printf("%s%p\n","An offset address for a handle to the specified standard output device is: ",*(CLI_OUT+(R(device,*argp))));
+printf("%s%p \n","An offset address to the specified standard output device is: ",*(CLI_OUT+(R(device,*argp))));
 if(!(*(CLI_OUT+(R(device,*argp))))) {
-printf("%s\n","<< Get a handle to the specified standard output device.");
+printf("%s \n","<< Get a handle to the specified standard output device.");
 return(0x00);
 }}
 
 if(!(HT^(*cur))) {
 r = cli_indent_beta(argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_indent_beta()");
+printf("%s \n","<< Error at fn. cli_indent_beta()");
 return(0x00);
 }
 return(0x01);
@@ -52,7 +51,7 @@ return(0x01);
 
 r = cli_coord_beta(CLI_IN,&coord,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
+printf("%s \n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
@@ -64,7 +63,7 @@ else flag = (0x00);
 // output
 r = cli_out(cur);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_out()");
+printf("%s \n","<< Error at fn. cli_out()");
 return(0x00);
 }
 
@@ -74,7 +73,7 @@ nbyte = (r);
 if(flag) {
 r = cli_get_csbi_beta(argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_get_csbi_beta()");
+printf("%s \n","<< Error at fn. cli_get_csbi_beta()");
 return(0x00);
 }
 y = (R(Y,R(dwCursorPosition,R(csbi,*argp))));
@@ -83,7 +82,7 @@ coord.y = (0x01+(coord.y));
 coord.x = (0x00);
 r = cli_coord_beta(CLI_OUT,&coord,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
+printf("%s \n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 OR(R(flag,R(ty,*argp)),CLI_REFRESH);

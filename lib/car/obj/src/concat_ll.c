@@ -16,15 +16,15 @@ Please look at util/incl/ll.h
 signed(__cdecl concat_ll(signed short(flag),KNOT(*cache),REEL(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed long long ll;
+auto KNOT *knot;
 auto signed i,r;
 
 /* **** CODE/TEXT */
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 
-ll = (signed long long) (*(CLI_LEAD+(R(knot,*argp))));
-if(!(ll^((signed long long) *(CLI_INDEX+(R(knot,*argp)))))) R(insert,*argp) = (0x00);
+knot = (*(CLI_LEAD+(R(knot,*argp))));
+if(EQ(knot,*(CLI_INDEX+(R(knot,*argp))))) R(insert,*argp) = (0x00);
 else R(insert,*argp) = (0x01);
 
 if(!(R(insert,*argp))) {

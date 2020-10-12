@@ -21,27 +21,25 @@ signed(__cdecl cli_prev_word_internal(signed char(**retrv),CLI_TYPEWRITER(*argp)
 /* **** DATA, BSS and STACK */
 auto signed char HT = ('\t');
 auto signed char SP = (' ');
-auto signed char *cur,*p;
-auto signed long long sll;
-auto signed c,i,r;
+auto signed char *b;
+auto signed i,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
 if(!retrv) return(0x00);
 if(!argp) return(0x00);
 
-p = (*retrv);
-sll = ((signed long long) p);
-if(!(sll^((signed long long) *(CLI_BASE+(R(base,R(roll,*argp))))))) return(0x01);
+b = (*retrv);
+if(EQ(b,*(CLI_BASE+(R(base,R(roll,*argp)))))) return(0x01);
 
-if(!(*p)) {
+if(!(*b)) {
 i = (0x00);
 }
 
 else {
-r = decode2uni(&i,p);
+r = decode2uni(&i,b);
 if(!r) {
-printf("%s\n","<< Error at fn. decode2uni()");
+printf("%s \n","<< Error at fn. decode2uni()");
 return(0x00);
 }}
 
@@ -49,20 +47,20 @@ flag = (0x00);
 if(i^((signed) SP)) flag = (0x01);
 
 while(0x01) {
---p;
-r = nbytechar(*p);
+--b;
+r = nbytechar(*b);
 if(!r) {
-printf("%s\n","<< Error at fn. nbytechar()");
+printf("%s \n","<< Error at fn. nbytechar()");
 return(0x00);
 }
 if(0x80^(r)) break;
 }
 
-*retrv = (p);
+*retrv = (b);
 
-r = decode2uni(&i,p);
+r = decode2uni(&i,b);
 if(!r) {
-printf("%s\n","<< Error at fn. decode2uni()");
+printf("%s \n","<< Error at fn. decode2uni()");
 return(0x00);
 }
 
@@ -77,20 +75,19 @@ if(i^((signed) SP)) flag = (0x01);
 }
 
 if(flag) {
-sll = ((signed long long) p);
-if(!(sll^((signed long long) *(CLI_BASE+(R(base,R(roll,*argp))))))) return(0x01);
+if(EQ(b,*(CLI_BASE+(R(base,R(roll,*argp)))))) return(0x01);
 while(0x01) {
---p;
-r = nbytechar(*p);
+--b;
+r = nbytechar(*b);
 if(!r) {
-printf("%s\n","<< Error at fn. nbytechar()");
+printf("%s \n","<< Error at fn. nbytechar()");
 return(0x00);
 }
 if(0x80^(r)) break;
 }
-r = decode2uni(&i,p);
+r = decode2uni(&i,b);
 if(!r) {
-printf("%s\n","<< Error at fn. decode2uni()");
+printf("%s \n","<< Error at fn. decode2uni()");
 return(0x00);
 }
 if(!(i^((signed) HT))) return(0x01);

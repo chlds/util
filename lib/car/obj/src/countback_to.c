@@ -15,7 +15,6 @@ signed(__cdecl countback_to(signed char(*edge),signed char(*sym),signed char(*ar
 /* **** DATA, BSS and STACK */
 static signed const AL_80 = (0x80); // i.e., a sequential byte expressed in .io**.**** for the n-byte characters based on UTF-8.
 
-auto signed long long ll;
 auto signed r;
 auto signed char c;
 
@@ -26,8 +25,7 @@ if(!argp) return(0x00);
 
 if(argp<(edge)) return(0x00);
 
-ll = (signed long long) (edge);
-if(!(ll^((signed long long) argp))) return(0x00);
+if(EQ(edge,argp)) return(0x00);
 
 if(!(*(--argp))) return(0x00);
 
