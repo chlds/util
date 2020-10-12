@@ -19,18 +19,17 @@ Return the number of copied bytes.
 signed(__cdecl cli_append(signed char(*appendant),CLI_TYPEWRITER(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char *p;
-auto signed long long sll;
-auto signed c,i,r;
+auto signed char *b;
+auto signed i,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
 if(!appendant) return(0x00);
 if(!argp) return(0x00);
 
-p = (*(CLI_INDEX+(R(cur,*argp))));
+b = (*(CLI_INDEX+(R(cur,*argp))));
 
-r = cpy(*(CLI_OFFSET+(R(base,R(roll,*argp)))),p);
+r = cpy(*(CLI_OFFSET+(R(base,R(roll,*argp)))),b);
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cpy()");
@@ -38,7 +37,7 @@ return(0x00);
 //*/
 }
 
-r = cpy(p,appendant);
+r = cpy(b,appendant);
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cpy()");
@@ -49,11 +48,11 @@ return(0x00);
 i = (r);
 
 while(r) {
-p++;
+b++;
 --r;
 }
 
-r = cpy(p,*(CLI_OFFSET+(R(base,R(roll,*argp)))));
+r = cpy(b,*(CLI_OFFSET+(R(base,R(roll,*argp)))));
 if(!r) {
 /* empty or..
 printf("%s\n","<< Error at fn. cpy()");

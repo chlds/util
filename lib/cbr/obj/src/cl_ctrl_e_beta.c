@@ -20,9 +20,8 @@ Refer at fn. cli_display_footer_beta, fn. cl_kb_beta and fn. cl_io_beta.
 signed(__cdecl cl_ctrl_e_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char *p;
-auto signed long long ll;
-auto signed c,i,r;
+auto signed char *b;
+auto signed i,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
@@ -30,17 +29,17 @@ if(!argp) return(0x00);
 
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-E>");
 
-p = (*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))));
-*(CLI_LEAD+(R(cur,R(commandline,R(ty,*argp))))) = (p);
+b = (*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))));
+*(CLI_LEAD+(R(cur,R(commandline,R(ty,*argp))))) = (b);
 
-r = ct(p);
+r = ct(b);
 while(r) {
 INC(*(CLI_LEAD+(R(cur,R(commandline,R(ty,*argp))))));
 --r;
 }
 
-ll = ((signed long long) *(CLI_LEAD+(R(cur,R(commandline,R(ty,*argp))))));
-if(!(ll^((signed long long) *(CLI_INDEX+(R(cur,R(commandline,R(ty,*argp)))))))) return(0x01);
+b = (*(CLI_LEAD+(R(cur,R(commandline,R(ty,*argp))))));
+if(EQ(b,*(CLI_INDEX+(R(cur,R(commandline,R(ty,*argp))))))) return(0x01);
 
 r = cli_output_beta(0x00/* a comeback flag */,*(CLI_INDEX+(R(cur,R(commandline,R(ty,*argp))))),argp);
 if(!r) {

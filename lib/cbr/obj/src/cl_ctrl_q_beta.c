@@ -20,9 +20,8 @@ Refer at fn. cli_display_footer_beta, fn. cl_kb_beta and fn. cl_io_beta.
 signed(__cdecl cl_ctrl_q_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char *p;
-auto signed long long ll;
-auto signed c,i,r;
+auto signed char *b;
+auto signed i,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */

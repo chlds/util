@@ -21,7 +21,6 @@ signed(__cdecl cli_ctrl_j_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *cur,*old,*p;
-auto signed long long ll;
 auto signed i,r;
 auto signed short flag;
 auto signed short y;
@@ -32,8 +31,7 @@ if(!argp) return(0x00);
 if(CLI_DBG_D<(CLI_DBG)) printf("%s","<Ctrl-J>");
 
 p = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
-ll = ((signed long long) p);
-if(!(ll^((signed long long) *(CLI_BASE+(R(base,R(roll,R(ty,*argp)))))))) {
+if(EQ(p,*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))))) {
 //* aux.
 r = cli_ctrl_h_beta(argp);
 if(!r) {

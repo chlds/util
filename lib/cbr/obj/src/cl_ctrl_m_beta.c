@@ -20,9 +20,8 @@ Refer at util/lib/obj/src/cl_io_beta.c
 signed(__cdecl cl_ctrl_m_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char *p;
-auto signed long long ll;
-auto signed c,i,r;
+auto signed char *b;
+auto signed i,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
