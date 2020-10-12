@@ -4,6 +4,7 @@ sar [flags] [PID]
 
 flags:
 c: current
+e: process entry
 a: all
 m: modules
 s: system
@@ -40,12 +41,14 @@ auto signed char fname[BUFF] = {
 };
 
 auto signed char *(vflag_s[]) = {
+(signed char(*)) ("e"),
 (signed char(*)) ("m"),
 (signed char(*)) ("v"),
 (signed char(*)) (0x00),
 };
 
 auto signed vflag[] = {
+(signed) (OPT_ENTRY),
 (signed) (OPT_MODULES),
 (signed) (OPT_VERBOSE),
 (signed) (0x00),
@@ -55,10 +58,14 @@ auto TOKEN_PRIVILEGES priv;
 auto LUID luid;
 auto SID_NAME_USE snu;
 
+auto PROCESSENTRY32 pe32;
+
 auto void **m,**modules;
 auto void *process;
 auto void *token;
 auto void *key;
+
+auto void *snap;
 
 auto signed *d,*process_ids;
 auto signed char *b,*cur,*base,*p;
@@ -85,6 +92,60 @@ if(!i) OR(flag,*(vflag+(l)));
 }
 l++;
 }}
+
+
+// process entry
+AND(tflag,0x00);
+tflag = (signed) (flag);
+if(AND(tflag,OPT_ENTRY)) {
+r = GetCurrentProcessId();
+printf("%s %d \n","Called PID is:",r);
+printf("\n");
+AND(tflag,0x00);
+OR(tflag,TH32CS_SNAPPROCESS);
+snap = CreateToolhelp32Snapshot(tflag,0x00/* current pid */);
+if(EQ(INVALID_HANDLE_VALUE,snap)) {
+r = GetLastError();
+printf("%s %d %s %Xh \n","<< Error at fn. CreateToolHelp32Snapshot() with no. ",r,"or",r);
+return(0x00);
+}
+R(dwSize,pe32) = (sizeof(PROCESSENTRY32));
+r = Process32First(snap,&pe32);
+i = (r);
+if(!r) {
+r = GetLastError();
+printf("%s %d %s %Xh \n","<< Error at fn. Process32First() with no. ",r,"or",r);
+tflag = (0x01);
+}
+else tflag = (0x00);
+if(!tflag) printf("%3s. %6s %6s %6s %6s %6s %s \n","No","Flags","PCBase","Thr\'s","PPID","PID","Name");
+l = (0x00);
+while(i) {
+printf("%3d. ",l++);
+printf("%6d ",R(dwFlags,pe32));
+printf("%6d ",R(pcPriClassBase,pe32));
+printf("%6d ",R(cntThreads,pe32));
+printf("%6d ",R(th32ParentProcessID,pe32));
+printf("%6d ",R(th32ProcessID,pe32));
+printf("%s \n",R(szExeFile,pe32));
+r = Process32Next(snap,&pe32);
+i = (r);
+if(!r) {
+r = GetLastError();
+if(ERROR_NO_MORE_FILES^(r)) {
+printf("%s %d %s %Xh \n","<< Error at fn. Process32Next() with no. ",r,"or",r);
+tflag = (0x01);
+break;
+}}}
+r = CloseHandle(snap);
+if(!r) {
+r = GetLastError();
+printf("%s %d %s %Xh \n","<< Error at fn. CloseHandle() with no. ",r,"or",r);
+return(0x00);
+}
+if(tflag) return(0x00);
+return(0x01);
+}
 
 
 // map

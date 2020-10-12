@@ -12,6 +12,7 @@ Build a linked list.
 # define C_PDIR (0x20)
 # define C_DIRS (C_DIR+(C_DOTDIR+(C_CURRDIR+(C_PDIR))))
 
+# define OPT_ENTRY (0x100)
 # define OPT_MODULES (0x80)
 # define OPT_DIRECTORIES (0x40)
 # define OPT_VERBOSE (0x20)
