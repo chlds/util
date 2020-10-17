@@ -8,6 +8,11 @@ Along with C library
 */
 
 
+signed(__cdecl find_a_first_week_internal(signed short(wk),signed short(current_day),signed long long/* time_t */(*argp),signed long long/* time_t */(arg)));
+signed(__cdecl find_a_first_week(signed short(wk),signed long long/* time_t */(*argp),signed long long/* time_t */(arg)));
+signed(__cdecl elapse_days_since(signed short(wk),signed long long/* time_t */(arg)));
+// refer time.h
+
 signed(__cdecl embed_to(signed char(*argp),signed char(arg),signed(times)));
 signed(__cdecl embed_internal(signed char(*argp)));
 signed(__cdecl embed(signed short(flag),signed char(*argp)));
