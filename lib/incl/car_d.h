@@ -4,6 +4,11 @@ Build a linked list.
 */
 
 
+# define FIRST_B (0x01)
+# define SECOND_B (0x02)
+# define THIRD_B (0x04)
+# define FOURTH_B (0x08)
+
 # define C_FILE (0x01)
 # define C_DOTFILE (0x02)
 # define C_DIR (0x04)
