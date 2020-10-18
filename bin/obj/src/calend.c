@@ -62,9 +62,9 @@ printf("\t%s %d %s %d, ",*(dayoftheweek+(R(tm_wday,*tp))),R(tm_mday,*tp),*(month
 printf("%d:%02d:%02d, ",R(tm_hour,*tp),R(tm_min,*tp),R(tm_sec,*tp));
 printf("%s %d, ","Daylight Savings Time",R(tm_isdst,*tp));
 printf("%d %s \n",R(tm_yday,*tp),"days since January 1");
-printf("\n");
 
-printf("\t%s %d \n",*(month+(R(tm_mon,*tp))),curr_y);
+printf("\n");
+printf("\t________________________________%s %d \n",*(month+(R(tm_mon,*tp))),curr_y);
 
 day = (SUNDAY);
 
@@ -86,7 +86,8 @@ printf("%s %d %s %Xh \n","<< Error at fn. localtime() with errno.",r,"or",r);
 printf("%s \n",strerror(r));
 return(0x00);
 }
-printf("\t(%d %s - ",R(tm_mday,*tp),*(dayofthewk+(R(tm_wday,*tp))));
+// printf("\t(%d %s - ",R(tm_mday,*tp),*(dayofthewk+(R(tm_wday,*tp))));
+printf("\t%s %d - ",*(month+(R(tm_mon,*tp))),R(tm_mday,*tp));
 ADD(t,d*(-0x01+(WEEK)));
 tp = localtime(&t);
 if(!tp) {
@@ -95,7 +96,8 @@ printf("%s %d %s %Xh \n","<< Error at fn. localtime() with errno.",r,"or",r);
 printf("%s \n",strerror(r));
 return(0x00);
 }
-printf("%d %s) \n",R(tm_mday,*tp),*(dayofthewk+(R(tm_wday,*tp))));
+// printf("%d %s) \n",R(tm_mday,*tp),*(dayofthewk+(R(tm_wday,*tp))));
+printf("%d \n",R(tm_mday,*tp));
 ADD(t,d);
 }
 
@@ -118,9 +120,11 @@ m = (R(tm_mon,*tp));
 if(curr_m^(m)) {
 if(0x02<(l++)) break;
 curr_m = (m);
-printf("\t%s %d \n",*(month+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
+// printf("\n");
+printf("\t________________________________%s %d \n",*(month+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
 }
-printf("\t(%d %s - ",R(tm_mday,*tp),*(dayofthewk+(R(tm_wday,*tp))));
+// printf("\t(%d %s - ",R(tm_mday,*tp),*(dayofthewk+(R(tm_wday,*tp))));
+printf("\t%s %d - ",*(month+(R(tm_mon,*tp))),R(tm_mday,*tp));
 ADD(t,d*(-0x01+(WEEK)));
 tp = localtime(&t);
 if(!tp) {
@@ -129,7 +133,8 @@ printf("%s %d %s %Xh \n","<< Error at fn. localtime() with errno.",r,"or",r);
 printf("%s \n",strerror(r));
 return(0x00);
 }
-printf("%d %s) \n",R(tm_mday,*tp),*(dayofthewk+(R(tm_wday,*tp))));
+// printf("%d %s) \n",R(tm_mday,*tp),*(dayofthewk+(R(tm_wday,*tp))));
+printf("%d \n",R(tm_mday,*tp));
 ADD(t,d);
 }
 
