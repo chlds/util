@@ -25,8 +25,9 @@ auto time_t curr_t;
 auto signed curr_hr,curr_mn,curr_sm;
 auto signed curr_y,curr_m,curr_d,curr_w;
 auto signed mm,m;
+auto signed w;
 auto signed d,h;
-auto signed i,l,r;
+auto signed i,l,n,r;
 auto signed short months,day;
 auto signed short flag;
 auto signed char *b;
@@ -77,12 +78,52 @@ printf("%s %d, ","Daylight Savings Time",R(tm_isdst,*tp));
 printf("%d %s \n",R(tm_yday,*tp),"days since January 1");
 printf("\n");
 
+
+// Calendar Week 1
+/* e.g., to debug
+h = (60*(60));
+d = (24*(h));
+w = (7*(d));
+n = (0x02); // e.g., in two months
+m = (n*(5*(w)));
+t = (m+(t));
+//*/
+
+r = find_a_first_month(0x00/* January */,&t,curr_t);
+if(!r) {
+printf("%s \n","<< Error at fn. find_a_first_month()");
+return(0x00);
+}
+
+r = find_a_first_week(day,&t,t);
+if(!r) {
+printf("%s \n","<< Error at fn. find_a_first_week()");
+return(0x00);
+}
+
+tp = localtime(&t);
+if(!tp) {
+r = (errno);
+printf("%s %d %s %Xh \n","<< Error at fn. localtime() with errno.",r,"or",r);
+printf("%s \n",strerror(r));
+return(0x00);
+}
+
+printf("\t%s \n","CW 1:");
+printf("\t%s %d %s %d, ",*(dayoftheweek+(R(tm_wday,*tp))),R(tm_mday,*tp),*(month+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
+printf("%d:%02d:%02d, ",R(tm_hour,*tp),R(tm_min,*tp),R(tm_sec,*tp));
+printf("%s %d, ","Daylight Savings Time",R(tm_isdst,*tp));
+printf("%d %s \n",R(tm_yday,*tp),"days since January 1");
+printf("\n");
+
+
+// Calendar
 tt = (curr_t);
 mm = (curr_m);
 m = (mm);
 --mm;
 
-r = find_a_first_week(day,&t,t);
+r = find_a_first_week(day,&t,curr_t);
 if(!r) {
 printf("%s \n","<< Error at fn. find_a_first_week()");
 return(0x00);
