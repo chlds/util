@@ -8,6 +8,10 @@ Along with C library
 */
 
 
+signed(__cdecl ct_weeks_internal(signed(sec_in_week),signed long long/* time_t */(sec)));
+signed(__cdecl ct_weeks(signed long long/* time_t */(criterion),signed long long/* time_t */(sec)));
+// count calendar weeks
+
 signed(__cdecl find_a_first_month_internal(signed short(flag),signed short(mon),signed short(current_month),signed long long/* time_t */(*argp),signed long long/* time_t */(arg)));
 signed(__cdecl find_a_first_month(signed short(mon),signed long long/* time_t */(*argp),signed long long/* time_t */(arg)));
 // retrieve second minutes of a first week of the first month, refer time.h
