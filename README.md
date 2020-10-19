@@ -14,4 +14,4 @@ The executable file here will run on the (CMD.exe) console in Windows 10 64-bit 
 > nmake T=<a-C-source-file-name-except-for-the-.c-extension>
 
 e.g.,
-> nmake T=calend
+> nmake T=cals

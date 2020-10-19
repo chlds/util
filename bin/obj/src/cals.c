@@ -27,6 +27,7 @@ auto struct tm *tp;
 auto time_t tt,t;
 auto time_t curr_t;
 auto time_t curr_w1_t;
+auto time_t prev_w1_t;
 auto signed curr_hr,curr_mn,curr_sm;
 auto signed curr_y,curr_m,curr_d,curr_w;
 auto signed mm,m;
@@ -43,7 +44,7 @@ if(0x01<(argc)) {
 b = (*(argv+(argc+(~0x00))));
 r = cv_da(0x0A,&i,b);
 if(!r) return(0x00);
-if(i<(0x00)) i = (0x01+(~i));
+// if(i<(0x00)) i = (0x01+(~i));
 months = (i);
 }
 
@@ -85,10 +86,10 @@ printf("\n");
 
 
 // check calendar week 1
-/* e.g., to debug
 h = (60*(60));
 d = (24*(h));
 w = (7*(d));
+/* e.g., to debug
 n = (0x02); // e.g., in two months
 m = (n*(5*(w)));
 t = (m+(t));
@@ -142,7 +143,40 @@ printf("%s \n","<< Error at fn. find_a_first_week()");
 return(0x00);
 }
 
+
+//* backward
+if(months<(0x00)) {
+months = (0x01+(~months));
+i = (months);
+while(i) {
+--i;
+--mm;
+t = (t+(0x01+(~(0x03*(w))))); // subtract second minutes in three weeks out of a first day of the first week
+r = find_a_first_week(day,&t,t);
+if(!r) {
+printf("%s \n","<< Error at fn. find_a_first_week()");
+return(0x00);
+}
+tp = localtime(&t);
+if(!tp) {
+r = (errno);
+printf("%s %d %s %Xh \n","<< Error at fn. localtime() with errno.",r,"or",r);
+printf("%s \n",strerror(r));
+return(0x00);
+}
+if(!(DECEMBER^(R(tm_mon,*tp)))) {
+r = find_a_first_month(JANUARY,&prev_w1_t,t);
+if(!r) {
+printf("%s \n","<< Error at fn. find_a_first_month()");
+return(0x00);
+}
+curr_w1_t = (prev_w1_t);
+}}}
+//*/
+
+
 l = (0x01+(months));
+
 while(0x01) {
 flag = (0x00);
 tp = localtime(&t);
