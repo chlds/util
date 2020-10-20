@@ -21,8 +21,14 @@ enum {
 SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,DAYS,
 };
 
+enum {
+THEFIRST,THELAST,
+};
+
 auto signed WEEK = (0x07);
 
+auto signed short day[0x02];
+auto signed short mon[0x02];
 auto struct tm *tp;
 auto time_t tt,t;
 auto time_t curr_t;
@@ -34,7 +40,8 @@ auto signed mm,m;
 auto signed w;
 auto signed d,h;
 auto signed i,l,n,r;
-auto signed short months,day;
+auto signed short months;
+auto signed short jour,mois;
 auto signed short flag;
 auto signed char *b;
 
@@ -48,7 +55,16 @@ if(!r) return(0x00);
 months = (i);
 }
 
-day = (SUNDAY);
+
+*(day+(THEFIRST)) = (SUNDAY);
+*(mon+(THEFIRST)) = (JANUARY);
+mois = (-0x01+(*mon));
+if(mois<(0x00)) mois = (-0x01+(MONTHS));
+*(mon+(THELAST)) = (mois);
+jour = (-0x01+(*day));
+if(jour<(0x00)) jour = (-0x01+(DAYS));
+*(day+(THELAST)) = (jour);
+
 
 h = (60*(60));
 d = (24*(h));
@@ -95,13 +111,13 @@ m = (n*(5*(w)));
 t = (m+(t));
 //*/
 
-r = find_a_first_month(0x00/* January */,&t,curr_t);
+r = find_a_first_month(*mon,&t,curr_t);
 if(!r) {
 printf("%s \n","<< Error at fn. find_a_first_month()");
 return(0x00);
 }
 
-r = find_a_first_week(day,&t,t);
+r = find_a_first_week(*day,&t,t);
 if(!r) {
 printf("%s \n","<< Error at fn. find_a_first_week()");
 return(0x00);
@@ -137,7 +153,7 @@ mm = (curr_m);
 m = (mm);
 --mm;
 
-r = find_a_first_week(day,&t,curr_t);
+r = find_a_first_week(*day,&t,curr_t);
 if(!r) {
 printf("%s \n","<< Error at fn. find_a_first_week()");
 return(0x00);
@@ -152,7 +168,7 @@ while(i) {
 --i;
 --mm;
 t = (t+(0x01+(~(0x03*(w))))); // subtract second minutes in three weeks out of a first day of the first week
-r = find_a_first_week(day,&t,t);
+r = find_a_first_week(*day,&t,t);
 if(!r) {
 printf("%s \n","<< Error at fn. find_a_first_week()");
 return(0x00);
@@ -164,8 +180,9 @@ printf("%s %d %s %Xh \n","<< Error at fn. localtime() with errno.",r,"or",r);
 printf("%s \n",strerror(r));
 return(0x00);
 }
-if(!(DECEMBER^(R(tm_mon,*tp)))) {
-r = find_a_first_month(JANUARY,&prev_w1_t,t);
+mois = (*(mon+(THELAST)));
+if(!(mois^(R(tm_mon,*tp)))) {
+r = find_a_first_month(*mon,&prev_w1_t,t);
 if(!r) {
 printf("%s \n","<< Error at fn. find_a_first_month()");
 return(0x00);
@@ -203,7 +220,8 @@ printf("%d:%02d:%02d \n",curr_hr,curr_mn,curr_sm);
 }}}
 //*/
 
-if(!(JANUARY^(R(tm_mon,*tp)))) curr_w1_t = (t);
+mois = (*mon);
+if(!(mois^(R(tm_mon,*tp)))) curr_w1_t = (t);
 
 }
 //
