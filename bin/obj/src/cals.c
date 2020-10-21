@@ -30,10 +30,15 @@ auto signed WEEK = (0x07);
 auto signed short day[0x02];
 auto signed short mon[0x02];
 auto struct tm *tp;
+
+auto time_t tt_w1[COMMON_OBJS];
+auto time_t t_w1;
+
 auto time_t tt,t;
 auto time_t curr_t;
 auto time_t curr_w1_t;
 auto time_t prev_w1_t;
+auto time_t pseu_w1_t;
 auto signed curr_hr,curr_mn,curr_sm;
 auto signed curr_y,curr_m,curr_d,curr_w;
 auto signed mm,m;
@@ -211,12 +216,13 @@ printf("%d:%02d:%02d, ",R(tm_hour,*tp),R(tm_min,*tp),R(tm_sec,*tp));
 printf("%s %d, ","Daylight Savings Time",R(tm_isdst,*tp));
 printf("%d %s ",R(tm_yday,*tp),"days since January 1");
 printf("] \n");
-// ..also re-update the tp for (t).
-tp = localtime(&t);
-if(!tp) return(0x00);
+// ..also re-update the tp for t.
+// tp = localtime(&t);
+// if(!tp) return(0x00);
 //*/
 
 
+prev_w1_t = (curr_w1_t);
 l = (0x01+(months));
 
 while(0x01) {
@@ -230,6 +236,26 @@ return(0x00);
 }
 //
 m = (R(tm_mon,*tp));
+
+mois = (*(mon+(THELAST)));
+if(!(mois^(m))) {
+pseu_w1_t = (t+(d*(-0x01+(WEEK))));
+tp = localtime(&pseu_w1_t);
+if(!tp) {
+r = (errno);
+printf("%s %d %s %Xh \n","<< Error at fn. localtime() with errno.",r,"or",r);
+printf("%s \n",strerror(r));
+return(0x00);
+}
+mois = (*(mon+(THEFIRST)));
+if(!(mois^(R(tm_mon,*tp)))) {
+// if a week starts with Monday,
+if(0x03<(R(tm_mday,*tp))) curr_w1_t = (t);
+}}
+// also re-update the tp for t.
+tp = localtime(&t);
+if(!tp) return(0x00);
+
 if(mm^(m)) {
 if(!(--l)) break;
 mm = (m);
@@ -249,10 +275,11 @@ printf("\n");
 //*/
 
 mois = (*mon);
-if(!(mois^(R(tm_mon,*tp)))) curr_w1_t = (t);
+if(!(mois^(R(tm_mon,*tp)))) {
+if(!(curr_w1_t^(prev_w1_t))) curr_w1_t = (t);
+prev_w1_t = (curr_w1_t);
+}}
 
-}
-//
 printf("\t%s %d, ","CW",ct_weeks(curr_w1_t,t));
 printf("\t%s %d - ",*(month+(R(tm_mon,*tp))),R(tm_mday,*tp));
 //
