@@ -56,7 +56,7 @@ months = (i);
 }
 
 
-*(day+(THEFIRST)) = (SUNDAY);
+*(day+(THEFIRST)) = (MONDAY);
 *(mon+(THEFIRST)) = (JANUARY);
 mois = (-0x01+(*mon));
 if(mois<(0x00)) mois = (-0x01+(MONTHS));
@@ -123,6 +123,11 @@ printf("%s \n","<< Error at fn. find_a_first_week()");
 return(0x00);
 }
 
+tp = localtime(&t);
+if(!tp) return(0x00);
+
+// if a week starts with Monday,
+if(0x04<(R(tm_mday,*tp))) t = (t+(-0x01*(d*(WEEK))));
 curr_w1_t = (t);
 
 //* to debug
@@ -187,8 +192,28 @@ if(!r) {
 printf("%s \n","<< Error at fn. find_a_first_month()");
 return(0x00);
 }
+tp = localtime(&prev_w1_t);
+if(!tp) return(0x00);
+// if a week starts with Monday,
+if(0x04<(R(tm_mday,*tp))) prev_w1_t = (prev_w1_t+(-0x01*(d*(WEEK))));
 curr_w1_t = (prev_w1_t);
 }}}
+//*/
+
+
+//* check at calendar week 1 after going backward..
+tp = localtime(&curr_w1_t);
+if(!tp) return(0x00);
+printf("\n");
+printf("\t%s \n","Check at CW 1 (after going backward):");
+printf("\t[ %s %d %s %d, ",*(dayoftheweek+(R(tm_wday,*tp))),R(tm_mday,*tp),*(month+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
+printf("%d:%02d:%02d, ",R(tm_hour,*tp),R(tm_min,*tp),R(tm_sec,*tp));
+printf("%s %d, ","Daylight Savings Time",R(tm_isdst,*tp));
+printf("%d %s ",R(tm_yday,*tp),"days since January 1");
+printf("] \n");
+// ..also re-update the tp for (t).
+tp = localtime(&t);
+if(!tp) return(0x00);
 //*/
 
 
@@ -208,15 +233,18 @@ m = (R(tm_mon,*tp));
 if(mm^(m)) {
 if(!(--l)) break;
 mm = (m);
-printf("\t________________________________________%s %d \n",*(month+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
+printf("________________________________________________%s %d \n",*(month+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
 
 //* nearby
 if(!(curr_y^(1900+(R(tm_year,*tp))))) {
 if(!(curr_m^(mm))) {
 if(curr_d<(R(tm_mday,*tp))) {
 // today 1/2
-printf("\t%d %s ",curr_d,*(dayofthewk+(curr_w)));
-printf("%d:%02d:%02d \n",curr_hr,curr_mn,curr_sm);
+printf(" %2d %s ",curr_d,*(dayofthewk+(curr_w)));
+printf("%2d:%02d ",curr_hr,curr_mn);
+printf("  ");
+printf("-------------------------------- ");
+printf("\n");
 }}}
 //*/
 
@@ -248,8 +276,11 @@ if(tt<(t)) OR(flag,SECOND_B);
 if(!(tt^(t))) OR(flag,SECOND_B);
 if(SECOND_B<(flag)) {
 // today 2/2
-printf("\t%d %s ",curr_d,*(dayofthewk+(curr_w)));
-printf("%d:%02d:%02d \n",curr_hr,curr_mn,curr_sm);
+printf(" %2d %s ",curr_d,*(dayofthewk+(curr_w)));
+printf("%2d:%02d ",curr_hr,curr_mn);
+printf("  ");
+printf("-------------------------------- ");
+printf("\n");
 }}
 //
 ADD(t,d);
