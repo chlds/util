@@ -8,6 +8,11 @@ Along with C library
 */
 
 
+signed(__cdecl cv_mo_internals(signed char(**vi),signed short(*di),signed char(*si)));
+signed(__cdecl cv_mo_internal(signed char(***vi),signed short(*di),signed char(*si)));
+signed(__cdecl cv_mo(signed short(*di),signed char(*si)));
+// convert to a month out of characters.
+
 signed(__cdecl ct_weeks_internal(signed(sec_in_week),signed long long/* time_t */(sec)));
 signed(__cdecl ct_weeks(signed long long/* time_t */(criterion),signed long long/* time_t */(sec)));
 // count calendar weeks
