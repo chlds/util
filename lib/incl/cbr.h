@@ -15,8 +15,8 @@ Refer at ./config.h
 # include "./car.h"
 # include "./cli_dbg.h"
 
-# include "./cbr_d.h"
 # include "./cbr_e.h"
+# include "./cbr_d.h"
 # include "./cbr_f.h"
 
 # ifdef CLI_W32

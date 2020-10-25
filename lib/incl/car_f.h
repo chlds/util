@@ -8,6 +8,9 @@ Along with C library
 */
 
 
+signed(__cdecl cv_date(cals_t(*di),signed char(*si)));
+// convert to a month, day and year out of characters.
+
 signed(__cdecl cv_mo_internals(signed char(**vi),signed short(*di),signed char(*si)));
 signed(__cdecl cv_mo_internal(signed char(***vi),signed short(*di),signed char(*si)));
 signed(__cdecl cv_mo(signed short(*di),signed char(*si)));
@@ -65,8 +68,11 @@ signed(__cdecl countback_to(signed char(*edge),signed char(*sym),signed char(*ar
 signed(__cdecl count_to(signed char(*sym),signed char(*argp)));
 // count to a symbol or to the terminating null character.
 
+signed(__cdecl cmpr_parts_r(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr_parts(signed(*cache),signed char(*di),signed char(*si)));
+signed(__cdecl cmpr_partially_r(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr_partially(signed(*cache),signed char(*di),signed char(*si)));
+signed(__cdecl cmpr_r(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr(signed(*cache),signed char(*di),signed char(*si)));
 /* Compare strings. */
 

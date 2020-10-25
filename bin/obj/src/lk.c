@@ -77,9 +77,7 @@ l = (0x00);
 while(*(opt+(l))) {
 i = (0x00);
 r = cmpr_parts(&i,*(argv+(0x01)),*(opt+(l)));
-if(r) {
 if(!i) OR(flag,*(opt_flags+(l)));
-}
 l++;
 }
 // also

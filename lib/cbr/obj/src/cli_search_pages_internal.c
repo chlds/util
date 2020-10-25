@@ -32,10 +32,6 @@ i = (0x00);
 while(0x01) {
 if(!(*cur)) break;
 r = cmpr_partially(&i,cur,*(CLI_IN+(R(cur,R(search,*argp)))));
-if(!r) {
-printf("%s\n","<< Error at fn. cmpr_partially()");
-return(0x00);
-}
 if(!i) {
 r = compare(cur,*(CLI_BASE+(R(base,*(R(cache,R(spool,*argp)))))));
 R(offset,R(search,*argp)) = (r);

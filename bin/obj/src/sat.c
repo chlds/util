@@ -181,10 +181,6 @@ AND(R(flag,*cache),0x00);
 XOR(i,i);
 while(*(term+(i))) {
 r = cmpr_partially(&dif,cur,*(term+(i)));
-if(!r) {
-printf("%s \n","<< Error at fn. cmpr_partially()");
-return(0x00);
-}
 if(!dif) {
 /* It has a commandlet. Run a multi-threading program or more */
 OR(R(flag,*cache),CMDFLAG);

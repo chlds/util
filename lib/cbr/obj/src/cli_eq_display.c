@@ -35,10 +35,6 @@ R(display_header,R(config,*argp)) = (CLI_DEFAULT);
 i = (0x00);
 while(*(operand+(i))) {
 r = cmpr_parts(&l,*(CLI_OFFSET+(R(base,R(roll,*argp)))),*(operand+(i)));
-if(!r) {
-printf("%s\n","<< Error at fn. cmpr_parts()");
-return(0x00);
-}
 if(!l) {
 R(display_header,R(config,*argp)) = (i);
 break;

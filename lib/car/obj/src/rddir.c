@@ -150,9 +150,8 @@ if(R(target,*argp)) {
 AND(R(flag,*argp),(~OPT_VISIBLE));
 i = (0x00);
 r = cmpr_parts(&i,p,R(target,*argp));
-if(r) {
 if(!i) OR(R(flag,*argp),OPT_VISIBLE);
-}}
+}
 
 if(OPT_VISIBLE&(R(flag,*argp))) {
 disable = (0x00);

@@ -137,12 +137,9 @@ printf("%s \n",di);
 
 /* Output all the dir's and files or the specific dir's and files in a directory tree */
 /* Compare the ones in case-sensitive strings */
-if(si) r = cmpr_parts(&differential,wfd.cFileName,si);
-else r = (0x01);
+r = cmpr_parts(&differential,wfd.cFileName,si);
 
-if(r) {
 if(!differential) {
-
 if(flag&(C_DIRS)) {
 // Output a directory
 printf("%s %s%s%s "," d",di,wfd.cFileName,"/");
@@ -153,16 +150,14 @@ else {
 printf("%s %s%s "," -",di,wfd.cFileName);
 TheNumbreOfFiles++;
 }
-
 // And output the file attributes
 XOR(i,i);
 while(*(attrib+(i))) {
 if(wfd.dwFileAttributes&(*(attrib+(i)))) printf("  %s ",*(attribp+(i)));
 i++;
 }
-
 printf("\n");
-}}
+}
 
 /* And find the next file */
 r = FindNextFile(search,&wfd);

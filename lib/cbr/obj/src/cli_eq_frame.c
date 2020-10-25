@@ -50,10 +50,6 @@ lim = (i);
 i = (0x00);
 while(*(pos+(i))) {
 r = cmpr_parts(&l,*(CLI_OFFSET+(R(base,R(roll,*argp)))),*(pos+(i)));
-if(!r) {
-printf("%s\n","<< Error at fn. cmpr_parts()");
-return(0x00);
-}
 if(!l) {
 R(compact_frame,R(config,*argp)) = (i);
 break;

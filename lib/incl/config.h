@@ -15,7 +15,6 @@ Remarks:
 # include <stdarg.h>
 # include <stdlib.h>
 # include <string.h>
-# include <time.h>
 # include <fcntl.h>
 # include <sys/stat.h>
 # include <sys/types.h>
@@ -23,6 +22,9 @@ Remarks:
 # include <locale.h>
 # include <wchar.h>
 # include <signal.h>
+# ifndef CALEND
+# define CALEND
+# endif
 # endif
 
 # ifdef C_MT
@@ -36,6 +38,7 @@ Remarks:
 # endif
 
 # ifdef CALEND
+# include <time.h>
 # include "./calend.h"
 # endif
 

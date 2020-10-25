@@ -91,10 +91,6 @@ i = (0x00);
 
 while(*(eq+(i))) {
 r = cmpr_partially(&l,p,*(eq+(i)));
-if(!r) {
-printf("%s\n","<< Error at fn. cmpr_partially()");
-return(0x00);
-}
 if(!l) {
 r = (*(fn+(i))) (argp);
 if(!r) {

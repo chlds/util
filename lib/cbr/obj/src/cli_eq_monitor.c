@@ -26,11 +26,6 @@ auto signed short flag;
 if(!argp) return(0x00);
 
 r = cmpr_parts(&i,*(CLI_OFFSET+(R(base,R(roll,*argp)))),operand);
-if(!r) {
-printf("%s\n","<< Error at fn. cmpr_parts()");
-return(0x00);
-}
-
 if(!i) R(debug_monitor,R(config,*argp)) = (0x01);
 else R(debug_monitor,R(config,*argp)) = (0x00);
 

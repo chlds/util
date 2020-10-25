@@ -4,6 +4,7 @@ Convert to a month out of characters.
 //*/
 
 
+# define CAR
 # include "../../../incl/config.h"
 
 signed(__cdecl cv_mo(signed short(*di),signed char(*si))) {

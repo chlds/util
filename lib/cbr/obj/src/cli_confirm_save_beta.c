@@ -54,11 +54,6 @@ return(0x01);
 }
 
 r = cmpr_partially(&i,*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))),"o");
-if(!r) {
-printf("%s\n","<< Error at fn. cmpr_partially()");
-return(0x00);
-}
-
 if(i) {
 if(R(file,R(edit,R(ty,*argp)))) free(R(file,R(edit,R(ty,*argp))));
 R(file,R(edit,R(ty,*argp))) = (0x00);
