@@ -8,6 +8,9 @@ Along with C library
 */
 
 
+signed(__cdecl cals_sched(cals_t(*argp),signed long long/* time_t */(arg)));
+signed(__cdecl cals_init(cals_t(*argp)));
+
 signed(__cdecl cv_date(cals_t(*di),signed char(*si)));
 // convert to a month, day and year out of characters.
 

@@ -34,7 +34,7 @@ typedef void(__cdecl*(SIGHDR_T)) (signed);
 // void(__cdecl*(__cdecl signal(signed(A),void(__cdecl*(B)) (signed)))) (signed);
 
 struct cals {
-// time_t sec;
+// time_t t;
 // signed long long /* time_t */ ll;
 signed short flag;
 signed short time[CALS_TIME];
