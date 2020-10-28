@@ -25,7 +25,7 @@ printf("\n");
 
 printf("  %s\n","Commandlets:");
 printf("\n");
-printf("  %s\n","--quit to quit");
+printf("  %s\n","--exit to exit");
 printf("  %s\n","--help to help");
 printf("  %s\n","--clear to clear the screen");
 printf("  %s\n","--time [seconds] to display the local time");
