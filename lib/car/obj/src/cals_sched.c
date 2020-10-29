@@ -4,9 +4,9 @@ Convert
 //*/
 
 
+# define CALEND
 # define CAR
 # include "../../../incl/config.h"
-# include <time.h>
 
 signed(__cdecl cals_sched(cals_t(*argp),time_t(arg))) {
 

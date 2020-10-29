@@ -8,15 +8,6 @@ Along with C library
 */
 
 
-signed(__cdecl cals_unmap(cals_t(*argp)));
-signed(__cdecl cals_map(cals_t(*argp),signed char(*si)));
-
-signed(__cdecl cals_sched(cals_t(*argp),signed long long/* time_t */(arg)));
-signed(__cdecl cals_init(cals_t(*argp)));
-
-signed(__cdecl cv_date(cals_t(*di),signed char(*si)));
-// convert to a month, day and year out of characters.
-
 signed(__cdecl cv_mo_internals(signed char(**vi),signed short(*di),signed char(*si)));
 signed(__cdecl cv_mo_internal(signed char(***vi),signed short(*di),signed char(*si)));
 signed(__cdecl cv_mo(signed short(*di),signed char(*si)));

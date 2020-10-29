@@ -4,6 +4,7 @@ Map on the RAM
 //*/
 
 
+# define CALEND
 # define CAR
 # include "../../../incl/config.h"
 

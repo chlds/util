@@ -33,17 +33,6 @@ typedef void(__cdecl*(SIGHDR_T)) (signed);
 // SIGHDR_T(__cdecl signal(signed(A),SIGHDR_T(B)));
 // void(__cdecl*(__cdecl signal(signed(A),void(__cdecl*(B)) (signed)))) (signed);
 
-struct cals {
-// time_t t;
-// signed long long /* time_t */ ll;
-signed short flag;
-signed short time[CALS_TIME];
-signed short date[CALS_DATE];
-signed char *b;
-signed short *w;
-void *optl;
-} typedef cals_t;
-
 typedef struct coords {
 signed short x;
 signed short y;

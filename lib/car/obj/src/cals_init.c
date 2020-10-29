@@ -4,9 +4,9 @@ Initialise
 //*/
 
 
+# define CALEND
 # define CAR
 # include "../../../incl/config.h"
-# include <time.h>
 
 signed(__cdecl cals_init(cals_t(*argp))) {
 
