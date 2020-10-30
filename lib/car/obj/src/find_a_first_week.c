@@ -7,9 +7,8 @@ Refer at <corecrt_wtime.h>
 */
 
 
+# define CALEND
 # define CAR
-
-# include <time.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl find_a_first_week(signed short(wk),time_t(*argp),time_t(arg))) {
@@ -21,9 +20,8 @@ auto signed WEEK = (0x07);
 
 auto struct tm *tp;
 auto time_t t;
-auto signed curr_d;
-auto signed d,h;
 auto signed i,r;
+auto signed short curr_mo;
 auto signed short flag;
 
 /* **** CODE/TEXT */
@@ -38,9 +36,9 @@ t = (arg);
 tp = localtime(&t);
 if(!tp) return(0x00);
 
-curr_d = (R(tm_mday,*tp));
+curr_mo = (R(tm_mon,*tp));
 
-r = find_a_first_week_internal(wk,curr_d,argp,arg);
+r = find_a_first_week_internal(wk,curr_mo,argp,arg);
 
 return(r);
 }
