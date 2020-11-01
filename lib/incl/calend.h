@@ -6,7 +6,17 @@ Being deprecated..
 */
 
 
+# define CALS_OBJS (0x04)
+
 /* calend_e.h */
+enum {
+JANUARY,FEBRUARY,MARCH,APRIL,MAY,JUNE,JULY,AUGUST,SEPTEMBER,OCTOBER,NOVEMBER,DECEMBER,MONTHS,
+};
+
+enum {
+SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,DAYS,
+};
+
 enum {
 CALS_WK,CALS_DI,CALS_MO,CALS_YR,CALS_DATE,
 };
@@ -15,6 +25,9 @@ enum {
 CALS_SM,CALS_MN,CALS_HR,CALS_TIME,
 };
 
+enum {
+THEFIRST,THELAST,
+};
 
 /* calend_d.h */
 static signed char const *(dayoftheweek[]) = {
@@ -60,15 +73,31 @@ signed char *b;
 signed short *w;
 signed short time[CALS_TIME];
 signed short date[CALS_DATE];
-time_t t[0x04];
-time_t curr_t;
+time_t t;
 // signed long long /* time_t */ ll;
 signed short flag;
+struct cals *d;
+struct cals *s;
 void *optl;
 } typedef cals_t;
 
+struct cals_stat {
+signed short day[0x02];
+signed short month[0x02];
+time_t wk1[0x04];
+time_t t[0x04];
+time_t curr_t;
+time_t curr_wk1;
+signed short flag;
+cals_t today;
+cals_t *event[0x04];
+void *optl;
+} typedef cals_stat_t;
 
 /* calend_f.h */
+signed(__cdecl cals_stat_init(cals_stat_t(*argp)));
+signed(__cdecl cals_retrieve_week1(signed short(day_thefirst),signed short(month_thefirst),time_t(*di),time_t(si)));
+
 signed(__cdecl cals_unmap(cals_t(*argp)));
 signed(__cdecl cals_map(cals_t(*argp),signed char(*si)));
 

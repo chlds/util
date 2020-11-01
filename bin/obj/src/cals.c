@@ -12,18 +12,6 @@ Refer at <corecrt_wtime.h>
 signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 
 /* **** DATA, BSS and STACK */
-enum {
-JANUARY,FEBRUARY,MARCH,APRIL,MAY,JUNE,JULY,AUGUST,SEPTEMBER,OCTOBER,NOVEMBER,DECEMBER,MONTHS,
-};
-
-enum {
-SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,DAYS,
-};
-
-enum {
-THEFIRST,THELAST,
-};
-
 auto signed WEEK = (0x07);
 
 auto signed short day[0x02];
