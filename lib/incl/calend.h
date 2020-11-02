@@ -86,8 +86,6 @@ signed short day[0x02];
 signed short month[0x02];
 time_t wk1[0x04];
 time_t t[0x04];
-time_t curr_t;
-time_t curr_wk1;
 signed short flag;
 cals_t today;
 cals_t *event[0x04];

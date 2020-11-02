@@ -41,8 +41,6 @@ while(r) {
 *(r+(R(t,*argp))) = (R(t,R(today,*argp)));
 }
 
-R(curr_t,*argp) = (R(t,R(today,*argp)));
-R(curr_wk1,*argp) = (t);
 R(flag,*argp) = (0x00);
 R(optl,*argp) = (0x00);
 

@@ -14,23 +14,21 @@ signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 /* **** DATA, BSS and STACK */
 auto signed WEEK = (0x07);
 
-auto signed short day[0x02];
-auto signed short mon[0x02];
 auto struct tm *tp;
-
-auto time_t wk1[COMMON_OBJS];
+auto signed short *w;
+auto signed char *b;
+auto cals_stat_t cs;
 auto time_t curr_wk1;
 auto time_t curr_t;
 auto time_t tt,t;
 auto signed curr_hr,curr_mn,curr_sm;
 auto signed curr_yr,curr_mo,curr_di,curr_wk;
 auto signed mm,m;
-auto signed w,d,h;
+auto signed wk,di,hr;
 auto signed i,l,n,r;
 auto signed short months;
 auto signed short jour,mois;
 auto signed short flag;
-auto signed char *b;
 
 /* **** CODE/TEXT */
 months = (0x04);
@@ -42,20 +40,12 @@ if(!r) return(0x00);
 months = (i);
 }
 
+r = cals_stat_init(&cs);
+if(!r) return(0x00);
 
-*(day+(THEFIRST)) = (MONDAY);
-*(mon+(THEFIRST)) = (JANUARY);
-mois = (-0x01+(*mon));
-if(mois<(0x00)) mois = (-0x01+(MONTHS));
-*(mon+(THELAST)) = (mois);
-jour = (-0x01+(*day));
-if(jour<(0x00)) jour = (-0x01+(DAYS));
-*(day+(THELAST)) = (jour);
-
-
-h = (60*(60));
-d = (24*(h));
-w = (7*(d));
+hr = (60*(60));
+di = (24*(hr));
+wk = (7*(di));
 
 time(&t);
 tp = localtime(&t);
@@ -81,29 +71,19 @@ curr_mn = (R(tm_min,*tp));
 curr_sm = (R(tm_sec,*tp));
 
 
-// check calendar week 1
-r = find_a_first_month(*mon,&t,curr_t);
+/* check calendar week 1
+r = cals_retrieve_week1(*(THEFIRST+(R(day,cs))),*(THEFIRST+(R(month,cs))),&t,curr_t);
 if(!r) {
-printf("%s \n","<< Error at fn. find_a_first_month()");
+printf("%s \n","<< Error at fn. cals_retrieve_week1()");
 return(0x00);
 }
-
-r = find_a_first_week(*day,&t,t);
-if(!r) {
-printf("%s \n","<< Error at fn. find_a_first_week()");
-return(0x00);
-}
-
-tp = localtime(&t);
-if(!tp) return(0x00);
-
-// if a week starts with Monday,
-if(0x04<(R(tm_mday,*tp))) t = (t+(-0x01*(d*(WEEK))));
-*(CLI_INDEX+(wk1)) = (t);
+*(CLI_BASE+(R(wk1,cs))) = (t);
+//*/
 
 // calendar week for today,
 printf("\n");
-r = ct_weeks(*(CLI_INDEX+(wk1)),curr_t);
+r = ct_weeks(*(CLI_BASE+(R(wk1,cs))),curr_t);
+if(!r) return(0x00);
 printf("\t%s %d %s, \n","CW",r,"for today");
 // and update the tp for today,
 tp = localtime(&curr_t);
@@ -119,11 +99,10 @@ printf("%s %d, ","Daylight Savings Time",R(tm_isdst,*tp));
 printf("%d %s \n",R(tm_yday,*tp),"days since January 1");
 printf("\n");
 
-
 // calendar week 1 of the year,
 printf("\t%s, \n","Calendar week 1 of the year");
 // update the tp for CW 1 of the year,
-tp = localtime(CLI_INDEX+(wk1));
+tp = localtime(CLI_BASE+(R(wk1,cs)));
 if(!tp) {
 r = (errno);
 printf("%s %d %s %Xh \n","<< Error at fn. localtime() with errno.",r,"or",r);
@@ -143,12 +122,11 @@ mm = (curr_mo);
 m = (mm);
 --mm;
 
-r = find_a_first_week(*day,&t,curr_t);
+r = find_a_first_week(*(THEFIRST+(R(day,cs))),&t,curr_t);
 if(!r) {
 printf("%s \n","<< Error at fn. find_a_first_week()");
 return(0x00);
 }
-
 
 //* backward
 l = (0x00);
@@ -159,8 +137,8 @@ l++;
 while(i) {
 --i;
 --mm;
-t = (t+(0x01+(~(0x03*(w))))); // subtract second minutes in three weeks out of a first day of the first week
-r = find_a_first_week(*day,&t,t);
+t = (t+(0x01+(~(0x03*(wk))))); // subtract second minutes in three weeks out of a first day of the first week
+r = find_a_first_week(*(THEFIRST+(R(day,cs))),&t,t);
 if(!r) {
 printf("%s \n","<< Error at fn. find_a_first_week()");
 return(0x00);
@@ -172,25 +150,18 @@ printf("%s %d %s %Xh \n","<< Error at fn. localtime() with errno.",r,"or",r);
 printf("%s \n",strerror(r));
 return(0x00);
 }
-mois = (*(mon+(THELAST)));
+mois = (*(THELAST+(R(month,cs))));
 if(!(mois^(R(tm_mon,*tp)))) {
-r = find_a_first_month(*mon,CLI_OFFSET+(wk1),t);
+r = cals_retrieve_week1(*(THEFIRST+(R(day,cs))),*(THEFIRST+(R(month,cs))),CLI_OFFSET+(R(wk1,cs)),t);
 if(!r) {
-printf("%s \n","<< Error at fn. find_a_first_month()");
+printf("%s \n","<< Error at fn. cals_retrieve_week1()");
 return(0x00);
-}
-tp = localtime(CLI_OFFSET+(wk1));
-if(!tp) return(0x00);
-// if a week starts with Monday,
-if(0x04<(R(tm_mday,*tp))) ADD(*(CLI_OFFSET+(wk1)),(-0x01*(d*(WEEK))));
-*(CLI_INDEX+(wk1)) = (*(CLI_OFFSET+(wk1)));
-}}}
+}}}}
 //*/
-
 
 //* check at calendar week 1 after going backward..
 if(l) {
-tp = localtime(CLI_INDEX+(wk1));
+tp = localtime(CLI_OFFSET+(R(wk1,cs)));
 if(!tp) return(0x00);
 printf("\t%s, \n","CW 1 (after going backward)");
 printf("\t[ %s %d %s %d, ",*(dayoftheweek+(R(tm_wday,*tp))),R(tm_mday,*tp),*(month+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
@@ -203,7 +174,7 @@ printf("\n");
 //*/
 
 
-*(CLI_OFFSET+(wk1)) = (*(CLI_INDEX+(wk1)));
+*(CLI_INDEX+(R(wk1,cs))) = (*(CLI_OFFSET+(R(wk1,cs))));
 l = (0x01+(months));
 
 while(0x01) {
@@ -218,20 +189,20 @@ return(0x00);
 //
 m = (R(tm_mon,*tp));
 
-mois = (*(mon+(THELAST)));
+mois = (*(THELAST+(R(month,cs))));
 if(!(mois^(m))) {
-*(CLI_LEAD+(wk1)) = (t+(d*(-0x01+(WEEK))));
-tp = localtime(CLI_LEAD+(wk1));
+*(CLI_LEAD+(R(wk1,cs))) = (t+(di*(-0x01+(WEEK))));
+tp = localtime(CLI_LEAD+(R(wk1,cs)));
 if(!tp) {
 r = (errno);
 printf("%s %d %s %Xh \n","<< Error at fn. localtime() with errno.",r,"or",r);
 printf("%s \n",strerror(r));
 return(0x00);
 }
-mois = (*(mon+(THEFIRST)));
+mois = (*(THEFIRST+(R(month,cs))));
 if(!(mois^(R(tm_mon,*tp)))) {
 // if a week starts with Monday,
-if(0x03<(R(tm_mday,*tp))) *(CLI_INDEX+(wk1)) = (t);
+if(0x03<(R(tm_mday,*tp))) *(CLI_INDEX+(R(wk1,cs))) = (t);
 }}
 // also re-update the tp for t.
 tp = localtime(&t);
@@ -250,25 +221,24 @@ if(curr_di<(R(tm_mday,*tp))) {
 printf(" %2d %s ",curr_di,*(dayofthewk+(curr_wk)));
 printf("%2d:%02d ",curr_hr,curr_mn);
 printf("  ");
-printf("-------------------------------- ");
-printf("\n");
+printf("-------------------------------- \n");
 }}}
 //*/
 
-mois = (*mon);
+mois = (*(THEFIRST+(R(month,cs))));
 if(!(mois^(R(tm_mon,*tp)))) {
-curr_wk1 = (*(CLI_INDEX+(wk1)));
-if(!(curr_wk1^(*(CLI_OFFSET+(wk1))))) *(CLI_INDEX+(wk1)) = (t);
-*(CLI_OFFSET+(wk1)) = (*(CLI_INDEX+(wk1)));
+curr_wk1 = (*(CLI_INDEX+(R(wk1,cs))));
+if(!(curr_wk1^(*(CLI_OFFSET+(R(wk1,cs)))))) *(CLI_INDEX+(R(wk1,cs))) = (t);
+*(CLI_OFFSET+(R(wk1,cs))) = (*(CLI_INDEX+(R(wk1,cs))));
 }}
 
-printf("\t%s %d, ","CW",ct_weeks(*(CLI_INDEX+(wk1)),t));
+printf("\t%s %d, ","CW",ct_weeks(*(CLI_INDEX+(R(wk1,cs))),t));
 printf("\t%s %d - ",*(month+(R(tm_mon,*tp))),R(tm_mday,*tp));
 //
 if(!(t^(tt))) OR(flag,FIRST_B);
 if(t<(tt)) OR(flag,FIRST_B);
 //
-ADD(t,d*(-0x01+(WEEK)));
+ADD(t,di*(-0x01+(WEEK)));
 tp = localtime(&t);
 if(!tp) {
 r = (errno);
@@ -288,11 +258,10 @@ if(SECOND_B<(flag)) {
 printf(" %2d %s ",curr_di,*(dayofthewk+(curr_wk)));
 printf("%2d:%02d ",curr_hr,curr_mn);
 printf("  ");
-printf("-------------------------------- ");
-printf("\n");
+printf("-------------------------------- \n");
 }}
 //
-ADD(t,d);
+ADD(t,di);
 }
 
 return(0x01);
