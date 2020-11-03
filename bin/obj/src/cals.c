@@ -213,7 +213,7 @@ if(mm^(m)) {
 if(!(--l)) break;
 mm = (m);
 
-r = subtract(COL_R,*(month+(R(tm_mon,*tp))));
+r = sub_da(COL_R,*(month+(R(tm_mon,*tp))));
 r++;
 while(--r) printf("_");
 printf("%s %d \n",*(month+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));

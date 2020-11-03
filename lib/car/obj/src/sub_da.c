@@ -7,7 +7,7 @@ Subtract
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl subtract(signed(arg),signed char(*argp))) {
+signed(__cdecl sub_da(signed(arg),signed char(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed i,r;

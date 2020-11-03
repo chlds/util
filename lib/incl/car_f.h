@@ -8,7 +8,7 @@ Along with C library
 */
 
 
-signed(__cdecl subtract(signed(arg),signed char(*argp)));
+signed(__cdecl sub_da(signed(arg),signed char(*argp)));
 
 signed(__cdecl cv_mo_internals(signed char(**vi),signed short(*di),signed char(*si)));
 signed(__cdecl cv_mo_internal(signed char(***vi),signed short(*di),signed char(*si)));
