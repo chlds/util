@@ -79,8 +79,8 @@ i.e., delete the enhmeta file.
 unsigned(__stdcall cmdl2_time(SAT(*argp))) {
 
 /* **** DATA */
-external signed char const *(dayoftheweek[]);
-external signed char const *(month[]);
+// external signed char const *(dayoftheweek[]);
+// external signed char const *(month[]);
 
 // for the module handles
 enum {

@@ -12,6 +12,7 @@ Refer at <corecrt_wtime.h>
 signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 
 /* **** DATA, BSS and STACK */
+auto signed COL_R = (0x38);
 auto signed WEEK = (0x07);
 
 auto struct tm *tp;
@@ -211,7 +212,11 @@ if(!tp) return(0x00);
 if(mm^(m)) {
 if(!(--l)) break;
 mm = (m);
-printf("________________________________________________%s %d \n",*(month+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
+
+r = subtract(COL_R,*(month+(R(tm_mon,*tp))));
+r++;
+while(--r) printf("_");
+printf("%s %d \n",*(month+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
 
 //* nearby
 if(!(curr_yr^(1900+(R(tm_year,*tp))))) {
@@ -221,7 +226,11 @@ if(curr_di<(R(tm_mday,*tp))) {
 printf(" %2d %s ",curr_di,*(dayofthewk+(curr_wk)));
 printf("%2d:%02d ",curr_hr,curr_mn);
 printf("  ");
-printf("-------------------------------- \n");
+r = (-16+(5+(COL_R)));
+if(r<(0x00)) return(0x00);
+r++;
+while(--r) printf("-");
+printf("\n");
 }}}
 //*/
 
@@ -258,7 +267,11 @@ if(SECOND_B<(flag)) {
 printf(" %2d %s ",curr_di,*(dayofthewk+(curr_wk)));
 printf("%2d:%02d ",curr_hr,curr_mn);
 printf("  ");
-printf("-------------------------------- \n");
+r = (-16+(5+(COL_R)));
+if(r<(0x00)) return(0x00);
+r++;
+while(--r) printf("-");
+printf("\n");
 }}
 //
 ADD(t,di);

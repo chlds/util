@@ -30,7 +30,7 @@ THEFIRST,THELAST,
 };
 
 /* calend_d.h */
-static signed char const *(dayoftheweek[]) = {
+static signed char/* const */*(dayoftheweek[]) = {
 (char signed(*)) ("Sunday"),
 (char signed(*)) ("Monday"),
 (char signed(*)) ("Tuesday"),
@@ -41,7 +41,7 @@ static signed char const *(dayoftheweek[]) = {
 (char signed(*)) (0x00),
 };
 
-static signed char const *(dayofthewk[]) = {
+static signed char/* const */*(dayofthewk[]) = {
 (char signed(*)) ("SUN"),
 (char signed(*)) ("MON"),
 (char signed(*)) ("TUE"),
@@ -52,7 +52,7 @@ static signed char const *(dayofthewk[]) = {
 (char signed(*)) (0x00),
 };
 
-static signed char const *(month[]) = {
+static signed char/* const */*(month[]) = {
 (char signed(*)) ("January"),
 (char signed(*)) ("February"),
 (char signed(*)) ("March"),
