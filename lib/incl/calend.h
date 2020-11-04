@@ -93,6 +93,9 @@ void *optl;
 } typedef cals_stat_t;
 
 /* calend_f.h */
+signed(__cdecl cals_backward_r(signed(arg),cals_stat_t(*argp)));
+signed(__cdecl cals_backward(signed(arg),cals_stat_t(*argp)));
+
 signed(__cdecl cals_stat_init(cals_stat_t(*argp)));
 signed(__cdecl cals_retrieve_week1(signed short(day_thefirst),signed short(month_thefirst),time_t(*di),time_t(si)));
 

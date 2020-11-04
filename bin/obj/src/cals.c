@@ -130,39 +130,15 @@ return(0x00);
 }
 
 //* backward
-l = (0x00);
 if(months<(0x00)) {
-months = (0x01+(~months));
-i = (months);
-l++;
-while(i) {
---i;
---mm;
-t = (t+(0x01+(~(0x03*(wk))))); // subtract second minutes in three weeks out of a first day of the first week
-r = find_a_first_week(*(THEFIRST+(R(day,cs))),&t,t);
+r = cals_backward(months,&cs);
 if(!r) {
-printf("%s \n","<< Error at fn. find_a_first_week()");
+printf("%s \n","<< Error at fn. cals_backward()");
 return(0x00);
 }
-tp = localtime(&t);
-if(!tp) {
-r = (errno);
-printf("%s %d %s %Xh \n","<< Error at fn. localtime() with errno.",r,"or",r);
-printf("%s \n",strerror(r));
-return(0x00);
-}
-mois = (*(THELAST+(R(month,cs))));
-if(!(mois^(R(tm_mon,*tp)))) {
-r = cals_retrieve_week1(*(THEFIRST+(R(day,cs))),*(THEFIRST+(R(month,cs))),CLI_OFFSET+(R(wk1,cs)),t);
-if(!r) {
-printf("%s \n","<< Error at fn. cals_retrieve_week1()");
-return(0x00);
-}}}}
-//*/
-
+else {
 //* check at calendar week 1 after going backward..
-if(l) {
-tp = localtime(CLI_OFFSET+(R(wk1,cs)));
+tp = localtime(CLI_BASE+(R(wk1,cs)));
 if(!tp) return(0x00);
 printf("\t%s, \n","CW 1 (after going backward)");
 printf("\t[ %s %d %s %d, ",*(dayoftheweek+(R(tm_wday,*tp))),R(tm_mday,*tp),*(month+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
@@ -172,11 +148,16 @@ printf("%d %s ",R(tm_yday,*tp),"days since January 1");
 printf("] \n");
 printf("\n");
 }
-//*/
-
-
+// *(CLI_BASE+(R(wk1/t, changed after going backward for months
+*(CLI_OFFSET+(R(wk1,cs))) = (*(CLI_BASE+(R(wk1,cs))));
 *(CLI_INDEX+(R(wk1,cs))) = (*(CLI_OFFSET+(R(wk1,cs))));
-l = (0x01+(months));
+t = (*(CLI_BASE+(R(t,cs))));
+}
+else r = (months);
+
+if(r<(0x00)) r = (0x01+(~r));
+l = (0x01+(r));
+mm = (0x00);
 
 while(0x01) {
 flag = (0x00);
