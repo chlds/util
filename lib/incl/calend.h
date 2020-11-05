@@ -93,6 +93,9 @@ void *optl;
 } typedef cals_stat_t;
 
 /* calend_f.h */
+signed(__cdecl cals_rr(signed short(mo),signed(arg),cals_stat_t(*argp)));
+signed(__cdecl cals_r(signed(arg),cals_stat_t(*argp)));
+
 signed(__cdecl cals_backward_r(signed(arg),cals_stat_t(*argp)));
 signed(__cdecl cals_backward(signed(arg),cals_stat_t(*argp)));
 
