@@ -13,8 +13,6 @@ signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed FOR_MONTHS = (0x04);
-auto signed COL_R = (0x38);
-auto signed WEEK = (0x07);
 
 auto struct tm *tp;
 auto signed short *w;
@@ -84,6 +82,7 @@ return(0x00);
 *(CLI_BASE+(R(wk1,cs))) = (t);
 //*/
 
+if(OPT_VERBOSE&(flag)) {
 // calendar week for today,
 printf("\n");
 r = ct_weeks(*(CLI_BASE+(R(wk1,cs))),curr_t);
@@ -102,6 +101,8 @@ printf("%d:%02d:%02d, ",R(tm_hour,*tp),R(tm_min,*tp),R(tm_sec,*tp));
 printf("%s %d, ","Daylight Savings Time",R(tm_isdst,*tp));
 printf("%d %s \n",R(tm_yday,*tp),"days since January 1");
 printf("\n");
+}
+else printf("\n");
 
 if(OPT_VERBOSE&(flag)) {
 // calendar week 1 of the year,
