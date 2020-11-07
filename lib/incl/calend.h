@@ -86,6 +86,7 @@ signed short day[0x02];
 signed short month[0x02];
 time_t wk1[0x04];
 time_t t[0x04];
+signed short insert;
 signed short flag;
 cals_t today;
 cals_t *event[0x04];
@@ -93,6 +94,12 @@ void *optl;
 } typedef cals_stat_t;
 
 /* calend_f.h */
+signed(__cdecl cals_unbind_events(cals_stat_t(*argp)));
+signed(__cdecl cals_unmap_events(cals_stat_t(*argp)));
+
+signed(__cdecl cals_bind_events(cals_stat_t(*argp)));
+signed(__cdecl cals_concat_events(cals_t(*cache),cals_stat_t(*argp)));
+
 signed(__cdecl cals_rr(signed short(mo),signed(arg),cals_stat_t(*argp)));
 signed(__cdecl cals_r(signed(arg),cals_stat_t(*argp)));
 
@@ -102,10 +109,9 @@ signed(__cdecl cals_backward(signed(arg),cals_stat_t(*argp)));
 signed(__cdecl cals_stat_init(cals_stat_t(*argp)));
 signed(__cdecl cals_retrieve_week1(signed short(day_thefirst),signed short(month_thefirst),time_t(*di),time_t(si)));
 
-signed(__cdecl cals_unmap(cals_t(*argp)));
 signed(__cdecl cals_map(cals_t(*argp),signed char(*si)));
 
-signed(__cdecl cals_sched(cals_t(*argp),signed long long/* time_t */(arg)));
+signed(__cdecl cals_sched(signed long long/* time_t */(arg),cals_t(*argp)));
 signed(__cdecl cals_init(cals_t(*argp)));
 
 signed(__cdecl cv_date(cals_t(*di),signed char(*si)));

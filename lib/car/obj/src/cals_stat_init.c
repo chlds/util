@@ -41,6 +41,7 @@ while(r) {
 *(r+(R(t,*argp))) = (R(t,R(today,*argp)));
 }
 
+R(insert,*argp) = (0x00);
 R(flag,*argp) = (0x00);
 R(optl,*argp) = (0x00);
 

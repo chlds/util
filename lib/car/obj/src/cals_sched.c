@@ -8,7 +8,7 @@ Convert
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_sched(cals_t(*argp),time_t(arg))) {
+signed(__cdecl cals_sched(time_t(arg),cals_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto struct tm *tp;
