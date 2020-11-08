@@ -6,6 +6,8 @@ Being deprecated..
 */
 
 
+# define CALS_INIT (0x01)
+
 # define CALS_OBJS (0x04)
 
 /* calend_e.h */
@@ -94,6 +96,9 @@ void *optl;
 } typedef cals_stat_t;
 
 /* calend_f.h */
+signed(__cdecl cals_sched_events(signed char(*content),cals_stat_t(*argp)));
+signed(__cdecl cals_add_events(signed char(*content),cals_stat_t(*argp)));
+
 signed(__cdecl cals_unbind_events(cals_stat_t(*argp)));
 signed(__cdecl cals_unmap_events(cals_stat_t(*argp)));
 

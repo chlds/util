@@ -18,9 +18,6 @@ auto signed i,r;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-r = cals_init(argp);
-if(!r) return(0x00);
-
 t = (arg);
 tp = localtime(&t);
 if(!tp) return(0x00);

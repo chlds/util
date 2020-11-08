@@ -45,5 +45,7 @@ R(insert,*argp) = (0x00);
 R(flag,*argp) = (0x00);
 R(optl,*argp) = (0x00);
 
+OR(R(flag,*argp),CALS_INIT);
+
 return(0x01);
 }
