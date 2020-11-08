@@ -32,7 +32,18 @@ THEFIRST,THELAST,
 };
 
 /* calend_d.h */
-static signed char/* const */*(dayoftheweek[]) = {
+static signed char/* const */*(CAPS_DAYOFTHEWEEK[]) = {
+(char signed(*)) ("SUNDAY"),
+(char signed(*)) ("MONDAY"),
+(char signed(*)) ("TUESDAY"),
+(char signed(*)) ("WEDNESDAY"),
+(char signed(*)) ("THURSDAY"),
+(char signed(*)) ("FRIDAY"),
+(char signed(*)) ("SATURDAY"),
+(char signed(*)) (0x00),
+};
+
+static signed char/* const */*(DAYOFTHEWEEK[]) = {
 (char signed(*)) ("Sunday"),
 (char signed(*)) ("Monday"),
 (char signed(*)) ("Tuesday"),
@@ -43,18 +54,31 @@ static signed char/* const */*(dayoftheweek[]) = {
 (char signed(*)) (0x00),
 };
 
-static signed char/* const */*(dayofthewk[]) = {
-(char signed(*)) ("SUN"),
-(char signed(*)) ("MON"),
-(char signed(*)) ("TUE"),
-(char signed(*)) ("WED"),
-(char signed(*)) ("THU"),
-(char signed(*)) ("FRI"),
-(char signed(*)) ("SAT"),
+static signed char/* const */*(CAPS_DAYOFTHEWK[]) = {
+"SUN","MON","TUE","WED","THU","FRI","SAT",(char signed(*)) (0x00),
+};
+
+static signed char/* const */*(DAYOFTHEWK[]) = {
+"Sun","Mon","Tue","Wed","Thu","Fri","Sat",(char signed(*)) (0x00),
+};
+
+static signed char/* const */*(CAPS_MONTH[]) = {
+(char signed(*)) ("JANUARY"),
+(char signed(*)) ("FEBRUARY"),
+(char signed(*)) ("MARCH"),
+(char signed(*)) ("APRIL"),
+(char signed(*)) ("MAY"),
+(char signed(*)) ("JUNE"),
+(char signed(*)) ("JULY"),
+(char signed(*)) ("AUGUST"),
+(char signed(*)) ("SEPTEMBER"),
+(char signed(*)) ("OCTOBER"),
+(char signed(*)) ("NOVEMBER"),
+(char signed(*)) ("DECEMBER"),
 (char signed(*)) (0x00),
 };
 
-static signed char/* const */*(month[]) = {
+static signed char/* const */*(MONTH[]) = {
 (char signed(*)) ("January"),
 (char signed(*)) ("February"),
 (char signed(*)) ("March"),
@@ -63,11 +87,19 @@ static signed char/* const */*(month[]) = {
 (char signed(*)) ("June"),
 (char signed(*)) ("July"),
 (char signed(*)) ("August"),
-(char signed(*)) ("Septembre"),
-(char signed(*)) ("Octobre"),
-(char signed(*)) ("Novembre"),
-(char signed(*)) ("Decembre"),
+(char signed(*)) ("September"),
+(char signed(*)) ("October"),
+(char signed(*)) ("November"),
+(char signed(*)) ("December"),
 (char signed(*)) (0x00),
+};
+
+static signed char/* const */*(CAPS_MON[]) = {
+"JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC",(signed char(*)) (0x00),
+};
+
+static signed char/* const */*(MON[]) = {
+"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",(signed char(*)) (0x00),
 };
 
 struct cals {
@@ -114,10 +146,8 @@ signed(__cdecl cals_backward(signed(arg),cals_stat_t(*argp)));
 signed(__cdecl cals_stat_init(cals_stat_t(*argp)));
 signed(__cdecl cals_retrieve_week1(signed short(day_thefirst),signed short(month_thefirst),time_t(*di),time_t(si)));
 
-signed(__cdecl cals_map(cals_t(*argp),signed char(*si)));
-
 signed(__cdecl cals_sched(signed long long/* time_t */(arg),cals_t(*argp)));
 signed(__cdecl cals_init(cals_t(*argp)));
 
-signed(__cdecl cv_date(cals_t(*di),signed char(*si)));
+signed(__cdecl cv_date(signed char(*b),cals_t(*argp)));
 // convert to a month, day and year out of characters.

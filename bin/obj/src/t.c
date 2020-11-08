@@ -6,6 +6,7 @@ Refer at <corecrt_wtime.h>
 
 # define C_CODE_STDS
 # define CALEND
+# define CAR
 # include "./../../../lib/incl/config.h"
 
 signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
@@ -52,7 +53,7 @@ return(0x00);
 }
 if(i^(R(tm_sec,*tp))) {
 printf("\r %2d:%02d:%02d ",(*tp).tm_hour,(*tp).tm_min,(*tp).tm_sec);
-printf("%s %d %s %d ",*(dayoftheweek+((*tp).tm_wday)),(*tp).tm_mday,*(month+((*tp).tm_mon)),1900+((*tp).tm_year));
+printf("%s %d %s %d ",*(DAYOFTHEWEEK+((*tp).tm_wday)),(*tp).tm_mday,*(MONTH+((*tp).tm_mon)),1900+((*tp).tm_year));
 }
 i = (R(tm_sec,*tp));
 // CPU idling

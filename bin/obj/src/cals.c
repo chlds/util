@@ -96,7 +96,7 @@ printf("%s %d %s %Xh \n","<< Error at fn. localtime() with errno.",r,"or",r);
 printf("%s \n",strerror(r));
 return(0x00);
 }
-printf("\t%s %d %s %d, ",*(dayoftheweek+(R(tm_wday,*tp))),R(tm_mday,*tp),*(month+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
+printf("\t%s %d %s %d, ",*(DAYOFTHEWEEK+(R(tm_wday,*tp))),R(tm_mday,*tp),*(MONTH+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
 printf("%d:%02d:%02d, ",R(tm_hour,*tp),R(tm_min,*tp),R(tm_sec,*tp));
 printf("%s %d, ","Daylight Savings Time",R(tm_isdst,*tp));
 printf("%d %s \n",R(tm_yday,*tp),"days since January 1");
@@ -115,7 +115,7 @@ printf("%s %d %s %Xh \n","<< Error at fn. localtime() with errno.",r,"or",r);
 printf("%s \n",strerror(r));
 return(0x00);
 }
-printf("\t%s %d %s %d, ",*(dayoftheweek+(R(tm_wday,*tp))),R(tm_mday,*tp),*(month+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
+printf("\t%s %d %s %d, ",*(DAYOFTHEWEEK+(R(tm_wday,*tp))),R(tm_mday,*tp),*(MONTH+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
 printf("%d:%02d:%02d, ",R(tm_hour,*tp),R(tm_min,*tp),R(tm_sec,*tp));
 printf("%s %d, ","Daylight Savings Time",R(tm_isdst,*tp));
 printf("%d %s \n",R(tm_yday,*tp),"days since January 1");
@@ -134,7 +134,7 @@ if(OPT_VERBOSE&(flag)) {
 tp = localtime(CLI_BASE+(R(wk1,cs)));
 if(!tp) return(0x00);
 printf("\t%s, \n","CW 1 (after going backward)");
-printf("\t[ %s %d %s %d, ",*(dayoftheweek+(R(tm_wday,*tp))),R(tm_mday,*tp),*(month+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
+printf("\t[ %s %d %s %d, ",*(DAYOFTHEWEEK+(R(tm_wday,*tp))),R(tm_mday,*tp),*(MONTH+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
 printf("%d:%02d:%02d, ",R(tm_hour,*tp),R(tm_min,*tp),R(tm_sec,*tp));
 printf("%s %d, ","Daylight Savings Time",R(tm_isdst,*tp));
 printf("%d %s ",R(tm_yday,*tp),"days since January 1");

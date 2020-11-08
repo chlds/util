@@ -71,17 +71,17 @@ curr_mo = (R(tm_mon,*tp));
 if(curr_mo^(mo)) {
 if(!(--arg)) return(0x00);
 mo = (curr_mo);
-r = sub_da(COL_R,*(month+(R(tm_mon,*tp))));
+r = sub_da(COL_R,*(MONTH+(R(tm_mon,*tp))));
 r++;
 while(--r) printf("_");
-printf("%s %d \n",*(month+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
+printf("%s %d \n",*(MONTH+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
 //* nearby
 if(!(curr_yr^(*(CALS_YR+(R(date,R(today,*argp))))))) {
 if(!(curr_mo^(*(CALS_MO+(R(date,R(today,*argp))))))) {
 day = (*(CALS_DI+(R(date,R(today,*argp)))));
 if(day<(curr_di)) {
 // today 1/2
-printf(" %2d %s ",day,*(dayofthewk+(*(CALS_WK+(R(date,R(today,*argp)))))));
+printf(" %2d %s ",day,*(CAPS_DAYOFTHEWK+(*(CALS_WK+(R(date,R(today,*argp)))))));
 printf("%2d:%02d ",*(CALS_HR+(R(time,R(today,*argp)))),*(CALS_MN+(R(time,R(today,*argp)))));
 printf("  ");
 r = (-16+(5+(COL_R)));
@@ -98,7 +98,7 @@ if(!(curr_wk1^(*(CLI_OFFSET+(R(wk1,*argp)))))) *(CLI_INDEX+(R(wk1,*argp))) = (cu
 }}
 
 printf("\t%s %d, ","CW",ct_weeks(*(CLI_INDEX+(R(wk1,*argp))),curr_t));
-printf("\t%s %d - ",*(month+(R(tm_mon,*tp))),R(tm_mday,*tp));
+printf("\t%s %d - ",*(MONTH+(R(tm_mon,*tp))),R(tm_mday,*tp));
 //
 t = (R(t,R(today,*argp)));
 if(!(curr_t^(t))) OR(flag,FIRST_B);
@@ -106,7 +106,7 @@ if(curr_t<(t)) OR(flag,FIRST_B);
 ADD(curr_t,di*(-0x01+(WEEK)));
 tp = localtime(&curr_t);
 if(!tp) return(0x00);
-if(curr_mo^(R(tm_mon,*tp))) printf("%s %d \n",*(month+(R(tm_mon,*tp))),R(tm_mday,*tp));
+if(curr_mo^(R(tm_mon,*tp))) printf("%s %d \n",*(MONTH+(R(tm_mon,*tp))),R(tm_mday,*tp));
 else printf("%d \n",R(tm_mday,*tp));
 //
 if(flag) {
@@ -114,7 +114,7 @@ if(t<(curr_t)) OR(flag,SECOND_B);
 if(!(t^(curr_t))) OR(flag,SECOND_B);
 if(SECOND_B<(flag)) {
 // today 2/2
-printf(" %2d %s ",day,*(dayofthewk+(*(CALS_WK+(R(date,R(today,*argp)))))));
+printf(" %2d %s ",day,*(CAPS_DAYOFTHEWK+(*(CALS_WK+(R(date,R(today,*argp)))))));
 printf("%2d:%02d ",*(CALS_HR+(R(time,R(today,*argp)))),*(CALS_MN+(R(time,R(today,*argp)))));
 printf("  ");
 r = (-16+(5+(COL_R)));
