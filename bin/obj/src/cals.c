@@ -18,6 +18,7 @@ auto struct tm *tp;
 auto signed short *w;
 auto signed char *b;
 auto cals_stat_t cs;
+auto cals_t event;
 auto time_t curr_wk1;
 auto time_t curr_t;
 auto time_t t;
@@ -28,6 +29,27 @@ auto signed short for_months;
 auto signed short flag;
 
 /* **** CODE/TEXT */
+if(0x01<(argc)) {
+r = cmpr_parts(&i,*(argv+(0x01)),"e");
+if(!i) {
+r = cals_entry(argv,&event);
+if(!r) {
+printf("%s \n","<< Error at fn. cals_entry()");
+return(0x00);
+}
+//* monitor
+printf("[ %s %d, %d, ",*(CAPS_MONTH+(*(CALS_MO+(R(date,event))))),*(CALS_DI+(R(date,event))),*(CALS_YR+(R(date,event))));
+printf(" at %02d:%02d ] \n",*(CALS_HR+(R(time,event))),*(CALS_MN+(R(time,event))));
+//*/
+return(0x01);
+}}
+
+AND(flag,0x00);
+if(0x01<(argc)) {
+r = cmpr_parts(&i,*(argv+(0x01)),"v");
+if(!i) OR(flag,OPT_VERBOSE);
+}
+
 for_months = (FOR_MONTHS);
 if(0x01<(argc)) {
 b = (*(argv+(argc+(~0x00))));
@@ -36,12 +58,6 @@ if(!r) return(0x00);
 if(!i) i = (FOR_MONTHS);
 // if(i<(0x00)) i = (0x01+(~i));
 for_months = (i);
-}
-
-AND(flag,0x00);
-if(0x01<(argc)) {
-r = cmpr_parts(&i,*(argv+(0x01)),"v");
-if(!i) OR(flag,OPT_VERBOSE);
 }
 
 r = cals_stat_init(&cs);

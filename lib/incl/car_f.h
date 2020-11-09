@@ -8,6 +8,8 @@ Along with C library
 */
 
 
+signed(__cdecl cv_hr(signed short(*hr),signed short(*mn),signed char(*si)));
+
 signed(__cdecl concat_argv_rr(signed char(*di),signed char(**si)));
 signed(__cdecl concat_argv_r_r(signed(*di),signed char(**si)));
 signed(__cdecl concat_argv_r(signed(*di),signed char(**si)));
@@ -15,8 +17,13 @@ signed(__cdecl concat_argv(signed(offset),signed char(**di),signed char(**si)));
 
 signed(__cdecl sub_da(signed(arg),signed char(*argp)));
 
-signed(__cdecl cv_mo_internals(signed char(**vi),signed short(*di),signed char(*si)));
-signed(__cdecl cv_mo_internal(signed char(***vi),signed short(*di),signed char(*si)));
+signed(__cdecl ct2words_r_r(signed char(**vi),signed(*di),signed char(*si)));
+signed(__cdecl ct2words_r(signed char(***vi),signed(*di),signed char(*si)));
+signed(__cdecl ct2words(signed char(***vi),signed(*di),signed char(*si)));
+// count to the words out of characters.
+
+signed(__cdecl cv_mo_r_r(signed char(**vi),signed short(*di),signed char(*si)));
+signed(__cdecl cv_mo_r(signed char(***vi),signed short(*di),signed char(*si)));
 signed(__cdecl cv_mo(signed short(*di),signed char(*si)));
 // convert to a month out of characters.
 

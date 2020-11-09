@@ -1,13 +1,11 @@
 /* **** Notes
 
-Count the letters to a letter you select.
+Count letters to a letter you select.
 */
 
 
-/*
-# define C_CODE_STDS
+# define CAR
 # include "./../../../incl/config.h"
-//*/
 
 signed(__cdecl ct2(signed char(di),signed char(*base))) {
 

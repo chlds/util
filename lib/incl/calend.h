@@ -128,6 +128,14 @@ void *optl;
 } typedef cals_stat_t;
 
 /* calend_f.h */
+signed(__cdecl cals_load_events(signed char(*csv_filename),cals_stat_t(*argp)));
+// load events i.e., map events at *(CLI_B/O/I/L+(R(event,*argp))) on the RAM.
+
+signed(__cdecl cals_store(cals_t(*argp)));
+signed(__cdecl cals_parse(signed char(*content),cals_t(*argp)));
+signed(__cdecl cals_entry(signed char(**argv),cals_t(*argp)));
+// store an event at file event.csv in directory ~/.cals/.
+
 signed(__cdecl cals_sched_events(signed char(*content),cals_stat_t(*argp)));
 signed(__cdecl cals_add_events(signed char(*content),cals_stat_t(*argp)));
 
@@ -148,6 +156,9 @@ signed(__cdecl cals_retrieve_week1(signed short(day_thefirst),signed short(month
 
 signed(__cdecl cals_sched(signed long long/* time_t */(arg),cals_t(*argp)));
 signed(__cdecl cals_init(cals_t(*argp)));
+
+signed(__cdecl cv_time(signed char(*b),cals_t(*argp)));
+// convert to time out of characters.
 
 signed(__cdecl cv_date(signed char(*b),cals_t(*argp)));
 // convert to a month, day and year out of characters.

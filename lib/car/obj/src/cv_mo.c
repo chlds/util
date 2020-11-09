@@ -23,7 +23,7 @@ if(!si) return(0x00);
 
 *di = (~0x00);
 
-r = cv_mo_internal(mon,di,si);
+r = cv_mo_r(mon,di,si);
 
 return(r);
 }
