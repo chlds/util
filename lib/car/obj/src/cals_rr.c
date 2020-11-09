@@ -114,7 +114,7 @@ if(t<(curr_t)) OR(flag,SECOND_B);
 if(!(t^(curr_t))) OR(flag,SECOND_B);
 if(SECOND_B<(flag)) {
 // today 2/2
-printf(" %2d %s ",day,*(CAPS_DAYOFTHEWK+(*(CALS_WK+(R(date,R(today,*argp)))))));
+printf(" %2d %s ",*(CALS_DI+(R(date,R(today,*argp)))),*(CAPS_DAYOFTHEWK+(*(CALS_WK+(R(date,R(today,*argp)))))));
 printf("%2d:%02d ",*(CALS_HR+(R(time,R(today,*argp)))),*(CALS_MN+(R(time,R(today,*argp)))));
 printf("  ");
 r = (-16+(5+(COL_R)));
