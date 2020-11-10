@@ -29,26 +29,28 @@ auto signed short for_months;
 auto signed short flag;
 
 /* **** CODE/TEXT */
+AND(flag,0x00);
+if(0x01<(argc)) {
+r = cmpr_parts(&i,*(argv+(0x01)),"v");
+if(!i) OR(flag,CALS_VERBOSE);
+}
+
 if(0x01<(argc)) {
 r = cmpr_parts(&i,*(argv+(0x01)),"e");
 if(!i) {
+r = cals_init(&event);
+if(!r) {
+printf("%s \n","<< Error at fn. cals_init()");
+return(0x00);
+}
+if(CALS_VERBOSE&(flag)) OR(R(flag,event),CALS_VERBOSE);
 r = cals_entry(argv,&event);
 if(!r) {
 printf("%s \n","<< Error at fn. cals_entry()");
 return(0x00);
 }
-//* monitor
-printf("[ %s %d, %d, ",*(CAPS_MONTH+(*(CALS_MO+(R(date,event))))),*(CALS_DI+(R(date,event))),*(CALS_YR+(R(date,event))));
-printf(" at %02d:%02d ] \n",*(CALS_HR+(R(time,event))),*(CALS_MN+(R(time,event))));
-//*/
 return(0x01);
 }}
-
-AND(flag,0x00);
-if(0x01<(argc)) {
-r = cmpr_parts(&i,*(argv+(0x01)),"v");
-if(!i) OR(flag,OPT_VERBOSE);
-}
 
 for_months = (FOR_MONTHS);
 if(0x01<(argc)) {
@@ -98,7 +100,7 @@ return(0x00);
 *(CLI_BASE+(R(wk1,cs))) = (t);
 //*/
 
-if(OPT_VERBOSE&(flag)) {
+if(CALS_VERBOSE&(flag)) {
 // calendar week for today,
 printf("\n");
 r = ct_weeks(*(CLI_BASE+(R(wk1,cs))),curr_t);
@@ -120,7 +122,7 @@ printf("\n");
 }
 else printf("\n");
 
-if(OPT_VERBOSE&(flag)) {
+if(CALS_VERBOSE&(flag)) {
 // calendar week 1 of the year,
 printf("\t%s, \n","Calendar week 1 of the year");
 // update the tp for CW 1 of the year,
@@ -145,7 +147,7 @@ if(!r) {
 printf("%s \n","<< Error at fn. cals_backward()");
 return(0x00);
 }
-if(OPT_VERBOSE&(flag)) {
+if(CALS_VERBOSE&(flag)) {
 //* check at calendar week 1 after going backward..
 tp = localtime(CLI_BASE+(R(wk1,cs)));
 if(!tp) return(0x00);
@@ -164,7 +166,7 @@ if(r<(0x00)) r = (0x01+(~r));
 r = cals_r(r,&cs);
 if(!r) return(0x00);
 
-if(OPT_VERBOSE&(flag)) {
+if(CALS_VERBOSE&(flag)) {
 printf("\n");
 printf("\t%d %s \n",r,"weeks displayed");
 }

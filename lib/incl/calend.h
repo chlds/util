@@ -7,6 +7,10 @@ Being deprecated..
 
 
 # define CALS_INIT (0x01)
+# define CALS_VERBOSE (0x02)
+# define CALS_DATE_TODAY (0x04)
+# define CALS_TIME_ALLDAY (0x08)
+# define CALS_NO_SUBJECT (0x10)
 
 # define CALS_OBJS (0x04)
 
@@ -162,3 +166,6 @@ signed(__cdecl cv_time(signed char(*b),cals_t(*argp)));
 
 signed(__cdecl cv_date(signed char(*b),cals_t(*argp)));
 // convert to a month, day and year out of characters.
+
+signed(__cdecl cv_subject(signed char(*b),cals_t(*argp)));
+// map a subject on the RAM.

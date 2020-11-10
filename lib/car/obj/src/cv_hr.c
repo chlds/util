@@ -23,6 +23,8 @@ if(!si) return(0x00);
 
 r = ct2(':',si);
 if(!r) return(0x00);
+if(!(r^(ct(si)))) return(0x00);
+
 si = (r+(si));
 --si;
 if(--r) --si;
