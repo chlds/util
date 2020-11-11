@@ -161,6 +161,9 @@ signed(__cdecl cals_retrieve_week1(signed short(day_thefirst),signed short(month
 signed(__cdecl cals_sched(signed long long/* time_t */(arg),cals_t(*argp)));
 signed(__cdecl cals_init(cals_t(*argp)));
 
+signed(__cdecl concat_in_csv(signed char(**b),cals_t(*argp)));
+// concatenate in CSV.
+
 signed(__cdecl cv_time(signed char(*b),cals_t(*argp)));
 // convert to time out of characters.
 
