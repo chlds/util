@@ -135,6 +135,7 @@ void *optl;
 signed(__cdecl cals_load_events(signed char(*csv_filename),cals_stat_t(*argp)));
 // load events i.e., map events at *(CLI_B/O/I/L+(R(event,*argp))) on the RAM.
 
+signed(__cdecl cals_store_internal(signed char(*csv),cals_t(*argp)));
 signed(__cdecl cals_store(cals_t(*argp)));
 signed(__cdecl cals_parse(signed char(*content),cals_t(*argp)));
 signed(__cdecl cals_entry(signed char(**argv),cals_t(*argp)));

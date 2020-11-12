@@ -57,18 +57,18 @@ flag = (0x01);
 /* Find the default configuration file. */
 p = getenv("USERPROFILE");
 if(!p) {
-printf("%s\n","<< Error at fn. getenv()");
+printf("%s \n","<< Error at fn. getenv()");
 return(0x00);
 }
 r = ct(p);
 if(!r) {
-printf("%s\n","<< Error at fn. ct()");
+printf("%s \n","<< Error at fn. ct()");
 return(0x00);
 }
 i = (r);
 r = ct(second_half);
 if(!r) {
-printf("%s\n","<< Error at fn. ct()");
+printf("%s \n","<< Error at fn. ct()");
 return(0x00);
 }
 i = (i+(r));
@@ -76,26 +76,26 @@ i++;
 i = (i*(sizeof(*path)));
 path = (signed char(*)) malloc(i);
 if(!path) {
-printf("%s\n","<< Error at fn. malloc()");
+printf("%s \n","<< Error at fn. malloc()");
 return(0x00);
 }
 r = concats(path,p,second_half,(void*) 0x00);
 if(!r) {
-printf("%s\n","<< Error at fn. concats()");
+printf("%s \n","<< Error at fn. concats()");
 return(0x00);
 }
-if(CLI_DBG) printf("%s%s\n","Path: ",path);
+if(CLI_DBG) printf("%s %s \n","Path:",path);
 /* Check the configuration file size. */
 r = _stat(path,&stats);
-if(!(r^(~(0x00)))) {
+if(!(r^(~0x00))) {
 if(!(ENOENT^(errno))) {
-printf("%s%s\n","<< No config file at ",path);
+printf("%s %s \n","<< No config file at",path);
 free(path);
 path = (0x00);
 return(0x01);
 }
 else {
-printf("%s\n","<< Error at fn. _stat()");
+printf("%s \n","<< Error at fn. _stat()");
 return(0x00);
 }}}
 
@@ -103,52 +103,54 @@ else {
 path = (R(file,R(config,*argp)));
 r = decode2w(CLI_NAME,name,path);
 if(!r) {
-printf("%s\n","<< Error at fn. decode2w()");
+printf("%s \n","<< Error at fn. decode2w()");
 return(0x00);
 }
 r = _wstat(name,&stats);
-if(!(r^(~(0x00)))) {
+if(!(r^(~0x00))) {
 if(!(ENOENT^(errno))) {
-printf("%s\n","<< No configuration file");
+printf("%s \n","<< No configuration file");
 return(0x01);
 }
 else {
-printf("%s\n","<< Error at fn. _wstat()");
+printf("%s \n","<< Error at fn. _wstat()");
 return(0x00);
 }}}
 
 R(size,R(config,*argp)) = (R(st_size,stats));
-if(CLI_DBG) printf("%d%s\n",R(size,R(config,*argp))," bytes at (R(size,R(config,*argp");
+if(CLI_DBG) printf("%d%s \n",R(size,R(config,*argp)),"bytes at (R(size,R(config,*argp");
 
 if(CLI_CONFIG_FILE<(R(st_size,stats))) {
-printf("%s%d%s\n","<< Could not load because the config file size exceeds ",CLI_CONFIG_FILE,"..");
+printf("%s %d%s \n","<< Could not load because the config file size exceeds ",CLI_CONFIG_FILE,"bytes..");
 return(0x00);
 }
 
 // open to configure
-access = (_O_RDONLY|(_O_BINARY));
+AND(access,0x00);
+OR(access,_O_RDONLY);
+OR(access,_O_BINARY);
 if(flag) {
 fd = _open(path,access);
-if(!(r^(~(0x00)))) {
-printf("%s\n","<< Error at fn. _open()");
+if(!(fd^(~0x00))) {
+printf("%s \n","<< Error at fn. _open()");
 return(0x00);
 }}
 else {
 fd = _wopen(name,access);
-if(!(r^(~(0x00)))) {
-printf("%s\n","<< Error at fn. _wopen()");
+if(!(fd^(~0x00))) {
+printf("%s \n","<< Error at fn. _wopen()");
 return(0x00);
 }}
 // parse
 r = cli_eq(fd,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_eq()");
+printf("%s \n","<< Error at fn. cli_eq()");
 return(0x00);
 }
 // close
 r = _close(fd);
-if(!(r^(~(0x00)))) {
-printf("%s\n","<< Error at fn. _close()");
+if(!(r^(~0x00))) {
+printf("%s \n","<< Error at fn. _close()");
 return(0x00);
 }
 
@@ -161,7 +163,7 @@ else {
 p = (signed char(*)) (name);
 r = embed_to(p,0x00,CLI_NAME);
 if(!r) {
-printf("%s\n","<< Error at fn. embed_to()");
+printf("%s \n","<< Error at fn. embed_to()");
 return(0x00);
 }}
 

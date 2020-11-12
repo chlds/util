@@ -25,6 +25,8 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
+AND(flag,0x00);
+
 // map
 r = concat_in_csv(&b,argp);
 if(!r) {
@@ -36,13 +38,19 @@ if(CALS_VERBOSE&(R(flag,*argp))) {
 printf("[%s: %s] \n","CSV",b);
 }
 
-// open
-// read/write
-// close
+// open, write and close
+r = cals_store_internal(b,argp);
+if(!r) {
+printf("%s \n","<< Error at fn. cals_store_internal()");
+// return(0x00);
+flag++;
+}
 
 // unmap
 if(b) free(b);
 b = (0x00);
+
+if(flag) return(0x00);
 
 return(0x01);
 }

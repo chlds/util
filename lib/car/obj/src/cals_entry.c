@@ -58,6 +58,7 @@ r = cals_store(argp);
 // if(!r) return(0x00);
 if(!r) {
 printf("%s \n","<< Error at fn. cals_store()");
+printf("%s \n","Please make sure you have a .cals directory under your home directory..");
 flag++;
 }}
 

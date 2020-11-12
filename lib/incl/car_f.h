@@ -8,6 +8,8 @@ Along with C library
 */
 
 
+signed(__cdecl store_b(signed short(linebreak),signed(access_right),signed(permission),signed char(*b),signed char(*path)));
+
 signed(__cdecl cv_hr(signed short(*hr),signed short(*mn),signed char(*si)));
 
 signed(__cdecl concat_argv_rr(signed char(*di),signed char(**si)));
