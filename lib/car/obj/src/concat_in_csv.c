@@ -70,7 +70,7 @@ printf("%s \n","<< Error at fn. cv_d()");
 return(0x00);
 }}
 
-r = concats(csv,*(MONTH+(*(CALS_MO+(R(date,*argp))))),space,*(DI+(p)),comma,*(YR+(p)),comma,*(HR+(p)),colon,*(MN+(p)),comma,fl,comma,subj,(void*) 0x00);
+r = concats(csv,*(YR+(p)),comma,*(MONTH+(*(CALS_MO+(R(date,*argp))))),space,*(DI+(p)),comma,*(HR+(p)),colon,*(MN+(p)),comma,fl,"h",comma,subj,(void*) 0x00);
 if(!r) {
 printf("%s \n","<< Error at fn. concat_in_csv()");
 }
