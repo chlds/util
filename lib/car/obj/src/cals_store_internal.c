@@ -44,39 +44,10 @@ if(!argp) return(0x00);
 AND(flag,0x00);
 
 /* Find the default event file. */
-p = getenv("USERPROFILE");
-if(!p) {
-printf("%s\n","<< Error at fn. getenv()");
-return(0x00);
-}
-
-r = ct(p);
+r = concat2home(&path,second_half);
 if(!r) {
-printf("%s\n","<< Error at fn. ct()");
+printf("%s \n","<< Error at fn. concat2home()");
 return(0x00);
-}
-
-i = (r);
-r = ct(second_half);
-if(!r) {
-printf("%s\n","<< Error at fn. ct()");
-return(0x00);
-}
-
-i = (i+(r));
-i++;
-i = (i*(sizeof(*path)));
-path = (signed char(*)) malloc(i);
-if(!path) {
-printf("%s\n","<< Error at fn. malloc()");
-return(0x00);
-}
-
-r = concats(path,p,second_half,(void*) 0x00);
-if(!r) {
-printf("%s \n","<< Error at fn. concats()");
-// return(0x00);
-flag++;
 }
 
 // if(CLI_DBG) printf("%s %s\n","Path:",path);

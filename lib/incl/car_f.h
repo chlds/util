@@ -8,6 +8,8 @@ Along with C library
 */
 
 
+signed(__cdecl concat2home(signed char(**b),signed char(*argp)));
+
 signed(__cdecl read_b_r(signed char(delim),signed short(flag),signed(fd),signed char(**b)));
 signed(__cdecl read_b(signed char(delim),signed(fd),signed char(**b)));
 
