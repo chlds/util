@@ -8,6 +8,9 @@ Along with C library
 */
 
 
+signed(__cdecl read_b_r(signed char(delim),signed short(flag),signed(fd),signed char(**b)));
+signed(__cdecl read_b(signed char(delim),signed(fd),signed char(**b)));
+
 signed(__cdecl store_b(signed short(linebreak),signed(access_right),signed(permission),signed char(*b),signed char(*path)));
 
 signed(__cdecl cv_hr(signed short(*hr),signed short(*mn),signed char(*si)));

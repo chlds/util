@@ -11,6 +11,7 @@ Remarks:
 # ifdef C_CODE_STDS
 # include <io.h>
 # include <conio.h>
+# include <errno.h>
 # include <stdio.h>
 # include <stdarg.h>
 # include <stdlib.h>
