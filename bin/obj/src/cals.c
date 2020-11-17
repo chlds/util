@@ -45,6 +45,13 @@ if(!i) OR(flag,CALS_VERBOSE);
 }
 
 if(0x01<(argc)) {
+r = cmpr_parts(&i,*(argv+(0x01)),"h");
+if(!i) {
+r = cals_help();
+return(0x01);
+}}
+
+if(0x01<(argc)) {
 r = cmpr_parts(&i,*(argv+(0x01)),"e");
 if(!i) {
 r = cals_init(&event);
