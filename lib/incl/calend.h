@@ -11,6 +11,10 @@ Being deprecated..
 # define CALS_DATE_TODAY (0x04)
 # define CALS_TIME_ALLDAY (0x08)
 # define CALS_NO_SUBJECT (0x10)
+# define CALS_LOADED (0x20)
+# define CALS_INVALID (0x40)
+# define CALS_INTERRUPT (0x80)
+# define CALS_ERROR (0x100)
 
 # define CALS_OBJS (0x04)
 
@@ -132,9 +136,12 @@ void *optl;
 } typedef cals_stat_t;
 
 /* calend_f.h */
+signed(__cdecl cals_load_events_internals(signed(fd),cals_stat_t(*argp)));
+signed(__cdecl cals_load_events_internal(signed char(*path),cals_stat_t(*argp)));
 signed(__cdecl cals_load_events(signed char(*csv_filename),cals_stat_t(*argp)));
 // load events i.e., map events at *(CLI_B/O/I/L+(R(event,*argp))) on the RAM.
 
+signed(__cdecl cals_convert(signed char(*b),cals_t(*argp)));
 signed(__cdecl cals_store_internal(signed char(*csv),cals_t(*argp)));
 signed(__cdecl cals_store(cals_t(*argp)));
 signed(__cdecl cals_parse(signed char(*content),cals_t(*argp)));

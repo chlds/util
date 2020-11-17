@@ -1,6 +1,9 @@
 /* **** Notes
 
 Read bytes to the delimiter.
+
+Remarks:
+Return values, 0x00 (for an error), 0x01 (for an end) and Others (for the end).
 //*/
 
 
@@ -10,7 +13,7 @@ Read bytes to the delimiter.
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl read_b(signed char(delim),signed(fd),signed char(**b))) {
+signed(__cdecl read_b(signed(fd),signed char(delim),signed char(**b))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *p;
@@ -22,20 +25,18 @@ if(!b) return(0x00);
 
 AND(flag,0x00);
 *b = (0x00);
-r = read_b_r(delim,flag,fd,b);
+r = read_b_r(fd,delim,&flag,b);
 if(!r) return(0x00);
 
-if(flag<(0x00)) {
+if(!flag) {
 if(*b) {
 embed(0x00/* flag */,*b);
 free(*b);
 }
 *b = (0x00);
-r = (0x00);
 }
 
-if(0x00<(flag)) r = (0x01);
-if(0x01<(flag)) r++;
+r = (signed) (flag);
 
 return(r);
 }

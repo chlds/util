@@ -26,8 +26,8 @@ signed(__cdecl cals_store_internal(signed char(*csv),cals_t(*argp))) {
 /* **** DATA, BSS and STACK */
 // second half of the default config directory
 auto signed char *second_half = ("/.cals/event.csv");
-auto signed short crlf = (0x02);
-auto signed short lf = (0x01);
+auto signed short crlf = (0x0A0D);
+auto signed short lf = (0x0A);
 
 auto struct _stat stats;
 auto signed char *path;

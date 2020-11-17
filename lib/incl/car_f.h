@@ -10,8 +10,8 @@ Along with C library
 
 signed(__cdecl concat2home(signed char(**b),signed char(*argp)));
 
-signed(__cdecl read_b_r(signed char(delim),signed short(flag),signed(fd),signed char(**b)));
-signed(__cdecl read_b(signed char(delim),signed(fd),signed char(**b)));
+signed(__cdecl read_b_r(signed(fd),signed char(delim),signed short(*flag),signed char(**b)));
+signed(__cdecl read_b(signed(fd),signed char(delim),signed char(**b)));
 
 signed(__cdecl store_b(signed short(linebreak),signed(access_right),signed(permission),signed char(*b),signed char(*path)));
 

@@ -14,9 +14,11 @@ signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 /* **** DATA, BSS and STACK */
 auto signed FOR_MONTHS = (0x04);
 
+auto cals_t *ev;
 auto struct tm *tp;
 auto signed short *w;
 auto signed char *b;
+auto signed char *path;
 auto cals_stat_t cs;
 auto cals_t event;
 auto time_t curr_wk1;
@@ -64,6 +66,15 @@ for_months = (i);
 
 r = cals_stat_init(&cs);
 if(!r) return(0x00);
+
+/*
+path = (0x00);
+r = cals_load_events(path,&cs);
+if(!r) {
+printf("%s \n","<< Error at fn. cals_load_events()");
+return(0x00);
+}
+//*/
 
 time(&t);
 tp = localtime(&t);
@@ -170,6 +181,26 @@ if(CALS_VERBOSE&(flag)) {
 printf("\n");
 printf("\t%d %s \n",r,"weeks displayed");
 }
+
+if(DBG) {
+printf("\n");
+ev = (*(CLI_LEAD+(R(event,cs))));
+while(ev) {
+if(!(CALS_INVALID&(R(flag,*ev)))) {
+printf("%s %d, %d ",*(MONTH+(*(CALS_MO+(R(date,*ev))))),*(CALS_DI+(R(date,*ev))),*(CALS_YR+(R(date,*ev))));
+printf("%s %02d:%02d ","at",*(CALS_HR+(R(time,*ev))),*(CALS_MN+(R(time,*ev))));
+printf("%s ",R(b,*ev));
+printf("\n");
+}
+ev = (R(s,*ev));
+}}
+
+if(CALS_LOADED&(R(flag,cs))) {
+r = cals_unbind_events(&cs);
+if(!r) {
+printf("%s \n","<< Error at fn. cals_unbind_events()");
+return(0x00);
+}}
 
 return(0x01);
 }
