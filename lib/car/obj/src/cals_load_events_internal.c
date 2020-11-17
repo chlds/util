@@ -32,6 +32,10 @@ AND(flag,0x00);
 access_right = (_O_BINARY|_O_RDONLY);
 fd = _open(path,access_right);
 if(!(fd^(~0x00))) {
+if(!(ENOENT^(errno))) {
+if(CALS_VERBOSE&(R(flag,*argp))) printf("\n\t%s %s %s \n","No file at",path,"for events");
+return(0x01);
+}
 printf("%s %Xh \n","<< Error at fn. _open() with errno",errno);
 return(0x00);
 }

@@ -32,6 +32,13 @@ auto signed short flag;
 
 /* **** CODE/TEXT */
 AND(flag,0x00);
+
+path = (0x00);
+if(0x02<(argc)) {
+r = cmpr_parts(&i,*(argv+(0x01)),"l");
+if(!i) path = (*(argv+(0x02)));
+}
+
 if(0x01<(argc)) {
 r = cmpr_parts(&i,*(argv+(0x01)),"v");
 if(!i) OR(flag,CALS_VERBOSE);
@@ -67,14 +74,14 @@ for_months = (i);
 r = cals_stat_init(&cs);
 if(!r) return(0x00);
 
-/*
-path = (0x00);
+// also
+if(CALS_VERBOSE&(flag)) OR(R(flag,cs),CALS_VERBOSE);
+
 r = cals_load_events(path,&cs);
 if(!r) {
 printf("%s \n","<< Error at fn. cals_load_events()");
 return(0x00);
 }
-//*/
 
 time(&t);
 tp = localtime(&t);
@@ -183,17 +190,20 @@ printf("\t%d %s \n",r,"weeks displayed");
 }
 
 if(DBG) {
-printf("\n");
+AND(i,0x00);
 ev = (*(CLI_LEAD+(R(event,cs))));
 while(ev) {
 if(!(CALS_INVALID&(R(flag,*ev)))) {
+OR(i,0x01);
+printf("\n");
 printf("%s %d, %d ",*(MONTH+(*(CALS_MO+(R(date,*ev))))),*(CALS_DI+(R(date,*ev))),*(CALS_YR+(R(date,*ev))));
 printf("%s %02d:%02d ","at",*(CALS_HR+(R(time,*ev))),*(CALS_MN+(R(time,*ev))));
 printf("%s ",R(b,*ev));
-printf("\n");
 }
 ev = (R(s,*ev));
-}}
+}
+if(i) printf("\n");
+}
 
 if(CALS_LOADED&(R(flag,cs))) {
 r = cals_unbind_events(&cs);
