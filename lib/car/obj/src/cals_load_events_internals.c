@@ -1,6 +1,6 @@
 /* **** Notes
 
-Load events i.e., map events at *(CLI_B/O/I/L+(R(event,*argp))) on the RAM.
+Load events i.e., map events at *(CLI_B/O/I/L+(R(event,R(roll,*argp)))) on the RAM.
 
 Remarks:
 Currently under construction
@@ -12,7 +12,7 @@ Currently under construction
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_load_events_internals(signed(fd),cals_stat_t(*argp))) {
+signed(__cdecl cals_load_events_internals(signed(fd),cals_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 static signed commas = (0x03);
@@ -22,7 +22,7 @@ auto signed short interrupted_error = (0x02);
 auto signed short allocated_memory = (0x01);
 auto signed char delim = ('\n');
 
-auto cals_t *event;
+auto cals_event_t *event;
 auto signed char *b;
 auto time_t t;
 auto signed i,r;
@@ -49,14 +49,14 @@ if(0x01<(r)) OR(R(flag,*argp),CALS_LOADED);
 
 r = ct_only(comma,b);
 if(commas<(r)) {
-r = cals_bind_events(argp);
+r = cals_bind_events(&(R(roll,*argp)));
 if(!r) {
 OR(R(flag,*argp),CALS_INTERRUPT);
 printf("%s \n","<< Error at fn. cals_bind_events()");
 // return(0x00);
 }
 if(!(CALS_INTERRUPT&(R(flag,*argp)))) {
-event = (*(CLI_INDEX+(R(event,*argp))));
+event = (*(CLI_INDEX+(R(event,R(roll,*argp)))));
 r = cals_convert(b,event);
 if(!r) OR(R(flag,*event),CALS_INVALID);
 }}

@@ -16,10 +16,10 @@ Along with C library
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_bind_events(cals_stat_t(*argp))) {
+signed(__cdecl cals_bind_events(cals_roll_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto cals_t *event;
+auto cals_event_t *event;
 
 auto signed char *b;
 auto signed i,r;
@@ -28,13 +28,12 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-event = (0x00);
-event = (cals_t(*)) malloc(0x01*(sizeof(*event)));
+event = (cals_event_t(*)) malloc(0x01*(sizeof(*event)));
 if(!event) return(0x00);
 
-r = cals_init(event);
+r = cals_init_event(event);
 if(!r) {
-printf("%s\n","<< Error at fn. cals_init()");
+printf("%s\n","<< Error at fn. cals_init_event()");
 return(0x00);
 }
 

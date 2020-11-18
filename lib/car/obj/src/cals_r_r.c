@@ -9,7 +9,7 @@ Go for months
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_rr(signed short(mo),signed(arg),cals_stat_t(*argp))) {
+signed(__cdecl cals_r_r(signed short(mo),signed(arg),cals_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed COL_R = (0x38);
@@ -127,5 +127,5 @@ printf("\n");
 ADD(curr_t,di);
 *(CLI_INDEX+(R(t,*argp))) = (curr_t);
 
-return(0x01+(cals_rr(mo,arg,argp)));
+return(0x01+(cals_r_r(mo,arg,argp)));
 }

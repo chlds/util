@@ -13,7 +13,7 @@ Refer at fn. cals_entry and fn. cals_parse.
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cv_subject(signed char(*b),cals_t(*argp))) {
+signed(__cdecl cv_subject(signed char(*b),cals_event_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char **(mon[]) = {

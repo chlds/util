@@ -8,7 +8,7 @@ Convert to a month, day and year out of characters.
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cv_date(signed char(*b),cals_t(*argp))) {
+signed(__cdecl cv_date(signed char(*b),cals_event_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char **(mon[]) = {

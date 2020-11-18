@@ -8,7 +8,7 @@ Go for months
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_r(signed(arg),cals_stat_t(*argp))) {
+signed(__cdecl cals_r(signed(arg),cals_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto time_t t;
@@ -35,7 +35,7 @@ while(i) *(--i+(R(wk1,*argp))) = (t);
 
 arg++;
 mo = (~0x00);
-r = cals_rr(mo,arg,argp);
+r = cals_r_r(mo,arg,argp);
 
 return(r);
 }

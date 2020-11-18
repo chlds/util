@@ -1,6 +1,6 @@
 /* **** Notes
 
-Load events i.e., map events at *(CLI_B/O/I/L+(R(event,*argp))) on the RAM.
+Load events i.e., map events at *(CLI_B/O/I/L+(R(event,R(roll,*argp)))) on the RAM.
 
 Remarks:
 Currently under construction
@@ -12,7 +12,7 @@ Currently under construction
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_load_events_internal(signed char(*path),cals_stat_t(*argp))) {
+signed(__cdecl cals_load_events_internal(signed char(*path),cals_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *b;
@@ -46,7 +46,7 @@ if(!r) flag++;
 if(CALS_ERROR&(R(flag,*argp))) flag = (0x02);
 if(flag) printf("%s \n","<< Error at fn. cals_load_events_internals()");
 if(0x01<(flag)) {
-r = cals_unbind_events(argp);
+r = cals_unbind_events(&(R(roll,*argp)));
 if(!r) printf("%s \n","<< Error at fn. cals_unbind_events()");
 }
 

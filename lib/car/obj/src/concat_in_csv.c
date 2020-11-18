@@ -16,7 +16,7 @@ Refer at fn. cals_store.
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl concat_in_csv(signed char(**b),cals_t(*argp))) {
+signed(__cdecl concat_in_csv(signed char(**b),cals_event_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 enum {

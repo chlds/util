@@ -110,7 +110,7 @@ static signed char/* const */*(MON[]) = {
 "Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",(signed char(*)) (0x00),
 };
 
-struct cals {
+struct cals_event {
 signed char *b;
 signed short *w;
 signed short time[CALS_TIME];
@@ -118,66 +118,81 @@ signed short date[CALS_DATE];
 time_t t;
 // signed long long /* time_t */ ll;
 signed short flag;
-struct cals *d;
-struct cals *s;
+struct cals_event *d;
+struct cals_event *s;
 void *optl;
-} typedef cals_t;
+} typedef cals_event_t;
 
-struct cals_stat {
+struct cals_roll {
+cals_event_t *event[0x04];
+//* deprecated
+cals_event_t today;
 signed short day[0x02];
 signed short month[0x02];
 time_t wk1[0x04];
 time_t t[0x04];
+//*/
 signed short insert;
 signed short flag;
-cals_t today;
-cals_t *event[0x04];
 void *optl;
-} typedef cals_stat_t;
+} typedef cals_roll_t;
+
+struct cals {
+signed short day[0x02];
+signed short month[0x02];
+time_t wk1[0x04];
+time_t t[0x04];
+cals_event_t today;
+cals_roll_t roll;
+signed short flag;
+void *optl;
+} typedef cals_t;
 
 /* calend_f.h */
-signed(__cdecl cals_load_events_internals(signed(fd),cals_stat_t(*argp)));
-signed(__cdecl cals_load_events_internal(signed char(*path),cals_stat_t(*argp)));
-signed(__cdecl cals_load_events(signed char(*csv_filename),cals_stat_t(*argp)));
+signed(__cdecl cals_load_events_internals(signed(fd),cals_t(*argp)));
+signed(__cdecl cals_load_events_internal(signed char(*path),cals_t(*argp)));
+signed(__cdecl cals_load_events(signed char(*csv_filename),cals_t(*argp)));
 // load events i.e., map events at *(CLI_B/O/I/L+(R(event,*argp))) on the RAM.
 
-signed(__cdecl cals_convert(signed char(*b),cals_t(*argp)));
-signed(__cdecl cals_store_internal(signed char(*csv),cals_t(*argp)));
-signed(__cdecl cals_store(cals_t(*argp)));
-signed(__cdecl cals_parse(signed char(*content),cals_t(*argp)));
-signed(__cdecl cals_entry(signed char(**argv),cals_t(*argp)));
+signed(__cdecl cals_convert(signed char(*b),cals_event_t(*argp)));
+signed(__cdecl cals_store_internal(signed char(*csv),cals_event_t(*argp)));
+signed(__cdecl cals_store(cals_event_t(*argp)));
+signed(__cdecl cals_parse(signed char(*content),cals_event_t(*argp)));
+signed(__cdecl cals_entry(signed char(**argv),cals_event_t(*argp)));
 // store an event at file event.csv in directory ~/.cals/.
 
-signed(__cdecl cals_sched_events(signed char(*content),cals_stat_t(*argp)));
-signed(__cdecl cals_add_events(signed char(*content),cals_stat_t(*argp)));
+signed(__cdecl cals_sched_events(signed char(*content),cals_roll_t(*argp)));
+signed(__cdecl cals_add_events(signed char(*content),cals_roll_t(*argp)));
 
-signed(__cdecl cals_unbind_events(cals_stat_t(*argp)));
-signed(__cdecl cals_unmap_events(cals_stat_t(*argp)));
+signed(__cdecl cals_unbind_events(cals_roll_t(*argp)));
+signed(__cdecl cals_unmap_events(cals_roll_t(*argp)));
 
-signed(__cdecl cals_bind_events(cals_stat_t(*argp)));
-signed(__cdecl cals_concat_events(cals_t(*cache),cals_stat_t(*argp)));
+signed(__cdecl cals_bind_events(cals_roll_t(*argp)));
+signed(__cdecl cals_concat_events(cals_event_t(*cache),cals_roll_t(*argp)));
 
-signed(__cdecl cals_rr(signed short(mo),signed(arg),cals_stat_t(*argp)));
-signed(__cdecl cals_r(signed(arg),cals_stat_t(*argp)));
+signed(__cdecl cals_r_r(signed short(mo),signed(arg),cals_t(*argp)));
+signed(__cdecl cals_r(signed(arg),cals_t(*argp)));
 
-signed(__cdecl cals_backward_r(signed(arg),cals_stat_t(*argp)));
-signed(__cdecl cals_backward(signed(arg),cals_stat_t(*argp)));
+signed(__cdecl cals_backward_r(signed(arg),cals_t(*argp)));
+signed(__cdecl cals_backward(signed(arg),cals_t(*argp)));
 
-signed(__cdecl cals_stat_init(cals_stat_t(*argp)));
 signed(__cdecl cals_retrieve_week1(signed short(day_thefirst),signed short(month_thefirst),time_t(*di),time_t(si)));
 
-signed(__cdecl cals_sched(signed long long/* time_t */(arg),cals_t(*argp)));
+signed(__cdecl cals_sched(signed long long/* time_t */(arg),cals_event_t(*argp)));
+
+signed(__cdecl cals_init_event(cals_event_t(*argp)));
+signed(__cdecl cals_init_roll(cals_roll_t(*argp)));
 signed(__cdecl cals_init(cals_t(*argp)));
 signed(__cdecl cals_help(void));
 
-signed(__cdecl concat_in_csv(signed char(**b),cals_t(*argp)));
+signed(__cdecl concat_in_csv(signed char(**b),cals_event_t(*argp)));
 // concatenate in CSV.
 
-signed(__cdecl cv_time(signed char(*b),cals_t(*argp)));
+signed(__cdecl cv_time(signed char(*b),cals_event_t(*argp)));
 // convert to time out of characters.
 
-signed(__cdecl cv_date(signed char(*b),cals_t(*argp)));
+signed(__cdecl cv_date(signed char(*b),cals_event_t(*argp)));
 // convert to a month, day and year out of characters.
 
-signed(__cdecl cv_subject(signed char(*b),cals_t(*argp)));
+signed(__cdecl cv_subject(signed char(*b),cals_event_t(*argp)));
 // map a subject on the RAM.

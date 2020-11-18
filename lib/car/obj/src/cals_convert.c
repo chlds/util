@@ -1,6 +1,6 @@
 /* **** Notes
 
-Convert argument b "Year,Month Day,Time(,Year,Month Day,Time),Flag,Subject" in CSV into the cals_t format.
+Convert argument b "Year,Month Day,Time(,Year,Month Day,Time),Flag,Subject" in CSV into the cals_event_t format.
 
 Remarks:
 Currently under construction
@@ -12,7 +12,7 @@ Currently under construction
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_convert(signed char(*b),cals_t(*argp))) {
+signed(__cdecl cals_convert(signed char(*b),cals_event_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 static signed deci = (0x0A);

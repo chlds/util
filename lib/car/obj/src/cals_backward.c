@@ -8,7 +8,7 @@ Go backward for months
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_backward(signed(arg),cals_stat_t(*argp))) {
+signed(__cdecl cals_backward(signed(arg),cals_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed i,r;

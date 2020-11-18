@@ -8,7 +8,7 @@ Initialise
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_stat_init(cals_stat_t(*argp))) {
+signed(__cdecl cals_init_roll(cals_roll_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto time_t t;
@@ -19,7 +19,8 @@ auto signed short mo;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-r = cals_init(&(R(today,*argp)));
+//* deprecated
+r = cals_init_event(&(R(today,*argp)));
 if(!r) return(0x00);
 
 *(THEFIRST+(R(day,*argp))) = (MONDAY);
@@ -40,6 +41,12 @@ while(r) {
 *(r+(R(wk1,*argp))) = (t);
 *(r+(R(t,*argp))) = (R(t,R(today,*argp)));
 }
+//*/
+
+/*
+r = (CALS_OBJS);
+while(r) *(--r+(R(event,*argp))) = (0x00);
+//*/
 
 R(insert,*argp) = (0x00);
 R(flag,*argp) = (0x00);

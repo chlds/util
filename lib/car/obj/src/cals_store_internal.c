@@ -21,7 +21,7 @@ Path: ~/.cals/event.csv
 # include <errno.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_store_internal(signed char(*csv),cals_t(*argp))) {
+signed(__cdecl cals_store_internal(signed char(*csv),cals_event_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 // second half of the default config directory

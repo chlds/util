@@ -11,7 +11,7 @@ Currently under construction
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_parse(signed char(*content),cals_t(*argp))) {
+signed(__cdecl cals_parse(signed char(*content),cals_event_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *b;

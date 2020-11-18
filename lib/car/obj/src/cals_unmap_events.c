@@ -9,10 +9,10 @@ Unmap out of the RAM
 # include "../../../incl/config.h"
 # include <stdlib.h>
 
-signed(__cdecl cals_unmap_events(cals_stat_t(*argp))) {
+signed(__cdecl cals_unmap_events(cals_roll_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto cals_t *event;
+auto cals_event_t *event;
 auto signed i,r;
 
 /* **** CODE/TEXT */

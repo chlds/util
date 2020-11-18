@@ -12,7 +12,7 @@ Currently under construction
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_entry(signed char(**argv),cals_t(*argp))) {
+signed(__cdecl cals_entry(signed char(**argv),cals_event_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed short *w;

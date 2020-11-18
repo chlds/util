@@ -8,7 +8,7 @@ Convert to time out of characters.
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cv_time(signed char(*b),cals_t(*argp))) {
+signed(__cdecl cv_time(signed char(*b),cals_event_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed i,r;

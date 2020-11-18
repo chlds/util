@@ -1,6 +1,6 @@
 /* **** Notes
 
-Load events i.e., map events at *(CLI_B/O/I/L+(R(event,*argp))) on the RAM.
+Load events i.e., map events at *(CLI_B/O/I/L+(R(event,R(roll,*argp)))) on the RAM.
 
 Remarks:
 Currently under construction
@@ -12,7 +12,7 @@ Currently under construction
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_load_events(signed char(*csv_filename),cals_stat_t(*argp))) {
+signed(__cdecl cals_load_events(signed char(*csv_filename),cals_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *second_half = ("/.cals/event.csv");

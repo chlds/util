@@ -13,7 +13,7 @@ Currently under construction
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_store(cals_t(*argp))) {
+signed(__cdecl cals_store(cals_event_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *b;

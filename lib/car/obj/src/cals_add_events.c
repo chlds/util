@@ -8,10 +8,10 @@ Add
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_add_events(signed char(*content),cals_stat_t(*argp))) {
+signed(__cdecl cals_add_events(signed char(*content),cals_roll_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto cals_t *event;
+auto cals_event_t *event;
 auto signed i,r;
 
 /* **** CODE/TEXT */

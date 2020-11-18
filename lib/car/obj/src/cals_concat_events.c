@@ -13,10 +13,10 @@ Based on a doubly linked list (i.e., not a circular linked list)
 
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_concat_events(cals_t(*cache),cals_stat_t(*argp))) {
+signed(__cdecl cals_concat_events(cals_event_t(*cache),cals_roll_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto cals_t *event;
+auto cals_event_t *event;
 
 /* **** CODE/TEXT */
 if(!cache) return(0x00);

@@ -11,10 +11,10 @@ Currently under construction
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_sched_events(signed char(*content),cals_stat_t(*argp))) {
+signed(__cdecl cals_sched_events(signed char(*content),cals_roll_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto cals_t *event;
+auto cals_event_t *event;
 auto signed char *b;
 auto time_t t;
 auto signed i,r;
