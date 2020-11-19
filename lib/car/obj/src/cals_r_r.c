@@ -43,6 +43,7 @@ di = (24*(hr));
 wk = (7*(di));
 
 t = (*(CLI_INDEX+(R(t,*argp))));
+*(CLI_OFFSET+(R(t,*argp))) = (t);
 
 tp = localtime(&t);
 if(!tp) return(0x00);
@@ -62,7 +63,7 @@ if(!(curr_mo^(*(THEFIRST+(R(month,*argp)))))) {
 if(0x03<(R(tm_mday,*tp))) *(CLI_INDEX+(R(wk1,*argp))) = (curr_t);
 }}
 
-// also re-update the tp for curr_t.
+// also restore the tp for curr_t.
 tp = localtime(&curr_t);
 if(!tp) return(0x00);
 
@@ -99,20 +100,18 @@ if(!(curr_wk1^(*(CLI_OFFSET+(R(wk1,*argp)))))) *(CLI_INDEX+(R(wk1,*argp))) = (cu
 
 printf("\t%s %d, ","CW",ct_weeks(*(CLI_INDEX+(R(wk1,*argp))),curr_t));
 printf("\t%s %d - ",*(MONTH+(R(tm_mon,*tp))),R(tm_mday,*tp));
-//
-t = (R(t,R(today,*argp)));
-if(!(curr_t^(t))) OR(flag,FIRST_B);
-if(curr_t<(t)) OR(flag,FIRST_B);
+
 ADD(curr_t,di*(-0x01+(WEEK)));
+*(CLI_INDEX+(R(t,*argp))) = (curr_t);
+
 tp = localtime(&curr_t);
 if(!tp) return(0x00);
+
 if(curr_mo^(R(tm_mon,*tp))) printf("%s %d \n",*(MONTH+(R(tm_mon,*tp))),R(tm_mday,*tp));
 else printf("%d \n",R(tm_mday,*tp));
-//
-if(flag) {
-if(t<(curr_t)) OR(flag,SECOND_B);
-if(!(t^(curr_t))) OR(flag,SECOND_B);
-if(SECOND_B<(flag)) {
+
+r = cals_refer_events(argp);
+if(r) {
 // today 2/2
 printf(" %2d %s ",*(CALS_DI+(R(date,R(today,*argp)))),*(CAPS_DAYOFTHEWK+(*(CALS_WK+(R(date,R(today,*argp)))))));
 printf("%2d:%02d ",*(CALS_HR+(R(time,R(today,*argp)))),*(CALS_MN+(R(time,R(today,*argp)))));
@@ -122,7 +121,7 @@ if(r<(0x00)) return(0x00);
 r++;
 while(--r) printf("-");
 printf("\n");
-}}
+}
 
 ADD(curr_t,di);
 *(CLI_INDEX+(R(t,*argp))) = (curr_t);
