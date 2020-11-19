@@ -15,6 +15,9 @@ signed(__cdecl cals_r_r(signed short(mo),signed(arg),cals_t(*argp))) {
 auto signed COL_R = (0x38);
 auto signed WEEK = (0x07);
 
+auto signed short secondary = (0x01);
+auto signed short primary = (0x00);
+
 auto struct tm *tp;
 auto signed short *w;
 auto signed char *b;
@@ -29,7 +32,6 @@ auto signed short curr_yr;
 auto signed short curr_mo;
 auto signed short curr_di;
 auto signed short curr_wk;
-auto signed short day;
 auto signed short flag;
 
 /* **** CODE/TEXT */
@@ -77,12 +79,10 @@ r++;
 while(--r) printf("_");
 printf("%s %d \n",*(MONTH+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
 //* nearby
-if(!(curr_yr^(*(CALS_YR+(R(date,R(today,*argp))))))) {
-if(!(curr_mo^(*(CALS_MO+(R(date,R(today,*argp))))))) {
-day = (*(CALS_DI+(R(date,R(today,*argp)))));
-if(day<(curr_di)) {
+r = cals_refer_events(primary,argp);
+if(r) {
 // today 1/2
-printf(" %2d %s ",day,*(CAPS_DAYOFTHEWK+(*(CALS_WK+(R(date,R(today,*argp)))))));
+printf(" %2d %s ",*(CALS_DI+(R(date,R(today,*argp)))),*(CAPS_DAYOFTHEWK+(*(CALS_WK+(R(date,R(today,*argp)))))));
 printf("%2d:%02d ",*(CALS_HR+(R(time,R(today,*argp)))),*(CALS_MN+(R(time,R(today,*argp)))));
 printf("  ");
 r = (-16+(5+(COL_R)));
@@ -90,7 +90,7 @@ if(r<(0x00)) return(0x00);
 r++;
 while(--r) printf("-");
 printf("\n");
-}}}
+}
 //*/
 if(!(curr_mo^(*(THEFIRST+(R(month,*argp)))))) {
 curr_wk1 = (*(CLI_INDEX+(R(wk1,*argp))));
@@ -110,7 +110,7 @@ if(!tp) return(0x00);
 if(curr_mo^(R(tm_mon,*tp))) printf("%s %d \n",*(MONTH+(R(tm_mon,*tp))),R(tm_mday,*tp));
 else printf("%d \n",R(tm_mday,*tp));
 
-r = cals_refer_events(argp);
+r = cals_refer_events(secondary,argp);
 if(r) {
 // today 2/2
 printf(" %2d %s ",*(CALS_DI+(R(date,R(today,*argp)))),*(CAPS_DAYOFTHEWK+(*(CALS_WK+(R(date,R(today,*argp)))))));

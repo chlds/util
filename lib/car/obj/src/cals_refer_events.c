@@ -8,7 +8,7 @@ Refer
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_refer_events(cals_t(*argp))) {
+signed(__cdecl cals_refer_events(signed short(flag),cals_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto cals_event_t *event;
@@ -19,12 +19,11 @@ auto signed short mo,di,yr;
 auto signed short wk;
 auto signed short hr,mn;
 auto signed short day;
-auto signed short flag;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-AND(flag,0x00);
+AND(i,0x00);
 
 t = (R(t,R(today,*argp)));
 tp = localtime(&t);
@@ -45,20 +44,26 @@ if(!tp) return(0x00);
 if(!(yr^(1900+(R(tm_year,*tp))))) {
 if(!(mo^(R(tm_mon,*tp)))) {
 day = (R(tm_mday,*tp));
-if(!(day^(di))) flag++;
-if(day<(di)) flag++;
+//*
+if(!flag) {
+if(di<(day)) return(0x01);
+else return(0x00);
+}
+//*/
+if(!(day^(di))) i++;
+if(day<(di)) i++;
 }}
 
-if(!flag) return(0x00);
+if(!i) return(0x00);
 
 t = (*(CLI_INDEX+(R(t,*argp))));
 tp = localtime(&t);
 if(!tp) return(0x00);
 day = (R(tm_mday,*tp));
-if(!(di^(day))) flag++;
-if(di<(day)) flag++;
+if(!(di^(day))) i++;
+if(di<(day)) i++;
 
-if(flag<(0x02)) return(0x00);
+if(i<(0x02)) return(0x00);
 
 return(0x01);
 }
