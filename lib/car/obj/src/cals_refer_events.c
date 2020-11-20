@@ -23,47 +23,16 @@ auto signed short day;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-AND(i,0x00);
-
-t = (R(t,R(today,*argp)));
-tp = localtime(&t);
-if(!tp) return(0x00);
-
-if(DBG) printf("[t/offset/index:%lld/%lld/%lld] ",t,*(CLI_OFFSET+(R(t,*argp))),*(CLI_INDEX+(R(t,*argp))));
-
-yr = (1900+(R(tm_year,*tp)));
-mo = (R(tm_mon,*tp));
-di = (R(tm_mday,*tp));
-wk = (R(tm_wday,*tp));
-hr = (R(tm_hour,*tp));
-mn = (R(tm_min,*tp));
-
-t = (*(CLI_OFFSET+(R(t,*argp))));
-tp = localtime(&t);
-if(!tp) return(0x00);
-if(!(yr^(1900+(R(tm_year,*tp))))) {
-if(!(mo^(R(tm_mon,*tp)))) {
-day = (R(tm_mday,*tp));
-//*
-if(!flag) {
-if(di<(day)) return(0x01);
-else return(0x00);
-}
-//*/
-if(!(day^(di))) i++;
-if(day<(di)) i++;
+// for today
+event = (&(R(today,*argp)));
+r = cals_refer_events_internal(flag,event,argp);
+// if(!r) return(0x00);
+if(r) {
+r = cals_display_events(0x00/* for today */,event);
+if(!r) {
+printf("%s \n","<< Error at fn. cals_display_events()");
+return(0x00);
 }}
-
-if(!i) return(0x00);
-
-t = (*(CLI_INDEX+(R(t,*argp))));
-tp = localtime(&t);
-if(!tp) return(0x00);
-day = (R(tm_mday,*tp));
-if(!(di^(day))) i++;
-if(di<(day)) i++;
-
-if(i<(0x02)) return(0x00);
 
 return(0x01);
 }

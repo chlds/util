@@ -18,6 +18,9 @@ Being deprecated..
 
 # define CALS_OBJS (0x04)
 
+# define COL_R (0x38)
+// column width of the right
+
 /* calend_e.h */
 enum {
 JANUARY,FEBRUARY,MARCH,APRIL,MAY,JUNE,JULY,AUGUST,SEPTEMBER,OCTOBER,NOVEMBER,DECEMBER,MONTHS,
@@ -166,6 +169,8 @@ signed(__cdecl cals_remove_cached_events(cals_roll_t(*argp)));
 signed(__cdecl cals_cache_events(cals_event_t(cache),cals_roll_t(*argp)));
 signed(__cdecl cals_copy_events(cals_event_t(*di),cals_event_t(si)));
 
+signed(__cdecl cals_display_events(signed short(flag),cals_event_t(*argp)));
+signed(__cdecl cals_refer_events_internal(signed short(flag),cals_event_t(*event),cals_t(*argp)));
 signed(__cdecl cals_refer_events(signed short(flag),cals_t(*argp)));
 signed(__cdecl cals_sched_events(signed char(*content),cals_roll_t(*argp)));
 signed(__cdecl cals_add_events(signed char(*content),cals_roll_t(*argp)));
