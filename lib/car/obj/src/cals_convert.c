@@ -181,6 +181,10 @@ t = (t+(di*(24*(60*(60)))));
 
 tp = localtime(&t);
 if(!tp) return(0x00);
+
+wk = (R(tm_wday,*tp));
+*(CALS_WK+(R(date,*argp))) = (wk);
+
 hr = (R(tm_hour,*tp));
 hr = (-hr+(*(CALS_HR+(R(time,*argp)))));
 t = (t+(hr*(60*(60))));
