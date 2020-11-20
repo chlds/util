@@ -169,7 +169,9 @@ signed(__cdecl cals_remove_cached_events(cals_roll_t(*argp)));
 signed(__cdecl cals_cache_events(cals_event_t(cache),cals_roll_t(*argp)));
 signed(__cdecl cals_copy_events(cals_event_t(*di),cals_event_t(si)));
 
-signed(__cdecl cals_display_events(signed short(flag),cals_event_t(*argp)));
+signed(__cdecl cals_release_for_today(cals_t(*argp)));
+signed(__cdecl cals_allocate_for_today(cals_t(*argp)));
+signed(__cdecl cals_display_events(cals_event_t(*argp)));
 signed(__cdecl cals_refer_events_internal(signed short(flag),cals_event_t(*event),cals_t(*argp)));
 signed(__cdecl cals_refer_events(signed short(flag),cals_t(*argp)));
 signed(__cdecl cals_sched_events(signed char(*content),cals_roll_t(*argp)));

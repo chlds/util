@@ -82,6 +82,9 @@ for_months = (i);
 r = cals_init(&cs);
 if(!r) return(0x00);
 
+r = cals_allocate_for_today(&cs);
+if(!r) return(0x00);
+
 // also
 if(CALS_VERBOSE&(flag)) OR(R(flag,cs),CALS_VERBOSE);
 
@@ -219,6 +222,12 @@ if(!r) {
 printf("%s \n","<< Error at fn. cals_unbind_events()");
 return(0x00);
 }}
+
+r = cals_release_for_today(&cs);
+if(!r) {
+printf("%s \n","<< Error at fn. cals_release_for_today()");
+return(0x00);
+}
 
 return(0x01);
 }

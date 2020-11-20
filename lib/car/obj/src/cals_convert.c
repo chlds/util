@@ -24,10 +24,12 @@ auto signed short interrupted_error = (0x02);
 auto signed short allocated_memory = (0x01);
 auto signed char delim = ('\n');
 
+auto struct tm *tp;
 auto signed char *p;
 auto time_t t;
 auto signed i,r;
-auto signed short mo;
+auto signed short yr,mo,di,wk;
+auto signed short hr,mn,sm;
 auto signed short flag;
 
 /* **** CODE/TEXT */
@@ -141,6 +143,63 @@ if(!('\n'^(*(--r+(p))))) *(r+(p)) = (0x00);
 if(0x00<(r)) {
 if(!('\r'^(*(--r+(p))))) *(r+(p)) = (0x00);
 }
+
+// and
+time(&t);
+tp = localtime(&t);
+if(!tp) return(0x00);
+
+yr = (1900+(R(tm_year,*tp)));
+i = (0x08);
+while(0x01) {
+if(!i) return(0x00);
+yr = (-yr+(*(CALS_YR+(R(date,*argp)))));
+t = (t+(yr*(52*(7*(24*(60*(60)))))));
+tp = localtime(&t);
+if(!tp) return(0x00);
+yr = (1900+(R(tm_year,*tp)));
+if(!(yr^(*(CALS_YR+(R(date,*argp)))))) break;
+--i;
+}
+
+mo = (R(tm_mon,*tp));
+i = (0x08);
+while(0x01) {
+if(!i) return(0x00);
+mo = (-mo+(*(CALS_MO+(R(date,*argp)))));
+t = (t+(mo*(3*(7*(24*(60*(60)))))));
+tp = localtime(&t);
+if(!tp) return(0x00);
+mo = (R(tm_mon,*tp));
+if(!(mo^(*(CALS_MO+(R(date,*argp)))))) break;
+--i;
+}
+
+di = (R(tm_mday,*tp));
+di = (-di+(*(CALS_DI+(R(date,*argp)))));
+t = (t+(di*(24*(60*(60)))));
+
+tp = localtime(&t);
+if(!tp) return(0x00);
+hr = (R(tm_hour,*tp));
+hr = (-hr+(*(CALS_HR+(R(time,*argp)))));
+t = (t+(hr*(60*(60))));
+
+tp = localtime(&t);
+if(!tp) return(0x00);
+mn = (R(tm_min,*tp));
+mn = (-mn+(*(CALS_MN+(R(time,*argp)))));
+t = (t+(mn*(60)));
+
+/*
+tp = localtime(&t);
+if(!tp) return(0x00);
+sm = (R(tm_sec,*tp));
+sm = (-sm+(*(CALS_SM+(R(time,*argp)))));
+t = (t+(sm));
+//*/
+
+R(t,*argp) = (t);
 
 /*
 flag = (~CALS_INVALID);
