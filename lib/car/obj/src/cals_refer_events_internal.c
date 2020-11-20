@@ -62,6 +62,8 @@ if(!tp) return(0x00);
 day = (R(tm_mday,*tp));
 if(!(di^(day))) i++;
 if(di<(day)) i++;
+// also
+if(mo^(R(tm_mon,*tp))) i++;
 
 if(i<(0x02)) return(0x00);
 
