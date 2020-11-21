@@ -25,6 +25,7 @@ printf("%2d:%02d ",*(CALS_HR+(R(time,*argp))),*(CALS_MN+(R(time,*argp))));
 printf("  ");
 
 // column of the right
+if(CALS_TIME_ALLDAY&(R(flag,*argp))) printf("%s ","[ALL-DAY]");
 printf("%s ",R(b,*argp));
 printf("\n");
 

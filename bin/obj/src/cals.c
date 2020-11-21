@@ -41,6 +41,11 @@ if(!i) path = (*(argv+(0x02)));
 }
 
 if(0x01<(argc)) {
+r = cmpr_parts(&i,*(argv+(0x01)),"n");
+if(!i) OR(flag,CALS_NONLOADING);
+}
+
+if(0x01<(argc)) {
 r = cmpr_parts(&i,*(argv+(0x01)),"v");
 if(!i) OR(flag,CALS_VERBOSE);
 }
@@ -88,11 +93,12 @@ if(!r) return(0x00);
 // also
 if(CALS_VERBOSE&(flag)) OR(R(flag,cs),CALS_VERBOSE);
 
+if(!(CALS_NONLOADING&(flag))) {
 r = cals_load_events(path,&cs);
 if(!r) {
 printf("%s \n","<< Error at fn. cals_load_events()");
 return(0x00);
-}
+}}
 
 time(&t);
 tp = localtime(&t);

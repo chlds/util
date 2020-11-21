@@ -15,6 +15,7 @@ Being deprecated..
 # define CALS_INVALID (0x40)
 # define CALS_INTERRUPT (0x80)
 # define CALS_ERROR (0x100)
+# define CALS_NONLOADING (0x200)
 
 # define CALS_OBJS (0x04)
 
