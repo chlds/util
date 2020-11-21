@@ -36,7 +36,7 @@ event = (&(R(today,*argp)));
 r = cals_refer_events_internal(flag,event,argp);
 // if(!r) return(0x00);
 if(r) {
-r = cals_cache_events(*event,&roll);
+r = cals_cache_events(event,&roll);
 if(!r) {
 printf("%s \n","<< Error at fn. cals_cache_events()");
 return(0x00);
@@ -48,7 +48,7 @@ while(event) {
 r = cals_refer_events_internal(flag,event,argp);
 // if(!r) return(0x00);
 if(r) {
-r = cals_cache_events(*event,&roll);
+r = cals_cache_events(event,&roll);
 if(!r) {
 printf("%s \n","<< Error at fn. cals_cache_events()");
 return(0x00);
