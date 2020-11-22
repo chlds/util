@@ -37,7 +37,10 @@ r = ct2words(mon,&i,b);
 if(!r) return(0x00);
 if(i<(0x00)) i = ct(b);
 
+r = (i);
+i++;
 i = (i*(sizeof(*b)));
+if(i<(0x00)) return(0x00);
 p = (signed char(*)) malloc(i);
 if(!p) return(0x00);
 
@@ -45,9 +48,9 @@ flag = (~CALS_NO_SUBJECT);
 AND(R(flag,*argp),flag);
 
 AND(flag,0x00);
-r = ncpy(p,b,i);
+r = ncpy(p,b,r);
 if(!r) flag++;
-if(i^(r)) flag++;
+if(i^(0x01+(r))) flag++;
 if(flag) {
 free(p);
 p = (0x00);
@@ -55,6 +58,7 @@ return(0x00);
 }
 
 R(b,*argp) = (p);
+p = (0x00);
 
 return(i);
 }

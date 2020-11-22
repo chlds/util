@@ -91,7 +91,7 @@ r = cals_allocate_for_today(&cs);
 if(!r) return(0x00);
 
 // also
-if(CALS_VERBOSE&(flag)) OR(R(flag,cs),CALS_VERBOSE);
+OR(R(flag,cs),flag);
 
 if(!(CALS_NONLOADING&(flag))) {
 r = cals_load_events(path,&cs);
