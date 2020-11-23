@@ -90,7 +90,13 @@ if(!(curr_wk1^(*(CLI_OFFSET+(R(wk1,*argp)))))) *(CLI_INDEX+(R(wk1,*argp))) = (cu
 *(CLI_OFFSET+(R(wk1,*argp))) = (*(CLI_INDEX+(R(wk1,*argp))));
 }}
 
+// calendar weeks
 printf("\t%s %d, ","CW",ct_weeks(*(CLI_INDEX+(R(wk1,*argp))),curr_t));
+
+// restore the tp for curr_t.
+tp = localtime(&curr_t);
+if(!tp) return(0x00);
+
 printf("\t%s %d - ",*(MONTH+(R(tm_mon,*tp))),R(tm_mday,*tp));
 
 ADD(curr_t,di*(-0x01+(WEEK)));
