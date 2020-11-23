@@ -173,6 +173,10 @@ signed(__cdecl cals_copy_events(cals_event_t(*di),cals_event_t(*si)));
 signed(__cdecl cals_release_for_today(cals_t(*argp)));
 signed(__cdecl cals_allocate_for_today(cals_t(*argp)));
 
+signed(__cdecl cals_count_scheduled_events_r(signed(*cache),cals_event_t(*term),cals_event_t(*argp)));
+signed(__cdecl cals_count_scheduled_events(signed(*cache),time_t(arg),cals_roll_t(*argp)));
+// count events scheduled for a week.
+
 signed(__cdecl cals_count_events_r(cals_event_t(*argp)));
 signed(__cdecl cals_count_events(cals_roll_t(*argp)));
 signed(__cdecl cals_display_events(cals_event_t(*argp)));

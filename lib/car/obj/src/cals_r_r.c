@@ -99,8 +99,23 @@ ADD(curr_t,di*(-0x01+(WEEK)));
 tp = localtime(&curr_t);
 if(!tp) return(0x00);
 
-if(curr_mo^(R(tm_mon,*tp))) printf("%s %d \n",*(MONTH+(R(tm_mon,*tp))),R(tm_mday,*tp));
-else printf("%d \n",R(tm_mday,*tp));
+if(curr_mo^(R(tm_mon,*tp))) printf("%s %d ",*(MONTH+(R(tm_mon,*tp))),R(tm_mday,*tp));
+else printf("%d ",R(tm_mday,*tp));
+
+if(!(CALS_NONLOADING&(R(flag,*argp)))) {
+if(CALS_LOADED&(R(flag,*argp))) {
+r = cals_count_scheduled_events(&i,*(CLI_OFFSET+(R(t,*argp))),&(R(roll,*argp)));
+if(!r) {
+printf("%s \n","<< Error at fn. cals_count_scheduled_events()");
+return(0x00);
+}
+if(i) {
+b = ("events");
+if(!(0x01^(i))) b = ("event");
+printf("(%d %s) ",i,b);
+}}}
+
+printf("\n");
 
 r = cals_refer_events(secondary,argp);
 if(!r) {
