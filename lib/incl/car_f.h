@@ -275,6 +275,9 @@ signed(__cdecl ct(signed char(*argp)));
 signed(__cdecl n_putch(signed(n),signed(letter)));
 /* Output the letter n times. */
 
+signed(__cdecl nsort(signed(count),signed(*base)));
+signed(__cdecl bsort(signed(count),signed(*base)));
+
 signed(__cdecl cat_ll(KNOT(*argp)));
 
 signed(__cdecl catppp(signed char(***argp)));

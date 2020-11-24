@@ -2,8 +2,8 @@
 
 Sort e.g., using with fn. bsort()
 
-count: Put the numbre of the elements for an array of values at.
-base: Put the leading address of an array of values at.
+count: Put the numbre of elements of an array for values at.
+base: Put the leading address of an array for values at.
 */
 
 
@@ -19,15 +19,12 @@ auto signed cache;
 if(!count) return(0x00);
 if(!base) return(0x00);
 
-if(!(--count)) return(0x00);
-
-cache = (*base++);
-if(cache<(*base)) {
-}
-else {
+cache = (*base);
+base++;
+if(!(cache<(*base))) {
 *(base+(~(0x00))) = (*base);
 *base = (cache);
 }
 
-return(0x01+(nsort(count,base)));
+return(0x01+(nsort(--count,base)));
 }
