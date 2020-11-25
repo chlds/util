@@ -177,6 +177,12 @@ signed(__cdecl cals_count_scheduled_events_r(signed(*cache),cals_event_t(*term),
 signed(__cdecl cals_count_scheduled_events(signed(*cache),time_t(arg),cals_roll_t(*argp)));
 // count events scheduled for a week.
 
+signed(__cdecl cals_sort_events_r_r(signed(arg),cals_roll_t(*argp)));
+signed(__cdecl cals_sort_events_r(signed(arg),cals_roll_t(*argp)));
+signed(__cdecl cals_sort_events(cals_roll_t(*argp)));
+signed(__cdecl cals_order_events(cals_roll_t(*argp)));
+// sort events
+
 signed(__cdecl cals_count_events_r(cals_event_t(*argp)));
 signed(__cdecl cals_count_events(cals_roll_t(*argp)));
 signed(__cdecl cals_display_events(cals_event_t(*argp)));

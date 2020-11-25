@@ -57,6 +57,14 @@ event = (R(s,*event));
 }
 
 // after sorting events by time..
+r = cals_sort_events(&roll);
+if(DBG) printf("[%s %d] ","Sorted",r);
+if(!r) {
+/*
+printf("%s \n","<< Error at fn. cals_sort_events()");
+return(0x00);
+//*/
+}
 
 event = (*(CLI_LEAD+(R(event,roll))));
 while(event) {
