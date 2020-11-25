@@ -66,14 +66,12 @@ return(0x00);
 //*/
 }
 
-event = (*(CLI_LEAD+(R(event,roll))));
-while(event) {
-r = cals_display_events(event);
+r = cals_display_events(&roll);
 if(!r) {
+/*
 printf("%s \n","<< Error at fn. cals_display_events()");
 return(0x00);
-}
-event = (R(s,*event));
+//*/
 }
 
 r = cals_remove_cached_events(&roll);

@@ -8,26 +8,22 @@ Display events.
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_display_events(cals_event_t(*argp))) {
+signed(__cdecl cals_display_events(cals_roll_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto cals_event_t *event;
 auto signed i,r;
+auto signed short flag;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-if(CALS_INVALID&(R(flag,*argp))) return(0x01);
+event = (*(CLI_LEAD+(R(event,*argp))));
+if(!event) return(0x00);
 
-// column of the left
-printf(" %2d %s ",*(CALS_DI+(R(date,*argp))),*(CAPS_DAYOFTHEWK+(*(CALS_WK+(R(date,*argp))))));
-printf("%2d:%02d ",*(CALS_HR+(R(time,*argp))),*(CALS_MN+(R(time,*argp))));
-printf("  ");
+AND(flag,0x00);
 
-// column of the right
-if(CALS_TIME_ALLDAY&(R(flag,*argp))) printf("%s ","[ALL-DAY]");
-printf("%s ",R(b,*argp));
-printf("\n");
+r = cals_display_events_r(flag,event);
 
-return(0x01);
+return(r);
 }

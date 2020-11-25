@@ -185,7 +185,8 @@ signed(__cdecl cals_order_events(cals_roll_t(*argp)));
 
 signed(__cdecl cals_count_events_r(cals_event_t(*argp)));
 signed(__cdecl cals_count_events(cals_roll_t(*argp)));
-signed(__cdecl cals_display_events(cals_event_t(*argp)));
+signed(__cdecl cals_display_events_r(signed short(flag),cals_event_t(*argp)));
+signed(__cdecl cals_display_events(cals_roll_t(*argp)));
 signed(__cdecl cals_refer_events_internal(signed short(flag),cals_event_t(*event),cals_t(*argp)));
 signed(__cdecl cals_refer_events(signed short(flag),cals_t(*argp)));
 signed(__cdecl cals_sched_events(signed char(*content),cals_roll_t(*argp)));
