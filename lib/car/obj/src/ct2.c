@@ -9,7 +9,6 @@ Count letters to a letter you select.
 
 signed(__cdecl ct2(signed char(di),signed char(*base))) {
 
-/* **** DATA, BSS and STACK */
 if(!base) return(0x00);
 if(!(*base)) return(0x00);
 

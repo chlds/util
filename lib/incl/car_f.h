@@ -272,6 +272,9 @@ signed(__cdecl ct2(signed char(di), signed char(*base)));
 signed(__cdecl ct(signed char(*argp)));
 /* Count letters to the one you'd select or to the terminating null character. */
 
+signed(__cdecl embed_spaces_r(signed(arg),signed char(*argp)));
+signed(__cdecl embed_spaces(signed char(*argp)));
+
 signed(__cdecl n_putch(signed(n),signed(letter)));
 /* Output the letter n times. */
 

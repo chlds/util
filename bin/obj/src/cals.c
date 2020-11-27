@@ -98,6 +98,11 @@ r = cals_load_events(path,&cs);
 if(!r) {
 printf("%s \n","<< Error at fn. cals_load_events()");
 return(0x00);
+}
+r = cals_cache_upcoming_events(R(t,R(today,cs)),&ev,&(R(roll,cs)));
+if(!r) {
+printf("%s \n","<< Error at fn. cals_cache_upcoming_events()");
+return(0x00);
 }}
 
 time(&t);
@@ -156,6 +161,17 @@ printf("%d %s \n",R(tm_yday,*tp),"days since January 1");
 printf("\n");
 }
 else printf("\n");
+
+// Upcoming events
+if(!ev) printf("%s \n","No event today or tomorrow");
+else {
+printf("\t%s, \n","Upcoming");
+printf("\t%2d:%02d ",*(CALS_HR+(R(time,*ev))),*(CALS_MN+(R(time,*ev))));
+printf("%s %s %d, %d, ","on",*(MONTH+(*(CALS_MO+(R(date,*ev))))),*(CALS_DI+(R(date,*ev))),*(CALS_YR+(R(date,*ev))));
+printf("%s \n",R(b,*ev));
+}
+
+printf("\n");
 
 if(CALS_VERBOSE&(flag)) {
 // calendar week 1 of the year,

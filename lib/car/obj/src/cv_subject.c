@@ -57,6 +57,8 @@ p = (0x00);
 return(0x00);
 }
 
+embed_spaces(p);
+
 R(b,*argp) = (p);
 p = (0x00);
 
