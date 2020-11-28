@@ -174,6 +174,8 @@ signed(__cdecl cals_entry(signed char(**argv),cals_event_t(*argp)));
 // store an event at file event.csv in directory ~/.cals/.
 
 signed(__cdecl cals_cache_upcoming_events(time_t(criterion),cals_event_t(**cache),cals_roll_t(*argp)));
+signed(__cdecl cals_cache_day_events_r(signed short(flag),cals_event_t(*criterion),cals_event_t(*cache),cals_roll_t(*argp)));
+signed(__cdecl cals_cache_day_events(time_t(criterion),cals_roll_t(*cache),cals_roll_t(*argp)));
 
 signed(__cdecl cals_remove_cached_events_r(cals_roll_t(*argp)));
 signed(__cdecl cals_remove_cached_events(cals_roll_t(*argp)));

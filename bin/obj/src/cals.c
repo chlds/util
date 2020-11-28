@@ -21,6 +21,7 @@ auto signed char *b;
 auto signed char *path;
 
 auto cals_t cs;
+auto cals_roll_t roll;
 auto cals_event_t event;
 auto time_t curr_wk1;
 auto time_t curr_t;
@@ -163,7 +164,7 @@ printf("\n");
 else printf("\n");
 
 // Upcoming events
-if(!ev) printf("%s \n","No event today or tomorrow");
+if(!ev) printf("\t%s \n","No event today or tomorrow");
 else {
 printf("\t%s, \n","Upcoming");
 printf("\t%2d:%02d ",*(CALS_HR+(R(time,*ev))),*(CALS_MN+(R(time,*ev))));
