@@ -75,7 +75,9 @@ if(!(day^(*(CALS_DI+(R(date,*term)))))) i++;
 if(day<(*(CALS_DI+(R(date,*term))))) i++;
 }}}}
 
-if(i) INC(*cache);
+if(i) {
+if(!(CALS_INVALID&(R(flag,*argp)))) INC(*cache);
+}
 
 argp = (R(s,*argp));
 

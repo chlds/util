@@ -84,6 +84,8 @@ if(!i) i = (FOR_MONTHS);
 // if(i<(0x00)) i = (0x01+(~i));
 for_months = (i);
 }
+// also
+if(0x03<(argc)) for_months = (FOR_MONTHS);
 
 r = cals_init(&cs);
 if(!r) return(0x00);
@@ -163,17 +165,6 @@ printf("\n");
 }
 else printf("\n");
 
-// Upcoming events
-if(!ev) printf("\t%s \n","No event today or tomorrow");
-else {
-printf("\t%s, \n","Upcoming");
-printf("\t%2d:%02d ",*(CALS_HR+(R(time,*ev))),*(CALS_MN+(R(time,*ev))));
-printf("%s %s %d, %d, ","on",*(MONTH+(*(CALS_MO+(R(date,*ev))))),*(CALS_DI+(R(date,*ev))),*(CALS_YR+(R(date,*ev))));
-printf("%s \n",R(b,*ev));
-}
-
-printf("\n");
-
 if(CALS_VERBOSE&(flag)) {
 // calendar week 1 of the year,
 printf("\t%s, \n","Calendar week 1 of the year");
@@ -239,7 +230,7 @@ ev = (R(s,*ev));
 if(i) printf("\n");
 }
 
-if(CALS_LOADED&(R(flag,cs))) {
+if(CALS_BOUND&(R(flag,R(roll,cs)))) {
 r = cals_unbind_events(&(R(roll,cs)));
 if(!r) {
 printf("%s \n","<< Error at fn. cals_unbind_events()");

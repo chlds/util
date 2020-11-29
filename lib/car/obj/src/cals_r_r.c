@@ -109,7 +109,7 @@ if(curr_mo^(R(tm_mon,*tp))) printf("%s %d ",*(MONTH+(R(tm_mon,*tp))),R(tm_mday,*
 else printf("%d ",R(tm_mday,*tp));
 
 if(!(CALS_NONLOADING&(R(flag,*argp)))) {
-if(CALS_LOADED&(R(flag,*argp))) {
+if(CALS_BOUND&(R(flag,R(roll,*argp)))) {
 r = cals_count_scheduled_events(&i,*(CLI_OFFSET+(R(t,*argp))),&(R(roll,*argp)));
 if(!r) {
 printf("%s \n","<< Error at fn. cals_count_scheduled_events()");

@@ -16,6 +16,7 @@ Being deprecated..
 # define CALS_INTERRUPT (0x80)
 # define CALS_ERROR (0x100)
 # define CALS_NONLOADING (0x200)
+# define CALS_BOUND (0x400)
 
 # define CALS_CODEPAGES (0x02)
 # define CALS_OBJS (0x04)
@@ -172,6 +173,10 @@ signed(__cdecl cals_store(cals_event_t(*argp)));
 signed(__cdecl cals_parse(signed char(*content),cals_event_t(*argp)));
 signed(__cdecl cals_entry(signed char(**argv),cals_event_t(*argp)));
 // store an event at file event.csv in directory ~/.cals/.
+
+signed(__cdecl cals_check_upcoming_events_r(signed(n),time_t(criterion),time_t(dif),cals_roll_t(*cache),cals_roll_t(*argp)));
+signed(__cdecl cals_check_upcoming_events(signed(n),time_t(criterion),cals_roll_t(*cache),cals_roll_t(*argp)));
+// check upcoming events.
 
 signed(__cdecl cals_cache_upcoming_events(time_t(criterion),cals_event_t(**cache),cals_roll_t(*argp)));
 signed(__cdecl cals_cache_day_events_r(signed short(flag),cals_event_t(*criterion),cals_event_t(*cache),cals_roll_t(*argp)));

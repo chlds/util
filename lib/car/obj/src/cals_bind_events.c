@@ -43,5 +43,7 @@ printf("%s\n","<< Error at fn. cals_concat_events()");
 return(0x00);
 }
 
+OR(R(flag,*argp),CALS_BOUND);
+
 return(0x01);
 }
