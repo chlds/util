@@ -174,6 +174,11 @@ signed(__cdecl cals_parse(signed char(*content),cals_event_t(*argp)));
 signed(__cdecl cals_entry(signed char(**argv),cals_event_t(*argp)));
 // store an event at file event.csv in directory ~/.cals/.
 
+signed(__cdecl cals_display_upcoming_events_r(time_t(criterion),cals_event_t(*cache),cals_roll_t(*argp)));
+signed(__cdecl cals_display_upcoming_events(signed(day),time_t(criterion),cals_event_t(*cache),cals_roll_t(*argp)));
+signed(__cdecl cals_upcoming_events(signed(days),time_t(criterion),cals_roll_t(*argp)));
+// display upcoming events.
+
 signed(__cdecl cals_check_upcoming_events_r(signed(n),time_t(criterion),time_t(dif),cals_roll_t(*cache),cals_roll_t(*argp)));
 signed(__cdecl cals_check_upcoming_events(signed(n),time_t(criterion),cals_roll_t(*cache),cals_roll_t(*argp)));
 // check upcoming events.
@@ -202,7 +207,7 @@ signed(__cdecl cals_order_events(cals_roll_t(*argp)));
 
 signed(__cdecl cals_count_events_r(cals_event_t(*argp)));
 signed(__cdecl cals_count_events(cals_roll_t(*argp)));
-signed(__cdecl cals_display_events_r(signed short(flag),cals_event_t(*argp)));
+signed(__cdecl cals_display_events_r(time_t(prev),cals_event_t(*argp)));
 signed(__cdecl cals_display_events(cals_roll_t(*argp)));
 signed(__cdecl cals_refer_events_internal(signed short(flag),cals_event_t(*event),cals_t(*argp)));
 signed(__cdecl cals_refer_events(signed short(flag),cals_t(*argp)));

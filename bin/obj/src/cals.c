@@ -12,6 +12,7 @@ Refer at <corecrt_wtime.h>
 signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 
 /* **** DATA, BSS and STACK */
+auto signed UPCOMING_DAYS = (0x03);
 auto signed FOR_MONTHS = (0x04);
 
 auto cals_event_t *ev;
@@ -85,7 +86,7 @@ if(!i) i = (FOR_MONTHS);
 for_months = (i);
 }
 // also
-if(0x03<(argc)) for_months = (FOR_MONTHS);
+if(0x04<(argc)) for_months = (FOR_MONTHS);
 
 r = cals_init(&cs);
 if(!r) return(0x00);
@@ -102,11 +103,15 @@ if(!r) {
 printf("%s \n","<< Error at fn. cals_load_events()");
 return(0x00);
 }
-r = cals_cache_upcoming_events(R(t,R(today,cs)),&ev,&(R(roll,cs)));
+/*
+if(CALS_BOUND&(R(flag,R(roll,cs)))) {
+r = cals_upcoming_events(UPCOMING_DAYS,R(t,R(today,cs)),&(R(roll,cs)));
 if(!r) {
-printf("%s \n","<< Error at fn. cals_cache_upcoming_events()");
+printf("%s \n","<< Error at fn. cals_upcoming_events()");
 return(0x00);
 }}
+//*/
+}
 
 time(&t);
 tp = localtime(&t);
@@ -148,7 +153,7 @@ if(CALS_VERBOSE&(flag)) {
 printf("\n");
 r = ct_weeks(*(CLI_BASE+(R(wk1,cs))),curr_t);
 if(!r) return(0x00);
-printf("\t%s %d %s, \n","CW",r,"for today");
+printf(" %s %d %s, \n","CW",r,"for today");
 // and update the tp for today,
 tp = localtime(&curr_t);
 if(!tp) {
@@ -167,7 +172,7 @@ else printf("\n");
 
 if(CALS_VERBOSE&(flag)) {
 // calendar week 1 of the year,
-printf("\t%s, \n","Calendar week 1 of the year");
+printf(" %s, \n","Calendar week 1 of the year");
 // update the tp for CW 1 of the year,
 tp = localtime(CLI_BASE+(R(wk1,cs)));
 if(!tp) {
@@ -194,12 +199,11 @@ if(CALS_VERBOSE&(flag)) {
 //* check at calendar week 1 after going backward..
 tp = localtime(CLI_BASE+(R(wk1,cs)));
 if(!tp) return(0x00);
-printf("\t%s, \n","CW 1 (after going backward)");
-printf("\t[ %s %d %s %d, ",*(DAYOFTHEWEEK+(R(tm_wday,*tp))),R(tm_mday,*tp),*(MONTH+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
+printf(" %s, \n","CW 1 (after going backward)");
+printf("\t%s %d %s %d, ",*(DAYOFTHEWEEK+(R(tm_wday,*tp))),R(tm_mday,*tp),*(MONTH+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
 printf("%d:%02d:%02d, ",R(tm_hour,*tp),R(tm_min,*tp),R(tm_sec,*tp));
 printf("%s %d, ","Daylight Savings Time",R(tm_isdst,*tp));
-printf("%d %s ",R(tm_yday,*tp),"days since January 1");
-printf("] \n");
+printf("%d %s \n",R(tm_yday,*tp),"days since January 1");
 printf("\n");
 }}
 else r = (for_months);
