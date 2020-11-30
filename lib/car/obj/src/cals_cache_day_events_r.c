@@ -42,13 +42,15 @@ mo = (*(CALS_MO+(R(date,*criterion))));
 di = (*(CALS_DI+(R(date,*criterion))));
 
 AND(flag,0x00);
+if(CALS_INVALID&(R(flag,*cache))) flag++;
+else {
 if(!(yr^(*(CALS_YR+(R(date,*cache)))))) {
 if(!(mo^(*(CALS_MO+(R(date,*cache)))))) {
 if(!(di^(*(CALS_DI+(R(date,*cache)))))) {
 OR(flag,0x01);
 r = cals_cache_events(cache,argp);
 if(!r) return(0x00);
-}}}
+}}}}
 
 cache = (R(s,*cache));
 

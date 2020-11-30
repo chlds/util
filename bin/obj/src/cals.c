@@ -103,7 +103,7 @@ if(!r) {
 printf("%s \n","<< Error at fn. cals_load_events()");
 return(0x00);
 }
-/*
+//*
 if(CALS_BOUND&(R(flag,R(roll,cs)))) {
 r = cals_upcoming_events(UPCOMING_DAYS,R(t,R(today,cs)),&(R(roll,cs)));
 if(!r) {
