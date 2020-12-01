@@ -46,7 +46,7 @@ while(i) {
 R(offset,R(commandline,R(ty,*argp))) = (0x00);
 R(flag,R(commandline,R(ty,*argp))) = (0x00);
 
-r = cl_backup_codepages_beta(argp);
+r = cli_backup_codepages_beta(0x01/* flag */,&(R(codepage,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cl_backup_codepages_beta()");
 return(0x00);
@@ -67,7 +67,7 @@ printf("%s\n","<< Error at fn. cl_io_beta()");
 return(0x00);
 }
 
-r = cl_restore_codepages_beta(argp);
+r = cli_restore_codepages_beta(0x01/* flag */,&(R(codepage,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cl_restore_codepages_beta()");
 return(0x00);

@@ -24,7 +24,7 @@ Refer at ./config.h
 # define CLI_WINDOWS (CLI_W32_OBJS)
 
 typedef struct cli_w32_stat {
-CLI_CODEPAGE codepage;
+cli_codepage_t codepage;
 CLI_TYPEWRITER ty;
 CONSOLE_SCREEN_BUFFER_INFO csbi;
 void *(window[CLI_WINDOWS]);

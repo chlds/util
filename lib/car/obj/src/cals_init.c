@@ -19,7 +19,7 @@ auto signed short mo;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-r = cals_init_codepage(&(R(codepage,*argp)));
+r = cli_init_codepage(&(R(codepage,*argp)));
 if(!r) return(0x00);
 
 r = cals_init_event(&(R(today,*argp)));

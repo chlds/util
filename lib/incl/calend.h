@@ -18,7 +18,6 @@ Being deprecated..
 # define CALS_NONLOADING (0x200)
 # define CALS_BOUND (0x400)
 
-# define CALS_CODEPAGES (0x02)
 # define CALS_OBJS (0x04)
 
 # define COL_R (0x38)
@@ -116,12 +115,6 @@ static signed char/* const */*(MON[]) = {
 "Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",(signed char(*)) (0x00),
 };
 
-struct cals_codepage {
-signed io[CALS_CODEPAGES];
-signed short flag;
-void *optl;
-} typedef cals_codepage_t;
-
 struct cals_event {
 signed char *b;
 signed short *w;
@@ -154,7 +147,7 @@ signed short day[0x02];
 signed short month[0x02];
 time_t wk1[0x04];
 time_t t[0x04];
-cals_codepage_t codepage;
+cli_codepage_t codepage;
 cals_event_t today;
 cals_roll_t roll;
 signed short flag;
@@ -230,7 +223,6 @@ signed(__cdecl cals_retrieve_week1(signed short(day_thefirst),signed short(month
 
 signed(__cdecl cals_sched(signed long long/* time_t */(arg),cals_event_t(*argp)));
 
-signed(__cdecl cals_init_codepage(cals_codepage_t(*argp)));
 signed(__cdecl cals_init_event(cals_event_t(*argp)));
 signed(__cdecl cals_init_roll(cals_roll_t(*argp)));
 signed(__cdecl cals_init(cals_t(*argp)));

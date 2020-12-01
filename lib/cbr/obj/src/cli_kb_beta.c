@@ -30,7 +30,7 @@ auto signed short flag;
 // quit
 if(!(CLI_QUIT^(R(flag,R(ty,*argp))))) return(0x01);
 
-r = cli_backup_codepages_beta(argp);
+r = cli_backup_codepages_beta(0x00/* flag */,&(R(codepage,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_backup_codepages_beta()");
 return(0x00);
@@ -66,7 +66,7 @@ system("cls");
 }
 
 
-r = cli_restore_codepages_beta(argp);
+r = cli_restore_codepages_beta(0x00/* flag */,&(R(codepage,*argp)));
 if(!r) {
 printf("%s\n","<< Error at fn. cli_restore_codepages_beta()");
 return(0x00);

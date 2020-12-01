@@ -47,17 +47,12 @@ Refer at ./config.h
 # define CLI_HEADER_HEIGHT (0x02)
 # define CLI_FOOTER_HEIGHT (0x02)
 
-# define CLI_CODEPAGE_IO (0x01+(0x03))
 # define CLI_OBJS (0x01+(0x03))
 # define CLI_CLIPBOARDS (CLI_OBJS)
 # define CLI_WORKSPACE (CLI_OBJS)
 # define CLI_SNAPSHOTS (CLI_OBJS)
 # define CLI_PAGES (CLI_OBJS)
 # define CLI_ROLLS (CLI_OBJS)
-
-typedef struct cli_codepage {
-unsigned (io[CLI_CODEPAGE_IO]);
-} CLI_CODEPAGE;
 
 typedef struct cli_pixel {
 signed x;
@@ -246,7 +241,7 @@ void *optl;
 } CLI_TYPEWRITER;
 
 typedef struct cli_stat {
-CLI_CODEPAGE codepage;
+cli_codepage_t codepage;
 CLI_TYPEWRITER ty;
 void *optl;
 } CLI_STAT;
