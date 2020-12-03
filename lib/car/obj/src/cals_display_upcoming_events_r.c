@@ -20,8 +20,10 @@ auto signed i,r;
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 
-printf("\t%2d:%02d ",*(CALS_HR+(R(time,*cache))),*(CALS_MN+(R(time,*cache))));
-printf("| %s ",R(b,*cache));
+printf("\t%2d:%02d | ",*(CALS_HR+(R(time,*cache))),*(CALS_MN+(R(time,*cache))));
+r = cli_outs(R(b,*cache));
+if(!r) return(0x00);
+printf(" ");
 // also
 t = (criterion);
 t = (-t+(R(t,*cache)));

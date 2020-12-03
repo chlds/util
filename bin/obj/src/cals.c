@@ -210,7 +210,7 @@ else r = (for_months);
 
 if(r<(0x00)) r = (0x01+(~r));
 
-r = cals_r(r,&cs);
+r = cals_opt(r,&cs);
 if(!r) return(0x00);
 
 if(CALS_VERBOSE&(flag)) {
@@ -219,20 +219,25 @@ printf("\t%d %s \n",r,"weeks displayed");
 }
 
 if(DBG) {
+printf("\n");
+printf("[%s] \n","DBG");
 AND(i,0x00);
 ev = (*(CLI_LEAD+(R(event,R(roll,cs)))));
 while(ev) {
 if(!(CALS_INVALID&(R(flag,*ev)))) {
 OR(i,0x01);
-printf("\n");
 printf("%s %d, %d ",*(MONTH+(*(CALS_MO+(R(date,*ev))))),*(CALS_DI+(R(date,*ev))),*(CALS_YR+(R(date,*ev))));
 printf("%s %02d:%02d ","at",*(CALS_HR+(R(time,*ev))),*(CALS_MN+(R(time,*ev))));
-printf("%s ",R(b,*ev));
+printf("(%Xh) ",R(flag,*ev));
+r = cli_outs(R(b,*ev));
+if(!r) {
+printf("%s \n","<< Oops..");
+break;
+}
+printf("\n");
 }
 ev = (R(s,*ev));
-}
-if(i) printf("\n");
-}
+}}
 
 if(CALS_BOUND&(R(flag,R(roll,cs)))) {
 r = cals_unbind_events(&(R(roll,cs)));
