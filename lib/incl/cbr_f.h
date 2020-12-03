@@ -7,7 +7,7 @@ Along with C library
 Remarks:
 Call function _getch twice to read <Ctrl-@>.
 The first call returns (0x00) and the second call returns (0x03)..
-Refer at util/lib/obj/src/cli_in.c and at util/lib/obj/src/cli_io.c
+Refer at util/lib/car/obj/src/cli_in.c and at util/lib/cbr/obj/src/cli_io.c
 Refer at ./config.h
 */
 
@@ -43,9 +43,6 @@ signed(__cdecl cli_eq_internal(signed short(term),signed(fd),CLI_TYPEWRITER(*arg
 signed(__cdecl cli_eq(signed(fd),CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp)));
 // parse a config file for the typewriter
-
-signed(__cdecl cli_support_meta_keys(signed(*character),signed char(second),signed char(first)));
-/* Support for function and arrow keys */
 
 signed(__cdecl cli_init_ty(signed(size),CLI_TYPEWRITER(*argp)));
 // initialise
@@ -111,6 +108,9 @@ signed(__cdecl cli_unmap_snapshots(CLI_HISTORY(*argp)));
 signed(__cdecl cli_diff_history(signed short(*diff),signed char(*base),CLI_PAGE(*argp)));
 signed(__cdecl cli_history(CLI_PAGE(*argp)));
 // take snapshots to undo and redo.
+
+signed(__cdecl cli_in_w(signed(*character),signed char(*argp),signed(size)));
+/* Get Unicode bytes in UTF-8 out of the keyboard. */
 
 signed(__cdecl cl_ctrl_at(void(*argp)));
 signed(__cdecl cl_ctrl_a(void(*argp)));
