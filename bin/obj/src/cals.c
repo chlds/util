@@ -67,6 +67,8 @@ if(!r) {
 printf("%s \n","<< Error at fn. cals_init_event()");
 return(0x00);
 }
+r = cmpr_parts(&i,*(argv+(0x01)),"r");
+if(!i) OR(R(flag,event),CALS_RECUR);
 if(CALS_VERBOSE&(flag)) OR(R(flag,event),CALS_VERBOSE);
 r = cals_entry(argv,&event);
 if(!r) {

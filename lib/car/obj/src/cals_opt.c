@@ -22,8 +22,8 @@ if(!argp) return(0x00);
 if(!(CALS_INIT&(R(flag,*argp)))) return(0x00);
 
 codepage = (&(R(codepage,*argp)));
-ci = (0x00/* CLI_UTF_8 */);
-co = (0x00/* CLI_UTF_8 */);
+ci = (0x00/* e.g., CLI_UTF_8 */);
+co = (0x00/* e.g., CLI_UTF_8 */);
 
 r = cli_init_codepage(codepage);
 if(!r) return(0x00);

@@ -17,6 +17,18 @@ Being deprecated..
 # define CALS_ERROR (0x100)
 # define CALS_NONLOADING (0x200)
 # define CALS_BOUND (0x400)
+# define CALS_RECUR (0x800)
+
+# define CALS_ANNUAL (0x01)
+# define CALS_MONTHLY (0x02)
+# define CALS_WEEKLY (0x04)
+# define CALS_DAILY (0x08)
+# define CALS_THEDAY (0x10)
+# define CALS_THEFIRST (0x20)
+# define CALS_THESECOND (0x40)
+# define CALS_THETHIRD (0x80)
+# define CALS_THEFOURTH (0x100)
+# define CALS_THELAST (0x200)
 
 # define CALS_OBJS (0x04)
 
@@ -123,6 +135,7 @@ signed short date[CALS_DATE];
 time_t t;
 // signed long long /* time_t */ ll;
 signed short flag;
+signed short recur;
 struct cals_event *d;
 struct cals_event *s;
 void *optl;
