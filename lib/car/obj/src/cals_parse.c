@@ -38,5 +38,9 @@ r = cv_time(content,argp);
 // if(!r) return(0x00);
 if(!r) OR(R(flag,*argp),CALS_TIME_ALLDAY);
 
+// also check for periodic events
+r = cals_check_for_periodic_events(content,argp);
+if(!r) return(0x00);
+
 return(0x01);
 }

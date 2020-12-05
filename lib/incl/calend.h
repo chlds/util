@@ -17,7 +17,7 @@ Being deprecated..
 # define CALS_ERROR (0x100)
 # define CALS_NONLOADING (0x200)
 # define CALS_BOUND (0x400)
-# define CALS_RECUR (0x800)
+# define CALS_PERIODIC (0x800)
 
 # define CALS_ANNUAL (0x01)
 # define CALS_MONTHLY (0x02)
@@ -135,7 +135,7 @@ signed short date[CALS_DATE];
 time_t t;
 // signed long long /* time_t */ ll;
 signed short flag;
-signed short recur;
+signed short periodic;
 struct cals_event *d;
 struct cals_event *s;
 void *optl;
@@ -176,6 +176,7 @@ signed(__cdecl cals_load_events(signed char(*csv_filename),cals_t(*argp)));
 signed(__cdecl cals_convert(signed char(*b),cals_event_t(*argp)));
 signed(__cdecl cals_store_internal(signed char(*csv),cals_event_t(*argp)));
 signed(__cdecl cals_store(cals_event_t(*argp)));
+signed(__cdecl cals_check_for_periodic_events(signed char(*content),cals_event_t(*argp)));
 signed(__cdecl cals_parse(signed char(*content),cals_event_t(*argp)));
 signed(__cdecl cals_entry(signed char(**argv),cals_event_t(*argp)));
 // store an event at file event.csv in directory ~/.cals/.

@@ -48,8 +48,10 @@ if(CALS_VERBOSE&(R(flag,*argp))) {
 printf("[%s: %s] ","subject",R(b,*argp));
 printf("[%s: %s %d, %d] ","date",*(CAPS_MONTH+(*(CALS_MO+(R(date,*argp))))),*(CALS_DI+(R(date,*argp))),*(CALS_YR+(R(date,*argp))));
 printf("[%s: %02d:%02d] ","time",*(CALS_HR+(R(time,*argp))),*(CALS_MN+(R(time,*argp))));
+printf("[%s: %Xh] ","flag",R(flag,*argp));
 if(CALS_TIME_ALLDAY&(R(flag,*argp))) printf("[%s] ","All-day");
 if(CALS_DATE_TODAY&(R(flag,*argp))) printf("[%s] ","Today");
+if(CALS_PERIODIC&(R(flag,*argp))) printf("[%s: %Xh] ","periodic",R(periodic,*argp));
 printf("\n");
 }}
 
