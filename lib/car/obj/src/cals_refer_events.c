@@ -43,20 +43,9 @@ return(0x00);
 }}
 
 // for events
-event = (*(CLI_LEAD+(R(event,R(roll,*argp)))));
-while(event) {
-r = cals_refer_events_internal(flag,event,argp);
-// if(!r) return(0x00);
-if(r) {
-r = cals_cache_events(event,&roll);
-if(!r) {
-printf("%s \n","<< Error at fn. cals_cache_events()");
-return(0x00);
-}}
-event = (R(s,*event));
-}
+r = cals_refer_events_r(flag,&roll,argp);
+if(DBG) printf("[%s: %d] ","r",r);
 
-// after sorting events by time..
 r = cals_sort_events(&roll);
 if(DBG) printf("[%s %d] ","Sorted",r);
 if(!r) {

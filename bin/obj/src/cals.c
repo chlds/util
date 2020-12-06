@@ -215,7 +215,7 @@ if(!r) return(0x00);
 
 if(CALS_VERBOSE&(flag)) {
 printf("\n");
-printf("\t%d %s \n",r,"weeks displayed");
+printf("\t%s %d %s \n","about",r,"weeks displayed");
 }
 
 if(DBG) {

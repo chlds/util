@@ -37,8 +37,10 @@ if(!r) return(0x00);
 r = cals_r(arg,argp);
 if(!r) return(0x00);
 
+i = (r);
+
 r = cli_restore_codepages_beta(0x00/* flag */,codepage);
 if(!r) return(0x00);
 
-return(0x01);
+return(i);
 }
