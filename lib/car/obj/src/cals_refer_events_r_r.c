@@ -18,15 +18,20 @@ if(!cache) return(0x00);
 if(!cached) return(0x00);
 if(!argp) return(0x00);
 
+if(CALS_PERIODIC&(R(flag,*cache))) {
+r = cals_refer_periodic_events(flag,cache,cached,argp);
+// if(!r) return(0x00);
+}
+
+else {
 r = cals_refer_events_internal(flag,cache,argp);
 // if(!r) return(0x00);
-
 if(r) {
 r = cals_cache_events(cache,cached);
 if(!r) {
 printf("%s \n","<< Error at fn. cals_cache_events()");
 return(0x00);
-}}
+}}}
 
 cache = (R(s,*cache));
 

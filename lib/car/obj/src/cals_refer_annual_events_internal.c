@@ -1,6 +1,9 @@
 /* **** Notes
 
 Refer
+
+Remarks:
+Refer at fn. cals_refer_events_internal.
 //*/
 
 
@@ -8,7 +11,7 @@ Refer
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_refer_events_internal(signed short(arg),cals_event_t(*cache),cals_t(*argp))) {
+signed(__cdecl cals_refer_annual_events_internal(signed short(arg),cals_event_t(*cache),cals_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto struct tm *tp;
@@ -42,7 +45,10 @@ mn = (R(tm_min,*tp));
 t = (*(CLI_OFFSET+(R(t,*argp))));
 tp = localtime(&t);
 if(!tp) return(0x00);
-if(!(yr^(1900+(R(tm_year,*tp))))) {
+AND(flag,0x00);
+if(!(yr^(1900+(R(tm_year,*tp))))) flag++;
+if(yr<(1900+(R(tm_year,*tp)))) flag++;
+if(flag) {
 if(!(mo^(R(tm_mon,*tp)))) {
 day = (R(tm_mday,*tp));
 //*

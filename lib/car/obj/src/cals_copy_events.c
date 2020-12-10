@@ -22,6 +22,7 @@ R(w,*di) = (R(w,*si));
 R(b,*di) = (R(b,*si));
 R(t,*di) = (R(t,*si));
 R(flag,*di) = (R(flag,*si));
+R(periodic,*di) = (R(periodic,*si));
 
 i = (CALS_DATE);
 while(i) *(i+(R(date,*di))) = (*(--i+(R(date,*si))));

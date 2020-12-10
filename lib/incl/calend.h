@@ -24,11 +24,11 @@ Being deprecated..
 # define CALS_WEEKLY (0x04)
 # define CALS_DAILY (0x08)
 # define CALS_THEDAY (0x10)
-# define CALS_THEFIRST (0x20)
-# define CALS_THESECOND (0x40)
-# define CALS_THETHIRD (0x80)
-# define CALS_THEFOURTH (0x100)
-# define CALS_THELAST (0x200)
+# define CALS_THEFIRST (0x100)
+# define CALS_THESECOND (0x200)
+# define CALS_THETHIRD (0x400)
+# define CALS_THEFOURTH (0x800)
+# define CALS_THELAST (0x1000)
 
 # define CALS_OBJS (0x04)
 
@@ -211,6 +211,14 @@ signed(__cdecl cals_sort_events_r(signed(arg),cals_roll_t(*argp)));
 signed(__cdecl cals_sort_events(cals_roll_t(*argp)));
 signed(__cdecl cals_order_events(cals_roll_t(*argp)));
 // sort events
+
+signed(__cdecl cals_update_time_for_periodic_events(cals_event_t(*cache),cals_t(*argp)));
+signed(__cdecl cals_cache_periodic_events_r(signed short(n),cals_event_t(*cache),cals_roll_t(*cached),cals_t(*argp)));
+signed(__cdecl cals_cache_periodic_events(signed short(n),cals_event_t(*cache),cals_roll_t(*cached),cals_t(*argp)));
+signed(__cdecl cals_refer_annual_events_internal(signed short(arg),cals_event_t(*cache),cals_t(*argp)));
+signed(__cdecl cals_refer_annual_events(signed short(flag),cals_event_t(*cache),cals_roll_t(*cached),cals_t(*argp)));
+signed(__cdecl cals_refer_periodic_events(signed short(flag),cals_event_t(*cache),cals_roll_t(*cached),cals_t(*argp)));
+// for periodic events
 
 signed(__cdecl cals_count_events_r(cals_event_t(*argp)));
 signed(__cdecl cals_count_events(cals_roll_t(*argp)));

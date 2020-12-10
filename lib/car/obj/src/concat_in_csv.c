@@ -2,7 +2,7 @@
 
 Concatenate in CSV.
 
-[DATE],[YEAR],[TIME](,[DATE],[YEAR],[TIME]),[FLAG],[SUBJECT]
+[DATE],[YEAR],[TIME](,[DATE],[YEAR],[TIME]),[FLAG],[PERIODIC],[SUBJECT]
 
 Remarks:
 Release a memory block at the *b.
@@ -36,6 +36,7 @@ auto signed surplus = (0x80);
 auto signed char *csv;
 auto signed char *subj;
 auto signed char *fl;
+auto signed char *peri;
 auto signed i,l,r;
 auto signed short flag;
 
@@ -55,6 +56,12 @@ csv = (signed char(*)) malloc(r);
 if(!csv) return(0x00);
 
 // map
+r = cv_d(0x10/* in hexa-decimal */,&peri,R(periodic,*argp));
+if(!r) {
+printf("%s \n","<< Error at fn. cv_d()");
+return(0x00);
+}
+
 r = cv_d(0x10/* in hexa-decimal */,&fl,R(flag,*argp));
 if(!r) {
 printf("%s \n","<< Error at fn. cv_d()");
@@ -70,7 +77,7 @@ printf("%s \n","<< Error at fn. cv_d()");
 return(0x00);
 }}
 
-r = concats(csv,*(YR+(p)),comma,*(MONTH+(*(CALS_MO+(R(date,*argp))))),space,*(DI+(p)),comma,*(HR+(p)),colon,*(MN+(p)),comma,fl,"h",comma,subj,(void*) 0x00);
+r = concats(csv,*(YR+(p)),comma,*(MONTH+(*(CALS_MO+(R(date,*argp))))),space,*(DI+(p)),comma,*(HR+(p)),colon,*(MN+(p)),comma,fl,"h",comma,peri,"h",comma,subj,(void*) 0x00);
 if(!r) {
 printf("%s \n","<< Error at fn. concat_in_csv()");
 }
@@ -84,6 +91,9 @@ free(*(--i+(p)));
 
 if(fl) free(fl);
 fl = (0x00);
+
+if(peri) free(peri);
+peri = (0x00);
 
 *b = (csv);
 csv = (0x00);

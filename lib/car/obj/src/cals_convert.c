@@ -94,25 +94,36 @@ if(i<(0x00)) return(0x00);
 if(59<(i)) return(0x00);
 
 b = (r+(b));
+
 r = cv_da_first(hexa,&i,b);
 if(!r) {
 printf("%s \n","<< Error at fn. cv_da_first()");
 return(0x00);
 }
-
 R(flag,*argp) = (i);
 if(i<(0x00)) return(0x00);
-
 b = (r+(b));
 if(!(*b)) return(0x00);
-
+r = ct2(',',b);
+b = (r+(b));
+if(!(*b)) return(0x00);
 b++;
 if(!(*b)) return(0x00);
-// for 'h'
 
+r = cv_da_first(hexa,&i,b);
+if(!r) {
+printf("%s \n","<< Error at fn. cv_da_first()");
+return(0x00);
+}
+R(periodic,*argp) = (i);
+if(i<(0x00)) return(0x00);
+b = (r+(b));
+if(!(*b)) return(0x00);
+r = ct2(',',b);
+b = (r+(b));
+if(!(*b)) return(0x00);
 b++;
 if(!(*b)) return(0x00);
-// for ','
 
 r = ct(b);
 r++;

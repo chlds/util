@@ -15,7 +15,7 @@ Currently under construction
 signed(__cdecl cals_load_events_internals(signed(fd),cals_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
-static signed commas = (0x03);
+static signed commas = (0x04);
 static signed char comma = (',');
 
 auto signed short interrupted_error = (0x02);
