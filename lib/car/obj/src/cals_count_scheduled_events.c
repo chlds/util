@@ -11,7 +11,7 @@ Count events scheduled for a week.
 signed(__cdecl cals_count_scheduled_events(signed(*cache),time_t(arg),cals_roll_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto cals_event_t *event;
+auto cals_event_t *ev;
 auto struct tm *tp;
 auto cals_event_t term;
 auto time_t t;
@@ -38,11 +38,11 @@ if(!tp) return(0x00);
 *(CALS_SM+(R(time,term))) = (R(tm_sec,*tp));
 AND(R(flag,term),0x00);
 OR(R(flag,term),CALS_ERROR);
-event = (*(CLI_LEAD+(R(event,*argp))));
+ev = (*(CLI_LEAD+(R(event,*argp))));
 
-r = cals_count_scheduled_events_r(cache,&term,event);
+r = cals_count_scheduled_events_r(cache,&term,ev);
 
-event = (0x00);
+ev = (0x00);
 
 if(CALS_ERROR&(R(flag,term))) return(0x00);
 

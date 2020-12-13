@@ -202,6 +202,12 @@ signed(__cdecl cals_copy_events(cals_event_t(*di),cals_event_t(*si)));
 signed(__cdecl cals_release_for_today(cals_t(*argp)));
 signed(__cdecl cals_allocate_for_today(cals_t(*argp)));
 
+signed(__cdecl cals_count_scheduled_annual_events(signed(*cache),cals_event_t(*term),cals_event_t(*argp)));
+signed(__cdecl cals_count_scheduled_monthly_events(signed(*cache),cals_event_t(*term),cals_event_t(*argp)));
+signed(__cdecl cals_count_scheduled_weekly_events(signed(*cache),cals_event_t(*term),cals_event_t(*argp)));
+signed(__cdecl cals_count_scheduled_daily_events(signed(*cache),cals_event_t(*term),cals_event_t(*argp)));
+signed(__cdecl cals_count_scheduled_periodic_events(signed(*cache),cals_event_t(*term),cals_event_t(*argp)));
+signed(__cdecl cals_count_scheduled_events_internal(signed(*cache),cals_event_t(*term),cals_event_t(*argp)));
 signed(__cdecl cals_count_scheduled_events_r(signed(*cache),cals_event_t(*term),cals_event_t(*argp)));
 signed(__cdecl cals_count_scheduled_events(signed(*cache),time_t(arg),cals_roll_t(*argp)));
 // count events scheduled for a week.
