@@ -216,6 +216,12 @@ t = (t+(sm));
 
 R(t,*argp) = (t);
 
+// verify e.g., Feb. 29
+tp = localtime(&t);
+if(!tp) return(0x00);
+mo = (*(CALS_MO+(R(date,*argp))));
+if(mo^(R(tm_mon,*tp))) return(0x00);
+
 /*
 flag = (~CALS_INVALID);
 AND(R(flag,*argp),flag);

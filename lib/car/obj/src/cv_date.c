@@ -57,6 +57,9 @@ if(0x00<(i)) *(CALS_DI+(R(date,*argp))) = (i);
 else return(0x00);
 
 b = (r+(b));
+if(!(*b)) return(0x01);
+if(!(':'^(*b))) return(0x00);
+
 r = cv_da_first(0x0A,&i,b);
 // if(!r) return(0x00);
 if(1899<(i)) *(CALS_YR+(R(date,*argp))) = (i);
