@@ -8,6 +8,8 @@ Along with C library
 */
 
 
+signed(__cdecl rf_leap_years(signed short(arg)));
+
 signed(__cdecl concat2home(signed char(**b),signed char(*argp)));
 
 signed(__cdecl read_b_r(signed(fd),signed char(delim),signed short(*flag),signed char(**b)));
