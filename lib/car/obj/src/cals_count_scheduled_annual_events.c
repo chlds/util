@@ -57,6 +57,14 @@ if(!(di^(R(tm_mday,*tp)))) i++;
 if(di<(R(tm_mday,*tp))) i++;
 }}
 
+if(i) {
+// i.e., February 29
+if(!(29^(*(CALS_DI+(R(date,*argp)))))) {
+if(!(1^(*(CALS_MO+(R(date,*argp)))))) {
+r = rf_leap_years(year);
+if(!r) i = (0x00);
+}}}
+
 if(!i) {
 // case 2.
 t = (R(t,*argp));
