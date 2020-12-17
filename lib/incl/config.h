@@ -7,6 +7,7 @@ Remarks:
 
 # include "./dbg.h"
 # include "./cli_codepage.h"
+# include "./cli_property.h"
 # include "./cli_macro.h"
 
 # ifdef C_CODE_STDS

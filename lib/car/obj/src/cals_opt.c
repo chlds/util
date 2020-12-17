@@ -34,6 +34,18 @@ if(!r) return(0x00);
 r = cli_set_codepages_beta(ci,co);
 if(!r) return(0x00);
 
+r = cli_init_property(&(R(property,*argp)));
+if(!r) {
+printf("%s \n","<< Error at fn. cli_init_property()");
+return(0x00);
+}
+
+r = cli_retrieve_standard_handles_beta(R(handle,R(property,*argp)));
+if(!r) {
+printf("%s \n","<< Error at fn. cli_retrieve_standard_handles_beta()");
+return(0x00);
+}
+
 r = cals_r(arg,argp);
 if(!r) return(0x00);
 

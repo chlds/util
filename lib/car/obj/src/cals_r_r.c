@@ -73,17 +73,31 @@ curr_mo = (R(tm_mon,*tp));
 if(curr_mo^(mo)) {
 if(!(--arg)) return(0x00);
 mo = (curr_mo);
+//*
+r = cli_replace_text_attributes_beta(0x00,&(R(property,*argp)));
+if(!r) {
+printf("%s \n","<< Error at fn. cli_replace_text_attributes_beta()");
+// return(0x00);
+}
+//*/
 r = sub_da(COL_R,*(MONTH+(R(tm_mon,*tp))));
 r++;
 while(--r) printf("_");
 printf("%s %d \n",*(MONTH+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
-//* nearby
+//*
+r = cli_restore_text_attributes_beta(&(R(property,*argp)));
+if(!r) {
+printf("%s \n","<< Error at fn. cli_restore_text_attributes_beta()");
+// return(0x00);
+}
+//*/
+// nearby
 r = cals_refer_events(primary,argp);
 if(!r) {
 printf("%s \n","<< Error at fn. cals_refer_events()");
 return(0x00);
 }
-//*/
+// on calendar week 1
 if(!(curr_mo^(*(THEFIRST+(R(month,*argp)))))) {
 curr_wk1 = (*(CLI_INDEX+(R(wk1,*argp))));
 if(!(curr_wk1^(*(CLI_OFFSET+(R(wk1,*argp)))))) *(CLI_INDEX+(R(wk1,*argp))) = (curr_t);

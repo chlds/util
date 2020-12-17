@@ -47,7 +47,6 @@ Refer at ./config.h
 # define CLI_HEADER_HEIGHT (0x02)
 # define CLI_FOOTER_HEIGHT (0x02)
 
-# define CLI_OBJS (0x01+(0x03))
 # define CLI_CLIPBOARDS (CLI_OBJS)
 # define CLI_WORKSPACE (CLI_OBJS)
 # define CLI_SNAPSHOTS (CLI_OBJS)
