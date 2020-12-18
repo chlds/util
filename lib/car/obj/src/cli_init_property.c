@@ -13,6 +13,9 @@ auto signed i,r;
 
 if(!argp) return(0x00);
 
+r = cli_init_frames(&(R(frame,*argp)));
+if(!r) return(0x00);
+
 r = cli_init_text(&(R(text,*argp)));
 if(!r) return(0x00);
 
@@ -34,8 +37,6 @@ while(i) *(--i+(R(handle,*argp))) = (0x00);
 i = (CLI_OBJS);
 while(i) *(--i+(R(device,*argp))) = (0x00);
 
-AND(R(x,*argp),0x00);
-AND(R(y,*argp),0x00);
 AND(R(flag,*argp),0x00);
 
 AND(R(r,*argp),0x00);
