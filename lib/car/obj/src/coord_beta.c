@@ -25,7 +25,6 @@ auto signed short flag;
 
 /* **** CODE/TEXT */
 if(arg<(0x00)) return(0x00);
-if(!(arg<(CLI_BOIL))) return(0x00);
 if(!argp) return(0x00);
 
 AND(flag,0x00);
@@ -47,12 +46,21 @@ r = GetLastError();
 printf("%s %d %s %Xh \n","<< Error at fn. GetConsoleScreenBufferInfo() with error no.",r,"or",r);
 return(0x00);
 }
+if(arg<(CLI_BOIL)) {
 *(arg+(R(x,*argp))) = (R(X,R(dwCursorPosition,csbi)));
 *(arg+(R(y,*argp))) = (R(Y,R(dwCursorPosition,csbi)));
+}
+else {
+i = (CLI_BOIL);
+while(i) {
+*(--i+(R(x,*argp))) = (R(X,R(dwCursorPosition,csbi)));
+*(i+(R(y,*argp))) = (R(Y,R(dwCursorPosition,csbi)));
+}}
 return(0x01);
 }
 
 if(!(io^(CLI_OUT))) {
+if(!(arg<(CLI_BOIL))) return(0x00);
 coord.X = (*(arg+(R(x,*argp))));
 coord.Y = (*(arg+(R(y,*argp))));
 r = SetConsoleCursorPosition(v,coord);

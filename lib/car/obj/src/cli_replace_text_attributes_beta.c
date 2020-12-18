@@ -39,7 +39,7 @@ if(!argp) return(0x00);
 
 if(!(CLI_INIT&(R(flag,*argp)))) return(0x00);
 
-r = GetConsoleScreenBufferInfo(*(CLI_OUT+(R(handle,*argp))),&csbi);
+r = GetConsoleScreenBufferInfo(*(CLI_OUT+(R(device,*argp))),&csbi);
 if(!r) return(0x00);
 
 r = (R(wAttributes,csbi));
@@ -55,7 +55,7 @@ if(arg&(*(color_hex+(i)))) OR(r,*(color+(i)));
 i++;
 }}
 
-r = SetConsoleTextAttribute(*(CLI_OUT+(R(handle,*argp))),r);
+r = SetConsoleTextAttribute(*(CLI_OUT+(R(device,*argp))),r);
 if(!r) return(0x00);
 
 return(0x01);

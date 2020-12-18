@@ -25,7 +25,6 @@ auto signed short flag;
 
 /* **** CODE/TEXT */
 if(arg<(0x00)) return(0x00);
-if(!(arg<(CLI_BOIL))) return(0x00);
 if(!argp) return(0x00);
 
 /*
@@ -42,20 +41,28 @@ if(DBG_D<(DBG)) printf("%s %p \n","An offset address to the specified standard o
 //*/
 
 if(!(io^(CLI_IN))) {
-r = GetSystemMetrics(SM_CXSCREEN);
-if(!r) {
+x = GetSystemMetrics(SM_CXSCREEN);
+if(!x) {
 r = GetLastError();
 printf("%s %d %s %Xh \n","<< Error at fn. GetSystemMetrics(SM_CXSCREEN) with error no.",r,"or",r);
 return(0x00);
 }
-*(arg+(R(x,*argp))) = (r);
-r = GetSystemMetrics(SM_CYSCREEN);
-if(!r) {
+y = GetSystemMetrics(SM_CYSCREEN);
+if(!y) {
 r = GetLastError();
 printf("%s %d %s %Xh \n","<< Error at fn. GetSystemMetrics(SM_CYSCREEN) with error no.",r,"or",r);
 return(0x00);
 }
-*(arg+(R(y,*argp))) = (r);
+if(arg<(CLI_BOIL)) {
+*(arg+(R(x,*argp))) = (x);
+*(arg+(R(y,*argp))) = (y);
+}
+else {
+i = (CLI_BOIL);
+while(i) {
+*(--i+(R(x,*argp))) = (x);
+*(i+(R(y,*argp))) = (y);
+}}
 return(0x01);
 }
 

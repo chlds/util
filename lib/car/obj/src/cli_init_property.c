@@ -33,8 +33,6 @@ while(i) *(--i+(R(process,*argp))) = (0x00);
 i = (CLI_OBJS);
 while(i) *(--i+(R(window,*argp))) = (0x00);
 i = (CLI_OBJS);
-while(i) *(--i+(R(handle,*argp))) = (0x00);
-i = (CLI_OBJS);
 while(i) *(--i+(R(device,*argp))) = (0x00);
 
 AND(R(flag,*argp),0x00);

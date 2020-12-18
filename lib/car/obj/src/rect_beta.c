@@ -27,7 +27,6 @@ auto signed short flag;
 
 /* **** CODE/TEXT */
 if(arg<(0x00)) return(0x00);
-if(!(arg<(CLI_BOIL))) return(0x00);
 if(!argp) return(0x00);
 
 AND(flag,0x00);
@@ -49,14 +48,25 @@ r = GetLastError();
 printf("%s %d %s %Xh \n","<< Error at fn. GetConsoleScreenBufferInfo() with error no.",r,"or",r);
 return(0x00);
 }
+if(arg<(CLI_BOIL)) {
 *(arg+(R(left,*argp))) = (R(Left,R(srWindow,csbi)));
 *(arg+(R(top,*argp))) = (R(Top,R(srWindow,csbi)));
 *(arg+(R(right,*argp))) = (R(Right,R(srWindow,csbi)));
 *(arg+(R(bottom,*argp))) = (R(Bottom,R(srWindow,csbi)));
+}
+else {
+i = (CLI_BOIL);
+while(i) {
+*(--i+(R(left,*argp))) = (R(Left,R(srWindow,csbi)));
+*(i+(R(top,*argp))) = (R(Top,R(srWindow,csbi)));
+*(i+(R(right,*argp))) = (R(Right,R(srWindow,csbi)));
+*(i+(R(bottom,*argp))) = (R(Bottom,R(srWindow,csbi)));
+}}
 return(0x01);
 }
 
 if(!(io^(CLI_OUT))) {
+if(!(arg<(CLI_BOIL))) return(0x00);
 rect.Left = (*(arg+(R(left,*argp))));
 rect.Right = (*(arg+(R(right,*argp))));
 rect.Top = (*(arg+(R(top,*argp))));

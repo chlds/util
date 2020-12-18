@@ -91,9 +91,6 @@ if(0x04<(argc)) for_months = (FOR_MONTHS);
 r = cals_init(&cs);
 if(!r) return(0x00);
 
-r = cals_allocate_for_today(&cs);
-if(!r) return(0x00);
-
 // also
 OR(R(flag,cs),flag);
 
@@ -211,7 +208,8 @@ else r = (for_months);
 if(r<(0x00)) r = (0x01+(~r));
 
 r = cals_opt(r,&cs);
-if(!r) return(0x00);
+// if(!r) return(0x00);
+if(!r) printf("%s \n","<< Error at fn. cals_opt()");
 
 if(CALS_VERBOSE&(flag)) {
 printf("\n");
@@ -245,12 +243,6 @@ if(!r) {
 printf("%s \n","<< Error at fn. cals_unbind_events()");
 return(0x00);
 }}
-
-r = cals_release_for_today(&cs);
-if(!r) {
-printf("%s \n","<< Error at fn. cals_release_for_today()");
-return(0x00);
-}
 
 return(0x01);
 }

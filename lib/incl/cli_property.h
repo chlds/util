@@ -43,7 +43,6 @@ void *(token[CLI_OBJS]);
 void *(thread[CLI_OBJS]);
 void *(process[CLI_OBJS]);
 void *(window[CLI_OBJS]);
-void *(handle[CLI_OBJS]);
 void *(device[CLI_OBJS]);
 signed short flag;
 signed r;

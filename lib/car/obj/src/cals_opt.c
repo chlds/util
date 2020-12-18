@@ -7,6 +7,7 @@ Opt
 # define CALEND
 # define CAR
 # include "../../../incl/config.h"
+# include <stdio.h>
 
 signed(__cdecl cals_opt(signed(arg),cals_t(*argp))) {
 
@@ -40,9 +41,24 @@ printf("%s \n","<< Error at fn. cli_init_property()");
 return(0x00);
 }
 
-r = cli_retrieve_standard_handles_beta(R(handle,R(property,*argp)));
+r = cli_retrieve_standard_handles_beta(R(device,R(property,*argp)));
 if(!r) {
 printf("%s \n","<< Error at fn. cli_retrieve_standard_handles_beta()");
+return(0x00);
+}
+
+r = coord_beta(CLI_IN,CLI_BOIL,&(R(coord,R(frame,R(property,*argp)))));
+if(!r) return(0x00);
+
+r = rect_beta(CLI_IN,CLI_BOIL,&(R(rect,R(frame,R(property,*argp)))));
+if(!r) return(0x00);
+
+r = pixel_beta(CLI_IN,CLI_BOIL,&(R(pixel,R(frame,R(property,*argp)))));
+if(!r) return(0x00);
+
+r = cals_allocate_for_today(argp);
+if(!r) {
+printf("%s \n","<< Error at fn. cals_allocate_for_today()");
 return(0x00);
 }
 
@@ -50,6 +66,12 @@ r = cals_r(arg,argp);
 if(!r) return(0x00);
 
 i = (r);
+
+r = cals_release_for_today(argp);
+if(!r) {
+printf("%s \n","<< Error at fn. cals_release_for_today()");
+// return(0x00);
+}
 
 r = cli_restore_codepages_beta(0x00/* flag */,codepage);
 if(!r) return(0x00);
