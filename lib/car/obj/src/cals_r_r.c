@@ -73,18 +73,24 @@ curr_mo = (R(tm_mon,*tp));
 if(curr_mo^(mo)) {
 if(!(--arg)) return(0x00);
 mo = (curr_mo);
-//*
-r = cli_replace_text_attributes_beta(0x00,&(R(property,*argp)));
+/*
+r = cli_replace_text_attributes_beta(0x8F,&(R(property,*argp)));
 if(!r) {
 printf("%s \n","<< Error at fn. cli_replace_text_attributes_beta()");
 // return(0x00);
 }
 //*/
-r = sub_da(COL_R,*(MONTH+(R(tm_mon,*tp))));
+// r = (COL_R);
+r = (*(CLI_BASE+(R(right,R(rect,R(frame,R(property,*argp)))))));
+r = (-0x05+(r));
+r = (-0x02+(r));
+r = sub_da(r,*(MONTH+(R(tm_mon,*tp))));
+if(r<(0x00)) return(0x00);
 r++;
+r++; // aux.
 while(--r) printf("_");
 printf("%s %d \n",*(MONTH+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
-//*
+/*
 r = cli_restore_text_attributes_beta(&(R(property,*argp)));
 if(!r) {
 printf("%s \n","<< Error at fn. cli_restore_text_attributes_beta()");

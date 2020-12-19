@@ -19,7 +19,9 @@ auto signed i,r;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-r = (-16+(5+(COL_R)));
+// r = (-16+(5+(COL_R)));
+r = (-0x10);
+r = (-0x01+(r+(*(CLI_BASE+(R(right,R(rect,R(frame,R(property,*argp)))))))));
 if(r<(0x00)) return(0x00);
 r++;
 r = (r*(sizeof(*b)));

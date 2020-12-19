@@ -55,6 +55,14 @@ return(0x00);
 //*/
 }
 
+/*
+r = cli_replace_text_attributes_beta(0x0F,&(R(property,*argp)));
+if(!r) {
+printf("%s \n","<< Error at fn. cli_replace_text_attributes_beta()");
+// return(0x00);
+}
+//*/
+
 r = cals_display_events(&roll);
 if(!r) {
 /*
@@ -62,6 +70,14 @@ printf("%s \n","<< Error at fn. cals_display_events()");
 return(0x00);
 //*/
 }
+
+/*
+r = cli_restore_text_attributes_beta(&(R(property,*argp)));
+if(!r) {
+printf("%s \n","<< Error at fn. cli_restore_text_attributes_beta()");
+// return(0x00);
+}
+//*/
 
 r = cals_remove_cached_events(&roll);
 if(!r) {
