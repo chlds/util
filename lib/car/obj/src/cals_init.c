@@ -46,6 +46,13 @@ while(r) {
 R(flag,*argp) = (0x00);
 R(optl,*argp) = (0x00);
 
+// also
+r = cli_init_property(0x01,&(R(property,*argp)));
+if(!r) {
+printf("%s \n","<< Error at fn. cli_init_property()");
+return(0x00);
+}
+
 OR(R(flag,*argp),CALS_INIT);
 
 return(0x01);

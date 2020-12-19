@@ -58,4 +58,4 @@ signed(__cdecl coord_beta(signed short(io),signed short(arg),coord_t(*argp)));
 signed(__cdecl rect_beta(signed short(io),signed short(arg),rect_t(*argp)));
 signed(__cdecl cli_init_frames(cli_frame_t(*argp)));
 signed(__cdecl cli_init_text(cli_text_t(*argp)));
-signed(__cdecl cli_init_property(cli_property_t(*argp)));
+signed(__cdecl cli_init_property(signed short(arg),cli_property_t(*argp)));

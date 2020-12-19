@@ -7,7 +7,7 @@ Initialise
 # define CAR
 # include "./../../../incl/config.h"
 
-signed(__cdecl cli_init_property(cli_property_t(*argp))) {
+signed(__cdecl cli_init_property(signed short(arg),cli_property_t(*argp))) {
 
 auto signed i,r;
 
@@ -40,6 +40,20 @@ AND(R(flag,*argp),0x00);
 AND(R(r,*argp),0x00);
 
 R(optl,*argp) = (0x00);
+
+if(arg) {
+r = cli_retrieve_standard_handles_beta(R(device,*argp));
+if(!r) {
+printf("%s \n","<< Error at fn. cli_retrieve_standard_handles_beta()");
+return(0x00);
+}
+r = coord_beta(CLI_IN,CLI_BOIL,&(R(coord,R(frame,*argp))));
+if(!r) return(0x00);
+r = rect_beta(CLI_IN,CLI_BOIL,&(R(rect,R(frame,*argp))));
+if(!r) return(0x00);
+r = pixel_beta(CLI_IN,CLI_BOIL,&(R(pixel,R(frame,*argp))));
+if(!r) return(0x00);
+}
 
 OR(R(flag,*argp),CLI_INIT);
 

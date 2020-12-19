@@ -35,27 +35,6 @@ if(!r) return(0x00);
 r = cli_set_codepages_beta(ci,co);
 if(!r) return(0x00);
 
-r = cli_init_property(&(R(property,*argp)));
-if(!r) {
-printf("%s \n","<< Error at fn. cli_init_property()");
-return(0x00);
-}
-
-r = cli_retrieve_standard_handles_beta(R(device,R(property,*argp)));
-if(!r) {
-printf("%s \n","<< Error at fn. cli_retrieve_standard_handles_beta()");
-return(0x00);
-}
-
-r = coord_beta(CLI_IN,CLI_BOIL,&(R(coord,R(frame,R(property,*argp)))));
-if(!r) return(0x00);
-
-r = rect_beta(CLI_IN,CLI_BOIL,&(R(rect,R(frame,R(property,*argp)))));
-if(!r) return(0x00);
-
-r = pixel_beta(CLI_IN,CLI_BOIL,&(R(pixel,R(frame,R(property,*argp)))));
-if(!r) return(0x00);
-
 r = cals_allocate_for_today(argp);
 if(!r) {
 printf("%s \n","<< Error at fn. cals_allocate_for_today()");
