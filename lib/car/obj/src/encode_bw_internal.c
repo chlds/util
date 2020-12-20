@@ -20,6 +20,7 @@ signed(__cdecl encode_bw_internal(ENCODE_PACK(*argp))) {
 /* **** DATA, BSS and STACK */
 auto signed short SECOND = (0xDC00);
 auto signed short FIRST = (0xD800);
+auto signed short TEN_B = (0x03FF);
 
 auto signed short *w;
 auto signed char *b;
@@ -68,10 +69,10 @@ return(0x00);
 }
 
 first = (*w);
-if(!(FIRST^(first&(FIRST)))) {
+if(!(FIRST^(first&(~TEN_B)))) {
 w++;
 second = (*w);
-if(!(SECOND^(second&(SECOND)))) flag = (0x01);
+if(!(SECOND^(second&(~TEN_B)))) flag = (0x01);
 else --w;
 }
 
