@@ -18,6 +18,7 @@ Being deprecated..
 # define CALS_NONLOADING (0x200)
 # define CALS_BOUND (0x400)
 # define CALS_PERIODIC (0x800)
+# define CALS_QUIT (0x1000)
 
 # define CALS_ANNUAL (0x01)
 # define CALS_MONTHLY (0x02)
@@ -169,6 +170,11 @@ void *optl;
 } typedef cals_t;
 
 /* calend_f.h */
+signed(__cdecl cals_flag_e(cals_t(*argp)));
+signed(__cdecl cals_flag_h(cals_t(*argp)));
+signed(__cdecl cals_flag_n(cals_t(*argp)));
+signed(__cdecl cals_flag_v(cals_t(*argp)));
+
 signed(__cdecl cals_load_events_internals(signed(fd),cals_t(*argp)));
 signed(__cdecl cals_load_events_internal(signed char(*path),cals_t(*argp)));
 signed(__cdecl cals_load_events(signed char(*csv_filename),cals_t(*argp)));

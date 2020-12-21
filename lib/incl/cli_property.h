@@ -37,6 +37,8 @@ void *optl;
 } typedef cli_text_t;
 
 struct cli_property {
+signed char **argv[CLI_OBJS]; // for UTF-8
+signed short **argv_w[CLI_OBJS]; // for UTF-16
 signed char *(b[CLI_OBJS]);
 signed short *(w[CLI_OBJS]);
 void *(token[CLI_OBJS]);

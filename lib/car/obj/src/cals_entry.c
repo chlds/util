@@ -45,7 +45,9 @@ flag++;
 
 if(!flag) {
 if(CALS_VERBOSE&(R(flag,*argp))) {
-printf("[%s: %s] ","subject",R(b,*argp));
+printf("[%s: ","subject");
+r = cli_outs(R(b,*argp));
+printf("] ");
 printf("[%s: %s %d, %d] ","date",*(CAPS_MONTH+(*(CALS_MO+(R(date,*argp))))),*(CALS_DI+(R(date,*argp))),*(CALS_YR+(R(date,*argp))));
 printf("[%s: %02d:%02d] ","time",*(CALS_HR+(R(time,*argp))),*(CALS_MN+(R(time,*argp))));
 printf("[%s: %Xh] ","flag",R(flag,*argp));

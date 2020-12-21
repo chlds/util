@@ -35,7 +35,9 @@ return(0x00);
 }
 
 if(CALS_VERBOSE&(R(flag,*argp))) {
-printf("[%s: %s] \n","CSV",b);
+printf("[%s: ","CSV");
+r = cli_outs(b);
+printf("] \n");
 }
 
 // open, write and close

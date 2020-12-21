@@ -20,20 +20,25 @@ r = cli_init_text(&(R(text,*argp)));
 if(!r) return(0x00);
 
 i = (CLI_OBJS);
-while(i) *(--i+(R(b,*argp))) = (0x00);
-i = (CLI_OBJS);
-while(i) *(--i+(R(w,*argp))) = (0x00);
+while(i) *(--i+(R(argv,*argp))) = (0x00);
 
 i = (CLI_OBJS);
-while(i) *(--i+(R(token,*argp))) = (0x00);
+while(i) *(--i+(R(argv_w,*argp))) = (0x00);
+
 i = (CLI_OBJS);
-while(i) *(--i+(R(thread,*argp))) = (0x00);
+while(i) {
+*(--i+(R(b,*argp))) = (0x00);
+*(i+(R(w,*argp))) = (0x00);
+}
+
 i = (CLI_OBJS);
-while(i) *(--i+(R(process,*argp))) = (0x00);
-i = (CLI_OBJS);
-while(i) *(--i+(R(window,*argp))) = (0x00);
-i = (CLI_OBJS);
-while(i) *(--i+(R(device,*argp))) = (0x00);
+while(i) {
+*(--i+(R(token,*argp))) = (0x00);
+*(i+(R(thread,*argp))) = (0x00);
+*(i+(R(process,*argp))) = (0x00);
+*(i+(R(window,*argp))) = (0x00);
+*(i+(R(device,*argp))) = (0x00);
+}
 
 AND(R(flag,*argp),0x00);
 
