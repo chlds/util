@@ -12,7 +12,7 @@ Currently under construction
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_help(void)) {
+signed(__cdecl cals_help(cals_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto time_t t;
@@ -20,6 +20,8 @@ auto signed i,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
+if(!argp) return(0x00);
+
 AND(flag,0x00);
 
 printf("\n");
@@ -40,6 +42,8 @@ printf("\t%s \n","cals.exe v 12");
 printf("\t%s \n","cals.exe -6");
 printf("\t%s \n","cals.exe n");
 printf("\t%s \n","cals.exe");
+
+OR(R(flag,*argp),CALS_QUIT);
 
 return(0x01);
 }

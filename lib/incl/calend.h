@@ -264,7 +264,7 @@ signed(__cdecl cals_init_event(cals_event_t(*argp)));
 signed(__cdecl cals_init_roll(cals_roll_t(*argp)));
 signed(__cdecl cals_init(cals_t(*argp)));
 signed(__cdecl cals_opt(signed(arg),cals_t(*argp)));
-signed(__cdecl cals_help(void));
+signed(__cdecl cals_help(cals_t(*argp)));
 
 signed(__cdecl concat_in_csv(signed char(**b),cals_event_t(*argp)));
 // concatenate in CSV.

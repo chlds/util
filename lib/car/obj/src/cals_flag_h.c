@@ -17,7 +17,7 @@ auto signed i,r;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-r = cals_help();
+r = cals_help(argp);
 
 return(r);
 }

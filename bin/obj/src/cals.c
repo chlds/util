@@ -73,6 +73,7 @@ path = (*(v+(0x02)));
 if(0x01<(argc)) {
 l = ct_f(fn);
 while(l) {
+if(CALS_QUIT&(R(flag,cs))) break;
 r = cmpr_parts(&i,*(v+(0x01)),*(--l+(fl)));
 if(!i) {
 r = (*(l+(fn))) (&cs);
@@ -91,6 +92,10 @@ printf("%s \n","<< Error at fn. rl_argv()");
 return(0x00);
 }
 v = (0x00);
+*(CLI_BASE+(R(argv,R(property,cs)))) = (v);
+*(CLI_BASE+(R(argv_w,R(property,cs)))) = (0x00);
+path = (0x00);
+path_w = (0x00);
 return(0x01);
 }
 
@@ -265,6 +270,8 @@ return(0x00);
 v = (0x00);
 *(CLI_BASE+(R(argv,R(property,cs)))) = (v);
 *(CLI_BASE+(R(argv_w,R(property,cs)))) = (0x00);
+path = (0x00);
+path_w = (0x00);
 
 return(0x01);
 }
