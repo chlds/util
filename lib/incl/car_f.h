@@ -8,7 +8,18 @@ Along with C library
 */
 
 
+signed(__cdecl cv_argv_bw_r(signed char(**di),signed short(**si)));
+signed(__cdecl cv_argv_bw(signed char(***di),signed short(**si)));
+// convert into a table pointer of pointers secured for bytes in UTF-8.
+
+signed(__cdecl rl_argv_r(signed char(**argp)));
+signed(__cdecl rl_argv(signed char(***argp)));
+
+signed(__cdecl rl(signed char(**argp)));
+// release.
+
 signed(__cdecl rf_leap_years(signed short(arg)));
+// refer leap years.
 
 signed(__cdecl concat2home(signed char(**b),signed char(*argp)));
 
@@ -275,6 +286,9 @@ signed(__cdecl ct_except(signed char(di), signed char(*base)));
 signed(__cdecl ct2(signed char(di), signed char(*base)));
 signed(__cdecl ct(signed char(*argp)));
 /* Count letters to the one you'd select or to the terminating null character. */
+
+signed(__cdecl ct_p(void(**argp)));
+/* Count pointers. */
 
 signed(__cdecl embed_spaces_r(signed(arg),signed char(*argp)));
 signed(__cdecl embed_spaces(signed char(*argp)));
