@@ -4,12 +4,12 @@ Count to the terminating null quad word.
 */
 
 
-signed int(__cdecl ct_q(signed long long(*argp))) {
+signed(__cdecl ct_q(signed long long(*argp))) {
 
 /* **** CODE/TEXT */
-if(!argp) return(0);
-if(!(*argp)) return(0);
+if(!argp) return(0x00);
+if(!(*argp)) return(0x00);
 
 argp++;
-return(1+(ct_q(argp)));
+return(0x01+(ct_q(argp)));
 }

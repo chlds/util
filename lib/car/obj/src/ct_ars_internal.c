@@ -3,31 +3,28 @@
 Count arguments to the terminating null character.
 
 Remarks:
-Using along with fn. ct_ars2 or with fn. ct_ars.
+Refer at fn. ct_ars2.
 */
 
 
-# define UNLOCK (0x00)
-# define LOCK (0x01)
+# include "./../../../incl/config.h"
 
 signed(__cdecl ct_ars_internal(signed short(flag),signed(*retv),signed char(*base))) {
 
 /* **** DATA, BSS and STACK */
-static signed char const SP = (' ');
+static signed char SP = (' ');
 
 /* **** CODE/TEXT */
 if(!retv) return(0x00);
 if(!base) return(0x00);
-
 if(!(*base)) return(0x00);
 
-if(!(SP^(*base))) flag = (UNLOCK);
-
-else {
-if(!(flag^(UNLOCK))) {
-flag = (LOCK);
-(*retv)++;
+if(SP^(*base)) {
+if(!flag) {
+OR(flag,0x01);
+INC(*retv);
 }}
+else AND(flag,0x00);
 
 base++;
 
