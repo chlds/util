@@ -141,7 +141,7 @@ return(0x00);
 }
 
 if(R(b,*argp)) {
-embed(0x00/* flag */,R(b,*argp));
+embed(0x00,R(b,*argp));
 free(R(b,*argp));
 }
 R(b,*argp) = (p);

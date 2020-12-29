@@ -45,7 +45,7 @@ r = ct(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 i = (r);
 ADD(R(gauge,R(ty,*argp)),r);
 // **(CLI_INDEX+(R(cur,R(ty,*argp)))) = (0x00);
-r = embed(0x00/* flag */,*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+r = embed(0x00,*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 
 b = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 if(EQ(b,*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))))) flag = (0x01);

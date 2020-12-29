@@ -34,7 +34,7 @@ return(0x00);
 }
 
 r = ct(p);
-r = embed_to(p,0x00,r);
+r = embed(r,p);
 free(p);
 p = (0x00);
 *(CLI_BASE+(R(base,*cache))) = (p);

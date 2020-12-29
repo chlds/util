@@ -129,7 +129,7 @@ if(p) {
 cur = (*(CLI_BASE+(R(base,R(roll,*argp)))));
 r = cpy(cur,p);
 r = cpy(cur,l+(p));
-r = embed(0x00/* flag */,p);
+r = embed(0x00,p);
 free(p);
 p = (0x00);
 }

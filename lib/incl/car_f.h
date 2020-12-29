@@ -60,11 +60,6 @@ signed(__cdecl find_a_first_week(signed short(wk),signed long long/* time_t */(*
 signed(__cdecl elapse_days_since(signed short(wk),signed long long/* time_t */(arg)));
 // retrieve second minutes of a first day of the first week, refer time.h
 
-signed(__cdecl embed_to(signed char(*argp),signed char(arg),signed(times)));
-signed(__cdecl embed_internal(signed char(*argp)));
-signed(__cdecl embed(signed short(flag),signed char(*argp)));
-// Embed
-
 signed(__cdecl keep_w(signed short(**di),signed char(*si)));
 signed(__cdecl keep(signed char(**di),signed char(*si)));
 signed(__cdecl release(signed(n),void(**argp)));
@@ -232,10 +227,6 @@ signed(__cdecl ctdn2lastsp_internal(signed(arg),signed char(*argp)));
 signed(__cdecl ctdn2lastsp(signed char(*argp)));
 /* Count down to the last space (SP) or to the last whitespace (SP/HT) */
 
-signed(__cdecl cipher_embed_r(signed char(*di), signed(n)));
-signed(__cdecl cipher_embed(signed char(*di), signed(n)));
-/* Embed (0x00) (n) times out of the di. */
-
 signed(__cdecl align_backward(signed(arg),signed char(*argp)));
 signed(__cdecl align(signed(arg),signed char(*argp)));
 /* Return the number of spaces that are output when the tab key is pressed. */
@@ -293,8 +284,14 @@ signed(__cdecl ct_f(signed(__cdecl**(f)) (void(*argp))));
 signed(__cdecl ct_p(void(**argp)));
 /* Count pointers. */
 
+signed(__cdecl embedback_r(signed(arg),signed char(*argp)));
+signed(__cdecl embedback(signed(arg),signed char(*argp)));
 signed(__cdecl embed_spaces_r(signed(arg),signed char(*argp)));
 signed(__cdecl embed_spaces(signed char(*argp)));
+signed(__cdecl embed_rr(signed(arg),signed char(*argp)));
+signed(__cdecl embed_r(signed char(*argp)));
+signed(__cdecl embed(signed(arg),signed char(*argp)));
+// Embed
 
 signed(__cdecl n_putch(signed(n),signed(letter)));
 /* Output the letter n times. */

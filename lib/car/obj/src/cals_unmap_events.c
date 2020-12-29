@@ -22,7 +22,7 @@ if(!(*(CLI_LEAD+(R(event,*argp))))) return(0x00);
 event = (*(CLI_LEAD+(R(event,*argp))));
 *(CLI_LEAD+(R(event,*argp))) = (R(s,*event));
 
-r = embed(0x00/* flag */,R(b,*event));
+r = embed(0x00,R(b,*event));
 free(R(b,*event));
 R(b,*event) = (0x00);
 

@@ -39,9 +39,9 @@ R(fd,R(edit,R(ty,*argp))) = (0x00);
 update = (0x00);
 i = (CLI_WORKSPACE);
 while(--i) {
-r = embed_to(*(i+(R(base,R(roll,R(ty,*argp))))),0x00,*(i+(R(size,R(roll,R(ty,*argp))))));
+r = embed(*(i+(R(size,R(roll,R(ty,*argp))))),*(i+(R(base,R(roll,R(ty,*argp))))));
 if(r^(*(i+(R(size,R(roll,R(ty,*argp))))))) {
-printf("%s\n","<< Error at fn. embed_to()");
+printf("%s\n","<< Error at fn. embed()");
 return(0x00);
 }}}
 
@@ -58,9 +58,9 @@ return(0x00);
 i = (CLI_ROLLS);
 while(i) {
 --i;
-r = embed_to(*(i+(R(base,R(roll,R(ty,*argp))))),0x00,*(i+(R(size,R(roll,R(ty,*argp))))));
+r = embed(*(i+(R(size,R(roll,R(ty,*argp))))),*(i+(R(base,R(roll,R(ty,*argp))))));
 if(!r) {
-printf("%s\n","<< Error at fn. embed_to()");
+printf("%s\n","<< Error at fn. embed()");
 return(0x00);
 }}
 // append

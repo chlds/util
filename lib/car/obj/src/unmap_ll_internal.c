@@ -26,7 +26,7 @@ if(!base) return(0x00);
 if(flag) {
 // i.e., in a circular LL
 if(EQ(lead,base)) {
-embed(0x00/* flag */,R(p,*lead));
+embed(0x00,R(p,*lead));
 free(R(p,*lead));
 R(p,*lead) = (signed char(*)) (0x00);
 free(lead);
@@ -37,8 +37,8 @@ cache = (lead);
 lead = (R(s,*lead));
 
 if(R(p,*cache)) {
-// r = embed_to(R(p,*cache),0x00,ct(R(p,*cache)));
-embed(0x00/* flag */,R(p,*cache));
+// r = embed(ct(R(p,*cache)),R(p,*cache));
+embed(0x00,R(p,*cache));
 free(R(p,*cache));
 R(p,*cache) = (signed char(*)) (0x00);
 }

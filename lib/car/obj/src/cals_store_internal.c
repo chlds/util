@@ -75,7 +75,7 @@ flag++;
 }}
 
 if(path) {
-embed(0x00/* flag */,path);
+embed(0x00,path);
 free(path);
 }
 path = (0x00);

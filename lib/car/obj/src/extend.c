@@ -66,7 +66,7 @@ return(0x00);
 
 i = (r);
 
-r = embed(0x00/* flag */,p);
+r = embed(0x00,p);
 if(i^(r)) {
 printf("%s\n","<< Error at fn. embed()");
 return(0x00);

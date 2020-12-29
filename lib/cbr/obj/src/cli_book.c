@@ -61,7 +61,7 @@ return(0x00);
 }
 
 if(*(CLI_BASE+(R(base,*page)))) {
-embed(0x00/* flag */,*(CLI_BASE+(R(base,*page))));
+embed(0x00,*(CLI_BASE+(R(base,*page))));
 free(*(CLI_BASE+(R(base,*page))));
 }
 

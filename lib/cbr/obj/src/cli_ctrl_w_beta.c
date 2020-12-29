@@ -62,9 +62,9 @@ flag = (~(CL_SEARCH));
 AND(R(flag,R(ty,*argp)),flag);
 /*
 r = (*(CLI_LEAD+(R(size,R(roll,R(ty,*argp))))));
-r = embed_to(*(CLI_LEAD+(R(base,R(roll,R(ty,*argp))))),0x00,r);
+r = embed(r,*(CLI_LEAD+(R(base,R(roll,R(ty,*argp))))));
 if(!r) {
-printf("%s\n","<< Error at fn. embed_to()");
+printf("%s\n","<< Error at fn. embed()");
 return(0x00);
 }
 //*/

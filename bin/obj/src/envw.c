@@ -24,7 +24,7 @@ return(0x00);
 }
 printf("%d. %s%d%s",i,"[",r,"] ");
 printf("%s \n",p);
-r = embed(0x00/* flag */,p);
+r = embed(0x00,p);
 if(!r) {
 printf("%s \n","<< Error at fn. embed()");
 return(0x00);

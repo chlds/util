@@ -44,7 +44,7 @@ if(!(delim^(*(l+(p))))) INC(*flag);
 *(r+(l+(p))) = (0x00);
 
 if(*b) {
-embed(0x00/* flag */,*b);
+embed(0x00,*b);
 free(*b);
 }
 *b = (p);

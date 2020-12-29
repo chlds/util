@@ -102,9 +102,9 @@ r = ct_w(w);
 r = (r*(sizeof(*w)));
 i = (r);
 p = (signed char(*)) (w);
-r = embed_to(p,0x00,r);
+r = embed(r,p);
 if(i^(r)) {
-printf("%s\n","<< Error at fn. embed_to()");
+printf("%s\n","<< Error at fn. embed()");
 flag++;
 }
 free(w);

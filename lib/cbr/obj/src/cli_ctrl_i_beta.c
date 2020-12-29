@@ -67,7 +67,7 @@ return(0x00);
 }}
 
 if(p) {
-r = embed(0x00/* flag */,p);
+r = embed(0x00,p);
 free(p);
 p = (0x00);
 }

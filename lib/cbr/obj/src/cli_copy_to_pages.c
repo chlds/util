@@ -51,9 +51,9 @@ return(0x00);
 
 i = (r);
 
-r = embed_to(p,0x00,l);
+r = embed(l,p);
 if(l^(r)) {
-printf("%s\n","<< Error at fn. embed_to()");
+printf("%s\n","<< Error at fn. embed()");
 return(0x00);
 }
 

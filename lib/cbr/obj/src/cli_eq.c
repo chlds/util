@@ -31,9 +31,9 @@ printf("%s\n","<< Error at fn. cli_eq_internal()");
 return(0x00);
 }
 
-r = embed_to(*(CLI_OFFSET+(R(base,R(roll,*argp)))),0x00,*(CLI_OFFSET+(R(size,R(roll,*argp)))));
+r = embed(*(CLI_OFFSET+(R(size,R(roll,*argp)))),*(CLI_OFFSET+(R(base,R(roll,*argp)))));
 if(r^(*(CLI_OFFSET+(R(size,R(roll,*argp)))))) {
-printf("%s\n","<< Error at fn. embed_to()");
+printf("%s\n","<< Error at fn. embed()");
 return(0x00);
 }
 

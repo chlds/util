@@ -25,16 +25,15 @@ if(!(*argp)) return(0x00);
 
 p = (signed char(*)) (*argp);
 
-r = embed_to(p,0x00,n);
+r = embed(n,p);
 if(!r) {
-printf("%s\n","<< Error at fn. embed_to()");
+printf("%s \n","<< Error at fn. embed()");
 return(0x00);
 }
 
+free(p);
 p = (0x00);
-
-free(*argp);
-*argp = (0x00);
+*argp = (p);
 
 return(r);
 }

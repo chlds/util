@@ -55,7 +55,7 @@ offset = (r);
 // to append
 p = (*(CLI_OFFSET+(R(append,R(ty,*argp)))));
 if(p) {
-embed(0x00/* flag */,p);
+embed(0x00,p);
 free(p);
 p = (0x00);
 }
@@ -163,7 +163,7 @@ if(!r) {
 printf("%s \n","<< Error at fn. concats()");
 return(0x00);
 }
-r = embed(0x00/* flag */,*(CLI_BASE+(R(base,*page))));
+r = embed(0x00,*(CLI_BASE+(R(base,*page))));
 free(*(CLI_BASE+(R(base,*page))));
 *(CLI_BASE+(R(base,*page))) = (buff);
 buff = (0x00);

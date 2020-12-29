@@ -24,7 +24,7 @@ if(!argp) return(0x00);
 i = (CLI_WORKSPACE);
 while(i) {
 p = (*(--i+(R(base,*argp))));
-r = embed_to(p,0x00,*(i+(R(size,*argp))));
+r = embed(*(i+(R(size,*argp))),p);
 free(p);
 p = (0x00);
 *(i+(R(base,*argp))) = (p);

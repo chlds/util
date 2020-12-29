@@ -49,7 +49,7 @@ cur++;
 cur++;
 *cur = (0x00);
 r = cpy(cur,p);
-embed(0x00/* flag */,p);
+embed(0x00,p);
 free(p);
 *(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
 

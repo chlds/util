@@ -137,9 +137,9 @@ path = (0x00);
 
 else {
 p = (signed char(*)) (name);
-r = embed_to(p,0x00,CLI_NAME);
+r = embed(CLI_NAME,p);
 if(!r) {
-printf("%s \n","<< Error at fn. embed_to()");
+printf("%s \n","<< Error at fn. embed()");
 return(0x00);
 }}
 

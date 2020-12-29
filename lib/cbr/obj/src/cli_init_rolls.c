@@ -41,9 +41,9 @@ if(CLI_DBG) printf("%s%d%s\n","Charged ",CLI_WORKSPACE," rolls");
 i = (CLI_WORKSPACE);
 while(i) {
 DEC(i);
-r = embed_to(*(i+(R(base,*argp))),0x00,*(i+(R(size,*argp))));
+r = embed(*(i+(R(size,*argp))),*(i+(R(base,*argp))));
 if(r^(*(i+(R(size,*argp))))) {
-printf("%s\n","<< Error at fn. embed_to()");
+printf("%s\n","<< Error at fn. embed()");
 return(0x00);
 }}
 // cleared rolls

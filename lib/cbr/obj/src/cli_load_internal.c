@@ -208,8 +208,7 @@ cur++;
 printf("\r%d%s%d%s",count,"/",R(size,R(edit,*argp)),"bytes");
 
 if(CLI_MORPH&(R(flag,*argp))) {
-// r = embed_to(*(CLI_BASE+(R(base,R(roll,*argp)))),0x00,*(CLI_BASE+(R(size,R(roll,*argp)))));
-// r = embed(0x00/* flag */,*(CLI_BASE+(R(base,R(roll,*argp)))));
+// r = embed(0x00/* or *(CLI_BASE+(R(size,R(roll,*argp)))) */,*(CLI_BASE+(R(base,R(roll,*argp)))));
 **(CLI_BASE+(R(base,R(roll,*argp)))) = (0x00);
 AND(R(flag,*argp),0x00);
 return(0x01);

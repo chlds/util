@@ -70,16 +70,16 @@ R(x,*(i+(R(coord,R(commandline,R(ty,*argp)))))) = (coord_b.x);
 }
 
 i = (*(CLI_INDEX+(R(size,R(roll,R(ty,*argp))))));
-r = embed_to(*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))),0x00,i);
+r = embed(i,*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))));
 if(!r) {
-printf("%s\n","<< Error at fn. embed_to()");
+printf("%s\n","<< Error at fn. embed()");
 return(0x00);
 }
 
 i = (*(CLI_OFFSET+(R(size,R(roll,R(ty,*argp))))));
-r = embed_to(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),0x00,i);
+r = embed(i,*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))));
 if(!r) {
-printf("%s\n","<< Error at fn. embed_to()");
+printf("%s\n","<< Error at fn. embed()");
 return(0x00);
 }
 
@@ -98,9 +98,9 @@ return(0x00);
 //*/
 }
 
-r = embed_to(*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))),0x00,i);
+r = embed(i,*(CLI_OFFSET+(R(base,R(roll,R(ty,*argp))))));
 if(!r) {
-printf("%s\n","<< Error at fn. embed_to()");
+printf("%s\n","<< Error at fn. embed()");
 return(0x00);
 }
 

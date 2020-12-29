@@ -30,7 +30,7 @@ if(!r) return(0x00);
 
 if(!flag) {
 if(*b) {
-embed(0x00/* flag */,*b);
+embed(0x00,*b);
 free(*b);
 }
 *b = (0x00);
