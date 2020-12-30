@@ -238,12 +238,13 @@ r = compare(cur,base);
 R(offset,R(ty,*argp)) = (r);
 
 // refresh
+if(!(CLI_BR&(R(flag,R(ty,*argp))))) {
 if(CLI_REFRESH&(R(flag,R(ty,*argp)))) {
 r = cli_refresh_beta(CLI_FORCED&(R(flag,R(ty,*argp))),cur,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_refresh_beta()");
+printf("%s \n","<< Error at fn. cli_refresh_beta()");
 return(0x00);
-}}
+}}}
 
 base = (*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
 *(CLI_LEAD+(R(cur,R(ty,*argp)))) = (base+(ct(base)));
