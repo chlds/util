@@ -64,9 +64,9 @@ edge = (R(Right,R(srWindow,R(csbi,*argp))));
 x = (R(X,R(dwCursorPosition,R(csbi,*argp))));
 if(edge<(x+(count_to(sym,cur)))) {
 // wrap words
-r = cli_clear2_row_beta(0x00,argp);
+r = cli_clear_row_beta(0x00,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_clear2_row_beta()");
+printf("%s \n","<< Error at fn. cli_clear_row_beta()");
 return(0x00);
 }}
 //*/

@@ -63,10 +63,9 @@ page = (R(d,*page));
 
 if(page) {
 if(CG_CLEAR&(flag)) {
-// r = cli_clear_row_beta(0x00/* comeback */,argp);
-r = cli_clear2_row_beta(0x00/* comeback */,argp);
+r = cli_clear_row_beta(0x00/* comeback */,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_clear2_row_beta()");
+printf("%s \n","<< Error at fn. cli_clear_row_beta()");
 return(0x00);
 }}
 else {

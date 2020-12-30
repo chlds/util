@@ -44,16 +44,9 @@ return(0x00);
 OR(R(flag,R(ty,*argp)),CLI_BR);
 
 // clear
-// r = cli_clear_row_beta(0x00/* come back */,argp);
-r = cli_clear2_row_beta(0x01/* come back */,argp);
+r = cli_clear_row_beta(0x00/* come back */,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_clear2_row_beta()");
-return(0x00);
-}
-
-r = _putch(lf);
-if(!(EOF^(r))) {
-printf("%s\n","<< Error at fn. _putch()");
+printf("%s \n","<< Error at fn. cli_clear_row_beta()");
 return(0x00);
 }
 

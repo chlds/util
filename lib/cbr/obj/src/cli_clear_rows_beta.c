@@ -11,6 +11,7 @@ Return the number of cleared rows.
 # define CBR
 # define CLI_W32
 
+# include <stdio.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cli_clear_rows_beta(signed short(comeback),CLI_W32_STAT(*argp))) {
@@ -28,7 +29,7 @@ if(!argp) return(0x00);
 
 r = cli_coord_beta(CLI_IN,coord+(CLI_BASE),argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
+printf("%s \n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
 
@@ -37,17 +38,16 @@ exte = (R(Top,R(srWindow,R(csbi,*argp))));
 
 r = cli_clear_rows_internal_beta(inte,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_clear_rows_internal_beta()");
+printf("%s \n","<< Error at fn. cli_clear_rows_internal_beta()");
 return(0x00);
 }
 
 i = (r);
 
-if(comeback) {
 // fix the frame
 r = cli_get_csbi_beta(argp);
 if(!r) {
-printf("<< Error at fn. cli_get_csbi_beta()");
+printf("%s \n","<< Error at fn. cli_get_csbi_beta()");
 return(0x00);
 }
 if(exte^(R(Top,R(srWindow,R(csbi,*argp))))) {
@@ -55,21 +55,29 @@ if(exte^(R(Top,R(srWindow,R(csbi,*argp))))) {
 exte = (-exte+(R(Top,R(srWindow,R(csbi,*argp)))));
 r = cli_scroll_beta(-exte,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_scroll_beta()");
+printf("%s \n","<< Error at fn. cli_scroll_beta()");
 //*/
 //* by putting the cursor
 R(y,*(coord+(CLI_OFFSET))) = (exte);
 R(x,*(coord+(CLI_OFFSET))) = (0x00);
 r = cli_coord_beta(CLI_OUT,coord+(CLI_OFFSET),argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
+printf("%s \n","<< Error at fn. cli_coord_beta()");
 //*/
 return(0x00);
 }}
+
 // come back
 r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
+printf("%s \n","<< Error at fn. cli_coord_beta()");
+return(0x00);
+}
+
+if(!comeback) {
+r = _putch(LF);
+if(!(EOF^(r))) {
+printf("%s \n","<< Error at fn. _putch()");
 return(0x00);
 }}
 

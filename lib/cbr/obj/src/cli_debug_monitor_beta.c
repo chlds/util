@@ -52,11 +52,9 @@ return(0x00);
 }
 
 // aux.
-// r = cli_clear_rows_beta(0x01/* comeback */,argp);
-r = cli_clear2_rows_beta(0x01/* comeback */,argp);
+r = cli_clear_rows_beta(0x01/* comeback */,argp);
 if(!r) {
-// printf("%s\n","<< Error at fn. cli_clear_rows_beta()");
-printf("%s\n","<< Error at fn. cli_clear2_rows_beta()");
+printf("%s \n","<< Error at fn. cli_clear_rows_beta()");
 return(0x00);
 }
 
