@@ -53,6 +53,12 @@ return(0x00);
 i = (r);
 
 if(CG_COMEBACK&(flag)) {
+/* come back */
+r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
+if(!r) {
+printf("%s\n","<< Error at fn. cli_coord_beta()");
+return(0x00);
+}
 /* fix the frame */
 r = cli_get_csbi_beta(argp);
 if(!r) {
@@ -60,27 +66,13 @@ printf("%s\n","<< Error at fn. cli_get_csbi_beta()");
 return(0x00);
 }
 if(exte^(R(Top,R(srWindow,R(csbi,*argp))))) {
-/* by scrolling the content
+//* by scrolling the content
 exte = (-exte+(R(Top,R(srWindow,R(csbi,*argp)))));
 r = cli_scroll_beta(-exte,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_scroll_beta()");
-//*/
-//* by putting the cursor
-R(y,*(coord+(CLI_OFFSET))) = (exte);
-R(x,*(coord+(CLI_OFFSET))) = (0x00);
-r = cli_coord_beta(CLI_OUT,coord+(CLI_OFFSET),argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
-//*/
 return(0x00);
-}}
-/* come back */
-r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
-if(!r) {
-printf("%s\n","<< Error at fn. cli_coord_beta()");
-return(0x00);
-}}
+}}}
 
 if(CG_EMUL&(flag)) {
 r = cli_emul(CLI_OUT,&(R(ty,*argp)));

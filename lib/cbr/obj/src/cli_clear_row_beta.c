@@ -67,21 +67,19 @@ return(0x00);
 }
 
 if(comeback) {
-AND(flag,0x00);
-// fix the frame
-r = cli_get_csbi_beta(argp);
-if(!r) {
-printf("%s \n","<< Error at fn. cli_get_csbi_beta()");
-return(0x00);
-}
-if(exte^(R(Top,R(srWindow,R(csbi,*argp))))) flag++;
 // come back
 r = cli_coord_beta(CLI_OUT,coord+(CLI_BASE),argp);
 if(!r) {
 printf("%s \n","<< Error at fn. cli_coord_beta()");
 return(0x00);
 }
-if(flag) {
+// fix the frame
+r = cli_get_csbi_beta(argp);
+if(!r) {
+printf("%s \n","<< Error at fn. cli_get_csbi_beta()");
+return(0x00);
+}
+if(exte^(R(Top,R(srWindow,R(csbi,*argp))))) {
 //* by scrolling the content
 exte = (-exte+(R(Top,R(srWindow,R(csbi,*argp)))));
 r = cli_scroll_beta(-exte,argp);
