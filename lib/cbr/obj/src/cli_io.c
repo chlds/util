@@ -1,13 +1,11 @@
 /* **** Notes
 
-Output Unicode characters in UTF-8 after decoding Unicode bytes input out of the key board.
+Output characters in UTF-8 after decoding Unicode bytes input out of the key board.
 
 Along with C library
 
 Remarks:
 Based on UTF-8
-
-Notes:
 An array of function pointers is not yet implemented..
 */
 
@@ -21,7 +19,7 @@ An array of function pointers is not yet implemented..
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_io(signed char(*cur),signed(size),CLI_STAT(*argp))) {
+signed(__cdecl cli_io(signed(size),signed char(*cur),CLI_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed(__cdecl*(cli_fn[CLI_FN])) (void(*cli_fn_argp)) = {
@@ -64,7 +62,9 @@ auto unsigned const UTF_8 = (65001);
 auto signed const LIMIT = (0x01+(0x04));
 auto signed DEL = (0x7F);
 
+auto signed char *b;
 auto signed char *p;
+auto signed dif;
 auto signed i,r;
 auto signed short flag;
 
@@ -80,27 +80,26 @@ return(0x00);
 // get
 r = cli_in(&i,cur,size);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_in()");
+printf("%s \n","<< Error at fn. cli_in()");
 return(0x00);
 }
 
-cur = (r+(cur));
-*cur = (0x00);
-size = (-r+(size));
+dif = (r);
+*(dif+(cur)) = (0x00);
 
 if(!(DEL^(i))) i = (CTRL_D);
 
 if(i<(0x20)) {
 // fix
-*(--cur) = (signed char) (0x00);
-size++;
+AND(dif,0x00);
+*(dif+(cur)) = (signed char) (0x00);
 *(CLI_INDEX+(R(cur,R(ty,*argp)))) = (cur);
 R(gauge,R(ty,*argp)) = (size);
 // and run in an array of function pointers e.g.,
 // r = *(cli_fn+(i)) (*(cli_fn_argp+(i)));
 r = (*(cli_fn+(i)))(argp);
 if(!r) {
-printf("%s%d%s%d%s\n","<< Error at fn. *(cli_fn[",i,"]) (*(cli_fn_argp+(",i,")))");
+printf("%s%d%s%d%s \n","<< Error at fn. *(cli_fn[",i,"]) (*(cli_fn_argp+(",i,")))");
 return(0x00);
 }
 size = (R(gauge,R(ty,*argp)));
@@ -110,11 +109,14 @@ if(CLI_BR&(R(flag,R(ty,*argp)))) return(0x01);
 
 else {
 // put
-r = cli_out(-r+(cur));
+size = (-dif+(size));
+r = cli_out(cur);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_out()");
+printf("%s \n","<< Error at fn. cli_out()");
 return(0x00);
 }}
 
-return(0x01+(cli_io(cur,size,argp)));
+cur = (dif+(cur));
+
+return(0x01+(cli_io(size,cur,argp)));
 }

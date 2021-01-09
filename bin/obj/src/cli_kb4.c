@@ -1,6 +1,6 @@
 /* **** Notes
 
-Output Unicode characters in UTF-8.
+Output characters in UTF-8.
 
 Remarks:
 Based on UTF-8
@@ -12,34 +12,24 @@ Based on UTF-8
 # include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <windows.h>
 # include "../../../lib/incl/config.h"
-
-# define COUNT_CP (0x04)
-# define BUFF (0x1000)
 
 signed(__cdecl main(void)) {
 
 /* **** DATA, BSS and STACK */
-enum {
-OLD_INPUT,INPUT,OLD_OUTPUT,OUTPUT,
+auto signed(__cdecl *(io_f[])) (void) = {
+GetConsoleOutputCP,
+GetConsoleCP,
+0x00,
 };
 
-auto unsigned const UTF_8 = (65001);
-auto signed char const(SP) = (' ');
-auto signed char const(CR) = ('\r');
-auto signed char const(LF) = ('\n');
-
-auto signed char buff[BUFF] = {
-(signed char) (0x00),
-};
-
-auto unsigned codepage[COUNT_CP] = {
-(unsigned) (0x00),
-};
-
+auto signed char *b;
 auto signed char *p;
 
-auto signed i,l,r;
+auto cli_codepage_t codepage;
+auto signed io[0x02];
+auto signed i,r;
 auto signed short flag;
 auto signed char c;
 
@@ -48,93 +38,70 @@ auto CLI_STAT cli_stat = {
 };
 
 /* **** CODE/TEXT */
-*(codepage+(OLD_INPUT)) = GetConsoleCP();
-if(!(*(codepage+(OLD_INPUT)))) {
-r = GetLastError();
-printf("%s%d%s%X\n","<< Error at fn. GetConsoleCP() with error no. ",r," or ",r);
-return(0x00);
-}
+system("cls");
 
-*(codepage+(OLD_OUTPUT)) = GetConsoleOutputCP();
-if(!(*(codepage+(OLD_OUTPUT)))) {
-r = GetLastError();
-printf("%s%d%s%X\n","<< Error at fn. GetConsoleOutputCP() with error no. ",r," or ",r);
-return(0x00);
-}
-
-printf("%s%d%s%d\n","Current Code Pages for Input/Output: ",*(codepage+(OLD_INPUT)),"/",*(codepage+(OLD_OUTPUT)));
-printf("\n");
-
-r = SetConsoleCP(UTF_8);
+r = cli_backup_codepages_beta(0x00/* flag */,&codepage);
 if(!r) {
-r = GetLastError();
-printf("%s%d%s%X\n","<< Error at fn. SetConsoleCP() with error no. ",r," or ",r);
+printf("%s \n","<< Error at fn. cli_backup_codepages_beta()");
 return(0x00);
 }
 
-/*
-r = SetConsoleOutputCP(UTF_8);
+r = cli_set_codepages_beta(CLI_UTF_8/* input */,0x00/* output */);
 if(!r) {
-r = GetLastError();
-printf("%s%d%s%X\n","<< Error at fn. SetConsoleOutputCP() with error no. ",r," or ",r);
-return(0x00);
-}
-//*/
-
-*(codepage+(INPUT)) = GetConsoleCP();
-if(!(*(codepage+(INPUT)))) {
-r = GetLastError();
-printf("%s%d%s%X\n","<< Error at fn. GetConsoleCP() with error no. ",r," or ",r);
+printf("%s \n","<< Error at fn. cli_set_codepages_beta()");
 return(0x00);
 }
 
-*(codepage+(OUTPUT)) = GetConsoleOutputCP();
-if(!(*(codepage+(OUTPUT)))) {
+i = (0x02);
+while(i) {
+*(i+(io)) = (*(--i+(io_f)))();
+if(!(*(i+(io)))) {
 r = GetLastError();
-printf("%s%d%s%X\n","<< Error at fn. GetConsoleOutputCP() with error no. ",r," or ",r);
+printf("%s%d%s %d %s %Xh \n","<< Error at fn. (*(",i,"+(io_f)))() with error no.",r,"or",r);
 return(0x00);
-}
+}}
 
-printf("%s%d%s%d\n","The new current Code Pages for Input/Output: ",*(codepage+(INPUT)),"/",*(codepage+(OUTPUT)));
-printf("%s\n","The original code page for console input will be automatically restored after terminating this program.");
+printf("%s %d%s%d \n","Current codepages for Input/Output:",*(CLI_IN+(io)),"/",*(CLI_OUT+(io)));
+printf("%s %d%s%d \n","Codepages backed up for Input/Output:",*(CLI_BASE+(R(io,codepage))),"/",*(CLI_OFFSET+(R(io,codepage))));
+printf("%s \n","The original codepages for console input/output will be automatically restored after terminating this program.");
 printf("\n");
 
 // Announcements
-cputs("Please type the <Enter> key to stop.\n\n");
+cputs("Please type the <Enter> key to stop. \n\n");
 
+r = (0x1000);
+r = (r*(sizeof(*b)));
+b = (signed char(*)) malloc(r);
+if(!r) return(0x00);
 
-r = cli_io(buff,BUFF,&cli_stat);
-if(!r) printf("%s\n","<< Error at fn. cli_io()");
+*b = (0x00);
+r = cli_io(r,b,&cli_stat);
+if(!r) printf("%s \n","<< Error at fn. cli_io()");
 
 if(r) {
 i = (r);
 // Results
 // 1/2.
-printf("\n\n");
-printf("%s","Content based on UTF-8: ");
-r = cli_outs(buff);
+printf(" \n\n");
+printf("%s ","Content based on UTF-8:");
+r = cli_outs(b);
 // 2/2.
-printf("\n");
-printf("%s%d%s%d\n","The bytes/characters: ",ct(buff),"/",cli_count(buff));
-// Aux.
-printf("%s%d%s\n","Recurred ",i," times");
+printf(" \n\n");
+printf("%s %d%s%d \n","The characters/bytes:",cli_count(b),"/",ct(b));
+printf("%s %d %s \n","Recurred",i,"times");
 }
 
+r = rl(&b);
+if(!r) return(0x00);
 
-// Restore to the original code page for console input.
-r = SetConsoleCP(*(codepage+(OLD_INPUT)));
+r = cli_restore_codepages_beta(0x00/* flag */,&codepage);
 if(!r) {
-r = GetLastError();
-printf("%s%d%s%X\n","<< Error at fn. SetConsoleCP() with error no. ",r," or ",r);
+printf("%s \n","<< Error at fn. cli_restore_codepages_beta()");
 return(0x00);
 }
 
-r = SetConsoleOutputCP(*(codepage+(OLD_OUTPUT)));
-if(!r) {
-r = GetLastError();
-printf("%s%d%s%X\n","<< Error at fn. SetConsoleOutputCP() with error no. ",r," or ",r);
-return(0x00);
-}
+printf(" \n");
+printf("%s \n","Done!");
 
-return(0x00);
+return(0x01);
 }
