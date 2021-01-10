@@ -186,6 +186,9 @@ signed(__cdecl cli_ctrl_ca(void(*argp)));
 signed(__cdecl cli_ctrl_ll(void(*argp)));
 // along with an array of function pointers for text
 
+signed(__cdecl cli_ctrl_fn_internal(signed(arg),void/* CLI_STAT */(*argp)));
+signed(__cdecl cli_ctrl_fn(signed(arg),signed char(**cur),signed(*size),CLI_STAT(*argp)));
+
 signed(__cdecl cli_io(signed(size),signed char(*cur),CLI_STAT(*argp)));
 /* input/Output Unicode bytes/characters in UTF-8 out of the key board to the console screen along with fn. cli_in/cli_out. */
 
