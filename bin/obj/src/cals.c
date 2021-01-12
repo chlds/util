@@ -273,5 +273,11 @@ v = (0x00);
 path = (0x00);
 path_w = (0x00);
 
+r = cli_init_boil(0x01,&(R(b,R(property,cs))));
+if(!r) {
+printf("%s \n","<< Error at fn. cli_init_boil()");
+return(0x00);
+}
+
 return(0x01);
 }
