@@ -16,7 +16,7 @@ if(!argp) return(0x00);
 r = cli_init_frames(&(R(frame,*argp)));
 if(!r) return(0x00);
 
-r = cli_init_text(&(R(text,*argp)));
+r = cli_init_text(0x00,&(R(text,*argp)));
 if(!r) return(0x00);
 
 i = (CLI_OBJS);
@@ -24,18 +24,6 @@ while(i) *(--i+(R(argv,*argp))) = (0x00);
 
 i = (CLI_OBJS);
 while(i) *(--i+(R(argv_w,*argp))) = (0x00);
-
-r = cli_init_boil(0x00/* init */,&(R(b,*argp)));
-if(!r) {
-printf("%s \n","<< Error at fn. cli_init_boil()");
-return(0x00);
-}
-
-// aux.
-i = (CLI_OBJS);
-while(i) *(--i+(R(base,R(w,*argp)))) = (0x00);
-AND(R(flag,R(w,*argp)),0x00);
-R(optl,R(w,*argp)) = (0x00);
 
 i = (CLI_OBJS);
 while(i) {

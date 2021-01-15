@@ -11,7 +11,7 @@ Along with C library
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_restore_internal(signed(*cache),signed char(**argp))) {
+signed(__cdecl cli_restore_boil_internal(signed(arg),signed char(**argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *b;
@@ -19,22 +19,21 @@ auto signed r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
-if(!cache) return(0x00);
+if(arg<(0x00)) return(0x00);
 if(!argp) return(0x00);
 // if(!(*argp)) return(0x00);
+// if(arg<(0x00)) arg = (0x01+(~arg));
+
+if(CLI_BB<(0x00)) return(0x00);
 
 r = ct(*argp);
+r = (arg+(r));
 r = (CLI_BB+(r));
-r = (r*(sizeof(**argp)));
-if(r<(CLI_BB)) return(0x00);
+r++;
+r = alloc(r,&b);
+if(!r) return(0x00);
 
-b = (signed char(*)) malloc(r);
-if(!b) return(0x00);
-
-r = cpy(b,*argp);
-if(!r) *b = (0x00);
-
-*cache = (r);
+if(!(cpy(b,*argp))) *b = (0x00);
 
 embed(0x00,*argp);
 if(*argp) free(*argp);
@@ -42,5 +41,5 @@ if(*argp) free(*argp);
 *argp = (b);
 b = (0x00);
 
-return(0x01);
+return(r);
 }

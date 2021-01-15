@@ -1,4 +1,4 @@
-# define CLI_BB (0x10)
+# define CLI_BB (0x0F)
 # define CLI_OBJS (0x01+(0x03))
 
 # include "./cli_flag.h"
@@ -10,11 +10,13 @@ signed short flag;
 void *optl;
 } typedef cli_b_t;
 
+/*
 struct cli_w {
 signed short *(base[CLI_OBJS]);
 signed short flag;
 void *optl;
 } typedef cli_w_t;
+//*/
 
 struct coord {
 signed short x[CLI_OBJS];
@@ -46,6 +48,9 @@ signed short width;
 signed short height;
 signed short flag;
 signed attribute;
+// cli_w_t w;
+cli_b_t b;
+cli_b_t append;
 void *optl;
 } typedef cli_text_t;
 
@@ -61,8 +66,6 @@ void *(window[CLI_OBJS]);
 void *(device[CLI_OBJS]);
 signed short flag;
 signed r;
-cli_b_t b;
-cli_w_t w;
 cli_text_t text;
 cli_frame_t frame;
 void *optl;
@@ -74,8 +77,8 @@ signed(__cdecl cli_retrieve_standard_handles_beta(void(**argp)));
 signed(__cdecl coord_beta(signed short(io),signed short(arg),coord_t(*argp)));
 signed(__cdecl rect_beta(signed short(io),signed short(arg),rect_t(*argp)));
 signed(__cdecl cli_init_frames(cli_frame_t(*argp)));
-signed(__cdecl cli_init_text(cli_text_t(*argp)));
+signed(__cdecl cli_init_text(signed(arg),cli_text_t(*argp)));
 signed(__cdecl cli_init_boil(signed(arg),cli_b_t(*argp)));
-signed(__cdecl cli_restore_internal(signed(*cache),signed char(**argp)));
-signed(__cdecl cli_restore(signed(*cache),cli_b_t(*argp)));
+signed(__cdecl cli_restore_boil_internal(signed(arg),signed char(**argp)));
+signed(__cdecl cli_restore_boil(signed char(*cache),cli_b_t(*argp)));
 signed(__cdecl cli_init_property(signed short(arg),cli_property_t(*argp)));

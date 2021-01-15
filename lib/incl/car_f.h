@@ -299,6 +299,11 @@ signed(__cdecl n_putch(signed(n),signed(letter)));
 signed(__cdecl nsort(signed(count),signed(*base)));
 signed(__cdecl bsort(signed(count),signed(*base)));
 
+signed(__cdecl alloc(signed(arg),signed char(**argp)));
+
+signed(__cdecl concatenate(signed(arg),signed char(**di),signed char(*si)));
+/* Release the *di later. */
+
 signed(__cdecl cat_ll(KNOT(*argp)));
 
 signed(__cdecl catppp(signed char(***argp)));
