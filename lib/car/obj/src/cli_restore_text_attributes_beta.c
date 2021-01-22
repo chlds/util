@@ -19,7 +19,7 @@ auto signed short flag;
 
 if(!argp) return(0x00);
 
-if(!(CLI_INIT&(R(flag,*argp)))) return(0x00);
+if(!(CLI_INIT&(*(CLI_BASE+(R(flag,*argp)))))) return(0x00);
 if(!(CLI_BACKUP&(R(flag,R(text,*argp))))) return(0x00);
 
 r = SetConsoleTextAttribute(*(CLI_OUT+(R(device,*argp))),R(attribute,R(text,*argp)));

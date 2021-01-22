@@ -11,7 +11,7 @@ Refer at fn. cli_restore.
 # include <stdlib.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl cli_init_boil(signed(arg),cli_b_t(*argp))) {
+signed(__cdecl cli_init_rule(signed(arg),cli_b_t(*argp))) {
 
 auto signed char *b;
 auto signed i,r;

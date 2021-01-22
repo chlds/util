@@ -5,18 +5,33 @@ Initialise
 
 
 # define CAR
+# include <stdio.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl cli_init_property(signed short(arg),cli_property_t(*argp))) {
+signed(__cdecl cli_init_property(signed(arg),cli_property_t(*argp))) {
 
+/* **** DATA, BSS and STACK */
+auto void **(v[]) = {
+R(device,*argp),
+R(token,*argp),
+R(thread,*argp),
+R(process,*argp),
+R(window,*argp),
+0x00,
+};
+
+auto void ***vv;
 auto signed i,r;
 
+/* **** CODE/TEXT */
 if(!argp) return(0x00);
+
+if(!(CLI_INIT&(*(CLI_BASE+(R(flag,*argp)))))) AND(arg,0x00);
 
 r = cli_init_frames(&(R(frame,*argp)));
 if(!r) return(0x00);
 
-r = cli_init_text(0x00,&(R(text,*argp)));
+r = cli_init_text(arg,&(R(text,*argp)));
 if(!r) return(0x00);
 
 i = (CLI_OBJS);
@@ -25,22 +40,18 @@ while(i) *(--i+(R(argv,*argp))) = (0x00);
 i = (CLI_OBJS);
 while(i) *(--i+(R(argv_w,*argp))) = (0x00);
 
+vv = (v);
+while(*vv) {
 i = (CLI_OBJS);
-while(i) {
-*(--i+(R(token,*argp))) = (0x00);
-*(i+(R(thread,*argp))) = (0x00);
-*(i+(R(process,*argp))) = (0x00);
-*(i+(R(window,*argp))) = (0x00);
-*(i+(R(device,*argp))) = (0x00);
+while(i) *(--i+(*vv)) = (0x00);
+vv++;
 }
 
-AND(R(flag,*argp),0x00);
-
-AND(R(r,*argp),0x00);
-
+i = (CLI_OBJS);
+while(i) AND(*(--i+(R(flag,*argp))),0x00);
 R(optl,*argp) = (0x00);
 
-if(arg) {
+if(!arg) {
 r = cli_retrieve_standard_handles_beta(R(device,*argp));
 if(!r) {
 printf("%s \n","<< Error at fn. cli_retrieve_standard_handles_beta()");
@@ -54,7 +65,7 @@ r = pixel_beta(CLI_IN,CLI_BOIL,&(R(pixel,R(frame,*argp))));
 if(!r) return(0x00);
 }
 
-OR(R(flag,*argp),CLI_INIT);
+if(!arg) OR(*(CLI_BASE+(R(flag,*argp))),CLI_INIT);
 
 return(0x01);
 }

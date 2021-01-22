@@ -8,6 +8,7 @@ Refer at fn. cli_init_property.
 
 
 # define CAR
+# include <stdio.h>
 # include "./../../../incl/config.h"
 
 signed(__cdecl cli_init_text(signed(arg),cli_text_t(*argp))) {
@@ -34,9 +35,9 @@ AND(R(attribute,*argp),0x00);
 
 AND(i,0x00);
 while(*(b+(i))) {
-r = cli_init_boil(arg,*(b+(i++)));
+r = cli_init_rule(arg,*(b+(i++)));
 if(!r) {
-printf("%s%d%s \n","<< Error at fn. cli_init_boil(arg,*(b+(",--i,")))");
+printf("%s%d%s \n","<< Error at fn. cli_init_rule(arg,*(b+(",--i,")))");
 return(0x00);
 }}
 

@@ -11,7 +11,7 @@ Along with C library
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_restore_boil_internal(signed(arg),signed char(**argp))) {
+signed(__cdecl cli_restore_base(signed(arg),signed char(**argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *b;

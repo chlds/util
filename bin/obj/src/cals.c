@@ -273,9 +273,9 @@ v = (0x00);
 path = (0x00);
 path_w = (0x00);
 
-r = cli_init_text(0x01/* destroy */,&(R(text,R(property,cs))));
+r = cli_init_property(0x01,&(R(property,cs)));
 if(!r) {
-printf("%s \n","<< Error at fn. cli_init_text()");
+printf("%s \n","<< Error at fn. cli_init_property()");
 return(0x00);
 }
 

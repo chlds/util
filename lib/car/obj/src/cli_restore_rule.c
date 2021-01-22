@@ -10,7 +10,7 @@ Along with C library
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_restore_boil(signed char(*cache),cli_b_t(*argp))) {
+signed(__cdecl cli_restore_rule(signed char(*cache),cli_b_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *b;
@@ -28,7 +28,7 @@ b = (*(CLI_BASE+(R(base,*argp))));
 dif = compare(*(CLI_INDEX+(R(base,*argp))),b);
 
 r = ct(cache);
-r = cli_restore_boil_internal(r,&b);
+r = cli_restore_base(r,&b);
 if(!r) return(0x00);
 
 i = (CLI_OBJS);

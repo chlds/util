@@ -37,7 +37,7 @@ auto signed i,r;
 
 if(!argp) return(0x00);
 
-if(!(CLI_INIT&(R(flag,*argp)))) return(0x00);
+if(!(CLI_INIT&(*(CLI_BASE+(R(flag,*argp)))))) return(0x00);
 
 r = GetConsoleScreenBufferInfo(*(CLI_OUT+(R(device,*argp))),&csbi);
 if(!r) return(0x00);

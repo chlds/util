@@ -14,26 +14,39 @@ Based on UTF-8
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_io(signed(size),signed char(*cur),CLI_STAT(*argp))) {
+signed(__cdecl cli_io(cli_property_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed const LIMIT = (0x01+(0x04));
 auto signed DEL = (0x7F);
 
-auto signed char *b;
-auto signed char *p;
+auto cli_text_t *t;
+auto cli_b_t *b;
+auto cli_b_t *p;
+auto signed char *cur;
+auto signed size;
 auto signed dif;
 auto signed i,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
-if(!cur) return(0x00);
 if(!argp) return(0x00);
 
-if(!(LIMIT<(size))) {
-*cur = (0x00);
+if(!(CLI_INIT&(*(CLI_BASE+(R(flag,*argp)))))) return(0x00);
+
+if(CLI_QUIT&(*(CLI_LEAD+(R(flag,*argp))))) return(0x01);
+if(CLI_BR&(R(flag,R(text,*argp)))) return(0x01);
+
+t = (&(R(text,*argp)));
+r = cli_restore(0x00/* not remove an appendant */,t);
+if(!r) {
+printf("%s \n","<< Error at fn. cli_restore()");
 return(0x00);
 }
+
+p = (&(R(append,*t)));
+b = (&(R(b,*t)));
+cur = (*(CLI_INDEX+(R(base,*b))));
+size = (CLI_BB);
 
 // get
 r = cli_in(&i,cur,size);
@@ -43,31 +56,33 @@ return(0x00);
 }
 
 dif = (r);
-*(dif+(cur)) = (0x00);
-
+// *(dif+(cur)) = (0x00);
 if(!(DEL^(i))) i = (CTRL_D);
+
 if(i<(0x20)) {
-// fix
 AND(dif,0x00);
-*(dif+(cur)) = (signed char) (0x00);
-r = cli_ctrl_fn(i,&cur,&size,argp);
+r = cli_ctrl_fn(i,argp);
 if(!r) {
 printf("%s \n","<< Error at fn. cli_ctrl_fn()");
 return(0x00);
-}
-if(CLI_BR&(R(flag,R(ty,*argp)))) return(0x01);
-}
+}}
 
 else {
 // put
-size = (-dif+(size));
 r = cli_out(cur);
 if(!r) {
 printf("%s \n","<< Error at fn. cli_out()");
 return(0x00);
-}}
+}
+while(dif) {
+INC(cur);
+--dif;
+}
+*(CLI_INDEX+(R(base,*b))) = (cur);
+}
 
-cur = (dif+(cur));
+b = (0x00);
+p = (b);
 
-return(0x01+(cli_io(size,cur,argp)));
+return(0x01+(cli_io(argp)));
 }

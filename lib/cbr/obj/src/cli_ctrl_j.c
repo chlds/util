@@ -14,15 +14,15 @@ Refer at util/lib/obj/src/cli_io.c
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_ctrl_j(CLI_STAT(*argp))) {
+signed(__cdecl cli_ctrl_j(cli_property_t(*argp))) {
 
-auto signed char *p;
-auto signed c,i,r;
+auto signed char *b;
+auto signed i,r;
 auto signed short flag;
 
 if(!argp) return(0x00);
 
-if(CLI_DBG) printf("%s","<Ctrl-J>");
+if(CLI_DBG) printf("%s ","<Ctrl-J>");
 
 return(0x01);
 }

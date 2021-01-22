@@ -47,7 +47,7 @@ R(flag,*argp) = (0x00);
 R(optl,*argp) = (0x00);
 
 // also
-r = cli_init_property(0x01,&(R(property,*argp)));
+r = cli_init_property(0x00,&(R(property,*argp)));
 if(!r) {
 printf("%s \n","<< Error at fn. cli_init_property()");
 return(0x00);

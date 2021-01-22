@@ -14,17 +14,17 @@ Refer at util/lib/obj/src/cli_io.c
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_ctrl_m(CLI_STAT(*argp))) {
+signed(__cdecl cli_ctrl_m(cli_property_t(*argp))) {
 
-auto signed char *p;
-auto signed c,i,r;
+auto signed char *b;
+auto signed i,r;
 auto signed short flag;
 
 if(!argp) return(0x00);
 
-if(CLI_DBG) printf("%s","<Ctrl-M>");
+if(CLI_DBG) printf("%s ","<Ctrl-M>");
 
-OR(R(flag,R(ty,*argp)),CLI_BR);
+OR(R(flag,R(text,*argp)),CLI_BR);
 
 return(0x01);
 }
