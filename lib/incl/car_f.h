@@ -274,6 +274,9 @@ signed(__cdecl ct2_except(signed char(cache), signed char(*base)));
 signed(__cdecl ct_except(signed char(di), signed char(*base)));
 /* Count letters to the terminating null character except for the one you'd select. */
 
+signed(__cdecl ct_characters(signed char(*argp)));
+signed(__cdecl ct_letters(signed char(*argp)));
+
 signed(__cdecl ct2(signed char(di), signed char(*base)));
 signed(__cdecl ct(signed char(*argp)));
 /* Count letters to the one you'd select or to the terminating null character. */

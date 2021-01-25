@@ -12,7 +12,7 @@ The beta edition is for Windows 10 64-bit OS.
 # include "../../../incl/config.h"
 # include <windows.h>
 
-signed(__cdecl pixel_beta(signed short(io),signed short(arg),pixel_t(*argp))) {
+signed(__cdecl pixel_beta(signed(io),signed(arg),pixel_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *b;
@@ -53,12 +53,12 @@ r = GetLastError();
 printf("%s %d %s %Xh \n","<< Error at fn. GetSystemMetrics(SM_CYSCREEN) with error no.",r,"or",r);
 return(0x00);
 }
-if(arg<(CLI_BOIL)) {
+if(arg<(CLI_RULE)) {
 *(arg+(R(x,*argp))) = (x);
 *(arg+(R(y,*argp))) = (y);
 }
 else {
-i = (CLI_BOIL);
+i = (CLI_RULE);
 while(i) {
 *(--i+(R(x,*argp))) = (x);
 *(i+(R(y,*argp))) = (y);

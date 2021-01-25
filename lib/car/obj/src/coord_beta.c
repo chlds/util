@@ -12,7 +12,7 @@ The beta edition is for Windows 10 64-bit OS.
 # include "../../../incl/config.h"
 # include <windows.h>
 
-signed(__cdecl coord_beta(signed short(io),signed short(arg),coord_t(*argp))) {
+signed(__cdecl coord_beta(signed(io),signed(arg),coord_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *b;
@@ -46,12 +46,12 @@ r = GetLastError();
 printf("%s %d %s %Xh \n","<< Error at fn. GetConsoleScreenBufferInfo() with error no.",r,"or",r);
 return(0x00);
 }
-if(arg<(CLI_BOIL)) {
+if(arg<(CLI_RULE)) {
 *(arg+(R(x,*argp))) = (R(X,R(dwCursorPosition,csbi)));
 *(arg+(R(y,*argp))) = (R(Y,R(dwCursorPosition,csbi)));
 }
 else {
-i = (CLI_BOIL);
+i = (CLI_RULE);
 while(i) {
 *(--i+(R(x,*argp))) = (R(X,R(dwCursorPosition,csbi)));
 *(i+(R(y,*argp))) = (R(Y,R(dwCursorPosition,csbi)));
@@ -60,7 +60,7 @@ return(0x01);
 }
 
 if(!(io^(CLI_OUT))) {
-if(!(arg<(CLI_BOIL))) return(0x00);
+if(!(arg<(CLI_RULE))) return(0x00);
 coord.X = (*(arg+(R(x,*argp))));
 coord.Y = (*(arg+(R(y,*argp))));
 r = SetConsoleCursorPosition(v,coord);

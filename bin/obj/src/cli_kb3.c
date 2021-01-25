@@ -122,7 +122,7 @@ printf("%s","Content based on UTF-8: ");
 r = cli_outs(buff2);
 // 2/2.
 printf("\n");
-printf("%s%d%s%d\n","The bytes/characters: ",r,"/",cli_count(buff2));
+printf("%s%d%s%d\n","The bytes/characters: ",r,"/",ct_characters(buff2));
 
 // Notes
 printf("%s\n","--notes: also count control characters (or non-printing characters (NPC)).");

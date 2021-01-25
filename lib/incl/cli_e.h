@@ -3,7 +3,7 @@ CLI_BASE,
 CLI_OFFSET,
 CLI_INDEX,
 CLI_LEAD,
-CLI_BOIL,
+CLI_RULE,
 };
 
 enum {

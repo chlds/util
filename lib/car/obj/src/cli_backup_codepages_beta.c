@@ -28,7 +28,7 @@ auto signed i,r;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-r = (CLI_BOIL);
+r = (CLI_RULE);
 i = (0x02);
 if(!flag) r = (-i+(r));
 

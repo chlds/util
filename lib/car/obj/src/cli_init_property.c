@@ -57,11 +57,11 @@ if(!r) {
 printf("%s \n","<< Error at fn. cli_retrieve_standard_handles_beta()");
 return(0x00);
 }
-r = coord_beta(CLI_IN,CLI_BOIL,&(R(coord,R(frame,*argp))));
+r = coord_beta(CLI_IN,CLI_RULE,&(R(coord,R(frame,*argp))));
 if(!r) return(0x00);
-r = rect_beta(CLI_IN,CLI_BOIL,&(R(rect,R(frame,*argp))));
+r = rect_beta(CLI_IN,CLI_RULE,&(R(rect,R(frame,*argp))));
 if(!r) return(0x00);
-r = pixel_beta(CLI_IN,CLI_BOIL,&(R(pixel,R(frame,*argp))));
+r = pixel_beta(CLI_IN,CLI_RULE,&(R(pixel,R(frame,*argp))));
 if(!r) return(0x00);
 }
 
