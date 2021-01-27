@@ -26,7 +26,7 @@ codepage = (&(R(codepage,*argp)));
 ci = (0x00/* e.g., CLI_UTF_8 */);
 co = (0x00/* e.g., CLI_UTF_8 */);
 
-r = cli_init_codepage(codepage);
+r = cli_init_codepages(codepage);
 if(!r) return(0x00);
 
 r = cli_backup_codepages_beta(0x00/* flag */,codepage);
