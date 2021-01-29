@@ -1,3 +1,5 @@
+# define CTRL_MASK (0x1F)
+
 # define CLI_BB (0x0F)
 # define CLI_OBJS (0x01+(0x03))
 
