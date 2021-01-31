@@ -12,10 +12,10 @@ Based on a doubly linked list (i.e., not a circular linked list)
 
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_reconcat_pages(signed short(*backward),CLI_SPOOL(*argp))) {
+signed(__cdecl cli_reconcat_pages(signed short(*backward),cli_spool_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto CLI_PAGE *page;
+auto cli_page_t *page;
 auto signed i,r;
 auto signed short flag;
 

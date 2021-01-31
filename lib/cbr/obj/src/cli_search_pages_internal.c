@@ -14,7 +14,7 @@ Based on a doubly linked list
 signed(__cdecl cli_search_pages_internal(CLI_TYPEWRITER(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto CLI_PAGE *page;
+auto cli_page_t *page;
 
 auto signed char *cur,*base,*p;
 auto signed i,r;

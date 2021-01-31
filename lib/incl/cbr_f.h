@@ -79,34 +79,34 @@ signed(__cdecl cli_book(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_init_workspace(CLI_TYPEWRITER(*argp)));
 // initialise workspace.
 
-signed(__cdecl cli_connect_with_workspace(CLI_PAGE(*page),CLI_TYPEWRITER(*argp)));
+signed(__cdecl cli_connect_with_workspace(cli_page_t(*page),CLI_TYPEWRITER(*argp)));
 // connect a page with workspace.
 
-signed(__cdecl cli_init_pages(CLI_SPOOL(*argp)));
+signed(__cdecl cli_init_pages(cli_spool_t(*argp)));
 
-signed(__cdecl cli_concat_pages(CLI_PAGE(*cache),CLI_SPOOL(*argp)));
-signed(__cdecl cli_bind_pages(CLI_SPOOL(*argp)));
-signed(__cdecl cli_merge_pages(CLI_SPOOL(*argp)));
-signed(__cdecl cli_reconcat_pages(signed short(*backward),CLI_SPOOL(*argp)));
-signed(__cdecl cli_unmap_pages(CLI_SPOOL(*argp)));
+signed(__cdecl cli_concat_pages(cli_page_t(*cache),cli_spool_t(*argp)));
+signed(__cdecl cli_bind_pages(cli_spool_t(*argp)));
+signed(__cdecl cli_merge_pages(cli_spool_t(*argp)));
+signed(__cdecl cli_reconcat_pages(signed short(*backward),cli_spool_t(*argp)));
+signed(__cdecl cli_unmap_pages(cli_spool_t(*argp)));
 
-signed(__cdecl cli_insert_pages(CLI_SPOOL(*di),CLI_SPOOL(*si)));
-signed(__cdecl cli_copy_to_pages_internal(signed short(lastbreak),CLI_SPOOL(*argp),signed char(*buff),signed char(*base)));
-signed(__cdecl cli_copy_to_pages(signed short(lastbreak),CLI_SPOOL(*argp),signed char(*base)));
-signed(__cdecl cli_copy_pages(signed short(linebreak_form),signed(count),signed(size),signed short(*w),CLI_PAGE(*argp)));
-signed(__cdecl cli_count_pages(CLI_PAGE(*argp)));
+signed(__cdecl cli_insert_pages(cli_spool_t(*di),cli_spool_t(*si)));
+signed(__cdecl cli_copy_to_pages_internal(signed short(lastbreak),cli_spool_t(*argp),signed char(*buff),signed char(*base)));
+signed(__cdecl cli_copy_to_pages(signed short(lastbreak),cli_spool_t(*argp),signed char(*base)));
+signed(__cdecl cli_copy_pages(signed short(linebreak_form),signed(count),signed(size),signed short(*w),cli_page_t(*argp)));
+signed(__cdecl cli_count_pages(cli_page_t(*argp)));
 
-signed(__cdecl cli_page_internal(CLI_SPOOL(*argp),signed(n)));
-signed(__cdecl cli_page(CLI_PAGE(**di),CLI_SPOOL(*argp),CLI_PAGE(*si),signed(n)));
+signed(__cdecl cli_page_internal(cli_spool_t(*argp),signed(n)));
+signed(__cdecl cli_page(cli_page_t(**di),cli_spool_t(*argp),cli_page_t(*si),signed(n)));
 // page n times.
 
-signed(__cdecl cli_concat_snapshots(CLI_SNAPSHOT(*cache),CLI_HISTORY(*argp)));
-signed(__cdecl cli_bind_snapshots(CLI_HISTORY(*argp)));
-signed(__cdecl cli_unmap_snapshots(CLI_HISTORY(*argp)));
+signed(__cdecl cli_concat_snapshots(cli_snapshot_t(*cache),cli_history_t(*argp)));
+signed(__cdecl cli_bind_snapshots(cli_history_t(*argp)));
+signed(__cdecl cli_unmap_snapshots(cli_history_t(*argp)));
 // based on a doubly linked list (i.e., not a circular linked list)
 
-signed(__cdecl cli_diff_history(signed short(*diff),signed char(*base),CLI_PAGE(*argp)));
-signed(__cdecl cli_history(CLI_PAGE(*argp)));
+signed(__cdecl cli_diff_history(signed short(*diff),signed char(*base),cli_page_t(*argp)));
+signed(__cdecl cli_history(cli_page_t(*argp)));
 // take snapshots to undo and redo.
 
 signed(__cdecl cli_in_w(signed(*character),signed char(*argp),signed(size)));

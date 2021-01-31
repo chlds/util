@@ -22,7 +22,7 @@ signed(__cdecl cli_ctrl_d_beta(CLI_W32_STAT(*argp))) {
 /* **** DATA, BSS and STACK */
 auto CLI_COORD coord[0x02];
 auto CLI_COORD coord_b;
-auto CLI_PAGE *page;
+auto cli_page_t *page;
 
 auto signed char *p;
 auto signed i,r;

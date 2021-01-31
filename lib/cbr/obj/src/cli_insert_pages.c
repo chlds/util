@@ -12,10 +12,10 @@ Based on a doubly linked list (i.e., not a circular linked list)
 
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_insert_pages(CLI_SPOOL(*di),CLI_SPOOL(*si))) {
+signed(__cdecl cli_insert_pages(cli_spool_t(*di),cli_spool_t(*si))) {
 
 /* **** DATA, BSS and STACK */
-auto CLI_PAGE *l,*i,*b;
+auto cli_page_t *l,*i,*b;
 auto signed r;
 
 /* **** CODE/TEXT */

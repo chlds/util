@@ -16,7 +16,7 @@ Refer at fn. cli_paste_beta.
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_copy_to_pages(signed short(lastbreak),CLI_SPOOL(*argp),signed char(*base))) {
+signed(__cdecl cli_copy_to_pages(signed short(lastbreak),cli_spool_t(*argp),signed char(*base))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *p;

@@ -25,7 +25,7 @@ signed(__cdecl cli_write(signed(descriptor),CLI_TYPEWRITER(*argp))) {
 static signed char *crlf = ("\r\n");
 static signed char *lf = ("\n");
 
-auto CLI_PAGE *page;
+auto cli_page_t *page;
 auto signed char *p;
 auto signed fd;
 auto signed access;

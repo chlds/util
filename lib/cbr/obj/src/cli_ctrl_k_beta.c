@@ -20,7 +20,7 @@ Refer at util/lib/obj/src/cli_io_beta.c
 signed(__cdecl cli_ctrl_k_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto CLI_PAGE *page;
+auto cli_page_t *page;
 
 auto CLI_COORD coord[0x02];
 auto signed char *b;

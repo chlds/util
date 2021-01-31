@@ -24,7 +24,7 @@ auto signed char CR = ('\r');
 auto signed char LF = ('\n');
 
 auto CLI_COORD coord[0x02];
-auto CLI_PAGE *page;
+auto cli_page_t *page;
 auto void *g;
 auto signed short *w;
 auto signed char *cur,*base,*buff,*p,*b;

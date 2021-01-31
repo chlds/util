@@ -23,7 +23,7 @@ signed(__cdecl cli_clip_beta(CLI_W32_STAT(*argp))) {
 auto signed short CR = (0x0D);
 auto signed short LF = (0x0A);
 
-auto CLI_PAGE *page;
+auto cli_page_t *page;
 auto void *g;
 auto signed short *w;
 auto signed char *b;

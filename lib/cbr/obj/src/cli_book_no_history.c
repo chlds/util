@@ -20,7 +20,7 @@ Along with C library
 signed(__cdecl cli_book_no_history(CLI_TYPEWRITER(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto CLI_PAGE *page;
+auto cli_page_t *page;
 
 auto signed char *p;
 auto signed i,r;

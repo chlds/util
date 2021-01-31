@@ -12,7 +12,7 @@ Based on a doubly linked list (i.e., not a circular linked list)
 
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_init_pages(CLI_SPOOL(*argp))) {
+signed(__cdecl cli_init_pages(cli_spool_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed i,r;

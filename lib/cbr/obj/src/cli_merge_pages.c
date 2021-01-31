@@ -14,10 +14,10 @@ Based on a doubly linked list (i.e., not a circular linked list)
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_merge_pages(CLI_SPOOL(*argp))) {
+signed(__cdecl cli_merge_pages(cli_spool_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto CLI_PAGE *page;
+auto cli_page_t *page;
 
 auto signed char *p;
 auto signed i,r;

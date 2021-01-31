@@ -24,7 +24,7 @@ auto signed char *label = ("Descend (n) or ascend (-n) by: ");
 auto signed short radix = (0x0A);
 
 auto CLI_COORD coord;
-auto CLI_PAGE *page;
+auto cli_page_t *page;
 auto signed char *p;
 auto signed c,i,r;
 auto signed short flag;

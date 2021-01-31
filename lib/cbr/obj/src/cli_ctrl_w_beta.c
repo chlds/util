@@ -23,7 +23,7 @@ signed(__cdecl cli_ctrl_w_beta(CLI_W32_STAT(*argp))) {
 auto signed char *label = ("Search: ");
 
 auto CLI_COORD coord;
-auto CLI_PAGE *page;
+auto cli_page_t *page;
 auto signed char *cur,*p;
 auto signed c,i,r;
 auto signed short flag;

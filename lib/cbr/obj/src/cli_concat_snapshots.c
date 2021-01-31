@@ -12,10 +12,10 @@ Based on a doubly linked list (i.e., not a circular linked list)
 
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_concat_snapshots(CLI_SNAPSHOT(*cache),CLI_HISTORY(*argp))) {
+signed(__cdecl cli_concat_snapshots(cli_snapshot_t(*cache),cli_history_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto CLI_SNAPSHOT *snapshot;
+auto cli_snapshot_t *snapshot;
 
 /* **** CODE/TEXT */
 if(!cache) return(0x00);

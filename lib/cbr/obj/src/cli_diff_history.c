@@ -20,10 +20,10 @@ Based on UTF-8
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_diff_history(signed short(*diff),signed char(*base),CLI_PAGE(*argp))) {
+signed(__cdecl cli_diff_history(signed short(*diff),signed char(*base),cli_page_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto CLI_SNAPSHOT *snapshot;
+auto cli_snapshot_t *snapshot;
 auto signed char *p;
 auto signed i,r;
 auto signed short flag;

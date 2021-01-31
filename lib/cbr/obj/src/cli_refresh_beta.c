@@ -23,7 +23,7 @@ auto signed char const(CR) = ('\r');
 auto signed char const(LF) = ('\n');
 
 auto CLI_COORD coord[0x02];
-auto CLI_PAGE *page;
+auto cli_page_t *page;
 auto signed char *base,*p;
 auto signed diff;
 auto signed offset;

@@ -20,7 +20,7 @@ signed(__cdecl cli_grams_beta(signed short(flag),signed char(*cur),CLI_W32_STAT(
 auto signed LF = ('\n');
 
 auto CLI_COORD coord[0x02];
-auto CLI_PAGE *page;
+auto cli_page_t *page;
 auto signed char *p;
 auto signed i,r;
 auto signed short inte;

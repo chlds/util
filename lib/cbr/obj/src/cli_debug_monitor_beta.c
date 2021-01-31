@@ -20,8 +20,8 @@ signed(__cdecl cli_debug_monitor_beta(CLI_W32_STAT(*argp))) {
 /* **** DATA, BSS and STACK */
 auto signed short n_row = (CLI_HEADER_HEIGHT+(N_ROW));
 
-auto CLI_SNAPSHOT *snapshot;
-auto CLI_PAGE *page;
+auto cli_snapshot_t *snapshot;
+auto cli_page_t *page;
 auto CLI_COORD coord[0x03];
 auto signed i,r;
 auto signed short flag;

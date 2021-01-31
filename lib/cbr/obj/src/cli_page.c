@@ -13,7 +13,7 @@ Refer at fn. cli_output_pages_beta.
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_page(CLI_PAGE(**di),CLI_SPOOL(*argp),CLI_PAGE(*si),signed(n))) {
+signed(__cdecl cli_page(cli_page_t(**di),cli_spool_t(*argp),cli_page_t(*si),signed(n))) {
 
 /* **** DATA, BSS and STACK */
 auto signed r;

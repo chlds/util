@@ -21,7 +21,7 @@ signed(__cdecl cli_ctrl_y_beta(CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and DATA */
 auto CLI_COORD coord;
-auto CLI_PAGE *page;
+auto cli_page_t *page;
 
 auto signed char *p;
 auto signed c,i,r;

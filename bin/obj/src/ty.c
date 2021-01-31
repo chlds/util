@@ -22,7 +22,7 @@ auto signed char name[CLI_NAME] = {
 (signed char) (0x00),
 };
 
-auto CLI_PAGE *page;
+auto cli_page_t *page;
 auto signed long long ll;
 auto signed short *config,*edit;
 auto signed char *cur,*p;

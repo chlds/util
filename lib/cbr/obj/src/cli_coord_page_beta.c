@@ -13,7 +13,7 @@ Return the number of output pages.
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_coord_page_beta(signed short(flag),CLI_PAGE(*page),CLI_W32_STAT(*argp))) {
+signed(__cdecl cli_coord_page_beta(signed short(flag),cli_page_t(*page),CLI_W32_STAT(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto CLI_COORD coord[0x02];

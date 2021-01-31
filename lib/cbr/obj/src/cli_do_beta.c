@@ -22,8 +22,8 @@ signed(__cdecl cli_do_beta(signed short(arg),CLI_W32_STAT(*argp))) {
 /* **** DATA, BSS and STACK */
 auto CLI_COORD coord;
 
-auto CLI_SNAPSHOT *snapshot;
-auto CLI_PAGE *page;
+auto cli_snapshot_t *snapshot;
+auto cli_page_t *page;
 auto signed char *base,*p;
 auto signed offset;
 auto signed i,r;

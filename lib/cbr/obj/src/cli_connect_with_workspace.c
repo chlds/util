@@ -16,7 +16,7 @@ Refer at fn. cli_init_workspace.
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_connect_with_workspace(CLI_PAGE(*page),CLI_TYPEWRITER(*argp))) {
+signed(__cdecl cli_connect_with_workspace(cli_page_t(*page),CLI_TYPEWRITER(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto CLI_COORD coord;

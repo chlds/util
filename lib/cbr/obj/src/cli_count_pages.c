@@ -1,6 +1,6 @@
 /* **** Notes
 
-Count pages of structure CLI_PAGE.
+Count pages of structure cli_page_t.
 
 Remarks:
 Based on a doubly linked list
@@ -11,7 +11,7 @@ Based on a doubly linked list
 
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_count_pages(CLI_PAGE(*argp))) {
+signed(__cdecl cli_count_pages(cli_page_t(*argp))) {
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);

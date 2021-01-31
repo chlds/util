@@ -11,7 +11,7 @@ Based on a doubly linked list
 
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_page_internal(CLI_SPOOL(*argp),signed(n))) {
+signed(__cdecl cli_page_internal(cli_spool_t(*argp),signed(n))) {
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);

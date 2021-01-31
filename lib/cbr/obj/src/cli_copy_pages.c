@@ -16,13 +16,13 @@ Refer at fn. cli_clip_beta.
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_copy_pages(signed short(linebreak_form),signed(count),signed(size),signed short(*w),CLI_PAGE(*argp))) {
+signed(__cdecl cli_copy_pages(signed short(linebreak_form),signed(count),signed(size),signed short(*w),cli_page_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed short CR = (0x0D);
 auto signed short LF = (0x0A);
 
-auto CLI_PAGE *page;
+auto cli_page_t *page;
 auto signed char *p;
 auto signed i,r;
 auto signed short flag;

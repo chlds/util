@@ -16,14 +16,14 @@ Refer at fn. cli_paste_beta.
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_copy_to_pages_internal(signed short(lastbreak),CLI_SPOOL(*argp),signed char(*buff),signed char(*base))) {
+signed(__cdecl cli_copy_to_pages_internal(signed short(lastbreak),cli_spool_t(*argp),signed char(*buff),signed char(*base))) {
 
 /* **** DATA, BSS and STACK */
 static signed char CR = ('\r');
 static signed char LF = ('\n');
 
-auto CLI_SNAPSHOT *snapshot;
-auto CLI_PAGE *page;
+auto cli_snapshot_t *snapshot;
+auto cli_page_t *page;
 auto signed char *p;
 auto signed i,l,r;
 auto signed short flag;

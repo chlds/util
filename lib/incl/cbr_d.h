@@ -16,7 +16,7 @@ Refer at ./config.h
 # define CLI_SIMPLE (0x01)
 # define CLI_ROWS_LIMITED (16384)
 # define CLI_ROWS (8000)
-# define ALIGN_TAB (0x08)
+
 # define LINEBREAK_CRLF (0x0A0D)
 # define LINEBREAK_LF (0x0A)
 
@@ -31,87 +31,13 @@ Refer at ./config.h
 # define CLI_FOOTER_HEIGHT (0x02)
 
 # define CLI_CLIPBOARDS (CLI_OBJS)
-# define CLI_WORKSPACE (CLI_OBJS)
-# define CLI_SNAPSHOTS (CLI_OBJS)
-# define CLI_PAGES (CLI_OBJS)
 # define CLI_ROLLS (CLI_OBJS)
-
-typedef struct cli_pixel {
-signed x;
-signed y;
-} CLI_PIXEL;
-
-typedef struct cli_coord {
-signed short x;
-signed short y;
-} CLI_COORD;
-
-typedef struct cli_rect {
-signed short left;
-signed short top;
-signed short right;
-signed short bottom;
-} CLI_RECT;
-
-typedef struct cli_snapshot {
-signed char *(base[CLI_WORKSPACE]);
-signed offset;
-signed short flag;
-signed c;
-signed i;
-signed r;
-struct cli_snapshot *d;
-struct cli_snapshot *s;
-CLI_COORD coord[CLI_OBJS];
-CLI_RECT rect;
-void *optl;
-} CLI_SNAPSHOT;
-
-typedef struct cli_history {
-signed short insert;
-signed undo;
-signed redo;
-CLI_SNAPSHOT *(cache);
-CLI_SNAPSHOT *(snapshot[CLI_SNAPSHOTS]);
-void *optl;
-} CLI_HISTORY;
-
-typedef struct cli_page {
-signed char *(base[CLI_WORKSPACE]);
-signed offset;
-signed short flag;
-signed c;
-signed i;
-signed r;
-struct cli_page *d;
-struct cli_page *s;
-CLI_HISTORY history;
-CLI_COORD coord[CLI_OBJS];
-CLI_RECT rect;
-void *optl;
-} CLI_PAGE;
-
-typedef struct cli_spool {
-signed short insert;
-signed undo;
-signed redo;
-CLI_PAGE *(cache);
-CLI_PAGE *(page[CLI_PAGES]);
-void *optl;
-} CLI_SPOOL;
 
 typedef struct cli_roll {
 signed char *(base[CLI_WORKSPACE]);
 signed size[CLI_WORKSPACE];
 void *optl;
 } CLI_ROLL;
-
-/*
-typedef struct cli_paper {
-CLI_ROLL *(roll[CLI_ROLLS]);
-void *optl;
-} CLI_PAPER;
-//*/
 
 typedef struct cli_edit {
 signed char *file;
@@ -146,7 +72,7 @@ void *(base[CLI_WORKSPACE]);
 size_t size[CLI_WORKSPACE];
 signed clip;
 signed flag;
-CLI_SPOOL spool;
+cli_spool_t spool;
 void *optl;
 } CLI_CLIPBOARD;
 
@@ -168,7 +94,7 @@ signed char *(cur[CLI_OBJS]);
 signed char *(append[CLI_OBJS]);
 signed offset;
 signed short flag;
-CLI_SPOOL spool;
+cli_spool_t spool;
 CLI_COORD coord[CLI_OBJS];
 CLI_RECT rect;
 void *optl;
@@ -192,7 +118,7 @@ signed gauge;
 signed offset;
 signed short flag;
 CLI_DEBUG debug;
-CLI_HISTORY history;
+cli_history_t history;
 CLI_COORD coord[CLI_OBJS];
 CLI_RECT rect;
 void *optl;
@@ -215,7 +141,7 @@ CLI_CLIPBOARD clipboard;
 CLI_CONFIG config;
 CLI_EDIT edit;
 CLI_ROLL roll;
-CLI_SPOOL spool;
+cli_spool_t spool;
 CLI_COORD coord[CLI_OBJS];
 CLI_RECT rect;
 CLI_PIXEL pixel;

@@ -60,7 +60,7 @@ SYM_TILDE,
 auto signed char HT = ('\t');
 auto signed char SP = (' ');
 
-auto CLI_PAGE *page;
+auto cli_page_t *page;
 auto signed char *cur,*p;
 auto signed c,i,r;
 auto signed short flag;

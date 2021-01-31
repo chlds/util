@@ -1,6 +1,6 @@
 /* **** Notes
 
-Concatenate pages after allocating a memory block for structure CLI_PAGE.
+Concatenate pages after allocating a memory block for structure cli_page_t.
 
 Remarks:
 Build a doubly linked list
@@ -15,10 +15,10 @@ Along with C library
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_bind_pages(CLI_SPOOL(*argp))) {
+signed(__cdecl cli_bind_pages(cli_spool_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto CLI_PAGE *cache;
+auto cli_page_t *cache;
 
 auto signed char *p;
 auto signed i,r;
@@ -27,7 +27,7 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-cache = (CLI_PAGE(*)) malloc(0x01*(sizeof(*cache)));
+cache = (cli_page_t(*)) malloc(0x01*(sizeof(*cache)));
 if(!cache) {
 printf("%s\n","<< Error at fn. malloc()");
 return(0x00);

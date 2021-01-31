@@ -13,10 +13,10 @@ Along with C library
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_unmap_pages(CLI_SPOOL(*argp))) {
+signed(__cdecl cli_unmap_pages(cli_spool_t(*argp))) {
 
 /* **** DATA */
-auto CLI_PAGE *cache;
+auto cli_page_t *cache;
 auto signed char *p;
 auto signed r;
 
