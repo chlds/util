@@ -43,6 +43,11 @@ printf("\t%s \n","cals.exe v 12");
 printf("\t%s \n","cals.exe -6");
 printf("\t%s \n","cals.exe n");
 printf("\t%s \n","cals.exe");
+printf("\t%s \n","cals.exe ev Coffee \"&\" Sandwiches at 12:00");
+
+printf("\n");
+printf("\t%s \n","Remarks:");
+printf("\t%s \n","Ampersands on the command line should be enclosed in double quotation marks.");
 
 OR(R(flag,*argp),CALS_QUIT);
 
