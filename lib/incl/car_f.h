@@ -227,6 +227,10 @@ signed(__cdecl ctdn2lastsp_internal(signed(arg),signed char(*argp)));
 signed(__cdecl ctdn2lastsp(signed char(*argp)));
 /* Count down to the last space (SP) or to the last whitespace (SP/HT) */
 
+signed(__cdecl ctdn_to_r(signed short(flag),signed(arg),signed char(*cache),signed char(*argp)));
+signed(__cdecl ctdn_to(signed char(*cache),signed char(*argp)));
+/* Count down letters to find an offset point. */
+
 signed(__cdecl align_backward(signed(arg),signed char(*argp)));
 signed(__cdecl align(signed(arg),signed char(*argp)));
 /* Return the number of spaces that are output when the tab key is pressed. */
