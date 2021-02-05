@@ -3,7 +3,7 @@
 Count down letters to find an offset point.
 
 Remarks:
-Refer at util/incl/recur.h
+Refer at fn. cf.
 */
 
 

@@ -229,6 +229,7 @@ signed(__cdecl ctdn2lastsp(signed char(*argp)));
 
 signed(__cdecl ctdn_to_r(signed short(flag),signed(arg),signed char(*cache),signed char(*argp)));
 signed(__cdecl ctdn_to(signed char(*cache),signed char(*argp)));
+signed(__cdecl cf(signed short(*flag),signed char(*cache),signed char(*argp)));
 /* Count down letters to find an offset point. */
 
 signed(__cdecl align_backward(signed(arg),signed char(*argp)));

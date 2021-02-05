@@ -3,7 +3,7 @@
 Count down letters to find an offset point.
 
 Remarks:
-Refer at util/incl/recur.h
+Refer at fn. cf.
 */
 
 
@@ -24,18 +24,11 @@ if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 if(!arg) return(0x00);
 
---arg;
-
-AND(i,0x00);
-while(*(cache+(i))) {
-c = (*(cache+(i++)));
-if(!(c^(*(arg+(argp))))) {
-OR(flag,0x01);
-if(0x01<(flag)) return(0x00);
-}}
+r = cf(&flag,cache,--arg+(argp));
+if(0x02<(flag)) return(0x00);
 
 if(0x01&(flag)) AND(flag,0x00);
-else OR(flag,0x10);
+else OR(flag,0x02);
 
 return(0x01+(ctdn_to_r(flag,arg,cache,argp)));
 }
