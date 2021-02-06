@@ -227,6 +227,10 @@ signed(__cdecl ctdn2lastsp_internal(signed(arg),signed char(*argp)));
 signed(__cdecl ctdn2lastsp(signed char(*argp)));
 /* Count down to the last space (SP) or to the last whitespace (SP/HT) */
 
+signed(__cdecl ct_to_wrap_r(signed short(arg),signed(*retv),signed char(*cache),signed char(*argp)));
+signed(__cdecl ct_to_wrap(signed short(arg),signed char(*cache),signed char(*argp)));
+/* Count to wrap words. */
+
 signed(__cdecl ctdn_to_r(signed short(flag),signed(arg),signed char(*cache),signed char(*argp)));
 signed(__cdecl ctdn_to(signed char(*cache),signed char(*argp)));
 signed(__cdecl cf(signed short(*flag),signed char(*cache),signed char(*argp)));
