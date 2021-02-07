@@ -53,6 +53,7 @@ signed short bottom;
 //*/
 
 struct cli_snapshot {
+cli_b_t *b;
 //* deprecated
 signed char *(base[CLI_WORKSPACE]);
 signed offset;
@@ -65,7 +66,6 @@ struct cli_snapshot *s;
 CLI_COORD coord[CLI_OBJS];
 CLI_RECT rect;
 //*/
-cli_b_t b;
 void *optl;
 } typedef cli_snapshot_t;
 
@@ -79,6 +79,7 @@ void *optl;
 } typedef cli_history_t;
 
 struct cli_page {
+cli_b_t *b;
 //* deprecated
 signed char *(base[CLI_WORKSPACE]);
 signed offset;
@@ -92,7 +93,6 @@ cli_history_t history;
 CLI_COORD coord[CLI_OBJS];
 CLI_RECT rect;
 //*/
-cli_b_t b;
 void *optl;
 } typedef cli_page_t;
 

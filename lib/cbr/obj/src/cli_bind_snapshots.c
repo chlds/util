@@ -33,6 +33,8 @@ printf("%s\n","<< Error at fn. malloc()");
 return(0x00);
 }
 
+R(b,*cache) = (0x00);
+
 i = (CLI_OBJS);
 while(i) {
 *(--i+(R(base,*cache))) = (0x00);
