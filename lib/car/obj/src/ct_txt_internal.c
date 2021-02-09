@@ -7,10 +7,12 @@ Along with alignement of the tab.
 */
 
 
+# define CAR
+# include "../../../incl/config.h"
+
 signed(__cdecl ct_txt_internal(signed(align),signed(*argp),signed char(*base))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char const HT = (0x09);
 auto signed r;
 
 /* **** CODE/TEXT */
