@@ -20,9 +20,8 @@ signed(__cdecl cli_ctrl_fn(signed(arg),cli_property_t(*argp))) {
 auto signed DEL = (0x7F);
 
 auto cli_text_t *t;
-auto cli_b_t *b;
-auto cli_b_t *p;
-auto signed char *cur;
+auto cli_rule_t *rule;
+auto signed char *b;
 auto signed dif;
 auto signed i,r;
 auto signed short flag;
@@ -34,36 +33,16 @@ if(!argp) return(0x00);
 
 t = (&(R(text,*argp)));
 
-/*
-p = (&(R(append,*t)));
-r = cli_init_rule(0x01,p);
+/* overwrite a control character with an appendant */
+rule = (CLI_BASE+(R(rule,*t)));
+b = (*(CLI_INDEX+(R(b,*rule))));
+if(!b) return(0x00);
+
+embed(0x00,b);
+
+r = cli_restore(0x00,t);
 if(!r) {
-printf("%s%d%s \n","<< Error at fn. cli_init_rule()");
-return(0x00);
-}
-b = (&(R(b,*t)));
-cur = (*(CLI_INDEX+(R(base,*b))));
-if(!cur) return(0x00);
-r = cli_restore_rule(cur,p);
-if(!r) {
-printf("%s%d%s \n","<< Error at fn. cli_restore_rule()");
-return(0x00);
-}
-//*/
-
-b = (&(R(b,*t)));
-cur = (*(CLI_INDEX+(R(base,*b))));
-if(!cur) return(0x00);
-
-r = embed(0x00,cur);
-
-p = (&(R(append,*t)));
-cur = (*(CLI_BASE+(R(base,*p))));
-// if(!cur) return(0x00);
-
-r = cli_restore_rule(cur,b);
-if(!r) {
-printf("%s \n","<< Error at fn. cli_restore_rule()");
+r = cli_error(r,"<< Error at fn. cli_restore()");
 return(0x00);
 }
 

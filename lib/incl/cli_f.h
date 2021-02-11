@@ -1,3 +1,4 @@
+signed(__cdecl cli_error(signed(arg),signed char(*argp)));
 signed(__cdecl cli_replace_text_attributes_beta(signed(arg),cli_property_t(*argp)));
 signed(__cdecl cli_restore_text_attributes_beta(cli_property_t(*argp)));
 signed(__cdecl cli_retrieve_standard_handles_beta(void(**argp)));
@@ -13,8 +14,8 @@ signed(__cdecl cli_get_pixel(signed(arg),cli_frame_t(*argp)));
 signed(__cdecl cli_get_frame(signed(arg),cli_frame_t(*argp)));
 signed(__cdecl cli_init_frames(signed(arg),cli_frame_t(*argp)));
 signed(__cdecl cli_init_text(signed(arg),cli_text_t(*argp)));
-signed(__cdecl cli_init_rule(signed(arg),cli_b_t(*argp)));
+signed(__cdecl cli_init_rule(signed(arg),cli_rule_t(*argp)));
 signed(__cdecl cli_restore_base(signed(arg),signed char(**argp)));
-signed(__cdecl cli_restore_rule(signed char(*cache),cli_b_t(*argp)));
+signed(__cdecl cli_restore_rule(signed char(*cache),cli_rule_t(*argp)));
 signed(__cdecl cli_restore(signed(arg),cli_text_t(*argp)));
 signed(__cdecl cli_init_property(signed(arg),cli_property_t(*argp)));

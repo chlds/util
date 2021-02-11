@@ -14,9 +14,8 @@ Along with C library
 signed(__cdecl cli_restore(signed(arg),cli_text_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto cli_b_t *b;
-auto cli_b_t *p;
-auto signed char *cur;
+auto cli_rule_t *rule;
+auto signed char *b;
 auto signed r;
 auto signed short flag;
 
@@ -25,14 +24,18 @@ if(!argp) return(0x00);
 
 if(!(CLI_INIT&(R(flag,*argp)))) return(0x00);
 
-p = (&(R(append,*argp)));
-b = (&(R(b,*argp)));
+rule = (CLI_OFFSET+(R(rule,*argp)));
+if(!rule) return(0x00);
 
-r = cli_restore_rule(*(CLI_BASE+(R(base,*p))),b);
+b = (*(CLI_BASE+(R(b,*rule))));
+rule = (CLI_BASE+(R(rule,*argp)));
+
+r = cli_restore_rule(b,rule);
 if(!r) return(0x00);
 
 if(arg) {
-r = cli_init_rule(arg,p);
+rule = (CLI_OFFSET+(R(rule,*argp)));
+r = cli_init_rule(arg,rule);
 if(!r) return(0x00);
 }
 

@@ -20,9 +20,8 @@ signed(__cdecl cli_io(cli_property_t(*argp))) {
 auto signed DEL = (0x7F);
 
 auto cli_text_t *t;
-auto cli_b_t *b;
-auto cli_b_t *p;
-auto signed char *cur;
+auto cli_rule_t *rule;
+auto signed char *b;
 auto signed size;
 auto signed dif;
 auto signed i,r;
@@ -43,20 +42,19 @@ printf("%s \n","<< Error at fn. cli_restore()");
 return(0x00);
 }
 
-p = (&(R(append,*t)));
-b = (&(R(b,*t)));
-cur = (*(CLI_INDEX+(R(base,*b))));
+rule = (CLI_BASE+(R(rule,*t)));
+b = (*(CLI_INDEX+(R(b,*rule))));
 size = (CLI_BB);
 
 // get
-r = cli_in(&i,cur,size);
+r = cli_in(&i,b,size);
 if(!r) {
 printf("%s \n","<< Error at fn. cli_in()");
 return(0x00);
 }
 
 dif = (r);
-// *(dif+(cur)) = (0x00);
+// *(dif+(b)) = (0x00);
 if(!(DEL^(i))) i = (CTRL_D);
 
 if(i<(0x20)) {
@@ -69,20 +67,19 @@ return(0x00);
 
 else {
 // put
-r = cli_out(cur);
+r = cli_out(b);
 if(!r) {
 printf("%s \n","<< Error at fn. cli_out()");
 return(0x00);
 }
 while(dif) {
-INC(cur);
+INC(b);
 --dif;
 }
-*(CLI_INDEX+(R(base,*b))) = (cur);
+*(CLI_INDEX+(R(b,*rule))) = (b);
 }
 
 b = (0x00);
-p = (b);
 
 return(0x01+(cli_io(argp)));
 }

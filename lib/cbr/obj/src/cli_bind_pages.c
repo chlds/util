@@ -50,7 +50,7 @@ while(i) {
 *(--i+(R(base,*cache))) = (0x00);
 }
 
-R(b,*cache) = (0x00);
+R(rule,*cache) = (0x00);
 
 r = cli_concat_pages(cache,argp);
 if(!r) {

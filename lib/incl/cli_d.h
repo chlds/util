@@ -27,11 +27,11 @@ signed x[CLI_OBJS];
 signed y[CLI_OBJS];
 } typedef pixel_t;
 
-struct cli_b {
-signed char *(base[CLI_OBJS]);
+struct cli_rule {
+signed char *(b[CLI_OBJS]);
 signed short flag;
 void *optl;
-} typedef cli_b_t;
+} typedef cli_rule_t;
 
 //* deprecated
 typedef struct cli_pixel {
@@ -53,7 +53,7 @@ signed short bottom;
 //*/
 
 struct cli_snapshot {
-cli_b_t *b;
+cli_rule_t *rule;
 //* deprecated
 signed char *(base[CLI_WORKSPACE]);
 signed offset;
@@ -79,7 +79,7 @@ void *optl;
 } typedef cli_history_t;
 
 struct cli_page {
-cli_b_t *b;
+cli_rule_t *rule;
 //* deprecated
 signed char *(base[CLI_WORKSPACE]);
 signed offset;
@@ -106,8 +106,7 @@ void *optl;
 } typedef cli_spool_t;
 
 struct cli_text {
-cli_b_t b;
-cli_b_t append;
+cli_rule_t rule[CLI_OBJS];
 cli_codepage_t codepage;
 cli_spool_t spool;
 signed attribute;

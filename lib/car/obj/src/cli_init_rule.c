@@ -11,7 +11,7 @@ Refer at fn. cli_restore.
 # include <stdlib.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl cli_init_rule(signed(arg),cli_b_t(*argp))) {
+signed(__cdecl cli_init_rule(signed(arg),cli_rule_t(*argp))) {
 
 auto signed char *b;
 auto signed i,r;
@@ -23,14 +23,14 @@ if(!(CLI_INIT&(R(flag,*argp)))) AND(arg,0x00);
 
 // destroy
 if(arg) {
-b = (*(CLI_BASE+(R(base,*argp))));
+b = (*(CLI_BASE+(R(b,*argp))));
 embed(0x00,b);
 if(b) free(b);
 }
 
 b = (0x00);
 i = (CLI_OBJS);
-while(i) *(--i+(R(base,*argp))) = (b);
+while(i) *(--i+(R(b,*argp))) = (b);
 R(optl,*argp) = (0x00);
 AND(r,0x00);
 AND(R(flag,*argp),0x00);

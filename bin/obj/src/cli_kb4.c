@@ -45,7 +45,7 @@ return(0x00);
 cputs(" \n\n");
 cputs("Based on UTF-8: ");
 
-b = (*(CLI_BASE+(R(base,R(b,R(text,property))))));
+b = (*(CLI_BASE+(R(b,*(CLI_BASE+(R(rule,R(text,property))))))));
 if(!b) return(0x00);
 r = cli_outs(b);
 
@@ -60,8 +60,10 @@ printf("%s \n","<< Error at fn. cli_init_property()");
 return(0x00);
 }
 
-b = (*(CLI_BASE+(R(base,R(b,R(text,property))))));
-if(b) return(0x00);
+// check
+AND(i,0x00);
+OR(i,CLI_OBJS);
+while(i) if(*(CLI_BASE+(R(b,*(--i+(R(rule,R(text,property)))))))) return(0x00);
 
 cputs(" \n");
 printf("%s \n","Done!");
