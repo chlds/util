@@ -1,4 +1,4 @@
-signed(__cdecl cli_error(signed(arg),signed char(*argp)));
+signed(__cdecl cli_message(signed(arg),signed char(*argp)));
 signed(__cdecl cli_replace_text_attributes_beta(signed(arg),cli_property_t(*argp)));
 signed(__cdecl cli_restore_text_attributes_beta(cli_property_t(*argp)));
 signed(__cdecl cli_retrieve_standard_handles_beta(void(**argp)));

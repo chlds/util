@@ -7,12 +7,13 @@ Refer at fn. ct_ars2.
 */
 
 
+# define CAR
 # include "./../../../incl/config.h"
 
 signed(__cdecl ct_ars_internal(signed short(flag),signed(*retv),signed char(*base))) {
 
 /* **** DATA, BSS and STACK */
-static signed char SP = (' ');
+auto signed r;
 
 /* **** CODE/TEXT */
 if(!retv) return(0x00);

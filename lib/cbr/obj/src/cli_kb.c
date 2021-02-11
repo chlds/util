@@ -39,7 +39,7 @@ else flag = (0x00);
 
 r = cli_io(argp);
 if(!r) {
-r = cli_error(r,"<< Error at fn. cli_io()");
+r = cli_message(r,"<< Error at fn. cli_io()");
 return(0x00);
 }
 

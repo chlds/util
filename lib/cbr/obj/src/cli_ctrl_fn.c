@@ -42,7 +42,7 @@ embed(0x00,b);
 
 r = cli_restore(0x00,t);
 if(!r) {
-r = cli_error(r,"<< Error at fn. cli_restore()");
+r = cli_message(r,"<< Error at fn. cli_restore()");
 return(0x00);
 }
 

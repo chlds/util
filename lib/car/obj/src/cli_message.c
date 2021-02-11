@@ -1,6 +1,6 @@
 /* **** Notes
 
-Output an error message.
+Output an message.
 
 Remarks:
 Along with C library
@@ -12,7 +12,7 @@ Along with C library
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_error(signed(arg),signed char(*argp))) {
+signed(__cdecl cli_message(signed(arg),signed char(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *b;

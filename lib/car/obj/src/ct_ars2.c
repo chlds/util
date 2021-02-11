@@ -4,7 +4,7 @@ Count the arguments to the terminating null character.
 //*/
 
 
-// # include <stdio.h>
+# define CAR
 # include "./../../../incl/config.h"
 
 signed(__cdecl ct_ars2(signed char(*base))) {
@@ -22,8 +22,6 @@ AND(retv,0x00);
 
 r = ct_ars_internal(flag,&retv,base);
 if(!r) return(0x00);
-
-// printf("%s %d \n","r is:",r);
 
 return(retv);
 }

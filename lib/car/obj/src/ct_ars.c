@@ -4,6 +4,7 @@ Count arguments to the terminating null character.
 */
 
 
+# define CAR
 # include "./../../../incl/config.h"
 
 signed(__cdecl ct_ars(signed(*retv),signed char(*base))) {
