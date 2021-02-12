@@ -18,8 +18,8 @@ Along with C library
 signed(__cdecl cli_bind_pages(cli_spool_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto cli_page_t *cache;
-
+auto cli_rule_t *rule;
+auto cli_page_t *page;
 auto signed char *p;
 auto signed i,r;
 auto signed short flag;
@@ -27,34 +27,45 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-cache = (cli_page_t(*)) malloc(0x01*(sizeof(*cache)));
-if(!cache) {
-printf("%s\n","<< Error at fn. malloc()");
+r = (0x01*(sizeof(*page)));
+page = (cli_page_t(*)) malloc(r);
+if(!page) {
+r = cli_message(r,"<< Error at fn. malloc()");
 return(0x00);
 }
 
-R(redo,R(history,*cache)) = (0x00);
-R(undo,R(history,*cache)) = (0x00);
-R(insert,R(history,*cache)) = (0x00);
+AND(R(redo,R(history,*page)),0x00);
+AND(R(undo,R(history,*page)),0x00);
+AND(R(insert,R(history,*page)),0x00);
 
 i = (CLI_OBJS);
-while(i) {
-*(--i+(R(snapshot,R(history,*cache)))) = (0x00);
-}
+while(i) *(--i+(R(snapshot,R(history,*page)))) = (0x00);
 
-R(offset,*cache) = (0x00);
-R(flag,*cache) = (0x00);
+AND(R(offset,*page),0x00);
+AND(R(flag,*page),0x00);
 
 i = (CLI_OBJS);
-while(i) {
-*(--i+(R(base,*cache))) = (0x00);
+while(i) *(--i+(R(base,*page))) = (0x00);
+
+
+r = (0x01*(sizeof(*rule)));
+rule = (cli_rule_t(*)) malloc(r);
+if(!rule) {
+r = cli_message(r,"<< Error at fn. malloc()");
+return(0x00);
 }
-
-R(rule,*cache) = (0x00);
-
-r = cli_concat_pages(cache,argp);
+r = cli_init_rule(0x00,rule);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_concat_pages()");
+r = cli_message(r,"<< Error at fn. cli_init_rule()");
+return(0x00);
+}
+R(rule,*page) = (rule);
+rule = (0x00);
+
+
+r = cli_concat_pages(page,argp);
+if(!r) {
+r = cli_message(r,"<< Error at fn. cli_concat_pages()");
 return(0x00);
 }
 

@@ -10,7 +10,7 @@ Refer at fn. cf.
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl ctdn_to(signed char(*cache),signed char(*argp))) {
+signed(__cdecl ctdn_to(signed char(*cache/* sym */),signed char(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed i,r;

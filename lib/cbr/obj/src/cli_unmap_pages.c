@@ -16,20 +16,34 @@ Along with C library
 signed(__cdecl cli_unmap_pages(cli_spool_t(*argp))) {
 
 /* **** DATA */
-auto cli_page_t *cache;
+auto cli_rule_t *rule;
+auto cli_page_t *page;
 auto signed char *p;
 auto signed r;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
-if(!(*(CLI_LEAD+(R(page,*argp))))) return(0x00);
 
-cache = (*(CLI_LEAD+(R(page,*argp))));
-*(CLI_LEAD+(R(page,*argp))) = (R(s,**(CLI_LEAD+(R(page,*argp)))));
+page = (*(CLI_LEAD+(R(page,*argp))));
+if(!page) return(0x00);
 
-p = (*(CLI_BASE+(R(base,*cache))));
+*(CLI_LEAD+(R(page,*argp))) = (R(s,*page));
+
+
+rule = (R(rule,*page));
+r = cli_init_rule(0x01,rule);
+if(!r) {
+r = cli_message(r,"<< Error at fn. cli_init_rule()");
+return(0x00);
+}
+free(rule);
+rule = (0x00);
+R(rule,*page) = (rule);
+
+
+p = (*(CLI_BASE+(R(base,*page))));
 if(!p) {
-printf("%s\n","<< No memory block allocated to the current page..");
+r = cli_message(0x00,"<< No memory block allocated to the current page..");
 return(0x00);
 }
 
@@ -37,21 +51,21 @@ r = ct(p);
 r = embed(r,p);
 free(p);
 p = (0x00);
-*(CLI_BASE+(R(base,*cache))) = (p);
+*(CLI_BASE+(R(base,*page))) = (p);
 
 //* temporarily disable..
-r = cli_unmap_snapshots(&(R(history,*cache)));
+r = cli_unmap_snapshots(&(R(history,*page)));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_unmap_snapshots()");
+r = cli_message(r,"<< Error at fn. cli_unmap_snapshots()");
 // return(0x00);
 }
 else {
-if(CLI_DBG) printf("%s%d%s\n","Unmapped ",r," snapshots");
+if(CLI_DBG) printf("%s %d %s \n","Unmapped",r,"snapshots");
 }
 //*/
 
-free(cache);
-cache = (0x00);
+free(page);
+page = (0x00);
 
 return(0x01+(cli_unmap_pages(argp)));
 }
