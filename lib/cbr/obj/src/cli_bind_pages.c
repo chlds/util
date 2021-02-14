@@ -30,7 +30,7 @@ if(!argp) return(0x00);
 r = (0x01*(sizeof(*page)));
 page = (cli_page_t(*)) malloc(r);
 if(!page) {
-r = cli_message(r,"<< Error at fn. malloc()");
+r = cli_message(r,"<< Error at fn. malloc() \n");
 return(0x00);
 }
 
@@ -51,12 +51,12 @@ while(i) *(--i+(R(base,*page))) = (0x00);
 r = (0x01*(sizeof(*rule)));
 rule = (cli_rule_t(*)) malloc(r);
 if(!rule) {
-r = cli_message(r,"<< Error at fn. malloc()");
+r = cli_message(r,"<< Error at fn. malloc() \n");
 return(0x00);
 }
 r = cli_init_rule(0x00,rule);
 if(!r) {
-r = cli_message(r,"<< Error at fn. cli_init_rule()");
+r = cli_message(r,"<< Error at fn. cli_init_rule() \n");
 return(0x00);
 }
 R(rule,*page) = (rule);
@@ -65,7 +65,7 @@ rule = (0x00);
 
 r = cli_concat_pages(page,argp);
 if(!r) {
-r = cli_message(r,"<< Error at fn. cli_concat_pages()");
+r = cli_message(r,"<< Error at fn. cli_concat_pages() \n");
 return(0x00);
 }
 

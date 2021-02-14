@@ -22,7 +22,7 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-printf("%s \n",argp);
+printf("%s",argp);
 
 return(arg);
 }

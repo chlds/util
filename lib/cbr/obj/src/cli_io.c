@@ -32,7 +32,7 @@ if(!argp) return(0x00);
 
 if(!(CLI_INIT&(*(CLI_BASE+(R(flag,*argp)))))) return(0x00);
 
-if(CLI_QUIT&(*(CLI_LEAD+(R(flag,*argp))))) return(0x01);
+if(CLI_QUIT&(R(flag,R(text,*argp)))) return(0x01);
 if(CLI_BR&(R(flag,R(text,*argp)))) return(0x01);
 
 t = (&(R(text,*argp)));

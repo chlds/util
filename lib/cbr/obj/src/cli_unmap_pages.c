@@ -33,7 +33,7 @@ if(!page) return(0x00);
 rule = (R(rule,*page));
 r = cli_init_rule(0x01,rule);
 if(!r) {
-r = cli_message(r,"<< Error at fn. cli_init_rule()");
+r = cli_message(r,"<< Error at fn. cli_init_rule() \n");
 return(0x00);
 }
 free(rule);
@@ -43,20 +43,22 @@ R(rule,*page) = (rule);
 
 p = (*(CLI_BASE+(R(base,*page))));
 if(!p) {
-r = cli_message(0x00,"<< No memory block allocated to the current page..");
+//*
+r = cli_message(0x00,"<< No memory block allocated to the current page.. \n");
 return(0x00);
+//*/
 }
 
 r = ct(p);
 r = embed(r,p);
-free(p);
+if(p) free(p);
 p = (0x00);
 *(CLI_BASE+(R(base,*page))) = (p);
 
 //* temporarily disable..
 r = cli_unmap_snapshots(&(R(history,*page)));
 if(!r) {
-r = cli_message(r,"<< Error at fn. cli_unmap_snapshots()");
+r = cli_message(r,"<< Error at fn. cli_unmap_snapshots() \n");
 // return(0x00);
 }
 else {
