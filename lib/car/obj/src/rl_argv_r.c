@@ -17,7 +17,7 @@ auto signed i,r;
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
-r = rl(argp);
+r = release(0x00,argp);
 if(!r) return(0x00);
 
 argp++;

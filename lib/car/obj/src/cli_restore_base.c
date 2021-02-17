@@ -1,14 +1,10 @@
 /* **** Notes
 
 Restore.
-
-Remarks:
-Along with C library
 //*/
 
 
 # define CAR
-# include <stdlib.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cli_restore_base(signed(arg),signed char(**argp))) {
@@ -30,13 +26,14 @@ r = ct(*argp);
 r = (arg+(r));
 r = (CLI_BB+(r));
 r++;
-r = alloc(r,&b);
-if(!r) return(0x00);
+r = (r*(sizeof(**argp)));
+b = (signed char(*)) alloc(r);
+if(!b) return(0x00);
 
 if(!(cpy(b,*argp))) *b = (0x00);
 
 embed(0x00,*argp);
-if(*argp) free(*argp);
+if(*argp) rl(*argp);
 
 *argp = (b);
 b = (0x00);

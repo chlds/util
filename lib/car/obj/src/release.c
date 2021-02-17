@@ -9,31 +9,29 @@ Refer at fn. keep and fn. keep_w.
 
 # define CAR
 # include "../../../incl/config.h"
-# include <stdio.h>
-# include <stdlib.h>
 
-signed(__cdecl release(signed(n),void(**argp))) {
+signed(__cdecl release(signed(arg),void(**argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char *p;
+auto signed char *b;
 auto signed i,r;
 
 /* **** CODE/TEXT */
-if(n<(0x00)) return(0x00);
+if(arg<(0x00)) return(0x00);
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
-p = (signed char(*)) (*argp);
+b = (signed char(*)) (*argp);
 
-r = embed(n,p);
+r = embed(arg,b);
 if(!r) {
-printf("%s \n","<< Error at fn. embed()");
+r = cli_message(r,"<< Error at fn. embed() \n");
 return(0x00);
 }
 
-free(p);
-p = (0x00);
-*argp = (p);
+rl(b);
+b = (0x00);
+*argp = (b);
 
 return(r);
 }

@@ -8,15 +8,18 @@ Along with C library
 */
 
 
+void*(__cdecl alloc(signed(arg)));
+// allocate i.e., fn. malloc.
+
+signed(__cdecl rl(void(*argp)));
+// release i.e., fn. free.
+
 signed(__cdecl cv_argv_bw_r(signed char(**di),signed short(**si)));
 signed(__cdecl cv_argv_bw(signed char(***di),signed short(**si)));
 // convert into a table pointer of pointers secured for bytes in UTF-8.
 
 signed(__cdecl rl_argv_r(signed char(**argp)));
 signed(__cdecl rl_argv(signed char(***argp)));
-
-signed(__cdecl rl(signed char(**argp)));
-// release.
 
 signed(__cdecl rf_leap_years(signed short(arg)));
 // refer leap years.
@@ -62,7 +65,7 @@ signed(__cdecl elapse_days_since(signed short(wk),signed long long/* time_t */(a
 
 signed(__cdecl keep_w(signed short(**di),signed char(*si)));
 signed(__cdecl keep(signed char(**di),signed char(*si)));
-signed(__cdecl release(signed(n),void(**argp)));
+signed(__cdecl release(signed(arg),void(**argp)));
 /* Please be sure to release. */
 
 signed(__cdecl extend(signed char(**argp),signed(*total),signed(extra)));
@@ -227,8 +230,8 @@ signed(__cdecl ctdn2lastsp_internal(signed(arg),signed char(*argp)));
 signed(__cdecl ctdn2lastsp(signed char(*argp)));
 /* Count down to the last space (SP) or to the last whitespace (SP/HT) */
 
-signed(__cdecl ctdn_to_wrap_r(signed short(arg/* edge */),signed(*retv),signed(align),signed char(*cache/* sym */),signed char(*argp)));
-signed(__cdecl ctdn_to_wrap(signed short(arg/* edge */),signed(align),signed char(*cache/* sym */),signed char(*argp)));
+signed(__cdecl ctdn_to_wrap_r(signed short(edge),signed(arg/* align */),signed(*retv),signed char(*cache/* sym */),signed char(*argp)));
+signed(__cdecl ctdn_to_wrap(signed short(edge),signed(arg/* align */),signed char(*cache/* sym */),signed char(*argp)));
 /* Count down to wrap words. */
 
 signed(__cdecl ctdn_to_r(signed short(flag),signed(arg),signed char(*cache),signed char(*argp)));
@@ -240,13 +243,9 @@ signed(__cdecl align_backward(signed(arg),signed char(*argp)));
 signed(__cdecl align(signed(arg),signed char(*argp)));
 /* Return the number of spaces that are output when the tab key is pressed. */
 
-signed(__cdecl ct_txt_here_internal(signed(align),signed(*argp),signed char(*di),signed char(*base)));
-signed(__cdecl ct_txt_here(signed(align),signed char(*di),signed char(*base)));
-/* Count letters along with alignement of the tab to the current (or specific) address. */
-
-signed(__cdecl ct_txt_internal(signed(align), signed(*argp), signed char(*base)));
-signed(__cdecl ct_txt(signed(align), signed char(*base)));
-signed(__cdecl ct_tx(signed(to),signed(align),signed char(*argp)));
+signed(__cdecl ct_txt_internal(signed(arg/* align */),signed(*retv),signed char(*argp)));
+signed(__cdecl ct_txt(signed(arg/* align */),signed char(*argp)));
+signed(__cdecl ct_tx(signed(to),signed(arg/* align */),signed char(*argp)));
 /* Count letters along with alignement of the tab to the null character. */
 
 signed(__cdecl ct_offset_out_of_last_internal(signed char(arg), signed(len), signed char(*argp)));
@@ -311,8 +310,6 @@ signed(__cdecl n_putch(signed(n),signed(letter)));
 
 signed(__cdecl nsort(signed(count),signed(*base)));
 signed(__cdecl bsort(signed(count),signed(*base)));
-
-signed(__cdecl alloc(signed(arg),signed char(**argp)));
 
 signed(__cdecl concatenate(signed(arg),signed char(**di),signed char(*si)));
 /* Release the *di later. */

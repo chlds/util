@@ -13,7 +13,7 @@ Return the number of space embedded to the row.
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl clear_row(signed short(arg))) {
+signed(__cdecl clear_row(signed short(arg/* come back to the edge */))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char sp = (' ');
@@ -65,6 +65,13 @@ if(flag) return(0x00);
 i = (r);
 
 if(arg) {
+// come back to the edge
+AND(*(CLI_BASE+(R(x,coord))),0x00);
+r = coord_beta(CLI_OUT,CLI_BASE,&coord);
+if(!r) {
+r = cli_message(r,"<< Error at fn. coord_beta() \n");
+return(0x00);
+}
 // fix the frame
 r = rect_beta(CLI_IN,CLI_BASE,&rect);
 if(!r) {

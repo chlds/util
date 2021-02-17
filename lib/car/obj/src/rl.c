@@ -1,24 +1,22 @@
 /* **** Notes
 
 Release
+
+Remarks:
+Along with C library
 */
 
 
 # define CAR
-# include "./../../../incl/config.h"
 # include <stdlib.h>
+# include "./../../../incl/config.h"
 
-signed(__cdecl rl(signed char(**argp))) {
-
-auto signed i,r;
+signed(__cdecl rl(void(*argp))) {
 
 if(!argp) return(0x00);
-if(!(*argp)) return(0x00);
 
-r = embed(0x00,*argp);
-free(*argp);
-*argp = (0x00);
-if(!DBG) r = (0x01);
+free(argp);
+argp = (0x00);
 
-return(r);
+return(0x01);
 }

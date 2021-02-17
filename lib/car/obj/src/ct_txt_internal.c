@@ -10,25 +10,25 @@ Along with alignement of the tab.
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl ct_txt_internal(signed(align),signed(*argp),signed char(*base))) {
+signed(__cdecl ct_txt_internal(signed(arg/* align */),signed(*retv),signed char(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed r;
 
 /* **** CODE/TEXT */
+if(!retv) return(0x00);
 if(!argp) return(0x00);
-if(!base) return(0x00);
-if(!(*base)) return(0x00);
+if(!(*argp)) return(0x00);
 
-if(!(HT^(*base))) {
-r = (*argp);
-r = (r%(align));
-r = (-r+(align));
-*argp = (r+(*argp));
+if(!(HT^(*argp))) {
+r = (*retv);
+r = (r%(arg));
+r = (-r+(arg));
+*retv = (r+(*retv));
 }
-else (*argp)++;
+else (*retv)++;
 
-base++;
+argp++;
 
-return(0x01+(ct_txt_internal(align,argp,base)));
+return(0x01+(ct_txt_internal(arg,retv,argp)));
 }
