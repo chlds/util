@@ -15,7 +15,7 @@ Based on UTF-8
 # include <windows.h>
 # include "../../../lib/incl/config.h"
 
-signed(__cdecl main(void)) {
+signed(__cdecl main(signed(argc),signed char(**argv))) {
 
 /* **** DATA, BSS and STACK */
 auto signed char *b;
@@ -33,7 +33,10 @@ printf("%s \n","<< Error at fn. cli_init_property()");
 return(0x00);
 }
 
-// Announcements
+// to monitor
+if(0x01<(argc)) OR(*(CLI_BASE+(R(flag,property))),CLI_MONITOR);
+
+// announce
 cputs("Please type the <Enter> key to stop. \n\n");
 
 r = cli_opt(&property);

@@ -46,5 +46,11 @@ return(0x00);
 // if(CLI_MONO) return(0x01);
 if(CLI_MONO) system("cls");
 
+r = clear_rows(0x00);
+if(!r) {
+r = cli_message(r,"<< Error at fn. clear_rows() \n");
+return(0x00);
+}
+
 return(0x01);
 }

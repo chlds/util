@@ -21,7 +21,7 @@ auto signed short flag;
 /* **** CODE/TEXT */
 if(arg<(0x00)) return(0x00);
 if(!di) return(0x00);
-if(!si) return(0x00);
+// if(!si) return(0x00);
 // if(!(*di)) return(0x00);
 
 r = ct(*di);

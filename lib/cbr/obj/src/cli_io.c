@@ -46,6 +46,14 @@ rule = (CLI_BASE+(R(rule,*t)));
 b = (*(CLI_INDEX+(R(b,*rule))));
 size = (CLI_BB);
 
+// monitor
+flag = (CLI_MONITOR&(*(CLI_BASE+(R(flag,*argp)))));
+r = cli_mon(flag,argp);
+if(!r) {
+r = cli_message(r,"<< Error at fn. cli_mon() \n");
+return(0x00);
+}
+
 // get
 r = cli_in(&i,b,size);
 if(!r) {
