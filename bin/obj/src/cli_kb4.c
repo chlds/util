@@ -46,13 +46,13 @@ return(0x00);
 }
 
 cputs(" \n\n");
-cputs("Based on UTF-8: ");
+cputs("Based on UTF-8: \n");
 
 b = (*(CLI_BASE+(R(b,*(CLI_BASE+(R(rule,R(text,property))))))));
 if(!b) return(0x00);
 r = cli_outs(b);
 
-cputs(" \n");
+cputs(" \n\n");
 ct_ars(&i,b);
 printf("[%d %s] \n",i,"words");
 printf("[%d %s] \n",ct_letters(b),"letters");

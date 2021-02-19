@@ -40,7 +40,8 @@ return(0x00);
 
 y = (*(CLI_BASE+(R(bottom,rect))));
 
-r = clear_rows_r(y);
+AND(flag,0x00);
+r = clear_rows_r(flag,y);
 if(!r) return(0x00);
 
 i = (r);

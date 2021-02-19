@@ -79,7 +79,8 @@ while(i<(CLI_RULE)) {
 b = (*(i+(R(b,*rule))));
 printf("%p [",b);
 r = cli_outs(b);
-printf("] \n");
+printf("] ");
+if(!(clear_row(0x00))) return(0x00);
 i++;
 }
 AND(i,0x00);

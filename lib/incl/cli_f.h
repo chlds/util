@@ -6,7 +6,7 @@ signed(__cdecl cli_retrieve_standard_handles_beta(void(**argp)));
 signed(__cdecl coord_beta(signed(io),signed(arg),coord_t(*argp)));
 signed(__cdecl rect_beta(signed(io),signed(arg),rect_t(*argp)));
 signed(__cdecl pixel_beta(signed(io),signed(arg),pixel_t(*argp)));
-signed(__cdecl clear_rows_r(signed short(arg)));
+signed(__cdecl clear_rows_r(signed short(arg),signed short(edge)));
 signed(__cdecl clear_rows(signed short(arg)));
 signed(__cdecl clear_row(signed short(arg)));
 signed(__cdecl scroll_beta(signed short(arg)));
