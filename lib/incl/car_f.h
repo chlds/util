@@ -314,6 +314,11 @@ signed(__cdecl bsort(signed(count),signed(*base)));
 signed(__cdecl concatenate(signed(arg),signed char(**di),signed char(*si)));
 /* Release the *di later. */
 
+signed(__cdecl cv_l_r(signed short(radix),signed char(*di_tbl),signed char(*si_tbl),signed char(*di),signed char(*si)));
+signed(__cdecl cv_l(signed char(*di_tbl),signed char(*si_tbl),signed char(*di),signed char(*si)));
+signed char*(__cdecl cv_a(signed(arg),signed char(*argp)));
+/* Release at the return pointer later */
+
 signed(__cdecl cat_ll(KNOT(*argp)));
 
 signed(__cdecl catppp(signed char(***argp)));
