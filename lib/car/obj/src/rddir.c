@@ -69,7 +69,7 @@ void *dis;
 auto signed char *path;
 
 auto signed char *craft;
-auto signed char *b,*p;
+auto signed char *b,*p,*t;
 auto signed i,r;
 auto signed short disable;
 auto signed short flag;
@@ -98,7 +98,7 @@ r = (r+(ct(p)));
 r = (r+(ct(R(p_dir,*(R(dis,*argp))))));
 r++;
 r = (r*(sizeof(*p)));
-craft = (signed char(*)) malloc(r);
+craft = (signed char(*)) alloc(r);
 r = cpy(craft,R(p_dir,*(R(dis,*argp))));
 if(!r) {
 printf("%s \n","<< An error has occurred at fn. cpy().");
@@ -129,7 +129,7 @@ r = finds(argp);
 if(!r) {
 }
 embed(0x00,craft);
-free(craft);
+rl(craft);
 craft = (0x00);
 // restore
 R(path,*argp) = (path);
@@ -147,10 +147,14 @@ if(DBG) printf("%s %d \n","flag:",flag);
 OR(R(flag,*argp),OPT_VISIBLE);
 
 if(R(target,*argp)) {
+t = (p);
 AND(R(flag,*argp),(~OPT_VISIBLE));
 i = (0x00);
+if(OPT_IGNORE&(R(flag,*argp))) p = cv_a(0x00,p);
 r = cmpr_parts(&i,p,R(target,*argp));
 if(!i) OR(R(flag,*argp),OPT_VISIBLE);
+if(OPT_IGNORE&(R(flag,*argp))) rl(p);
+p = (t);
 }
 
 if(OPT_VISIBLE&(R(flag,*argp))) {

@@ -20,6 +20,7 @@ signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 /* **** DATA, BSS and STACK */
 auto signed char *(opt[]) = {
 (signed char(*)) ("a"),
+(signed char(*)) ("i"),
 (signed char(*)) ("r"),
 (signed char(*)) ("u"),
 (signed char(*)) ("v"),
@@ -29,6 +30,7 @@ auto signed char *(opt[]) = {
 
 auto signed opt_flags[] = {
 (signed) (OPT_ATTRIBS),
+(signed) (OPT_IGNORE),
 (signed) (OPT_RECURSION),
 (signed) (OPT_UNLIMITED),
 (signed) (OPT_VERBOSE),
@@ -37,38 +39,35 @@ auto signed opt_flags[] = {
 };
 
 auto C_DIRS_INFO cdi;
-auto signed char *argp,*p;
+auto signed char *b,*p,*t;
 auto signed i,l,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
-if(argc<(0x02)) argp = ("./*");
-else argp = (*(argv+(argc+(~(0x00)))));
+p = (*(argv+(argc+(~0x00))));
+if(argc<(0x02)) p = ("./*");
 
-p = (0x00);
-
-r = ct(argp);
+r = ct(p);
 if(!r) return(0x00);
-else i = (r);
 
-if('*'^(*(argp+(--r)))) {
-if('/'^(*(argp+(r)))) i++;
-i++;
+i = (r);
+
+if('*'^(*(p+(--i)))) {
+if('/'^(*(p+(i)))) r++;
+r++;
 }
-i++;
-i = (i*(sizeof(*argp)));
-p = (signed char(*)) malloc(i);
-if(!p) {
-printf("%s \n","<< Error at fn. malloc()");
-return(0x00);
+
+r++;
+r = (r*(sizeof(*p)));
+b = (signed char(*)) alloc(r);
+if(!b) return(0x00);
+
+r = cpy(b,p);
+if('*'^(*(b+(r+(~0x00))))) {
+if('/'^(*(b+(r+(~0x00))))) *(b+(r++)) = ('/');
+*(b+(r++)) = ('*');
+*(b+(r)) = (0x00);
 }
-r = cpy(p,argp);
-if('*'^(*(p+(r+(~0x00))))) {
-if('/'^(*(p+(r+(~0x00))))) *(p+(r++)) = ('/');
-*(p+(r++)) = ('*');
-*(p+(r)) = (0x00);
-}
-argp = (p);
 
 XOR(flag,flag);
 
@@ -84,50 +83,68 @@ l++;
 i = (0x00);
 r = cv_da(0x0A,&i,*(argv+(0x01)));
 if(!r) {
-if(p) free(p);
+if(b) rl(b);
 return(0x00);
 }
-if(i<(0x00)) i = (0x01+(~(i)));
+if(i<(0x00)) i = (0x01+(~i));
 if(i) {
 OR(flag,OPT_RECURSION);
 OR(flag,OPT_DEPTH);
 i++;
 }}
 
-cdi.target = (0x00);
-if(0x03<(argc)) cdi.target = (*(argv+(0x02)));
+// ignore case distinctions or..
+t = (0x00);
+cdi.target = (t);
+if(0x03<(argc)) {
+t = (*(argv+(0x02)));
+R(target,cdi) = (t);
+// also
+if(OPT_IGNORE&(flag)) {
+t = cv_a(0x00,t);
+if(!t) {
+rl(b);
+return(0x00);
+}
+R(target,cdi) = (t);
+}}
 
 cdi.depth = (i);
 cdi.directories = (0x00);
 cdi.files = (0x00);
 cdi.flag = (flag);
 cdi.dis = (0x00);
-cdi.path = (argp);
+cdi.path = (b);
 
 r = finds(&cdi);
 if(!r) {
-printf("%s \n","<< An error has occurred at fn. finds().");
-return(0x00);
+r = cli_message(r,"<< An error has occurred at fn. finds() \n");
+OR(flag,OPT_ERROR);
 }
 
-if(p) {
-r = embed(0x00,p);
-if(!r) {
-printf("%s \n","<< Error at fn. embed()");
-// return(0x00);
-}
-free(p);
-p = (0x00);
+if(OPT_IGNORE&(flag)) {
+r = embed(0x00,t);
+r = rl(t);
+t = (0x00);
 }
 
-argp = (p);
+if(b) {
+r = embed(0x00,b);
+if(!r) cli_message(r,"<< Error at fn. embed() \n");
+r = rl(b);
+b = (0x00);
+}
+
+p = (b);
 cdi.path = (p);
 
 printf("\n");
 printf(" %d %s \n",R(directories,cdi),"directories");
 if(!(OPT_DIRECTORIES&(R(flag,cdi)))) printf(" %d %s \n",R(files,cdi),"files");
 
-if(DBG) printf(" %s %d \n","Depth:",R(depth,cdi));
+if(OPT_VERBOSE&(flag)) printf(" %s %d \n","Depth:",R(depth,cdi));
+
+if(OPT_ERROR&(flag)) return(0x00);
 
 return(0x01);
 }
