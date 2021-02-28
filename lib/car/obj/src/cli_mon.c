@@ -88,6 +88,14 @@ l++;
 i = (l+(i));
 }
 
+//* to monitor, refer at fn. cli_io.c and at hd. cli_d.h.
+printf("Monitor at R(b,*argp): \n");
+printf("%p [",R(b,*argp));
+r = cli_outs(R(b,*argp));
+printf("] ");
+if(!(clear_row(0x00))) return(0x00);
+//*/
+
 /* come back */
 r = coord_beta(CLI_OUT,CLI_LEAD,&coord);
 if(!r) {

@@ -142,8 +142,13 @@ printf("\n");
 printf(" %d %s \n",R(directories,cdi),"directories");
 if(!(OPT_DIRECTORIES&(R(flag,cdi)))) printf(" %d %s \n",R(files,cdi),"files");
 
-if(OPT_VERBOSE&(flag)) printf(" %s %d \n","Depth:",R(depth,cdi));
+if(OPT_VERBOSE&(flag)) {
+r = (R(depth,cdi));
+if(r) --r;
+printf(" %s %d \n","Depth:",r);
+}
 
+AND(R(depth,cdi),0x00);
 if(OPT_ERROR&(flag)) return(0x00);
 
 return(0x01);

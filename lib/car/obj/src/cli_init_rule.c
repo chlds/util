@@ -8,7 +8,6 @@ Refer at fn. cli_restore.
 
 
 # define CAR
-# include <stdlib.h>
 # include "./../../../incl/config.h"
 
 signed(__cdecl cli_init_rule(signed(arg),cli_rule_t(*argp))) {
@@ -23,9 +22,10 @@ if(!(CLI_INIT&(R(flag,*argp)))) AND(arg,0x00);
 
 // destroy
 if(arg) {
+AND(arg,0x00);
 b = (*(CLI_BASE+(R(b,*argp))));
 embed(0x00,b);
-if(b) free(b);
+if(b) rl(b);
 }
 
 b = (0x00);

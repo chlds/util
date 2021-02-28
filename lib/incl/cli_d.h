@@ -125,6 +125,7 @@ void *optl;
 } typedef cli_frame_t;
 
 struct cli_property {
+signed char *b; // to monitor
 signed char **argv[CLI_OBJS]; // for UTF-8
 signed short **argv_w[CLI_OBJS]; // for UTF-16
 void *(token[CLI_OBJS]);

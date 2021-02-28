@@ -17,11 +17,13 @@ Based on UTF-8
 signed(__cdecl cli_io(cli_property_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
+static signed char buff[0x200]; // to monitor
 auto signed DEL = (0x7F);
 
-auto cli_text_t *t;
+auto cli_text_t *text;
 auto cli_rule_t *rule;
 auto signed char *b;
+auto signed char *p; // to monitor
 auto signed size;
 auto signed dif;
 auto signed i,r;
@@ -35,15 +37,28 @@ if(!(CLI_INIT&(*(CLI_BASE+(R(flag,*argp)))))) return(0x00);
 if(CLI_QUIT&(R(flag,R(text,*argp)))) return(0x01);
 if(CLI_BR&(R(flag,R(text,*argp)))) return(0x01);
 
-t = (&(R(text,*argp)));
-r = cli_restore(0x00/* not remove an appendant */,t);
+text = (&(R(text,*argp)));
+r = cli_restore(0x00/* not remove an appendant */,text);
 if(!r) {
 printf("%s \n","<< Error at fn. cli_restore()");
 return(0x00);
 }
 
-rule = (CLI_BASE+(R(rule,*t)));
+rule = (CLI_BASE+(R(rule,*text)));
 b = (*(CLI_INDEX+(R(b,*rule))));
+//* to monitor
+p = (*(CLI_BASE+(R(b,*rule))));
+cpy(buff,p);
+R(b,*argp) = (buff);
+// also
+if(CLI_REFRESH&(R(flag,*text))) {
+r = cli_refresh(b);
+// if(!r) return(0x00);
+flag = (~CLI_REFRESH);
+AND(R(flag,*text),flag);
+}
+//*/
+embed(0x00,b);
 size = (CLI_BB);
 
 // monitor
@@ -55,18 +70,17 @@ return(0x00);
 }
 
 // get
-r = cli_in(&i,b,size);
-if(!r) {
+dif = cli_in(&i,b,size);
+if(!dif) {
 printf("%s \n","<< Error at fn. cli_in()");
 return(0x00);
 }
 
-dif = (r);
-// *(dif+(b)) = (0x00);
 if(!(DEL^(i))) i = (CTRL_D);
+if(i<(0x20)) AND(dif,0x00);
+embed(0x00,dif+(b));
 
 if(i<(0x20)) {
-AND(dif,0x00);
 r = cli_ctrl_fn(i,argp);
 if(!r) {
 printf("%s \n","<< Error at fn. cli_ctrl_fn()");
@@ -80,11 +94,9 @@ if(!r) {
 printf("%s \n","<< Error at fn. cli_out()");
 return(0x00);
 }
-while(dif) {
-INC(b);
---dif;
-}
+b = (dif+(b));
 *(CLI_INDEX+(R(b,*rule))) = (b);
+OR(R(flag,*text),CLI_REFRESH);
 }
 
 b = (0x00);

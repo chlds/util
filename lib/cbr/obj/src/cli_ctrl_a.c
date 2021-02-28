@@ -7,20 +7,37 @@ Refer at util/lib/obj/src/cli_io.c
 */
 
 
-# define CBR
+# define CAR
 
-# include <conio.h>
 # include <stdio.h>
-# include <stdlib.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_ctrl_a(void(*argp))) {
+signed(__cdecl cli_ctrl_a(cli_property_t(*argp))) {
 
-auto signed char *p;
-auto signed c,i,r;
+auto signed char *b;
+auto cli_text_t *text;
+auto cli_rule_t *rule;
+auto coord_t coord;
+auto signed i,r;
 auto signed short flag;
 
-if(CLI_DBG) printf("%s","<Ctrl-A>");
+if(DBG) printf("%s","<Ctrl-A>");
+
+text = (&(R(text,*argp)));
+rule = (CLI_BASE+(R(rule,*text)));
+b = (*(CLI_BASE+(R(b,*rule))));
+*(CLI_INDEX+(R(b,*rule))) = (b);
+
+rule = (CLI_OFFSET+(R(rule,*text)));
+r = cli_init_rule(0x01,rule);
+if(!r) return(0x00);
+
+r = coord_beta(CLI_IN,CLI_RULE,&coord);
+if(!r) return(0x00);
+
+AND(*(CLI_BASE+(R(x,coord))),0x00);
+r = coord_beta(CLI_OUT,CLI_BASE,&coord);
+if(!r) return(0x00);
 
 return(0x01);
 }
