@@ -22,12 +22,9 @@ if(!argp) return(0x00);
 // initialise
 if(!(CLI_INIT&(R(flag,*argp)))) AND(arg,0x00);
 
-AND(R(width,*argp),0x00);
-AND(R(height,*argp),0x00);
-AND(R(flag,*argp),0x00);
-AND(R(attribute,*argp),0x00);
-
 AND(i,0x00);
+OR(i,CLI_OBJS);
+while(i) *(--i+(R(cf,*argp))) = (0x00);
 OR(i,CLI_OBJS);
 while(i) {
 r = cli_init_rule(arg,--i+(R(rule,*argp)));
@@ -36,6 +33,10 @@ printf("%s%d%s \n","<< Error at fn. cli_init_rule(arg,",i,"+(R(rule,*argp)))");
 return(0x00);
 }}
 
+AND(R(width,*argp),0x00);
+AND(R(height,*argp),0x00);
+AND(R(flag,*argp),0x00);
+AND(R(attribute,*argp),0x00);
 R(optl,*argp) = (0x00);
 
 if(!arg) OR(R(flag,*argp),CLI_INIT);

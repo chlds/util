@@ -106,6 +106,7 @@ void *optl;
 } typedef cli_spool_t;
 
 struct cli_text {
+signed char *(cf[CLI_OBJS]); // to monitor
 cli_rule_t rule[CLI_OBJS];
 cli_codepage_t codepage;
 cli_spool_t spool;
@@ -125,7 +126,6 @@ void *optl;
 } typedef cli_frame_t;
 
 struct cli_property {
-signed char *b; // to monitor
 signed char **argv[CLI_OBJS]; // for UTF-8
 signed short **argv_w[CLI_OBJS]; // for UTF-16
 void *(token[CLI_OBJS]);

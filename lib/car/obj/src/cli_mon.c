@@ -20,6 +20,7 @@ signed(__cdecl cli_mon(signed short(arg),cli_property_t(*argp))) {
 /* **** DATA, BSS and STACK */
 auto signed short n_row = (/* CLI_HEADER_HEIGHT+( */N_ROW/* ) */);
 
+auto signed char *p;
 auto signed char *b;
 auto cli_snapshot_t *snapshot;
 auto cli_page_t *page;
@@ -89,11 +90,18 @@ i = (l+(i));
 }
 
 //* to monitor, refer at fn. cli_io.c and at hd. cli_d.h.
-printf("Monitor at R(b,*argp): \n");
-printf("%p [",R(b,*argp));
-r = cli_outs(R(b,*argp));
+printf("Monitor at *(CLI_B/O/I/L+(R(cf,R(*text: \n");
+//
+AND(i,0x00);
+while(0x01) {
+if(!(i<(CLI_OBJS))) break;
+p = (*(i+(R(cf,*text))));
+printf("%p [",p);
+r = cli_outs(p);
 printf("] ");
 if(!(clear_row(0x00))) return(0x00);
+i++;
+}
 //*/
 
 /* come back */

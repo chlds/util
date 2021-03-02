@@ -17,7 +17,7 @@ Based on UTF-8
 signed(__cdecl cli_io(cli_property_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
-static signed char buff[0x200]; // to monitor
+static signed char buff[CLI_RULE][0x200]; // to monitor
 auto signed DEL = (0x7F);
 
 auto cli_text_t *text;
@@ -46,10 +46,17 @@ return(0x00);
 
 rule = (CLI_BASE+(R(rule,*text)));
 b = (*(CLI_INDEX+(R(b,*rule))));
+
 //* to monitor
-p = (*(CLI_BASE+(R(b,*rule))));
-cpy(buff,p);
-R(b,*argp) = (buff);
+AND(i,0x00);
+while(0x01) {
+if(!(i<(CLI_RULE))) break;
+p = (*(i+(buff)));
+cpy(p,*(i+(R(b,*rule))));
+*(i+(R(cf,*text))) = (p);
+i++;
+}
+
 // also
 if(CLI_REFRESH&(R(flag,*text))) {
 r = cli_refresh(b);
@@ -58,6 +65,7 @@ flag = (~CLI_REFRESH);
 AND(R(flag,*text),flag);
 }
 //*/
+
 embed(0x00,b);
 size = (CLI_BB);
 
