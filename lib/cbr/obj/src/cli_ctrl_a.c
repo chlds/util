@@ -28,9 +28,8 @@ rule = (CLI_BASE+(R(rule,*text)));
 b = (*(CLI_BASE+(R(b,*rule))));
 *(CLI_INDEX+(R(b,*rule))) = (b);
 
-rule = (CLI_OFFSET+(R(rule,*text)));
-r = cli_init_rule(0x01,rule);
-if(!r) return(0x00);
+flag = (~CLI_REFRESH);
+AND(R(flag,*text),flag);
 
 r = coord_beta(CLI_IN,CLI_RULE,&coord);
 if(!r) return(0x00);

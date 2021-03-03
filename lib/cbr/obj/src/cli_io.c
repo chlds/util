@@ -17,7 +17,7 @@ Based on UTF-8
 signed(__cdecl cli_io(cli_property_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
-static signed char buff[CLI_RULE][0x200]; // to monitor
+static signed char buff[CLI_RULE][0x500]; // to monitor
 auto signed DEL = (0x7F);
 
 auto cli_text_t *text;
@@ -38,7 +38,8 @@ if(CLI_QUIT&(R(flag,R(text,*argp)))) return(0x01);
 if(CLI_BR&(R(flag,R(text,*argp)))) return(0x01);
 
 text = (&(R(text,*argp)));
-r = cli_restore(0x00/* not remove an appendant */,text);
+flag = (CLI_REFRESH&(R(flag,*text)));
+r = cli_restore(flag/* append or not.. */,text);
 if(!r) {
 printf("%s \n","<< Error at fn. cli_restore()");
 return(0x00);
@@ -58,12 +59,12 @@ i++;
 }
 
 // also
-if(CLI_REFRESH&(R(flag,*text))) {
+// if(CLI_REFRESH&(R(flag,*text))) {
 r = cli_refresh(b);
 // if(!r) return(0x00);
-flag = (~CLI_REFRESH);
-AND(R(flag,*text),flag);
-}
+// flag = (~CLI_REFRESH);
+// AND(R(flag,*text),flag);
+// }
 //*/
 
 embed(0x00,b);

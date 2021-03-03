@@ -25,12 +25,10 @@ if(!argp) return(0x00);
 if(!(CLI_INIT&(R(flag,*argp)))) return(0x00);
 
 rule = (CLI_OFFSET+(R(rule,*argp)));
-//*
-if(arg) {
+if(!arg) {
 r = cli_init_rule(0x01,rule);
 if(!r) return(0x00);
 }
-//*/
 
 b = (*(CLI_BASE+(R(b,*rule))));
 rule = (CLI_BASE+(R(rule,*argp)));

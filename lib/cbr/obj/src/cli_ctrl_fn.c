@@ -19,7 +19,7 @@ signed(__cdecl cli_ctrl_fn(signed(arg),cli_property_t(*argp))) {
 /* **** DATA, BSS and STACK */
 auto signed DEL = (0x7F);
 
-auto cli_text_t *t;
+auto cli_text_t *text;
 auto cli_rule_t *rule;
 auto signed char *b;
 auto signed dif;
@@ -31,16 +31,16 @@ if(!(arg^(DEL))) arg = (CTRL_D);
 if(!(arg<(0x20))) return(0x00);
 if(!argp) return(0x00);
 
-t = (&(R(text,*argp)));
+text = (&(R(text,*argp)));
 
 /* overwrite a control character with an appendant */
-rule = (CLI_BASE+(R(rule,*t)));
+rule = (CLI_BASE+(R(rule,*text)));
 b = (*(CLI_INDEX+(R(b,*rule))));
 if(!b) return(0x00);
 
 embed(0x00,b);
 
-r = cli_restore(0x00,t);
+r = cli_restore(0x01/* append */,text);
 if(!r) {
 r = cli_message(r,"<< Error at fn. cli_restore() \n");
 return(0x00);

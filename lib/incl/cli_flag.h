@@ -4,6 +4,7 @@
 # define CLI_BACKUP (0x08)
 # define CL_SEARCH (0x10)
 # define CL_REPLACE (0x20)
+// # define CLI_APPEND (0x20)
 # define CL_QUIT (0x40)
 # define CLI_MONITOR (0x80)
 # define CLI_ALREADY_EXIST (0x100)
