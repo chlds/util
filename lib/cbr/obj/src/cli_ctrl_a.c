@@ -21,7 +21,7 @@ auto coord_t coord;
 auto signed i,r;
 auto signed short flag;
 
-if(DBG) printf("%s","<Ctrl-A>");
+if(DBG) printf("%s ","<Ctrl-A>");
 
 text = (&(R(text,*argp)));
 rule = (CLI_BASE+(R(rule,*text)));

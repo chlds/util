@@ -19,15 +19,17 @@ auto signed i,r;
 auto signed short flag;
 
 if(!argp) return(0x00);
-if(!(*argp)) return(0x00);
+// if(!(*argp)) return(0x00);
 
 r = coord_beta(CLI_IN,CLI_RULE,&coord);
 if(!r) return(0x00);
 
 r = cli_outs(argp);
 if(!r) {
+/*
 printf("%s \n","<< Error at fn. cli_outs()");
 return(0x00);
+//*/
 }
 
 r = clear_row(0x01);
