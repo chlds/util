@@ -21,6 +21,8 @@ auto coord_t coord;
 auto signed i,r;
 auto signed short flag;
 
+if(!argp) return(0x00);
+
 if(DBG) printf("%s ","<Ctrl-A>");
 
 text = (&(R(text,*argp)));
