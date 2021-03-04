@@ -49,6 +49,7 @@ rule = (CLI_BASE+(R(rule,*text)));
 b = (*(CLI_INDEX+(R(b,*rule))));
 
 //* to monitor
+if(CLI_MONITOR&(*(CLI_BASE+(R(flag,*argp))))) {
 AND(i,0x00);
 while(0x01) {
 if(!(i<(CLI_RULE))) break;
@@ -56,7 +57,7 @@ p = (*(i+(buff)));
 cpy(p,*(i+(R(b,*rule))));
 *(i+(R(cf,*text))) = (p);
 i++;
-}
+}}
 
 // also
 // if(CLI_REFRESH&(R(flag,*text))) {
