@@ -27,14 +27,12 @@ if(DBG) printf("%s ","<Ctrl-X>");
 text = (&(R(text,*argp)));
 rule = (CLI_BASE+(R(rule,*text)));
 b = (*(CLI_BASE+(R(b,*rule))));
-if(EQ(b,*(CLI_INDEX+(R(b,*rule))))) {
-flag = (~CLI_REFRESH);
-AND(R(flag,*text),flag);
-return(0x01);
-}
+if(EQ(b,*(CLI_INDEX+(R(b,*rule))))) return(0x01);
 
 *(CLI_INDEX+(R(b,*rule))) = (b);
 embed(0x00,b);
+OR(R(flag,*text),CLI_REFRESH);
+b = (0x00);
 
 r = coord_beta(CLI_IN,CLI_RULE,&coord);
 if(!r) return(0x00);

@@ -33,6 +33,9 @@ if(!argp) return(0x00);
 
 text = (&(R(text,*argp)));
 
+flag = (~CLI_REFRESH);
+AND(R(flag,*text),flag);
+
 /* overwrite a control character with an appendant */
 rule = (CLI_BASE+(R(rule,*text)));
 b = (*(CLI_INDEX+(R(b,*rule))));

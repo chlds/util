@@ -27,11 +27,7 @@ if(DBG) printf("%s ","<Ctrl-H>");
 text = (&(R(text,*argp)));
 rule = (CLI_BASE+(R(rule,*text)));
 b = (*(CLI_INDEX+(R(b,*rule))));
-if(EQ(b,*(CLI_BASE+(R(b,*rule))))) {
-flag = (~CLI_REFRESH);
-AND(R(flag,*text),flag);
-return(0x01);
-}
+if(EQ(b,*(CLI_BASE+(R(b,*rule))))) return(0x01);
 
 r = ct_back(&i,b);
 if(!r) return(0x00);
@@ -39,6 +35,7 @@ if(!r) return(0x00);
 b = (b+(0x01+(~i)));
 *(CLI_INDEX+(R(b,*rule))) = (b);
 embed(0x00,b);
+OR(R(flag,*text),CLI_REFRESH);
 b = (0x00);
 
 r = coord_beta(CLI_IN,CLI_RULE,&coord);

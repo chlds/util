@@ -30,9 +30,6 @@ rule = (CLI_BASE+(R(rule,*text)));
 b = (*(CLI_BASE+(R(b,*rule))));
 *(CLI_INDEX+(R(b,*rule))) = (b);
 
-flag = (~CLI_REFRESH);
-AND(R(flag,*text),flag);
-
 r = coord_beta(CLI_IN,CLI_RULE,&coord);
 if(!r) return(0x00);
 

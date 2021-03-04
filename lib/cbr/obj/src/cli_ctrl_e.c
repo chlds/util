@@ -24,10 +24,6 @@ if(!argp) return(0x00);
 if(DBG) printf("%s ","<Ctrl-E>");
 
 text = (&(R(text,*argp)));
-
-flag = (~CLI_REFRESH);
-AND(R(flag,*text),flag);
-
 rule = (CLI_BASE+(R(rule,*text)));
 b = (*(CLI_INDEX+(R(b,*rule))));
 r = cli_outs(b);
