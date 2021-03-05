@@ -114,6 +114,7 @@ signed(__cdecl ct(signed char(*argp)));
 
 signed(__cdecl ct_back_r(signed(*retv),signed char(*argp)));
 signed(__cdecl ct_back(signed(*retv),signed char(*argp)));
+signed(__cdecl ct_by(signed char(*argp)));
 /* Based on UTF-8 */
 
 signed(__cdecl encode_bw_internal(ENCODE_PACK(*argp)));
