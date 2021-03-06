@@ -1,6 +1,6 @@
 /*
 
-Retrieve bytes to the leading address of a word.
+Retrieve bytes to the leading address of a word to wrap words.
 */
 
 

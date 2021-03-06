@@ -1,3 +1,4 @@
+signed(__cdecl cli_clip_to_empty_beta(void));
 signed(__cdecl cli_message(signed(arg),signed char(*argp)));
 signed(__cdecl cli_mon(signed short(arg),cli_property_t(*argp)));
 signed(__cdecl cli_refresh(signed char(*argp)));
