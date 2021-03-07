@@ -112,9 +112,9 @@ signed(__cdecl ct_w(signed short(*argp)));
 signed(__cdecl ct(signed char(*argp)));
 /* Count. */
 
-signed(__cdecl ct_back_r(signed(*retv),signed char(*argp)));
-signed(__cdecl ct_back(signed(*retv),signed char(*argp)));
-signed(__cdecl ct_by(signed char(*argp)));
+signed(__cdecl ct_a_back_r(signed(*retv),signed char(*argp)));
+signed(__cdecl ct_a_back(signed(*retv),signed char(*argp)));
+signed(__cdecl ct_a(signed char(*argp)));
 /* Based on UTF-8 */
 
 signed(__cdecl encode_bw_internal(ENCODE_PACK(*argp)));
@@ -145,8 +145,8 @@ signed(__cdecl decode_surrogate_first(signed short(*di),signed(si)));
 signed(__cdecl nbytechar(signed char(arg)));
 /* Output Unicode characters decoded out of Unicode bytes */
 
-signed(__cdecl cue_backward_internal(signed short(flag),signed char(**retrv),signed char(*sym),signed char(*base)));
-signed(__cdecl cue_backward(signed char(**retrv),signed char(*sym),signed char(*base),signed char(*offset)));
+signed(__cdecl cue_backward_r(signed short(flag),signed char(**retrv),signed char(*sym),signed char(*base)));
+signed(__cdecl cue_backward(signed char(**retrv),signed char(*sym),signed char(*offset),signed char(*base)));
 /* Retrieve the leading address to a previous word or symbol. */
 
 signed(__cdecl cue(signed char(*sym),signed char(*argp)));
@@ -154,7 +154,7 @@ signed(__cdecl cue(signed char(*sym),signed char(*argp)));
 
 signed(__cdecl cue2l(signed char(*sym),signed char(*argp)));
 signed(__cdecl deviate(signed char(*sym),signed char(*base),signed char(*index)));
-/* Retrieve bytes to the leading address of a word. */
+/* Retrieve bytes to the leading address of a word (to wrap words). */
 
 signed(__cdecl column_internal(signed short(cols),signed(algn),signed short(col),signed char(*cur),signed char(*offset)));
 signed(__cdecl column(signed short(cols),signed(algn),signed char(*base)));

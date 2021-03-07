@@ -1,6 +1,6 @@
 /* **** Notes
 
-Count by.
+Count.
 
 Remarks:
 Based on UTF-8
@@ -10,7 +10,7 @@ Based on UTF-8
 # define CAR
 # include "./../../../incl/config.h"
 
-signed(__cdecl ct_by(signed char(*argp))) {
+signed(__cdecl ct_a(signed char(*argp))) {
 
 auto signed r;
 

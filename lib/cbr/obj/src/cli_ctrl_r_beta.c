@@ -87,9 +87,9 @@ return(0x00);
 return(0x01);
 }
 
-r = cue_backward(&p,CUE_SYM,*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),cur);
+r = cue_backward(&p,CUE_SYM,cur,*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))));
 if(!r) {
-printf("%s\n","<< Error at fn. cue_backward()");
+printf("%s \n","<< Error at fn. cue_backward()");
 return(0x00);
 }
 

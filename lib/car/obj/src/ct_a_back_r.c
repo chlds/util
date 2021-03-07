@@ -1,13 +1,13 @@
 /* **** Notes
 
-Count bytes back.
+Count backward.
 */
 
 
 # define CAR
 # include "./../../../incl/config.h"
 
-signed(__cdecl ct_back_r(signed(*retv),signed char(*argp))) {
+signed(__cdecl ct_a_back_r(signed(*retv),signed char(*argp))) {
 
 auto signed r;
 
@@ -23,5 +23,5 @@ OR(*retv,r);
 return(0x01);
 }
 
-return(0x01+(ct_back_r(retv,--argp)));
+return(0x01+(ct_a_back_r(retv,--argp)));
 }

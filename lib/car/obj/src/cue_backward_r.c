@@ -10,20 +10,17 @@ Refer at fn. cli_io_beta, fn. cli_ctrl_r_beta and fn. cli_ctrl_b_beta.
 
 
 # define CAR
-# include "../../../incl/config.h"
 # include <stdio.h>
+# include "../../../incl/config.h"
 
-signed(__cdecl cue_backward_internal(signed short(flag),signed char(**retrv),signed char(*sym),signed char(*base))) {
+signed(__cdecl cue_backward_r(signed short(flag),signed char(**retrv),signed char(*sym),signed char(*base))) {
 
 /* **** DATA, BSS and STACK */
-static signed char HT = ('\t');
-static signed char SP = (' ');
-
 auto signed short NON_DELIM = (0x20);
 auto signed short DELIM = (0x10);
 
 auto signed char *b;
-auto signed i,l,r;
+auto signed c,i,l,r;
 auto signed short fini;
 
 /* **** CODE/TEXT */
@@ -38,7 +35,7 @@ if(EQ(b,base)) return(0x01);
 if(flag) {
 if(SP^(*b)) {
 if(!(HT^(*(--b)))) return(0x00);
-else b++;
+b++;
 }}
 
 while(0x01) {
@@ -59,19 +56,20 @@ printf("%s \n","<< Error at fn. decode2uni()");
 return(0x00);
 }
 
-if(!(i^((signed) HT))) return(0x01);
+if(!(HT^(i))) return(0x01);
 
-fini = (0x00);
+AND(fini,0x00);
 
-if(!(i^((signed) SP))) {
+if(!(SP^(i))) {
 OR(flag,0x01);
 if(0x01<(flag)) fini++;
 }
 
 else {
-l = (0x00);
+AND(l,0x00);
 while(*(sym+(l))) {
-if(!(i^((signed) *(sym+(l))))) {
+c = (*(sym+(l)));
+if(!(c^(i))) {
 OR(flag,DELIM);
 break;
 }
@@ -86,5 +84,5 @@ if(fini) {
 return(0x00);
 }
 
-return(0x01+(cue_backward_internal(flag,retrv,sym,base)));
+return(0x01+(cue_backward_r(flag,retrv,sym,base)));
 }
