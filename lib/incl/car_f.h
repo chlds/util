@@ -112,8 +112,8 @@ signed(__cdecl ct_w(signed short(*argp)));
 signed(__cdecl ct(signed char(*argp)));
 /* Count. */
 
-signed(__cdecl ct_a_back_r(signed(*retv),signed char(*argp)));
-signed(__cdecl ct_a_back(signed(*retv),signed char(*argp)));
+signed(__cdecl ct_a_back_r(signed char(*argp)));
+signed(__cdecl ct_a_back(signed char(*argp)));
 signed(__cdecl ct_a(signed char(*argp)));
 /* Based on UTF-8 */
 

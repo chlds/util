@@ -29,10 +29,10 @@ rule = (CLI_BASE+(R(rule,*text)));
 b = (*(CLI_INDEX+(R(b,*rule))));
 if(EQ(b,*(CLI_BASE+(R(b,*rule))))) return(0x01);
 
-r = ct_a_back(&i,b);
+r = ct_a_back(b);
 if(!r) return(0x00);
 
-b = (b+(0x01+(~i)));
+b = (b+(0x01+(~r)));
 *(CLI_INDEX+(R(b,*rule))) = (b);
 embed(0x00,b);
 OR(R(flag,*text),CLI_REFRESH);
