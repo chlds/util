@@ -147,6 +147,8 @@ signed(__cdecl nbytechar(signed char(arg)));
 
 signed(__cdecl cue_backward_r(signed short(flag),signed char(**retrv),signed char(*sym),signed char(*base)));
 signed(__cdecl cue_backward(signed char(**retrv),signed char(*sym),signed char(*offset),signed char(*base)));
+signed(__cdecl cue_back_r(signed short(flag),signed char(*sym),signed char(*cache),signed char(*argp)));
+signed(__cdecl cue_back(signed char(*sym),signed char(*cache),signed char(*argp)));
 /* Retrieve the leading address to a previous word or symbol. */
 
 signed(__cdecl cue_r(signed short(flag),signed char(*sym),signed char(*argp)));
