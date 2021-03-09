@@ -25,8 +25,8 @@ if(cache<(argp)) return(0x00);
 if(!(*cache)) return(0x00);
 
 if(EQ(cache,argp)) {
-if(flag) return(0x01+(~(ct_a(cache))));
-return(0x00);
+if(flag) OR(flag,0x04);
+else return(0x00);
 }
 
 if(!(HT^(*cache))) {
@@ -47,6 +47,8 @@ else {
 OR(flag,0x02);
 if(0x01&(flag)) return(0x01+(~(ct_a(cache))));
 }}
+
+if(0x04&(flag)) return(0x00);
 
 r = ct_a_back(cache);
 if(!r) return(0x00);
