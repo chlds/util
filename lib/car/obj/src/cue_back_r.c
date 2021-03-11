@@ -13,6 +13,11 @@ Based on UTF-8
 signed(__cdecl cue_back_r(signed short(flag),signed char(*sym),signed char(*cache),signed char(*argp))) {
 
 /* **** DATA, BSS and STACK */
+auto signed short BYTE_ONE = (0x01);
+auto signed short BYTE_MUL = (0x02);
+auto signed short BYTE_SYM = (0x04);
+auto signed short BYTE_END = (0x08);
+
 auto signed char *b;
 auto signed r;
 
@@ -25,7 +30,7 @@ if(cache<(argp)) return(0x00);
 if(!(*cache)) return(0x00);
 
 if(EQ(cache,argp)) {
-if(flag) OR(flag,0x04);
+if(flag) OR(flag,BYTE_END);
 else return(0x00);
 }
 
@@ -40,15 +45,23 @@ if(flag) return(0x01+(~(ct_a(cache))));
 else {
 r = ord(sym,*cache);
 if(r<(ct(sym))) {
-OR(flag,0x01);
-if(0x02&(flag)) return(0x01+(~(ct_a(cache))));
+if(flag&(BYTE_ONE|BYTE_MUL)) return(0x01+(~(ct_a(cache))));
+OR(flag,BYTE_SYM);
 }
 else {
-OR(flag,0x02);
-if(0x01&(flag)) return(0x01+(~(ct_a(cache))));
-}}
+if(BYTE_SYM&(flag)) return(0x01+(~(ct_a(cache))));
+r = ct_a(cache);
+if(!r) return(0x00);
+if(BYTE_ONE<(r)) {
+if(BYTE_ONE&(flag)) return(0x01+(~(ct_a(cache))));
+OR(flag,BYTE_MUL);
+}
+else {
+if(BYTE_MUL&(flag)) return(0x01+(~(ct_a(cache))));
+OR(flag,BYTE_ONE);
+}}}
 
-if(0x04&(flag)) return(0x00);
+if(BYTE_END&(flag)) return(0x00);
 
 r = ct_a_back(cache);
 if(!r) return(0x00);
