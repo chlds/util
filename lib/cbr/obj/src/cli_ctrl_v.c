@@ -13,10 +13,7 @@ Refer at util/lib/obj/src/cli_io.c
 
 signed(__cdecl cli_ctrl_v(cli_property_t(*argp))) {
 
-static signed char sym[] = {
-' ',',','.',0x00,
-};
-
+auto signed char *sym;
 auto signed char *b;
 auto cli_rule_t *rule;
 auto cli_text_t *text;
@@ -30,6 +27,7 @@ rule = (CLI_BASE+(R(rule,*text)));
 b = (*(CLI_INDEX+(R(b,*rule))));
 if(EQ(b,*(CLI_BASE+(R(b,*rule))))) return(0x01);
 
+sym = (*(CLI_BASE+(R(sym,*text))));
 r = cue_back(sym,b,*(CLI_BASE+(R(b,*rule))));
 if(!r) return(0x00);
 
@@ -53,6 +51,7 @@ b = (b+(cli_outs(b)));
 b = (0x00);
 
 OR(R(flag,*text),CLI_REFRESH);
+sym = (0x00);
 
 return(0x01);
 }

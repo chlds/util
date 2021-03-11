@@ -107,6 +107,7 @@ void *optl;
 
 struct cli_text {
 signed char *(cf[CLI_OBJS]); // to monitor
+signed char *(sym[CLI_OBJS]);
 cli_rule_t rule[CLI_OBJS];
 cli_codepage_t codepage;
 cli_spool_t spool;
