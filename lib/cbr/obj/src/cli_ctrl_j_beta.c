@@ -5,7 +5,7 @@ Press <Ctrl-J> to invoke the function.
 Along with C and Windows libraries
 
 Remarks:
-Refer at fn. cli_io_beta, fn. cli_ctrl_r_beta and fn. cli_ctrl_b_beta.
+Refer at fn. cli_io_beta.
 */
 
 
@@ -57,9 +57,9 @@ if(!r) p = (0x00);
 else {
 INC(r);
 r = (r*(sizeof(*p)));
-p = (signed char(*)) malloc(r);
+p = (signed char(*)) alloc(r);
 if(!p) {
-printf("%s\n","<< Error at fn. malloc()");
+printf("%s \n","<< Error at fn. alloc()");
 return(0x00);
 }
 r = cpy(p,*(CLI_INDEX+(R(cur,R(ty,*argp)))));
@@ -70,9 +70,9 @@ return(0x00);
 
 *(CLI_OFFSET+(R(append,R(ty,*argp)))) = (p);
 
-r = cli_ctrl_r_beta(argp);
+r = cli_ctrl_l_beta(argp);
 if(!r) {
-printf("%s\n","<< Error at fn. cli_ctrl_r_beta()");
+printf("%s \n","<< Error at fn. cli_ctrl_l_beta()");
 return(0x00);
 }
 
@@ -84,7 +84,7 @@ printf("%s\n","<< Error at fn. cpy()");
 return(0x00);
 }}
 
-if(p) free(p);
+if(p) rl(p);
 p = (0x00);
 *(CLI_OFFSET+(R(append,R(ty,*argp)))) = (p);
 

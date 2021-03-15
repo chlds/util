@@ -2,18 +2,14 @@
 
 Support for function and arrow keys
 
-Along with C library
-
 Remarks:
 Refer at fn. cli_io_beta, fn. cli_in and fn. cli_ctrl_at_beta.
 */
 
 
-# define CBR
+# define CAR
 
-# include <conio.h>
 # include <stdio.h>
-# include <stdlib.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cli_support_meta_keys(signed(*character),signed char(second),signed char(first))) {
@@ -36,7 +32,7 @@ auto signed ctrl[] = {
 (signed) (CTRL_N),
 (signed) (CTRL_U),
 (signed) (CTRL_G),
-(signed) (CTRL_R),
+(signed) (CTRL_L),
 (signed) (CTRL_N),
 (signed) (CTRL_F),
 (signed) (CTRL_B),

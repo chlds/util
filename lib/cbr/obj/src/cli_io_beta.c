@@ -143,7 +143,7 @@ size = (-diff+(size));
 *(CLI_OUT+(R(old,R(ty,*argp)))) = (i);
 
 // count to copy and paste
-if(!(CTRL_L^(i))) INC(R(clip,R(clipboard,R(ty,*argp))));
+if(!(CTRL_O^(i))) INC(R(clip,R(clipboard,R(ty,*argp))));
 else R(clip,R(clipboard,R(ty,*argp))) = (0x00);
 
 // to search
