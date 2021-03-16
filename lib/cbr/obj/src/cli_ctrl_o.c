@@ -22,5 +22,8 @@ auto signed short flag;
 
 if(CLI_DBG) printf("%s","<Ctrl-O>");
 
+r = cli_clip_to_empty_beta();
+if(!r) return(0x00);
+
 return(0x01);
 }
