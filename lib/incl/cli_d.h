@@ -71,8 +71,6 @@ void *optl;
 
 struct cli_history {
 signed short insert;
-signed undo;
-signed redo;
 cli_snapshot_t *(cache);
 cli_snapshot_t *(snapshot[CLI_SNAPSHOTS]);
 void *optl;
@@ -98,8 +96,6 @@ void *optl;
 
 struct cli_spool {
 signed short insert;
-signed undo;
-signed redo;
 cli_page_t *(cache);
 cli_page_t *(page[CLI_PAGES]);
 void *optl;

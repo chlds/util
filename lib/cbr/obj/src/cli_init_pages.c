@@ -9,7 +9,6 @@ Based on a doubly linked list (i.e., not a circular linked list)
 
 
 # define CBR
-
 # include "../../../incl/config.h"
 
 signed(__cdecl cli_init_pages(cli_spool_t(*argp))) {
@@ -20,9 +19,7 @@ auto signed i,r;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-R(redo,*argp) = (0x00);
-R(undo,*argp) = (0x00);
-R(insert,*argp) = (0x00);
+AND(R(insert,*argp),0x00);
 
 i = (CLI_OBJS);
 while(i) {

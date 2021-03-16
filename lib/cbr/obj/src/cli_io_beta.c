@@ -218,10 +218,6 @@ return(0x00);
 if(*cur) OR(R(flag,R(ty,*argp)),CLI_REFRESH);
 }
 
-// to undo and redo
-if(!(CTRL_LSB^(i))) R(undo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))) = (0x01);
-else R(undo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))) = (0x00);
-
 if(!(CLI_BR&(R(flag,R(ty,*argp))))) {
 // release an appendant
 if(p) {

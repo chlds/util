@@ -34,8 +34,6 @@ r = cli_message(r,"<< Error at fn. malloc() \n");
 return(0x00);
 }
 
-AND(R(redo,R(history,*page)),0x00);
-AND(R(undo,R(history,*page)),0x00);
 AND(R(insert,R(history,*page)),0x00);
 
 i = (CLI_OBJS);

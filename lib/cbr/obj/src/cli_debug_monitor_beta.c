@@ -176,9 +176,7 @@ printf("%Xh%s",R(flag,*page)," at R(offset/flag,**(CLI_INDEX+(R(page,");
 }
 printf("\n");
 
-printf("%d%s",R(insert,R(spool,R(wrap,R(ty,*argp)))),"/");
-printf("%d%s",R(undo,R(spool,R(wrap,R(ty,*argp)))),"/");
-printf("%d%s",R(redo,R(spool,R(wrap,R(ty,*argp))))," at R(insert/undo/redo,R(spool,R(wrap,R(ty,*argp");
+printf("%d %s",R(insert,R(spool,R(wrap,R(ty,*argp)))),"at R(insert,R(spool,R(wrap,R(ty,*argp");
 printf("\n");
 
 printf("%p%s",*(CLI_BASE+(R(cur,R(wrap,R(ty,*argp)))))," | ");
@@ -226,9 +224,7 @@ printf("%Xh%s",R(flag,*page)," at R(offset/flag,**(CLI_INDEX+(R(page,");
 }
 printf("\n");
 
-printf("%d%s",R(insert,R(spool,R(ty,*argp))),"/");
-printf("%d%s",R(undo,R(spool,R(ty,*argp))),"/");
-printf("%d%s",R(redo,R(spool,R(ty,*argp)))," at R(insert/undo/redo,R(spool,R(ty,*argp");
+printf("%d %s",R(insert,R(spool,R(ty,*argp))),"at R(insert,R(spool,R(ty,*argp");
 printf("\n");
 
 printf("%p%s",*(CLI_BASE+(R(page,R(spool,R(ty,*argp)))))," at *(CLI_BASE+(R(page,");
@@ -289,9 +285,7 @@ else {
 printf("%d%s",R(offset,*snapshot),"/");
 printf("%Xh%s",R(flag,*snapshot)," at R(offset/flag,**(CLI_INDEX+(R(snapshot,");
 printf("\n");
-printf("%d%s",R(insert,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))),"/");
-printf("%d%s",R(undo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))),"/");
-printf("%d%s",R(redo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp)))))))," at R(insert/undo/redo,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp");
+printf("%d %s",R(insert,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp))))))),"at R(insert,R(history,**(CLI_INDEX+(R(page,R(spool,R(ty,*argp");
 }}
 printf("\n");
 
