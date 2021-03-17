@@ -2,6 +2,8 @@ signed(__cdecl cli_clip_to_empty_beta(void));
 signed(__cdecl cli_message(signed(arg),signed char(*argp)));
 signed(__cdecl cli_mon(signed short(arg),cli_property_t(*argp)));
 signed(__cdecl cli_refresh(signed char(*argp)));
+signed(__cdecl cli_bs(cli_property_t(*argp)));
+signed(__cdecl cli_cue(cli_property_t(*argp)));
 signed(__cdecl cli_cue_back(cli_property_t(*argp)));
 signed(__cdecl cli_del_back(cli_property_t(*argp)));
 signed(__cdecl cli_replace_text_attributes_beta(signed(arg),cli_property_t(*argp)));
