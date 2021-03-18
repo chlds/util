@@ -19,5 +19,5 @@ auto signed short flag;
 
 if(DBG) printf("%s ","<Ctrl-L>");
 
-return(cli_cue_back(argp));
+return(cli_fn_leap(argp));
 }

@@ -21,5 +21,5 @@ if(!argp) return(0x00);
 
 if(DBG) printf("%s ","<Ctrl-J>");
 
-return(cli_del_back(argp));
+return(cli_fn_del_backward(argp));
 }

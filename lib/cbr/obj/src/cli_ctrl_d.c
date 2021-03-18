@@ -21,5 +21,5 @@ if(!argp) return(0x00);
 
 if(DBG) printf("%s ","<Ctrl-D>");
 
-return(cli_del(argp));
+return(cli_fn_del(argp));
 }

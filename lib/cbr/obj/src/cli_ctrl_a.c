@@ -21,5 +21,5 @@ if(!argp) return(0x00);
 
 if(DBG) printf("%s ","<Ctrl-A>");
 
-return(cli_back(argp));
+return(cli_fn_ahead(argp));
 }
