@@ -13,6 +13,7 @@ signed(__cdecl cli_fn_del_backward(cli_property_t(*argp)));
 signed(__cdecl cli_fn_kick(cli_property_t(*argp)));
 signed(__cdecl cli_fn_leap(cli_property_t(*argp)));
 signed(__cdecl cli_fn_esc(cli_property_t(*argp)));
+signed(__cdecl cli_fn_bullet(cli_property_t(*argp)));
 signed(__cdecl cli_replace_text_attributes_beta(signed(arg),cli_property_t(*argp)));
 signed(__cdecl cli_restore_text_attributes_beta(cli_property_t(*argp)));
 signed(__cdecl cli_retrieve_standard_handles_beta(void(**argp)));
