@@ -1,6 +1,6 @@
 /*
 
-Press <Ctrl-[> to invoke the function.
+Escape.
 
 Remarks:
 Refer at util/lib/obj/src/cli_io.c
@@ -11,15 +11,17 @@ Refer at util/lib/obj/src/cli_io.c
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_ctrl_lsb(cli_property_t(*argp))) {
+signed(__cdecl cli_fn_esc(cli_property_t(*argp))) {
 
 auto signed char *b;
+auto cli_text_t *text;
 auto signed i,r;
 auto signed short flag;
 
 if(!argp) return(0x00);
 
-if(DBG) printf("%s ","<Ctrl-[>");
+text = (&(R(text,*argp)));
+OR(R(flag,*text),CLI_QUIT);
 
-return(cli_fn_esc(argp));
+return(0x01);
 }
