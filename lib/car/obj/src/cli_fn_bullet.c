@@ -27,16 +27,14 @@ b = (*(CLI_INDEX+(R(b,*rule))));
 if(!b) return(0x00);
 
 // type a bullet in three bytes
-AND(flag,0x00);
-if(!(0x02<(ct(b)))) flag++;
+embed(0x00,b);
 *b = (0xE0|0x02);
 b++;
 *b = (0x80|0x00);
 b++;
 *b = (0x80|0x20|0x02);
 b++;
-if(flag) *b = (0x00);
-embed(0x00,b);
+*b = (0x00);
 
 b = (*(CLI_INDEX+(R(b,*rule))));
 r = cli_out(b);
@@ -45,6 +43,7 @@ if(!r) return(0x00);
 b = (r+(b));
 *(CLI_INDEX+(R(b,*rule))) = (b);
 b = (0x00);
+
 OR(R(flag,*text),CLI_REFRESH);
 
 return(0x01);

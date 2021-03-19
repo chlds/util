@@ -108,6 +108,8 @@ cli_rule_t rule[CLI_OBJS];
 cli_codepage_t codepage;
 cli_spool_t spool;
 signed attribute;
+signed eol;
+signed short align;
 signed short width;
 signed short height;
 signed short flag;

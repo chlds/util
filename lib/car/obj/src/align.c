@@ -1,9 +1,9 @@
 /* **** Notes
 
-Return the number of spaces that are output when the tab key is pressed.
+Return the number of spaces to be indented at the terminating null character.
 
 Remarks:
-along with fn. align_backward
+Based on one-byte characters
 */
 
 
@@ -13,25 +13,24 @@ along with fn. align_backward
 signed(__cdecl align(signed(arg),signed char(*argp))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char(HT) = ('\t');
-auto signed cache, len, r;
+auto signed i,r;
 
 /* **** CODE/TEXT */
 if(arg<(0x00)) return(0x00);
 if(!arg) return(0x00);
 if(!argp) return(0x00);
 
-len = ct(argp);
+i = ct(argp);
 
 r = ct_only(HT,argp);
 
 if(!r) {
-r = (len%(arg));
+r = (i%(arg));
 r = (-r+(arg));
 }
 
 else {
-r = align_backward(len,len+(argp));
+r = align_backward(i,i+(argp));
 r = (r%(arg));
 r = (-r+(arg));
 }
