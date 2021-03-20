@@ -1,3 +1,6 @@
+signed(__cdecl cli_init_virtual_terminal_beta(signed(arg),cli_virtual_terminal_t(*argp)));
+signed(__cdecl cli_vt_opt(cli_property_t(*argp)));
+signed(__cdecl cli_opt(cli_property_t(*argp)));
 signed(__cdecl cli_clip_to_empty_beta(void));
 signed(__cdecl cli_message(signed(arg),signed char(*argp)));
 signed(__cdecl cli_mon(signed short(arg),cli_property_t(*argp)));

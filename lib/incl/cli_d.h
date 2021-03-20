@@ -124,6 +124,12 @@ signed short flag;
 void *optl;
 } typedef cli_frame_t;
 
+struct cli_virtual_terminal {
+signed mode[CLI_OBJS];
+signed short flag;
+void *optl;
+} typedef cli_virtual_terminal_t;
+
 struct cli_property {
 signed char **argv[CLI_OBJS]; // for UTF-8
 signed short **argv_w[CLI_OBJS]; // for UTF-16
@@ -135,5 +141,6 @@ void *(device[CLI_OBJS]);
 signed short flag[CLI_OBJS];
 cli_frame_t frame;
 cli_text_t text;
+cli_virtual_terminal_t vt;
 void *optl;
 } typedef cli_property_t;

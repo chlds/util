@@ -39,25 +39,28 @@ if(0x01<(argc)) OR(*(CLI_BASE+(R(flag,property))),CLI_MONITOR);
 // announce
 cputs("Please type the <Enter> key to stop. \n\n");
 
-r = cli_opt(&property);
+AND(flag,0x00);
+r = cli_vt_opt(&property);
 if(!r) {
-printf("%s \n","<< Error at fn. cli_opt()");
-return(0x00);
+printf("%s \n","<< Error at fn. cli_vt_opt()");
+flag++;
+// return(0x00);
 }
 
 cputs(" \n\n");
-cputs("Based on UTF-8: \n");
 
+if(!flag) {
+cputs("Based on UTF-8: \n");
 b = (*(CLI_BASE+(R(b,*(CLI_BASE+(R(rule,R(text,property))))))));
 if(!b) return(0x00);
 r = cli_outs(b);
-
 cputs(" \n\n");
 ct_ars(&i,b);
 printf("[%d %s] \n",i,"words");
 printf("[%d %s] \n",ct_letters(b),"letters");
 printf("[%d %s] \n",ct_characters(b),"characters");
 printf("[%d %s] \n",r,"bytes");
+}
 
 r = cli_init_property(0x01,&property);
 if(!r) {
@@ -71,7 +74,8 @@ OR(i,CLI_OBJS);
 while(i) if(*(CLI_BASE+(R(b,*(--i+(R(rule,R(text,property)))))))) return(0x00);
 
 cputs(" \n");
-printf("%s \n","Done!");
+if(!flag) printf("%s \n","Done!");
+else printf("%s \n","Oops!");
 
 return(0x01);
 }
