@@ -27,12 +27,13 @@ rule = (CLI_BASE+(R(rule,*text)));
 b = (*(CLI_BASE+(R(b,*rule))));
 *(CLI_INDEX+(R(b,*rule))) = (b);
 
+/*
 r = coord_beta(CLI_IN,CLI_RULE,&coord);
 if(!r) return(0x00);
-
 AND(*(CLI_BASE+(R(x,coord))),0x00);
 r = coord_beta(CLI_OUT,CLI_BASE,&coord);
 if(!r) return(0x00);
+//*/
 
-return(0x01);
+return(cli_es(CTRL_A));
 }
