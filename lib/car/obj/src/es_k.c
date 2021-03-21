@@ -10,7 +10,7 @@ Escape sequences
 
 signed(__cdecl es_k(void)) {
 
-auto signed char *b = ("\033[1G");
+auto signed char *b = ("\033[0K");
 auto signed r;
 
 r = write(0x01,b,ct(b));

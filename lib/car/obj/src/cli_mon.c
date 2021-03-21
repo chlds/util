@@ -66,7 +66,9 @@ return(0x00);
 /* output */
 i = (0x01+(*(CLI_BASE+(R(right,rect)))));
 while(--i) r = _putch('*');
-r = _putch('\n');
+if(!(cli_es(CTRL_A))) return(0x00);
+if(!(cli_es(CTRL_N))) return(0x00);
+// r = _putch('\n');
 
 /* monitor */
 text = (&(R(text,*argp)));
