@@ -45,11 +45,9 @@ printf("%s \n","<< Error at fn. cli_restore()");
 return(0x00);
 }
 
-rule = (CLI_BASE+(R(rule,*text)));
-b = (*(CLI_INDEX+(R(b,*rule))));
-
 //* to monitor
 if(CLI_MONITOR&(*(CLI_BASE+(R(flag,*argp))))) {
+rule = (CLI_BASE+(R(rule,*text)));
 AND(i,0x00);
 while(0x01) {
 if(!(i<(CLI_RULE))) break;
@@ -59,14 +57,12 @@ cpy(p,*(i+(R(b,*rule))));
 i++;
 }}
 
-// also
-// if(CLI_REFRESH&(R(flag,*text))) {
-r = cli_refresh(b);
-// if(!r) return(0x00);
-// flag = (~CLI_REFRESH);
-// AND(R(flag,*text),flag);
-// }
-//*/
+r = cli_refresh(text);
+if(!r) return(0x00);
+
+rule = (CLI_BASE+(R(rule,*text)));
+b = (*(CLI_INDEX+(R(b,*rule))));
+if(!b) return(0x00);
 
 embed(0x00,b);
 size = (CLI_BB);
