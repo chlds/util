@@ -53,6 +53,7 @@ signed(__cdecl cli_fn_bullet(cli_property_t(*argp)));
 signed(__cdecl cli_replace_text_attributes_beta(signed(arg),cli_property_t(*argp)));
 signed(__cdecl cli_restore_text_attributes_beta(cli_property_t(*argp)));
 signed(__cdecl cli_retrieve_standard_handles_beta(void(**argp)));
+signed(__cdecl coord_report_r(signed(arg),signed char(*cache),coord_t(*argp)));
 signed(__cdecl coord_report(signed(arg),coord_t(*argp)));
 signed(__cdecl coord_restore(void));
 signed(__cdecl coord_save(void));
