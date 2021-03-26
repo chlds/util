@@ -42,7 +42,7 @@ r = cli_fn_ahead(argp);
 if(!r) return(0x00);
 
 b = (*(CLI_BASE+(R(b,*rule))));
-b = (b+(cli_outs(b)));
+b = (b+(cli_coord_outs(R(align,*text),b)));
 *(CLI_INDEX+(R(b,*rule))) = (b);
 b = (0x00);
 

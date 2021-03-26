@@ -3,7 +3,7 @@
 Output characters based on UTF-8 to the console screen.
 
 Remarks:
-Return the number of bytes for output characters (..or the number of output characters).
+Return the number of bytes output for characters (..or the number of characters).
 */
 
 

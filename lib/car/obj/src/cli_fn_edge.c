@@ -24,7 +24,7 @@ if(!argp) return(0x00);
 text = (&(R(text,*argp)));
 rule = (CLI_BASE+(R(rule,*text)));
 b = (*(CLI_INDEX+(R(b,*rule))));
-r = cli_outs(b);
+r = cli_coord_outs(R(align,*text),b);
 *(CLI_INDEX+(R(b,*rule))) = (r+(b));
 
 return(0x01);

@@ -24,7 +24,7 @@ rule = (CLI_BASE+(R(rule,*argp)));
 b = (*(CLI_INDEX+(R(b,*rule))));
 if(!b) return(0x00);
 
-r = cli_outs(b);
+r = cli_coord_outs(R(align,*argp),b);
 // if(!r) return(0x00);
 
 if(!(cli_es(CTRL_K))) return(0x00);
@@ -34,7 +34,7 @@ embed(0x00,b);
 b = (*(CLI_BASE+(R(b,*rule))));
 if(!b) return(0x00);
 
-r = cli_outs(b);
+r = cli_coord_outs(R(align,*argp),b);
 // if(!r) return(0x00);
 
 return(cli_restore(0x01/* append */,argp));

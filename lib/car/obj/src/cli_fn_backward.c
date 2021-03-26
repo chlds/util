@@ -39,7 +39,7 @@ b = (*(CLI_BASE+(R(b,*rule))));
 
 while(0x01) {
 if(!(b<(*(CLI_INDEX+(R(b,*rule)))))) break;
-r = cli_out(b);
+r = cli_coord_out(R(align,*text),b);
 if(!r) return(0x00);
 b = (r+(b));
 }

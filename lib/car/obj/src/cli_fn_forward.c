@@ -27,7 +27,7 @@ b = (*(CLI_INDEX+(R(b,*rule))));
 if(!b) return(0x00);
 if(!(*b)) return(0x01);
 
-r = cli_out(b);
+r = cli_coord_out(R(align,*text),b);
 if(!r) return(0x00);
 
 b = (r+(b));

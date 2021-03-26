@@ -95,9 +95,9 @@ return(0x00);
 
 else {
 // put
-r = cli_out(b);
+r = cli_coord_out(R(align,*text),b);
 if(!r) {
-printf("%s \n","<< Error at fn. cli_out()");
+printf("%s \n","<< Error at fn. cli_coord_out()");
 return(0x00);
 }
 b = (dif+(b));
