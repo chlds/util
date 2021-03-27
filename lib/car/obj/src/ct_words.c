@@ -1,34 +1,31 @@
 /* **** Notes
 
-Count words to the terminating null character.
-
-retv: Put the address to retrieve the numbre of words at.
-base: Put the leading address of an array for letters at.
+Count the arguments to the terminating null character.
 
 Remarks:
-Based on fn. ct_ars (to count arguments)
-*/
+Refer at fn. ct_wrds.
+//*/
 
 
-# define LOCK (0x02)
-# define PREPARE (0x01)
-# define UNLOCK (0x00)
+# define CAR
+# include "./../../../incl/config.h"
 
-signed(__cdecl ct_words(signed(*retv),signed char(*base))) {
+signed(__cdecl ct_words(signed char(*sym),signed char(*base))) {
 
 /* **** DATA */
 auto signed short flag;
+auto signed retv;
 auto signed r;
 
 /* **** CODE/TEXT */
-if(!retv) return(0x00);
+if(!sym) return(0x00);
 if(!base) return(0x00);
 
-flag = (PREPARE);
-*retv = (0x00);
+AND(flag,0x00);
+AND(retv,0x00);
 
-r = ct_words_internal(flag,retv,base);
+r = ct_words_r(flag,&retv,sym,base);
 if(!r) return(0x00);
 
-return(r);
+return(retv);
 }

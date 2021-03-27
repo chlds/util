@@ -55,7 +55,7 @@ b = (*(CLI_BASE+(R(b,*(CLI_BASE+(R(rule,R(text,property))))))));
 if(!b) return(0x00);
 r = cli_coord_outs(R(align,R(text,property)),b);
 cputs(" \n\n");
-printf("[%d %s] \n",ct_wrds(b),"words");
+printf("[%d %s] \n",ct_words(*(CLI_BASE+(R(sym,R(text,property)))),b),"words");
 printf("[%d %s] \n",ct_letters(b),"letters");
 printf("[%d %s] \n",ct_characters(b),"characters");
 printf("[%d %s] \n",r,"bytes");
