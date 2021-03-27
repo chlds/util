@@ -3,7 +3,7 @@
 Count words to the terminating null character.
 
 Remarks:
-Based on fn. ct_ars_internal (to count arguments)
+Based on fn. ct_ars_r (to count arguments)
 */
 
 

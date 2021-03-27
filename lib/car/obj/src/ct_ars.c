@@ -20,7 +20,7 @@ if(!base) return(0x00);
 AND(flag,0x00);
 AND(*retv,0x00);
 
-r = ct_ars_internal(flag,retv,base);
+r = ct_ars_r(flag,retv,base);
 
 return(r);
 }

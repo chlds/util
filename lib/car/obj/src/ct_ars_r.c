@@ -10,7 +10,7 @@ Refer at fn. ct_ars2.
 # define CAR
 # include "./../../../incl/config.h"
 
-signed(__cdecl ct_ars_internal(signed short(flag),signed(*retv),signed char(*base))) {
+signed(__cdecl ct_ars_r(signed short(flag),signed(*retv),signed char(*base))) {
 
 /* **** DATA, BSS and STACK */
 auto signed r;
@@ -29,5 +29,5 @@ else AND(flag,0x00);
 
 base++;
 
-return(0x01+(ct_ars_internal(flag,retv,base)));
+return(0x01+(ct_ars_r(flag,retv,base)));
 }

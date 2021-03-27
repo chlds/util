@@ -53,10 +53,9 @@ if(!flag) {
 cputs("Based on UTF-8: \n");
 b = (*(CLI_BASE+(R(b,*(CLI_BASE+(R(rule,R(text,property))))))));
 if(!b) return(0x00);
-r = cli_outs(b);
+r = cli_coord_outs(R(align,R(text,property)),b);
 cputs(" \n\n");
-ct_ars(&i,b);
-printf("[%d %s] \n",i,"words");
+printf("[%d %s] \n",ct_wrds(b),"words");
 printf("[%d %s] \n",ct_letters(b),"letters");
 printf("[%d %s] \n",ct_characters(b),"characters");
 printf("[%d %s] \n",r,"bytes");

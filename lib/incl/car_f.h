@@ -217,9 +217,11 @@ signed(__cdecl ct_words_internal(signed short(flag),signed(*retv),signed char(*b
 signed(__cdecl ct_words(signed(*retv),signed char(*base)));
 /* Count words to the terminating null character. */
 
-signed(__cdecl ct_ars_internal(signed short(flag),signed(*retv),signed char(*base)));
+signed(__cdecl ct_wrds_r(signed short(flag),signed(*retv),signed char(*base)));
+signed(__cdecl ct_ars_r(signed short(flag),signed(*retv),signed char(*base)));
 signed(__cdecl ct_ars(signed(*retv),signed char(*base)));
 signed(__cdecl ct_ars2(signed char(*base)));
+signed(__cdecl ct_wrds(signed char(*base)));
 signed(__cdecl ct_args(signed char(*argp)));
 /* Count arguments to the terminating null character. */
 
