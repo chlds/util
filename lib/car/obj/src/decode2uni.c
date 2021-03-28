@@ -29,11 +29,11 @@ Encode characters in Unicode decoded on the RAM to bytes in Unicode to store the
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl decode2uni(signed(*character),signed char(*argp))) {
+signed(__cdecl decode2uni(signed(*di),signed char(*si))) {
 
 /* DATA, BSS and STACK */
 auto signed al[] = {
-// (signed) (0x00), // a one-byte character expressed in .o***.**** (7-bit)
+(signed) (0x00), // a one-byte character expressed in .o***.**** (7-bit)
 (signed) (0x80), // a sequential byte with efficient 6 bits expressed in .io**.**** (6-bit) for the n-byte characters
 (signed) (0xC0), // a two-byte character expressed in .iio*.**** .io**.**** (11-bit(5+6))
 (signed) (0xE0), // a three-byte character expressed in .iiio.**** .io**.**** .io**.**** (16-bit(4+6+6))
@@ -44,11 +44,11 @@ auto signed al[] = {
 auto signed i,r;
 
 /* CODE/TEXT */
-if(!character) return(0x00);
-if(!argp) return(0x00);
-if(!(*argp)) return(0x00);
+if(!di) return(0x00);
+if(!si) return(0x00);
+if(!(*si)) return(0x00);
 
-i = nbytechar(*argp);
+i = nbytechar(*si);
 if(!(0x80^(i))) {
 printf("%s \n","<< Error at fn. nbytechar() returned with a sequential (0x80) byte");
 return(0x00);
@@ -58,19 +58,14 @@ printf("%s \n","<< Error at fn. nbytechar()");
 return(i);
 }
 
-r = (signed) (*argp);
-if(!(0x01^(i))) {
-r = (0x7F&(r));
-*character = (r);
-return(0x01);
-}
-
+r = (signed) (*si);
 r = (0xFF&(r));
-r = (r&(~(*(al+(--i)))));
-*character = (r);
-argp++;
+r = (r&(~(*(al+(i)))));
+*di = (r);
+if(!(--i)) return(0x01);
 
-r = decode2uni_internal(i,character,argp);
+si++;
+r = decode2uni_internal(i,di,si);
 if(!r) {
 printf("%s \n","<< Error at fn. decode2uni_internal()");
 return(0x00);

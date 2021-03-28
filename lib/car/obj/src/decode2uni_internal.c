@@ -16,25 +16,25 @@ To write: Use fn. encode2uni (and fn. encode2uni_internal)
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl decode2uni_internal(signed(nbyte),signed(*character),signed char(*argp))) {
+signed(__cdecl decode2uni_internal(signed(arg),signed(*di),signed char(*si))) {
 
 /* DATA, BSS and STACK */
 auto signed const SEQ_MASK = (0x3F); // the 6-bit (.ooii.iiii) mask for a sequential character to an n-byte character
 auto signed i,r;
 
 /* CODE/TEXT */
-if(nbyte<(0x01)) return(0x00);
-if(!character) return(0x00);
-if(!argp) return(0x00);
-if(!(*argp)) return(0x00);
+if(arg<(0x01)) return(0x00);
+if(!di) return(0x00);
+if(!si) return(0x00);
+if(!(*si)) return(0x00);
 
-r = (signed) (*argp);
+r = (signed) (*si);
 r = (SEQ_MASK&(r));
-i = (signed) (*character);
+i = (*di);
 i = (i<<(0x06));
 i = (r|(i));
-*character = (i);
-argp++;
+*di = (i);
+si++;
 
-return(0x01+(decode2uni_internal(--nbyte,character,argp)));
+return(0x01+(decode2uni_internal(--arg,di,si)));
 }

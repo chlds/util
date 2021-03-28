@@ -138,8 +138,8 @@ signed(__cdecl ncharbyte(signed(arg)));
 
 signed(__cdecl cli_outs(signed char(*argp)));
 signed(__cdecl cli_out(signed char(*argp)));
-signed(__cdecl decode2uni_internal(signed(nbyte),signed(*character),signed char(*argp)));
-signed(__cdecl decode2uni(signed(*character),signed char(*argp)));
+signed(__cdecl decode2uni_internal(signed(arg),signed(*di),signed char(*si)));
+signed(__cdecl decode2uni(signed(*di),signed char(*si)));
 signed(__cdecl decode_surrogate_second(signed short(*di),signed(si)));
 signed(__cdecl decode_surrogate_first(signed short(*di),signed(si)));
 signed(__cdecl nbytechar(signed char(arg)));
