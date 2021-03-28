@@ -12,6 +12,10 @@ To write: Use fn. encode2uni (and fn. encode2uni_internal)
 */
 
 
+# define CAR
+# include <stdio.h>
+# include "../../../incl/config.h"
+
 signed(__cdecl decode2uni_internal(signed(nbyte),signed(*character),signed char(*argp))) {
 
 /* DATA, BSS and STACK */
@@ -19,25 +23,18 @@ auto signed const SEQ_MASK = (0x3F); // the 6-bit (.ooii.iiii) mask for a sequen
 auto signed i,r;
 
 /* CODE/TEXT */
-if(nbyte<(0x00)) return(0x00);
-if(!nbyte) return(0x00);
+if(nbyte<(0x01)) return(0x00);
+if(!character) return(0x00);
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
 r = (signed) (*argp);
-r = (r&(SEQ_MASK));
-
+r = (SEQ_MASK&(r));
 i = (signed) (*character);
-i = (i|(r));
-
-if(!(--nbyte)) {
-*character = (i);
-return(0x01);
-}
-
 i = (i<<(0x06));
+i = (r|(i));
 *character = (i);
 argp++;
 
-return(0x01+(decode2uni_internal(nbyte,character,argp)));
+return(0x01+(decode2uni_internal(--nbyte,character,argp)));
 }

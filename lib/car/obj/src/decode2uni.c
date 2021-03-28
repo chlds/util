@@ -25,7 +25,11 @@ Encode characters in Unicode decoded on the RAM to bytes in Unicode to store the
 */
 
 
-signed(__cdecl decode2uni(signed *character,signed char *argp)) {
+# define CAR
+# include <stdio.h>
+# include "../../../incl/config.h"
+
+signed(__cdecl decode2uni(signed(*character),signed char(*argp))) {
 
 /* DATA, BSS and STACK */
 auto signed al[] = {
@@ -45,35 +49,30 @@ if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
 i = nbytechar(*argp);
-
 if(!(0x80^(i))) {
-printf("%s\n","<< Error at fn. nbytechar() returned with a sequential (0x80) byte");
+printf("%s \n","<< Error at fn. nbytechar() returned with a sequential (0x80) byte");
 return(0x00);
 }
-
 if(!i) {
-printf("%s\n","<< Error at fn. nbytechar()");
+printf("%s \n","<< Error at fn. nbytechar()");
 return(i);
 }
 
 r = (signed) (*argp);
-
 if(!(0x01^(i))) {
-r = (r&(0x7F));
+r = (0x7F&(r));
 *character = (r);
 return(0x01);
 }
 
-r = (r&(0x000000FF));
+r = (0xFF&(r));
 r = (r&(~(*(al+(--i)))));
-r = (r<<(0x06));
 *character = (r);
-
 argp++;
-r = decode2uni_internal(i,character,argp);
 
+r = decode2uni_internal(i,character,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. decode2uni_internal()");
+printf("%s \n","<< Error at fn. decode2uni_internal()");
 return(0x00);
 }
 
