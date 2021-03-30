@@ -40,18 +40,6 @@ signed short x;
 signed short y;
 } COORDS;
 
-typedef struct encode_pack {
-signed short flag;
-signed gauge;
-signed size;
-signed char *base;
-signed char *b;
-signed short *w;
-signed *d;
-signed long long *q;
-void *optl;
-} ENCODE_PACK;
-
 typedef struct knot {
 signed char *p;
 signed short flag;

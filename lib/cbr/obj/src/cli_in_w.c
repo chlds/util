@@ -111,27 +111,33 @@ return(0x00);
 return(r);
 }}}
 
+AND(flag,0x00);
+b = (0x00);
 if(surrog) {
-r = encode_surrogate_bw(size,argp,surrog/* second */,c/* first */);
+r = encode_surrogate_bw(&b,surrog/* second */,c/* first */);
 if(!r) {
-printf("%s\n","<< Error at fn. encode_surrogate_bw()");
-return(0x00);
+printf("%s \n","<< Error at fn. encode_surrogate_bw()");
+OR(flag,0x01);
 }}
-
 else {
 r = encode_bw(&b,buff);
 if(!r) {
-printf("%s\n","<< Error at fn. encode_bw()");
-return(0x00);
+printf("%s \n","<< Error at fn. encode_bw()");
+OR(flag,0x01);
+}}
+
+if(!flag) {
+if(!(cpy(argp,b))) OR(flag,0x01);
 }
-r = cpy(argp,b);
-free(b);
+
+embed(0x00,b);
+if(b) rl(b);
 b = (0x00);
-}
+if(flag) return(0x00);
 
 r = decode2uni(character,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. decode2uni()");
+printf("%s \n","<< Error at fn. decode2uni()");
 return(0x00);
 }
 

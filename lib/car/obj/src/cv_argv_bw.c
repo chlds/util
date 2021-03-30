@@ -9,7 +9,6 @@ Call fn. rl_argv to release secured buffers at **di and at their contents.
 
 # define CAR
 # include "./../../../incl/config.h"
-# include <stdlib.h>
 
 signed(__cdecl cv_argv_bw(signed char(***di),signed short(**si))) {
 
@@ -25,7 +24,7 @@ if(!r) return(0x00);
 i = (r);
 r++;
 r = (r*(sizeof(**di)));
-b = (signed char(**)) malloc(r);
+b = (signed char(**)) alloc(r);
 if(!b) return(0x00);
 
 *di = (b);

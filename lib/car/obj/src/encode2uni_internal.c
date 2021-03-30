@@ -12,7 +12,11 @@ To write: Use fn. encode2uni (and fn. encode2uni_internal)
 */
 
 
-signed(__cdecl encode2uni_internal(signed(nbyte),signed(size),signed char(*array),signed(character))) {
+# define CAR
+# include <stdio.h>
+# include "../../../incl/config.h"
+
+signed(__cdecl encode2uni_internal(signed(arg),signed char(*di),signed(si))) {
 
 /* DATA, BSS and STACK */
 auto signed const SEQ_FLAG = (0x80); // the leading 2-bit (.io.oo.oooo) flag for a sequential character to an n-byte character
@@ -20,17 +24,16 @@ auto signed const SEQ_MASK = (0x3F); // the terminating 6-bit (.oo.ii.iiii) mask
 auto signed i,r;
 
 /* CODE/TEXT */
-if(nbyte<(0x00)) return(0x00);
-if(!nbyte) return(0x00);
-if(!array) return(0x00);
+if(arg<(0x01)) return(0x00);
+if(!di) return(0x00);
 
-r = (character);
-r = (r&(SEQ_MASK)); // i.e., a 6-bit mask (.ooii.iiii(0x3F))
-r = (r|(SEQ_FLAG)); // i.e., a sequential byte for an n-byte character (.iooo.oooo(0x80))
+r = (si);
+r = (SEQ_MASK&(r)); // i.e., a 6-bit mask (.ooii.iiii(0x3F))
+r = (SEQ_FLAG|(r)); // i.e., a sequential byte for an n-byte character (.iooo.oooo(0x80))
 
-*(array+(--nbyte)) = (signed char) (r);
+*(--arg+(di)) = (signed char) (r);
 
-character = (character>>(0x06));
+SHR(si,0x06);
 
-return(0x01+(encode2uni_internal(nbyte,size,array,character)));
+return(0x01+(encode2uni_internal(arg,di,si)));
 }

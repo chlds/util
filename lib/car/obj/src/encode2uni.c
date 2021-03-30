@@ -25,12 +25,14 @@ Encode characters in Unicode decoded on the RAM to bytes in Unicode to store the
 */
 
 
-signed(__cdecl encode2uni(signed(size),signed char(*array),signed(character))) {
+# define CAR
+# include <stdio.h>
+# include "../../../incl/config.h"
+
+signed(__cdecl encode2uni(signed char(**di),signed(si))) {
 
 /* DATA, BSS and STACK */
-static signed const UTF_16 = (0xFFFF);
-static signed const THRESHOLD = (0x01+(0x04));
-
+auto signed const UTF_16 = (0xFFFF);
 auto signed al[] = {
 (signed) (0x00), // a one-byte character expressed in .o***.**** (7-bit)
 (signed) (0x80), // a sequential byte with efficient 6 bits expressed in .io**.**** (6-bit) for the n-byte characters
@@ -40,37 +42,54 @@ auto signed al[] = {
 (signed) (0x00),
 };
 
+auto signed char *b;
 auto signed i,r;
+auto signed short flag;
 auto signed char c;
 
 /* CODE/TEXT */
-if(!array) return(0x00);
-if(size<(THRESHOLD)) return(0x00);
+if(!di) return(0x00);
+if(*di) return(0x00);
 
-r = ncharbyte(character);
+r = ncharbyte(si);
 if(!r) {
-printf("%s\n","<< Error at fn. ncharbyte()");
+printf("%s \n","<< Error at fn. ncharbyte()");
 return(r);
 }
 
-*(array+(r)) = (0x00);
+b = (0x00);
+if(!(concatenate(r,&b,0x00))) return(0x00);
 
+*(r+(b)) = (0x00);
 if(!(0x01^(r))) {
-character = (character&(0x7F));
-*array = (signed char) (character);
+si = (0x7F&(si));
+*b = (signed char) (si);
+*di = (b);
+b = (0x00);
 return(0x01);
 }
 
-character = (character&(UTF_16));
+si = (UTF_16&(si));
 
-r = encode2uni_internal(r,size,array,character);
+AND(flag,0x00);
+r = encode2uni_internal(r,b,si);
 if(!r) {
-printf("%s\n","<< Error at fn. encode2uni_internal()");
+printf("%s \n","<< Error at fn. encode2uni_internal()");
+OR(flag,0x01);
+}
+
+if(flag) {
+embed(0x00,b);
+if(b) rl(b);
+b = (0x00);
+*di = (b);
 return(0x00);
 }
 
-c = (*array);
-*array = (c|(*(al+(r))));
+c = (*b);
+*b = (c|(*(al+(r))));
+*di = (b);
+b = (0x00);
 
 return(r);
 }

@@ -18,14 +18,11 @@ auto CLI_W32_STAT cli_w32_stat = {
 (0x00),
 };
 
-auto signed char name[CLI_NAME] = {
-(signed char) (0x00),
-};
-
 auto cli_page_t *page;
 auto signed long long ll;
 auto signed short *config,*edit;
 auto signed char *cur,*p;
+auto signed char *b;
 auto signed i,r;
 auto signed short flag;
 
@@ -65,29 +62,36 @@ edit = (*(argv+(--i)));
 config = (*(argv+(--i)));
 }
 
+AND(flag,0x00);
+b = (0x00);
 if(config) {
-r = encode2b(CLI_NAME,name,config);
+r = encode_bw(&b,config);
 if(!r) {
-printf("%s\n","<< Error at fn. encode2b()");
+printf("%s \n","<< Error at fn. encode_bw()");
 return(0x00);
 }
-r = keep(&(R(file,R(config,R(ty,cli_w32_stat)))),name);
+r = keep(&(R(file,R(config,R(ty,cli_w32_stat)))),b);
 if(!r) {
-printf("%s\n","<< Error at fn. keep()");
+printf("%s \n","<< Error at fn. keep()");
+rl(b);
 return(0x00);
 }
 R(l,R(config,R(ty,cli_w32_stat))) = (r);
 }
 
+b = (0x00);
 if(edit) {
-r = encode2b(CLI_NAME,name,edit);
+r = encode_bw(&b,edit);
 if(!r) {
-printf("%s\n","<< Error at fn. encode2b()");
+printf("%s \n","<< Error at fn. encode_bw()");
+rl(R(file,R(config,R(ty,cli_w32_stat))));
 return(0x00);
 }
-r = keep(&(R(file,R(edit,R(ty,cli_w32_stat)))),name);
+r = keep(&(R(file,R(edit,R(ty,cli_w32_stat)))),b);
 if(!r) {
-printf("%s\n","<< Error at fn. keep()");
+printf("%s \n","<< Error at fn. keep()");
+rl(b);
+rl(R(file,R(config,R(ty,cli_w32_stat))));
 return(0x00);
 }
 R(l,R(edit,R(ty,cli_w32_stat))) = (r);
@@ -178,12 +182,13 @@ return(0x00);
 
 if(CLI_DBG) printf("%s%d%s\n","Unmapped ",r," rolls");
 
+AND(flag,0x00);
 if(R(file,R(config,R(ty,cli_w32_stat)))) {
 r = (R(l,R(config,R(ty,cli_w32_stat))));
 r = release(r,&(R(file,R(config,R(ty,cli_w32_stat)))));
 if(!r) {
 printf("%s\n","<< Error at fn. release()");
-return(0x00);
+OR(flag,0x01);
 }
 if(CLI_DBG) printf("%s%d%s\n","Unmapped ",r," bytes for a config file name");
 R(l,R(config,R(ty,cli_w32_stat))) = (0x00);
@@ -199,6 +204,8 @@ return(0x00);
 if(CLI_DBG) printf("%s%d%s\n","Unmapped ",r," bytes for a file name");
 R(l,R(edit,R(ty,cli_w32_stat))) = (0x00);
 }
+
+if(flag) return(0x00);
 
 return(0x01);
 }
