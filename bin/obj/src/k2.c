@@ -4,9 +4,9 @@ Check values input in Unicode.
 */
 
 
-# include <conio.h>
+# define CAR
 # include <stdio.h>
-# include <stdlib.h>
+# include "../../../lib/incl/config.h"
 
 signed(__cdecl main(void)) {
 
@@ -27,30 +27,34 @@ system("cls");
 printf("\n");
 printf("%s\n","Check values input in Unicode and then press <Enter> key to quit:");
 
+b = (0x00);
 while(0x01) {
 w = (buff);
 r = (0x00);
 c = _getwch();
+c = (0xFFFF&(c));
 if(c<(SECOND)) {
-i = (-0x01+(FIRST));
-if(i<(c)) r = _getwch();
-}
-printf("%Xh%s",c," ");
-if(r) printf("%s%Xh%s","& ",r," ");
+if(!(c<(FIRST))) {
+r = _getwch();
+r = (0xFFFF&(r));
+}}
+printf("%Xh ",c);
+if(r) printf("%s %Xh ","&",r);
 /* to encode to UTF-8 */
-*w = (c);
+*w = (signed short) (c);
 w++;
 if(r) {
-*w = (r);
+*w = (signed short) (r);
 w++;
 }
 *w = (0x00);
 r = encode_bw(&b,buff);
-printf("%s%d%s","(",r,"B: ");
-i = (0x00);
-while(*(b+(i))) printf("%Xh%s",*(b+(i++)),",");
-printf("%s",") ");
-free(b);
+printf("%s%d%s ","(",r,"B:");
+AND(i,0x00);
+while(*(b+(i))) printf("%Xh%s",0xFF&(*(b+(i++))),",");
+printf("%s ",")");
+rl(b);
+b = (0x00);
 /* terminate */
 if(!(CR^(c))) break;
 }
