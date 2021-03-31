@@ -2,8 +2,6 @@
 
 Decode to Unicode character in UTF-16 out of Unicode bytes in UTF-8.
 
-Along with C library
-
 Remarks:
 Refer at fn. decode2uni and fn. encode2uni.
 */
@@ -11,9 +9,6 @@ Refer at fn. decode2uni and fn. encode2uni.
 
 # define CAR
 # include "../../../incl/config.h"
-# include <conio.h>
-# include <stdio.h>
-# include <stdlib.h>
 
 signed(__cdecl decode_surrogate_first(signed short(*di),signed(si))) {
 
@@ -21,7 +16,7 @@ signed(__cdecl decode_surrogate_first(signed short(*di),signed(si))) {
 auto signed ADDITIONAL = (0x10000);
 auto signed FIRST = (0xD800);
 
-auto signed char *p;
+auto signed char *b;
 auto signed surrog;
 auto signed i,r;
 auto signed short flag;

@@ -2,25 +2,20 @@
 
 Decode to Unicode characters in UTF-16 out of Unicode bytes in UTF-8.
 
-Along with C library
-
 Remarks:
 Refer at fn. decode2uni and fn. encode2uni.
 */
 
 
 # define CAR
-
-# include <conio.h>
 # include <stdio.h>
-# include <stdlib.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl decode2w(signed(size),signed short(*di),signed char(*si))) {
 
 /* **** DATA, BSS and STACK */
-auto signed char *p;
-auto signed i,l,r,v;
+auto signed char *b;
+auto signed i,l,r;
 auto signed short surrog;
 auto signed short flag;
 
@@ -28,7 +23,7 @@ auto signed short flag;
 if(!di) return(0x00);
 if(!si) return(0x00);
 
-if(size<(0x01+(0x01))) {
+if(size<(sizeof(*di))) {
 *di = (0x00);
 return(0x00);
 }
@@ -40,35 +35,41 @@ return(0x00);
 
 r = decode2uni(&i,si);
 if(!r) {
-printf("%s\n","<< Error at fn. decode2uni()");
+*di = (0x00);
+printf("%s \n","<< Error at fn. decode2uni()");
 return(0x00);
 }
 
-l = (r);
-v = (0x00);
-if(0x03<(l)) {
+AND(l,0x00);
+si = (r+(si));
+if(0x03<(r)) {
 r = decode_surrogate_first(&surrog,i);
 if(!r) {
-printf("%s\n","<< Error at fn. decode_surrogate_first()");
+*di = (0x00);
+printf("%s \n","<< Error at fn. decode_surrogate_first()");
 return(0x00);
 }
 *di = (surrog);
 di++;
-size = (size+(-(sizeof(*di))));
-v++;
+size = (size+(0x01+(~(sizeof(*di)))));
+if(size<(sizeof(*di))) {
+*(--di) = (0x00);
+return(0x00);
+}
+l++;
 r = decode_surrogate_second(&surrog,i);
 if(!r) {
-printf("%s\n","<< Error at fn. decode_surrogate_second()");
+*(--di) = (0x00);
+printf("%s \n","<< Error at fn. decode_surrogate_second()");
 return(0x00);
 }
 i = (signed) (surrog);
 }
 
-si = (l+(si));
 *di = (signed short) (i);
 di++;
-size = (size+(-(sizeof(*di))));
-v++;
+size = (size+(0x01+(~(sizeof(*di)))));
+l++;
 
-return(v+(decode2w(size,di,si)));
+return(l+(decode2w(size,di,si)));
 }
