@@ -22,7 +22,9 @@ T =
 
 MSG = "Making.. "
 
-HDRS = ./lib/incl/*.h
+HDR_PATH = ./lib/incl/
+HDRS = $(HDR_PATH)*.h
+CONFIG_HDR = $(HDR_PATH)config.h
 SRC = ./bin/obj/src/$(T).c
 S = ./bin/obj/src/$(T).asm
 SS = ./bin/obj/src/*.asm
@@ -54,7 +56,7 @@ LIL = link.exe
 # e.g.,
 # > nmake T=calend
 
-$(EXE): $(OBJ) $(LIBR) $(LIBRS) # $(OS_LIBRS)
+$(EXE): $(OBJ) $(LIBR) $(LIBRS) $(HDRS) # $(OS_LIBRS)
 	@echo $(MSG)
 	$(LIL) $(LILFLAGS) $(OBJ) $(LIBR) $(OS_LIBRS)
 
@@ -62,20 +64,20 @@ $(OBJ): $(SRC) $(HDRS)
 	@echo "Stage 1 "
 	$(CC) $(CFLAGS) $(SRC)
 
-$(LIBR): $(LIBR3) $(LIBR2) $(LIBR1)
+$(LIBR): $(LIBR3) $(LIBR2) $(LIBR1) $(HDRS)
 	@echo "Making LIBR.. "
 	lib.exe -out:$(LIBR) $(LIBRS)
-$(LIBR3): "lib/ccr/obj/src/*.c" "lib/incl/ccr*.h"
+$(LIBR3): "lib/ccr/obj/src/*.c" "lib/incl/ccr*.h" $(CONFIG_HDR)
 	@echo "Making LIBR3.. "
 	cd lib/ccr/
 	nmake
 	cd ../../
-$(LIBR2): "lib/cbr/obj/src/*.c" "lib/incl/cbr*.h"
+$(LIBR2): "lib/cbr/obj/src/*.c" "lib/incl/cbr*.h" $(CONFIG_HDR)
 	@echo "Making LIBR2.. "
 	cd lib/cbr/
 	nmake
 	cd ../../
-$(LIBR1): "lib/car/obj/src/*.c" "lib/incl/car*.h"
+$(LIBR1): "lib/car/obj/src/*.c" "lib/incl/car*.h" $(CONFIG_HDR)
 	@echo "Making LIBR1.. "
 	cd lib/car/
 	nmake
