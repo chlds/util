@@ -67,15 +67,6 @@ signed short linebreak_form;
 void *optl;
 } CLI_CONFIG;
 
-typedef struct cli_clipboard {
-void *(base[CLI_WORKSPACE]);
-size_t size[CLI_WORKSPACE];
-signed clip;
-signed flag;
-cli_spool_t spool;
-void *optl;
-} CLI_CLIPBOARD;
-
 typedef struct cli_search {
 signed char *(cur[CLI_OBJS]);
 signed offset;
@@ -137,7 +128,7 @@ CLI_EMUL emul;
 CLI_WRAP wrap;
 CLI_DEBUG debug;
 CLI_SEARCH search;
-CLI_CLIPBOARD clipboard;
+cli_clipboard_t clipboard;
 CLI_CONFIG config;
 CLI_EDIT edit;
 CLI_ROLL roll;

@@ -130,6 +130,15 @@ signed short flag;
 void *optl;
 } typedef cli_virtual_terminal_t;
 
+struct cli_clipboard {
+void *(base[CLI_OBJS]);
+size_t size[CLI_OBJS];
+signed clip;
+signed flag;
+cli_spool_t spool;
+void *optl;
+} typedef cli_clipboard_t;
+
 struct cli_property {
 signed char **argv[CLI_OBJS]; // for UTF-8
 signed short **argv_w[CLI_OBJS]; // for UTF-16
@@ -142,5 +151,6 @@ signed short flag[CLI_OBJS];
 cli_frame_t frame;
 cli_text_t text;
 cli_virtual_terminal_t vt;
+cli_clipboard_t clipboard;
 void *optl;
 } typedef cli_property_t;

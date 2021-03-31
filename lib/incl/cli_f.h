@@ -1,3 +1,5 @@
+signed(__cdecl cli_init_clipboards(signed(arg),cli_clipboard_t(*argp)));
+signed(__cdecl cli_init_pages(cli_spool_t(*argp)));
 signed(__cdecl cli_es(signed(arg)));
 signed(__cdecl es_at(void));
 signed(__cdecl es_a(void));

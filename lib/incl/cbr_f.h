@@ -82,8 +82,6 @@ signed(__cdecl cli_init_workspace(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_connect_with_workspace(cli_page_t(*page),CLI_TYPEWRITER(*argp)));
 // connect a page with workspace.
 
-signed(__cdecl cli_init_pages(cli_spool_t(*argp)));
-
 signed(__cdecl cli_concat_pages(cli_page_t(*cache),cli_spool_t(*argp)));
 signed(__cdecl cli_bind_pages(cli_spool_t(*argp)));
 signed(__cdecl cli_merge_pages(cli_spool_t(*argp)));

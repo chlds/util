@@ -19,9 +19,9 @@ auto signed short flag;
 if(size<(0x01)) return(0x00);
 if(!argp) return(0x00);
 
-r = cli_init_clipboards(&(R(clipboard,*argp)));
+r = cli_init_clipboards(0x00,&(R(clipboard,*argp)));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_init_clipboards()");
+printf("%s \n","<< Error at fn. cli_init_clipboards()");
 return(0x00);
 }
 

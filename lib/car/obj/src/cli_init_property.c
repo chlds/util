@@ -28,6 +28,9 @@ if(!argp) return(0x00);
 
 if(!(CLI_INIT&(*(CLI_BASE+(R(flag,*argp)))))) AND(arg,0x00);
 
+r = cli_init_clipboards(arg,&(R(clipboard,*argp)));
+if(!r) return(0x00);
+
 r = cli_init_frames(arg,&(R(frame,*argp)));
 if(!r) return(0x00);
 

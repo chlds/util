@@ -49,7 +49,8 @@ return(0x00);
 }
 //*/
 
-r = ct(*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+b = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
+r = ct(b);
 if(!r) {
 /* empty or..
 printf("%s \n","<< Error at fn. ct()");
@@ -105,7 +106,6 @@ return(0x00);
 
 *(CLI_W+(R(base,R(clipboard,R(ty,*argp))))) = (w);
 
-b = (*(CLI_INDEX+(R(cur,R(ty,*argp)))));
 r = ct(b);
 if(!r) {
 /* empty or..
