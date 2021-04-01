@@ -52,7 +52,8 @@ else {
 if(BYTE_SYM&(flag)) return(0x01+(~(ct_a(cache))));
 r = ct_a(cache);
 if(!r) return(0x00);
-if(BYTE_ONE<(r)) {
+if(BYTE_MUL<(r)) {
+// or if(BYTE_ONE<(r)) {
 if(BYTE_ONE&(flag)) return(0x01+(~(ct_a(cache))));
 OR(flag,BYTE_MUL);
 }
