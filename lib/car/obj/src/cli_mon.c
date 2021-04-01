@@ -83,7 +83,8 @@ b = (*(i+(R(b,*rule))));
 printf("%p [",b);
 r = cli_coord_outs(R(align,*text),b);
 printf("] ");
-if(!(clear_row(0x00))) return(0x00);
+if(!(clear_rows(0x01))) return(0x00);
+printf("\n");
 i++;
 }
 AND(i,0x00);
@@ -101,7 +102,8 @@ p = (*(i+(R(cf,*text))));
 printf("%p [",p);
 r = cli_coord_outs(R(align,*text),p);
 printf("] ");
-if(!(clear_row(0x00))) return(0x00);
+if(!(clear_rows(0x01))) return(0x00);
+printf("\n");
 i++;
 }
 //*/
