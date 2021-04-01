@@ -31,20 +31,23 @@ if(!r) return(0x00);
 
 b = (b+(0x01+(~r)));
 
+r = cli_init_rule(0x01,CLI_INDEX+(R(rule,*text)));
+if(!r) return(0x00);
+
+r = cli_restore_rule(b,CLI_INDEX+(R(rule,*text)));
+if(!r) return(0x00);
+
+embed(0x00,b);
+
 r = cli_fn_ahead(argp);
 if(!r) return(0x00);
 
-*(CLI_INDEX+(R(b,*rule))) = (b);
 b = (*(CLI_BASE+(R(b,*rule))));
-
-while(0x01) {
-if(!(b<(*(CLI_INDEX+(R(b,*rule)))))) break;
-r = cli_coord_out(R(align,*text),b);
-if(!r) return(0x00);
-b = (r+(b));
-}
-
+b = (b+(cli_coord_outs(R(align,*text),b)));
+*(CLI_INDEX+(R(b,*rule))) = (b);
 b = (0x00);
+
+OR(R(flag,*text),CLI_REFRESH);
 
 return(0x01);
 }

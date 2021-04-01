@@ -30,12 +30,11 @@ r = cue_back(sym,b,*(CLI_BASE+(R(b,*rule))));
 if(!r) return(0x00);
 
 b = (b+(0x01+(~r)));
-// *(CLI_INDEX+(R(b,*rule))) = (b);
 
-r = cli_init_rule(0x01,CLI_OFFSET+(R(rule,*text)));
+r = cli_init_rule(0x01,CLI_INDEX+(R(rule,*text)));
 if(!r) return(0x00);
 
-r = cli_restore_rule(b,CLI_OFFSET+(R(rule,*text)));
+r = cli_restore_rule(b,CLI_INDEX+(R(rule,*text)));
 if(!r) return(0x00);
 
 embed(0x00,b);

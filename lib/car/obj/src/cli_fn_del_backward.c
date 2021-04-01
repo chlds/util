@@ -27,19 +27,11 @@ rule = (CLI_BASE+(R(rule,*text)));
 b = (*(CLI_INDEX+(R(b,*rule))));
 if(EQ(b,*(CLI_BASE+(R(b,*rule))))) return(0x01);
 
-r = cli_init_rule(0x01,CLI_OFFSET+(R(rule,*text)));
-if(!r) return(0x00);
-
-r = cli_restore_rule(b,CLI_OFFSET+(R(rule,*text)));
-if(!r) return(0x00);
-
 sym = (*(CLI_BASE+(R(sym,*text))));
 r = cue_back(sym,b,*(CLI_BASE+(R(b,*rule))));
 if(!r) return(0x00);
 
 b = (b+(0x01+(~r)));
-// *(CLI_INDEX+(R(b,*rule))) = (b);
-
 embed(0x00,b);
 
 r = cli_fn_ahead(argp);
