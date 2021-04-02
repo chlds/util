@@ -7,11 +7,8 @@ Based on UTF-8
 */
 
 
-# define CBR
-
-# include <conio.h>
+# define CAR
 # include <stdio.h>
-# include <stdlib.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cli_ctrl_fn(signed(arg),cli_property_t(*argp))) {
@@ -19,6 +16,7 @@ signed(__cdecl cli_ctrl_fn(signed(arg),cli_property_t(*argp))) {
 /* **** DATA, BSS and STACK */
 auto signed DEL = (0x7F);
 
+auto cli_clipboard_t *clipboard;
 auto cli_text_t *text;
 auto cli_rule_t *rule;
 auto signed char *b;
@@ -31,8 +29,11 @@ if(!(arg^(DEL))) arg = (CTRL_D);
 if(!(arg<(0x20))) return(0x00);
 if(!argp) return(0x00);
 
-text = (&(R(text,*argp)));
+clipboard = (&(R(clipboard,*argp)));
+if(CTRL_O^(arg)) AND(R(clip,*clipboard),0x00);
+else INC(R(clip,*clipboard));
 
+text = (&(R(text,*argp)));
 flag = (~CLI_REFRESH);
 AND(R(flag,*text),flag);
 

@@ -19,16 +19,15 @@ if(!argp) return(0x00);
 if(!(cli_init_pages(&(R(spool,*argp))))) return(0x00);
 
 AND(R(clip,*argp),0x00);
-AND(R(flag,*argp),0x00);
-
 i = (CLI_OBJS);
 while(i) {
 --i;
-*(i+(R(size,*argp))) = (0x00);
+AND(*(i+(R(flag,*argp))),0x00);
+AND(*(i+(R(size,*argp))),0x00);
 *(i+(R(base,*argp))) = (0x00);
 }
 
-if(!arg) OR(R(flag,*argp),CLI_INIT);
+if(!arg) OR(*(CLI_BASE+(R(flag,*argp))),CLI_INIT);
 
 return(0x01);
 }

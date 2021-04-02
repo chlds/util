@@ -133,8 +133,8 @@ void *optl;
 struct cli_clipboard {
 void *(base[CLI_OBJS]);
 size_t size[CLI_OBJS];
+signed flag[CLI_OBJS];
 signed clip;
-signed flag;
 cli_spool_t spool;
 void *optl;
 } typedef cli_clipboard_t;

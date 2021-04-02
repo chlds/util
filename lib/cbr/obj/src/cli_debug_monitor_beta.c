@@ -304,7 +304,7 @@ printf("%p%s",*(CLI_B+(R(base,R(clipboard,R(ty,*argp))))),"/");
 printf("%p%s",*(CLI_W+(R(base,R(clipboard,R(ty,*argp)))))," at *(CLI_B/W+(R(base, | ");
 printf("%zd%s",*(CLI_B+(R(size,R(clipboard,R(ty,*argp))))),"/");
 printf("%zd%s",*(CLI_W+(R(size,R(clipboard,R(ty,*argp)))))," at *(CLI_B/W+(R(size, | ");
-printf("%d%s",R(flag,R(clipboard,R(ty,*argp)))," at R(flag, | ");
+printf("%d%s",*(CLI_INDEX+(R(flag,R(clipboard,R(ty,*argp)))))," at *(CLI_INDEX+(R(flag, | ");
 printf("%d%s\n",R(clip,R(clipboard,R(ty,*argp)))," at R(clip,");
 
 /* fix the frame */

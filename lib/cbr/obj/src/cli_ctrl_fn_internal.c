@@ -8,12 +8,8 @@ Based on UTF-8
 
 
 # define CBR
-
 # define CLI_FN (0x01+(0x20))
-
-# include <conio.h>
 # include <stdio.h>
-# include <stdlib.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cli_ctrl_fn_internal(signed(arg),void(*argp))) {

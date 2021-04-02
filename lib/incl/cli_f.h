@@ -1,4 +1,8 @@
 signed(__cdecl cli_init_clipboards(signed(arg),cli_clipboard_t(*argp)));
+signed(__cdecl clipboard_to_pin_paste_beta(signed(arg),cli_clipboard_t(*argp)));
+signed(__cdecl pin_beta(cli_clipboard_t(*argp)));
+signed(__cdecl v_map_beta(cli_text_t(*cache),cli_clipboard_t(*argp)));
+signed(__cdecl v_unmap_beta(cli_clipboard_t(*argp)));
 signed(__cdecl cli_init_pages(cli_spool_t(*argp)));
 signed(__cdecl cli_es(signed(arg)));
 signed(__cdecl es_at(void));
@@ -51,6 +55,7 @@ signed(__cdecl cli_fn_bs(cli_property_t(*argp)));
 signed(__cdecl cli_fn_del_backward(cli_property_t(*argp)));
 signed(__cdecl cli_fn_kick(cli_property_t(*argp)));
 signed(__cdecl cli_fn_leap(cli_property_t(*argp)));
+signed(__cdecl cli_fn_clip(cli_property_t(*argp)));
 signed(__cdecl cli_fn_esc(cli_property_t(*argp)));
 signed(__cdecl cli_fn_bullet(cli_property_t(*argp)));
 signed(__cdecl cli_coord_outs(signed short(arg/* align */),signed char(*argp)));

@@ -95,7 +95,7 @@ size = (r);
 
 *(CLI_BASE+(R(base,R(clipboard,R(ty,*argp))))) = (g);
 *(CLI_BASE+(R(size,R(clipboard,R(ty,*argp))))) = GlobalSize(g);
-R(flag,R(clipboard,R(ty,*argp))) = GlobalFlags(g);
+*(CLI_INDEX+(R(flag,R(clipboard,R(ty,*argp))))) = GlobalFlags(g);
 
 w = (signed short(*)) GlobalLock(g);
 if(!w) {
