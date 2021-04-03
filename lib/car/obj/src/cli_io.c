@@ -7,11 +7,8 @@ Based on UTF-8
 */
 
 
-# define CBR
-
-# include <conio.h>
+# define CAR
 # include <stdio.h>
-# include <stdlib.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cli_io(cli_property_t(*argp))) {

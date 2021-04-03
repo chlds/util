@@ -8,12 +8,8 @@ Based on UTF-8
 */
 
 
-# define CBR
-# define CLI_W32
-
-# include <conio.h>
+# define CAR
 # include <stdio.h>
-# include <stdlib.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cli_kb(cli_property_t(*argp))) {
@@ -34,23 +30,24 @@ if(!(CLI_INIT&(*(CLI_BASE+(R(flag,*argp)))))) return(0x00);
 
 if(CLI_QUIT&(R(flag,R(text,*argp)))) return(0x01);
 
-if(CLI_PBR&(R(flag,R(text,*argp)))) flag = (0x01);
-else flag = (0x00);
+AND(flag,0x00);
+OR(flag,CLI_PBR);
+OR(flag,CLI_BR);
+if(flag&(R(flag,R(text,*argp)))) return(0x01);
 
-r = cli_io(argp);
+r = cli_kb_r(argp);
 if(!r) {
-r = cli_message(r,"<< Error at fn. cli_io() \n");
+r = cli_message(r,"<< Error at fn. cli_kb_r() \n");
 return(0x00);
 }
 
-// if(CLI_MONO) return(0x01);
-if(CLI_MONO) system("cls");
-
+/*
 r = clear_rows(0x00);
 if(!r) {
 r = cli_message(r,"<< Error at fn. clear_rows() \n");
 return(0x00);
 }
+//*/
 
 return(0x01);
 }

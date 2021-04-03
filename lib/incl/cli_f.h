@@ -1,9 +1,15 @@
+# include "./ctrl_f.h"
+
 signed(__cdecl cli_init_clipboards(signed(arg),cli_clipboard_t(*argp)));
+signed(__cdecl cli_clip_to_empty_beta(void));
 signed(__cdecl clipboard_to_pin_paste_beta(signed(arg),cli_clipboard_t(*argp)));
 signed(__cdecl pin_beta(cli_clipboard_t(*argp)));
 signed(__cdecl v_map_beta(cli_text_t(*cache),cli_clipboard_t(*argp)));
 signed(__cdecl v_unmap_beta(cli_clipboard_t(*argp)));
 signed(__cdecl cli_init_pages(cli_spool_t(*argp)));
+signed(__cdecl cli_io(cli_property_t(*argp)));
+signed(__cdecl cli_ctrl_fn_internal(signed(arg),void(*argp)));
+signed(__cdecl cli_ctrl_fn(signed(arg),cli_property_t(*argp)));
 signed(__cdecl cli_es(signed(arg)));
 signed(__cdecl es_at(void));
 signed(__cdecl es_a(void));
@@ -40,7 +46,6 @@ signed(__cdecl es_ll(void));
 signed(__cdecl cli_init_virtual_terminal_beta(signed(arg),cli_virtual_terminal_t(*argp)));
 signed(__cdecl cli_vt_opt(cli_property_t(*argp)));
 signed(__cdecl cli_opt(cli_property_t(*argp)));
-signed(__cdecl cli_clip_to_empty_beta(void));
 signed(__cdecl cli_message(signed(arg),signed char(*argp)));
 signed(__cdecl cli_mon(signed short(arg),cli_property_t(*argp)));
 signed(__cdecl cli_refresh(cli_text_t(*argp)));
