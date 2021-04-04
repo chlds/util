@@ -80,10 +80,10 @@ return(0x00);
 }
 
 if(!(DEL^(i))) i = (CTRL_D);
-if(i<(0x20)) AND(dif,0x00);
+if(i<(CTRL_KEYS)) AND(dif,0x00);
 embed(0x00,dif+(b));
 
-if(i<(0x20)) {
+if(i<(CTRL_KEYS)) {
 r = cli_ctrl_fn(i,argp);
 if(!r) {
 printf("%s \n","<< Error at fn. cli_ctrl_fn()");

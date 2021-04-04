@@ -58,7 +58,8 @@ auto signed i,r;
 auto signed short flag;
 
 /* **** CODE/TEXT */
-if(!(arg<(0x20))) return(0x00);
+if(!(arg<(CTRL_KEYS))) return(0x00);
+if(arg<(0x00)) return(0x00);
 if(!argp) return(0x00);
 
 // run in an array of function pointers e.g.,

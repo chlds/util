@@ -20,7 +20,11 @@ CLI_ERR,
 };
 
 enum {
-CIN,
-COUT,
-CERR,
+CLI_UNDO,
+CLI_REDO,
+};
+
+enum {
+CLI_PIN,
+CLI_PASTE,
 };

@@ -1,5 +1,3 @@
-# include "./ctrl_f.h"
-
 signed(__cdecl cli_init_clipboards(signed(arg),cli_clipboard_t(*argp)));
 signed(__cdecl cli_clip_to_empty_beta(void));
 signed(__cdecl clipboard_to_pin_paste_beta(signed(arg),cli_clipboard_t(*argp)));

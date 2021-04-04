@@ -4,8 +4,3 @@ CLI_LEFT,
 CLI_CENTER,
 CLI_RIGHT,
 };
-
-enum {
-CLI_UNDO,
-CLI_REDO,
-};

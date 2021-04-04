@@ -38,7 +38,7 @@ OR(flag,0x01);
 }
 
 if(!flag) {
-r = clipboard_to_pin_paste_beta(0x00/* pin */,clipboard);
+r = clipboard_to_pin_paste_beta(CLI_PIN,clipboard);
 if(!r) {
 cli_message(r,"<< Error at fn. clipboard_to_pin_paste_beta() \n");
 OR(flag,0x01);

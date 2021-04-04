@@ -26,7 +26,8 @@ auto signed short flag;
 
 /* **** CODE/TEXT */
 if(!(arg^(DEL))) arg = (CTRL_D);
-if(!(arg<(0x20))) return(0x00);
+if(!(arg<(CTRL_KEYS))) return(0x00);
+if(arg<(0x00)) return(0x00);
 if(!argp) return(0x00);
 
 clipboard = (&(R(clipboard,*argp)));
