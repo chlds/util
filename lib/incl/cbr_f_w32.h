@@ -15,9 +15,6 @@ Refer at ./config.h
 signed(__cdecl cli_vers_beta(CLI_W32_STAT(*argp)));
 /* Display the version and more */
 
-signed(__cdecl cli_display_header_beta(CLI_W32_STAT(*argp)));
-/* Display the two-row header */
-
 signed(__cdecl cli_display_footer_beta(signed short(comeback),signed char(*label),CLI_W32_STAT(*argp)));
 /* Display the footer */
 

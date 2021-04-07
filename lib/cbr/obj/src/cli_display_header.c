@@ -4,15 +4,11 @@ Display the two-row header.
 
 Remarks:
 EOL with CR (0x0D) and LF (0x0A)
-Along with C library
 */
 
 
 # define CBR
-
-# include <conio.h>
 # include <stdio.h>
-# include <stdlib.h>
 # include <time.h>
 # include "../../../incl/config.h"
 
@@ -56,35 +52,35 @@ auto signed short flag;
 if(!argp) return(0x00);
 
 t = time(&t);
-if(!(t^(~(0x00)))) {
-printf("%s\n","<< Error at fn. time()");
+if(!(t^(~0x00))) {
+printf("%s \n","<< Error at fn. time()");
 return(0x00);
 }
 
 tp = localtime(&t);
 if(!tp) {
-printf("%s\n","<< Error at fn. localtime()");
+printf("%s \n","<< Error at fn. localtime()");
 return(0x00);
 }
 
 /* The two-row header */
-printf("%s %d %s %d",*(day_of_the_week+(R(tm_wday,*tp))),R(tm_mday,*tp),*(mon+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
+printf("%s %d %s %d ",*(day_of_the_week+(R(tm_wday,*tp))),R(tm_mday,*tp),*(mon+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
 
 if(!(CLI_DEFAULT^(R(display_header,R(config,*argp))))) {
-printf("%s%s"," | ","Ctrl-Q to quit");
-printf("%s%s"," | ","UTF-8");
-printf("%s%s%d"," | ","Tab: ",R(align_tab,R(config,*argp)));
-flag = (0x00);
+printf("%s %s ","|","Ctrl-Q to quit");
+printf("%s %s ","|","UTF-8");
+printf("%s %s %d ","|","Tab:",R(align_tab,R(config,*argp)));
+AND(flag,0x00);
 if(!(LINEBREAK_CRLF^(R(linebreak_form,R(config,*argp))))) {
-printf("%s%s"," | ","EOL: CRLF (0x0D and 0x0A)");
-flag++;
+printf("%s %s ","|","EOL: CRLF (0x0D and 0x0A)");
+OR(flag,0x01);
 }
 if(!(LINEBREAK_LF^(R(linebreak_form,R(config,*argp))))) {
-printf("%s%s"," | ","EOL: LF (0x0A)");
-flag++;
+printf("%s %s ","|","EOL: LF (0x0A)");
+OR(flag,0x01);
 }
 if(!flag) {
-printf("%s\n","<< Set the linebreak form at (R(linebreak_form,R(config,*argp..");
+printf("%s \n","<< Set the linebreak form at (R(linebreak_form,R(config,*argp..");
 return(0x00);
 }}
 

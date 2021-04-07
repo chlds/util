@@ -28,8 +28,9 @@ signed(__cdecl cli_extend(signed short(channel),signed short(cue),signed(extra),
 signed(__cdecl cli_append(signed char(*appendant),CLI_TYPEWRITER(*argp)));
 // append
 
+signed(__cdecl cli_display_header_beta(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_display_header(CLI_TYPEWRITER(*argp)));
-// display the two-row header
+/* Display the two-row header */
 
 signed(__cdecl cli_eq_eol(CLI_TYPEWRITER(*argp)));
 signed(__cdecl cli_eq_tab(CLI_TYPEWRITER(*argp)));

@@ -135,9 +135,9 @@ if(CLI_DBG) Sleep(1000);
 system("cls");
 
 if(CLI_NONE^(R(display_header,R(config,R(ty,cli_w32_stat))))) {
-r = cli_display_header_beta(&cli_w32_stat);
+r = cli_display_header_beta(&(R(ty,cli_w32_stat)));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_display_header_beta()");
+printf("%s \n","<< Error at fn. cli_display_header_beta()");
 return(0x00);
 }}
 

@@ -43,9 +43,9 @@ return(0x00);
 system("cls");
 
 if(CLI_NONE^(R(display_header,R(config,R(ty,*argp))))) {
-r = cli_display_header_beta(argp);
+r = cli_display_header_beta(&(R(ty,*argp)));
 if(!r) {
-printf("%s\n","<< Error at fn. cli_display_header_beta()");
+printf("%s \n","<< Error at fn. cli_display_header_beta()");
 return(0x00);
 }}
 
