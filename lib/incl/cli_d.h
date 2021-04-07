@@ -6,6 +6,9 @@
 # define CLI_BB (0x0F)
 # define CLI_OBJS (0x01+(0x03))
 
+# define CLI_HEADER_HEIGHT (0x02)
+# define CLI_FOOTER_HEIGHT (0x02)
+
 # define CLI_WORKSPACE (CLI_OBJS)
 # define CLI_SNAPSHOTS (CLI_OBJS)
 # define CLI_PAGES (CLI_OBJS)

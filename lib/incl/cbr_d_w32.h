@@ -25,6 +25,7 @@ Refer at ./config.h
 
 typedef struct cli_w32_stat {
 cli_codepage_t codepage;
+cli_virtual_terminal_t vt;
 CLI_TYPEWRITER ty;
 CONSOLE_SCREEN_BUFFER_INFO csbi;
 void *(window[CLI_WINDOWS]);

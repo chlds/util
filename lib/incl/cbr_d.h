@@ -27,9 +27,6 @@ Refer at ./config.h
 # define CLI_BUFF (0x02*(0x10000))
 # define CLI_EMPTY (0x01+(0x07))
 
-# define CLI_HEADER_HEIGHT (0x02)
-# define CLI_FOOTER_HEIGHT (0x02)
-
 # define CLI_CLIPBOARDS (CLI_OBJS)
 # define CLI_ROLLS (CLI_OBJS)
 
@@ -141,6 +138,7 @@ void *optl;
 
 typedef struct cli_stat {
 cli_codepage_t codepage;
+cli_virtual_terminal_t vt;
 CLI_TYPEWRITER ty;
 void *optl;
 } CLI_STAT;
