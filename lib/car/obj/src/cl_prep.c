@@ -19,7 +19,7 @@ auto signed char *b;
 auto coord_t coord;
 auto rect_t rect;
 auto signed i,r;
-auto signed short y;
+auto signed short cy,y;
 auto signed short flag;
 
 /* **** CODE/TEXT */
@@ -35,15 +35,17 @@ printf("%s \n","<< Error at fn. rect_beta()");
 return(0x00);
 }
 
+cy = (*(CLI_BASE+(R(y,coord))));
 y = (*(CLI_BASE+(R(bottom,rect))));
 y++;
-y = (y+(0x01+(~(*(CLI_BASE+(R(y,coord)))))));
-y = (y+(0x01+(0x01+(~CLI_FOOTER_HEIGHT))));
 if(!(cli_es(CTRL_A))) return(0x00);
-if(y<(0x00)) {
+if(!(cy^(y+(0x01+(~(*(CLI_BASE+(R(top,rect))))))))) {
 if(!(cli_es(CTRL_U))) return(0x00);
 }
 else {
+y = (y+(0x01+(~cy)));
+y = (y+(0x01+(0x01+(~CLI_FOOTER_HEIGHT))));
+if(y<(0x00)) return(0x00);
 while(y) {
 --y;
 if(!(cli_es(CTRL_N))) return(0x00);
