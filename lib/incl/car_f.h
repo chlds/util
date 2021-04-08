@@ -169,11 +169,6 @@ signed(__cdecl column_internal(signed short(cols),signed(algn),signed short(col)
 signed(__cdecl column(signed short(cols),signed(algn),signed char(*base)));
 /* For columnists. */
 
-signed(__cdecl calc_coord_internal(COORDS(*coords),signed char(*secure),signed char(*argp),signed char(*base),signed(cols)));
-signed(__cdecl calc_coord(COORDS(*coords),signed char(*argp),signed(cols)));
-/* Calculate coordinates of the terminating address of an array for characters, taking into account deviations caused by wrapping words. */
-/* Refer at incl/ll.h for COORDS. */
-
 signed(__cdecl reading(signed char(*di),signed(size)));
 
 signed(__cdecl pickfiles(signed char(*di /* path */ ), signed char(*si /* string */ )));
@@ -268,27 +263,8 @@ signed(__cdecl ct_offset_out_of_last_internal(signed char(arg), signed(len), sig
 signed(__cdecl ct_offset_out_of_last(signed char(arg), signed char(*argp)));
 /* Count offset out of the last arg. */
 
-signed(__cdecl ct2specials(signed char(*argp)));
-
-signed(__cdecl ct_word(signed char(*argp)));
-/* Count length of a word or to the terminating null character. */
-
 signed(__cdecl ct_word_backward(signed(left),signed char(*argp)));
 /* Count length of a word backward. */
-
-signed(__cdecl ct2firstletter_internal(signed(rest),signed char(*cur)));
-signed(__cdecl ct2firstletter(signed char(*cur),signed char(*orig)));
-/* Count up to the first letter of one word on the current address. */
-
-signed(__cdecl ct2here(signed char(*cur),signed char(*orig)));
-/* Count length of characters/bytes up to the current address. */
-
-signed(__cdecl ct2nonblank_r_internal(signed(rest),signed char(*cur)));
-signed(__cdecl ct2nonblank_r(signed char(*cur),signed char(*orig)));
-/* Reversely count up to a non-blank place. */
-
-signed(__cdecl ct2nonblank(signed char(*argp)));
-/* Count up to a non-blank place (or to the terminating null character). */
 
 signed(__cdecl ct2_only(signed char(di), signed char(*deadline), signed char(*argp)));
 signed(__cdecl ct_only(signed char(di), signed char(*argp)));
@@ -302,9 +278,10 @@ signed(__cdecl ct_except(signed char(di), signed char(*base)));
 signed(__cdecl ct_characters(signed char(*argp)));
 signed(__cdecl ct_letters(signed char(*argp)));
 
+signed(__cdecl ct_to(signed char(*cache),signed char(*argp)));
 signed(__cdecl ct2(signed char(di), signed char(*base)));
 signed(__cdecl ct(signed char(*argp)));
-/* Count letters to the one you'd select or to the terminating null character. */
+/* Count letters up to one or more you'd select or to the terminating null character. */
 
 signed(__cdecl ct_f(signed(__cdecl**(f)) (void(*argp))));
 /* Count function pointers. */

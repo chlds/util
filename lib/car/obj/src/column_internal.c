@@ -47,8 +47,7 @@ if(!(*cur)) return(0x00);
 if(!col) firstcol_flag = (0x01);
 else firstcol_flag = (0x00);
 
-r = ct2specials(cur);
-// ..or r = ct_word(cur);
+r = ct_to("-",cur);
 
 if(!r) {
 XOR(flag,flag);
@@ -80,7 +79,7 @@ r = ct_txt(algn,offset);
 // ..or use fn. ct(offset).
 INC(r);
 p = (signed char(*)) malloc(r*(sizeof(signed char)));
-r = ct_word(cur);
+r = ct_to("-",cur);
 r = cpy2p(p,cur+(r),offset);
 r = align(algn,p);
 free(p);

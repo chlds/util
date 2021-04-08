@@ -1,6 +1,10 @@
 /*
 
 Retrieve bytes to the leading address of a word or symbol.
+
+Remarks:
+Refer at fn. ct_to
+Based on UTF-8
 */
 
 
