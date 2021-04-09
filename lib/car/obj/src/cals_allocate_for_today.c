@@ -6,7 +6,6 @@ Allocate
 
 # define CALEND
 # define CAR
-# include <stdlib.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cals_allocate_for_today(cals_t(*argp))) {
@@ -14,19 +13,22 @@ signed(__cdecl cals_allocate_for_today(cals_t(*argp))) {
 /* **** DATA, BSS and STACK */
 auto cals_event_t *event;
 auto signed char *b;
+auto rect_t rect;
 auto signed i,r;
 
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 // r = (-16+(5+(COL_R)));
-r = (-0x10);
-r = (-0x01+(r+(*(CLI_BASE+(R(right,R(rect,R(frame,R(property,*argp)))))))));
+if(!(rect_beta(CLI_IN,CLI_BASE,&rect))) return(0x00);
+r = (*(CLI_BASE+(R(right,rect))));
+r = (-0x10+(r));
+--r;
 if(r<(0x00)) return(0x00);
 r++;
 r = (r*(sizeof(*b)));
 i = (r);
-b = (signed char(*)) malloc(r);
+b = (signed char(*)) alloc(r);
 if(!b) return(0x00);
 
 *(--r+(b)) = (0x00);

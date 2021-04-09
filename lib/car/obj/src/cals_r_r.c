@@ -13,13 +13,12 @@ signed(__cdecl cals_r_r(signed short(mo),signed(arg),cals_t(*argp))) {
 
 /* **** DATA, BSS and STACK */
 auto signed WEEK = (0x07);
-
 auto signed short secondary = (0x01);
 auto signed short primary = (0x00);
-
 auto struct tm *tp;
 auto signed short *w;
 auto signed char *b;
+auto rect_t rect;
 auto time_t curr_wk1;
 auto time_t curr_t;
 auto time_t t;
@@ -81,7 +80,8 @@ printf("%s \n","<< Error at fn. cli_replace_text_attributes_beta()");
 }
 //*/
 // r = (COL_R);
-r = (*(CLI_BASE+(R(right,R(rect,R(frame,R(property,*argp)))))));
+if(!(rect_beta(CLI_IN,CLI_BASE,&rect))) return(0x00);
+r = (*(CLI_BASE+(R(right,rect))));
 r = (-0x05+(r));
 r = (-0x02+(r));
 r = sub_da(r,*(MONTH+(R(tm_mon,*tp))));

@@ -31,9 +31,6 @@ if(!(CLI_INIT&(*(CLI_BASE+(R(flag,*argp)))))) AND(arg,0x00);
 r = cli_init_clipboards(arg,&(R(clipboard,*argp)));
 if(!r) return(0x00);
 
-r = cli_init_frames(arg,&(R(frame,*argp)));
-if(!r) return(0x00);
-
 r = cli_init_text(arg,&(R(text,*argp)));
 if(!r) return(0x00);
 
@@ -53,20 +50,6 @@ vv++;
 i = (CLI_OBJS);
 while(i) AND(*(--i+(R(flag,*argp))),0x00);
 R(optl,*argp) = (0x00);
-
-if(!arg) {
-r = cli_retrieve_standard_handles_beta(R(device,*argp));
-if(!r) {
-printf("%s \n","<< Error at fn. cli_retrieve_standard_handles_beta()");
-return(0x00);
-}
-r = coord_beta(CLI_IN,CLI_RULE,&(R(coord,R(frame,*argp))));
-if(!r) return(0x00);
-r = rect_beta(CLI_IN,CLI_RULE,&(R(rect,R(frame,*argp))));
-if(!r) return(0x00);
-r = pixel_beta(CLI_IN,CLI_RULE,&(R(pixel,R(frame,*argp))));
-if(!r) return(0x00);
-}
 
 if(!arg) OR(*(CLI_BASE+(R(flag,*argp))),CLI_INIT);
 
