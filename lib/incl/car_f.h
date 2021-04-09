@@ -270,9 +270,7 @@ signed(__cdecl ct2_only(signed char(di), signed char(*deadline), signed char(*ar
 signed(__cdecl ct_only(signed char(di), signed char(*argp)));
 /* Count a specific letter only. */
 
-signed(__cdecl ct2_except_internal(signed char(cache), signed(*di), signed char(*base)));
-signed(__cdecl ct2_except(signed char(cache), signed char(*base)));
-signed(__cdecl ct_except(signed char(di), signed char(*base)));
+signed(__cdecl ct_except(signed char(arg),signed char(*argp)));
 /* Count letters to the terminating null character except for the one you'd select. */
 
 signed(__cdecl ct_characters(signed char(*argp)));

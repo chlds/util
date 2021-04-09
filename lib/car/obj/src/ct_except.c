@@ -4,17 +4,20 @@ Count letters to the terminating null character except for a letter you'd select
 */
 
 
-signed(__cdecl ct_except(signed char(di), signed char(*base))) {
+# define CAR
+# include "./../../../incl/config.h"
 
-/* **** CODE/TEXT */
-if(!base) return(0x00);
-if(!(*base)) return(0x00);
+signed(__cdecl ct_except(signed char(arg),signed char(*argp))) {
 
-if(!(di^(*base))) {
-base++;
-return(ct_except(di, base));
-}
+auto signed r;
 
-base++;
-return(1+(ct_except(di, base)));
+if(!argp) return(0x00);
+if(!(*argp)) return(0x00);
+
+AND(r,0x00);
+if(arg^(*argp)) OR(r,0x01);
+
+argp++;
+
+return(r+(ct_except(arg,argp)));
 }
