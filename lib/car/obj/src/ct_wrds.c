@@ -1,6 +1,9 @@
 /* **** Notes
 
-Count the arguments to the terminating null character.
+Count arguments to the terminating null character.
+
+Remarks:
+Refer at fn. ct_ars2 and fn. ct_ars_r.
 //*/
 
 

@@ -1,6 +1,6 @@
 /* **** Notes
 
-Count the arguments to the terminating null character.
+Count words to the terminating null character.
 
 Remarks:
 Refer at fn. ct_wrds.

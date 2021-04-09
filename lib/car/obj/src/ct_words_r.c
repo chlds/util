@@ -1,9 +1,9 @@
 /* **** Notes
 
-Count arguments to the terminating null character.
+Count words to the terminating null character.
 
 Remarks:
-Refer at fn. ct_ars2 and fn. ct_ars_r.
+Refer at fn. ct_wrds_r.
 */
 
 
