@@ -20,7 +20,7 @@ signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 
 auto signed const QUANTUM = (0x10);
 auto signed const SNOOZE = (0x04);
-auto signed const DELAY = (0x02*(QUANTUM));
+auto signed const DELAY = (0x03*(QUANTUM));
 
 auto SAT sat;
 auto KNOT *cache,*knot;
@@ -199,16 +199,18 @@ i++;
 if(!i) break;
 }
 
+printf("\n");
+
 /* Monitor behavior of the other sub-threads to be stopped by sub-thread cmdl2_exit. */
-i = (0x00);
+i = (0xFF);
 while(0x01) {
+printf("\r%s %d ","Sub-threads to be stopped: ",sat.Running);
 if(!(sat.Running)) break;
-// printf("%s \n","Waiting for all the sub-threads to stop");
-if(DBG) printf(".. ");
 /* CPU idling */
 Sleep(DELAY);
-i++;
-if(0x10<(i)) {
+--i;
+if(i<(0x01)) {
+printf("\n");
 printf("%s \n","<< Oops..");
 break;
 }}
