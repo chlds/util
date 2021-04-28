@@ -2,29 +2,27 @@
 
 Sort e.g., using with fn. bsort()
 
-count: Put the numbre of elements of an array for values at.
-base: Put the leading address of an array for values at.
+arg: Put the numbre of elements of an array for values at.
+argp: Put the leading address of an array for values at.
 */
 
 
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl nsort(signed(count),signed(*base))) {
+signed(__cdecl nsort(signed(arg),signed(*argp))) {
 
-/* **** DATA, BSS, STACK */
-auto signed cache;
+auto signed r;
 
-/* **** **** CODE/TEXT */
-if(!count) return(0x00);
-if(!base) return(0x00);
+if(!arg) return(0x00);
+if(!argp) return(0x00);
 
-cache = (*base);
-base++;
-if(!(cache<(*base))) {
-*(base+(~(0x00))) = (*base);
-*base = (cache);
+r = (*argp);
+argp++;
+if(!(r<(*argp))) {
+if(!(sw(&r,argp))) return(0x00);
+*(argp+(~0x00)) = (r);
 }
 
-return(0x01+(nsort(--count,base)));
+return(0x01+(nsort(--arg,argp)));
 }
