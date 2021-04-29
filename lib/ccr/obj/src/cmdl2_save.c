@@ -8,7 +8,7 @@ is for a doubly LL i.e.,
 <NOT> for a circular LL..
 
 Remarks:
-Implemented along with fn. spltfree() and with fn. splt()
+Implemented along with fn. cv_v() and with fn. rl_v()
 */
 
 
@@ -62,9 +62,9 @@ return(0x00);
 }
 
 /* Split out of the command line */
-r = splt(&pp,p);
+r = cv_v(&pp,p);
 if(!r) {
-printf("%s \n","<< Error at fn. splt()");
+printf("%s \n","<< Error at fn. cv_v()");
 DEC(R(Running,*argp));
 return(0x00);
 }
@@ -132,7 +132,7 @@ else {
 XOR(i,i);
 Sleep(DELAY);
 }}
-/* closing/unmapping on the RAM */
+/* closing/unmapping out of the RAM */
 r = close(fd);
 if(!(r^(~(0x00)))) {
 printf("%s \n","<< Error at fn. close()");
@@ -144,10 +144,10 @@ r = printf("%s%s \n","Saved as: ",p);
 if(uncmpltflag) printf("%s \n","Attention: There was an interruption during writing..");
 }
 
-/* Unmap all the buffers allocated by fn. splt() on the RAM */
-r = spltfree(pp);
+/* Unmap all the buffers allocated by fn. cv_v() out of the RAM */
+r = rl_v(&pp);
 if(!r) {
-printf("%s \n","<< Error at fn. spltfree()");
+printf("%s \n","<< Error at fn. rl_v()");
 DEC(R(Running,*argp));
 return(0x00);
 }

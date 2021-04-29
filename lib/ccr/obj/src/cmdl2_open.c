@@ -8,7 +8,7 @@ is for a doubly LL i.e.,
 <NOT> for a circular LL..
 
 Remarks:
-Implemented along with fn. spltfree() and with fn. splt().
+Implemented along with fn. cv_v() and with fn. rl_v().
 And also with a flag to be added for code to run as far as possible to the end.
 */
 
@@ -68,9 +68,9 @@ return(0x00);
 }
 
 /* splitting */
-r = splt(&pp,p);
+r = cv_v(&pp,p);
 if(!r) {
-printf("%s \n","<< Error at fn. splt()");
+printf("%s \n","<< Error at fn. cv_v()");
 DEC(R(Running,*argp));
 return(0x00);
 }
@@ -126,7 +126,7 @@ Sleep(0x03*(DELAY));
 /* Notificate */
 if(interrupt_flag) printf("\n\n%s \n","Attention: There was an interruption during reading and/or writing..");
 
-/* Check an error flag e.g., and closing/unmapping on the RAM */
+/* Check an error flag e.g., and closing/unmapping out of the RAM */
 r = close(fd);
 if(!(r^(~(0x00)))) {
 printf("%s \n","<< Error at fn. close()");
@@ -134,10 +134,10 @@ DEC(R(Running,*argp));
 return(0x00);
 }
 
-/* Unmap all the buffers allocated by fn. splt() on the RAM */
-r = spltfree(pp);
+/* Unmap all the buffers allocated by fn. cv_v() out of the RAM */
+r = rl_v(&pp);
 if(!r) {
-printf("%s \n","<< Error at fn. spltfree()");
+printf("%s \n","<< Error at fn. rl_v()");
 DEC(R(Running,*argp));
 return(0x00);
 }
