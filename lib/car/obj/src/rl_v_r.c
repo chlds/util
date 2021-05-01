@@ -15,8 +15,9 @@ signed(__cdecl rl_v_r(signed char(**argp))) {
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
+embed(0x00,*argp);
 rl(*argp);
-
+*argp = (0x00);
 argp++;
 
 return(0x01+(rl_v_r(argp)));

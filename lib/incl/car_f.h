@@ -200,6 +200,7 @@ signed(__cdecl append2(signed char(*di), signed char(*si)));
 
 signed(__cdecl rl_v_r(signed char(**argp)));
 signed(__cdecl rl_v(signed char(***argp)));
+signed(__cdecl cv_v_r(signed(arg),signed char(**di),signed char(*si)));
 signed(__cdecl cv_v(signed char(***di),signed char(*si)));
 /* Map word-split arrays on and unmap the ones out of the RAM */
 
