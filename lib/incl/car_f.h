@@ -14,6 +14,10 @@ void*(__cdecl alloc(signed(arg)));
 signed(__cdecl rl(void(*argp)));
 // release i.e., fn. free.
 
+signed(__cdecl cv_bv_r(signed char(*di),signed char(**si)));
+signed(__cdecl cv_bv(signed char(**di),signed char(**si)));
+/* After calling fn. cv_bv, please call fn. rl to unmap the buffer allocated on the RAM. */
+
 signed(__cdecl cv_argv_bw_r(signed char(**di),signed short(**si)));
 signed(__cdecl cv_argv_bw(signed char(***di),signed short(**si)));
 // convert into a table pointer of pointers secured for bytes in UTF-8.
@@ -107,6 +111,10 @@ signed(__cdecl cmpr(signed(*cache),signed char(*di),signed char(*si)));
 
 signed(__cdecl compare(signed char(*di),signed char(*si)));
 /* Compare addresses. */
+
+signed(__cdecl ct_bv_r(signed(*di),signed char(**si)));
+signed(__cdecl ct_bv(signed(*di),signed char(**si)));
+/* count the number of bytes up */
 
 signed(__cdecl ct_w(signed short(*argp)));
 signed(__cdecl ct(signed char(*argp)));
