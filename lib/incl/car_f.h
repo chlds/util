@@ -88,10 +88,11 @@ signed(__cdecl cv_da(signed short(radix),signed(*di),signed char(*si)));
 signed(__cdecl ord(signed char(*di),signed char(si)));
 // check the ordinal number.
 
-signed(__cdecl cv_d_internal(signed short(radix),signed char(*di),signed(si)));
+signed(__cdecl cv_d_r(signed short(radix),signed char(*table),signed char(*di),signed(si)));
 signed(__cdecl cv_d(signed short(radix),signed char(**di),signed(si)));
 // convert a signed double word into letters.
 
+signed(__cdecl car_r(signed short(radix),signed(arg)));
 signed(__cdecl car(signed short(radix),signed(arg)));
 // count column digits for a double word.
 
