@@ -79,11 +79,11 @@ signed(__cdecl recharge(signed char(**argp),signed(arg)));
 signed(__cdecl cli_unmap(signed(times),signed char(**argp)));
 // Unmap.
 
-signed(__cdecl cv_da_first_internal(signed short(terminate),signed short(radix),signed char(*table),signed(*di),signed char(*si)));
+signed(__cdecl cv_da_first_r(signed short(arg),signed short(radix),signed char(*table),signed(*di),signed char(*si)));
 signed(__cdecl cv_da_first(signed short(radix),signed(*di),signed char(*si)));
-signed(__cdecl cv_da_internal(signed short(radix),signed char(*table),signed(*di),signed char(*si)));
+signed(__cdecl cv_da_r(signed short(radix),signed char(*table),signed(*di),signed char(*si)));
 signed(__cdecl cv_da(signed short(radix),signed(*di),signed char(*si)));
-// convert to a signed/unsigned double word out of characters.
+// convert into a signed double word out of characters.
 
 signed(__cdecl ord(signed char(*di),signed char(si)));
 // check the ordinal number.
