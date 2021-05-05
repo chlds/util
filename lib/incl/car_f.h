@@ -35,6 +35,7 @@ signed(__cdecl read_b(signed(fd),signed char(delim),signed char(**b)));
 
 signed(__cdecl store_b(signed short(linebreak),signed(access_right),signed(permission),signed char(*b),signed char(*path)));
 
+signed(__cdecl cv_hr_r(signed short(*hr),signed short(*mn),signed char(*si)));
 signed(__cdecl cv_hr(signed short(*hr),signed short(*mn),signed char(*si)));
 
 signed(__cdecl concat_argv_rr(signed char(*di),signed char(**si)));
