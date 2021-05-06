@@ -1,6 +1,6 @@
 /*
 
-Get Unicode bytes out of the character based on UTF-8.
+Encode a character into bytes based on UTF-8.
 
 Remarks:
 Return the number of encoded bytes.
@@ -10,15 +10,13 @@ Return the number of encoded bytes.
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl encode_surrogate_bw(signed char(**di),signed short(second),signed short(first))) {
+signed(__cdecl encode_surrogate_w(signed char(**di),signed short(second),signed short(first))) {
 
-/* DATA, BSS and STACK */
-auto signed const UTF_16 = (0xFFFF);
+auto signed utf_16 = (0xFFFF);
 auto signed char *b;
 auto signed i,r;
 auto signed short surrog;
 
-/* CODE/TEXT */
 if(!di) return(0x00);
 if(*di) return(0x00);
 
@@ -26,8 +24,8 @@ b = (0x00);
 if(!(concatenate(0x04,&b,0x00))) return(0x00);
 
 *(0x04+(b)) = (0x00);
-second = (UTF_16&(second));
-first = (UTF_16&(first));
+second = (utf_16&(second));
+first = (utf_16&(first));
 
 *(0x03+(b)) = (0x00);
 surrog = (second);

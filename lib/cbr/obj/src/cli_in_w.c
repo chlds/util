@@ -114,9 +114,9 @@ return(r);
 AND(flag,0x00);
 b = (0x00);
 if(surrog) {
-r = encode_surrogate_bw(&b,surrog/* second */,c/* first */);
+r = encode_surrogate_w(&b,surrog/* second */,c/* first */);
 if(!r) {
-printf("%s \n","<< Error at fn. encode_surrogate_bw()");
+printf("%s \n","<< Error at fn. encode_surrogate_w()");
 OR(flag,0x01);
 }}
 else {

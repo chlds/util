@@ -1,8 +1,6 @@
 /*
 
-Get Unicode bytes out of the character based on UTF-8.
-
-Return the number of encoded bytes.
+Encode a character into bytes based on UTF-8.
 
 Check the leading byte for one Unicode character based on UTF-8:
 
@@ -17,11 +15,8 @@ and
 for a 6-bit-efficient byte expressed in .io**.**** (6) on 8 bits for the n-byte characters.
 
 Remarks:
+Return the number of encoded bytes.
 Expressed in UTF-8
-Use fn. decode2uni (and fn. decode2uni_internal) to read/write bytes mapped out of a storage.
-Decode bytes in Unicode mapped on the RAM out of an SSD/HDD storage to characters in Unicode to read them on the console screen.
-Use fn. encode2uni (and fn. encode2uni_internal) to save/store bytes mapped on the RAM into a storage.
-Encode characters in Unicode decoded on the RAM to bytes in Unicode to store them into an SSD/HDD storage.
 */
 
 
@@ -29,10 +24,9 @@ Encode characters in Unicode decoded on the RAM to bytes in Unicode to store the
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl encode2uni(signed char(**di),signed(si))) {
+signed(__cdecl encode_w(signed char(**di),signed(si))) {
 
-/* DATA, BSS and STACK */
-auto signed const UTF_16 = (0xFFFF);
+auto signed utf_16 = (0xFFFF);
 auto signed al[] = {
 (signed) (0x00), // a one-byte character expressed in .o***.**** (7-bit)
 (signed) (0x80), // a sequential byte with efficient 6 bits expressed in .io**.**** (6-bit) for the n-byte characters
@@ -47,7 +41,6 @@ auto signed i,r;
 auto signed short flag;
 auto signed char c;
 
-/* CODE/TEXT */
 if(!di) return(0x00);
 if(*di) return(0x00);
 
@@ -69,12 +62,12 @@ b = (0x00);
 return(0x01);
 }
 
-si = (UTF_16&(si));
+si = (utf_16&(si));
 
 AND(flag,0x00);
-r = encode2uni_internal(r,b,si);
+r = encode_w_r(r,b,si);
 if(!r) {
-printf("%s \n","<< Error at fn. encode2uni_internal()");
+printf("%s \n","<< Error at fn. encode_w_r()");
 OR(flag,0x01);
 }
 

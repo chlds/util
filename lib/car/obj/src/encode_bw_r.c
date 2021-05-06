@@ -1,11 +1,9 @@
 /*
 
-Encode to Unicode bytes in UTF-8 out of Unicode characters in UTF-16.
-
-Along with C library
+Encode characters into bytes based on UTF-8.
 
 Remarks:
-Refer at fn. decode2uni and fn. encode2uni.
+Support for surrogate pairs.
 */
 
 
@@ -13,9 +11,8 @@ Refer at fn. decode2uni and fn. encode2uni.
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl encode_bw_internal(signed char(**di),signed short(*si))) {
+signed(__cdecl encode_bw_r(signed char(**di),signed short(*si))) {
 
-/* **** DATA, BSS and STACK */
 auto signed short SECOND = (0xDC00);
 auto signed short FIRST = (0xD800);
 auto signed short TEN_B = (0x03FF);
@@ -24,7 +21,6 @@ auto signed i,r;
 auto signed short second,first;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!di) return(0x00);
 if(!si) return(0x00);
 
@@ -40,15 +36,15 @@ else --si;
 b = (0x00);
 if(flag) {
 AND(flag,0x00);
-r = encode_surrogate_bw(&b,second,first);
+r = encode_surrogate_w(&b,second,first);
 if(!r) {
-printf("%s \n","<< Error at fn. encode_surrogate_bw()");
+printf("%s \n","<< Error at fn. encode_surrogate_w()");
 OR(flag,0x01);
 }}
 else {
-r = encode2uni(&b,*si);
+r = encode_w(&b,*si);
 if(!r) {
-printf("%s \n","<< Error at fn. encode2uni()");
+printf("%s \n","<< Error at fn. encode_w()");
 OR(flag,0x01);
 }}
 
@@ -70,5 +66,5 @@ if(!(*si)) return(0x00);
 
 si++;
 
-return(r+(encode_bw_internal(di,si)));
+return(r+(encode_bw_r(di,si)));
 }

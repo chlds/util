@@ -127,7 +127,7 @@ signed(__cdecl ct_a_back(signed char(*argp)));
 signed(__cdecl ct_a(signed char(*argp)));
 /* Based on UTF-8 */
 
-signed(__cdecl encode_bw_internal(signed char(**di),signed short(*si)));
+signed(__cdecl encode_bw_r(signed char(**di),signed short(*si)));
 signed(__cdecl encode_bw(signed char(**di),signed short(*si)));
 /* Encode along with surrogate pairs. */
 
@@ -144,11 +144,11 @@ signed(__cdecl cli_in(signed(*character),signed char(*argp),signed(size)));
 signed(__cdecl cli_support_meta_keys(signed(*character),signed char(second),signed char(first)));
 /* Support for function and arrow keys */
 
-signed(__cdecl encode2uni_internal(signed(arg),signed char(*di),signed(si)));
-signed(__cdecl encode2uni(signed char(**di),signed(si)));
-signed(__cdecl encode_surrogate_bw(signed char(**di),signed short(second),signed short(first)));
+signed(__cdecl encode_w_r(signed(arg),signed char(*di),signed(si)));
+signed(__cdecl encode_w(signed char(**di),signed(si)));
+signed(__cdecl encode_surrogate_w(signed char(**di),signed short(second),signed short(first)));
 signed(__cdecl ncharbyte(signed(arg)));
-/* Generate Unicode bytes encoded out of Unicode characters */
+/* Encode a character into bytes based on UTF-8. */
 
 signed(__cdecl cli_outs(signed char(*argp)));
 signed(__cdecl cli_out(signed char(*argp)));
