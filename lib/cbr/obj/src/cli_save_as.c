@@ -51,9 +51,9 @@ return(0x00);
 cur = (w);
 while(0x01) {
 if(!(*p)) break;
-r = decode2uni(&i,p);
+r = decode_b(&i,p);
 if(!r) {
-printf("%s\n","<< Error at fn. decode2uni()");
+printf("%s\n","<< Error at fn. decode_b()");
 return(0x00);
 }
 //* save file names in Unicode format

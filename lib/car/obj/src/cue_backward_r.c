@@ -50,9 +50,9 @@ if(0x80^(r)) break;
 
 *retrv = (b);
 
-r = decode2uni(&i,b);
+r = decode_b(&i,b);
 if(!r) {
-printf("%s \n","<< Error at fn. decode2uni()");
+printf("%s \n","<< Error at fn. decode_b()");
 return(0x00);
 }
 

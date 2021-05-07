@@ -1,8 +1,6 @@
 /*
 
-Get a character out of Unicode bytes based on UTF-8.
-
-Return the number of decoded bytes.
+Decode bytes into a character based on UTF-16.
 
 Check the leading byte for one Unicode character based on UTF-8:
 
@@ -17,21 +15,16 @@ and
 for a 6-bit-efficient byte expressed in .io**.**** (6) on 8 bits for the n-byte characters.
 
 Remarks:
+Return the number of decoded bytes.
 Expressed in UTF-8
-Use fn. decode2uni (and fn. decode2uni_internal) to read/write bytes mapped out of a storage.
-Decode bytes in Unicode mapped on the RAM out of an SSD/HDD storage to characters in Unicode to read them on the console screen.
-Use fn. encode2uni (and fn. encode2uni_internal) to save/store bytes mapped on the RAM into a storage.
-Encode characters in Unicode decoded on the RAM to bytes in Unicode to store them into an SSD/HDD storage.
 */
 
 
 # define CAR
-# include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl decode2uni(signed(*di),signed char(*si))) {
+signed(__cdecl decode_b(signed(*di),signed char(*si))) {
 
-/* DATA, BSS and STACK */
 auto signed al[] = {
 (signed) (0x00), // a one-byte character expressed in .o***.**** (7-bit)
 (signed) (0x80), // a sequential byte with efficient 6 bits expressed in .io**.**** (6-bit) for the n-byte characters
@@ -43,20 +36,13 @@ auto signed al[] = {
 
 auto signed i,r;
 
-/* CODE/TEXT */
 if(!di) return(0x00);
 if(!si) return(0x00);
 if(!(*si)) return(0x00);
 
 i = nbytechar(*si);
-if(!(0x80^(i))) {
-printf("%s \n","<< Error at fn. nbytechar() returned with a sequential (0x80) byte");
-return(0x00);
-}
-if(!i) {
-printf("%s \n","<< Error at fn. nbytechar()");
-return(i);
-}
+if(!(0x80^(i))) return(0x00);
+if(!i) return(i);
 
 r = (signed) (*si);
 r = (0xFF&(r));
@@ -65,12 +51,10 @@ r = (r&(~(*(al+(i)))));
 if(!(--i)) return(0x01);
 
 si++;
-r = decode2uni_internal(i,di,si);
-if(!r) {
-printf("%s \n","<< Error at fn. decode2uni_internal()");
-return(0x00);
-}
+r = decode_b_r(i,di,si);
+if(!r) return(r);
 
 r++;
+
 return(r);
 }

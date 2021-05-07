@@ -1,9 +1,6 @@
 /*
 
-Decode to Unicode characters in UTF-16 out of Unicode bytes in UTF-8.
-
-Remarks:
-Refer at fn. decode2uni and fn. encode2uni.
+Decode bytes into characters based on UTF-16.
 */
 
 
@@ -33,10 +30,10 @@ if(!(*si)) {
 return(0x00);
 }
 
-r = decode2uni(&i,si);
+r = decode_b(&i,si);
 if(!r) {
 *di = (0x00);
-printf("%s \n","<< Error at fn. decode2uni()");
+printf("%s \n","<< Error at fn. decode_b()");
 return(0x00);
 }
 

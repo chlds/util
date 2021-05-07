@@ -116,9 +116,9 @@ argp++;
 
 *argp = (signed char) (0x00);
 
-r = decode2uni(character,-r+(argp));
+r = decode_b(character,-r+(argp));
 if(!r) {
-printf("%s\n","<< Error at fn. decode2uni()");
+printf("%s\n","<< Error at fn. decode_b()");
 return(0x00);
 }
 

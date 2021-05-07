@@ -1,9 +1,6 @@
 /*
 
-Decode to Unicode character in UTF-16 out of Unicode bytes in UTF-8.
-
-Remarks:
-Refer at fn. decode2uni and fn. encode2uni.
+Decode bytes into a character based on UTF-16.
 */
 
 
@@ -12,22 +9,20 @@ Refer at fn. decode2uni and fn. encode2uni.
 
 signed(__cdecl decode_surrogate_second(signed short(*di),signed(si))) {
 
-/* **** DATA, BSS and STACK */
-auto signed ADDITIONAL = (0x10000);
-auto signed SECOND = (0xDC00);
+auto signed additional = (0x10000);
+auto signed second = (0xDC00);
 
 auto signed char *b;
 auto signed surrog;
 auto signed i,r;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!di) return(0x00);
 
 surrog = (si);
-surrog = (-ADDITIONAL+(surrog));
+surrog = (surrog+(0x01+(~additional)));
 AND(surrog,0x3FF);
-OR(surrog,SECOND);
+OR(surrog,second);
 
 *di = (signed short) (surrog);
 

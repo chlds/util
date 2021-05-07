@@ -135,9 +135,9 @@ if(b) rl(b);
 b = (0x00);
 if(flag) return(0x00);
 
-r = decode2uni(character,argp);
+r = decode_b(character,argp);
 if(!r) {
-printf("%s \n","<< Error at fn. decode2uni()");
+printf("%s \n","<< Error at fn. decode_b()");
 return(0x00);
 }
 

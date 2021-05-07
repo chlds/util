@@ -20,9 +20,9 @@ auto signed short surrog;
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
-r = decode2uni(&i,argp);
+r = decode_b(&i,argp);
 if(!r) {
-printf("%s\n","<< Error at fn. decode2uni()");
+printf("%s \n","<< Error at fn. decode_b()");
 return(0x00);
 }
 
@@ -31,17 +31,17 @@ l = (r);
 if(0x03<(l)) {
 r = decode_surrogate_first(&surrog,i);
 if(!r) {
-printf("%s\n","<< Error at fn. decode_surrogate_first()");
+printf("%s \n","<< Error at fn. decode_surrogate_first()");
 return(0x00);
 }
 r = _putwch((wchar_t)surrog);
 if(!(WEOF^(r))) {
-printf("%s\n","<< Error at fn. _putwch()");
+printf("%s \n","<< Error at fn. _putwch()");
 return(0x00);
 }
 r = decode_surrogate_second(&surrog,i);
 if(!r) {
-printf("%s\n","<< Error at fn. decode_surrogate_second()");
+printf("%s \n","<< Error at fn. decode_surrogate_second()");
 return(0x00);
 }
 i = (signed) (surrog);
@@ -49,7 +49,7 @@ i = (signed) (surrog);
 
 r = _putwch((wchar_t)i);
 if(!(WEOF^(r))) {
-printf("%s\n","<< Error at fn. _putwch()");
+printf("%s \n","<< Error at fn. _putwch()");
 return(0x00);
 }
 
