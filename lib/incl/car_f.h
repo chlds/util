@@ -14,6 +14,10 @@ void*(__cdecl alloc(signed(arg)));
 signed(__cdecl rl(void(*argp)));
 // release i.e., fn. free.
 
+signed(__cdecl cat_b_r(signed char(**cache),signed char(**argp)));
+signed(__cdecl cat_b(signed char(**argp),...));
+/* Concatenate to the terminating null pointer. */
+
 signed(__cdecl cv_bv_r(signed char(*di),signed char(**si)));
 signed(__cdecl cv_bv(signed char(**di),signed char(**si)));
 /* After calling fn. cv_bv, please call fn. rl to unmap the buffer allocated on the RAM. */
