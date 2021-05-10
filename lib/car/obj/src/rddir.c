@@ -104,22 +104,15 @@ if(!r) {
 printf("%s \n","<< An error has occurred at fn. cpy().");
 return(0x00);
 }
-*(craft+(r+(~(0x00)))) = (0x00);
-/* And append to an array craft using fn. append2 (or fn. concat2).
-r = concat2(craft,p,"/*",(void*) 0x00);
+*(craft+(--r)) = (0x00);
+r = append_b(craft,p);
 if(!r) {
-printf("%s \n","<< Error at fn. concat2()");
+printf("%s \n","<< Error at fn. append_b() the first");
 return(0x00);
 }
-//*/
-r = append2(craft,p);
+r = append_b(craft,"/*");
 if(!r) {
-printf("%s \n","<< Error at fn. append2() the first");
-return(0x00);
-}
-r = append2(craft,"/*");
-if(!r) {
-printf("%s \n","<< Error at fn. append2() the second");
+printf("%s \n","<< Error at fn. append_b() the second");
 return(0x00);
 }
 if(DBG) printf("%s %s \n","craft is:",craft);

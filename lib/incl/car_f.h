@@ -206,10 +206,7 @@ signed(__cdecl concats_internal(signed char(*di), signed char(*bp)));
 signed(__cdecl concats(signed char(*argp), ...));
 /* Copy concatenated strings to the argp (using along with fn. concats_internal). */
 
-signed(__cdecl concat2(signed char(*argp), ...));
-/* Append strings to the argp (using along with fn. concats_internal). */
-
-signed(__cdecl append2(signed char(*di), signed char(*si)));
+signed(__cdecl append_b(signed char(*di),signed char(*si)));
 /* Append the si to the di. */
 
 signed(__cdecl rl_v_r(signed char(**argp)));
