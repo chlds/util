@@ -158,9 +158,9 @@ if(!buff) {
 printf("%s \n","<< Error at fn. malloc()");
 return(0x00);
 }
-r = concats(buff,*(CLI_BASE+(R(base,*page))),p,(void*) 0x00);
+r = concat_b(buff,*(CLI_BASE+(R(base,*page))),p,(void*) 0x00);
 if(!r) {
-printf("%s \n","<< Error at fn. concats()");
+printf("%s \n","<< Error at fn. concat_b()");
 return(0x00);
 }
 r = embed(0x00,*(CLI_BASE+(R(base,*page))));

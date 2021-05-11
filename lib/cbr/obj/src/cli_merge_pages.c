@@ -52,9 +52,9 @@ if(!p) {
 printf("%s\n","<< Error at fn. malloc()");
 return(0x00);
 }
-r = concats(p,*(CLI_BASE+(R(base,**(CLI_INDEX+(R(page,*argp)))))),*(CLI_BASE+(R(base,*page))),(void*) 0x00);
+r = concat_b(p,*(CLI_BASE+(R(base,**(CLI_INDEX+(R(page,*argp)))))),*(CLI_BASE+(R(base,*page))),(void*) 0x00);
 if(!r) {
-printf("%s\n","<< Error at fn. concats()");
+printf("%s\n","<< Error at fn. concat_b()");
 return(0x00);
 }
 if(*(CLI_BASE+(R(base,*(R(s,*page)))))) {

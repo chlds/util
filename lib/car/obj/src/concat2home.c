@@ -10,59 +10,56 @@ Release at the *b.
 # define CAR
 
 # include <stdio.h>
-# include <stdlib.h>
 # include <errno.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl concat2home(signed char(**b),signed char(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto signed char *p;
 auto signed i,r;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!b) return(0x00);
 if(!argp) return(0x00);
 
 AND(flag,0x00);
 
-p = getenv("USERPROFILE");
+p = rf_env("USERPROFILE");
 if(!p) {
-printf("%s\n","<< Error at fn. getenv()");
+printf("%s \n","<< Error at fn. rf_env()");
 return(0x00);
 }
 
 r = ct(p);
 if(!r) {
-printf("%s\n","<< Error at fn. ct()");
+printf("%s \n","<< Error at fn. ct()");
 return(0x00);
 }
 
 i = (r);
 r = ct(argp);
 if(!r) {
-printf("%s\n","<< Error at fn. ct()");
+printf("%s \n","<< Error at fn. ct()");
 return(0x00);
 }
 
 i = (i+(r));
 i++;
 i = (i*(sizeof(**b)));
-*b = (signed char(*)) malloc(i);
+*b = (signed char(*)) alloc(i);
 if(!(*b)) {
-printf("%s\n","<< Error at fn. malloc()");
+printf("%s \n","<< Error at fn. alloc()");
 return(0x00);
 }
 
-r = concats(*b,p,argp,(void*) 0x00);
+r = concat_b(*b,p,argp,(void*) 0x00);
 if(!r) {
-printf("%s \n","<< Error at fn. concats()");
+printf("%s \n","<< Error at fn. concat_b()");
 flag++;
 }
 
 if(flag) {
-free(*b);
+rl(*b);
 *b = (0x00);
 return(0x00);
 }

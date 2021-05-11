@@ -180,9 +180,9 @@ printf("%s\n","<< Error at fn. cli_out_to_beta()");
 return(0x00);
 }
 
-p = getenv("USERNAME");
+p = rf_env("USERNAME");
 if(!p) {
-printf("%s\n","<< Error at fn. getenv()");
+printf("%s\n","<< Error at fn. rf_env()");
 return(0x00);
 }
 

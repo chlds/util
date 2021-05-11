@@ -8,6 +8,9 @@ Along with C library
 */
 
 
+signed char(*__cdecl rf_env(signed char(*argp)));
+// refer.
+
 void*(__cdecl alloc(signed(arg)));
 // allocate i.e., fn. malloc.
 
@@ -202,9 +205,9 @@ signed(__cdecl output_ll(KNOT(*argp)));
 signed(__cdecl concat_ll(signed short(flag),KNOT(*cache),REEL(*argp)));
 /* Build a circular/doubly linked list. */
 
-signed(__cdecl concats_internal(signed char(*di), signed char(*bp)));
-signed(__cdecl concats(signed char(*argp), ...));
-/* Copy concatenated strings to the argp (using along with fn. concats_internal). */
+signed(__cdecl concat_b_r(signed char(*di), signed char(*bp)));
+signed(__cdecl concat_b(signed char(*argp), ...));
+/* Copy strings to the argp (with sufficient buffer). */
 
 signed(__cdecl append_b(signed char(*di),signed char(*si)));
 /* Append the si to the di. */

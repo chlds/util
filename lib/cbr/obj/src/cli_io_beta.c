@@ -160,9 +160,9 @@ if(i<(0x20)) {
 size++;
 if(p) {
 // concatenate
-r = concats(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(cur,R(ty,*argp)))),p,(void*) 0x00);
+r = concat_b(*(CLI_BASE+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(cur,R(ty,*argp)))),p,(void*) 0x00);
 if(!r) {
-printf("%s\n","<< Error at fn. concats()");
+printf("%s\n","<< Error at fn. concat_b()");
 return(0x00);
 }}
 //*

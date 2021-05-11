@@ -51,9 +51,9 @@ INC(b);
 
 **(CLI_INDEX+(R(cur,R(commandline,R(ty,*argp))))) = (0x00);
 
-r = concats(*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(cur,R(commandline,R(ty,*argp))))),b,(void*) 0x00);
+r = concat_b(*(CLI_INDEX+(R(base,R(roll,R(ty,*argp))))),*(CLI_BASE+(R(cur,R(commandline,R(ty,*argp))))),b,(void*) 0x00);
 if(!r) {
-printf("%s\n","<< Error at fn. concats()");
+printf("%s\n","<< Error at fn. concat_b()");
 return(0x00);
 }
 
