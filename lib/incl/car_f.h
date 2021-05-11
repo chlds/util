@@ -35,8 +35,6 @@ signed(__cdecl rl_argv(signed char(***argp)));
 signed(__cdecl rf_leap_years(signed short(arg)));
 // refer leap years.
 
-signed(__cdecl concat2home(signed char(**b),signed char(*argp)));
-
 signed(__cdecl read_b_r(signed(fd),signed char(delim),signed short(*flag),signed char(**b)));
 signed(__cdecl read_b(signed(fd),signed char(delim),signed char(**b)));
 

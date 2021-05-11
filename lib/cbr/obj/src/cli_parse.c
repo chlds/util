@@ -24,7 +24,6 @@ LF (0x0A)
 
 signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp))) {
 
-/* **** DATA, BSS and STACK */
 // second half of the default config directory
 auto signed char *second_half = ("/.ty/config.txt");
 
@@ -41,7 +40,6 @@ auto signed permission;
 auto signed i,r;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 // default
@@ -50,14 +48,16 @@ R(display_header,R(config,*argp)) = (CLI_DEFAULT);
 R(align_tab,R(config,*argp)) = (ALIGN_TAB);
 R(linebreak_form,R(config,*argp)) = (LINEBREAK_CRLF);
 
-flag = (0x00);
-
+AND(flag,0x00);
 if(!(R(file,R(config,*argp)))) {
-flag = (0x01);
+OR(flag,0x01);
 /* Find the default configuration file. */
-r = concat2home(&path,second_half);
+path = (0x00);
+p = rf_env("USERPROFILE");
+if(!p) return(0x00);
+r = cat_b(&path,p,second_half,(void*)0x00);
 if(!r) {
-printf("%s \n","<< Error at fn. concat2home()");
+printf("%s \n","<< Error at fn. cat_b()");
 return(0x00);
 }
 if(CLI_DBG) printf("%s %s \n","Path:",path);
@@ -66,7 +66,7 @@ r = _stat(path,&stats);
 if(!(r^(~0x00))) {
 if(!(ENOENT^(errno))) {
 printf("%s %s \n","<< No config file at",path);
-free(path);
+rl(path);
 path = (0x00);
 return(0x01);
 }
@@ -131,7 +131,7 @@ return(0x00);
 }
 
 if(flag) {
-if(path) free(path);
+if(path) rl(path);
 path = (0x00);
 }
 

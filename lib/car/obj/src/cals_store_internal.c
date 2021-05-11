@@ -23,7 +23,6 @@ Path: ~/.cals/event.csv
 
 signed(__cdecl cals_store_internal(signed char(*csv),cals_event_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
 // second half of the default config directory
 auto signed char *second_half = ("/.cals/event.csv");
 auto signed short crlf = (0x0A0D);
@@ -37,16 +36,18 @@ auto signed permission;
 auto signed i,r;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!csv) return(0x00);
 if(!argp) return(0x00);
 
 AND(flag,0x00);
 
 /* Find the default event file. */
-r = concat2home(&path,second_half);
+path = (0x00);
+p = rf_env("USERPROFILE");
+if(!p) return(0x00);
+r = cat_b(&path,p,second_half,(void*)0x00);
 if(!r) {
-printf("%s \n","<< Error at fn. concat2home()");
+printf("%s \n","<< Error at fn. cat_b()");
 return(0x00);
 }
 
@@ -56,7 +57,7 @@ if(CALS_VERBOSE&(R(flag,*argp))) printf("%s %s\n","Path:",path);
 if(!flag) {
 // check the event file stat.
 r = _stat(path,&stats);
-if(!(r^(~(0x00)))) {
+if(!(r^(~0x00))) {
 if(ENOENT^(errno)) {
 printf("%s \n","<< Error at fn. _stat()");
 // return(0x00);
@@ -76,7 +77,7 @@ flag++;
 
 if(path) {
 embed(0x00,path);
-free(path);
+rl(path);
 }
 path = (0x00);
 
