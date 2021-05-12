@@ -57,7 +57,7 @@ p = (0x00);
 return(0x00);
 }
 
-embed_spaces(p);
+rm_trailing_blanks(p);
 
 R(b,*argp) = (p);
 p = (0x00);

@@ -299,10 +299,10 @@ signed(__cdecl ct_f(signed(__cdecl**(f)) (void(*argp))));
 signed(__cdecl ct_p(void(**argp)));
 /* Count pointers. */
 
+signed(__cdecl rm_trailing_blanks_r(signed(arg),signed char(*argp)));
+signed(__cdecl rm_trailing_blanks(signed char(*argp)));
 signed(__cdecl embedback_r(signed(arg),signed char(*argp)));
 signed(__cdecl embedback(signed(arg),signed char(*argp)));
-signed(__cdecl embed_spaces_r(signed(arg),signed char(*argp)));
-signed(__cdecl embed_spaces(signed char(*argp)));
 signed(__cdecl embed_rr(signed(arg),signed char(*argp)));
 signed(__cdecl embed_r(signed char(*argp)));
 signed(__cdecl embed(signed(arg),signed char(*argp)));
