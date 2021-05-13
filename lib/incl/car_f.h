@@ -17,6 +17,8 @@ void*(__cdecl alloc(signed(arg)));
 signed(__cdecl rl(void(*argp)));
 // release i.e., fn. free.
 
+signed(__cdecl csv_cat_b_r(signed char(**cache),signed char(**argp)));
+signed(__cdecl csv_cat_b(signed char(**argp),...));
 signed(__cdecl cat_b_r(signed char(**cache),signed char(**argp)));
 signed(__cdecl cat_b(signed char(**argp),...));
 /* Concatenate to the terminating null pointer. */
@@ -299,6 +301,8 @@ signed(__cdecl ct_f(signed(__cdecl**(f)) (void(*argp))));
 signed(__cdecl ct_p(void(**argp)));
 /* Count pointers. */
 
+signed(__cdecl csv_rm_trailing_blanks_r(signed(arg),signed char(*argp)));
+signed(__cdecl csv_rm_trailing_blanks(signed char(*argp)));
 signed(__cdecl rm_trailing_blanks_r(signed(arg),signed char(*argp)));
 signed(__cdecl rm_trailing_blanks(signed char(*argp)));
 signed(__cdecl embedback_r(signed(arg),signed char(*argp)));
