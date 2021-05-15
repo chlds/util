@@ -266,8 +266,8 @@ signed(__cdecl cals_init(cals_t(*argp)));
 signed(__cdecl cals_opt(signed(arg),cals_t(*argp)));
 signed(__cdecl cals_help(cals_t(*argp)));
 
-signed(__cdecl concat_in_csv(signed char(**b),cals_event_t(*argp)));
-// concatenate in CSV.
+signed(__cdecl cals_reparse(signed char(**b),cals_event_t(*argp)));
+// convert an event into a CSV.
 
 signed(__cdecl cv_time(signed char(*b),cals_event_t(*argp)));
 // convert to time out of characters.

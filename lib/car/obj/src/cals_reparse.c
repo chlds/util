@@ -1,6 +1,6 @@
 /* **** Notes
 
-Concatenate in CSV.
+Convert an event into a CSV.
 
 [DATE],[YEAR],[TIME](,[DATE],[YEAR],[TIME]),[FLAG],[PERIODIC],[SUBJECT]
 
@@ -15,7 +15,7 @@ Refer at fn. cals_store.
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl concat_in_csv(signed char(**b),cals_event_t(*argp))) {
+signed(__cdecl cals_reparse(signed char(**b),cals_event_t(*argp))) {
 
 enum {
 DI,YR,HR,MN,TOTAL,
@@ -29,7 +29,6 @@ auto signed short integr[] = {
 auto signed char *colon = (":");
 auto signed char *comma = (",");
 auto signed char *space = (" ");
-auto signed surplus = (0x80);
 
 auto signed char *csv;
 auto signed char *subj;
@@ -44,15 +43,6 @@ if(!argp) return(0x00);
 
 AND(flag,0x00);
 subj = (R(b,*argp));
-r = ct(subj);
-if(!r) return(0x00);
-
-r++;
-r = (surplus+(r));
-r = (r*(sizeof(**b)));
-l = (r);
-csv = (signed char(*)) alloc(r);
-if(!csv) return(0x00);
 
 // map
 peri = (0x00);
@@ -80,10 +70,11 @@ printf("%s \n","<< Error at fn. cv_d()");
 OR(flag,0x01);
 }}
 
+csv = (0x00);
 if(!flag) {
-r = concat_b(csv,*(YR+(p)),comma,*(MONTH+(*(CALS_MO+(R(date,*argp))))),space,*(DI+(p)),comma,*(HR+(p)),colon,*(MN+(p)),comma,fl,"h",comma,peri,"h",comma,subj,(void*) 0x00);
+r = cat_b(&csv,*(YR+(p)),comma,*(MONTH+(*(CALS_MO+(R(date,*argp))))),space,*(DI+(p)),comma,*(HR+(p)),colon,*(MN+(p)),comma,fl,"h",comma,peri,"h",comma,subj,(void*) 0x00);
 if(!r) {
-printf("%s \n","<< Error at fn. concat_b()");
+printf("%s \n","<< Error at fn. cat_b()");
 OR(flag,0x01);
 }}
 
@@ -110,5 +101,5 @@ csv = (0x00);
 
 if(flag) return(0x00);
 
-return(l);
+return(r);
 }

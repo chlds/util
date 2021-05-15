@@ -26,9 +26,9 @@ AND(flag,0x00);
 
 // map
 b = (0x00);
-r = concat_in_csv(&b,argp);
+r = cals_reparse(&b,argp);
 if(!r) {
-printf("%s \n","<< Error at fn. concat_in_csv()");
+printf("%s \n","<< Error at fn. cals_reparse()");
 return(0x00);
 }
 
