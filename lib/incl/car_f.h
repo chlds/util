@@ -93,6 +93,8 @@ signed(__cdecl cv_da_r(signed short(radix),signed char(*table),signed(*di),signe
 signed(__cdecl cv_da(signed short(radix),signed(*di),signed char(*si)));
 // convert into a signed double word out of characters.
 
+signed(__cdecl ords_part(signed char(**di),signed char(*si)));
+signed(__cdecl ords(signed char(**di),signed char(*si)));
 signed(__cdecl ord(signed char(*di),signed char(si)));
 // check the ordinal number.
 
