@@ -144,7 +144,7 @@ t = (p);
 AND(R(flag,*argp),(~OPT_VISIBLE));
 i = (0x00);
 if(OPT_IGNORE&(R(flag,*argp))) p = cv_a(0x00,p);
-r = cmpr_parts(&i,p,R(target,*argp));
+r = cmpr_part(&i,p,R(target,*argp));
 if(!i) OR(R(flag,*argp),OPT_VISIBLE);
 if(OPT_IGNORE&(R(flag,*argp))) rl(p);
 p = (t);

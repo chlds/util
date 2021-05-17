@@ -21,7 +21,7 @@ if(!si) return(0x00);
 if(-0x01<(*di)) return(0x00);
 if(!(*vi)) return(0x00);
 
-r = cmpr_parts(&i,si,*vi);
+r = cmpr_part(&i,si,*vi);
 if(!i) AND(*di,0x00);
 
 vi++;

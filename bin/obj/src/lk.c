@@ -75,7 +75,7 @@ if(0x02<(argc)) {
 l = (0x00);
 while(*(opt+(l))) {
 i = (0x00);
-r = cmpr_parts(&i,*(argv+(0x01)),*(opt+(l)));
+r = cmpr_part(&i,*(argv+(0x01)),*(opt+(l)));
 if(!i) OR(flag,*(opt_flags+(l)));
 l++;
 }

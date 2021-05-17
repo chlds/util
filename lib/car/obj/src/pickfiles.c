@@ -137,7 +137,7 @@ printf("%s \n",di);
 
 /* Output all the dir's and files or the specific dir's and files in a directory tree */
 /* Compare the ones in case-sensitive strings */
-r = cmpr_parts(&differential,wfd.cFileName,si);
+r = cmpr_part(&differential,wfd.cFileName,si);
 
 if(!differential) {
 if(flag&(C_DIRS)) {

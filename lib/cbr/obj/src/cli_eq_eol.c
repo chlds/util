@@ -16,21 +16,19 @@ Refer at util/lib/obj/src/cli_parse.c
 
 signed(__cdecl cli_eq_eol(CLI_TYPEWRITER(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto signed char *crlf = ("crlf");
 auto signed char *lf = ("lf");
 
 auto signed i,r;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-r = cmpr_parts(&i,*(CLI_OFFSET+(R(base,R(roll,*argp)))),lf);
+r = cmpr_part(&i,*(CLI_OFFSET+(R(base,R(roll,*argp)))),lf);
 if(!i) R(linebreak_form,R(config,*argp)) = (LINEBREAK_LF);
 else R(linebreak_form,R(config,*argp)) = (LINEBREAK_CRLF);
 
-r = cmpr_parts(&i,*(CLI_OFFSET+(R(base,R(roll,*argp)))),crlf);
+r = cmpr_part(&i,*(CLI_OFFSET+(R(base,R(roll,*argp)))),crlf);
 if(!i) R(linebreak_form,R(config,*argp)) = (LINEBREAK_CRLF);
 
 return(0x01);

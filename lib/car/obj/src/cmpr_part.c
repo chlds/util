@@ -1,13 +1,13 @@
 /* **** Notes
 
-Compare the ones in case sensitive strings.
+Compare ones in case sensitive character strings.
 */
 
 
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cmpr_parts(signed(*cache),signed char(*di),signed char(*si))) {
+signed(__cdecl cmpr_part(signed(*cache),signed char(*di),signed char(*si))) {
 
 auto signed r;
 
@@ -17,5 +17,5 @@ if(!si) return(0x00);
 
 *cache = (~0x00);
 
-return(cmpr_parts_r(cache,di,si));
+return(cmpr_part_r(cache,di,si));
 }

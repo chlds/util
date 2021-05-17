@@ -13,7 +13,7 @@ if(!si) return(0x00);
 
 if(!(*di)) return(0x00);
 
-r = cmpr_parts(&i,si,*di);
+r = cmpr_part(&i,si,*di);
 if(!i) return(0x00);
 
 di++;

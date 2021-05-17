@@ -16,7 +16,6 @@ Refer at util/lib/obj/src/cli_parse.c
 
 signed(__cdecl cli_eq_frame(CLI_TYPEWRITER(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto signed char *(pos[]) = {
 (signed char(*)) ("default"),
 (signed char(*)) ("left"),
@@ -37,7 +36,6 @@ auto signed i,l,r;
 auto signed lim;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 i = (0x00);
@@ -49,7 +47,7 @@ lim = (i);
 
 i = (0x00);
 while(*(pos+(i))) {
-r = cmpr_parts(&l,*(CLI_OFFSET+(R(base,R(roll,*argp)))),*(pos+(i)));
+r = cmpr_part(&l,*(CLI_OFFSET+(R(base,R(roll,*argp)))),*(pos+(i)));
 if(!l) {
 R(compact_frame,R(config,*argp)) = (i);
 break;

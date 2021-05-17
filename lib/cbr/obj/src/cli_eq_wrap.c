@@ -16,7 +16,6 @@ Refer at util/lib/obj/src/cli_parse.c
 
 signed(__cdecl cli_eq_wrap(CLI_TYPEWRITER(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto signed char *(operand[]) = {
 ("1"),
 (0x00),
@@ -25,14 +24,13 @@ auto signed char *(operand[]) = {
 auto signed i,l,r;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 R(wrap_words,R(config,*argp)) = (CLI_DEFAULT);
 
 i = (0x00);
 while(*(operand+(i))) {
-r = cmpr_parts(&l,*(CLI_OFFSET+(R(base,R(roll,*argp)))),*(operand+(i)));
+r = cmpr_part(&l,*(CLI_OFFSET+(R(base,R(roll,*argp)))),*(operand+(i)));
 if(!l) {
 R(wrap_words,R(config,*argp)) = (0x01);
 break;

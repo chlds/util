@@ -112,13 +112,13 @@ signed(__cdecl countback_to(signed char(*edge),signed char(*sym),signed char(*ar
 signed(__cdecl count_to(signed char(*sym),signed char(*argp)));
 // count to a symbol or to the terminating null character.
 
-signed(__cdecl cmpr_parts_r(signed(*cache),signed char(*di),signed char(*si)));
-signed(__cdecl cmpr_parts(signed(*cache),signed char(*di),signed char(*si)));
+signed(__cdecl cmpr_part_r(signed(*cache),signed char(*di),signed char(*si)));
+signed(__cdecl cmpr_part(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr_partially_r(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr_partially(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr_r(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr(signed(*cache),signed char(*di),signed char(*si)));
-/* Compare strings. */
+/* Compare ones in case sensitive character strings */
 
 signed(__cdecl compare(signed char(*di),signed char(*si)));
 /* Compare addresses. */
@@ -222,11 +222,6 @@ signed(__cdecl cv_v(signed char(***di),signed char(*si)));
 
 signed(__cdecl cue2(signed char(*base)));
 /* Cue */
-
-signed(__cdecl cmpr_parts(signed(*cache), signed char(*di), signed char(*si)));
-signed(__cdecl cmpr_partially(signed(*cache), signed char(*di), signed char(*si)));
-signed(__cdecl cmpr(signed(*cache), signed char(*di), signed char(*si)));
-/* Compare the ones in case sensitive strings */
 
 signed(__cdecl ct_words_r(signed short(flag),signed(*retv),signed char(*cache),signed char(*base)));
 signed(__cdecl ct_words(signed char(*sym),signed char(*base)));

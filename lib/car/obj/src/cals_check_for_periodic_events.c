@@ -31,7 +31,7 @@ if(!argp) return(0x00);
 if(!(CALS_INIT&(R(flag,*argp)))) return(0x00);
 
 b = (content);
-r = cmpr_parts(&i,b,first);
+r = cmpr_part(&i,b,first);
 
 if(!i) {
 b = (r+(b));

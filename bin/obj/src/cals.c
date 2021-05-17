@@ -64,7 +64,7 @@ AND(flag,0x00);
 path = (0x00);
 path_w = (0x00);
 if(0x02<(argc)) {
-r = cmpr_parts(&i,*(v+(0x01)),"l");
+r = cmpr_part(&i,*(v+(0x01)),"l");
 if(!i) {
 path_w = (*(argv+(0x02)));
 path = (*(v+(0x02)));
@@ -74,7 +74,7 @@ if(0x01<(argc)) {
 l = ct_f(fn);
 while(l) {
 if(CALS_QUIT&(R(flag,cs))) break;
-r = cmpr_parts(&i,*(v+(0x01)),*(--l+(fl)));
+r = cmpr_part(&i,*(v+(0x01)),*(--l+(fl)));
 if(!i) {
 r = (*(l+(fn))) (&cs);
 if(!r) {

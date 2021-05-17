@@ -86,7 +86,7 @@ l = (0x00);
 i = (0x00);
 if(0x01<(argc)) {
 while(*(vflag+(l))) {
-r = cmpr_parts(&i,*(argv+(0x01)),*(vflag_s+(l)));
+r = cmpr_part(&i,*(argv+(0x01)),*(vflag_s+(l)));
 if(!i) OR(flag,*(vflag+(l)));
 l++;
 }}
