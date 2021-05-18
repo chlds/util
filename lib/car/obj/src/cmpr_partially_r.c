@@ -20,6 +20,8 @@ if(!(*si)) {
 return(0x00);
 }
 
+if(!(*di)) return(0x00);
+
 c = (*di);
 if(c^(*si)) {
 *cache = (signed) (c+(0x01+(~(*si))));

@@ -4,6 +4,9 @@ Check the ordinal number.
 //*/
 
 
+# define CAR
+# include "./../../../incl/config.h"
+
 signed(__cdecl ord(signed char(*di),signed char(si))) {
 
 if(!di) return(0x00);

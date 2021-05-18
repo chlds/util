@@ -4,6 +4,9 @@ Check the ordinal number.
 //*/
 
 
+# define CAR
+# include "./../../../incl/config.h"
+
 signed(__cdecl ords(signed char(**di),signed char(*si))) {
 
 auto signed i,r;
