@@ -94,10 +94,10 @@ signed(__cdecl cv_da(signed short(radix),signed(*di),signed char(*si)));
 // convert into a signed double word out of characters.
 
 signed(__cdecl cv_ord_l_r(signed(arg),signed char(**table),signed(*retv),signed char(*argp)));
-signed(__cdecl cv_ord_l(signed char(**table),signed char(*argp)));
+signed(__cdecl cv_ord_l(signed char(**table),signed(*retv),signed char(*argp)));
 signed(__cdecl cv_ord_f_r(signed char(**table),signed(*retv),signed char(*argp)));
-signed(__cdecl cv_ord_f(signed char(**table),signed char(*argp)));
-signed(__cdecl cv_ord(signed(arg),signed char(**table),signed char(*argp)));
+signed(__cdecl cv_ord_f(signed char(**table),signed(*retv),signed char(*argp)));
+signed(__cdecl cv_ord(signed(arg),signed char(**table),signed(*retv),signed char(*argp)));
 signed(__cdecl ords_part(signed char(**di),signed char(*si)));
 signed(__cdecl ords(signed char(**di),signed char(*si)));
 signed(__cdecl ord(signed char(*di),signed char(si)));

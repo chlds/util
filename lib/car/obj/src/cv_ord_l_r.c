@@ -16,11 +16,11 @@ if(!table) return(0x00);
 if(!retv) return(0x00);
 if(!argp) return(0x00);
 
+r = (*retv);
+if(!(r<(0x00))) return(0x00);
+
 r = ords_part(table,--argp);
-if(r<(ct_p(table))) {
-*retv = (r);
-return(0x00);
-}
+if(r<(ct_p(table))) *retv = (r);
 
 return(0x01+(cv_ord_l_r(--arg,table,retv,argp)));
 }
