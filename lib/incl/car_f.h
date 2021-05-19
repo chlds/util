@@ -57,9 +57,8 @@ signed(__cdecl ct2words_r(signed char(***vi),signed(*di),signed char(*si)));
 signed(__cdecl ct2words(signed char(***vi),signed(*di),signed char(*si)));
 // count to the words out of characters.
 
-signed(__cdecl cv_mo_r_r(signed char(**vi),signed short(*di),signed char(*si)));
-signed(__cdecl cv_mo_r(signed char(***vi),signed short(*di),signed char(*si)));
-signed(__cdecl cv_mo(signed short(*di),signed char(*si)));
+signed(__cdecl cv_mo_r(signed(arg/* front or from behind */),signed char(***vi),signed short(*di),signed char(*si)));
+signed(__cdecl cv_mo(signed(arg/* front or from behind */),signed short(*di),signed char(*si)));
 // convert to a month out of characters.
 
 signed(__cdecl ct_weeks_internal(signed(sec_in_week),signed long long/* time_t */(sec)));

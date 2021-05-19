@@ -41,7 +41,7 @@ AND(flag,0x00);
 OR(R(flag,*argp),CALS_INVALID);
 //*/
 
-r = cv_mo(&mo,b);
+r = cv_mo(0x00/* front */,&mo,b);
 if(!r) {
 printf("%s \n","<< Error at fn. cv_mo()");
 return(0x00);

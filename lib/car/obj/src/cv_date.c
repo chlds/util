@@ -10,7 +10,6 @@ Convert to a month, day and year out of characters.
 
 signed(__cdecl cv_date(signed char(*b),cals_event_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto signed char **(mon[]) = {
 /* CAPS_MONTH,MONTH, */CAPS_MON,MON,(signed char(**)) (0x00),
 };
@@ -21,7 +20,6 @@ auto signed i,r;
 auto signed short mo;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!b) return(0x00);
 if(!argp) return(0x00);
 
@@ -37,19 +35,16 @@ tp = localtime(&t);
 *(CALS_DI+(R(date,*argp))) = (R(tm_mday,*tp));
 OR(R(flag,*argp),CALS_DATE_TODAY);
 
-r = ct2words(mon,&i,b);
-if(!r) return(0x00);
-if(i<(0x00)) return(0x00);
+r = cv_mo(0x01/* from behind */,&mo,b);
+// if(!r) return(0x00);
+if(mo<(0x00)) return(0x00);
+if(11<(mo)) return(0x00);
+*(CALS_MO+(R(date,*argp))) = (mo);
 
 flag = (~CALS_DATE_TODAY);
 AND(R(flag,*argp),flag);
 
-b = (i+(b));
-r = cv_mo(&mo,b);
-if(!r) return(0x00);
-if(11<(mo)) return(0x00);
-if(-0x01<(mo)) *(CALS_MO+(R(date,*argp))) = (mo);
-
+b = (r+(b));
 r = cv_da_first(0x0A,&i,b);
 if(!r) return(0x00);
 if(31<(i)) return(0x00);
