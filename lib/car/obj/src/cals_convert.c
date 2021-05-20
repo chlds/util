@@ -22,9 +22,6 @@ static signed char comma = (',');
 auto signed short interrupted_error = (0x02);
 auto signed short allocated_memory = (0x01);
 auto signed char delim = ('\n');
-auto signed char **(mon[]) = {
-/* CAPS_MONTH,MONTH, */CAPS_MON,MON,(signed char(**)) (0x00),
-};
 
 auto struct tm *tp;
 auto signed char *p;
@@ -42,7 +39,7 @@ AND(flag,0x00);
 OR(R(flag,*argp),CALS_INVALID);
 //*/
 
-r = cv_ords(0x00/* front */,mon,&i,b);
+r = cv_ords(0x00/* front */,MONTH_V,&i,b);
 if(!r) {
 printf("%s \n","<< Error at fn. cv_ords()");
 return(0x00);

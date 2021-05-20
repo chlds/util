@@ -120,12 +120,16 @@ static signed char/* const */*(MONTH[]) = {
 (char signed(*)) (0x00),
 };
 
-static signed char/* const */*(CAPS_MON[]) = {
+static signed char *(CAPS_MON[]) = {
 "JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC",(signed char(*)) (0x00),
 };
 
-static signed char/* const */*(MON[]) = {
+static signed char *(MON[]) = {
 "Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",(signed char(*)) (0x00),
+};
+
+static signed char **(MONTH_V[]) = {
+/* CAPS_MONTH,MONTH, */CAPS_MON,MON,(signed char(**)) (0x00),
 };
 
 struct cals_event {

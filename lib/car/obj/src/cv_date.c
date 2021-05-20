@@ -10,10 +10,6 @@ Convert to a month, day and year out of characters.
 
 signed(__cdecl cv_date(signed char(*b),cals_event_t(*argp))) {
 
-auto signed char **(mon[]) = {
-/* CAPS_MONTH,MONTH, */CAPS_MON,MON,(signed char(**)) (0x00),
-};
-
 auto struct tm *tp;
 auto time_t t;
 auto signed i,r;
@@ -35,7 +31,7 @@ tp = localtime(&t);
 *(CALS_DI+(R(date,*argp))) = (R(tm_mday,*tp));
 OR(R(flag,*argp),CALS_DATE_TODAY);
 
-r = cv_ords(0x01/* from behind */,mon,&i,b);
+r = cv_ords(0x01/* from behind */,MONTH_V,&i,b);
 // if(!r) return(0x00);
 mo = (signed short) (i);
 if(mo<(0x00)) return(0x00);
