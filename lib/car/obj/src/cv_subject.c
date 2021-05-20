@@ -31,8 +31,9 @@ R(w,*argp) = (0x00);
 R(b,*argp) = (0x00);
 OR(R(flag,*argp),CALS_NO_SUBJECT);
 
-r = cv_mo(0x01/* from behind */,&mo,b);
+r = cv_ords(0x01/* from behind */,mon,&i,b);
 // if(!r) return(0x00);
+mo = (signed short) (i);
 if(11<(mo)) return(0x00);
 if(mo<(0x00)) AND(r,0x00);
 if(!r) r = ct(b);

@@ -35,8 +35,9 @@ tp = localtime(&t);
 *(CALS_DI+(R(date,*argp))) = (R(tm_mday,*tp));
 OR(R(flag,*argp),CALS_DATE_TODAY);
 
-r = cv_mo(0x01/* from behind */,&mo,b);
+r = cv_ords(0x01/* from behind */,mon,&i,b);
 // if(!r) return(0x00);
+mo = (signed short) (i);
 if(mo<(0x00)) return(0x00);
 if(11<(mo)) return(0x00);
 *(CALS_MO+(R(date,*argp))) = (mo);

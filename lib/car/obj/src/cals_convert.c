@@ -14,7 +14,6 @@ Currently under construction
 
 signed(__cdecl cals_convert(signed char(*b),cals_event_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
 static signed deci = (0x0A);
 static signed hexa = (0x10);
 static signed commas = (0x03);
@@ -23,6 +22,9 @@ static signed char comma = (',');
 auto signed short interrupted_error = (0x02);
 auto signed short allocated_memory = (0x01);
 auto signed char delim = ('\n');
+auto signed char **(mon[]) = {
+/* CAPS_MONTH,MONTH, */CAPS_MON,MON,(signed char(**)) (0x00),
+};
 
 auto struct tm *tp;
 auto signed char *p;
@@ -32,7 +34,6 @@ auto signed short yr,mo,di,wk;
 auto signed short hr,mn,sm;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!b) return(0x00);
 if(!argp) return(0x00);
 
@@ -41,12 +42,13 @@ AND(flag,0x00);
 OR(R(flag,*argp),CALS_INVALID);
 //*/
 
-r = cv_mo(0x00/* front */,&mo,b);
+r = cv_ords(0x00/* front */,mon,&i,b);
 if(!r) {
-printf("%s \n","<< Error at fn. cv_mo()");
+printf("%s \n","<< Error at fn. cv_ords()");
 return(0x00);
 }
 
+mo = (signed short) (i);
 *(CALS_MO+(R(date,*argp))) = (mo);
 if(mo<(0x00)) return(0x00);
 if(11<(mo)) return(0x00);

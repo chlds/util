@@ -57,10 +57,6 @@ signed(__cdecl ct2words_r(signed char(***vi),signed(*di),signed char(*si)));
 signed(__cdecl ct2words(signed char(***vi),signed(*di),signed char(*si)));
 // count to the words out of characters.
 
-signed(__cdecl cv_mo_r(signed(arg/* front or from behind */),signed char(***vi),signed short(*di),signed char(*si)));
-signed(__cdecl cv_mo(signed(arg/* front or from behind */),signed short(*di),signed char(*si)));
-// convert to a month out of characters.
-
 signed(__cdecl ct_weeks_internal(signed(sec_in_week),signed long long/* time_t */(sec)));
 signed(__cdecl ct_weeks(signed long long/* time_t */(criterion),signed long long/* time_t */(sec)));
 // count calendar weeks
@@ -92,11 +88,13 @@ signed(__cdecl cv_da_r(signed short(radix),signed char(*table),signed(*di),signe
 signed(__cdecl cv_da(signed short(radix),signed(*di),signed char(*si)));
 // convert into a signed double word out of characters.
 
+signed(__cdecl cv_ords_r(signed(arg/* front or from behind */),signed char(***vi),signed(*di),signed char(*si)));
+signed(__cdecl cv_ords(signed(arg/* front or from behind */),signed char(***vi),signed(*di),signed char(*si)));
+signed(__cdecl cv_ord(signed(arg/* front or from behind */),signed char(**table),signed(*retv),signed char(*argp)));
 signed(__cdecl cv_ord_l_r(signed(arg),signed char(**table),signed(*retv),signed char(*argp)));
 signed(__cdecl cv_ord_l(signed char(**table),signed(*retv),signed char(*argp)));
 signed(__cdecl cv_ord_f_r(signed char(**table),signed(*retv),signed char(*argp)));
 signed(__cdecl cv_ord_f(signed char(**table),signed(*retv),signed char(*argp)));
-signed(__cdecl cv_ord(signed(arg),signed char(**table),signed(*retv),signed char(*argp)));
 signed(__cdecl ords_part(signed char(**di),signed char(*si)));
 signed(__cdecl ords(signed char(**di),signed char(*si)));
 signed(__cdecl ord(signed char(*di),signed char(si)));
