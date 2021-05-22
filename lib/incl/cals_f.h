@@ -80,6 +80,7 @@ signed(__cdecl cals_unmap_events(cals_roll_t(*argp)));
 signed(__cdecl cals_bind_events(cals_roll_t(*argp)));
 signed(__cdecl cals_concat_events(cals_event_t(*cache),cals_roll_t(*argp)));
 
+signed(__cdecl cals_display_mo_yr(signed short(mo),signed short(yr),cals_t(*argp)));
 signed(__cdecl cals_r_r(signed short(mo),signed(arg),cals_t(*argp)));
 signed(__cdecl cals_r(signed(arg),cals_t(*argp)));
 
