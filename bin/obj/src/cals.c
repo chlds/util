@@ -11,16 +11,16 @@ Refer at <corecrt_wtime.h>
 
 signed(__cdecl wmain(signed(argc),signed short(**argv),signed short(**envp))) {
 
-/* **** DATA, BSS and STACK */
 auto signed UPCOMING_DAYS = (0x03);
 auto signed FOR_MONTHS = (0x04);
 
-auto signed(__cdecl *(fn[])) (cals_t(*argp)) = {
-(signed(__cdecl*) (cals_t(*))) (cals_flag_e),
-(signed(__cdecl*) (cals_t(*))) (cals_flag_h),
-(signed(__cdecl*) (cals_t(*))) (cals_flag_n),
-(signed(__cdecl*) (cals_t(*))) (cals_flag_v),
-(signed(__cdecl*) (cals_t(*))) (0x00),
+auto signed(__cdecl*f)(cals_t(*argp));
+auto signed(__cdecl*(fn[]))(cals_t(*argp)) = {
+(signed(__cdecl*)(cals_t(*))) (cals_flag_e),
+(signed(__cdecl*)(cals_t(*))) (cals_flag_h),
+(signed(__cdecl*)(cals_t(*))) (cals_flag_n),
+(signed(__cdecl*)(cals_t(*))) (cals_flag_v),
+(signed(__cdecl*)(cals_t(*))) (0x00),
 };
 
 auto signed char *(fl[]) = {
@@ -49,7 +49,6 @@ auto signed i,l,n,r;
 auto signed short for_months;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 r = cals_init(&cs);
 if(!r) return(0x00);
 
@@ -76,9 +75,10 @@ while(l) {
 if(CALS_QUIT&(R(flag,cs))) break;
 r = cmpr_part(&i,*(v+(0x01)),*(--l+(fl)));
 if(!i) {
-r = (*(l+(fn))) (&cs);
+f = (*(l+(fn)));
+r = f(&cs);
 if(!r) {
-printf("%s (*(%d+(%s))) () \n","<< Error at fn.",l,"fn");
+printf("%s (*(%d+(%s)))() \n","<< Error at fn.",l,"fn");
 r = rl_argv(&v);
 if(!r) printf("%s \n","<< Error at fn. rl_argv()");
 v = (0x00);

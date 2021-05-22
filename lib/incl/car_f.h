@@ -11,6 +11,9 @@ Along with C library
 signed char(*__cdecl rf_env(signed char(*argp)));
 // refer.
 
+signed(__cdecl init_v(signed(arg),void(**argp)));
+// initialise.
+
 void*(__cdecl alloc(signed(arg)));
 // allocate i.e., fn. malloc.
 
