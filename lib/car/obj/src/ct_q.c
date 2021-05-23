@@ -4,9 +4,11 @@ Count to the terminating null quad word.
 */
 
 
+# define CAR
+# include "./../../../incl/config.h"
+
 signed(__cdecl ct_q(signed long long(*argp))) {
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 

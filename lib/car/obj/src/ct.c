@@ -4,9 +4,11 @@ Count letters to the terminating null character.
 */
 
 
+# define CAR
+# include "./../../../incl/config.h"
+
 signed(__cdecl ct(signed char(*argp))) {
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 

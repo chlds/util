@@ -4,9 +4,11 @@ Count to the terminating null double word.
 */
 
 
+# define CAR
+# include "./../../../incl/config.h"
+
 signed(__cdecl ct_d(signed(*argp))) {
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 

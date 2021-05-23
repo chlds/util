@@ -1,3 +1,7 @@
+signed(__cdecl cli_color_text_r(signed char(*argp)));
+signed(__cdecl cli_color_text(signed(fg),signed(bg)));
+signed(__cdecl cli_color_bg(signed(arg)));
+signed(__cdecl cli_color_fg(signed(arg)));
 signed(__cdecl cli_init_clipboards(signed(arg),cli_clipboard_t(*argp)));
 signed(__cdecl cli_clip_to_empty_beta(void));
 signed(__cdecl clipboard_to_pin_paste_beta(signed(arg),cli_clipboard_t(*argp)));

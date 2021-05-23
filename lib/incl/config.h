@@ -6,6 +6,7 @@ Remarks:
 
 
 # include "./dbg.h"
+# include "./color.h"
 # include "./ctrl.h"
 # include "./cli_codepage.h"
 # include "./cli_property.h"

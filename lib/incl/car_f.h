@@ -101,6 +101,7 @@ signed(__cdecl cv_ord_f(signed char(**table),signed(*retv),signed char(*argp)));
 signed(__cdecl ords_part(signed char(**di),signed char(*si)));
 signed(__cdecl ords(signed char(**di),signed char(*si)));
 signed(__cdecl ord(signed char(*di),signed char(si)));
+signed(__cdecl ord_d(signed(*di),signed(si)));
 // check the ordinal number.
 
 signed(__cdecl cv_d_r(signed short(radix),signed char(*table),signed char(*di),signed(si)));
@@ -132,7 +133,10 @@ signed(__cdecl ct_bv_r(signed(*di),signed char(**si)));
 signed(__cdecl ct_bv(signed(*di),signed char(**si)));
 /* count the number of bytes up */
 
+signed(__cdecl ct_q(signed long long(*argp)));
+signed(__cdecl ct_d(signed(*argp)));
 signed(__cdecl ct_w(signed short(*argp)));
+signed(__cdecl ct_b(signed char(*argp)));
 signed(__cdecl ct(signed char(*argp)));
 /* Count. */
 
