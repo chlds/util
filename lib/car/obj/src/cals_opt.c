@@ -6,17 +6,16 @@ Opt
 
 # define CALEND
 # define CAR
-# include "../../../incl/config.h"
 # include <stdio.h>
+# include "../../../incl/config.h"
 
 signed(__cdecl cals_opt(signed(arg),cals_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto cli_codepage_t *codepage;
 auto signed ci,co;
 auto signed i,r;
+auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!arg) return(0x00);
 if(!argp) return(0x00);
 
@@ -41,8 +40,13 @@ printf("%s \n","<< Error at fn. cals_allocate_for_today()");
 return(0x00);
 }
 
+AND(flag,0x00);
 r = cals_r(arg,argp);
-if(!r) return(0x00);
+if(!r) {
+printf("%s \n","<< Error at fn. cals_r()");
+flag++;
+// return(0x00);
+}
 
 i = (r);
 
@@ -54,6 +58,8 @@ printf("%s \n","<< Error at fn. cals_release_for_today()");
 
 r = cli_restore_codepages_beta(0x00/* flag */,codepage);
 if(!r) return(0x00);
+
+if(flag) return(0x00);
 
 return(i);
 }

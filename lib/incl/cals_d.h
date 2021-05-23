@@ -138,6 +138,7 @@ signed short month[0x02];
 time_t wk1[0x04];
 time_t t[0x04];
 cli_codepage_t codepage;
+cli_virtual_terminal_t vt;
 cli_property_t property;
 cals_event_t today;
 cals_roll_t roll;

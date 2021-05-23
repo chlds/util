@@ -7,11 +7,12 @@ Based on UTF-8
 */
 
 
+# define CALEND
 # define CBR
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_vt_opt(cli_property_t(*argp))) {
+signed(__cdecl cals_vt_opt(signed(arg),cals_t(*argp))) {
 
 auto signed char *b;
 auto signed i,r;
@@ -26,12 +27,14 @@ return(0x00);
 }
 
 AND(flag,0x00);
-r = cli_opt(argp);
+r = cals_opt(arg,argp);
 if(!r) {
-printf("%s \n","<< Error at fn. cli_opt()");
+printf("%s \n","<< Error at fn. cals_opt()");
 flag++;
 // return(0x00);
 }
+
+i = (r);
 
 r = cli_init_virtual_terminal_beta(0x01,&(R(vt,*argp)));
 if(!r) {
@@ -41,5 +44,5 @@ return(0x00);
 
 if(flag) return(0x00);
 
-return(0x01);
+return(i);
 }

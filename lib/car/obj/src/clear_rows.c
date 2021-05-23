@@ -15,14 +15,8 @@ auto coord_t coord;
 auto signed r;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(arg<(0x00)) return(0x00);
-
-if(!arg) {
-return(cli_es(CTRL_J));
-return(0x01);
-}
-
+if(!arg) return(cli_es(CTRL_J));
 if(!(cli_es(CTRL_K))) return(0x00);
 
 AND(r,0x00);

@@ -224,9 +224,9 @@ else r = (for_months);
 
 if(r<(0x00)) r = (0x01+(~r));
 
-r = cals_opt(r,&cs);
+r = cals_vt_opt(r,&cs);
 // if(!r) return(0x00);
-if(!r) printf("%s \n","<< Error at fn. cals_opt()");
+if(!r) printf("%s \n","<< Error at fn. cals_vt_opt()");
 
 if(CALS_VERBOSE&(R(flag,cs))) {
 printf("\n");
