@@ -11,23 +11,18 @@ Return the number of bytes output for characters (..or the number of characters)
 # include <stdio.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl cli_outs(signed char(*argp))) {
+signed(__cdecl cli_nout(signed(arg),signed char(*argp))) {
 
 auto signed char *b;
 auto signed i,r;
 auto signed short flag;
 
+if(arg<(0x01)) return(0x00);
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
-r = cli_out(argp);
-if(!r) {
-printf("%s \n","<< Error at fn. cli_out()");
-return(0x00);
-}
+r = cli_outs(argp);
+if(!r) return(0x00);
 
-argp = (r+(argp));
-
-// e.g., r = (0x01);
-return(r+(cli_outs(argp)));
+return(r+(cli_nout(--arg,argp)));
 }

@@ -168,6 +168,7 @@ signed(__cdecl encode_surrogate_w(signed char(**di),signed short(second),signed 
 signed(__cdecl ncharbyte(signed(arg)));
 /* Encode a character into bytes based on UTF-8. */
 
+signed(__cdecl cli_nout(signed(arg),signed char(*argp)));
 signed(__cdecl cli_outs(signed char(*argp)));
 signed(__cdecl cli_out(signed char(*argp)));
 signed(__cdecl decode_b_r(signed(arg),signed(*di),signed char(*si)));

@@ -37,7 +37,7 @@ if(!(cli_replace_text_attributes_beta(0x8F,&(R(property,*argp))))) {
 cli_message(0x00,"<< Error at fn. cli_replace_text_attributes_beta() \n");
 }
 //*/
-while(--r) printf("_");
+if(!(cli_nout(--r,"_"))) return(0x00);
 printf("%s %d \n",*(MONTH+(mo)),yr);
 /*
 if(!(cli_restore_text_attributes_beta(&(R(property,*argp))))) {
