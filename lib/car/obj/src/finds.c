@@ -4,28 +4,22 @@ A wrapper function to initialise arguments for fn. rddir to search in a director
 */
 
 
-# define C_CODE_STDS
-# define C_W32API
+# define CALEND
 # define CAR
+# define C_W32API
 # include "../../../incl/config.h"
-
 # include "../../../incl/c_dir.h"
 
 signed(__cdecl finds(C_DIRS_INFO(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto signed const QUANTUM = (0x10);
 auto signed const SNOOZE = (0x04);
 auto signed const DELAY = (0x02*(QUANTUM));
 
-auto SYSTEMTIME st;
-
-auto DIR_INFO_STORED dis;
-
 auto signed char *path;
 auto signed r;
+auto DIR_INFO_STORED dis;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 // if(!(R(dis,*argp))) return(0x00);
 

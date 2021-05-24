@@ -7,16 +7,14 @@ Using along with fn. finds
 */
 
 
-# define C_CODE_STDS
-# define C_W32API
+# define CALEND
 # define CAR
+# define C_W32API
 # include "../../../incl/config.h"
-
 # include "../../../incl/c_dir.h"
 
 signed(__cdecl rddir(C_DIRS_INFO(*argp))) {
 
-/* **** DATA, BSS and STACK */
 static signed const attrib[] = {
 (signed) (FILE_ATTRIBUTE_ARCHIVE),
 (signed) (FILE_ATTRIBUTE_COMPRESSED),
@@ -74,7 +72,6 @@ auto signed i,r;
 auto signed short disable;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 if(!(R(dis,*argp))) return(0x00);
 if(!(R(search,*(R(dis,*argp))))) return(0x00);
@@ -104,7 +101,7 @@ if(!r) {
 printf("%s \n","<< An error has occurred at fn. cpy().");
 return(0x00);
 }
-*(craft+(--r)) = (0x00);
+*(--r+(craft)) = (0x00);
 r = append_b(craft,p);
 if(!r) {
 printf("%s \n","<< Error at fn. append_b() the first");
@@ -134,7 +131,7 @@ R(dis,*argp) = (dis);
 
 b = (R(p_dir,*(R(dis,*argp))));
 r = ct(b);
-*(-0x01+(r+(b))) = (0x00);
+*(--r+(b)) = (0x00);
 if(DBG) printf("%s %d \n","flag:",flag);
 
 OR(R(flag,*argp),OPT_VISIBLE);
@@ -142,7 +139,7 @@ OR(R(flag,*argp),OPT_VISIBLE);
 if(R(target,*argp)) {
 t = (p);
 AND(R(flag,*argp),(~OPT_VISIBLE));
-i = (0x00);
+AND(i,0x00);
 if(OPT_IGNORE&(R(flag,*argp))) p = cv_a(0x00,p);
 r = cmpr_part(&i,p,R(target,*argp));
 if(!i) OR(R(flag,*argp),OPT_VISIBLE);
@@ -151,7 +148,7 @@ p = (t);
 }
 
 if(OPT_VISIBLE&(R(flag,*argp))) {
-disable = (0x00);
+AND(disable,0x00);
 if(flag&(C_DIRS)) {
 // Output a directory name
 INC(R(directories,*argp));
@@ -163,7 +160,7 @@ if(!(OPT_DIRECTORIES&(R(flag,*argp)))) {
 INC(R(files,*argp));
 printf(" %s %s%s ","-",b,p);
 }
-else disable = (0x01);
+else OR(disable,0x01);
 }
 /* Check the attributes of a directory or of a file */
 if(!disable) {
