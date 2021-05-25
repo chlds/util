@@ -7,11 +7,10 @@ This program may immediately cause a stack overflow.
 */
 
 
-# define C_CODE_STDS
-# define C_W32API
+# define CALEND
 # define CAR
+# define C_W32API
 # include "../../../lib/incl/config.h"
-
 # include "../../../lib/incl/c_dir.h"
 
 /* **** entry point */
@@ -38,10 +37,10 @@ auto signed opt_flags[] = {
 (signed) (0x00),
 };
 
-auto C_DIRS_INFO cdi;
 auto signed char *b,*p,*t;
 auto signed i,l,r;
 auto signed short flag;
+auto c_dirs_info_t cdi;
 
 /* **** CODE/TEXT */
 p = (*(argv+(argc+(~0x00))));
@@ -51,7 +50,6 @@ r = ct(p);
 if(!r) return(0x00);
 
 i = (r);
-
 if('*'^(*(p+(--i)))) {
 if('/'^(*(p+(i)))) r++;
 r++;
@@ -70,17 +68,16 @@ if('/'^(*(b+(r+(~0x00))))) *(b+(r++)) = ('/');
 }
 
 XOR(flag,flag);
-
 if(0x02<(argc)) {
-l = (0x00);
+AND(l,0x00);
 while(*(opt+(l))) {
-i = (0x00);
+AND(i,0x00);
 r = cmpr_part(&i,*(argv+(0x01)),*(opt+(l)));
 if(!i) OR(flag,*(opt_flags+(l)));
 l++;
 }
 // also
-i = (0x00);
+AND(i,0x00);
 r = cv_da(0x0A,&i,*(argv+(0x01)));
 if(!r) {
 if(b) rl(b);
@@ -95,10 +92,10 @@ i++;
 
 // ignore case distinctions or..
 t = (0x00);
-cdi.target = (t);
+*(CLI_LK_TARGET+(R(b,cdi))) = (t);
 if(0x03<(argc)) {
 t = (*(argv+(0x02)));
-R(target,cdi) = (t);
+*(CLI_LK_TARGET+(R(b,cdi))) = (t);
 // also
 if(OPT_IGNORE&(flag)) {
 t = cv_a(0x00,t);
@@ -106,15 +103,15 @@ if(!t) {
 rl(b);
 return(0x00);
 }
-R(target,cdi) = (t);
+*(CLI_LK_TARGET+(R(b,cdi))) = (t);
 }}
 
 cdi.depth = (i);
-cdi.directories = (0x00);
-cdi.files = (0x00);
+i = (CLI_LK_FILES);
+while(i) *(--i+(R(r,cdi))) = (0x00);
 cdi.flag = (flag);
 cdi.dis = (0x00);
-cdi.path = (b);
+*(CLI_LK_PATH+(R(b,cdi))) = (b);
 
 r = finds(&cdi);
 if(!r) {
@@ -124,9 +121,12 @@ OR(flag,OPT_ERROR);
 
 if(OPT_IGNORE&(flag)) {
 r = embed(0x00,t);
+// if(!r) cli_message(r,"<< Error at fn. embed() \n");
 r = rl(t);
-t = (0x00);
 }
+
+t = (0x00);
+*(CLI_LK_TARGET+(R(b,cdi))) = (t);
 
 if(b) {
 r = embed(0x00,b);
@@ -136,11 +136,11 @@ b = (0x00);
 }
 
 p = (b);
-cdi.path = (p);
+*(CLI_LK_PATH+(R(b,cdi))) = (p);
 
 printf("\n");
-printf(" %d %s \n",R(directories,cdi),"directories");
-if(!(OPT_DIRECTORIES&(R(flag,cdi)))) printf(" %d %s \n",R(files,cdi),"files");
+printf(" %d %s \n",*(CLI_LK_DIRECTORY+(R(r,cdi))),"directories");
+if(!(OPT_DIRECTORIES&(R(flag,cdi)))) printf(" %d %s \n",*(CLI_LK_FILE+(R(r,cdi))),"files");
 
 if(OPT_VERBOSE&(flag)) {
 r = (R(depth,cdi));

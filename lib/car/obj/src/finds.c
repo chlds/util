@@ -10,7 +10,7 @@ A wrapper function to initialise arguments for fn. rddir to search in a director
 # include "../../../incl/config.h"
 # include "../../../incl/c_dir.h"
 
-signed(__cdecl finds(C_DIRS_INFO(*argp))) {
+signed(__cdecl finds(c_dirs_info_t(*argp))) {
 
 auto signed const QUANTUM = (0x10);
 auto signed const SNOOZE = (0x04);
@@ -18,7 +18,7 @@ auto signed const DELAY = (0x02*(QUANTUM));
 
 auto signed char *path;
 auto signed r;
-auto DIR_INFO_STORED dis;
+auto dir_info_stored_t dis;
 
 if(!argp) return(0x00);
 // if(!(R(dis,*argp))) return(0x00);
@@ -31,12 +31,12 @@ return(0x01);
 }}
 
 // printf("\n");
-// printf("%s \n",R(path,*argp));
+// printf("%s \n",*(CLI_LK_PATH+(R(b,*argp))));
 
 if(OPT_UNLIMITED^(OPT_UNLIMITED&(R(flag,*argp)))) Sleep(DELAY);
 
 /* Open(, map, store or..) on the RAM */
-dis.p_dir = (R(path,*argp));
+dis.p_dir = (*(CLI_LK_PATH+(R(b,*argp))));
 dis.search = (void(*)) FindFirstFile(dis.p_dir,&(R(wfd,dis)));
 if(EQ(INVALID_HANDLE_VALUE,dis.search)) {
 if(OPT_DEPTH&(R(flag,*argp))) INC(R(depth,*argp));
@@ -47,7 +47,7 @@ if(!(r^(ERROR_FILE_NOT_FOUND))) printf("%s \n","No matching files can be found."
 if(0x01/* DBG */) {
 // monitoring
 printf(" [%s %s] \n","dis.p_dir:",dis.p_dir);
-printf(" [%s %s] \n","R(path,*argp):",R(path,*argp));
+printf(" [%s %s] \n","*(CLI_LK_PATH+(R(b,*argp:",*(CLI_LK_PATH+(R(b,*argp))));
 }}
 return(0x00);
 }
@@ -57,7 +57,7 @@ if(DBG) printf("%s %p \n","The search handle is:",dis.search);
 R(dis,*argp) = (&dis);
 
 // backup
-path = (R(path,*argp));
+path = (*(CLI_LK_PATH+(R(b,*argp))));
 
 r = rddir(argp);
 if(!r) {
@@ -69,7 +69,7 @@ return(0x00);
 if(DBG) printf(" %d %s %s \n",r,"dir/files read on",dis.p_dir);
 
 // restore
-R(path,*argp) = (path);
+*(CLI_LK_PATH+(R(b,*argp))) = (path);
 R(dis,*argp) = (&dis);
 
 /* Close */

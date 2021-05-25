@@ -13,7 +13,7 @@ Using along with fn. finds
 # include "../../../incl/config.h"
 # include "../../../incl/c_dir.h"
 
-signed(__cdecl rddir(C_DIRS_INFO(*argp))) {
+signed(__cdecl rddir(c_dirs_info_t(*argp))) {
 
 static signed const attrib[] = {
 (signed) (FILE_ATTRIBUTE_ARCHIVE),
@@ -65,9 +65,9 @@ auto SYSTEMTIME st;
 
 void *dis;
 auto signed char *path;
-
 auto signed char *craft;
 auto signed char *b,*p,*t;
+
 auto signed i,r;
 auto signed short disable;
 auto signed short flag;
@@ -87,7 +87,7 @@ if(flag&(C_DIR+(C_DOTDIR))) {
 
 // backup
 dis = (R(dis,*argp));
-path = (R(path,*argp));
+path = (*(CLI_LK_PATH+(R(b,*argp))));
 
 // call fn. finds() after crafting the parent path.
 r = ct("/*");
@@ -113,7 +113,7 @@ printf("%s \n","<< Error at fn. append_b() the second");
 return(0x00);
 }
 if(DBG) printf("%s %s \n","craft is:",craft);
-R(path,*argp) = (craft);
+*(CLI_LK_PATH+(R(b,*argp))) = (craft);
 r = finds(argp);
 /* Pay attention to handling of the return value. */
 if(!r) {
@@ -122,7 +122,7 @@ embed(0x00,craft);
 rl(craft);
 craft = (0x00);
 // restore
-R(path,*argp) = (path);
+*(CLI_LK_PATH+(R(b,*argp))) = (path);
 R(dis,*argp) = (dis);
 // Being gone back to the previous directory.
 // printf("\n");
@@ -136,12 +136,12 @@ if(DBG) printf("%s %d \n","flag:",flag);
 
 OR(R(flag,*argp),OPT_VISIBLE);
 
-if(R(target,*argp)) {
+if(*(CLI_LK_TARGET+(R(b,*argp)))) {
 t = (p);
 AND(R(flag,*argp),(~OPT_VISIBLE));
 AND(i,0x00);
 if(OPT_IGNORE&(R(flag,*argp))) p = cv_a(0x00,p);
-r = cmpr_part(&i,p,R(target,*argp));
+r = cmpr_part(&i,p,*(CLI_LK_TARGET+(R(b,*argp))));
 if(!i) OR(R(flag,*argp),OPT_VISIBLE);
 if(OPT_IGNORE&(R(flag,*argp))) rl(p);
 p = (t);
@@ -151,13 +151,13 @@ if(OPT_VISIBLE&(R(flag,*argp))) {
 AND(disable,0x00);
 if(flag&(C_DIRS)) {
 // Output a directory name
-INC(R(directories,*argp));
+INC(*(CLI_LK_DIRECTORY+(R(r,*argp))));
 printf(" %s %s%s/ ","d",b,p);
 }
 else {
 // Or output a file name
 if(!(OPT_DIRECTORIES&(R(flag,*argp)))) {
-INC(R(files,*argp));
+INC(*(CLI_LK_FILE+(R(r,*argp))));
 printf(" %s %s%s ","-",b,p);
 }
 else OR(disable,0x01);
