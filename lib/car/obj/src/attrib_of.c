@@ -5,33 +5,22 @@ Check the attributes of a directory or of a file
 
 
 # define CAR
-# include "../../../incl/config.h"
 # include <stdio.h>
+# include "../../../incl/config.h"
 
-signed(__cdecl attrib_of(unsigned(cache),unsigned(*di),signed char(**si))) {
+signed(__cdecl attrib_of(signed(cache),signed(*di),signed char(**si))) {
 
-/* **** CODE/TEXT */
+auto signed r;
+
 // if(!cache) return(0x00);
 if(!di) return(0x00);
 if(!si) return(0x00);
-if(!(*di)) return(0x00);
-if(!(*si)) return(0x00);
 
-/* Monitor
-if(DBG) {
-printf("\n");
-printf("%s %Xh \n","cache is:",cache);
-printf("%s %p \n","di is:",di);
-printf("%s %p \n","si is:",si);
-printf("%s %Xh \n","*di is:",*di);
-printf("%s %s \n","*si is:",*si);
-}
-//*/
+printf(" {");
 
-if(cache&(*di)) printf("  %s ",*si);
+r = attrib_of_r(cache,di,si);
 
-di++;
-si++;
+printf("} ");
 
-return(0x01+(attrib_of(cache,di,si)));
+return(r);
 }

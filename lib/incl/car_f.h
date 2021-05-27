@@ -200,6 +200,9 @@ signed(__cdecl column(signed short(cols),signed(algn),signed char(*base)));
 
 signed(__cdecl reading(signed char(*di),signed(size)));
 
+signed(__cdecl attrib_of_r(signed(cache),signed(*di),signed char(**si)));
+signed(__cdecl attrib_of(signed(cache),signed(*di),signed char(**si)));
+
 signed(__cdecl pickfiles(signed char(*di /* path */ ), signed char(*si /* string */ )));
 signed(__cdecl rddir(void/* c_dirs_info_t */(*argp)));
 signed(__cdecl finds(void/* c_dirs_info_t */(*argp)));

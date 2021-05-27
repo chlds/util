@@ -15,7 +15,7 @@ Using along with fn. finds
 
 signed(__cdecl rddir(c_dirs_info_t(*argp))) {
 
-static signed const attrib[] = {
+static signed attrib[] = {
 (signed) (FILE_ATTRIBUTE_ARCHIVE),
 (signed) (FILE_ATTRIBUTE_COMPRESSED),
 (signed) (FILE_ATTRIBUTE_DEVICE),
@@ -38,7 +38,7 @@ static signed const attrib[] = {
 (signed) (0x00),
 };
 
-static signed char const *(attribp[]) = {
+static signed char *(attribp[]) = {
 (char signed(*)) ("Archive"),
 (char signed(*)) ("Compressed"),
 (char signed(*)) ("Device"),
@@ -152,13 +152,13 @@ AND(disable,0x00);
 if(flag&(C_DIRS)) {
 // Output a directory name
 INC(*(CLI_LK_DIRECTORY+(R(r,*argp))));
-printf(" %s %s%s/ ","d",b,p);
+printf(" %s %s%s/","d",b,p);
 }
 else {
 // Or output a file name
 if(!(OPT_DIRECTORIES&(R(flag,*argp)))) {
 INC(*(CLI_LK_FILE+(R(r,*argp))));
-printf(" %s %s%s ","-",b,p);
+printf(" %s %s%s","-",b,p);
 }
 else OR(disable,0x01);
 }
