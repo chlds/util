@@ -15,8 +15,8 @@ auto coord_t coord;
 auto signed r;
 auto signed short flag;
 
-if(arg<(0x00)) return(0x00);
-if(!arg) return(cli_es(CTRL_J));
+if(arg<(0x00)) return(cli_es(CTRL_J));
+if(!arg) return(cli_es(CTRL_L));
 if(!(cli_es(CTRL_K))) return(0x00);
 
 AND(r,0x00);

@@ -41,7 +41,7 @@ r = cli_message(r,"<< Error at fn. cli_io() \n");
 return(0x00);
 }
 
-r = clear_rows(0x00);
+r = clear_rows(~0x00);
 if(!r) {
 r = cli_message(r,"<< Error at fn. clear_rows() \n");
 return(0x00);
