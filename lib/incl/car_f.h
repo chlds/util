@@ -20,9 +20,9 @@ void*(__cdecl alloc(signed(arg)));
 signed(__cdecl rl(void(*argp)));
 // release i.e., fn. free.
 
-signed(__cdecl csv_cat_b_r(signed char(**cache),signed char(**argp)));
+signed(__cdecl csv_cat_b_r(signed char(**di),signed char(**si)));
 signed(__cdecl csv_cat_b(signed char(**argp),...));
-signed(__cdecl cat_b_r(signed char(**cache),signed char(**argp)));
+signed(__cdecl cat_b_r(signed char(**di),signed char(**si)));
 signed(__cdecl cat_b(signed char(**argp),...));
 /* Concatenate to the terminating null pointer. */
 

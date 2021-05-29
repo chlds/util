@@ -10,26 +10,26 @@ Release buffer later.
 # define CAR
 # include "./../../../incl/config.h"
 
-signed(__cdecl csv_cat_b_r(signed char(**cache),signed char(**argp))) {
+signed(__cdecl csv_cat_b_r(signed char(**di),signed char(**si))) {
 
 auto signed char comma = (',');
 auto signed char *b;
 auto signed r;
 
-if(!cache) return(0x00);
-if(!argp) return(0x00);
-if(!(*argp)) return(0x00);
+if(!di) return(0x00);
+if(!si) return(0x00);
+if(!(*si)) return(0x00);
 
-r = concatenate(0x01,cache,*argp);
+r = concatenate(0x01,di,*si);
 if(!r) return(0x00);
 
-b = (*cache);
-*(b+(--r)) = (0x00);
-if(r) *(b+(--r)) = (comma);
+b = (*di);
+*(--r+(b)) = (0x00);
+if(r) *(--r+(b)) = (comma);
 else return(0x00);
 
-argp++;
+si++;
 b = (0x00);
 
-return(0x01+(csv_cat_b_r(cache,argp)));
+return(0x01+(csv_cat_b_r(di,si)));
 }

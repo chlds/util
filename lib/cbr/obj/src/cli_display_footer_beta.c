@@ -19,7 +19,7 @@ signed(__cdecl cli_display_footer_beta(signed short(comeback),signed char(*label
 
 /* **** DATA, BSS and STACK */
 auto CLI_COORD coord[CLI_OBJS];
-auto CLI_COORD coord_b;
+auto CLI_COORD coord_s;
 
 auto signed char *p;
 auto signed i,r;
@@ -56,7 +56,7 @@ return(0x00);
 
 printf("%s",label);
 
-r = cli_coord_beta(CLI_IN,&coord_b,argp);
+r = cli_coord_beta(CLI_IN,&coord_s,argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_coord_beta()");
 return(0x00);
@@ -65,8 +65,8 @@ return(0x00);
 i = (CLI_OBJS);
 while(i) {
 --i;
-R(y,*(i+(R(coord,R(commandline,R(ty,*argp)))))) = (coord_b.y);
-R(x,*(i+(R(coord,R(commandline,R(ty,*argp)))))) = (coord_b.x);
+R(y,*(i+(R(coord,R(commandline,R(ty,*argp)))))) = (coord_s.y);
+R(x,*(i+(R(coord,R(commandline,R(ty,*argp)))))) = (coord_s.x);
 }
 
 i = (*(CLI_INDEX+(R(size,R(roll,R(ty,*argp))))));
