@@ -113,9 +113,9 @@ cdi.flag = (flag);
 cdi.dis = (0x00);
 *(CLI_LK_PATH+(R(b,cdi))) = (b);
 
-r = finds(&cdi);
+r = lk_vt_opt(&cdi);
 if(!r) {
-r = cli_message(r,"<< An error has occurred at fn. finds() \n");
+r = cli_message(r,"<< An error has occurred at fn. lk_vt_opt() \n");
 OR(flag,OPT_ERROR);
 }
 
