@@ -41,6 +41,7 @@ if(!(yr^(1900+(R(tm_year,*tp))))) {
 if(!(mo^(R(tm_mon,*tp)))) {
 if(!(di^(R(tm_mday,*tp)))) flag++;
 }}
+// display only once on duplicate days
 // column of the left
 if(!flag) printf(" %2d %s ",*(CALS_DI+(R(date,*argp))),*(CAPS_DAYOFTHEWK+(*(CALS_WK+(R(date,*argp))))));
 else printf("\t");

@@ -101,7 +101,7 @@ static signed char *(MON[]) = {
 };
 
 static signed char **(MONTH_V[]) = {
-/* CAPS_MONTH,MONTH, */CAPS_MON,MON,(signed char(**)) (0x00),
+CAPS_MONTH,MON,(signed char(**)) (0x00),
 };
 
 struct cals_event {
