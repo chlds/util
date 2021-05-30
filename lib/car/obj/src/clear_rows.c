@@ -1,6 +1,9 @@
 /* **** Notes
 
 Clear rows.
+
+Remarks:
+Only in the Virtual Terminal
 */
 
 
@@ -21,11 +24,11 @@ if(!(cli_es(CTRL_K))) return(0x00);
 
 AND(r,0x00);
 if(--arg) {
-if(!(coord_report(CLI_RULE,&coord))) return(0x00);
+if(!(coord_b(CLI_IN,CLI_RULE,&coord))) return(0x00);
 if(!(cli_es(CTRL_A))) return(0x00);
 r = clear_rows_r(arg);
 if(!r) return(0x00);
-if(!(coord_beta(CLI_OUT,CLI_BASE,&coord))) return(0x00);
+if(!(coord_b(CLI_OUT,CLI_BASE,&coord))) return(0x00);
 }
 
 r++;
