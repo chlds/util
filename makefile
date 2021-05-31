@@ -77,7 +77,7 @@ $(LIBR2): "lib/cbr/obj/src/*.c" "lib/incl/cbr*.h" $(CONFIG_HDR)
 	cd lib/cbr/
 	nmake
 	cd ../../
-$(LIBR1): "lib/car/obj/src/*.c" "lib/incl/car*.h" $(CONFIG_HDR)
+$(LIBR1): "lib/car/obj/src/*.c" "lib/incl/*.h" # $(CONFIG_HDR)
 	@echo "Making LIBR1.. "
 	cd lib/car/
 	nmake
