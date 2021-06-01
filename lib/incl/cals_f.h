@@ -107,5 +107,8 @@ signed(__cdecl cv_time(signed char(*b),cals_event_t(*argp)));
 signed(__cdecl cv_date(signed char(*b),cals_event_t(*argp)));
 // convert to a month, day and year out of characters.
 
+signed(__cdecl cv_ord_week(time_t(arg)));
+// convert into an ordinal number of the week in the month from the time.
+
 signed(__cdecl cv_subject(signed char(*b),cals_event_t(*argp)));
 // map a subject on the RAM.
