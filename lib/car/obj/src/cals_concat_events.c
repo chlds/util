@@ -10,20 +10,17 @@ Based on a doubly linked list (i.e., not a circular linked list)
 
 # define CALEND
 # define CAR
-
 # include "../../../incl/config.h"
 
 signed(__cdecl cals_concat_events(cals_event_t(*cache),cals_roll_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
-auto cals_event_t *event;
+auto cals_event_t *ev;
 
-/* **** CODE/TEXT */
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 
-event = (*(CLI_LEAD+(R(event,*argp))));
-if(EQ(event,*(CLI_INDEX+(R(event,*argp))))) R(insert,*argp) = (0x00);
+ev = (*(CLI_LEAD+(R(event,*argp))));
+if(EQ(ev,*(CLI_INDEX+(R(event,*argp))))) R(insert,*argp) = (0x00);
 else R(insert,*argp) = (0x01);
 
 if(!(R(insert,*argp))) {

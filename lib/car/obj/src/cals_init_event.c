@@ -10,12 +10,10 @@ Initialise
 
 signed(__cdecl cals_init_event(cals_event_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto struct tm *tp;
 auto time_t t;
 auto signed i,r;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 time(&t);

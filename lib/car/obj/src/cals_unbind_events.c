@@ -10,18 +10,18 @@ Unmap out of the RAM
 
 signed(__cdecl cals_unbind_events(cals_roll_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
-auto cals_event_t *event;
+auto cals_event_t *ev;
 auto signed i,r;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 r = cals_unmap_events(argp);
 
-event = (*(CLI_LEAD+(R(event,*argp))));
+ev = (*(CLI_LEAD+(R(event,*argp))));
+if(ev) return(0x00);
+
 i = (CALS_OBJS);
-while(i) *(--i+(R(event,*argp))) = event;
+while(i) *(--i+(R(event,*argp))) = ev;
 
 return(r);
 }
