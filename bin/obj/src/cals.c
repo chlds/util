@@ -14,21 +14,7 @@ signed(__cdecl wmain(signed(argc),signed short(**argv),signed short(**envp))) {
 auto signed UPCOMING_DAYS = (0x03);
 auto signed FOR_MONTHS = (0x04);
 
-auto signed(__cdecl*f)(cals_t(*argp));
-auto signed(__cdecl*(fn[]))(cals_t(*argp)) = {
-(signed(__cdecl*)(cals_t(*))) (cals_flag_e),
-(signed(__cdecl*)(cals_t(*))) (cals_flag_h),
-(signed(__cdecl*)(cals_t(*))) (cals_flag_n),
-(signed(__cdecl*)(cals_t(*))) (cals_flag_v),
-(signed(__cdecl*)(cals_t(*))) (0x00),
-};
-
-auto signed char *(fl[]) = {
-"e","h","n","v",0x00,
-};
-
 auto signed char **v;
-
 auto cals_event_t *ev;
 auto struct tm *tp;
 auto signed short *w;
@@ -69,21 +55,13 @@ path_w = (*(argv+(0x02)));
 path = (*(v+(0x02)));
 }}
 
-if(0x01<(argc)) {
-l = ct_f(fn);
-while(l) {
-if(CALS_QUIT&(R(flag,cs))) break;
-r = cmpr_part(&i,*(v+(0x01)),*(--l+(fl)));
-if(!i) {
-f = (*(l+(fn)));
-r = f(&cs);
+r = cals_flag(v,&cs);
 if(!r) {
-printf("%s (*(%d+(%s)))() \n","<< Error at fn.",l,"fn");
-r = rl_argv(&v);
-if(!r) printf("%s \n","<< Error at fn. rl_argv()");
-v = (0x00);
-return(0x00);
-}}}}
+OR(flag,CALS_ERROR);
+OR(flag,CALS_QUIT);
+OR(R(flag,cs),flag);
+printf("%s \n","<< Error at fn. cals_flag()");
+}
 
 if(CALS_QUIT&(R(flag,cs))) {
 r = rl_argv(&v);
@@ -96,6 +74,7 @@ v = (0x00);
 *(CLI_BASE+(R(argv_w,R(property,cs)))) = (0x00);
 path = (0x00);
 path_w = (0x00);
+if(CALS_ERROR&(R(flag,cs))) return(0x00);
 return(0x01);
 }
 

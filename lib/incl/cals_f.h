@@ -1,5 +1,6 @@
 /* cals_f.h */
 
+signed(__cdecl cals_flag(signed char(**argv),cals_t(*argp)));
 signed(__cdecl cals_flag_e(cals_t(*argp)));
 signed(__cdecl cals_flag_h(cals_t(*argp)));
 signed(__cdecl cals_flag_n(cals_t(*argp)));
