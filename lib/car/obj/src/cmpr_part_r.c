@@ -21,7 +21,7 @@ if(!(*di)) return(0x00);
 c = (*di);
 if(!(c^(*si))) {
 r = cmpr_partially(cache,di,si);
-if(!(*cache)) return(0x00);
+if(!(*cache)) return(r);
 }
 
 di++;
