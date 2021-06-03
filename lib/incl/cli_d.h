@@ -144,7 +144,6 @@ void *(window[CLI_OBJS]);
 void *(device[CLI_OBJS]);
 signed short flag[CLI_OBJS];
 cli_text_t text;
-cli_virtual_terminal_t vt;
 cli_clipboard_t clipboard;
 void *optl;
 } typedef cli_property_t;
