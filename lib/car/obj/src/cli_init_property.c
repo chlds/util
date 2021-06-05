@@ -37,9 +37,6 @@ if(!r) return(0x00);
 i = (CLI_OBJS);
 while(i) *(--i+(R(argv,*argp))) = (0x00);
 
-i = (CLI_OBJS);
-while(i) *(--i+(R(argv_w,*argp))) = (0x00);
-
 vv = (v);
 while(*vv) {
 i = (CLI_OBJS);

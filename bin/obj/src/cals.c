@@ -21,7 +21,6 @@ auto signed short *w;
 auto signed char *b;
 
 auto signed char *path;
-auto signed short *path_w;
 
 auto cals_t cs;
 auto cals_roll_t roll;
@@ -42,18 +41,14 @@ r = cv_argv_bw(&v,argv);
 if(!r) return(0x00);
 
 *(CLI_BASE+(R(argv,R(property,cs)))) = (v);
-*(CLI_BASE+(R(argv_w,R(property,cs)))) = (argv);
 
 AND(flag,0x00);
 
 path = (0x00);
-path_w = (0x00);
 if(0x02<(argc)) {
 r = cmpr_part(&i,*(v+(0x01)),"l");
-if(!i) {
-path_w = (*(argv+(0x02)));
-path = (*(v+(0x02)));
-}}
+if(!i) path = (*(v+(0x02)));
+}
 
 r = cals_flag(v,&cs);
 if(!r) {
@@ -64,16 +59,14 @@ printf("%s \n","<< Error at fn. cals_flag()");
 }
 
 if(CALS_QUIT&(R(flag,cs))) {
-r = rl_argv(&v);
+r = rl_v(&v);
 if(!r) {
-printf("%s \n","<< Error at fn. rl_argv()");
+printf("%s \n","<< Error at fn. rl_v()");
 return(0x00);
 }
 v = (0x00);
 *(CLI_BASE+(R(argv,R(property,cs)))) = (v);
-*(CLI_BASE+(R(argv_w,R(property,cs)))) = (0x00);
 path = (0x00);
-path_w = (0x00);
 if(CALS_ERROR&(R(flag,cs))) return(0x00);
 return(0x01);
 }
@@ -240,17 +233,15 @@ printf("%s \n","<< Error at fn. cals_unbind_events()");
 return(0x00);
 }}
 
-r = rl_argv(&v);
+r = rl_v(&v);
 if(!r) {
-printf("%s \n","<< Error at fn. rl_argv()");
+printf("%s \n","<< Error at fn. rl_v()");
 return(0x00);
 }
 
 v = (0x00);
 *(CLI_BASE+(R(argv,R(property,cs)))) = (v);
-*(CLI_BASE+(R(argv_w,R(property,cs)))) = (0x00);
 path = (0x00);
-path_w = (0x00);
 
 r = cli_init_property(0x01,&(R(property,cs)));
 if(!r) {

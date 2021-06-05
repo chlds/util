@@ -34,9 +34,6 @@ signed(__cdecl cv_argv_bw_r(signed char(**di),signed short(**si)));
 signed(__cdecl cv_argv_bw(signed char(***di),signed short(**si)));
 // convert into a table pointer of pointers secured for bytes in UTF-8.
 
-signed(__cdecl rl_argv_r(signed char(**argp)));
-signed(__cdecl rl_argv(signed char(***argp)));
-
 signed(__cdecl rf_leap_years(signed short(arg)));
 // refer leap years.
 

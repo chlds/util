@@ -136,7 +136,6 @@ void *optl;
 
 struct cli_property {
 signed char **argv[CLI_OBJS]; // for UTF-8
-signed short **argv_w[CLI_OBJS]; // for UTF-16
 void *(token[CLI_OBJS]);
 void *(thread[CLI_OBJS]);
 void *(process[CLI_OBJS]);
