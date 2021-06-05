@@ -10,11 +10,9 @@ Sort
 
 signed(__cdecl cals_sort_events(cals_roll_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
-auto cals_event_t *event;
+auto cals_event_t *ev;
 auto signed i,r;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 if(!(CALS_INIT&(R(flag,*argp)))) return(0x00);

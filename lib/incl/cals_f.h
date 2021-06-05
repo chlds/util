@@ -66,6 +66,7 @@ signed(__cdecl cals_refer_periodic_events(signed short(flag),cals_event_t(*cache
 
 signed(__cdecl cals_count_events_r(cals_event_t(*argp)));
 signed(__cdecl cals_count_events(cals_roll_t(*argp)));
+signed(__cdecl cals_display_events_r_r(time_t(*prev),cals_event_t(*argp)));
 signed(__cdecl cals_display_events_r(time_t(prev),cals_event_t(*argp)));
 signed(__cdecl cals_display_events(cals_roll_t(*argp)));
 signed(__cdecl cals_refer_events_internal(signed short(flag),cals_event_t(*event),cals_t(*argp)));
