@@ -13,13 +13,11 @@ Based on UTF-8
 
 signed(__cdecl cue(signed char(*sym),signed char(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto signed char *b;
 auto signed r;
 auto signed short flag;
 
-/* **** CODE/TEXT */
-if(!sym) return(0x00);
+// if(!sym) return(0x00);
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 

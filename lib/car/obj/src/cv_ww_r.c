@@ -17,7 +17,7 @@ auto signed i,r;
 
 if(arg<(0x01)) return(0x00);
 if(!di) return(0x00);
-if(!sym) return(0x00);
+// if(!sym) return(0x00);
 if(!si) return(0x00);
 if(!(*si)) return(0x00);
 

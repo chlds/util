@@ -16,7 +16,7 @@ auto signed i,r;
 
 if(arg<(0x01)) return(0x00);
 if(!cache) return(0x00);
-if(!sym) return(0x00);
+// if(!sym) return(0x00);
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
