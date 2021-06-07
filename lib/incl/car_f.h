@@ -224,11 +224,18 @@ signed(__cdecl concat_b(signed char(*argp), ...));
 signed(__cdecl append_b(signed char(*di),signed char(*si)));
 /* Append the si to the di. */
 
+signed(__cdecl cv_ww_r(signed short(arg),signed char(**di),signed char(*sym),signed char(*si)));
+signed(__cdecl cv_ww(signed short(arg),signed char(***di),signed char(*sym),signed char(*si)));
+signed(__cdecl ct_ww(signed short(arg),signed char(*sym),signed char(*argp)));
+signed(__cdecl wrap_words_r(signed short(arg),signed(*cache),signed char(*sym),signed char(*argp)));
+signed(__cdecl wrap_words(signed short(arg),signed char(*sym),signed char(*argp)));
+/* Map an array of pointers for words-wrap arrays on the RAM. */
+
 signed(__cdecl rl_v_r(signed char(**argp)));
 signed(__cdecl rl_v(signed char(***argp)));
 signed(__cdecl cv_v_r(signed(arg),signed char(**di),signed char(*si)));
 signed(__cdecl cv_v(signed char(***di),signed char(*si)));
-/* Map word-split arrays on and unmap the ones out of the RAM */
+/* Map an array of pointers for word-split arrays on and unmap the ones out of the RAM */
 
 signed(__cdecl cue2(signed char(*base)));
 /* Cue */
