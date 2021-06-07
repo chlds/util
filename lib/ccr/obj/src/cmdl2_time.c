@@ -208,6 +208,7 @@ auto signed char facename_font[] = ("Tahoma");
 auto KNOT *cache,*lead,*base;
 
 auto signed i,l,r;
+auto signed short flag;
 auto signed short urgent;
 auto signed char c;
 
@@ -471,11 +472,14 @@ printf("%s%zd \n","Now this is: ",t);
 //*/
 
 /* A loop */
-urgent = (0x00);
+AND(urgent,0x00);
+AND(flag,0x00);
 while(t<(deadline)) {
 if(R(Announcements,*argp)) break;
 if(urgent) break;
 if(!(R(cmdl_time_Toggle,*argp))) break;
+if(flag) break;
+
 /* CPU idling */
 Sleep(DELAY);
 time(&t);
@@ -484,7 +488,8 @@ zzz = (-t+(deadline));
 *(dc+(CACHE)) = (void(*)) GetDC((void(*)) *(window+(ACTIVE)));
 if(!(*(dc+(CACHE)))) {
 printf("%s \n","<< Error at GetDC()");
-return(0x00);
+// OR(flag,0x01);
+break;
 }
 r = BitBlt(*(dc+(DI)),0x00,0x00,*(region+(X)),*(region+(Y)),*(dc+(CACHE)),0x00,0x00,SRCCOPY);
 if(!r) {
@@ -495,7 +500,8 @@ urgent++;
 r = ReleaseDC(*(window+(ACTIVE)),*(dc+(CACHE)));
 if(!r) {
 printf("%s \n","<< Error at ReleaseDC()");
-return(0x00);
+// OR(flag,0x01);
+break;
 }
 if(urgent) break;
 // 3/4. transparency
@@ -546,7 +552,8 @@ if(!(old_textcolor^(CLR_INVALID))) printf("%s \n","<< Error at SetTextColor() th
 *(dc+(CACHE)) = (void(*)) GetDC((void(*)) *(window+(ACTIVE)));
 if(!(*(dc+(CACHE)))) {
 printf("%s \n","<< Error at GetDC()");
-return(0x00);
+// OR(flag,0x01);
+break;
 }
 r = BitBlt(*(dc+(CACHE)),0x00,0x00,*(region+(X)),*(region+(Y)),*(dc+(DI)),0x00,0x00,SRCCOPY);
 if(!r) {
@@ -557,7 +564,8 @@ urgent++;
 r = ReleaseDC(*(window+(ACTIVE)),*(dc+(CACHE)));
 if(!r) {
 printf("%s \n","<< Error at ReleaseDC()");
-return(0x00);
+// OR(flag,0x01);
+break;
 }}
 
 

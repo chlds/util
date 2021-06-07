@@ -98,8 +98,7 @@ return(0x00);
 // init.
 sat.Announcements = (0x00);
 sat.cmdl_time_Toggle = (0x00);
-sat.Running = (0x01);
-// fn. cmdl2_exit() to finally subtract the value.
+sat.Running = (0x00);
 
 /*
 r = make_cards(term,fn,&cards);
