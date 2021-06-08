@@ -7,14 +7,12 @@ Currently under construction
 //*/
 
 
-# define C_CODE_STDS
 # define CALEND
 # define CAR
 # include "../../../incl/config.h"
 
 signed(__cdecl cals_load_events_internals(signed(fd),cals_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
 static signed commas = (0x04);
 static signed char comma = (',');
 
@@ -28,7 +26,6 @@ auto time_t t;
 auto signed i,r;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 if(CALS_INTERRUPT&(R(flag,*argp))) return(0x00);
@@ -39,13 +36,14 @@ AND(R(flag,*argp),flag);
 return(0x00);
 }
 
+b = (0x00);
 r = read_b(fd,delim,&b);
-if(!r) {
+if(!b) {
 printf("%s \n","<< Error at fn. read_b()");
 return(0x00);
 }
 
-if(0x01<(r)) OR(R(flag,*argp),CALS_LOADED);
+if(!r) OR(R(flag,*argp),CALS_LOADED);
 
 r = ct_only(comma,b);
 if(commas<(r)) {
@@ -61,10 +59,8 @@ r = cals_convert(b,event);
 if(!r) OR(R(flag,*event),CALS_INVALID);
 }}
 
-if(b) {
 embed(0x00,b);
-free(b);
-}
+if(b) rl(b);
 b = (0x00);
 
 return(0x01+(cals_load_events_internals(fd,argp)));
