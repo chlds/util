@@ -10,17 +10,19 @@ Display upcoming events or..
 
 signed(__cdecl cals_display_upcoming_events_r(time_t(criterion),cals_event_t(*cache),cals_roll_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
-auto cals_event_t *event;
+auto cals_event_t *ev;
 auto time_t hr,mn;
 auto time_t t;
 auto signed i,r;
 
-/* **** CODE/TEXT */
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 
-printf("\t%2d:%02d | ",*(CALS_HR+(R(time,*cache))),*(CALS_MN+(R(time,*cache))));
+printf("\t");
+if(CALS_TIME_ALLDAY&(R(flag,*cache))) printf("%s","Allday");
+else printf("%2d:%02d ",*(CALS_HR+(R(time,*cache))),*(CALS_MN+(R(time,*cache))));
+printf("| ");
+
 r = cli_outs(R(b,*cache));
 if(!r) return(0x00);
 printf(" ");
