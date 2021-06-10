@@ -171,6 +171,7 @@ signed(__cdecl ncharbyte(signed(arg)));
 /* Encode a character into bytes based on UTF-8. */
 
 signed(__cdecl cli_nout(signed(arg),signed char(*argp)));
+signed(__cdecl cli_outv(signed char(**argp)));
 signed(__cdecl cli_outs(signed char(*argp)));
 signed(__cdecl cli_out(signed char(*argp)));
 signed(__cdecl decode_b_r(signed(arg),signed(*di),signed char(*si)));
@@ -324,6 +325,8 @@ signed(__cdecl csv_rm_trailing_blanks_r(signed(arg),signed char(*argp)));
 signed(__cdecl csv_rm_trailing_blanks(signed char(*argp)));
 signed(__cdecl rm_trailing_blanks_r(signed(arg),signed char(*argp)));
 signed(__cdecl rm_trailing_blanks(signed char(*argp)));
+signed(__cdecl rm_crlf_r(signed(arg),signed char(*argp)));
+signed(__cdecl rm_crlf(signed char(*argp)));
 signed(__cdecl embedback_r(signed(arg),signed char(*argp)));
 signed(__cdecl embedback(signed(arg),signed char(*argp)));
 signed(__cdecl embed_rr(signed(arg),signed char(*argp)));

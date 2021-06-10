@@ -22,9 +22,8 @@ if(!(*argp)) return(0x00);
 r = cue(sym,argp);
 if(!r) return(0x00);
 
-AND(i,0x00);
 argp = (r+(argp));
-i = (r+(i));
+i = (r);
 
 return(r+(wrap_words_r(arg,&i,sym,argp)));
 }
