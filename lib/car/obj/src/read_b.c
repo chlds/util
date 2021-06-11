@@ -4,6 +4,7 @@ Read bytes to the delimiter.
 
 Remarks:
 Call fn. rl later.
+Refer at fn. rm_crlf to replace line breaks with the null character.
 //*/
 
 

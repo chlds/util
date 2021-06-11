@@ -12,18 +12,14 @@ Using for fn. splt
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cue2(signed char(*base))) {
+signed(__cdecl cue2(signed char(*argp))) {
 
-/* **** DATA, BSS and STACK */
-auto signed char const(WS) = (' ');
+if(!argp) return(0x00);
+if(!(*argp)) return(0x00);
 
-/* **** CODE/TEXT */
-if(!base) return(0x00);
-if(!(*base)) return(0x00);
+if(SP^(*argp)) return(0x00);
 
-if(WS^(*base)) return(0x00);
+argp++;
 
-base++;
-
-return(0x01+(cue2(base)));
+return(0x01+(cue2(argp)));
 }
