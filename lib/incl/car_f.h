@@ -232,6 +232,7 @@ signed(__cdecl append_b(signed char(*di),signed char(*si)));
 
 signed(__cdecl cv_ww_r(signed short(arg),signed char(**di),signed char(*sym),signed char(*si)));
 signed(__cdecl cv_ww(signed short(arg),signed char(***di),signed char(*sym),signed char(*si)));
+signed(__cdecl ct_ww_r(signed short(arg),signed char(*sym),signed char(*argp)));
 signed(__cdecl ct_ww(signed short(arg),signed char(*sym),signed char(*argp)));
 signed(__cdecl wrap_words_r(signed short(arg),signed(*cache),signed char(*sym),signed char(*argp)));
 signed(__cdecl wrap_words(signed short(arg),signed char(*sym),signed char(*argp)));
