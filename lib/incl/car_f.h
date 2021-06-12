@@ -230,7 +230,7 @@ signed(__cdecl concat_b(signed char(*argp), ...));
 signed(__cdecl append_b(signed char(*di),signed char(*si)));
 /* Append the si to the di. */
 
-signed(__cdecl cv_ww_r(signed short(arg),signed char(**di),signed char(*sym),signed char(*si)));
+signed(__cdecl cv_ww_r(signed short(arg),signed char(**di),signed short(*flag),signed char(*sym),signed char(*si)));
 signed(__cdecl cv_ww(signed short(arg),signed char(***di),signed char(*sym),signed char(*si)));
 signed(__cdecl ct_ww_r(signed short(arg),signed char(*sym),signed char(*argp)));
 signed(__cdecl ct_ww(signed short(arg),signed char(*sym),signed char(*argp)));
