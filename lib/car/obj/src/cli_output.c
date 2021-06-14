@@ -1,6 +1,11 @@
 /* **** Notes
 
 Output in column articles.
+
+Remarks:
+A character string should be terminated with the null character.
+Refer at fn. cv_ww, fn. read_b and fn. rm_crlf to replace CR/LF with the null character.
+Return the number of rows output for characters (..or the number of characters).
 */
 
 
@@ -22,7 +27,6 @@ auto signed short flag;
 if(!sym) return(0x00);
 if(!argp) return(0x00);
 
-if(COLS<(cols)) cols = (COLS);
 if(cols<(0x01)) cols = (COLS);
 
 v = (0x00);

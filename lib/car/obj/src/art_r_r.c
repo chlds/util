@@ -20,7 +20,6 @@ auto signed i,r;
 if(!flag) return(0x00);
 if(!sym) return(0x00);
 
-if(COLS<(cols)) cols = (COLS);
 if(cols<(0x01)) cols = (COLS);
 
 b = (0x00);
