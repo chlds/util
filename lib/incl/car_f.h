@@ -8,6 +8,11 @@ Along with C library
 */
 
 
+void(__cdecl sleep_b(signed(arg)));
+
+signed(__cdecl art_r_r(signed short(*flag),signed short(cols),signed char(*sym),signed(fd)));
+signed(__cdecl art_r(signed short(*flag),signed short(cols),signed char(*sym),signed(fd)));
+
 signed char(*__cdecl rf_env(signed char(*argp)));
 // refer.
 
@@ -171,7 +176,10 @@ signed(__cdecl ncharbyte(signed(arg)));
 /* Encode a character into bytes based on UTF-8. */
 
 signed(__cdecl cli_nout(signed(arg),signed char(*argp)));
+signed(__cdecl cli_output(signed(arg/* width */),signed short(cols),signed char(*sym),signed char(*argp)));
+signed(__cdecl cli_outv_legible(signed(arg),signed char(**argp)));
 signed(__cdecl cli_outv(signed char(**argp)));
+signed(__cdecl cli_outs_legible(signed(arg),signed char(*argp)));
 signed(__cdecl cli_outs(signed char(*argp)));
 signed(__cdecl cli_out(signed char(*argp)));
 signed(__cdecl decode_b_r(signed(arg),signed(*di),signed char(*si)));
