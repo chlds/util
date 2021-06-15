@@ -13,7 +13,7 @@ Return the number of bytes output for characters (..or the number of characters)
 # include <stdio.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl cli_outs_legible(signed(arg),signed char(*argp))) {
+signed(__cdecl cli_outs_legible(signed(arg/* delay */),signed char(*argp))) {
 
 auto signed min = (0x10);
 auto signed m = (1000);

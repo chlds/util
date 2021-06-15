@@ -12,7 +12,7 @@ signed(__cdecl art_r_r(signed short(*flag),signed short(cols),signed char(*sym),
 static signed char lf = (LF);
 auto signed const QUANTUM = (0x10);
 auto signed const SNOOZE = (0x08);
-auto signed const DELAY = (0x02*(QUANTUM));
+auto signed const DELAY = (0x03*(QUANTUM));
 auto signed short COLS = (72); // default
 auto signed char *b;
 auto signed i,r;
@@ -43,7 +43,7 @@ OR(*flag,CLI_IRR);
 }
 
 if(!(CLI_IRR&(*flag))) {
-r = cli_output(0x00,cols,sym,b);
+r = cli_output(DELAY,cols,sym,b);
 if(!r) {
 OR(*flag,CLI_IRR);
 printf("%s \n","<< Error at fn. cli_output()");
