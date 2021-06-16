@@ -293,6 +293,14 @@ signed(__cdecl ctdn_to(signed char(*cache),signed char(*argp)));
 signed(__cdecl cf(signed short(*flag),signed char(*cache),signed char(*argp)));
 /* Count down letters to find an offset point. */
 
+signed(__cdecl ctdn2_r(signed(arg),signed char(sym),signed char(*argp)));
+signed(__cdecl ctdn2(signed char(sym),signed char(*argp)));
+/* Count letters down to the specific symbol. */
+
+signed(__cdecl ct_digits_r(signed char(*fig),signed char(*argp)));
+signed(__cdecl ct_digits(signed char(*argp)));
+/* Count digits. */
+
 signed(__cdecl align_backward(signed(arg),signed char(*argp)));
 signed(__cdecl align(signed(arg),signed char(*argp)));
 /* Return the number of spaces that are output when the tab key is pressed. */

@@ -134,9 +134,9 @@ return(0x00);
 *(CLI_BASE+(R(wk1,cs))) = (t);
 //*/
 
+printf("\n");
 if(CALS_VERBOSE&(R(flag,cs))) {
 // calendar week for today,
-printf("\n");
 r = ct_weeks(*(CLI_BASE+(R(wk1,cs))),curr_t);
 if(!r) return(0x00);
 printf(" %s %d %s, \n","CW",r,"for today");
@@ -154,7 +154,6 @@ printf("%s %d, ","Daylight Savings Time",R(tm_isdst,*tp));
 printf("%d %s \n",R(tm_yday,*tp),"days since January 1");
 printf("\n");
 }
-else printf("\n");
 
 if(CALS_VERBOSE&(R(flag,cs))) {
 // calendar week 1 of the year,
@@ -174,8 +173,9 @@ printf("%d %s \n",R(tm_yday,*tp),"days since January 1");
 printf("\n");
 }
 
+r = (for_months);
 //* backward i.e., *(CLI_BASE+(R(wk1/t, to be changed after going backward for months
-if(for_months<(0x00)) {
+if(r<(0x00)) {
 r = cals_backward(for_months,&cs);
 if(!r) {
 printf("%s \n","<< Error at fn. cals_backward()");
@@ -192,7 +192,6 @@ printf("%s %d, ","Daylight Savings Time",R(tm_isdst,*tp));
 printf("%d %s \n",R(tm_yday,*tp),"days since January 1");
 printf("\n");
 }}
-else r = (for_months);
 
 if(r<(0x00)) r = (0x01+(~r));
 
