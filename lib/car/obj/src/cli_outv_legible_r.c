@@ -12,18 +12,18 @@ Return the number of rows output for characters (..or the number of characters).
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_outv_legible(signed(arg/* delay */),signed char(**argp))) {
+signed(__cdecl cli_outv_legible_r(signed(arg/* delay */),signed char(**argp))) {
 
-auto signed min = (0x10);
-auto signed m = (5*(1000));
+auto signed char b = (LF);
 
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
-if(arg) {
-if(arg<(min)) arg = (min);
-if(!(arg<(m))) arg = (m);
-}
+sleep_b(arg);
+cli_outs_legible(arg,*argp);
+cli_out(&b);
 
-return(cli_outv_legible_r(arg,argp));
+argp++;
+
+return(0x01+(cli_outv_legible_r(arg,argp)));
 }

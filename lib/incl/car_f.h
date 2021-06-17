@@ -177,8 +177,10 @@ signed(__cdecl ncharbyte(signed(arg)));
 
 signed(__cdecl cli_nout(signed(arg),signed char(*argp)));
 signed(__cdecl cli_output(signed(arg/* delay */),signed short(cols),signed char(*sym),signed char(*argp)));
+signed(__cdecl cli_outv_legible_r(signed(arg/* delay */),signed char(**argp)));
 signed(__cdecl cli_outv_legible(signed(arg/* delay */),signed char(**argp)));
 signed(__cdecl cli_outv(signed char(**argp)));
+signed(__cdecl cli_outs_legible_r(signed(arg/* delay */),signed char(*argp)));
 signed(__cdecl cli_outs_legible(signed(arg/* delay */),signed char(*argp)));
 signed(__cdecl cli_outs(signed char(*argp)));
 signed(__cdecl cli_out(signed char(*argp)));

@@ -13,10 +13,7 @@ Return the number of bytes output for characters (..or the number of characters)
 # include <stdio.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl cli_outs_legible(signed(arg/* delay */),signed char(*argp))) {
-
-auto signed min = (0x10);
-auto signed m = (5*(1000));
+signed(__cdecl cli_outs_legible_r(signed(arg/* delay */),signed char(*argp))) {
 
 auto signed char *b;
 auto signed i,r;
@@ -25,10 +22,19 @@ auto signed short flag;
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
-if(arg) {
-if(arg<(min)) arg = (min);
-if(!(arg<(m))) arg = (m);
+r = cli_out(argp);
+if(!r) {
+printf("%s \n","<< Error at fn. cli_out()");
+return(0x00);
 }
 
-return(cli_outs_legible_r(arg,argp));
+AND(flag,0x00);
+if(!(SP^(*argp))) OR(flag,0x01);
+// if(!(LF^(*argp))) OR(flag,0x01);
+if(flag) sleep_b(arg);
+
+argp = (r+(argp));
+
+// e.g., r = (0x01);
+return(r+(cli_outs_legible_r(arg,argp)));
 }
