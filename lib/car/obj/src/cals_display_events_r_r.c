@@ -12,10 +12,17 @@ signed(__cdecl cals_display_events_r_r(time_t(*prev),cals_event_t(*argp))) {
 
 auto cals_event_t *ev;
 auto struct tm *tp;
+auto signed char *b;
 auto time_t t;
 auto signed i,r;
 auto signed short yr,mo,di;
 auto signed short flag;
+auto signed short cols = (72);
+auto signed delay = (0x00);
+auto signed char sym[] = {
+('\n'),
+(0x00),
+};
 
 if(!prev) return(0x00);
 if(!argp) return(0x00);
@@ -46,12 +53,13 @@ if(!(di^(R(tm_mday,*tp)))) flag++;
 if(!flag) printf(" %2d %s ",*(CALS_DI+(R(date,*argp))),*(CAPS_DAYOFTHEWK+(*(CALS_WK+(R(date,*argp))))));
 else printf("\t");
 // also
-if(CALS_TIME_ALLDAY&(R(flag,*argp))) printf("%s","Allday");
-else printf("%2d:%02d ",*(CALS_HR+(R(time,*argp))),*(CALS_MN+(R(time,*argp))));
-printf("  ");
+b = ("%2d:%02d   ");
+if(CALS_TIME_ALLDAY&(R(flag,*argp))) printf("[%s] ","All-day");
+else printf(b,*(CALS_HR+(R(time,*argp))),*(CALS_MN+(R(time,*argp))));
 
 // column of the right
-r = cli_outs(R(b,*argp));
+// r = cli_outs(R(b,*argp));
+r = cals_output(delay,cols,sym,R(b,*argp));
 if(!r) return(0x00);
 if(!(cli_es(CTRL_K))) return(0x00);
 if(DBG) {
