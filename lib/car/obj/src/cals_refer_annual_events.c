@@ -13,10 +13,8 @@ Refer at fn. cals_refer_events_r_r.
 
 signed(__cdecl cals_refer_annual_events(signed short(flag),cals_event_t(*cache),cals_roll_t(*cached),cals_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto signed i,r;
 
-/* **** CODE/TEXT */
 if(!cache) return(0x00);
 if(!cached) return(0x00);
 if(!argp) return(0x00);

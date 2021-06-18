@@ -13,7 +13,6 @@ Refer at fn. cals_refer_events_internal.
 
 signed(__cdecl cals_refer_annual_events_internal(signed short(arg),cals_event_t(*cache),cals_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto struct tm *tp;
 auto time_t t;
 auto signed i,r;
@@ -23,7 +22,6 @@ auto signed short hr,mn;
 auto signed short day;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 

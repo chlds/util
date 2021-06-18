@@ -16,8 +16,8 @@ Refer at util/lib/obj/src/cli_parse.c
 
 signed(__cdecl cli_eq_internal(signed short(term),signed(fd),CLI_TYPEWRITER(*argp))) {
 
-/* **** DATA, BSS and STACK */
-static signed(__cdecl*(fn[])) (void(*argp)) = {
+auto signed(__cdecl*f)(void(*argp));
+static signed(__cdecl*(fn[]))(void(*argp)) = {
 (signed(__cdecl*)(void(*))) (cli_eq_frame),
 (signed(__cdecl*)(void(*))) (cli_eq_display),
 (signed(__cdecl*)(void(*))) (cli_eq_eor),
@@ -51,13 +51,12 @@ auto signed short flag;
 auto signed short cr;
 auto signed char c;
 
-/* **** CODE/TEXT */
 if(term) return(0x00);
 if(!argp) return(0x00);
 
-cr = (0x00);
+AND(cr,0x00);
+AND(i,0x00);
 p = (*(CLI_OFFSET+(R(base,R(roll,*argp)))));
-i = (0x00);
 
 while(0x01) {
 if(LIMIT<(i)) {
@@ -87,14 +86,15 @@ i++;
 }
 
 p = (*(CLI_OFFSET+(R(base,R(roll,*argp)))));
-i = (0x00);
+AND(i,0x00);
 
-while(*(eq+(i))) {
-r = cmpr_partially(&l,p,*(eq+(i)));
+while(*(i+(eq))) {
+r = cmpr_partially(&l,p,*(i+(eq)));
 if(!l) {
-r = (*(fn+(i))) (argp);
+f = (*(i+(fn)));
+r = f(argp);
 if(!r) {
-printf("%s%d%s\n","<< Error at fn. (*(fn+(",i,"))) ()");
+printf("%s%d%s \n","<< Error at fn. (*(",i,"+(fn)))()");
 return(0x00);
 }}
 i++;
