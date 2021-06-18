@@ -7,14 +7,13 @@ Currently under construction
 //*/
 
 
-# define C_CODE_STDS
 # define CALEND
 # define CAR
+# include <stdio.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cals_entry(signed char(**argv),cals_event_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto signed short *w;
 auto signed char *b;
 auto time_t t;
@@ -22,7 +21,6 @@ auto signed i,r;
 auto signed short mo;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!argv) return(0x00);
 if(!argp) return(0x00);
 
@@ -67,10 +65,10 @@ flag++;
 }}
 
 // after storing at file event.csv in directory ~/.cals/.
-if(R(b,*argp)) free(R(b,*argp));
+if(R(b,*argp)) rl(R(b,*argp));
 R(b,*argp) = (0x00);
 
-if(b) free(b);
+if(b) rl(b);
 b = (0x00);
 
 if(flag) return(0x00);

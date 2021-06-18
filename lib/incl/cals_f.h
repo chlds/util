@@ -93,6 +93,7 @@ signed(__cdecl cals_retrieve_week1(signed short(day_thefirst),signed short(month
 
 signed(__cdecl cals_sched(signed long long/* time_t */(arg),cals_event_t(*argp)));
 
+signed(__cdecl cals_reset_event(signed char(*content),cals_event_t(*argp)));
 signed(__cdecl cals_init_event(cals_event_t(*argp)));
 signed(__cdecl cals_init_roll(cals_roll_t(*argp)));
 signed(__cdecl cals_init(cals_t(*argp)));
