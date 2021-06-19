@@ -21,29 +21,18 @@ auto cli_virtual_terminal_t vt;
 
 if(!argp) return(0x00);
 
-r = cli_init_virtual_terminal_beta(0x00,&vt);
-if(!r) {
+if(!(cli_init_virtual_terminal_beta(0x00,&vt))) {
 printf("%s \n","<< Error at fn. cli_init_virtual_terminal_beta()");
 return(0x00);
 }
 
-AND(flag,0x00);
 r = cals_opt(arg,argp);
-if(!r) {
-printf("%s \n","<< Error at fn. cals_opt()");
-flag++;
-// return(0x00);
-}
+if(!r) printf("%s \n","<< Error at fn. cals_opt()");
 
-i = (r);
-
-r = cli_init_virtual_terminal_beta(0x01,&vt);
-if(!r) {
+if(!(cli_init_virtual_terminal_beta(0x01,&vt))) {
 printf("%s \n","<< Error at fn. cli_init_virtual_terminal_beta()");
 return(0x00);
 }
 
-if(flag) return(0x00);
-
-return(i);
+return(r);
 }
