@@ -36,7 +36,7 @@ tp = localtime(&t);
 *(CALS_MO+(R(date,*argp))) = (R(tm_mon,*tp));
 *(CALS_DI+(R(date,*argp))) = (R(tm_mday,*tp));
 OR(R(flag,*argp),CALS_DATE_TODAY);
-OR(R(flag,*argp),CALS_TIME_ALLDAY);
+// OR(R(flag,*argp),CALS_TIME_ALLDAY);
 
 b = (R(b,*argp));
 embed(0x00,b);
