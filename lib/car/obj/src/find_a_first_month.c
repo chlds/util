@@ -7,42 +7,31 @@ Refer at <corecrt_wtime.h>
 */
 
 
+# define CALEND
 # define CAR
-
-# include <time.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl find_a_first_month(signed short(mon),time_t(*argp),time_t(arg))) {
-
-/* **** DATA, BSS and STACK */
-auto signed short DECEMBER = (0x0B);
-auto signed short JANUARY = (0x00);
-auto signed MONTH = (0x0C);
+signed(__cdecl find_a_first_month(signed short(mon),time_t(*di),time_t(si))) {
 
 auto struct tm *tp;
 auto time_t t;
-auto signed curr_m;
-auto signed d,h;
+auto signed curr_mo;
 auto signed i,r;
 auto signed short flag;
 
-/* **** CODE/TEXT */
-if(!argp) return(0x00);
-if(arg<(0x00)) return(0x00);
+if(!di) return(0x00);
+if(si<(0x00)) return(0x00);
 if(mon<(JANUARY)) mon = (JANUARY);
 if(DECEMBER<(mon)) mon = (JANUARY);
 
-*argp = (0x00);
-
-t = (arg);
+*di = (0x00);
+t = (si);
 tp = localtime(&t);
 if(!tp) return(0x00);
 
-flag = (0x00);
-curr_m = (R(tm_mon,*tp));
-if(!(DECEMBER^(curr_m))) OR(flag,FIRST_B);
+AND(flag,0x00);
+curr_mo = (R(tm_mon,*tp));
+if(!(mon^(curr_mo))) OR(flag,0x01);
 
-r = find_a_first_month_internal(flag,mon,curr_m,argp,arg);
-
-return(r);
+return(find_a_first_month_internal(flag,mon,di,si));
 }

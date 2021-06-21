@@ -11,12 +11,7 @@ Refer at <corecrt_wtime.h>
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl find_a_first_week(signed short(wk),time_t(*argp),time_t(arg))) {
-
-/* **** DATA, BSS and STACK */
-auto signed short SATURDAY = (0x06);
-auto signed short SUNDAY = (0x00);
-auto signed WEEK = (0x07);
+signed(__cdecl find_a_first_week(signed short(wk),time_t(*di),time_t(si))) {
 
 auto struct tm *tp;
 auto time_t t;
@@ -24,21 +19,17 @@ auto signed i,r;
 auto signed short curr_mo;
 auto signed short flag;
 
-/* **** CODE/TEXT */
-if(!argp) return(0x00);
-if(arg<(0x00)) return(0x00);
+if(!di) return(0x00);
+if(si<(0x00)) return(0x00);
 if(wk<(SUNDAY)) wk = (SUNDAY);
 if(SATURDAY<(wk)) wk = (SUNDAY);
 
-*argp = (0x00);
-
-t = (arg);
+*di = (0x00);
+t = (si);
 tp = localtime(&t);
 if(!tp) return(0x00);
 
 curr_mo = (R(tm_mon,*tp));
 
-r = find_a_first_week_internal(wk,curr_mo,argp,arg);
-
-return(r);
+return(find_a_first_week_internal(wk,curr_mo,di,si));
 }
