@@ -67,7 +67,7 @@ signed(__cdecl ct2words_r(signed char(***vi),signed(*di),signed char(*si)));
 signed(__cdecl ct2words(signed char(***vi),signed(*di),signed char(*si)));
 // count to the words out of characters.
 
-signed(__cdecl ct_weeks_internal(signed(sec_in_week),signed long long/* time_t */(sec)));
+signed(__cdecl ct_weeks_internal(signed long long/* time_t */(sec)));
 signed(__cdecl ct_weeks(signed long long/* time_t */(criterion),signed long long/* time_t */(sec)));
 // count calendar weeks
 

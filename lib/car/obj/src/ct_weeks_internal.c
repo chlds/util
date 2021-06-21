@@ -4,18 +4,21 @@ Count weeks.
 */
 
 
+# define CALEND
 # define CAR
-
 # include "../../../incl/config.h"
-# include <time.h>
 
-signed(__cdecl ct_weeks_internal(signed(sec_in_week),time_t(sec))) {
+signed(__cdecl ct_weeks_internal(time_t(sec))) {
 
-/* **** CODE/TEXT */
-if(sec_in_week<(0x00)) return(0x00);
+auto time_t t;
 
-sec = (-sec_in_week+(sec));
-if(sec<(0x00)) return(0x01);
+if(sec<(0x00)) return(0x00);
 
-return(0x01+(ct_weeks_internal(sec_in_week,sec)));
+t = (60);
+t = (60*(t));
+t = (24*(t));
+t = (7*(t));
+sec = (sec+(0x01+(~t)));
+
+return(0x01+(ct_weeks_internal(sec)));
 }
