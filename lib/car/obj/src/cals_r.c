@@ -10,19 +10,17 @@ Go for months
 
 signed(__cdecl cals_r(signed(arg),cals_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto time_t t;
 auto signed i,r;
 auto signed short mo;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 if(!arg) return(0x00);
 
 if(arg<(0x00)) arg = (0x01+(~arg));
 
-r = find_a_first_week(*(THEFIRST+(R(day,*argp))),CLI_BASE+(R(t,*argp)),*(CLI_BASE+(R(t,*argp))));
+r = cv_wk_mo(*(THEFIRST+(R(day,*argp))),CLI_BASE+(R(t,*argp)),*(CLI_BASE+(R(t,*argp))));
 if(!r) return(0x00);
 
 t = (*(CLI_BASE+(R(t,*argp))));

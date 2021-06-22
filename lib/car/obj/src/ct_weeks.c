@@ -26,5 +26,5 @@ t = (7*(t));
 t = (53*(t));
 if(t<(sec)) return(0x00);
 
-return(ct_weeks_internal(sec));
+return(ct_weeks_r(sec));
 }

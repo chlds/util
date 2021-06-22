@@ -33,7 +33,7 @@ di = (r+(*(THEFIRST+(R(day,*argp)))));
 if(di<(0x00)) di = (r+(DAYS));
 *(THELAST+(R(day,*argp))) = (di);
 
-r = cals_retrieve_week1(*(THEFIRST+(R(day,*argp))),*(THEFIRST+(R(month,*argp))),&t,R(t,R(today,*argp)));
+r = cv_wk_yr(*(THEFIRST+(R(day,*argp))),*(THEFIRST+(R(month,*argp))),&t,R(t,R(today,*argp)));
 if(!r) return(0x00);
 
 r = (CALS_OBJS);

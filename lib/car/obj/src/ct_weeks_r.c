@@ -8,7 +8,7 @@ Count weeks.
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl ct_weeks_internal(time_t(sec))) {
+signed(__cdecl ct_weeks_r(time_t(sec))) {
 
 auto time_t t;
 
@@ -20,5 +20,5 @@ t = (24*(t));
 t = (7*(t));
 sec = (sec+(0x01+(~t)));
 
-return(0x01+(ct_weeks_internal(sec)));
+return(0x01+(ct_weeks_r(sec)));
 }

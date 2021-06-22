@@ -126,9 +126,9 @@ curr_sm = (R(tm_sec,*tp));
 //*/
 
 /* check for calendar week 1
-r = cals_retrieve_week1(*(THEFIRST+(R(day,cs))),*(THEFIRST+(R(month,cs))),&t,curr_t);
+r = cv_wk_yr(*(THEFIRST+(R(day,cs))),*(THEFIRST+(R(month,cs))),&t,curr_t);
 if(!r) {
-printf("%s \n","<< Error at fn. cals_retrieve_week1()");
+printf("%s \n","<< Error at fn. cv_wk_yr()");
 return(0x00);
 }
 *(CLI_BASE+(R(wk1,cs))) = (t);

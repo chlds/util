@@ -1,6 +1,6 @@
 /* **** Notes
 
-Retrieve seconds of a first day of the first week.
+Convert into seconds of a first day of the first week.
 
 Remarks:
 Refer at <corecrt_wtime.h>
@@ -11,7 +11,7 @@ Refer at <corecrt_wtime.h>
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl find_a_first_week(signed short(wk),time_t(*di),time_t(si))) {
+signed(__cdecl cv_wk_mo(signed short(wk),time_t(*di),time_t(si))) {
 
 auto struct tm *tp;
 auto time_t t;
@@ -31,5 +31,5 @@ if(!tp) return(0x00);
 
 curr_mo = (R(tm_mon,*tp));
 
-return(find_a_first_week_internal(wk,curr_mo,di,si));
+return(cv_wk_mo_r(wk,curr_mo,di,si));
 }

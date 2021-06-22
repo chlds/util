@@ -1,6 +1,6 @@
 /* **** Notes
 
-Initialise
+Convert into second minutes for Calendar Week 1.
 //*/
 
 
@@ -9,14 +9,12 @@ Initialise
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_retrieve_week1(signed short(day_thefirst),signed short(month_thefirst),time_t(*di),time_t(si))) {
+signed(__cdecl cv_wk_yr(signed short(day_thefirst),signed short(month_thefirst),time_t(*di),time_t(si))) {
 
-/* **** DATA, BSS and STACK */
 auto struct tm *tp;
 auto time_t t;
 auto signed h,d,r;
 
-/* **** CODE/TEXT */
 if(day_thefirst<(SUNDAY)) return(0x00);
 if(SATURDAY<(day_thefirst)) return(0x00);
 if(month_thefirst<(JANUARY)) return(0x00);
@@ -31,15 +29,15 @@ d = (24*(h));
 *di = (0x00);
 t = (si);
 
-r = find_a_first_month(month_thefirst,&t,t);
+r = cv_mo_yr(month_thefirst,&t,t);
 if(!r) {
-printf("%s \n","<< Error at fn. find_a_first_month()");
+printf("%s \n","<< Error at fn. cv_mo_yr()");
 return(0x00);
 }
 
-r = find_a_first_week(day_thefirst,&t,t);
+r = cv_wk_mo(day_thefirst,&t,t);
 if(!r) {
-printf("%s \n","<< Error at fn. find_a_first_week()");
+printf("%s \n","<< Error at fn. cv_wk_mo()");
 return(0x00);
 }
 
