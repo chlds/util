@@ -10,11 +10,9 @@ Copy
 
 signed(__cdecl cals_copy_events(cals_event_t(*di),cals_event_t(*si))) {
 
-/* **** DATA, BSS and STACK */
-auto cals_event_t *event;
+auto cals_event_t *ev;
 auto signed i,r;
 
-/* **** CODE/TEXT */
 if(!di) return(0x00);
 if(!si) return(0x00);
 

@@ -10,11 +10,9 @@ Cache
 
 signed(__cdecl cals_cache_events(cals_event_t(*cache),cals_roll_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
-auto cals_event_t *event;
+auto cals_event_t *ev;
 auto signed i,r;
 
-/* **** CODE/TEXT */
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 

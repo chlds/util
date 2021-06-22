@@ -35,6 +35,7 @@ tp = localtime(&t);
 *(CALS_YR+(R(date,*argp))) = (1900+(R(tm_year,*tp)));
 *(CALS_MO+(R(date,*argp))) = (R(tm_mon,*tp));
 *(CALS_DI+(R(date,*argp))) = (R(tm_mday,*tp));
+*(CALS_WK+(R(date,*argp))) = (R(tm_wday,*tp));
 OR(R(flag,*argp),CALS_DATE_TODAY);
 // OR(R(flag,*argp),CALS_TIME_ALLDAY);
 

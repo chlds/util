@@ -10,17 +10,14 @@ Count
 
 signed(__cdecl cals_count_events(cals_roll_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
-auto cals_event_t *event;
+auto cals_event_t *ev;
 auto signed i,r;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 if(!(CALS_INIT&(R(flag,*argp)))) return(0x00);
 
-event = (*(CLI_LEAD+(R(event,*argp))));
-r = cals_count_events_r(event);
+ev = (*(CLI_LEAD+(R(event,*argp))));
 
-return(r);
+return(cals_count_events_r(ev));
 }

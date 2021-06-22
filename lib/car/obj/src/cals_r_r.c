@@ -11,8 +11,6 @@ Go for months
 
 signed(__cdecl cals_r_r(signed short(mo),signed(arg),cals_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
-auto signed WEEK = (0x07);
 auto signed short secondary = (0x01);
 auto signed short primary = (0x00);
 auto struct tm *tp;
@@ -32,7 +30,6 @@ auto signed short curr_di;
 auto signed short curr_wk;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 if(!arg) return(0x00);
 
@@ -54,7 +51,7 @@ curr_di = (R(tm_mday,*tp));
 curr_t = (t);
 
 if(!(curr_mo^(*(THELAST+(R(month,*argp)))))) {
-t = (curr_t+(di*(-0x01+(WEEK))));
+t = (curr_t+(di*(-0x01+(DAYS))));
 tp = localtime(&t);
 if(!tp) return(0x00);
 curr_mo = (R(tm_mon,*tp));
@@ -100,7 +97,7 @@ if(!tp) return(0x00);
 
 printf("\t%s %d - ",*(MONTH+(R(tm_mon,*tp))),R(tm_mday,*tp));
 
-ADD(curr_t,di*(-0x01+(WEEK)));
+ADD(curr_t,di*(-0x01+(DAYS)));
 *(CLI_INDEX+(R(t,*argp))) = (curr_t);
 
 tp = localtime(&curr_t);

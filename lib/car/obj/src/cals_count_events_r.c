@@ -10,7 +10,6 @@ Count
 
 signed(__cdecl cals_count_events_r(cals_event_t(*argp))) {
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 argp = (R(s,*argp));

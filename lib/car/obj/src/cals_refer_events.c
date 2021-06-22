@@ -10,8 +10,7 @@ Refer
 
 signed(__cdecl cals_refer_events(signed short(flag),cals_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
-auto cals_event_t *event;
+auto cals_event_t *ev;
 auto struct tm *tp;
 
 auto cals_roll_t roll;
@@ -22,7 +21,6 @@ auto signed short wk;
 auto signed short hr,mn;
 auto signed short day;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 r = cals_init_roll(&roll);
@@ -32,11 +30,11 @@ return(0x00);
 }
 
 // for today
-event = (&(R(today,*argp)));
-r = cals_refer_events_internal(flag,event,argp);
+ev = (&(R(today,*argp)));
+r = cals_refer_events_internal(flag,ev,argp);
 // if(!r) return(0x00);
 if(r) {
-r = cals_cache_events(event,&roll);
+r = cals_cache_events(ev,&roll);
 if(!r) {
 printf("%s \n","<< Error at fn. cals_cache_events()");
 return(0x00);
