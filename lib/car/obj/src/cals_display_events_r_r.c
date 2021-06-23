@@ -16,8 +16,9 @@ auto signed char *b;
 auto time_t t;
 auto signed i,r;
 auto signed short yr,mo,di;
+auto signed short cols;
 auto signed short flag;
-auto signed short cols = (72);
+auto rect_t rect;
 auto signed delay = (0x00);
 auto signed char sym[] = {
 ('\n'),
@@ -58,8 +59,12 @@ if(CALS_TIME_ALLDAY&(R(flag,*argp))) printf("[%s] ","All-day");
 else printf(b,*(CALS_HR+(R(time,*argp))),*(CALS_MN+(R(time,*argp))));
 
 // column of the right
-// r = cli_outs(R(b,*argp));
-r = cals_output(delay,cols,sym,R(b,*argp));
+b = (R(b,*argp));
+// r = cli_outs(b);
+if(!(rect_beta(CLI_IN,CLI_RULE,&rect))) return(0x00);
+cols = (*(CLI_BASE+(R(right,rect))));
+cols = (cols+(0x01+(~(0x03*(0x08)))));
+r = cals_output(delay,cols,sym,b);
 if(!r) return(0x00);
 if(!(cli_es(CTRL_K))) return(0x00);
 if(DBG) {
