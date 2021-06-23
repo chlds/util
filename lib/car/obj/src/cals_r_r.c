@@ -20,9 +20,7 @@ auto rect_t rect;
 auto time_t curr_wk1;
 auto time_t curr_t;
 auto time_t t;
-auto time_t hr;
 auto time_t di;
-auto time_t wk;
 auto signed i,r;
 auto signed short curr_yr;
 auto signed short curr_mo;
@@ -33,15 +31,13 @@ auto signed short flag;
 if(!argp) return(0x00);
 if(!arg) return(0x00);
 
-flag = (0x00);
-
-hr = (60*(60));
-di = (24*(hr));
-wk = (7*(di));
+AND(flag,0x00);
+t = (60);
+t = (60*(t));
+di = (24*(t));
 
 t = (*(CLI_INDEX+(R(t,*argp))));
 *(CLI_OFFSET+(R(t,*argp))) = (t);
-
 tp = localtime(&t);
 if(!tp) return(0x00);
 
@@ -49,7 +45,6 @@ curr_yr = (1900+(R(tm_year,*tp)));
 curr_mo = (R(tm_mon,*tp));
 curr_di = (R(tm_mday,*tp));
 curr_t = (t);
-
 if(!(curr_mo^(*(THELAST+(R(month,*argp)))))) {
 t = (curr_t+(di*(-0x01+(DAYS))));
 tp = localtime(&t);
@@ -65,7 +60,6 @@ tp = localtime(&curr_t);
 if(!tp) return(0x00);
 
 curr_mo = (R(tm_mon,*tp));
-
 if(curr_mo^(mo)) {
 if(!(--arg)) return(0x00);
 mo = (curr_mo);
@@ -102,10 +96,9 @@ ADD(curr_t,di*(-0x01+(DAYS)));
 
 tp = localtime(&curr_t);
 if(!tp) return(0x00);
+if(curr_mo^(R(tm_mon,*tp))) printf("%s ",*(MONTH+(R(tm_mon,*tp))));
 
-if(curr_mo^(R(tm_mon,*tp))) printf("%s %d ",*(MONTH+(R(tm_mon,*tp))),R(tm_mday,*tp));
-else printf("%d ",R(tm_mday,*tp));
-
+printf("%d ",R(tm_mday,*tp));
 if(!(CALS_NONLOADING&(R(flag,*argp)))) {
 if(CALS_BOUND&(R(flag,R(roll,*argp)))) {
 r = cals_count_scheduled_events(&i,*(CLI_OFFSET+(R(t,*argp))),&(R(roll,*argp)));
