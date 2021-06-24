@@ -209,7 +209,6 @@ auto KNOT *cache,*lead,*base;
 
 auto signed i,l,r;
 auto signed short flag;
-auto signed short urgent;
 auto signed char c;
 
 /* **** CODE/TEXT */
@@ -472,53 +471,37 @@ printf("%s%zd \n","Now this is: ",t);
 //*/
 
 /* A loop */
-AND(urgent,0x00);
 AND(flag,0x00);
 while(t<(deadline)) {
 if(R(Announcements,*argp)) break;
-if(urgent) break;
 if(!(R(cmdl_time_Toggle,*argp))) break;
-if(flag) break;
-
+if(flag) sleep_b(3000);
 /* CPU idling */
 Sleep(DELAY);
 time(&t);
 zzz = (-t+(deadline));
 // One second: Get and release a handle of the common device context to transfer a bit block to an off-screen buffer.
-*(dc+(CACHE)) = (void(*)) GetDC((void(*)) *(window+(ACTIVE)));
-if(!(*(dc+(CACHE)))) {
-printf("%s \n","<< Error at GetDC()");
-// OR(flag,0x01);
-break;
-}
-r = BitBlt(*(dc+(DI)),0x00,0x00,*(region+(X)),*(region+(Y)),*(dc+(CACHE)),0x00,0x00,SRCCOPY);
+AND(flag,0x00);
+r = transcribe_to_beta(*(region+(X)),*(region+(Y)),*(dc+(DI)),*(window+(ACTIVE)));
 if(!r) {
-r = GetLastError();
-printf("%s%d%s%Xh \n","<< Error at fn. BitBlt() with error no. ",r," or ",r);
-urgent++;
+printf("%s \n","<< Error at fn. transcribe_to_beta()");
+OR(flag,0x01);
 }
-r = ReleaseDC(*(window+(ACTIVE)),*(dc+(CACHE)));
-if(!r) {
-printf("%s \n","<< Error at ReleaseDC()");
-// OR(flag,0x01);
-break;
-}
-if(urgent) break;
+if(!flag) {
 // 3/4. transparency
 //* Fill the region on a back-screen buffer
 r = FillRgn(*(dc+(SI)),(void(*)) *(obj+(REGION)),(void(*)) lace);
 if(!r) {
 printf("%s \n","<< Error at FillRgn()");
-return(0x00);
+break;
 }
 //*/
 //* Map a loaded bitmap image to a destination back-screen buffer out of a source back-screen (e.g., off-screen) buffer.
 r = BitBlt(*(dc+(DI)),0x00,0x00,*(region+(X)),*(region+(Y)),*(dc+(SI)),0x00,0x00,SRCAND);
 if(!r) {
 r = GetLastError();
-printf("%s%d%s%Xh \n","<< Error at fn. BitBlt() with error no. ",r," or ",r);
-urgent++;
-break;
+printf("%s %d %s %Xh \n","<< Error at fn. BitBlt() with error no.",r,"or",r);
+OR(flag,0x01);
 }
 //*/
 GetLocalTime(&st);
@@ -549,24 +532,12 @@ if(!r) printf("%s \n","<< Error at fn. TextOut() the second");
 old_textcolor = SetTextColor(*(dc+(DI)),old_textcolor);
 if(!(old_textcolor^(CLR_INVALID))) printf("%s \n","<< Error at SetTextColor() the second to restore");
 // Two seconds: Get and release a handle of the common device context to transfer a bit block to the primary screen.
-*(dc+(CACHE)) = (void(*)) GetDC((void(*)) *(window+(ACTIVE)));
-if(!(*(dc+(CACHE)))) {
-printf("%s \n","<< Error at GetDC()");
-// OR(flag,0x01);
-break;
-}
-r = BitBlt(*(dc+(CACHE)),0x00,0x00,*(region+(X)),*(region+(Y)),*(dc+(DI)),0x00,0x00,SRCCOPY);
+if(!flag) {
+r = transcribe_beta(*(region+(X)),*(region+(Y)),*(window+(ACTIVE)),*(dc+(DI)));
 if(!r) {
-r = GetLastError();
-printf("%s%d%s%Xh \n","<< Error at fn. BitBlt() with error no. ",r," or ",r);
-urgent++;
-}
-r = ReleaseDC(*(window+(ACTIVE)),*(dc+(CACHE)));
-if(!r) {
-printf("%s \n","<< Error at ReleaseDC()");
-// OR(flag,0x01);
-break;
-}}
+printf("%s \n","<< Error at fn. transcribe_beta()");
+OR(flag,0x01);
+}}}}
 
 
 /* **** **** De-selecting after a loop */
