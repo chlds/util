@@ -10,18 +10,16 @@ Unmap out of the RAM
 
 signed(__cdecl cals_remove_cached_events(cals_roll_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
-auto cals_event_t *event;
+auto cals_event_t *ev;
 auto signed i,r;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 r = cals_remove_cached_events_r(argp);
 
-event = (*(CLI_LEAD+(R(event,*argp))));
+ev = (*(CLI_LEAD+(R(event,*argp))));
 i = (CALS_OBJS);
-while(i) *(--i+(R(event,*argp))) = event;
+while(i) *(--i+(R(event,*argp))) = ev;
 
 return(r);
 }

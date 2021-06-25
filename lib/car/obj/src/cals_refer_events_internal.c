@@ -13,9 +13,7 @@ signed(__cdecl cals_refer_events_internal(signed short(arg),cals_event_t(*cache)
 auto struct tm *tp;
 auto time_t t;
 auto signed i,r;
-auto signed short mo,di,yr;
-auto signed short wk;
-auto signed short hr,mn;
+auto signed short di,mo,yr;
 auto signed short day;
 auto signed short flag;
 
@@ -33,9 +31,6 @@ if(DBG) printf("[t/offset/index:%lld/%lld/%lld] ",t,*(CLI_OFFSET+(R(t,*argp))),*
 yr = (1900+(R(tm_year,*tp)));
 mo = (R(tm_mon,*tp));
 di = (R(tm_mday,*tp));
-wk = (R(tm_wday,*tp));
-hr = (R(tm_hour,*tp));
-mn = (R(tm_min,*tp));
 
 t = (*(CLI_OFFSET+(R(t,*argp))));
 tp = localtime(&t);
@@ -45,8 +40,9 @@ if(!(mo^(R(tm_mon,*tp)))) {
 day = (R(tm_mday,*tp));
 //*
 if(!arg) {
-if(di<(day)) return(0x01);
-else return(0x00);
+AND(r,0x00);
+if(di<(day)) OR(r,0x01);
+return(r);
 }
 //*/
 if(!(day^(di))) i++;
