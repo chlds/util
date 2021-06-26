@@ -10,12 +10,10 @@ Check upcoming events.
 
 signed(__cdecl cals_check_upcoming_events_r(signed(n),time_t(criterion),time_t(dif),cals_roll_t(*cache),cals_roll_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto cals_event_t *ev;
 auto signed i,r;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 

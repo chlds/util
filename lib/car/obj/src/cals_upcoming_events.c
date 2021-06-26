@@ -10,13 +10,11 @@ Display upcoming events or..
 
 signed(__cdecl cals_upcoming_events(signed(days),time_t(criterion),cals_roll_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto cals_event_t *ev;
 auto cals_roll_t roll;
 auto time_t t;
 auto signed i,r;
 
-/* **** CODE/TEXT */
 if(days<(0x00)) return(0x00);
 if(!days) return(0x00);
 if(!argp) return(0x00);

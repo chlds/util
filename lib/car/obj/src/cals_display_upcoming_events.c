@@ -48,7 +48,5 @@ printf("\n");
 i = (day);
 printf(" %s \n",*(message+(--i)));
 
-r = cals_display_upcoming_events_r(criterion,cache,argp);
-
-return(r);
+return(cals_display_upcoming_events_r(criterion,cache));
 }

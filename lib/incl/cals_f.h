@@ -35,7 +35,7 @@ signed(__cdecl cals_parse(signed char(*content),cals_event_t(*argp)));
 signed(__cdecl cals_entry(signed char(**argv),cals_event_t(*argp)));
 // store an event at file event.csv in directory ~/.cals/.
 
-signed(__cdecl cals_display_upcoming_events_r(time_t(criterion),cals_event_t(*cache),cals_roll_t(*argp)));
+signed(__cdecl cals_display_upcoming_events_r(time_t(criterion),cals_event_t(*argp)));
 signed(__cdecl cals_display_upcoming_events(signed(day),time_t(criterion),cals_event_t(*cache),cals_roll_t(*argp)));
 signed(__cdecl cals_upcoming_events(signed(days),time_t(criterion),cals_roll_t(*argp)));
 // display upcoming events.
