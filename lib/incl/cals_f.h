@@ -45,8 +45,9 @@ signed(__cdecl cals_check_upcoming_events(signed(n),time_t(criterion),cals_roll_
 // check upcoming events.
 
 signed(__cdecl cals_cache_upcoming_events(time_t(criterion),cals_event_t(**cache),cals_roll_t(*argp)));
-signed(__cdecl cals_cache_day_events_r(signed short(flag),cals_event_t(*criterion),cals_event_t(*cache),cals_roll_t(*argp)));
+signed(__cdecl cals_cache_day_events_r(signed short(flag),time_t(criterion),cals_event_t(*cache),cals_roll_t(*argp)));
 signed(__cdecl cals_cache_day_events(time_t(criterion),cals_roll_t(*cache),cals_roll_t(*argp)));
+signed(__cdecl cals_event_in_the_day(time_t(arg),cals_event_t(*argp)));
 
 signed(__cdecl cals_remove_cached_events_r(cals_roll_t(*argp)));
 signed(__cdecl cals_remove_cached_events(cals_roll_t(*argp)));

@@ -8,21 +8,14 @@ Cache events.
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_cache_day_events_r(signed short(flag),cals_event_t(*criterion),cals_event_t(*cache),cals_roll_t(*argp))) {
+signed(__cdecl cals_cache_day_events_r(signed short(flag),time_t(criterion),cals_event_t(*cache),cals_roll_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
-auto cals_event_t *event;
+auto cals_event_t *ev;
 auto struct tm *tp;
 
-// auto cals_roll_t roll;
 auto time_t t;
 auto signed i,r;
-auto signed short mo,di,yr;
-auto signed short wk;
-auto signed short hr,mn;
 
-/* **** CODE/TEXT */
-if(!criterion) return(0x00);
 if(!argp) return(0x00);
 
 if(!cache) OR(flag,0x02);
@@ -37,20 +30,14 @@ AND(R(flag,*argp),flag);
 return(0x00);
 }
 
-yr = (*(CALS_YR+(R(date,*criterion))));
-mo = (*(CALS_MO+(R(date,*criterion))));
-di = (*(CALS_DI+(R(date,*criterion))));
-
 AND(flag,0x00);
 if(CALS_INVALID&(R(flag,*cache))) flag++;
-else {
-if(!(yr^(*(CALS_YR+(R(date,*cache)))))) {
-if(!(mo^(*(CALS_MO+(R(date,*cache)))))) {
-if(!(di^(*(CALS_DI+(R(date,*cache)))))) {
+if(!flag) {
+if(cals_event_in_the_day(criterion,cache)) {
 OR(flag,0x01);
 r = cals_cache_events(cache,argp);
 if(!r) return(0x00);
-}}}}
+}}
 
 cache = (R(s,*cache));
 
