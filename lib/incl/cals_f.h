@@ -1,5 +1,9 @@
 /* cals_f.h */
 
+signed(__cdecl cals_out_e(cals_event_t(*argp)));
+signed(__cdecl cals_out_t(time_t(arg)));
+// to debug
+
 signed(__cdecl ct_weeks_r(time_t(sec)));
 signed(__cdecl ct_weeks(time_t(criterion),time_t(sec)));
 // count calendar weeks
