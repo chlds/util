@@ -23,9 +23,9 @@ if(!sym) return(0x00);
 if(cols<(0x01)) cols = (COLS);
 
 b = (0x00);
-r = read2_b(&b,sym,fd);
+r = read2_f(&b,sym,fd);
 if(!b) {
-printf("%s \n","<< Error at fn. read2_b()");
+printf("%s \n","<< Error at fn. read2_f()");
 return(0x00);
 }
 if(!r) {

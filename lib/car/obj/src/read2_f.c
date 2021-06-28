@@ -4,7 +4,6 @@ Read bytes to the delimiter.
 
 Remarks:
 Call fn. rl later.
-Refer at fn. rm_crlf to replace line breaks with the null character.
 //*/
 
 
@@ -12,7 +11,7 @@ Refer at fn. rm_crlf to replace line breaks with the null character.
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl read_b(signed char(**di),signed char(delim),signed(fd))) {
+signed(__cdecl read2_f(signed char(**di),signed char(*delim),signed(fd))) {
 
 auto signed char *b;
 auto signed i,r;
@@ -22,7 +21,7 @@ if(!di) return(0x00);
 if(*di) return(0x00);
 
 flag = (~0x00);
-r = read_b_r(di,&flag,delim,fd);
+r = read2_f_r(di,&flag,delim,fd);
 
 if(flag) {
 embed(0x00,*di);

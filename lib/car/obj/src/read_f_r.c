@@ -8,7 +8,7 @@ Read bytes to the delimiter.
 # include <io.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl read2_b_r(signed char(**di),signed short(*flag),signed char(*delim),signed(fd))) {
+signed(__cdecl read_f_r(signed char(**di),signed short(*flag),signed char(delim),signed(fd))) {
 
 auto signed char *b;
 auto signed i,r;
@@ -36,15 +36,13 @@ r = _read(fd,b,sizeof(*b));
 if(r<(0x00)) return(0x00);
 
 *(r+(b)) = (0x00);
+if(!(delim^(*b))) AND(*flag,0x00);
 if(!r) {
 AND(*flag,0x00);
 return(0x00);
 }
 
-r = ord(delim,*b);
-if(r<(ct(delim))) AND(*flag,0x00);
-
 b = (0x00);
 
-return(0x01+(read2_b_r(di,flag,delim,fd)));
+return(0x01+(read_f_r(di,flag,delim,fd)));
 }

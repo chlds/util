@@ -37,9 +37,9 @@ return(0x00);
 }
 
 b = (0x00);
-r = read_b(&b,delim,fd);
+r = read_f(&b,delim,fd);
 if(!b) {
-printf("%s \n","<< Error at fn. read_b()");
+printf("%s \n","<< Error at fn. read_f()");
 return(0x00);
 }
 
