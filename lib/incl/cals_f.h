@@ -80,8 +80,10 @@ signed(__cdecl cals_order_events(cals_roll_t(*argp)));
 signed(__cdecl cals_update_time_for_periodic_events(cals_event_t(*cache),cals_t(*argp)));
 signed(__cdecl cals_cache_periodic_events_r(signed short(n),cals_event_t(*cache),cals_roll_t(*cached),cals_t(*argp)));
 signed(__cdecl cals_cache_periodic_events(signed short(n),cals_event_t(*cache),cals_roll_t(*cached),cals_t(*argp)));
-signed(__cdecl cals_refer_annual_events_internal(signed short(arg),cals_event_t(*cache),cals_t(*argp)));
-signed(__cdecl cals_refer_annual_events(signed short(flag),cals_event_t(*cache),cals_roll_t(*cached),cals_t(*argp)));
+signed(__cdecl cals_refer_daily_events(signed short(arg),cals_event_t(*cache),cals_t(*argp)));
+signed(__cdecl cals_refer_weekly_events(signed short(arg),cals_event_t(*cache),cals_t(*argp)));
+signed(__cdecl cals_refer_monthly_events(signed short(arg),cals_event_t(*cache),cals_t(*argp)));
+signed(__cdecl cals_refer_annual_events(signed short(arg),cals_event_t(*cache),cals_t(*argp)));
 signed(__cdecl cals_refer_periodic_events(signed short(flag),cals_event_t(*cache),cals_roll_t(*cached),cals_t(*argp)));
 // for periodic events
 

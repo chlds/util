@@ -3,7 +3,7 @@
 Refer
 
 Remarks:
-Refer at fn. cals_refer_events_r_r.
+Refer at fn. cals_refer_events_internal.
 //*/
 
 
@@ -11,22 +11,63 @@ Refer at fn. cals_refer_events_r_r.
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_refer_annual_events(signed short(flag),cals_event_t(*cache),cals_roll_t(*cached),cals_t(*argp))) {
+signed(__cdecl cals_refer_annual_events(signed short(arg),cals_event_t(*cache),cals_t(*argp))) {
 
+auto struct tm *tp;
+auto time_t t;
 auto signed i,r;
+auto signed short wk,di,mo,yr;
+auto signed short day;
+auto signed short flag;
 
 if(!cache) return(0x00);
-if(!cached) return(0x00);
 if(!argp) return(0x00);
 
-r = cals_refer_annual_events_internal(flag,cache,argp);
-// if(!r) return(0x00);
-if(r) {
-r = cals_cache_periodic_events(r,cache,cached,argp);
-if(!r) {
-printf("%s \n","<< Error at fn. cals_cache_periodic_events()");
-return(0x00);
+AND(i,0x00);
+
+t = (R(t,*cache));
+tp = localtime(&t);
+if(!tp) return(0x00);
+
+if(DBG) printf("[t/offset/index:%lld/%lld/%lld] ",t,*(CLI_OFFSET+(R(t,*argp))),*(CLI_INDEX+(R(t,*argp))));
+
+yr = (1900+(R(tm_year,*tp)));
+mo = (R(tm_mon,*tp));
+di = (R(tm_mday,*tp));
+wk = (R(tm_wday,*tp));
+
+t = (*(CLI_OFFSET+(R(t,*argp))));
+tp = localtime(&t);
+if(!tp) return(0x00);
+AND(flag,0x00);
+if(!(yr^(1900+(R(tm_year,*tp))))) flag++;
+if(yr<(1900+(R(tm_year,*tp)))) flag++;
+if(flag) {
+if(!(mo^(R(tm_mon,*tp)))) {
+day = (R(tm_mday,*tp));
+//*
+if(!arg) {
+AND(r,0x00);
+if(di<(day)) OR(r,0x01);
+return(r);
+}
+//*/
+if(!(day^(di))) i++;
+if(day<(di)) i++;
 }}
 
-return(r);
+if(!i) return(0x00);
+
+t = (*(CLI_INDEX+(R(t,*argp))));
+tp = localtime(&t);
+if(!tp) return(0x00);
+day = (R(tm_mday,*tp));
+if(!(di^(day))) i++;
+if(di<(day)) i++;
+// also
+if(mo^(R(tm_mon,*tp))) i++;
+
+if(i<(0x02)) return(0x00);
+
+return(0x01);
 }

@@ -10,7 +10,6 @@ Overwrite time
 
 signed(__cdecl cals_update_time_for_periodic_events(cals_event_t(*cache),cals_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto cals_event_t *ev;
 auto struct tm *tp;
 
@@ -22,7 +21,6 @@ auto signed short hr,mn,sm;
 auto signed short dif;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 
@@ -69,6 +67,7 @@ t = (t+(dif*(24*(60*(60)))));
 if(CALS_DAILY&(R(periodic,*cache))) {
 }
 
+if(DBG) printf("[%2d:%02d:%02d] ",hr,mn,sm);
 sec = (sm+(60*(mn+(60*(hr)))));
 sec = (sec+(0x01+(~(R(tm_sec,*tp)))));
 sec = (sec+(0x01+(~(60*(R(tm_min,*tp))))));

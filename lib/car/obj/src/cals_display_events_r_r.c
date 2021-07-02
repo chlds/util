@@ -66,6 +66,13 @@ cols = (*(CLI_BASE+(R(right,rect))));
 cols = (cols+(0x01+(~(0x03*(0x08)))));
 r = cals_output(delay,cols,sym,b);
 if(!r) return(0x00);
+if(DBG) {
+printf("[");
+printf("%d-%s-%d ",*(CALS_YR+(R(date,*argp))),*(MON+(*(CALS_MO+(R(date,*argp))))),*(CALS_DI+(R(date,*argp))));
+printf("%s ",*(DAYOFTHEWK+(*(CALS_WK+(R(date,*argp))))));
+printf("%2d:%02d:%02d",*(CALS_HR+(R(time,*argp))),*(CALS_MN+(R(time,*argp))),*(CALS_SM+(R(time,*argp))));
+printf("] ");
+}
 if(!(cli_es(CTRL_K))) return(0x00);
 if(DBG) {
 t = (R(t,*argp));
