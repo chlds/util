@@ -10,7 +10,6 @@ Count periodic events scheduled for a week.
 
 signed(__cdecl cals_count_scheduled_annual_events(signed(*cache),cals_event_t(*term),cals_event_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto cals_event_t *ev;
 auto struct tm *tp;
 auto time_t t;
@@ -19,7 +18,6 @@ auto signed short year,mon,day;
 auto signed short yr,mo,di;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!cache) return(0x00);
 if(!term) return(0x00);
 if(!argp) return(0x00);
@@ -38,8 +36,17 @@ mon = (*(CALS_MO+(R(date,*term))));
 day = (*(CALS_DI+(R(date,*term))));
 
 AND(flag,0x00);
-if(!(yr^(year))) flag++;
-if(yr<(year)) flag++;
+if(!(year<(yr))) flag++;
+// if(!(yr^(year))) flag++;
+// if(yr<(year)) flag++;
+if(mon^(mo)) {
+t = (R(t,*argp));
+t = (t+(0x01+(~(6*(24*(60*(60)))))));
+tp = localtime(&t);
+if(!tp) return(0x00);
+yr = (1900+(R(tm_year,*tp)));
+if(!(year^(yr))) flag++;
+}
 if(!flag) return(0x01);
 
 // case 1.
