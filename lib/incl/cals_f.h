@@ -69,6 +69,7 @@ signed(__cdecl cals_count_scheduled_periodic_events(signed(*cache),cals_event_t(
 signed(__cdecl cals_count_scheduled_events_internal(signed(*cache),cals_event_t(*term),cals_event_t(*argp)));
 signed(__cdecl cals_count_scheduled_events_r(signed(*cache),cals_event_t(*term),cals_event_t(*argp)));
 signed(__cdecl cals_count_scheduled_events(signed(*cache),time_t(arg),cals_roll_t(*argp)));
+signed(__cdecl cals_thirty_first_day(signed short(arg)));
 // count events scheduled for a week.
 
 signed(__cdecl cals_sort_events_r_r(signed(arg),cals_roll_t(*argp)));

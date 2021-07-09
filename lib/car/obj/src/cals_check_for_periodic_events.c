@@ -27,6 +27,13 @@ if(!argp) return(0x00);
 if(!(CALS_INIT&(R(flag,*argp)))) return(0x00);
 
 b = (content);
+r = cv_ords(0x01/* from behind */,MONTH_V,&i,b);
+b = (r+(b));
+if(DBG) {
+printf("[");
+r = cli_outs(b);
+printf("] \n");
+}
 r = cmpr_part(&i,b,first);
 
 if(!i) {
