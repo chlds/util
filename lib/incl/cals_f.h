@@ -1,5 +1,8 @@
 /* cals_f.h */
 
+signed short(__cdecl day_before(signed short(arg)));
+signed short(__cdecl day_after(signed short(arg)));
+
 signed(__cdecl cals_out_e(cals_event_t(*argp)));
 signed(__cdecl cals_out_t(time_t(arg)));
 // to debug

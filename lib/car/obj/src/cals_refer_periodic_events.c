@@ -10,9 +10,6 @@ Refer
 
 
 //* Currently under construction
-signed(__cdecl cals_refer_weekly_events(signed short(flag),cals_event_t(*cache),cals_t(*argp))) {
-return(0x00);
-}
 signed(__cdecl cals_refer_daily_events(signed short(flag),cals_event_t(*cache),cals_t(*argp))) {
 return(0x00);
 }

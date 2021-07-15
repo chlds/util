@@ -16,6 +16,7 @@ auto struct tm *tp;
 auto time_t sec;
 auto time_t t;
 auto signed i,r;
+auto signed short week,day,mon,year;
 auto signed short yr,mo,di,wk;
 auto signed short hr,mn,sm;
 auto signed short dif;
@@ -24,11 +25,16 @@ auto signed short flag;
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 
-t = (*(CLI_LEAD+(R(t,*argp))));
+t = (*(CLI_INDEX+(R(t,*argp))));
 tp = localtime(&t);
 if(!tp) return(0x00);
 
-if(DBG) printf("[t/offset/index:%lld/%lld/%lld] ",t,*(CLI_OFFSET+(R(t,*argp))),*(CLI_INDEX+(R(t,*argp))));
+day = (R(tm_mday,*tp));
+t = (*(CLI_OFFSET+(R(t,*argp))));
+tp = localtime(&t);
+if(!tp) return(0x00);
+
+if(DBG) printf("[day,t/offset/index:%d,%lld/%lld/%lld] ",day,t,*(CLI_OFFSET+(R(t,*argp))),*(CLI_INDEX+(R(t,*argp))));
 
 yr = (*(CALS_YR+(R(date,*cache))));
 mo = (*(CALS_MO+(R(date,*cache))));
@@ -58,11 +64,17 @@ if(di^(R(tm_mday,*tp))) OR(R(flag,*cache),CALS_INVALID);
 }
 
 if(CALS_WEEKLY&(R(periodic,*cache))) {
-dif = (-wk+(7+(*(THEFIRST+(R(day,*argp))))));
-dif = (-dif+(7));
-if(dif<(0x00)) dif = (dif+(7));
+dif = (-wk+(DAYS+(*(THEFIRST+(R(day,*argp))))));
+dif = (dif%(DAYS));
+dif = (0x01+(~dif));
+// if(arg) dif = (DAYS+(dif));
+if(!(EQ(t,*(CLI_INDEX+(R(t,*argp)))))) dif = (DAYS+(dif));
 t = (t+(dif*(24*(60*(60)))));
-}
+if(DBG) {
+printf("<");
+cals_out_t(t);
+printf("> ");
+}}
 
 if(CALS_DAILY&(R(periodic,*cache))) {
 }

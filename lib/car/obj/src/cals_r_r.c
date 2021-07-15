@@ -38,6 +38,7 @@ di = (24*(t));
 
 t = (*(CLI_INDEX+(R(t,*argp))));
 *(CLI_OFFSET+(R(t,*argp))) = (t);
+*(CLI_LEAD+(R(t,*argp))) = (t);
 tp = localtime(&t);
 if(!tp) return(0x00);
 
@@ -93,6 +94,7 @@ printf("\t%s %d - ",*(MONTH+(R(tm_mon,*tp))),R(tm_mday,*tp));
 
 ADD(curr_t,di*(-0x01+(DAYS)));
 *(CLI_INDEX+(R(t,*argp))) = (curr_t);
+*(CLI_LEAD+(R(t,*argp))) = (curr_t);
 
 tp = localtime(&curr_t);
 if(!tp) return(0x00);

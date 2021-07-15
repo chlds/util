@@ -10,7 +10,6 @@ Cache
 
 signed(__cdecl cals_cache_periodic_events_r(signed short(n),cals_event_t(*cache),cals_roll_t(*cached),cals_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto cals_event_t *ev;
 auto struct tm *tp;
 
@@ -22,7 +21,6 @@ auto signed short wk;
 auto signed short hr,mn;
 auto signed short day;
 
-/* **** CODE/TEXT */
 if(n<(0x00)) return(0x00);
 if(!n) return(0x00);
 if(!cache) return(0x00);

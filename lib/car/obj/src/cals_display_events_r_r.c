@@ -15,7 +15,7 @@ auto struct tm *tp;
 auto signed char *b;
 auto time_t t;
 auto signed i,r;
-auto signed short yr,mo,di;
+auto signed short wk,di,mo,yr;
 auto signed short cols;
 auto signed short flag;
 auto rect_t rect;
@@ -34,20 +34,18 @@ t = (R(t,*argp));
 tp = localtime(&t);
 if(!tp) return(0x00);
 *(CALS_WK+(R(date,*argp))) = (R(tm_wday,*tp));
+*(CALS_DI+(R(date,*argp))) = (R(tm_mday,*tp));
 }
 
-AND(flag,0x00);
 yr = (*(CALS_YR+(R(date,*argp))));
 mo = (*(CALS_MO+(R(date,*argp))));
 di = (*(CALS_DI+(R(date,*argp))));
+wk = (*(CALS_WK+(R(date,*argp))));
+
+AND(flag,0x00);
 t = (*prev);
 *prev = (R(t,*argp));
-tp = localtime(&t);
-if(!tp) return(0x00);
-if(!(yr^(1900+(R(tm_year,*tp))))) {
-if(!(mo^(R(tm_mon,*tp)))) {
-if(!(di^(R(tm_mday,*tp)))) flag++;
-}}
+if(cals_event_in_the_day(t,argp)) OR(flag,0x01);
 
 // display only once on duplicate days
 // column of the left
