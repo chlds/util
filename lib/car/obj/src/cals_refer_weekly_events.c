@@ -23,6 +23,9 @@ auto signed short flag;
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 
+// disable
+return(0x00);
+
 t = (R(t,*cache));
 tp = localtime(&t);
 if(!tp) return(0x00);
