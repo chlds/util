@@ -25,11 +25,6 @@ auto signed short flag;
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 
-t = (*(CLI_INDEX+(R(t,*argp))));
-tp = localtime(&t);
-if(!tp) return(0x00);
-
-day = (R(tm_mday,*tp));
 t = (*(CLI_OFFSET+(R(t,*argp))));
 tp = localtime(&t);
 if(!tp) return(0x00);
@@ -67,8 +62,11 @@ if(CALS_WEEKLY&(R(periodic,*cache))) {
 dif = (-wk+(DAYS+(*(THEFIRST+(R(day,*argp))))));
 dif = (dif%(DAYS));
 dif = (0x01+(~dif));
-// if(arg) dif = (DAYS+(dif));
-if(!(EQ(t,*(CLI_INDEX+(R(t,*argp)))))) dif = (DAYS+(dif));
+// if(arg) {
+if(!(EQ(t,*(CLI_INDEX+(R(t,*argp)))))) {
+dif = (DAYS+(dif));
+dif = (dif%(DAYS));
+}
 t = (t+(dif*(24*(60*(60)))));
 if(DBG) {
 printf("<");

@@ -10,9 +10,6 @@ Count periodic events scheduled for a week.
 
 
 //* Currently under construction
-signed(__cdecl cals_count_scheduled_weekly_events(signed(*cache),cals_event_t(*term),cals_event_t(*argp))) {
-return(0x01);
-}
 signed(__cdecl cals_count_scheduled_daily_events(signed(*cache),cals_event_t(*term),cals_event_t(*argp))) {
 return(0x01);
 }
