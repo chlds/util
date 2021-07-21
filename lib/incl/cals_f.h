@@ -56,6 +56,17 @@ signed(__cdecl cals_cache_day_events_r(signed short(flag),time_t(criterion),cals
 signed(__cdecl cals_cache_day_events(time_t(criterion),cals_roll_t(*cache),cals_roll_t(*argp)));
 signed(__cdecl cals_event_in_the_day(time_t(arg),cals_event_t(*argp)));
 
+signed(__cdecl cals_crown_midnight(time_t(*argp)));
+signed(__cdecl cals_update_time_for_periodic_events_in_the_day(time_t(arg),cals_event_t(*argp)));
+signed(__cdecl cals_cache_periodic_events_in_the_day_r(time_t(arg),cals_roll_t(*cache),cals_event_t(*argp)));
+signed(__cdecl cals_cache_periodic_events_in_the_day(time_t(arg),cals_roll_t(*cache),cals_roll_t(*argp)));
+signed(__cdecl cals_annual_event_in_the_day(time_t(arg),cals_event_t(*argp)));
+signed(__cdecl cals_monthly_event_in_the_day(time_t(arg),cals_event_t(*argp)));
+signed(__cdecl cals_weekly_event_in_the_day(time_t(arg),cals_event_t(*argp)));
+signed(__cdecl cals_daily_event_in_the_day(time_t(arg),cals_event_t(*argp)));
+signed(__cdecl cals_periodic_event_in_the_day(time_t(arg),cals_event_t(*argp)));
+// confirm
+
 signed(__cdecl cals_remove_cached_events_r(cals_roll_t(*argp)));
 signed(__cdecl cals_remove_cached_events(cals_roll_t(*argp)));
 signed(__cdecl cals_cache_events(cals_event_t(*cache),cals_roll_t(*argp)));
