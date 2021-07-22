@@ -67,6 +67,11 @@ signed(__cdecl cals_daily_event_in_the_day(time_t(arg),cals_event_t(*argp)));
 signed(__cdecl cals_periodic_event_in_the_day(time_t(arg),cals_event_t(*argp)));
 // confirm
 
+signed(__cdecl cals_cache_all_events_r_r(cals_event_t(*cache),cals_roll_t(*argp)));
+signed(__cdecl cals_cache_all_events_r(cals_roll_t(**di),cals_roll_t(**si)));
+signed(__cdecl cals_cache_all_events(cals_roll_t(**argp),...));
+// cache all events.
+
 signed(__cdecl cals_remove_cached_events_r(cals_roll_t(*argp)));
 signed(__cdecl cals_remove_cached_events(cals_roll_t(*argp)));
 signed(__cdecl cals_cache_events(cals_event_t(*cache),cals_roll_t(*argp)));
