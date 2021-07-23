@@ -58,7 +58,7 @@ signed(__cdecl cals_event_in_the_day(time_t(arg),cals_event_t(*argp)));
 
 signed(__cdecl cals_crown_midnight(time_t(*argp)));
 signed(__cdecl cals_update_time_for_periodic_events_in_the_day(time_t(arg),cals_event_t(*argp)));
-signed(__cdecl cals_cache_periodic_events_in_the_day_r(time_t(arg),cals_roll_t(*cache),cals_event_t(*argp)));
+signed(__cdecl cals_cache_periodic_events_in_the_day_r(time_t(arg),cals_event_t(*cache),cals_roll_t(*argp)));
 signed(__cdecl cals_cache_periodic_events_in_the_day(time_t(arg),cals_roll_t(*cache),cals_roll_t(*argp)));
 signed(__cdecl cals_annual_event_in_the_day(time_t(arg),cals_event_t(*argp)));
 signed(__cdecl cals_monthly_event_in_the_day(time_t(arg),cals_event_t(*argp)));

@@ -30,5 +30,5 @@ return(0x00);
 
 ev = (*(CLI_LEAD+(R(event,*argp))));
 
-return(cals_cache_periodic_events_in_the_day_r(arg,cache,ev));
+return(cals_cache_periodic_events_in_the_day_r(arg,ev,cache));
 }
