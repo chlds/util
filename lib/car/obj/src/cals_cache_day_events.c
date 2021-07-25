@@ -37,12 +37,9 @@ return(0x00);
 //*/
 }
 
-AND(flag,0x00);
 ev = (*(CLI_LEAD+(R(event,*argp))));
 
-OR(R(flag,*cache),CALS_ERROR);
-r = cals_cache_day_events_r(flag,criterion,ev,cache);
-if(CALS_ERROR&(R(flag,*cache))) AND(r,0x00);
+r = cals_cache_day_events_r(criterion,ev,cache);
 
 return(r);
 }
