@@ -10,18 +10,13 @@ Cache upcoming events.
 
 signed(__cdecl cals_cache_upcoming_events(time_t(criterion),cals_event_t(**cache),cals_roll_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
-auto cals_event_t *event;
+auto cals_event_t *ev;
 auto struct tm *tp;
 
 auto time_t t;
 auto signed i,r;
-auto signed short mo,di,yr;
-auto signed short wk;
-auto signed short hr,mn;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 
@@ -38,16 +33,16 @@ return(0x00);
 
 AND(flag,0x00);
 t = (criterion);
-event = (*(CLI_LEAD+(R(event,*argp))));
+ev = (*(CLI_LEAD+(R(event,*argp))));
 
-while(event) {
-if(!(t^(R(t,*event)))) flag++;
-if(t<(R(t,*event))) flag++;
+while(ev) {
+if(!(t^(R(t,*ev)))) flag++;
+if(t<(R(t,*ev))) flag++;
 if(flag) break;
-event = (R(s,*event));
+ev = (R(s,*ev));
 }
 
-*cache = (event);
+*cache = (ev);
 
 return(0x01);
 }
