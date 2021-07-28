@@ -10,17 +10,18 @@ Display upcoming events or..
 
 signed(__cdecl cals_display_upcoming_events(signed(day),time_t(criterion),cals_event_t(*cache),cals_roll_t(*argp))) {
 
+auto cals_event_t *ev;
+auto struct tm *tp;
+auto signed char *b;
+auto time_t t;
+auto signed i,r;
+auto signed short hr;
 auto signed char *(message[]) = {
 ("Upcoming"),
 ("Tomorrow"),
 ("The day after tomorrow"),
 (0x00),
 };
-
-auto cals_event_t *ev;
-auto struct tm *tp;
-auto time_t t;
-auto signed i,r;
 
 if(day<(0x00)) return(0x00);
 if(!day) return(0x00);
@@ -39,7 +40,15 @@ printf("\n");
 printf(" %s \n","Current local time");
 
 printf("\t");
-printf("%2d:%02d ",R(tm_hour,*tp),R(tm_min,*tp));
+hr = (R(tm_hour,*tp));
+b = ("%2d:%02d ");
+if(CALS_MERIDIEM&(R(flag,*cache))) {
+b = ("%2d:%02dam ");
+if(!(hr<(12))) b = ("%2d:%02dpm ");
+hr = (hr%(12));
+}
+printf(b,hr,R(tm_min,*tp));
+
 printf("  ");
 printf("%s %d ",*(CAPS_DAYOFTHEWEEK+(R(tm_wday,*tp))),R(tm_mday,*tp));
 printf("%s %d \n",*(CAPS_MONTH+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));

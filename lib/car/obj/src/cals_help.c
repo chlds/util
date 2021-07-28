@@ -32,6 +32,7 @@ printf("\t%s \n","Flags:");
 printf("\t%s \n","e Entry of events to be stored at file <event.csv> in directory ~/.cals/");
 printf("\t%s \n","h Help");
 printf("\t%s \n","l <FILE> Load a CSV - comma-separated values - file for events");
+printf("\t%s \n","m Display in the 12-hour clock");
 printf("\t%s \n","n Load no file for events");
 printf("\t%s \n","v Verbose");
 

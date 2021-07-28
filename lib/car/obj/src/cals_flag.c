@@ -14,13 +14,14 @@ auto signed(__cdecl*f)(cals_t(*argp));
 auto signed(__cdecl*(fn[]))(cals_t(*argp)) = {
 (signed(__cdecl*)(cals_t(*))) (cals_flag_e),
 (signed(__cdecl*)(cals_t(*))) (cals_flag_h),
+(signed(__cdecl*)(cals_t(*))) (cals_flag_m),
 (signed(__cdecl*)(cals_t(*))) (cals_flag_n),
 (signed(__cdecl*)(cals_t(*))) (cals_flag_v),
 (signed(__cdecl*)(cals_t(*))) (0x00),
 };
 
 auto signed char *(fl[]) = {
-"e","h","n","v",0x00,
+"e","h","m","n","v",0x00,
 };
 
 auto signed char **v;
