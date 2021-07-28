@@ -16,6 +16,7 @@ auto signed char *b;
 auto time_t t;
 auto signed i,r;
 auto signed short wk,di,mo,yr;
+auto signed short hr;
 auto signed short cols;
 auto signed short flag;
 auto rect_t rect;
@@ -52,9 +53,17 @@ if(cals_event_in_the_day(t,argp)) OR(flag,0x01);
 if(!flag) printf(" %2d %s ",*(CALS_DI+(R(date,*argp))),*(CAPS_DAYOFTHEWK+(*(CALS_WK+(R(date,*argp))))));
 else printf("\t");
 // also
-b = ("%2d:%02d   ");
 if(CALS_TIME_ALLDAY&(R(flag,*argp))) printf("[%s] ","All-day");
-else printf(b,*(CALS_HR+(R(time,*argp))),*(CALS_MN+(R(time,*argp))));
+if(!(CALS_TIME_ALLDAY&(R(flag,*argp)))) {
+hr = (*(CALS_HR+(R(time,*argp))));
+b = ("%2d:%02d   ");
+if(CALS_MERIDIEM&(R(flag,*argp))) {
+b = ("%2d:%02dam ");
+if(!(hr<(12))) b = ("%2d:%02dpm ");
+hr = (hr%(12));
+}
+printf(b,hr,*(CALS_MN+(R(time,*argp))));
+}
 
 // column of the right
 b = (R(b,*argp));

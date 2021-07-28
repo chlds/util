@@ -26,7 +26,16 @@ if(!argp) return(0x00);
 
 printf("\t");
 if(CALS_TIME_ALLDAY&(R(flag,*argp))) printf("%s","Allday");
-else printf("%2d:%02d ",*(CALS_HR+(R(time,*argp))),*(CALS_MN+(R(time,*argp))));
+if(!(CALS_TIME_ALLDAY&(R(flag,*argp)))) {
+hr = (*(CALS_HR+(R(time,*argp))));
+b = ("%2d:%02d ");
+if(CALS_MERIDIEM&(R(flag,*argp))) {
+b = ("%2d:%02dam ");
+if(!(hr<(12))) b = ("%2d:%02dpm ");
+hr = (hr%(12));
+}
+printf(b,hr,*(CALS_MN+(R(time,*argp))));
+}
 printf("| ");
 
 b = (R(b,*argp));

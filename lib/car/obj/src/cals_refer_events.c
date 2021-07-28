@@ -34,6 +34,7 @@ ev = (&(R(today,*argp)));
 r = cals_refer_events_internal(flag,ev,argp);
 // if(!r) return(0x00);
 if(r) {
+if(CALS_MERIDIEM&(R(flag,*argp))) OR(R(flag,*ev),CALS_MERIDIEM);
 r = cals_cache_events(ev,&roll);
 if(!r) {
 printf("%s \n","<< Error at fn. cals_cache_events()");

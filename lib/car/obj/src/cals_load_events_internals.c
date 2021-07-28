@@ -20,7 +20,7 @@ auto signed short interrupted_error = (0x02);
 auto signed short allocated_memory = (0x01);
 auto signed char delim = ('\n');
 
-auto cals_event_t *event;
+auto cals_event_t *ev;
 auto signed char *b;
 auto time_t t;
 auto signed i,r;
@@ -54,10 +54,12 @@ printf("%s \n","<< Error at fn. cals_bind_events()");
 // return(0x00);
 }
 if(!(CALS_INTERRUPT&(R(flag,*argp)))) {
-event = (*(CLI_INDEX+(R(event,R(roll,*argp)))));
-r = cals_convert(b,event);
-if(!r) OR(R(flag,*event),CALS_INVALID);
-}}
+ev = (*(CLI_INDEX+(R(event,R(roll,*argp)))));
+r = cals_convert(b,ev);
+if(!r) OR(R(flag,*ev),CALS_INVALID);
+if(!(CALS_INVALID&(R(flag,*ev)))) {
+if(CALS_MERIDIEM&(R(flag,*argp))) OR(R(flag,*ev),CALS_MERIDIEM);
+}}}
 
 embed(0x00,b);
 if(b) rl(b);
