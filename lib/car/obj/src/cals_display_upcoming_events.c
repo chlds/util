@@ -57,5 +57,5 @@ printf("\n");
 i = (day);
 printf(" %s \n",*(message+(--i)));
 
-return(cals_display_upcoming_events_r(criterion,cache));
+return(cals_display_upcoming_events_r(criterion,cache,argp));
 }
