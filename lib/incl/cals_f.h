@@ -59,6 +59,12 @@ signed(__cdecl cals_cache_day_events_r(time_t(criterion),cals_event_t(*cache),ca
 signed(__cdecl cals_cache_day_events(time_t(criterion),cals_roll_t(*cache),cals_roll_t(*argp)));
 signed(__cdecl cals_event_in_the_day(time_t(arg),cals_event_t(*argp)));
 
+signed(__cdecl cals_crown(signed short(mo),signed short(yr),time_t(*argp)));
+signed(__cdecl cals_crown_yr_r(signed short(arg),time_t(*argp)));
+signed(__cdecl cals_crown_yr(signed short(arg),time_t(*argp)));
+signed(__cdecl cals_crown_mo_r(signed short(arg),time_t(*argp)));
+signed(__cdecl cals_crown_mo(signed short(arg),time_t(*argp)));
+
 signed(__cdecl cals_crown_midnight(time_t(*argp)));
 signed(__cdecl cals_update_time_for_periodic_events_in_the_day(time_t(arg),cals_event_t(*argp)));
 signed(__cdecl cals_cache_periodic_events_in_the_day_r(time_t(arg),cals_event_t(*cache),cals_roll_t(*argp)));
@@ -137,6 +143,7 @@ signed(__cdecl cals_backward(signed(arg),cals_t(*argp)));
 
 signed(__cdecl cals_sched(signed long long/* time_t */(arg),cals_event_t(*argp)));
 
+signed(__cdecl cals_event_in_days(signed char(*content),cals_event_t(*argp)));
 signed(__cdecl cals_reset_event(signed char(*content),cals_event_t(*argp)));
 signed(__cdecl cals_init_event(cals_event_t(*argp)));
 signed(__cdecl cals_init_roll(cals_roll_t(*argp)));

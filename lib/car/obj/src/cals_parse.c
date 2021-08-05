@@ -27,7 +27,10 @@ if(!r) return(0x00);
 if(CALS_NO_SUBJECT&(R(flag,*argp))) return(0x00);
 
 r = cv_date(content,argp);
-if(!r) cals_reset_event(content,argp);
+if(!r) {
+if(!(cals_event_in_days(content,argp))) {
+cals_reset_event(content,argp);
+}}
 
 r = cv_time(content,argp);
 // if(!r) return(0x00);
