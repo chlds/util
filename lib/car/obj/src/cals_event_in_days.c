@@ -122,5 +122,23 @@ if(!(i<(ad_h))) i = (ad_h);
 if(!(i<(ad_l))) *(CALS_YR+(R(date,*argp))) = (i);
 }}
 
+b = (l+(content));
+r = cv_time(b,argp);
+// if(!r) return(0x00);
+
+flag = (~CALS_TIME_ALLDAY);
+if(!r) OR(R(flag,*argp),CALS_TIME_ALLDAY);
+else AND(R(flag,*argp),flag);
+
+r = cals_modify_time_of_events_in_days(argp);
+if(!r) return(0x00);
+
+time(&t);
+r = cals_event_in_the_day(t,argp);
+
+flag = (~CALS_DATE_TODAY);
+if(!r) AND(R(flag,*argp),flag);
+else OR(R(flag,*argp),CALS_DATE_TODAY);
+
 return(0x01);
 }

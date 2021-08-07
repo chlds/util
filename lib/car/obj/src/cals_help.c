@@ -50,6 +50,12 @@ printf("\n");
 printf("\t%s \n","Remarks:");
 printf("\t%s \n","Ampersands on the command line should be enclosed in double quotation marks.");
 
+printf("\n");
+printf("\t%s \n","GitHub: github.com/chlds/util/");
+
+printf("\n");
+printf("\t%s \n","Version 0.8");
+
 OR(R(flag,*argp),CALS_QUIT);
 
 return(0x01);

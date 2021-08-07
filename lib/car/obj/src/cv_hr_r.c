@@ -10,8 +10,15 @@ Convert to time out of characters.
 signed(__cdecl cv_hr_r(signed short(*hr),signed short(*mn),signed char(*argp))) {
 
 auto signed char *b;
-auto signed i,r;
+auto signed i,l,r;
 auto signed short flag;
+auto signed char *(pm[]) = {
+"pm",
+"p.m.",
+"PM",
+"P.M.",
+0x00,
+};
 
 if(!hr) return(0x00);
 if(!mn) return(0x00);
@@ -25,6 +32,14 @@ b = (r+(b));
 if(!(*b)) return(0x00);
 if(!(*(0x01+(b)))) return(0x00);
 if(!(*(0x02+(b)))) return(0x00);
+
+AND(flag,0x00);
+AND(l,0x00);
+while(*(pm+(l))) {
+r = cmpr_part(&i,b,*(pm+(l)));
+if(!i) OR(flag,0x01);
+l++;
+}
 
 embed(0x00,0x03+(b));
 b++;
@@ -53,6 +68,12 @@ r = cv_da(0x0A,&i,b);
 if(!r) return(0x00);
 if(i<(0x00)) i = (0x01+(~i));
 if(23<(i)) return(0x00);
+// also
+if(flag) {
+i = (12+(i));
+if(!(i<(24))) return(0x00);
+}
+
 *hr = (i);
 
 return(0x01+(cv_hr_r(hr,mn,argp)));

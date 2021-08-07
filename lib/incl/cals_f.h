@@ -143,6 +143,8 @@ signed(__cdecl cals_backward(signed(arg),cals_t(*argp)));
 
 signed(__cdecl cals_sched(signed long long/* time_t */(arg),cals_event_t(*argp)));
 
+signed(__cdecl cals_no_last_days(time_t(arg)));
+signed(__cdecl cals_modify_time_of_events_in_days(cals_event_t(*argp)));
 signed(__cdecl cals_event_in_days(signed char(*content),cals_event_t(*argp)));
 signed(__cdecl cals_reset_event(signed char(*content),cals_event_t(*argp)));
 signed(__cdecl cals_init_event(cals_event_t(*argp)));
