@@ -23,6 +23,8 @@ auto signed short flag;
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 
+if(CALS_IN_DAYS&(R(flag,*cache))) return(cals_refer_monthly_events_in_days(arg,cache,argp));
+
 t = (R(t,*cache));
 tp = localtime(&t);
 if(!tp) return(0x00);

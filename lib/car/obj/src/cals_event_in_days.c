@@ -55,6 +55,7 @@ if(!r) return(0x00);
 AND(flag,0x00);
 b = (content);
 r = cv_ord(0x01/* from behind */,ordinary,&i,b);
+l = (r);
 b = (r+(b));
 if(!(*b)) return(0x00);
 if(DBG) {
@@ -68,7 +69,6 @@ flag = (*(ordinary_flag+(i)));
 OR(R(periodic,*argp),flag);
 }
 
-l = (r);
 if(!flag) return(0x00);
 
 r = cv_ord(0x01/* from behind */,DAYOFTHEWK,&i,b);
@@ -103,7 +103,6 @@ r = cmpr_part(&i,b,"month");
 if(!i) {
 OR(R(flag,*argp),CALS_PERIODIC);
 OR(R(periodic,*argp),CALS_MONTHLY);
-return(0x02);
 }
 
 r = cv_ord(0x01/* from behind */,MON,&i,b);

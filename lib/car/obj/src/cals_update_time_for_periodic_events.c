@@ -25,6 +25,8 @@ auto signed short flag;
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 
+if(CALS_IN_DAYS&(R(flag,*cache))) return(cals_update_time_for_periodic_events_in_days(cache,argp));
+
 t = (*(CLI_OFFSET+(R(t,*argp))));
 tp = localtime(&t);
 if(!tp) return(0x00);
