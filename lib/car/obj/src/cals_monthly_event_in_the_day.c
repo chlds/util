@@ -22,6 +22,8 @@ auto signed short flag;
 
 if(!argp) return(0x00);
 
+if(CALS_IN_DAYS&(R(flag,*argp))) return(cals_monthly_event_in_the_day_of_days(arg,argp));
+
 r = cals_event_in_the_day(arg,argp);
 if(r) return(0x01);
 

@@ -48,6 +48,13 @@ cals_out_t(t);
 printf("> ");
 }
 
+// also
+if(!(cals_crown_midnight(&t))) return(0x00);
+
+hr = (*(CALS_HR+(R(time,*cache))));
+mn = (*(CALS_MN+(R(time,*cache))));
+sm = (*(CALS_SM+(R(time,*cache))));
+t = (t+(sm+(60*(mn+(60*(hr))))));
 R(t,*cache) = (t);
 
 return(0x01);
