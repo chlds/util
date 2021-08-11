@@ -22,6 +22,8 @@ if(!cache) return(0x00);
 if(!term) return(0x00);
 if(!argp) return(0x00);
 
+if(CALS_IN_DAYS&(R(flag,*argp))) return(cals_count_scheduled_monthly_events_in_days(cache,term,argp));
+
 t = (R(t,*argp));
 tp = localtime(&t);
 if(!tp) return(0x00);
