@@ -8,14 +8,6 @@ Count periodic events scheduled for a week.
 # define CAR
 # include "../../../incl/config.h"
 
-
-//* Currently under construction
-signed(__cdecl cals_count_scheduled_daily_events(signed(*cache),cals_event_t(*term),cals_event_t(*argp))) {
-return(0x01);
-}
-//*/
-
-
 signed(__cdecl cals_count_scheduled_periodic_events(signed(*cache),cals_event_t(*term),cals_event_t(*argp))) {
 
 auto signed i,r;

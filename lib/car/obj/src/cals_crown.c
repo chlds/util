@@ -18,6 +18,7 @@ auto signed short flag;
 
 if(!argp) return(0x00);
 
+*argp = (0x00);
 r = cals_crown_yr(yr,argp);
 // if(!r) return(0x00);
 

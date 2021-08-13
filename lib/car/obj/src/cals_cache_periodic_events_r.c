@@ -35,16 +35,10 @@ return(0x00);
 
 // overwrite the time after caching events
 ev = (*(CLI_INDEX+(R(event,*cached))));
-r = cals_update_time_for_periodic_events(ev,argp);
+r = cals_update_time_for_periodic_events(n,ev,argp);
 if(!r) {
 printf("%s \n","<< Error at fn. cals_update_time_for_periodic_events()");
 return(0x00);
-}
-
-if(CALS_DAILY&(R(flag,*ev))) {
-t = (*(CLI_LEAD+(R(t,*argp))));
-t = (t+(24*(60*(60))));
-*(CLI_LEAD+(R(t,*argp))) = (t);
 }
 
 return(0x01+(cals_cache_periodic_events_r(--n,cache,cached,argp)));

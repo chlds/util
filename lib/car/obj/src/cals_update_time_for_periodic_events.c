@@ -8,7 +8,7 @@ Overwrite time
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_update_time_for_periodic_events(cals_event_t(*cache),cals_t(*argp))) {
+signed(__cdecl cals_update_time_for_periodic_events(signed short(arg),cals_event_t(*cache),cals_t(*argp))) {
 
 auto cals_event_t *ev;
 auto struct tm *tp;
@@ -22,6 +22,7 @@ auto signed short hr,mn,sm;
 auto signed short dif;
 auto signed short flag;
 
+if(!arg) return(0x00);
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 
@@ -64,7 +65,6 @@ if(CALS_WEEKLY&(R(periodic,*cache))) {
 dif = (-wk+(DAYS+(*(THEFIRST+(R(day,*argp))))));
 dif = (dif%(DAYS));
 dif = (0x01+(~dif));
-// if(arg) {
 if(!(EQ(t,*(CLI_INDEX+(R(t,*argp)))))) {
 dif = (DAYS+(dif));
 dif = (dif%(DAYS));
@@ -76,16 +76,22 @@ cals_out_t(t);
 printf("> ");
 }}
 
+--arg;
 if(CALS_DAILY&(R(periodic,*cache))) {
-}
+t = (*(CLI_INDEX+(R(t,*argp))));
+if(!(t^(*(CLI_OFFSET+(R(t,*argp)))))) t = (t+(0x01+(~(24*(60*(60))))));
+t = (t+(arg*(0x01+(~(24*(60*(60)))))));
+if(CALS_EOM&(R(flag,*cache))) {
+t = (*(CLI_OFFSET+(R(t,*argp))));
+t = (t+(arg*(24*(60*(60)))));
+}}
 
 if(DBG) printf("[%2d:%02d:%02d] ",hr,mn,sm);
-sec = (sm+(60*(mn+(60*(hr)))));
-sec = (sec+(0x01+(~(R(tm_sec,*tp)))));
-sec = (sec+(0x01+(~(60*(R(tm_min,*tp))))));
-sec = (sec+(0x01+(~(60*(60*(R(tm_hour,*tp)))))));
-t = (sec+(t));
 
+// also
+if(!(cals_crown_midnight(&t))) return(0x00);
+
+t = (t+(sm+(60*(mn+(60*(hr))))));
 R(t,*cache) = (t);
 
 return(0x01);

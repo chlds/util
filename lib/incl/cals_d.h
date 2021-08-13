@@ -15,6 +15,7 @@
 # define CALS_QUIT (0x1000)
 # define CALS_MERIDIEM (0x2000)
 # define CALS_IN_DAYS (0x4000)
+# define CALS_EOM (0x8000)
 
 # define CALS_ANNUAL (0x01)
 # define CALS_MONTHLY (0x02)

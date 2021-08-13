@@ -44,9 +44,6 @@ auto signed char *(ordinary[]) = {
 if(!content) return(0x00);
 if(!argp) return(0x00);
 
-// temporarily disable
-return(0x00);
-
 if(!(CALS_INIT&(R(flag,*argp)))) return(0x00);
 
 r = cals_reset_event(content,argp);

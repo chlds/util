@@ -59,6 +59,7 @@ signed(__cdecl cals_cache_day_events_r(time_t(criterion),cals_event_t(*cache),ca
 signed(__cdecl cals_cache_day_events(time_t(criterion),cals_roll_t(*cache),cals_roll_t(*argp)));
 signed(__cdecl cals_event_in_the_day(time_t(arg),cals_event_t(*argp)));
 
+signed(__cdecl cals_know_date(signed short(di),signed short(mo),signed short(yr)));
 signed(__cdecl cals_crown(signed short(mo),signed short(yr),time_t(*argp)));
 signed(__cdecl cals_crown_yr_r(signed short(arg),time_t(*argp)));
 signed(__cdecl cals_crown_yr(signed short(arg),time_t(*argp)));
@@ -108,7 +109,7 @@ signed(__cdecl cals_order_events(cals_roll_t(*argp)));
 // sort events
 
 signed(__cdecl cals_update_time_for_periodic_events_in_days(cals_event_t(*cache),cals_t(*argp)));
-signed(__cdecl cals_update_time_for_periodic_events(cals_event_t(*cache),cals_t(*argp)));
+signed(__cdecl cals_update_time_for_periodic_events(signed short(arg),cals_event_t(*cache),cals_t(*argp)));
 signed(__cdecl cals_cache_periodic_events_r(signed short(n),cals_event_t(*cache),cals_roll_t(*cached),cals_t(*argp)));
 signed(__cdecl cals_cache_periodic_events(signed short(n),cals_event_t(*cache),cals_roll_t(*cached),cals_t(*argp)));
 signed(__cdecl cals_refer_daily_events(signed short(arg),cals_event_t(*cache),cals_t(*argp)));
@@ -116,7 +117,7 @@ signed(__cdecl cals_refer_weekly_events(signed short(arg),cals_event_t(*cache),c
 signed(__cdecl cals_refer_monthly_events_in_days(signed short(arg),cals_event_t(*cache),cals_t(*argp)));
 signed(__cdecl cals_refer_monthly_events(signed short(arg),cals_event_t(*cache),cals_t(*argp)));
 signed(__cdecl cals_refer_annual_events(signed short(arg),cals_event_t(*cache),cals_t(*argp)));
-signed(__cdecl cals_refer_periodic_events(signed short(flag),cals_event_t(*cache),cals_roll_t(*cached),cals_t(*argp)));
+signed(__cdecl cals_refer_periodic_events(signed short(arg),cals_event_t(*cache),cals_roll_t(*cached),cals_t(*argp)));
 // for periodic events
 
 signed(__cdecl cals_count_events_r(cals_event_t(*argp)));
