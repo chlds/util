@@ -38,10 +38,16 @@ OR(flag,0x01);
 if(!flag) {
 if(!(day<(DAYS))) day = (DAYS);
 else {
-dif = (day);
 day = (DAYS+(0x01+(~day)));
 OR(R(flag,*cache),CALS_EOM);
 }}
+
+if(CALS_EOM&(R(flag,*cache))) {
+dif = (day);
+--dif;
+tt = (*(CLI_OFFSET+(R(t,*argp))));
+tt = (tt+(dif*(24*(60*(60)))));
+}
 
 AND(r,0x00);
 t = (R(t,*cache));
