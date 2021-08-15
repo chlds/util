@@ -38,6 +38,8 @@ printf("\t%s \n","v Verbose");
 
 printf("\n");
 printf("\t%s \n","Example:");
+printf("\t%s \n","cals.exe ev Conference second Tue. of every month, Sep. 2021, at 14:00");
+printf("\t%s \n","cals.exe ev 20-minute workout Sep. 1, at 5:50, every day");
 printf("\t%s \n","cals.exe ev Coffee with T Feb. 14, 2021, at 15:00");
 printf("\t%s \n","cals.exe e A Happy New Year Jan. 1, every year");
 printf("\t%s \n","cals.exe v 12");
