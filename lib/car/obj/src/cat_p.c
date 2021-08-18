@@ -27,7 +27,7 @@ r = (r*(sizeof(*p)));
 p = (signed char(*)) alloc(r);
 if(!p) return(0x00);
 
-// *p = (0x00);
+*p = (0x00);
 r = cpy(p,si);
 
 b = (*di);
@@ -41,15 +41,11 @@ rl(p);
 return(0x00);
 }
 
+*b = (0x00);
 r = cpy_p(b,*di);
-if(r^(rl_v(di))) {
-rl(b);
-rl(p);
-return(0x00);
-}
-
 *(r+(b)) = (p);
 *(0x01+(r+(b))) = (0x00);
+rl(*di);
 *di = (b);
 b = (0x00);
 r++;
