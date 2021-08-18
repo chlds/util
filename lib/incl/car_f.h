@@ -25,6 +25,9 @@ void*(__cdecl alloc(signed(arg)));
 signed(__cdecl rl(void(*argp)));
 // release i.e., fn. free.
 
+signed(__cdecl cat_p(signed char(***di),signed char(*si)));
+/* Concatenate pointers. */
+
 signed(__cdecl csv_cat_b_r(signed char(**di),signed char(**si)));
 signed(__cdecl csv_cat_b(signed char(**argp),...));
 signed(__cdecl cat_b_r(signed char(**di),signed char(**si)));
@@ -259,10 +262,11 @@ signed(__cdecl ct_wrds(signed char(*base)));
 signed(__cdecl ct_args(signed char(*argp)));
 /* Count arguments to the terminating null character. */
 
-signed(__cdecl cpy2p(signed char(*di), signed char(*deadline), signed char(*si)));
-signed(__cdecl ncpy(signed char(*di), signed char(*si), signed(arg)));
-signed(__cdecl cpy2(signed char(cache), signed char(*di), signed char(*si)));
-signed(__cdecl cpy(signed char(*di), signed char(*si)));
+signed(__cdecl cpy_p(signed char(**di),signed char(**si)));
+signed(__cdecl cpy2p(signed char(*di),signed char(*deadline),signed char(*si)));
+signed(__cdecl ncpy(signed char(*di),signed char(*si),signed(arg)));
+signed(__cdecl cpy2(signed char(cache),signed char(*di),signed char(*si)));
+signed(__cdecl cpy(signed char(*di),signed char(*si)));
 /* Copy to the di out of the si */
 
 signed(__cdecl include_num_internal(signed short(*flagp), signed char(*argp)));
