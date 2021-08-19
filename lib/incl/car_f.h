@@ -214,6 +214,10 @@ signed(__cdecl rddir(void/* c_dirs_info_t */(*argp)));
 signed(__cdecl finds(void/* c_dirs_info_t */(*argp)));
 /* Close, read and open a directory entry out of the argp. */
 
+signed(__cdecl retr_f_r(signed char(***di),void/* dir_info_stored_t */(*argp)));
+signed(__cdecl retr_f(signed char(***di),signed char(*si)));
+/* Retrieve files. */
+
 signed(__cdecl descend_ll(KNOT(**di),KNOT(*si)));
 signed(__cdecl ascend_ll(KNOT(**di),KNOT(*si)));
 
