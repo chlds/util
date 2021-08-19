@@ -60,12 +60,7 @@ R(dis,*argp) = (&dis);
 path = (*(CLI_LK_PATH+(R(b,*argp))));
 
 r = rddir(argp);
-if(!r) {
-if(OPT_DEPTH&(R(flag,*argp))) INC(R(depth,*argp));
-printf("%s \n","<< Error at fn. rddir()");
-return(0x00);
-}
-
+if(!r) printf("%s \n","<< Error at fn. rddir()");
 if(DBG) printf(" %d %s %s \n",r,"dir/files read on",dis.p_dir);
 
 // restore
@@ -73,8 +68,7 @@ if(DBG) printf(" %d %s %s \n",r,"dir/files read on",dis.p_dir);
 R(dis,*argp) = (&dis);
 
 /* Close */
-r = FindClose(dis.search);
-if(!r) {
+if(!(FindClose(dis.search))) {
 if(OPT_DEPTH&(R(flag,*argp))) INC(R(depth,*argp));
 r = GetLastError();
 printf("%s %Xh \n","<< Error at fn. FindClose() with error no.",r);
@@ -83,5 +77,5 @@ return(0x00);
 
 if(OPT_DEPTH&(R(flag,*argp))) INC(R(depth,*argp));
 
-return(0x01);
+return(r);
 }
