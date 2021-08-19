@@ -137,6 +137,9 @@ signed(__cdecl ct_b(signed char(*argp)));
 signed(__cdecl ct(signed char(*argp)));
 /* Count. */
 
+signed(__cdecl cf_f_extensions(signed char(*cache),signed char(*argp)));
+/* Confirm file name extensions. */
+
 signed(__cdecl ct_a_back_r(signed char(*argp)));
 signed(__cdecl ct_a_back(signed char(*argp)));
 signed(__cdecl ct_a(signed char(*argp)));
