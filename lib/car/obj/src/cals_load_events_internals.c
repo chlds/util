@@ -13,11 +13,8 @@ Currently under construction
 
 signed(__cdecl cals_load_events_internals(signed(fd),cals_t(*argp))) {
 
-static signed commas = (0x04);
-static signed char comma = (',');
-
-auto signed short interrupted_error = (0x02);
-auto signed short allocated_memory = (0x01);
+auto signed commas = (0x04);
+auto signed char comma = (',');
 auto signed char delim = ('\n');
 
 auto cals_event_t *ev;
@@ -31,7 +28,8 @@ if(!argp) return(0x00);
 if(CALS_INTERRUPT&(R(flag,*argp))) return(0x00);
 
 if(CALS_LOADED&(R(flag,*argp))) {
-flag = (~CALS_ERROR);
+flag = (CALS_ERROR|(CALS_LOADED));
+flag = (~flag);
 AND(R(flag,*argp),flag);
 return(0x00);
 }

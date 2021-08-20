@@ -14,7 +14,8 @@ Currently under construction
 
 signed(__cdecl cals_load_events(signed char(*csv_filename),cals_t(*argp))) {
 
-auto signed char *second_half = ("/.cals/event.csv");
+auto signed char *cals_dir = (".cals/");
+auto signed char *default_file = ("event.csv");
 auto signed short interrupted_error = (0x02);
 auto signed short allocated_memory = (0x01);
 
@@ -35,7 +36,7 @@ if(!path) {
 OR(flag,allocated_memory);
 p = rf_env("USERPROFILE");
 if(!p) return(0x00);
-r = cat_b(&path,p,second_half,(void*)0x00);
+r = cat_b(&path,p,"/",cals_dir,default_file,(void*)0x00);
 if(!r) {
 printf("%s \n","<< Error at fn. cat_b()");
 return(0x00);
