@@ -1,14 +1,12 @@
 /* **** Notes
 
 Load events i.e., map events at *(CLI_B/O/I/L+(R(event,R(roll,*argp)))) on the RAM.
-
-Remarks:
-Currently under construction
 //*/
 
 
 # define CALEND
 # define CAR
+# include <stdio.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cals_load_events_internals(signed(fd),cals_t(*argp))) {

@@ -32,6 +32,8 @@ signed(__cdecl cals_flag_v(cals_t(*argp)));
 
 signed(__cdecl cals_load_events_internals(signed(fd),cals_t(*argp)));
 signed(__cdecl cals_load_events_internal(signed char(*path),cals_t(*argp)));
+signed(__cdecl cals_load_events_r_r(signed char(**path),cals_t(*argp)));
+signed(__cdecl cals_load_events_r(signed char(*path),cals_t(*argp)));
 signed(__cdecl cals_load_events(signed char(*csv_filename),cals_t(*argp)));
 // load events i.e., map events at *(CLI_B/O/I/L+(R(event,*argp))) on the RAM.
 
