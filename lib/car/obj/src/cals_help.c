@@ -14,18 +14,16 @@ Currently under construction
 
 signed(__cdecl cals_help(cals_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto time_t t;
 auto signed i,r;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 AND(flag,0x00);
 
 printf("\n");
-printf("\t%s \n","cals.exe [flags[FILE]] [months]");
+printf("\t%s \n","cals.exe [flags[ FILE]] [months]");
 
 printf("\n");
 printf("\t%s \n","Flags:");
@@ -40,7 +38,7 @@ printf("\n");
 printf("\t%s \n","Example:");
 printf("\t%s \n","cals.exe ev Conference second Tue. of every month, Sep. 2021, at 14:00");
 printf("\t%s \n","cals.exe ev 20-minute workout Sep. 1, at 5:50, every day");
-printf("\t%s \n","cals.exe ev Coffee with T Feb. 14, 2021, at 15:00");
+printf("\t%s \n","cals.exe ev Tea with Ms Marple Feb. 14, 2021, at 15:30");
 printf("\t%s \n","cals.exe e A Happy New Year Jan. 1, every year");
 printf("\t%s \n","cals.exe v 12");
 printf("\t%s \n","cals.exe -6");
