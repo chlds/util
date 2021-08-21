@@ -24,18 +24,15 @@ auto signed short flag;
 if(!argv) return(0x00);
 if(!argp) return(0x00);
 
-AND(flag,0x00);
-
 r = concat_argv(0x02/* offset */,&b,argv);
-// if(!r) return(0x00);
 if(!r) {
 printf("\n");
 printf("  %s \n","cals.exe e[v] <subject> [date] [time]");
 return(0x01);
 }
 
+AND(flag,0x00);
 r = cals_parse(b,argp);
-// if(!r) return(0x00);
 if(!r) {
 printf("%s \n","<< Error at fn. cals_parse()");
 flag++;
@@ -57,10 +54,8 @@ printf("\n");
 
 if(!flag) {
 r = cals_store(argp);
-// if(!r) return(0x00);
 if(!r) {
 printf("%s \n","<< Error at fn. cals_store()");
-printf("%s \n","Please make sure you have a .cals directory under your home directory..");
 flag++;
 }}
 

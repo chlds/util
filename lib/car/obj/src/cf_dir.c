@@ -32,6 +32,7 @@ if('/'^(*(--r+(argp)))) return(0x00);
 
 r = _stat(argp,&stats);
 if(!(r^(~0x00))) return(0x00);
+if(EQ(EINVAL,r)) return(0x00);
 
 return(0x01);
 }

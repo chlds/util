@@ -22,8 +22,6 @@ auto signed short flag;
 
 if(!argp) return(0x00);
 
-AND(flag,0x00);
-
 // map
 b = (0x00);
 r = cals_reparse(&b,argp);
@@ -40,17 +38,11 @@ printf("] \n");
 
 // open, write and close
 r = cals_store_internal(b,argp);
-if(!r) {
-printf("%s \n","<< Error at fn. cals_store_internal()");
-// return(0x00);
-OR(flag,0x01);
-}
+if(!r) printf("%s \n","<< Error at fn. cals_store_internal()");
 
 // unmap
 if(b) rl(b);
 b = (0x00);
 
-if(flag) return(0x00);
-
-return(0x01);
+return(r);
 }
