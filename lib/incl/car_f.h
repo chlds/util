@@ -281,13 +281,6 @@ signed(__cdecl include_num_internal(signed short(*flagp), signed char(*argp)));
 signed(__cdecl include_num(signed char(*argp)));
 /* Check numerals. */
 
-signed(__cdecl ctdn2lastws_internal(signed(arg),signed char(*argp)));
-signed(__cdecl ctdn2lastws(signed char(*argp)));
-
-signed(__cdecl ctdn2lastsp_internal(signed(arg),signed char(*argp)));
-signed(__cdecl ctdn2lastsp(signed char(*argp)));
-/* Count down to the last space (SP) or to the last whitespace (SP/HT) */
-
 signed(__cdecl ctdn_to_wrap_r(signed short(edge),signed(arg/* align */),signed(*retv),signed char(*cache/* sym */),signed char(*argp)));
 signed(__cdecl ctdn_to_wrap(signed short(edge),signed(arg/* align */),signed char(*cache/* sym */),signed char(*argp)));
 /* Count down to wrap words. */
@@ -314,14 +307,9 @@ signed(__cdecl ct_txt(signed(arg/* align */),signed char(*argp)));
 signed(__cdecl ct_tx(signed(to),signed(arg/* align */),signed char(*argp)));
 /* Count letters along with alignement of the tab to the null character. */
 
-signed(__cdecl ct_offset_out_of_last_internal(signed char(arg), signed(len), signed char(*argp)));
-signed(__cdecl ct_offset_out_of_last(signed char(arg), signed char(*argp)));
-/* Count offset out of the last arg. */
-
 signed(__cdecl ct_word_backward(signed(left),signed char(*argp)));
 /* Count length of a word backward. */
 
-signed(__cdecl ct2_only(signed char(di), signed char(*deadline), signed char(*argp)));
 signed(__cdecl ct_only(signed char(di), signed char(*argp)));
 /* Count a specific letter only. */
 
