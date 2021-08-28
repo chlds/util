@@ -10,6 +10,8 @@ Along with C library
 
 void(__cdecl sleep_b(signed(arg)));
 
+signed(__cdecl trunc_f(signed char(*path)));
+
 signed(__cdecl art_r_r(signed short(*flag),signed short(cols),signed char(*sym),signed(fd)));
 signed(__cdecl art_r(signed short(*flag),signed short(cols),signed char(*sym),signed(fd)));
 
@@ -108,9 +110,6 @@ signed(__cdecl cv_d(signed short(radix),signed char(**di),signed(si)));
 signed(__cdecl car_r(signed short(radix),signed(arg)));
 signed(__cdecl car(signed short(radix),signed(arg)));
 // count column digits for a double word.
-
-signed(__cdecl countback_to(signed char(*edge),signed char(*sym),signed char(*argp)));
-// count back to a symbol or to the leading address.
 
 signed(__cdecl count_to(signed char(*sym),signed char(*argp)));
 // count to a symbol or to the terminating null character.
