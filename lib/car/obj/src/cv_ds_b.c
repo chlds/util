@@ -7,7 +7,7 @@ Convert.
 # define CAR
 # include "./../../../incl/config.h"
 
-signed(__cdecl cv_ds(signed char(*argp),signed char(di),signed char(si))) {
+signed(__cdecl cv_ds_b(signed char(*argp),signed char(di),signed char(si))) {
 
 auto signed r;
 

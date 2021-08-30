@@ -147,7 +147,8 @@ signed(__cdecl ct(signed char(*argp)));
 /* Count. */
 
 signed(__cdecl cv_spcr(signed char(*argp)));
-signed(__cdecl cv_ds(signed char(*argp),signed char(di),signed char(si)));
+signed(__cdecl cv_ds_f(signed char(*argp),signed char(di),signed char(si)));
+signed(__cdecl cv_ds_b(signed char(*argp),signed char(di),signed char(si)));
 signed(__cdecl ct_l(signed char(*argp)));
 /* Count and convert. */
 
