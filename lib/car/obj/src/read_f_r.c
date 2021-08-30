@@ -15,7 +15,7 @@ auto signed i,r;
 
 if(!di) return(0x00);
 if(!flag) return(0x00);
-if(!(*flag)) return(0x00);
+if(*flag) return(0x00);
 
 r = ct(*di);
 r = (0x02+(r));
@@ -36,13 +36,10 @@ r = _read(fd,b,sizeof(*b));
 if(r<(0x00)) return(0x00);
 
 *(r+(b)) = (0x00);
-if(!(delim^(*b))) AND(*flag,0x00);
-if(!r) {
-AND(*flag,0x00);
-return(0x00);
-}
+if(!(delim^(*b))) OR(*flag,0x01);
+if(!r) OR(*flag,0x01);
 
 b = (0x00);
 
-return(0x01+(read_f_r(di,flag,delim,fd)));
+return(r+(read_f_r(di,flag,delim,fd)));
 }
