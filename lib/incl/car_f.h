@@ -10,7 +10,17 @@ Along with C library
 
 void(__cdecl sleep_b(signed(arg)));
 
+signed(__cdecl closef(signed short(arg),signed(fd)));
+signed(__cdecl writef(signed short(arg),signed(fd),void(*argp),signed(size)));
+signed(__cdecl readf(signed short(arg),signed(fd),void(*argp),signed(size)));
+signed(__cdecl openf(signed short(arg),signed char(*path),signed(mode),signed(permission)));
 signed(__cdecl trunc_f(signed char(*path)));
+signed(__cdecl statf(signed short(arg),signed char(*path),void(*argp)));
+
+signed(__cdecl wr_f_r(signed(fd),signed char(*argp)));
+signed(__cdecl wr_f(signed char(*di),signed char(*si)));
+signed(__cdecl rd_f_r(signed char(**di),signed(fd)));
+signed(__cdecl rd_f(signed char(**di),signed char(*si)));
 
 signed(__cdecl art_r_r(signed short(*flag),signed short(cols),signed char(*sym),signed(fd)));
 signed(__cdecl art_r(signed short(*flag),signed short(cols),signed char(*sym),signed(fd)));
@@ -135,6 +145,11 @@ signed(__cdecl ct_w(signed short(*argp)));
 signed(__cdecl ct_b(signed char(*argp)));
 signed(__cdecl ct(signed char(*argp)));
 /* Count. */
+
+signed(__cdecl cv_spcr(signed char(*argp)));
+signed(__cdecl cv_ds(signed char(*argp),signed char(di),signed char(si)));
+signed(__cdecl ct_l(signed char(*argp)));
+/* Count and convert. */
 
 signed(__cdecl cf_f_extensions(signed char(*cache),signed char(*argp)));
 signed(__cdecl cf_dir(signed char(*argp)));
