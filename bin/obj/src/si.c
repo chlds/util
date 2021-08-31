@@ -68,18 +68,6 @@ else printf("%s \n","<< Error at fn. _stat()");
 return(0x00);
 }
 
-printf("%s \n",b);
-printf("\n");
-
-printf("%s %d \n","UID  ",R(st_uid,stats));
-printf("%s %d \n","GID  ",R(st_gid,stats));
-printf("%s %d \n","DEV  ",R(st_dev,stats));
-printf("%s %d \n","RDEV ",R(st_rdev,stats));
-printf("%s %d \n","INODE",R(st_ino,stats));
-printf("%s %d \n","NLINK",R(st_nlink,stats));
-
-printf("%s %d \n","MODE ",R(st_mode,stats));
-
 AND(i,0x00);
 while(*(i+(mode_v))) {
 l = (*(i+(mode)));
@@ -94,6 +82,19 @@ else printf("%s","-");
 i++;
 }
 
+printf(" ");
+printf("%s \n",b);
+
+printf("%s %d, ","MODE",R(st_mode,stats));
+printf("%s %d  ","SIZE",R(st_size,stats));
+printf("\n");
+
+printf("%s %d, ","UID",R(st_uid,stats));
+printf("%s %d, ","GID",R(st_gid,stats));
+printf("%s %d, ","DEV",R(st_dev,stats));
+printf("%s %d, ","RDEV",R(st_rdev,stats));
+printf("%s %d, ","INODE",R(st_ino,stats));
+printf("%s %d  ","NLINK",R(st_nlink,stats));
 printf("\n");
 
 i = (CLI_RULE);
@@ -101,7 +102,6 @@ i = (CLI_RULE);
 *(--i+(t)) = (R(st_atime,stats));
 *(--i+(t)) = (R(st_mtime,stats));
 *(--i+(t)) = (R(st_ctime,stats));
-
 while(*(i+(stat_v))) {
 printf("%s ",*(i+(stat_v)));
 r = cals_out_t(*(i+(t)));

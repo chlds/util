@@ -21,8 +21,8 @@ Remarks:
 # include <stdlib.h>
 # include <string.h>
 # include <fcntl.h>
-# include <sys/stat.h>
 # include <sys/types.h>
+# include <sys/stat.h>
 # include <sys/utime.h>
 # include <locale.h>
 # include <wchar.h>
