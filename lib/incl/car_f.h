@@ -10,6 +10,12 @@ Along with C library
 
 void(__cdecl sleep_b(signed(arg)));
 
+signed(__cdecl unbind_pages(page_t(*argp)));
+signed(__cdecl unmap_pages(page_t(*argp)));
+signed(__cdecl concat_pages(signed short(flag),page_t(*di),page_t(*si)));
+signed(__cdecl bind_pages(page_t(*argp)));
+signed(__cdecl init_pages(signed(arg),page_t(*argp)));
+
 signed(__cdecl closef(signed short(arg),signed(fd)));
 signed(__cdecl writef(signed short(arg),signed(fd),void(*argp),signed(size)));
 signed(__cdecl readf(signed short(arg),signed(fd),void(*argp),signed(size)));
