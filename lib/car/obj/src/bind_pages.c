@@ -12,7 +12,7 @@ Refer at fn. unbind_pages.
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl bind_pages(page_t(*argp))) {
+signed(__cdecl bind_pages(signed short(arg),page_t(*argp))) {
 
 auto page_t *page;
 auto signed char *b;
@@ -40,6 +40,7 @@ printf("%s \n","<< Error at fn. init_pages()");
 return(0x00);
 }
 
+OR(*(CLI_BASE+(R(flag,*page))),arg);
 r = concat_pages(0x00/* i.e., in a doubly LL */,argp,page);
 if(!r) {
 printf("%s \n","<< Error at fn. concat_pages()");

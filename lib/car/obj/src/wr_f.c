@@ -39,7 +39,7 @@ return(0x00);
 if(DBG) printf("%d%s \n",R(st_size,stats),"bytes");
 
 //*
-r = trunc_f(di);
+r = trunc_f(0x00,di);
 if(!r) {
 printf("%s \n","<< Error at fn. trunc_f()");
 return(0x00);

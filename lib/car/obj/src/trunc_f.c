@@ -6,7 +6,6 @@ Truncate.
 
 # define CAR
 # include <io.h>
-# include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <time.h>
@@ -16,7 +15,7 @@ Truncate.
 # include <errno.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl trunc_f(signed char(*path))) {
+signed(__cdecl trunc_f(signed char(*cache/* an extension for backups */),signed char(*path))) {
 
 auto struct _stat stats;
 auto signed char *b;
@@ -36,6 +35,14 @@ return(0x00);
 }
 
 if(DBG) printf("%d%s \n",R(st_size,stats),"bytes");
+
+// backup
+if(cache) {
+r = backup_f(cache,path);
+if(!r) {
+printf("%s \n","<< Error at fn. backup_f()");
+return(0x00);
+}}
 
 // open
 fd = _open(path,access_right);

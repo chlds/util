@@ -10,18 +10,23 @@ Along with C library
 
 void(__cdecl sleep_b(signed(arg)));
 
+signed(__cdecl wr_pages_r(signed(fd),page_t(*argp)));
+signed(__cdecl wr_pages(signed(fd),page_t(*argp)));
+
 signed(__cdecl unbind_pages(page_t(*argp)));
 signed(__cdecl unmap_pages(page_t(*argp)));
 signed(__cdecl concat_pages(signed short(flag),page_t(*di),page_t(*si)));
-signed(__cdecl bind_pages(page_t(*argp)));
+signed(__cdecl bind_pages(signed short(arg),page_t(*argp)));
 signed(__cdecl init_pages(signed(arg),page_t(*argp)));
 
 signed(__cdecl closef(signed short(arg),signed(fd)));
 signed(__cdecl writef(signed short(arg),signed(fd),void(*argp),signed(size)));
 signed(__cdecl readf(signed short(arg),signed(fd),void(*argp),signed(size)));
 signed(__cdecl openf(signed short(arg),signed char(*path),signed(mode),signed(permission)));
-signed(__cdecl trunc_f(signed char(*path)));
 signed(__cdecl statf(signed short(arg),signed char(*path),void(*argp)));
+
+signed(__cdecl backup_f(signed char(*extension),signed char(*argp)));
+signed(__cdecl trunc_f(signed char(*cache/* an extension for backups */),signed char(*path)));
 
 signed(__cdecl wr_f_r(signed(fd),signed char(*argp)));
 signed(__cdecl wr_f(signed char(*di),signed char(*si)));
@@ -291,6 +296,9 @@ signed(__cdecl ct_wrds(signed char(*base)));
 signed(__cdecl ct_args(signed char(*argp)));
 /* Count arguments to the terminating null character. */
 
+signed(__cdecl rdwr_f(signed(*fd),signed char(*cache),signed(size)));
+signed(__cdecl cpy_f_r(signed(*fd)));
+signed(__cdecl cpy_f(signed char(*di),signed char(*si)));
 signed(__cdecl cpy_p(signed char(**di),signed char(**si)));
 signed(__cdecl cpy2p(signed char(*di),signed char(*deadline),signed char(*si)));
 signed(__cdecl ncpy(signed char(*di),signed char(*si),signed(arg)));
