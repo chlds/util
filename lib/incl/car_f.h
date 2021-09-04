@@ -8,6 +8,9 @@ Along with C library
 */
 
 
+signed(__cdecl agent_cvlf(signed(argc),signed char(**argv),signed char(**envp)));
+signed(__cdecl agent_lk(signed(argc),signed char(**argv),signed char(**envp)));
+
 void(__cdecl sleep_b(signed(arg)));
 
 signed(__cdecl cv_lf(signed char(*cache/* an extension for backups */),signed char(*argp)));
@@ -243,6 +246,9 @@ signed(__cdecl reading(signed char(*di),signed(size)));
 
 signed(__cdecl attrib_of_r(signed(cache),signed(*di),signed char(**si)));
 signed(__cdecl attrib_of(signed(cache),signed(*di),signed char(**si)));
+
+signed(__cdecl cvlf_rddir(void/* c_dirs_info_t */(*argp)));
+signed(__cdecl cvlf_finds(void/* c_dirs_info_t */(*argp)));
 
 signed(__cdecl pickfiles(signed char(*di /* path */ ), signed char(*si /* string */ )));
 signed(__cdecl rddir(void/* c_dirs_info_t */(*argp)));
