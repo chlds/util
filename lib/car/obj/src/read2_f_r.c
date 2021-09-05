@@ -39,8 +39,10 @@ if(r<(0x00)) return(0x00);
 if(!r) OR(*flag,0x01);
 if(!(*flag)) {
 r = ord(delim,*b);
-if(r<(ct(delim))) OR(*flag,0x01);
-}
+if(r<(ct(delim))) {
+OR(*flag,0x01);
+r = (0x01);
+}}
 
 b = (0x00);
 
