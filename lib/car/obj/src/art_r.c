@@ -19,7 +19,7 @@ auto signed i,r;
 if(!flag) return(0x00);
 if(!sym) return(0x00);
 
-if(COLS<(cols)) cols = (COLS);
+// if(COLS<(cols)) cols = (COLS);
 if(cols<(0x01)) cols = (COLS);
 
 return(art_r_r(flag,cols,sym,fd));

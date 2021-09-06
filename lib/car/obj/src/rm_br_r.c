@@ -1,13 +1,13 @@
 /* **** Notes
 
-Remove the trailing CR/LF.
+Remove the code of line break.
 */
 
 
 # define CAR
 # include "./../../../incl/config.h"
 
-signed(__cdecl rm_crlf_r(signed(arg),signed char(*argp))) {
+signed(__cdecl rm_br_r(signed(arg),signed char(*argp))) {
 
 auto signed short flag;
 
@@ -21,5 +21,5 @@ if(!(LF^(*argp))) OR(flag,0x01);
 if(flag) *argp = (0x00);
 else return(0x00);
 
-return(0x01+(rm_crlf_r(--arg,argp)));
+return(0x01+(rm_br_r(--arg,argp)));
 }

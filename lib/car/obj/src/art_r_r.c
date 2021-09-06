@@ -35,9 +35,9 @@ b = (0x00);
 return(0x00);
 }
 
-r = rm_crlf(b);
+r = rm_br(b);
 if(!b) {
-printf("%s \n","<< Error at fn. rm_crlf()");
+printf("%s \n","<< Error at fn. rm_br()");
 OR(*flag,CLI_IRR);
 // return(0x00);
 }
