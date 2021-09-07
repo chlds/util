@@ -55,13 +55,13 @@ return(0x00);
 }
 
 *(CLI_BASE+(R(b,*page))) = (b);
-r = ct(b);
-b = (r+(b));
-if(r) {
-if(EQ(LF,*(--b))) *b = (0x00);
-if(--r) {
-if(EQ(CR,*(--b))) *b = (0x00);
-}}
+r = rm_br(b);
+if(!r) {
+printf("%s \n","<< Error at fn. rm_br()");
+return(0x00);
+}
+
+b = (0x00);
 
 return(0x01+(rd_pages_r(argp,fd)));
 }
