@@ -36,10 +36,10 @@ signed(__cdecl statf(signed short(arg),signed char(*path),void(*argp)));
 signed(__cdecl backup_f(signed char(*extension),signed char(*argp)));
 signed(__cdecl trunc_f(signed char(*cache/* an extension for backups */),signed char(*path)));
 
-signed(__cdecl wr_f_r(signed(fd),signed char(*argp)));
-signed(__cdecl wr_f(signed char(*di),signed char(*si)));
-signed(__cdecl rd_f_r(signed char(**di),signed(fd)));
-signed(__cdecl rd_f(signed char(**di),signed char(*si)));
+signed(__cdecl wr_s_r(signed(fd),signed char(*argp)));
+signed(__cdecl wr_s(signed char(*di),signed char(*si)));
+signed(__cdecl rd_s_r(signed char(**di),signed(fd)));
+signed(__cdecl rd_s(signed char(**di),signed char(*si)));
 
 signed(__cdecl art_r_r(signed short(*flag),signed short(cols),signed char(*sym),signed(fd)));
 signed(__cdecl art_r(signed short(*flag),signed short(cols),signed char(*sym),signed(fd)));

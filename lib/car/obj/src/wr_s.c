@@ -1,6 +1,6 @@
 /* **** Notes
 
-Read.
+Write.
 //*/
 
 
@@ -16,47 +16,50 @@ Read.
 # include <errno.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl rd_f(signed char(**di),signed char(*si))) {
+signed(__cdecl wr_s(signed char(*di),signed char(*si))) {
 
-auto struct _stat stats;
+auto struct stat stats;
 auto signed char *b;
 auto signed fd;
 auto signed i,r;
 auto signed short flag;
-auto signed access_right = (_O_BINARY|(_O_RDWR));
+auto signed access_right = (O_BINARY|(O_RDWR));
 
 if(!di) return(0x00);
-if(*di) return(0x00);
 if(!si) return(0x00);
 
 // check the file stat.
-r = _stat(si,&stats);
+r = stat(di,&stats);
 if(!(r^(~0x00))) {
 // if(EQ(ENOENT,errno)) printf("%s \n","<< No file..");
-// else printf("%s \n","<< Error at fn. _stat()");
+// else printf("%s \n","<< Error at fn. stat()");
 return(0x00);
 }
 
 if(DBG) printf("%d%s \n",R(st_size,stats),"bytes");
 
+//*
+r = trunc_f(0x00,di);
+if(!r) {
+printf("%s \n","<< Error at fn. trunc_f()");
+return(0x00);
+}
+//*/
+
 // open
-fd = _open(si,access_right);
+fd = open(di,access_right);
 if(!(fd^(~0x00))) {
-// printf("%s %Xh \n","<< Error at fn. _open() with errno",errno);
+// printf("%s %Xh \n","<< Error at fn. open() with errno",errno);
 return(0x00);
 }
 
-r = rd_f_r(di,fd);
-if(!r) {
-printf("%s \n","<< Error at fn. rd_f_r()");
-if(*di) rl(*di);
-*di = (0x00);
-}
+r = wr_s_r(fd,si);
+if(!r) printf("%s \n","<< Error at fn. wr_s_r()");
 
 // close
 i = (~0x00);
-if(EQ(i,_close(fd))) {
-// printf("%s \n","<< Error at fn. _close()");
+if(EQ(i,close(fd))) {
+// printf("%s \n","<< Error at fn. close()");
 return(0x00);
 }
 

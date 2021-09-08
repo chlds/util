@@ -16,9 +16,9 @@ auto signed i,r;
 if(!argp) return(0x00);
 
 b = (0x00);
-if(!(rd_f(&b,argp))) {
+if(!(rd_s(&b,argp))) {
 if(b) rl(b);
-printf("%s \n","<< Error at fn. rd_f()");
+printf("%s \n","<< Error at fn. rd_s()");
 return(0x00);
 }
 
@@ -29,9 +29,9 @@ printf("%s \n","<< Error at fn. cv_ds_b()");
 return(0x00);
 }
 
-if(!(wr_f(argp,b))) {
+if(!(wr_s(argp,b))) {
 if(b) rl(b);
-printf("%s \n","<< Error at fn. wr_f()");
+printf("%s \n","<< Error at fn. wr_s()");
 return(0x00);
 }
 

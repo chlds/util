@@ -10,7 +10,7 @@ Read.
 # include <errno.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl rd_f_r(signed char(**di),signed(fd))) {
+signed(__cdecl rd_s_r(signed char(**di),signed(fd))) {
 
 auto signed char *b;
 auto signed i,r;
@@ -25,10 +25,10 @@ b = (signed char(*)) alloc(r);
 if(!b) return(0x00);
 
 AND(flag,0x00);
-r = readf(0x01/* fn. _read */,fd,b,r);
+r = read(fd,b,r);
 if(!r) OR(flag,0x01);
 if(!(r^(~0x00))) OR(flag,0x02);
-if(0x02&(flag)) printf("%s \n","<< Error at fn. readf()");
+if(0x02&(flag)) printf("%s %Xh \n","<< Error at fn. read() with errno",errno);
 if(flag) {
 if(b) rl(b);
 b = (0x00);
@@ -48,5 +48,5 @@ return(0x00);
 rl(b);
 b = (0x00);
 
-return(0x01+(rd_f_r(di,fd)));
+return(0x01+(rd_s_r(di,fd)));
 }
