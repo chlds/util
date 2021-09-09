@@ -11,6 +11,9 @@ Along with C library
 signed(__cdecl agent_cvlf(signed(argc),signed char(**argv),signed char(**envp)));
 signed(__cdecl agent_lk(signed(argc),signed char(**argv),signed char(**envp)));
 
+signed(__cdecl rd_b(signed(fd),signed char(*argp),signed(arg)));
+signed(__cdecl wr_b(signed(fd),signed char(*argp),signed(arg)));
+
 void(__cdecl sleep_b(signed(arg)));
 
 signed(__cdecl cv_lf(signed char(*cache/* an extension for backups */),signed char(*argp)));
