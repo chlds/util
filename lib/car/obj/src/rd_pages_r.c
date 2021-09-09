@@ -26,9 +26,9 @@ if(!argp) return(0x00);
 if(fd<(0x00)) return(0x00);
 
 b = (0x00);
-r = rd_b(&b,delim,fd);
+r = rd_f(&b,delim,fd);
 if(!b) {
-printf("%s \n","<< Error at fn. rd_b()");
+printf("%s \n","<< Error at fn. rd_f()");
 return(0x00);
 }
 if(!r) {

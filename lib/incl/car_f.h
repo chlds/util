@@ -76,8 +76,8 @@ signed(__cdecl cv_argv_bw(signed char(***di),signed short(**si)));
 signed(__cdecl rf_leap_years(signed short(arg)));
 // refer leap years.
 
-signed(__cdecl rd_b_r(signed char(**di),signed char(*delim),signed(fd)));
-signed(__cdecl rd_b(signed char(**di),signed char(*delim),signed(fd)));
+signed(__cdecl rd_f_r(signed char(**di),signed char(*delim),signed(fd)));
+signed(__cdecl rd_f(signed char(**di),signed char(*delim),signed(fd)));
 
 signed(__cdecl read2_f_r(signed char(**di),signed short(*flag),signed char(*delim),signed(fd)));
 signed(__cdecl read2_f(signed char(**di),signed char(*delim),signed(fd)));
