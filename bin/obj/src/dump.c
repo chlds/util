@@ -8,16 +8,11 @@ Implemented with a flag to be added for code to run as far as possible to the en
 
 # define C_CODE_STDS
 # define CLI_ASCII
+# define CAR
 # define BUFF (0x400)
 # include "./../../../lib/incl/config.h"
 
-/* **** entry point */
 signed(__cdecl wmain(signed(argc),signed short(**argv),signed short(**envp))) {
-
-/* **** DATA, BSS and STACK */
-enum {
-SI, DI, CACHE
-};
 
 auto signed const QUANTUM = (0x10);
 auto signed const SNOOZE = (0x08);
@@ -26,6 +21,7 @@ auto signed const DELAY = (0x02*(QUANTUM));
 auto signed const COLUMN = (0x10);
 auto signed const LIMIT = (0x02);
 
+auto signed char buff[BUFF];
 auto signed fd[2] = {
 (signed) (0x00)
 };
@@ -34,20 +30,16 @@ auto signed row = (0x00);
 auto signed line = (0x00);
 auto signed total = (0x00);
 
+auto signed char **p;
 auto signed i,l,r;
 auto signed short quickflag;
 auto signed short ascii_flag;
-
-auto signed char buff[BUFF];
-auto signed char **p;
-
 auto unsigned char c;
 
-/* **** CODE/TEXT */
 if(argc<(LIMIT)) {
 printf("\n");
-printf("  %s\n","Usage:");
-printf("  %s\n","dump [-options] <file>");
+printf("  %s \n","Usage:");
+printf("  %s \n","dump [-options] <file>");
 return(0x00);
 }
 
@@ -62,12 +54,13 @@ p = (signed char(**)) (cli_ascii);
 }
 
 r = _wopen(*(argv+(argc+(~(0x00)))),_O_RDONLY|_O_BINARY);
-*(fd+(SI)) = (r);
-if(!(r^(~(0x00)))) {
-printf("%s\n","<< Error at fn. _wopen()");
+*(CLI_SI+(fd)) = (r);
+if(!(r^(~0x00))) {
+printf("%s \n","<< Error at fn. _wopen()");
 return(r);
 }
-if(DBG) printf("%s%Xh\n","File descriptor to read the file is: ",r);
+
+if(DBG) printf("%s %Xh \n","File descriptor to read the file is:",r);
 
 /* Outputting */
 XOR(l,l);
@@ -76,11 +69,10 @@ NOT(row);
 
 r = printf("%08d%s ",line++,":");
 
-while(1) {
-r = read(*(fd+(SI)),&c,sizeof(c));
-// An error has occurred at fn. read.
-if(!(r^(~(0x00)))) {
-printf("%s\n","<< Error at fn. read()");
+while(0x01) {
+r = rd_b(*(CLI_SI+(fd)),&c,sizeof(c));
+if(!(r^(~0x00))) {
+printf("%s \n","<< Error at fn. rd_b()");
 break;
 }
 // Successfully terminate
@@ -99,14 +91,12 @@ else printf("%s%3X"," ",c);
 else printf("%s%02X"," ",c);
 }
 else {
-if(!quickflag) Sleep(DELAY);
+if(!quickflag) sleep_b(DELAY);
 else {
-if(l<(SNOOZE)) {
-l++;
-}
+if(l<(SNOOZE)) l++;
 else {
 XOR(l,l);
-Sleep(DELAY);
+sleep_b(DELAY);
 }}
 r = printf("\n");
 r = printf("%08d%s ",line++,":");
@@ -120,21 +110,21 @@ XOR(row,row);
 }}
 
 /* Close the file descriptor to read a file */
-r = _close(*(fd+(SI)));
-if(!(r^(~(0x00)))) {
-printf("%s\n","<< Error at fn. _close()");
+r = _close(*(CLI_SI+(fd)));
+if(!(r^(~0x00))) {
+printf("%s \n","<< Error at fn. _close()");
 return(r);
 }
 else {
 printf("\n");
-if(DBG) r = printf("%s%Xh\n","Closed/unmapped a file descriptor and the return value is: ",r);
-r = printf("%d%s\n",line," lines");
-r = printf("%s%d%s\n","Total: ",total," bytes");
+if(DBG) r = printf("%s %Xh \n","Closed/unmapped a file descriptor and the return value is:",r);
+r = printf("%d %s \n",line,"lines");
+r = printf("%s %d %s \n","Total:",total,"bytes");
 }
 
 if(DBG) {
 printf("\n");
-printf("%s\n","All done!");
+printf("%s \n","All done!");
 }
 
 return(0x00);
