@@ -9,32 +9,26 @@ Implemented with a flag to be added for code to run as far as possible to the en
 # define C_CODE_STDS
 # define CLI_ASCII
 # define CAR
-# define BUFF (0x400)
 # include "./../../../lib/incl/config.h"
 
 signed(__cdecl wmain(signed(argc),signed short(**argv),signed short(**envp))) {
-
-auto signed const QUANTUM = (0x10);
-auto signed const SNOOZE = (0x08);
-auto signed const DELAY = (0x02*(QUANTUM));
-
-auto signed const COLUMN = (0x10);
-auto signed const LIMIT = (0x02);
-
-auto signed char buff[BUFF];
-auto signed fd[2] = {
-(signed) (0x00)
-};
-
-auto signed row = (0x00);
-auto signed line = (0x00);
-auto signed total = (0x00);
 
 auto signed char **p;
 auto signed i,l,r;
 auto signed short quickflag;
 auto signed short ascii_flag;
 auto unsigned char c;
+auto signed const QUANTUM = (0x10);
+auto signed const SNOOZE = (0x08);
+auto signed const DELAY = (0x02*(QUANTUM));
+auto signed const COLUMN = (0x10);
+auto signed const LIMIT = (0x02);
+auto signed row = (0x00);
+auto signed line = (0x00);
+auto signed total = (0x00);
+auto signed fd[2] = {
+(signed) (0x00)
+};
 
 if(argc<(LIMIT)) {
 printf("\n");

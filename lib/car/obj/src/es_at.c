@@ -5,7 +5,6 @@ Escape sequences
 
 
 # define CAR
-# include <io.h>
 # include "./../../../incl/config.h"
 
 signed(__cdecl es_at(void)) {

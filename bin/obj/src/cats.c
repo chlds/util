@@ -5,7 +5,6 @@ Output a file in the text format
 
 
 # define CAR
-# define BUFF (0x400)
 # include <stdio.h>
 # include <stdlib.h>
 # include <process.h>
@@ -15,10 +14,10 @@ Output a file in the text format
 
 signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 
-enum {
-STDIN, STDOUT, STDERR
-};
-
+auto signed count;
+auto signed r;
+auto signed short flag;
+auto unsigned char c;
 auto signed const(LIMIT) = (0x02);
 auto signed const(QUANTUM) = (0x10);
 auto signed const(SNOOZE) = (0x08);
@@ -28,16 +27,9 @@ auto signed const(DELAY_FOR_SP) = (100);
 auto signed char const(CR) = ('\r');
 auto signed char const(LF) = ('\n');
 auto signed char const(SP) = (' ');
-
-auto unsigned char(buff[BUFF]);
 auto signed(fd[2]) = {
 (signed) (0x00)
 };
-
-auto signed count;
-auto signed r;
-auto signed short flag;
-auto unsigned char c;
 
 if(argc<(LIMIT)) {
 /* Display a help */
@@ -78,7 +70,7 @@ if(!(c^(SP))) sleep_b(DELAY_FOR_SP);
 count = (r+(count));
 /* Writing */
 if(c<(0x7F)) {
-if(0x1F<(c)) r = wr_b(STDOUT,&c,r);
+if(0x1F<(c)) r = wr_b(CLI_OUT,&c,r);
 else printf(" %02X ", c);
 }
 else printf(" %02X ", c);

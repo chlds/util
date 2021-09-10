@@ -14,24 +14,21 @@ to duplicate/copy to file <di> out of file <si> in the binary format
 
 signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 
-auto signed const THRESHOLD = (0x03);
-auto signed const QUANTUM = (0x10);
-auto signed const SNOOZE = (0x04);
-auto signed const DELAY = (0x02*(QUANTUM));
-
-auto signed fd[CLI_CACHE] = {
-(signed) (0x00),
-};
-
-auto signed char buff[BUFF] = {
-(signed char) (0x00),
-};
-
 auto struct stat stats;
 auto signed long long totalfilesize;
 auto signed total;
 auto signed i,l,r;
 auto signed short flag;
+auto signed const THRESHOLD = (0x03);
+auto signed const QUANTUM = (0x10);
+auto signed const SNOOZE = (0x04);
+auto signed const DELAY = (0x02*(QUANTUM));
+auto signed fd[CLI_CACHE] = {
+(signed) (0x00),
+};
+auto signed char buff[0x01+(BUFF)] = {
+(signed char) (0x00),
+};
 
 printf("\n");
 printf("%s %d \n","Count the arguments:",argc);
