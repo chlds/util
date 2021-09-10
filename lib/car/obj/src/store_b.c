@@ -22,28 +22,25 @@ Put (non 0x0A) for CRLF or (0x0A) for LF to insert a line break, or (0x00) not t
 
 signed(__cdecl store_b(signed short(linebreak),signed(access_right),signed(permission),signed char(*b),signed char(*path))) {
 
-/* **** DATA, BSS and STACK */
-auto signed char *crlf = ("\r\n");
-auto signed char *lf = ("\n");
-
-auto struct _stat stats;
+auto struct stat stats;
 auto signed char *br;
 auto signed char *p;
 auto signed fd;
 auto signed i,r;
 auto signed short flag;
+auto signed char *crlf = ("\r\n");
+auto signed char *lf = ("\n");
 
-/* **** CODE/TEXT */
 if(!b) return(0x00);
 if(!path) return(0x00);
 
 AND(flag,0x00);
 
 // check the file stat.
-r = _stat(path,&stats);
+r = stat(path,&stats);
 if(!(r^(~0x00))) {
 if(ENOENT^(errno)) {
-printf("%s \n","<< Error at fn. _stat()");
+printf("%s \n","<< Error at fn. stat()");
 return(0x00);
 }}
 
@@ -57,18 +54,18 @@ return(0x00);
 //*/
 
 // open
-fd = _open(path,access_right,permission);
+fd = open(path,access_right,permission);
 if(!(fd^(~0x00))) {
-printf("%s %Xh \n","<< Error at fn. _open() with errno",errno);
+printf("%s %Xh \n","<< Error at fn. open() with errno",errno);
 return(0x00);
 }
 
 // write
-r = _write(fd,b,ct(b));
+r = wr_b(fd,b,ct(b));
 if(!(r^(~0x00))) flag++;
 if(!r) flag++;
 if(flag) {
-printf("%s %Xh \n","<< Error at fn. _write() with errno",errno);
+printf("%s %Xh \n","<< Error at fn. wr_b() with errno",errno);
 return(0x00);
 }
 // also to insert a line break or not to..
@@ -76,18 +73,18 @@ if(linebreak) {
 AND(flag,0x00);
 if(!(0x0A^(linebreak))) br = (lf);
 else br = (crlf);
-r = _write(fd,br,ct(br));
+r = wr_b(fd,br,ct(br));
 if(!(r^(~0x00))) flag++;
 if(!r) flag++;
 if(flag) {
-printf("%s %Xh \n","<< Error at fn. _write() with errno",errno);
+printf("%s %Xh \n","<< Error at fn. wr_b() with errno",errno);
 return(0x00);
 }}
 
 // close
-r = _close(fd);
+r = close(fd);
 if(!(r^(~0x00))) {
-printf("%s \n","<< Error at fn. _close()");
+printf("%s \n","<< Error at fn. close()");
 return(0x00);
 }
 

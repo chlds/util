@@ -5,7 +5,6 @@ Read.
 
 
 # define CAR
-# include <io.h>
 # include <stdio.h>
 # include <errno.h>
 # include "../../../incl/config.h"
@@ -25,10 +24,10 @@ b = (signed char(*)) alloc(r);
 if(!b) return(0x00);
 
 AND(flag,0x00);
-r = read(fd,b,r);
+r = rd_b(fd,b,--r);
 if(!r) OR(flag,0x01);
 if(!(r^(~0x00))) OR(flag,0x02);
-if(0x02&(flag)) printf("%s %Xh \n","<< Error at fn. read() with errno",errno);
+if(0x02&(flag)) printf("%s %Xh \n","<< Error at fn. rd_b() with errno",errno);
 if(flag) {
 if(b) rl(b);
 b = (0x00);

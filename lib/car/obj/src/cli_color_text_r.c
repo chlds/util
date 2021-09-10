@@ -8,16 +8,15 @@ Virtual Terminal
 
 
 # define CAR
-# include <io.h>
 # include <stdio.h>
 # include "./../../../incl/config.h"
 
 signed(__cdecl cli_color_text_r(signed char(*argp))) {
 
-auto signed char *es = ("\033[");
 auto signed char *b;
 auto signed r;
 auto signed short flag;
+auto signed char *es = ("\033[");
 
 if(!argp) return(0x00);
 
@@ -27,7 +26,7 @@ r = cat_b(&b,es,argp,"m",(void*) 0x00);
 if(!r) OR(flag,0x01);
 
 if(!flag) {
-r = write(0x01,b,ct(b));
+r = wr_b(0x01,b,ct(b));
 if(!(r^(~0x00))) AND(r,0x00);
 }
 

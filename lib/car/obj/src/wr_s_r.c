@@ -5,7 +5,6 @@ Write.
 
 
 # define CAR
-# include <io.h>
 # include <stdio.h>
 # include <errno.h>
 # include "../../../incl/config.h"
@@ -20,10 +19,10 @@ if(fd<(0x00)) return(0x00);
 if(!argp) return(0x00);
 
 AND(flag,0x00);
-r = write(fd,argp,ct_l(argp));
+r = wr_b(fd,argp,ct_l(argp));
 if(!r) OR(flag,0x01);
 if(!(r^(~0x00))) OR(flag,0x02);
-if(0x02&(flag)) printf("%s \n","<< Error at fn. write()");
+if(0x02&(flag)) printf("%s \n","<< Error at fn. wr_b()");
 if(flag) return(0x00);
 
 argp = (r+(argp));

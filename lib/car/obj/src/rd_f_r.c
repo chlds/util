@@ -5,7 +5,6 @@ Read bytes to the delimiter.
 
 
 # define CAR
-# include <io.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl rd_f_r(signed char(**di),signed char(*delim),signed(fd))) {
@@ -31,7 +30,7 @@ if(*di) rl(*di);
 
 *di = (b);
 b = (r+(b));
-r = read(fd,b,sizeof(*b));
+r = rd_b(fd,b,sizeof(*b));
 if(r<(0x00)) {
 *b = (0x00);
 b = (0x00);

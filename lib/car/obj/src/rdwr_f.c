@@ -5,13 +5,7 @@ Read and write.
 
 
 # define CAR
-# include <io.h>
 # include <stdio.h>
-# include <stdlib.h>
-# include <time.h>
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/stat.h>
 # include <errno.h>
 # include "./../../../incl/config.h"
 
@@ -24,19 +18,17 @@ if(!fd) return(0x00);
 if(!cache) return(0x00);
 if(size<(0x01)) return(0x00);
 
-r = read(*(CLI_SI+(fd)),cache,size);
+r = rd_b(*(CLI_SI+(fd)),cache,size);
 if(!r) return(0x00);
 if(!(r^(EOF))) return(0x00);
-/* An error has occurred at fn. read() */
-if(!(r^(~(0x00)))) {
-printf("%s \n","<< Error at fn. read()");
+if(!(r^(~0x00))) {
+printf("%s \n","<< Error at fn. rd_b()");
 return(0x00);
 }
 
-r = write(*(CLI_DI+(fd)),cache,r);
-/* An error has occurred at fn. write() */
-if(!(r^(~(0x00)))) {
-printf("%s \n","<< Error at fn. write()");
+r = wr_b(*(CLI_DI+(fd)),cache,r);
+if(!(r^(~0x00))) {
+printf("%s \n","<< Error at fn. wr_b()");
 return(0x00);
 }
 
