@@ -61,6 +61,7 @@ return(0x00);
 }
 
 /* splitting */
+pp = (0x00);
 r = cv_v(&pp,p);
 if(!r) {
 printf("%s \n","<< Error at fn. cv_v()");

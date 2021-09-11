@@ -57,6 +57,7 @@ return(0x00);
 }
 
 /* Split out of the command line */
+pp = (0x00);
 r = cv_v(&pp,p);
 if(!r) {
 printf("%s \n","<< Error at fn. cv_v()");
