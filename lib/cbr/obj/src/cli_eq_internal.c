@@ -16,6 +16,12 @@ Refer at util/lib/obj/src/cli_parse.c
 
 signed(__cdecl cli_eq_internal(signed short(term),signed(fd),CLI_TYPEWRITER(*argp))) {
 
+auto signed char *cur,*p;
+auto signed i,l,r;
+auto signed short flag;
+auto signed short cr;
+auto signed char c;
+auto signed LIMIT = (0x100);
 auto signed(__cdecl*f)(void(*argp));
 static signed(__cdecl*(fn[]))(void(*argp)) = {
 (signed(__cdecl*)(void(*))) (cli_eq_frame),
@@ -28,7 +34,6 @@ static signed(__cdecl*(fn[]))(void(*argp)) = {
 (signed(__cdecl*)(void(*))) (cli_eq_eol),
 (signed(__cdecl*)(void(*))) (0x00),
 };
-
 static signed char(*(eq[])) = {
 (signed char(*)) ("eq frame,"),
 (signed char(*)) ("eq display,"),
@@ -41,31 +46,20 @@ static signed char(*(eq[])) = {
 (signed char(*)) (0x00),
 };
 
-auto signed char CR = ('\r');
-auto signed char LF = ('\n');
-auto signed LIMIT = (0x100);
-
-auto signed char *cur,*p;
-auto signed i,l,r;
-auto signed short flag;
-auto signed short cr;
-auto signed char c;
-
 if(term) return(0x00);
 if(!argp) return(0x00);
 
 AND(cr,0x00);
 AND(i,0x00);
 p = (*(CLI_OFFSET+(R(base,R(roll,*argp)))));
-
 while(0x01) {
 if(LIMIT<(i)) {
-printf("%s\n","Oops.. ");
+printf("%s \n","Oops..");
 return(0x00);
 }
-r = read(fd,&c,sizeof(c));
-if(!(r^(~(0x00)))) {
-printf("%s\n","<< Error at fn. read()");
+r = rd_b(fd,&c,sizeof(c));
+if(!(r^(~0x00))) {
+printf("%s \n","<< Error at fn. rd_b()");
 return(0x00);
 }
 *p = (c);

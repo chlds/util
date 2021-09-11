@@ -18,24 +18,19 @@ Implemented along with fn. cv_v() and with fn. rl_v()
 
 unsigned(__stdcall cmdl2_save(SAT(*argp))) {
 
-/* **** DATA, BSS and STACK */
-auto signed const QUANTUM = (0x10);
-auto signed const SNOOZE = (0x04);
-auto signed const DELAY = (0x02*(QUANTUM));
-
-auto KNOT *cache,*lead,*base;
-
 auto signed char **pp;
 auto signed char *p;
-
+auto KNOT *cache,*lead,*base;
 auto signed count;
 auto signed fd;
 auto signed i,r;
 auto signed short flag;
 auto signed char c;
 auto signed char uncmpltflag;
+auto signed const QUANTUM = (0x10);
+auto signed const SNOOZE = (0x04);
+auto signed const DELAY = (0x02*(QUANTUM));
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 INC(R(Running,*argp));
@@ -68,17 +63,16 @@ printf("%s \n","<< Error at fn. cv_v()");
 DEC(R(Running,*argp));
 return(0x00);
 }
-
 else {
 // printf("%s%d \n","The numbre of splitted arguments is: ",r);
 // Save as file name p.
-p = (signed char(*)) (*(pp+(r+(~(0x00)))));
+p = (signed char(*)) (*(pp+(r+(~0x00))));
 }
 
 /* open */
-flag = (0x00);
+AND(flag,0x00);
 fd = open(p,O_WRONLY|(O_BINARY|(O_CREAT|(O_EXCL|(O_APPEND)))),S_IREAD|(S_IWRITE));
-if(!(fd^(~(0x00)))) {
+if(!(fd^(~0x00))) {
 printf("%s \n","<< Could not open..");
 flag++;
 }
@@ -105,9 +99,9 @@ printf("%s \n","<< Error at fn. ct()");
 break;
 //*/
 }
-r = write(fd,R(p,*cache),count);
-if(!(r^(~(0x00)))) {
-printf("%s \n","<< Error at fn. write()");
+r = wr_b(fd,R(p,*cache),count);
+if(!(r^(~0x00))) {
+printf("%s \n","<< Error at fn. wr_b()");
 break;
 }
 /*
@@ -118,29 +112,27 @@ break;
 //*/
 // Insert a linefeed
 c = ('\n');
-r = write(fd,&c,sizeof(c));
-if(!(r^(~(0x00)))) {
-printf("%s \n","<< Error at fn. write()");
+r = wr_b(fd,&c,sizeof(c));
+if(!(r^(~0x00))) {
+printf("%s \n","<< Error at fn. wr_b()");
 break;
 }}
 cache = (struct knot(*)) R(d,*cache);
 // CPU idling
-if(i<(SNOOZE)) {
-i++;
-}
+if(i<(SNOOZE)) i++;
 else {
 XOR(i,i);
-Sleep(DELAY);
+sleep_b(DELAY);
 }}
 /* closing/unmapping out of the RAM */
 r = close(fd);
-if(!(r^(~(0x00)))) {
+if(!(r^(~0x00))) {
 printf("%s \n","<< Error at fn. close()");
 DEC(R(Running,*argp));
 return(r);
 }
 /* Notificate */
-r = printf("%s%s \n","Saved as: ",p);
+r = printf("%s %s \n","Saved as:",p);
 if(uncmpltflag) printf("%s \n","Attention: There was an interruption during writing..");
 }
 
