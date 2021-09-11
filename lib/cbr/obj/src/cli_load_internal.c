@@ -2,8 +2,6 @@
 
 Load.
 
-Along with C library
-
 Remarks:
 Refer at fn. cli_bind_pages and fn. cli_concat_pages.
 */
@@ -11,7 +9,6 @@ Refer at fn. cli_bind_pages and fn. cli_concat_pages.
 
 # define CLI_SYM
 # define CBR
-
 # include <io.h>
 # include <conio.h>
 # include <stdio.h>
@@ -23,7 +20,15 @@ Refer at fn. cli_bind_pages and fn. cli_concat_pages.
 
 signed(__cdecl cli_load_internal(signed(count),CLI_TYPEWRITER(*argp))) {
 
-/* **** DATA, BSS and STACK */
+auto signed char *cur,*p;
+auto signed dif,l,v;
+auto signed i,r;
+auto signed short criterion;
+auto signed short breaker;
+auto signed short flag;
+auto signed char c;
+auto signed char extra;
+static signed short EXTRA = (0x10);
 static signed char sym[] = {
 SYM_EXCLAMATION_MARK,
 SYM_QUOTATION_MARK,
@@ -60,23 +65,6 @@ SYM_TILDE,
 0x00,
 };
 
-static signed short EXTRA = (0x10);
-
-static signed char HT = ('\t');
-static signed char LF = ('\n');
-static signed char CR = ('\r');
-static signed char SP = (' ');
-
-auto signed char *cur,*p;
-auto signed dif,l,v;
-auto signed i,r;
-auto signed short criterion;
-auto signed short breaker;
-auto signed short flag;
-auto signed char c;
-auto signed char extra;
-
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 cur = (*(CLI_BASE+(R(base,R(roll,*argp)))));
@@ -140,10 +128,10 @@ return(0x00);
 cur = (*(CLI_INDEX+(R(cur,*argp))));
 }
 //*/
-r = read(R(fd,R(edit,*argp)),&c,sizeof(c));
-if(!(r^(~(0x00)))) {
+r = rd_b(R(fd,R(edit,*argp)),&c,sizeof(c));
+if(!(r^(~0x00))) {
 OR(R(flag,*argp),CLI_IRR);
-printf("%s\n","<< Error at fn. read()");
+printf("%s \n","<< Error at fn. rd_b()");
 return(0x00);
 }
 if(!r) {

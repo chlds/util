@@ -95,10 +95,10 @@ return(0x00);
 }
 p = (*(CLI_INDEX+(R(cur,*argp))));
 }
-r = read(R(fd,R(edit,*argp)),&c,sizeof(c));
-if(!(r^(~(0x00)))) {
+r = rd_b(R(fd,R(edit,*argp)),&c,sizeof(c));
+if(!(r^(~0x00))) {
 OR(R(flag,*argp),CLI_IRR);
-printf("%s\n","<< Error at fn. read()");
+printf("%s \n","<< Error at fn. rd_b()");
 return(0x00);
 }
 if(!r) {

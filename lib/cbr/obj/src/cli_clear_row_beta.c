@@ -51,9 +51,9 @@ b = (signed char(*)) malloc(r);
 if(!b) return(0x00);
 *(--i+(b)) = (0x00);
 while(i) *(--i+(b)) = (sp);
-r = write(CLI_OUT,b,ct(b));
+r = wr_b(CLI_OUT,b,ct(b));
 if(!(r^(~0x00))) {
-printf("%s \n","<< Error at fn. write()");
+printf("%s \n","<< Error at fn. wr_b()");
 return(0x00);
 }
 r = embed(0x00,b);
