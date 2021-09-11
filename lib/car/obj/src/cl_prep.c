@@ -8,13 +8,11 @@ Along with C and Windows libraries
 
 
 # define CAR
-# include <io.h>
 # include <stdio.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cl_prep(void)) {
 
-/* **** DATA, BSS and STACK */
 auto signed char *b;
 auto coord_t coord;
 auto rect_t rect;
@@ -22,7 +20,6 @@ auto signed i,r;
 auto signed short cy,y;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 r = coord_report(CLI_RULE,&coord);
 if(!r) {
 printf("%s \n","<< Error at fn. coord_report()");
@@ -63,9 +60,9 @@ if(!b) return(0x00);
 *(--r+(b)) = (0x00);
 while(r) *(--r+(b)) = ('*');
 
-r = write(COUT,b,ct(b));
+r = wr_b(CLI_OUT,b,ct(b));
 if(!(r^(~0x00))) {
-printf("%s \n","<< Error at fn. write()");
+printf("%s \n","<< Error at fn. wr_b()");
 return(0x00);
 }
 

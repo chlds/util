@@ -5,21 +5,20 @@ Coordinate.
 
 
 # define CAR
-# include <io.h>
 # include "./../../../incl/config.h"
 
 signed(__cdecl coord_report(signed(arg),coord_t(*argp))) {
 
+auto signed char *p;
+auto signed i,r;
 auto signed char *b = ("\033[6n");
 auto signed delim = ('R');
 auto signed size = (0x10);
-auto signed char *p;
-auto signed i,r;
 
 if(arg<(0x00)) return(0x00);
 if(!argp) return(0x00);
 
-r = write(0x01,b,ct(b));
+r = wr_b(CLI_OUT,b,ct(b));
 if(!(r^(~0x00))) return(0x00);
 
 b = (signed char(*)) alloc(size);

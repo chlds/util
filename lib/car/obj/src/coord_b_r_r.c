@@ -8,7 +8,6 @@ Only in the Virtual Terminal
 
 
 # define CAR
-# include <io.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl coord_b_r_r(signed char(*y),signed char(*x))) {
@@ -25,7 +24,7 @@ b = (0x00);
 r = cat_b(&b,es,y,";",x,"H",(void*) 0x00);
 if(!r) return(0x00);
 
-r = write(0x01,b,ct(b));
+r = wr_b(CLI_OUT,b,ct(b));
 if(!(r^(~0x00))) AND(r,0x00);
 
 embed(0x00,b);

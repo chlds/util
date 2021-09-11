@@ -19,27 +19,20 @@ And also with a flag to be added for code to run as far as possible to the end.
 
 unsigned(__stdcall cmdl2_open(SAT(*argp))) {
 
-/* **** DATA, BSS and STACK */
-auto signed const QUANTUM = (0x10);
-auto signed const SNOOZE = (0x04);
-auto signed const DELAY = (0x02*(QUANTUM));
-
-auto signed char const DELIMITER = (' ');
-auto signed char const LINEFEED = ('\n');
-
-auto KNOT *cache,*lead,*base;
-
 auto signed char **pp;
 auto signed char *p;
-
+auto KNOT *cache,*lead,*base;
 auto signed count;
 auto signed fd;
 auto signed i,r;
-
 auto signed short interrupt_flag;
 auto signed char c;
+auto signed const QUANTUM = (0x10);
+auto signed const SNOOZE = (0x04);
+auto signed const DELAY = (0x02*(QUANTUM));
+auto signed char const DELIMITER = (' ');
+auto signed char const LINEFEED = ('\n');
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 INC(R(Running,*argp));
@@ -77,17 +70,17 @@ return(0x00);
 
 else {
 // To open file name p.
-p = (*(pp+(r+(~(0x00)))));
+p = (*(pp+(r+(~0x00))));
 }
 
 /* opening */
 fd = open(p,O_RDONLY|(O_BINARY));
-if(!(fd^(~(0x00)))) {
+if(!(fd^(~0x00))) {
 printf("%s \n","<< Error at fn. open()");
 DEC(R(Running,*argp));
 return(0x00);
 }
-// else printf("%s%s \n","Opened at file: ",p);
+// else printf("%s %s \n","Opened at file:",p);
 
 /* reading/writing */
 XOR(interrupt_flag,interrupt_flag);
@@ -99,9 +92,9 @@ interrupt_flag++;
 break;
 }
 /* reading */
-r = read(fd,&c,sizeof(c));
-if(!(r^(~(0x00)))) {
-printf("%s \n","<< Error at fn. read()");
+r = rd_b(fd,&c,sizeof(c));
+if(!(r^(~0x00))) {
+printf("%s \n","<< Error at fn. rd_b()");
 break;
 }
 if(!r) {
@@ -110,17 +103,17 @@ printf("%s%s \n","Read at file: ",p);
 break;
 }
 /* Writing */
-r = write(COUT,&c,r);
-if(!(r^(~(0x00)))) {
-printf("%s \n","<< Error at fn. write()");
+r = wr_b(CLI_OUT,&c,r);
+if(!(r^(~0x00))) {
+printf("%s \n","<< Error at fn. wr_b()");
 break;
 }
 // CPU idling
 if(!(c^(DELIMITER))) {
-Sleep(DELAY);
+sleep_b(DELAY);
 }
 if(!(c^(LINEFEED))) {
-Sleep(0x03*(DELAY));
+sleep_b(0x03*(DELAY));
 }}
 
 /* Notificate */
@@ -128,7 +121,7 @@ if(interrupt_flag) printf("\n\n%s \n","Attention: There was an interruption duri
 
 /* Check an error flag e.g., and closing/unmapping out of the RAM */
 r = close(fd);
-if(!(r^(~(0x00)))) {
+if(!(r^(~0x00))) {
 printf("%s \n","<< Error at fn. close()");
 DEC(R(Running,*argp));
 return(0x00);
