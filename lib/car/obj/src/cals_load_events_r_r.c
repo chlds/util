@@ -16,7 +16,6 @@ signed(__cdecl cals_load_events_r_r(signed char(**path),cals_t(*argp))) {
 
 auto signed char *b;
 auto time_t t;
-auto signed access_right;
 auto signed fd;
 auto signed i,r;
 auto signed short flag;
@@ -32,8 +31,8 @@ if(DBG) printf("[b: %s] \n",b);
 AND(flag,0x00);
 if(cf_f_extensions(csv,b)) {
 // open, read and close
-access_right = (_O_BINARY|_O_RDONLY);
-fd = op_b(b,&access_right,(void*)0x00);
+r = (O_BINARY|O_RDONLY);
+fd = op_b(b,&r,(void*)0x00);
 if(!(fd^(~0x00))) {
 if(!(ENOENT^(errno))) {
 if(CALS_VERBOSE&(R(flag,*argp))) printf("\n\t%s %s %s \n","No file at",b,"for events");

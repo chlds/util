@@ -17,20 +17,20 @@ Truncate.
 
 signed(__cdecl trunc_f(signed char(*cache/* an extension for backups */),signed char(*path))) {
 
-auto struct _stat stats;
+auto struct stat stats;
 auto signed char *b;
 auto signed fd;
 auto signed i,r;
 auto signed short flag;
-auto signed access_right = (_O_BINARY|(_O_RDWR|(_O_TRUNC)));
+auto signed access_right = (O_BINARY|(O_RDWR|(O_TRUNC)));
 
 if(!path) return(0x00);
 
 // check the file stat.
-r = _stat(path,&stats);
+r = stat(path,&stats);
 if(!(r^(~0x00))) {
 if(EQ(ENOENT,errno)) printf("%s \n","<< No file..");
-else printf("%s \n","<< Error at fn. _stat()");
+else printf("%s \n","<< Error at fn. stat()");
 return(0x00);
 }
 
