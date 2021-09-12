@@ -91,10 +91,11 @@ printf("%s \n","<< Error at fn. alloc()");
 return(0x00);
 }
 
-r = open(filename,O_RDONLY|(O_BINARY));
+r = (O_RDONLY|(O_BINARY));
+r = op_b(filename,&r,(void*)0x00);
 *(CLI_SI+(fd)) = (r);
 if(!(r^(~0x00))) {
-printf("%s \n","<< Error at fn. open()");
+printf("%s \n","<< Error at fn. op_b()");
 return(r);
 }
 // else printf("%s %Xh \n","File descriptor to read the file is:",r);
@@ -149,9 +150,9 @@ printf("%s %d \n","Bytes:",i);
 embed(0x00,p);
 rl(p);
 
-r = close(*(CLI_SI+(fd)));
+r = cl_b(*(CLI_SI+(fd)));
 if(!(r^(~0x00))) {
-printf("%s \n","<< Error at fn. close()");
+printf("%s \n","<< Error at fn. cl_b()");
 return(r);
 }
 

@@ -17,6 +17,8 @@ signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 auto struct stat stats;
 auto signed long long totalfilesize;
 auto signed total;
+auto signed access_right;
+auto signed permission;
 auto signed i,l,r;
 auto signed short flag;
 auto signed const THRESHOLD = (0x03);
@@ -54,10 +56,11 @@ totalfilesize = (stats.st_size);
 
 /* Open a file descriptor for reading */
 XOR(i,i);
-r = open(*(argv+(argc+(--i))),O_RDONLY|(O_BINARY));
+access_right = (O_RDONLY|(O_BINARY));
+r = op_b(*(argv+(argc+(--i))),&access_right,(void*)0x00);
 *(CLI_SI+(fd)) = (r);
 if(!(r^(~0x00))) {
-printf("%s \n","<< Error at fn. open() at SI");
+printf("%s \n","<< Error at fn. op_b() at SI");
 return(0x00);
 }
 else {
@@ -66,10 +69,12 @@ printf("%s %Xh \n","<< Good! Opened at SI ..and the r is:",r);
 }
 
 /* Open a file descriptor for writing */
-r = open(*(argv+(argc+(--i))),O_WRONLY|(O_BINARY|(O_CREAT|(O_EXCL))),S_IREAD|(S_IWRITE));
+access_right = (O_WRONLY|(O_BINARY|(O_CREAT|(O_EXCL))));
+permission = (S_IREAD|(S_IWRITE));
+r = op_b(*(argv+(argc+(--i))),&access_right,&permission);
 *(CLI_DI+(fd)) = (r);
 if(!(r^(~0x00))) {
-printf("%s \n","<< Error at fn. open() at DI");
+printf("%s \n","<< Error at fn. op_b() at DI");
 return(0x00);
 }
 else {
@@ -124,9 +129,9 @@ printf("\r%d %s %zd %s",total,"bytes per",totalfilesize,"bytes");
 /* Close all the file descriptors */
 i = (CLI_CACHE);
 while(i) {
-r = close(*(--i+(fd)));
+r = cl_b(*(--i+(fd)));
 if(!(r^(~0x00))) {
-printf("%s %d \n","<< Error at fn. close(*(fd+(--i))) ..and the i is:",i);
+printf("%s %d \n","<< Error at fn. cl_b(*(fd+(--i))) ..and the i is:",i);
 return(0x00);
 }}
 

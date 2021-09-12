@@ -75,9 +75,10 @@ p = (*(pp+(r+(~0x00))));
 }
 
 /* opening */
-fd = open(p,O_RDONLY|(O_BINARY));
+r = (O_RDONLY|(O_BINARY));
+fd = op_b(p,&r,(void*)0x00);
 if(!(fd^(~0x00))) {
-printf("%s \n","<< Error at fn. open()");
+printf("%s \n","<< Error at fn. op_b()");
 DEC(R(Running,*argp));
 return(0x00);
 }
@@ -121,9 +122,9 @@ sleep_b(0x03*(DELAY));
 if(interrupt_flag) printf("\n\n%s \n","Attention: There was an interruption during reading and/or writing..");
 
 /* Check an error flag e.g., and closing/unmapping out of the RAM */
-r = close(fd);
+r = cl_b(fd);
 if(!(r^(~0x00))) {
-printf("%s \n","<< Error at fn. close()");
+printf("%s \n","<< Error at fn. cl_b()");
 DEC(R(Running,*argp));
 return(0x00);
 }

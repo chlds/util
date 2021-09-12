@@ -54,9 +54,9 @@ return(0x00);
 //*/
 
 // open
-fd = open(path,access_right,permission);
+fd = op_b(path,&access_right,&permission);
 if(!(fd^(~0x00))) {
-printf("%s %Xh \n","<< Error at fn. open() with errno",errno);
+printf("%s %Xh \n","<< Error at fn. op_b() with errno",errno);
 return(0x00);
 }
 
@@ -82,9 +82,9 @@ return(0x00);
 }}
 
 // close
-r = close(fd);
+r = cl_b(fd);
 if(!(r^(~0x00))) {
-printf("%s \n","<< Error at fn. close()");
+printf("%s \n","<< Error at fn. cl_b()");
 return(0x00);
 }
 

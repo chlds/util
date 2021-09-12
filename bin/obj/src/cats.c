@@ -15,6 +15,8 @@ Output a file in the text format
 signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 
 auto signed count;
+auto signed access_right;
+auto signed permission;
 auto signed r;
 auto signed short flag;
 auto unsigned char c;
@@ -41,10 +43,11 @@ return(0x00);
 }
 
 /* Map to read on the RAM */
-r = open(*(argv+(argc+(~0x00))),O_RDONLY|(O_BINARY));
+access_right = (O_RDONLY|(O_BINARY));
+r = op_b(*(argv+(argc+(~0x00))),&access_right,(void*)0x00);
 *(CLI_SI+(fd)) = (r);
 if(!(r^(~0x00))) {
-printf("%s \n","<< Error at fn. open()");
+printf("%s \n","<< Error at fn. op_b()");
 return(r);
 }
 
@@ -84,9 +87,9 @@ if(!(c^(LF))) sleep_b(DELAY_FOR_LF);
 }
 
 /* Close the file descriptor to read a file */
-r = close(*(CLI_SI+(fd)));
+r = cl_b(*(CLI_SI+(fd)));
 if(!(r^(~0x00))) {
-printf("%s \n","<< Error at fn. close()");
+printf("%s \n","<< Error at fn. cl_b()");
 return(r);
 }
 

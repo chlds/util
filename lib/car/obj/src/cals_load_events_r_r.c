@@ -33,12 +33,12 @@ AND(flag,0x00);
 if(cf_f_extensions(csv,b)) {
 // open, read and close
 access_right = (_O_BINARY|_O_RDONLY);
-fd = _open(b,access_right);
+fd = op_b(b,&access_right,(void*)0x00);
 if(!(fd^(~0x00))) {
 if(!(ENOENT^(errno))) {
 if(CALS_VERBOSE&(R(flag,*argp))) printf("\n\t%s %s %s \n","No file at",b,"for events");
 }
-printf("%s %Xh \n","<< Error at fn. _open() with errno",errno);
+printf("%s %Xh \n","<< Error at fn. op_b() with errno",errno);
 return(0x00);
 }
 OR(R(flag,*argp),CALS_ERROR);
@@ -50,9 +50,9 @@ if(0x01<(flag)) {
 r = cals_unbind_events(&(R(roll,*argp)));
 if(!r) printf("%s \n","<< Error at fn. cals_unbind_events()");
 }
-r = _close(fd);
+r = cl_b(fd);
 if(!(r^(~0x00))) {
-printf("%s \n","<< Error at fn. _close()");
+printf("%s \n","<< Error at fn. cl_b()");
 return(0x00);
 }}
 

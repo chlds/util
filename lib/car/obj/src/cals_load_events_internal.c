@@ -25,12 +25,12 @@ AND(flag,0x00);
 
 // open, read and close
 access_right = (_O_BINARY|_O_RDONLY);
-fd = _open(path,access_right);
+fd = op_b(path,&access_right,(void*)0x00);
 if(!(fd^(~0x00))) {
 if(!(ENOENT^(errno))) {
 if(CALS_VERBOSE&(R(flag,*argp))) printf("\n\t%s %s %s \n","No file at",path,"for events");
 }
-printf("%s %Xh \n","<< Error at fn. _open() with errno",errno);
+printf("%s %Xh \n","<< Error at fn. op_b() with errno",errno);
 return(0x00);
 }
 
@@ -44,9 +44,9 @@ r = cals_unbind_events(&(R(roll,*argp)));
 if(!r) printf("%s \n","<< Error at fn. cals_unbind_events()");
 }
 
-r = _close(fd);
+r = cl_b(fd);
 if(!(r^(~0x00))) {
-printf("%s \n","<< Error at fn. _close()");
+printf("%s \n","<< Error at fn. cl_b()");
 return(0x00);
 }
 

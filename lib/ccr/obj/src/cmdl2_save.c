@@ -72,7 +72,9 @@ p = (signed char(*)) (*(pp+(r+(~0x00))));
 
 /* open */
 AND(flag,0x00);
-fd = open(p,O_WRONLY|(O_BINARY|(O_CREAT|(O_EXCL|(O_APPEND)))),S_IREAD|(S_IWRITE));
+i = (O_WRONLY|(O_BINARY|(O_CREAT|(O_EXCL|(O_APPEND)))));
+r = (S_IREAD|(S_IWRITE));
+fd = op_b(p,&i,&r);
 if(!(fd^(~0x00))) {
 printf("%s \n","<< Could not open..");
 flag++;
@@ -126,9 +128,9 @@ XOR(i,i);
 sleep_b(DELAY);
 }}
 /* closing/unmapping out of the RAM */
-r = close(fd);
+r = cl_b(fd);
 if(!(r^(~0x00))) {
-printf("%s \n","<< Error at fn. close()");
+printf("%s \n","<< Error at fn. cl_b()");
 DEC(R(Running,*argp));
 return(r);
 }

@@ -45,16 +45,16 @@ return(0x00);
 }}
 
 // open
-fd = _open(path,access_right);
+fd = op_b(path,&access_right,(void*)0x00);
 if(!(fd^(~0x00))) {
-printf("%s %Xh \n","<< Error at fn. _open() with errno",errno);
+printf("%s %Xh \n","<< Error at fn. op_b() with errno",errno);
 return(0x00);
 }
 
 // close
 i = (~0x00);
-if(EQ(i,_close(fd))) {
-printf("%s \n","<< Error at fn. _close()");
+if(EQ(i,cl_b(fd))) {
+printf("%s \n","<< Error at fn. cl_b()");
 return(0x00);
 }
 

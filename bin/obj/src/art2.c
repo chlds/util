@@ -75,9 +75,10 @@ printf("%s %ld%s \n","size:",fsize,"bytes");
 return(0x00);
 }
 
-fd = open(filename,O_RDONLY|(O_BINARY));
+r = (O_RDONLY|(O_BINARY));
+fd = op_b(filename,&r,(void*)0x00);
 if(!(fd^(~0x00))) {
-printf("%s \n","<< Error at fn. open()");
+printf("%s \n","<< Error at fn. op_b()");
 return(0x00);
 }
 
@@ -87,9 +88,9 @@ if(CLI_ERROR&(flag)) {
 printf("%s \n","<< Error at fn. art_r()");
 }
 
-r = close(fd);
+r = cl_b(fd);
 if(!(r^(~0x00))) {
-printf("%s \n","<< Error at fn. close()");
+printf("%s \n","<< Error at fn. cl_b()");
 return(0x00);
 }
 

@@ -40,9 +40,9 @@ return(0x00);
 
 if(DBG) printf("%d%s \n",R(st_size,stats),"bytes");
 
-fd = open(di,access_right);
+fd = op_b(di,&access_right,(void*)0x00);
 if(!(fd^(~0x00))) {
-printf("%s %Xh \n","<< Error at fn. open() with errno",errno);
+printf("%s %Xh \n","<< Error at fn. op_b() with errno",errno);
 return(0x00);
 }
 
@@ -50,8 +50,8 @@ r = wr_pages(fd,si);
 if(!r) printf("%s \n","<< Error at fn. wr_pages()");
 
 i = (~0x00);
-if(EQ(i,close(fd))) {
-printf("%s %Xh \n","<< Error at fn. close() with errno",errno);
+if(EQ(i,cl_b(fd))) {
+printf("%s %Xh \n","<< Error at fn. cl_b() with errno",errno);
 return(0x00);
 }
 

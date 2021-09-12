@@ -43,9 +43,9 @@ printf("%s \n","<< Error at fn. init_pages()");
 return(0x00);
 }
 
-fd = open(si,access_right);
+fd = op_b(si,&access_right,(void*)0x00);
 if(!(fd^(~0x00))) {
-printf("%s %Xh \n","<< Error at fn. open() with errno",errno);
+printf("%s %Xh \n","<< Error at fn. op_b() with errno",errno);
 return(0x00);
 }
 
@@ -53,8 +53,8 @@ r = rd_pages(di,fd);
 if(!r) printf("%s \n","<< Error at fn. rd_pages()");
 
 i = (~0x00);
-if(EQ(i,close(fd))) {
-printf("%s %Xh \n","<< Error at fn. close() with errno",errno);
+if(EQ(i,cl_b(fd))) {
+printf("%s %Xh \n","<< Error at fn. cl_b() with errno",errno);
 return(0x00);
 }
 

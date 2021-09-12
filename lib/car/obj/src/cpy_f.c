@@ -63,10 +63,10 @@ if(DBG) printf("%d %s \n",R(st_size,stats),"bytes");
 i = (0x02);
 while(i) {
 --i;
-r = open(*(i+(b)),*(i+(access_right)),*(i+(permission)));
+r = op_b(*(i+(b)),i+(access_right),i+(permission));
 *(i+(fd)) = (r);
 if(!(r^(~0x00))) {
-printf("%s %Xh ","<< Error at fn. open() with errno",errno);
+printf("%s %Xh ","<< Error at fn. op_b() with errno",errno);
 printf("%s %Xh \n","and i is",i);
 return(0x00);
 }}
@@ -79,9 +79,9 @@ if(!r) printf("%s \n","<< Error at fn. cpy_f_r()");
 i = (0x02);
 while(i) {
 --i;
-r = close(*(i+(fd)));
+r = cl_b(*(i+(fd)));
 if(!(r^(~0x00))) {
-printf("%s %Xh ","<< Error at fn. close() with errno",errno);
+printf("%s %Xh ","<< Error at fn. cl_b() with errno",errno);
 printf("%s %Xh \n","and i is",i);
 return(0x00);
 }}
