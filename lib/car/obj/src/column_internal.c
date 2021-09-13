@@ -81,7 +81,7 @@ INC(r);
 p = (signed char(*)) malloc(r*(sizeof(signed char)));
 r = ct_to("-",cur);
 r = cpy2p(p,cur+(r),offset);
-r = align(algn,p);
+r = align_b(algn,p);
 free(p);
 // output: drain
 ADD(col,r);

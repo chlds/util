@@ -351,7 +351,7 @@ signed(__cdecl ct_digits(signed char(*argp)));
 /* Count digits. */
 
 signed(__cdecl align_backward(signed(arg),signed char(*argp)));
-signed(__cdecl align(signed(arg),signed char(*argp)));
+signed(__cdecl align_b(signed(arg),signed char(*argp)));
 /* Return the number of spaces that are output when the tab key is pressed. */
 
 signed(__cdecl ct_txt_internal(signed(arg/* align */),signed(*retv),signed char(*argp)));
