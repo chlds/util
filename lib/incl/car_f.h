@@ -11,6 +11,9 @@ Along with C library
 signed(__cdecl agent_cvlf(signed(argc),signed char(**argv),signed char(**envp)));
 signed(__cdecl agent_lk(signed(argc),signed char(**argv),signed char(**envp)));
 
+signed(__cdecl c_getch(signed(arg)));
+signed(__cdecl c_putch(signed(arg)));
+
 signed(__cdecl cl_b(signed(arg)));
 signed(__cdecl rd_b(signed(fd),signed char(*argp),signed(arg)));
 signed(__cdecl wr_b(signed(fd),signed char(*argp),signed(arg)));
