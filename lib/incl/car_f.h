@@ -14,6 +14,10 @@ signed(__cdecl agent_lk(signed(argc),signed char(**argv),signed char(**envp)));
 signed(__cdecl c_getch(signed(arg)));
 signed(__cdecl c_putch(signed(arg)));
 
+signed(__cdecl cli_i_r(signed(arg),signed char(*argp)));
+signed(__cdecl cli_i(signed char(**argp)));
+signed(__cdecl cli_o(signed char(*argp)));
+
 signed(__cdecl cl_b(signed(arg)));
 signed(__cdecl rd_b(signed(fd),signed char(*argp),signed(arg)));
 signed(__cdecl wr_b(signed(fd),signed char(*argp),signed(arg)));

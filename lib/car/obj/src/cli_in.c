@@ -13,17 +13,17 @@ The first call returns (0x00) and the second call returns (0x03)..
 
 
 # define CBR
-
 # include <stdio.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cli_in(signed(*character),signed char(*argp),signed(size))) {
 
-/* **** DATA, BSS and STACK */
+auto signed c,i,r;
+auto signed short flag;
+auto signed char low;
 static signed char LOW = (0xE0);
 static signed THRESHOLD = (0x01+(0x04));
 static signed SEQ_FLAG = (0x80);
-
 static signed high[] = {
 (signed) (0x91),
 (signed) (0x8D),
@@ -34,11 +34,6 @@ static signed high[] = {
 (signed) (0x00),
 };
 
-auto signed c,i,r;
-auto signed short flag;
-auto signed char low;
-
-/* **** CODE/TEXT */
 if(!character) return(0x00);
 if(!argp) return(0x00);
 if(size<(THRESHOLD)) return(0x00);

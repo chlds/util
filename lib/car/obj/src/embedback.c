@@ -4,12 +4,14 @@ Embed.
 */
 
 
+# define CAR
+# include <stdio.h>
+# include "../../../incl/config.h"
+
 signed(__cdecl embedback(signed(arg),signed char(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto signed i,r;
 
-/* **** CODE/TEXT */
 if(arg<(0x01)) return(0x00);
 if(!argp) return(0x00);
 
