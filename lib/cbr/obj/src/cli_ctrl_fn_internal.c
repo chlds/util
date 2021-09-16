@@ -1,6 +1,6 @@
 /* **** Notes
 
-Output characters in UTF-8 after decoding Unicode bytes input out of the key board.
+Run in an array of function pointers.
 
 Remarks:
 Based on UTF-8
@@ -8,14 +8,18 @@ Based on UTF-8
 
 
 # define CBR
-# define CLI_FN (0x01+(0x20))
 # include <stdio.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cli_ctrl_fn_internal(signed(arg),void(*argp))) {
 
-/* **** DATA, BSS and STACK */
-auto signed(__cdecl*(cli_fn[CLI_FN]))(void(*cli_fn_argp)) = {
+auto signed char *b;
+auto signed char *p;
+auto signed dif;
+auto signed i,r;
+auto signed short flag;
+auto signed(__cdecl*f)(void(*f_argp));
+auto signed(__cdecl*(fn[0x01+(CTRL_KEYS)]))(void(*f_argp)) = {
 (signed(__cdecl*)(void(*))) (cli_ctrl_at),
 (signed(__cdecl*)(void(*))) (cli_ctrl_a),
 (signed(__cdecl*)(void(*))) (cli_ctrl_b),
@@ -51,22 +55,15 @@ auto signed(__cdecl*(cli_fn[CLI_FN]))(void(*cli_fn_argp)) = {
 (signed(__cdecl*)(void(*))) (0x00),
 };
 
-auto signed char *b;
-auto signed char *p;
-auto signed dif;
-auto signed i,r;
-auto signed short flag;
-
-/* **** CODE/TEXT */
 if(!(arg<(CTRL_KEYS))) return(0x00);
 if(arg<(0x00)) return(0x00);
 if(!argp) return(0x00);
 
-// run in an array of function pointers e.g.,
-// r = (__cdecl*(cli_fn+(arg)))(*(cli_fn_argp+(arg)));
-r = (*(cli_fn+(arg)))(argp);
+// e.g., f(*(arg+(f_argp)));
+f = (*(arg+(fn)));
+r = f(argp);
 if(!r) {
-printf("%s%d%s%d%s \n","<< Error at fn. (__cdecl*(cli_fn+(",arg,")))(*(cli_fn_argp+(",arg,")))");
+printf("%s%d%s%d%s \n","<< Error at fn. (__cdecl*(",arg,"+(fn)))(*(",arg,"+(f_argp)))");
 return(0x00);
 }
 

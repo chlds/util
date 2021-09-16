@@ -1,6 +1,6 @@
 /* **** Notes
 
-Output characters in UTF-8 after decoding Unicode bytes input out of the key board.
+Run in an array of function pointers.
 
 Remarks:
 Based on UTF-8
