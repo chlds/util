@@ -13,10 +13,6 @@ Based on UTF-8
 
 signed(__cdecl cli_io(cli_property_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
-static signed char buff[CLI_RULE][0x500]; // to monitor
-auto signed DEL = (0x7F);
-
 auto cli_text_t *text;
 auto cli_rule_t *rule;
 auto signed char *b;
@@ -25,8 +21,9 @@ auto signed size;
 auto signed dif;
 auto signed i,r;
 auto signed short flag;
+static signed char buff[CLI_RULE][0x500]; // to monitor
+// auto signed DEL = (0x7F);
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 if(!(CLI_INIT&(*(CLI_BASE+(R(flag,*argp)))))) return(0x00);

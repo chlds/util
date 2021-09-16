@@ -13,9 +13,6 @@ Based on UTF-8
 
 signed(__cdecl cli_ctrl_fn(signed(arg),cli_property_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
-auto signed DEL = (0x7F);
-
 auto cli_clipboard_t *clipboard;
 auto cli_text_t *text;
 auto cli_rule_t *rule;
@@ -24,7 +21,6 @@ auto signed dif;
 auto signed i,r;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(!(arg^(DEL))) arg = (CTRL_D);
 if(!(arg<(CTRL_KEYS))) return(0x00);
 if(arg<(0x00)) return(0x00);

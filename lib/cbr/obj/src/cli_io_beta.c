@@ -21,50 +21,6 @@ Based on UTF-8
 
 signed(__cdecl cli_io_beta(signed char(*cur),signed(size),CLI_W32_STAT(*argp))) {
 
-/* **** DATA, BSS and STACK */
-auto signed(__cdecl*(cli_fn[CLI_FN])) (void(*cli_fn_argp)) = {
-(signed(__cdecl*) (void(*))) (cli_ctrl_at_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_a_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_b_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_c_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_d_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_e_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_f_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_g_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_h_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_i_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_j_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_k_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_l_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_m_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_n_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_o_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_p_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_q_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_r_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_s_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_t_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_u_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_v_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_w_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_x_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_y_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_z_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_lsb_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_rs_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_rsb_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_ca_beta),
-(signed(__cdecl*) (void(*))) (cli_ctrl_ll_beta),
-(signed(__cdecl*) (void(*))) (0x00),
-};
-
-auto unsigned const UTF_8 = (65001);
-
-auto signed char const(SP) = (' ');
-auto signed char const(CR) = ('\r');
-auto signed char const(LF) = ('\n');
-auto signed DEL = (0x7F);
-
 auto signed char *base,*p;
 auto signed diff;
 auto signed offset;
@@ -72,8 +28,43 @@ auto signed kept;
 auto signed i,r;
 auto signed short flag;
 auto signed short y;
+auto unsigned const UTF_8 = (65001);
+auto signed(__cdecl*(cli_fn[CLI_FN])) (void(*cli_fn_argp)) = {
+(signed(__cdecl*)(void(*))) (cli_ctrl_at_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_a_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_b_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_c_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_d_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_e_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_f_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_g_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_h_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_i_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_j_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_k_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_l_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_m_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_n_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_o_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_p_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_q_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_r_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_s_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_t_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_u_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_v_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_w_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_x_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_y_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_z_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_lsb_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_rs_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_rsb_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_ca_beta),
+(signed(__cdecl*)(void(*))) (cli_ctrl_ll_beta),
+(signed(__cdecl*)(void(*))) (0x00),
+};
 
-/* **** CODE/TEXT */
 if(!cur) return(0x00);
 if(!argp) return(0x00);
 
