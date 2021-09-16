@@ -15,12 +15,13 @@ signed(__cdecl c_kbhit(void));
 signed(__cdecl c_getch(signed(arg)));
 signed(__cdecl c_putch(signed(arg)));
 
-signed(__cdecl cli_i_r(signed(arg),signed char(*argp)));
+signed(__cdecl cli_i_r(signed char(**argp)));
 signed(__cdecl cli_i(signed char(**argp)));
 signed(__cdecl cli_o(signed char(*argp)));
+signed(__cdecl cli_k(void(*argp)));
 
 signed(__cdecl ctrl_fn_r(signed(arg),void(*argp)));
-signed(__cdecl ctrl_fn(signed(arg),void(*argp)));
+signed(__cdecl ctrl_fn(signed char(*cache),void(*argp)));
 
 signed(__cdecl cl_b(signed(arg)));
 signed(__cdecl rd_b(signed(fd),signed char(*argp),signed(arg)));

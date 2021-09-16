@@ -1,5 +1,3 @@
-# define CTRL_MASK (0x1F)
-
 # define ALIGN_TAB (0x08)
 # define CRLF (0x0A0D)
 

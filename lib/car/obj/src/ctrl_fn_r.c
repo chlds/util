@@ -56,6 +56,7 @@ auto signed(__cdecl*(fn[0x01+(CTRL_KEYS)]))(void(*f_argp)) = {
 (signed(__cdecl*)(void(*))) (0x00),
 };
 
+if(!(arg^(DEL))) arg = (CTRL_D);
 if(!(arg<(CTRL_KEYS))) return(0x00);
 if(arg<(0x00)) return(0x00);
 if(!argp) return(0x00);
@@ -71,5 +72,5 @@ return(0x00);
 return(r);
 //*/
 
-return(0x01);
+return(arg);
 }
