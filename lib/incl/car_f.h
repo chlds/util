@@ -20,6 +20,38 @@ signed(__cdecl cli_i(signed char(**argp)));
 signed(__cdecl cli_o(signed char(*argp)));
 signed(__cdecl cli_k(void(*argp)));
 
+signed(__cdecl ctrl_at(void(*argp)));
+signed(__cdecl ctrl_a(void(*argp)));
+signed(__cdecl ctrl_b(void(*argp)));
+signed(__cdecl ctrl_c(void(*argp)));
+signed(__cdecl ctrl_d(void(*argp)));
+signed(__cdecl ctrl_e(void(*argp)));
+signed(__cdecl ctrl_f(void(*argp)));
+signed(__cdecl ctrl_g(void(*argp)));
+signed(__cdecl ctrl_h(void(*argp)));
+signed(__cdecl ctrl_i(void(*argp)));
+signed(__cdecl ctrl_j(void(*argp)));
+signed(__cdecl ctrl_k(void(*argp)));
+signed(__cdecl ctrl_l(void(*argp)));
+signed(__cdecl ctrl_m(void(*argp)));
+signed(__cdecl ctrl_n(void(*argp)));
+signed(__cdecl ctrl_o(void(*argp)));
+signed(__cdecl ctrl_p(void(*argp)));
+signed(__cdecl ctrl_q(void(*argp)));
+signed(__cdecl ctrl_r(void(*argp)));
+signed(__cdecl ctrl_s(void(*argp)));
+signed(__cdecl ctrl_t(void(*argp)));
+signed(__cdecl ctrl_u(void(*argp)));
+signed(__cdecl ctrl_v(void(*argp)));
+signed(__cdecl ctrl_w(void(*argp)));
+signed(__cdecl ctrl_x(void(*argp)));
+signed(__cdecl ctrl_y(void(*argp)));
+signed(__cdecl ctrl_z(void(*argp)));
+signed(__cdecl ctrl_lsb(void(*argp)));
+signed(__cdecl ctrl_rs(void(*argp)));
+signed(__cdecl ctrl_rsb(void(*argp)));
+signed(__cdecl ctrl_ca(void(*argp)));
+signed(__cdecl ctrl_ll(void(*argp)));
 signed(__cdecl ctrl_fn_r(signed(arg),void(*argp)));
 signed(__cdecl ctrl_fn(signed char(*cache),void(*argp)));
 
@@ -407,6 +439,7 @@ signed(__cdecl embed(signed(arg),signed char(*argp)));
 signed(__cdecl n_putch(signed(n),signed(letter)));
 /* Output the letter n times. */
 
+signed(__cdecl sw(signed(*di),signed(*si)));
 signed(__cdecl nsort(signed(count),signed(*base)));
 signed(__cdecl bsort(signed(count),signed(*base)));
 

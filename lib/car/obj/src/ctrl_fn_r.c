@@ -18,7 +18,6 @@ auto signed char *p;
 auto signed dif;
 auto signed i,r;
 auto signed short flag;
-/*
 auto signed(__cdecl*f)(void(*f_argp));
 auto signed(__cdecl*(fn[0x01+(CTRL_KEYS)]))(void(*f_argp)) = {
 (signed(__cdecl*)(void(*))) (ctrl_at),
@@ -61,16 +60,8 @@ if(!(arg<(CTRL_KEYS))) return(0x00);
 if(arg<(0x00)) return(0x00);
 if(!argp) return(0x00);
 
-// e.g., f(*(arg+(f_argp)));
 f = (*(arg+(fn)));
-r = f(argp);
-if(!r) {
-printf("%s%d%s%d%s \n","<< Error at fn. (__cdecl*(",arg,"+(fn)))(*(",arg,"+(f_argp)))");
-return(0x00);
-}
 
-return(r);
-//*/
-
-return(arg);
+// e.g., f(*(arg+(f_argp)));
+return(f(argp));
 }

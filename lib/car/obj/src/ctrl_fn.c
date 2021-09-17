@@ -20,8 +20,9 @@ auto signed short flag;
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 
-r = ct(cache);
-if(!(EQ(0x01,r))) r = (0x01);
+r = (signed) (*cache);
+if(r&(~CTRL_MASK)) return(0x00);
+if(0x01<(ct(cache))) AND(r,0x00); // meta keys
 
 return(ctrl_fn_r(r,argp));
 }
