@@ -11,19 +11,19 @@ Virtual Terminal
 # include <stdio.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl cli_color_text(signed(fg),signed(bg))) {
+signed(__cdecl color_text(signed(fg),signed(bg))) {
 
 auto signed i,r;
 
-r = cli_color_fg(fg);
+r = color_text_fg(fg);
 if(!r) {
-printf("%s \n","<< Error at fn. cli_color_fg()");
+printf("%s \n","<< Error at fn. color_text_fg()");
 return(0x00);
 }
 
-r = cli_color_bg(bg);
+r = color_text_bg(bg);
 if(!r) {
-printf("%s \n","<< Error at fn. cli_color_bg()");
+printf("%s \n","<< Error at fn. color_text_bg()");
 return(0x00);
 }
 

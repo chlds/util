@@ -11,7 +11,7 @@ Virtual Terminal
 # include <stdio.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl cli_color_fg(signed(arg))) {
+signed(__cdecl color_text_fg(signed(arg))) {
 
 auto signed fg[] = {
 COLOR_BLACK,
@@ -45,7 +45,7 @@ r = cv_d(0x0A,&b,arg);
 if(!r) return(0x00);
 
 AND(flag,0x00);
-r = cli_color_text_r(b);
+r = color_text_r(b);
 if(!r) OR(flag,0x01);
 
 if(b) rl(b);

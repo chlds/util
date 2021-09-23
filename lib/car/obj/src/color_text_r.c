@@ -11,7 +11,7 @@ Virtual Terminal
 # include <stdio.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl cli_color_text_r(signed char(*argp))) {
+signed(__cdecl color_text_r(signed char(*argp))) {
 
 auto signed char *b;
 auto signed r;
