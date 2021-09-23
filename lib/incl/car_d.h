@@ -30,9 +30,13 @@ Build a linked list.
 # define FLAGS (OBJS)
 # define PAGES (OBJS)
 
-typedef void(__cdecl*(SIGHDR_T)) (signed);
+typedef void(__cdecl*SIGHDR_T)(signed);
 // SIGHDR_T(__cdecl signal(signed(A),SIGHDR_T(B)));
-// void(__cdecl*(__cdecl signal(signed(A),void(__cdecl*(B)) (signed)))) (signed);
+// void(__cdecl*(__cdecl signal(signed(A),void(__cdecl*B)(signed))))(signed);
+
+struct rule {
+signed char *(b[OBJS]);
+} typedef rule_t;
 
 struct page {
 struct page *(page[PAGES]);
