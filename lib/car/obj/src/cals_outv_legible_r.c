@@ -23,12 +23,17 @@ CR,LF,HT,0x00,
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
+if(!(cli_es(CTRL_K))) return(0x00);
+
 b = (a);
 while(*b) {
 cli_out(b);
 b++;
 }
 
+cli_align(ALIGN_TAB);
+
+// msleep(arg);
 sleep_b(arg);
 cli_outs_legible(arg,*argp);
 argp++;

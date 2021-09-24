@@ -15,8 +15,10 @@ if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
 cli_outs(*argp);
-cli_out(&b);
+// if(!(cli_es(CTRL_K))) return(0x00);
 
+cli_out(&b);
 argp++;
+
 return(0x01+(cli_outv(argp)));
 }

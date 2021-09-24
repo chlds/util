@@ -1,25 +1,25 @@
 /* **** Notes
 
 Release
+
+Remarks:
+Refer at fn. cals_allocate_for_today.
 //*/
 
 
 # define CALEND
 # define CAR
-# include <stdlib.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cals_release_for_today(cals_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto cals_event_t *event;
 auto signed char *b;
-auto signed i,r;
+auto signed r;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-free(R(b,R(today,*argp)));
+rl(R(b,R(today,*argp)));
 R(b,R(today,*argp)) = (0x00);
 
 return(0x01);

@@ -71,6 +71,8 @@ signed(__cdecl cli_fn_esc(cli_property_t(*argp)));
 signed(__cdecl cli_fn_bullet(cli_property_t(*argp)));
 signed(__cdecl cli_coord_outs(signed short(arg/* align */),signed char(*argp)));
 signed(__cdecl cli_coord_out(signed short(arg/* align */),signed char(*argp)));
+signed(__cdecl cli_align_r(signed short(arg)));
+signed(__cdecl cli_align(signed short(arg)));
 signed(__cdecl cli_indent_r(signed short(arg)));
 signed(__cdecl cli_indent(signed short(arg)));
 signed(__cdecl cli_reckon(signed short(arg/* align */)));

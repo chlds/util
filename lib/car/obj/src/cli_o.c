@@ -9,6 +9,7 @@ Return the number of bytes.
 
 # define CAR
 # include <stdio.h>
+# include <errno.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cli_o(signed char(*argp))) {
@@ -32,9 +33,10 @@ return(r);
 }
 
 r = wr_b(CLI_OUT,argp,r);
-if(!r) {
-printf("%s \n","<< Error at fn. wr_b()");
-return(0x00);
+if(!r) printf("%s \n","<< Error at fn. wr_b()");
+if(EQ(r,~0x00)) {
+AND(r,0x00);
+printf("%s %Xh \n","<< Error at fn. wr_b() with errno",errno);
 }
 
 return(r);
