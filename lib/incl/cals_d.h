@@ -30,6 +30,7 @@
 # define CALS_THETHIRD (0x400)
 # define CALS_THEFOURTH (0x800)
 # define CALS_THELAST (0x1000)
+# define CALS_APERIODIC (0x8000)
 
 # define CALS_OBJS (0x04)
 

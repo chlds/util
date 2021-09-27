@@ -20,6 +20,8 @@ if(!argp) return(0x00);
 r = cals_init_event(&(R(today,*argp)));
 if(!r) return(0x00);
 
+OR(R(periodic,R(today,*argp)),CALS_APERIODIC);
+
 r = cals_init_roll(&(R(roll,*argp)));
 if(!r) return(0x00);
 
