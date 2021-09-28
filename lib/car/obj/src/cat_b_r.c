@@ -10,7 +10,7 @@ Release buffer later.
 # define CAR
 # include "./../../../incl/config.h"
 
-signed(__cdecl cat_b_r(signed char(**di),signed char(**si))) {
+signed(__cdecl /* __attribute__((ms_abi)) */ cat_b_r(signed char(**di),signed char(**si))) {
 
 auto signed r;
 

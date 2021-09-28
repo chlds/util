@@ -12,7 +12,7 @@ Release buffer later.
 # include <stdarg.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl cat_b(signed char(**argp),...)) {
+signed(__cdecl /* __attribute__((ms_abi)) */ cat_b(signed char(**argp),...)) {
 
 auto signed char **b;
 

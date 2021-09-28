@@ -111,8 +111,8 @@ signed(__cdecl cat_p(signed char(***di),signed char(*si)));
 
 signed(__cdecl csv_cat_b_r(signed char(**di),signed char(**si)));
 signed(__cdecl csv_cat_b(signed char(**argp),...));
-signed(__cdecl cat_b_r(signed char(**di),signed char(**si)));
-signed(__cdecl cat_b(signed char(**argp),...));
+signed(__cdecl /* __attribute__((ms_abi)) */ cat_b_r(signed char(**di),signed char(**si)));
+signed(__cdecl /* __attribute__((ms_abi)) */ cat_b(signed char(**argp),...));
 /* Concatenate to the terminating null pointer. */
 
 signed(__cdecl cv_bv_r(signed char(*di),signed char(**si)));
