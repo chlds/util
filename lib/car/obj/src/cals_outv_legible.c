@@ -25,9 +25,11 @@ if(arg<(min)) arg = (min);
 if(!(arg<(m))) arg = (m);
 }
 
+// msleep(arg);
 sleep_b(arg);
 cli_outs_legible(arg,*argp);
 argp++;
+if(!(cli_es(CTRL_K))) return(0x00);
 
 return(0x01+(cals_outv_legible_r(arg,argp)));
 }

@@ -5,6 +5,8 @@ Concatenate to the terminating null pointer.
 Remarks:
 Put a null pointer at the end of arguments.
 Release buffer later.
+Add an ABI attribute of functions to both the declaration and definition 
+of variadic functions to compile C source files with GCC on WSL (Ubuntu 64-bit).
 */
 
 

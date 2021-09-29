@@ -23,8 +23,6 @@ CR,LF,HT,0x00,
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
-if(!(cli_es(CTRL_K))) return(0x00);
-
 b = (a);
 while(*b) {
 cli_out(b);
@@ -37,6 +35,7 @@ cli_align(ALIGN_TAB);
 sleep_b(arg);
 cli_outs_legible(arg,*argp);
 argp++;
+if(!(cli_es(CTRL_K))) return(0x00);
 
 return(0x01+(cals_outv_legible_r(arg,argp)));
 }
