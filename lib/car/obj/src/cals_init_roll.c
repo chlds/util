@@ -46,7 +46,6 @@ r = (CALS_OBJS);
 while(r) *(--r+(R(event,*argp))) = (0x00);
 //*/
 
-R(insert,*argp) = (0x00);
 R(flag,*argp) = (0x00);
 R(optl,*argp) = (0x00);
 

@@ -18,7 +18,7 @@ if(!argp) return(0x00);
 r = cals_cache_events(cache,argp);
 if(!r) return(0x00);
 
-cache = (R(s,*cache));
+cache = (*(CLI_SI+(R(event,*cache))));
 
 return(0x01+(cals_cache_all_events_r_r(cache,argp)));
 }

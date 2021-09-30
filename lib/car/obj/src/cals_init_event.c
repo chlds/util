@@ -45,8 +45,9 @@ R(b,*argp) = (0x00);
 R(w,*argp) = (0x00);
 AND(R(flag,*argp),0x00);
 AND(R(periodic,*argp),0x00);
-R(d,*argp) = (0x00);
-R(s,*argp) = (0x00);
+
+i = (CLI_CACHE);
+while(i) *(--i+(R(event,*argp))) = (0x00);
 R(optl,*argp) = (0x00);
 
 OR(R(flag,*argp),CALS_INIT);

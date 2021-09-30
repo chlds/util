@@ -31,7 +31,7 @@ printf("%s \n","<< Error at fn. cals_cache_events()");
 return(0x00);
 }}}
 
-cache = (R(s,*cache));
+cache = (*(CLI_SI+(R(event,*cache))));
 
 return(0x01+(cals_refer_events_r_r(flag,cache,cached,argp)));
 }

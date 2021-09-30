@@ -12,7 +12,7 @@ signed(__cdecl cals_count_events_r(cals_event_t(*argp))) {
 
 if(!argp) return(0x00);
 
-argp = (R(s,*argp));
+argp = (*(CLI_SI+(R(event,*argp))));
 
 return(0x01+(cals_count_events_r(argp)));
 }

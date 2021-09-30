@@ -10,30 +10,28 @@ Sort
 
 signed(__cdecl cals_order_events(cals_roll_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
-auto cals_event_t *event;
+auto cals_event_t *ev;
 auto time_t t;
 auto signed i,r;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-event = (*(CLI_INDEX+(R(event,*argp))));
-if(!event) return(0x00);
-if(!(R(d,*event))) return(0x00);
+ev = (*(CLI_INDEX+(R(event,*argp))));
+if(!ev) return(0x00);
+if(!(*(CLI_DI+(R(event,*ev))))) return(0x00);
 
-if(!(R(d,*(R(d,*event))))) *(CLI_LEAD+(R(event,*argp))) = (event);
-else R(s,*(R(d,*(R(d,*event))))) = (event);
-R(s,*(R(d,*event))) = (R(s,*event));
-R(s,*event) = (R(d,*event));
+if(!(*(CLI_DI+(R(event,**(CLI_DI+(R(event,*ev)))))))) *(CLI_LEAD+(R(event,*argp))) = (ev);
+else *(CLI_SI+(R(event,**(CLI_DI+(R(event,**(CLI_DI+(R(event,*ev))))))))) = (ev);
+*(CLI_SI+(R(event,**(CLI_DI+(R(event,*ev)))))) = (*(CLI_SI+(R(event,*ev))));
+*(CLI_SI+(R(event,*ev))) = (*(CLI_DI+(R(event,*ev))));
 
-if(!(R(s,*(R(s,*event))))) *(CLI_BASE+(R(event,*argp))) = (R(s,*event));
-else R(d,*(R(s,*(R(s,*event))))) = (R(s,*event));
-R(d,*event) = (R(d,*(R(s,*event))));
-R(d,*(R(s,*event))) = (event);
+if(!(*(CLI_SI+(R(event,**(CLI_SI+(R(event,*ev)))))))) *(CLI_BASE+(R(event,*argp))) = (*(CLI_SI+(R(event,*ev))));
+else *(CLI_DI+(R(event,**(CLI_SI+(R(event,**(CLI_SI+(R(event,*ev))))))))) = (*(CLI_SI+(R(event,*ev))));
+*(CLI_DI+(R(event,*ev))) = (*(CLI_DI+(R(event,**(CLI_SI+(R(event,*ev)))))));
+*(CLI_DI+(R(event,**(CLI_SI+(R(event,*ev)))))) = (ev);
 
-*(CLI_OFFSET+(R(event,*argp))) = (R(s,*event));
-*(CLI_INDEX+(R(event,*argp))) = (R(s,*event));
+*(CLI_OFFSET+(R(event,*argp))) = (*(CLI_SI+(R(event,*ev))));
+*(CLI_INDEX+(R(event,*argp))) = (*(CLI_SI+(R(event,*ev))));
 
 return(0x01);
 }

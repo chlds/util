@@ -114,19 +114,17 @@ CAPS_MONTH,MON,(signed char(**)) (0x00),
 struct cals_event {
 signed char *b;
 signed short *w;
-signed short time[CALS_TIME];
-signed short date[CALS_DATE];
 time_t t;
 // signed long long /* time_t */ ll;
 signed short flag;
 signed short periodic;
-struct cals_event *d;
-struct cals_event *s;
+signed short time[CALS_TIME];
+signed short date[CALS_DATE];
+struct cals_event *(event[CLI_CACHE]);
 void *optl;
 } typedef cals_event_t;
 
 struct cals_roll {
-cals_event_t *event[0x04];
 //* deprecated
 cals_event_t today;
 signed short day[0x02];
@@ -134,8 +132,8 @@ signed short month[0x02];
 time_t wk1[0x04];
 time_t t[0x04];
 //*/
-signed short insert;
 signed short flag;
+cals_event_t *event[0x04];
 void *optl;
 } typedef cals_roll_t;
 

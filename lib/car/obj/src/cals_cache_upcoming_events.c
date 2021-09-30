@@ -39,7 +39,7 @@ while(ev) {
 if(!(t^(R(t,*ev)))) flag++;
 if(t<(R(t,*ev))) flag++;
 if(flag) break;
-ev = (R(s,*ev));
+ev = (*(CLI_SI+(R(event,*ev))));
 }
 
 *cache = (ev);

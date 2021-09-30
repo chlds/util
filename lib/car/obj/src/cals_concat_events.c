@@ -15,30 +15,31 @@ Based on a doubly linked list (i.e., not a circular linked list)
 signed(__cdecl cals_concat_events(cals_event_t(*cache),cals_roll_t(*argp))) {
 
 auto cals_event_t *ev;
+auto signed short insert;
 
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 
+AND(insert,0x00);
 ev = (*(CLI_LEAD+(R(event,*argp))));
-if(EQ(ev,*(CLI_INDEX+(R(event,*argp))))) R(insert,*argp) = (0x00);
-else R(insert,*argp) = (0x01);
+if(!(EQ(ev,*(CLI_INDEX+(R(event,*argp)))))) OR(insert,0x01);
 
-if(!(R(insert,*argp))) {
+if(!insert) {
 if(!(*(CLI_LEAD+(R(event,*argp))))) *(CLI_BASE+(R(event,*argp))) = (cache);
-else R(d,**(CLI_LEAD+(R(event,*argp)))) = (cache);
-R(s,*cache) = (*(CLI_LEAD+(R(event,*argp))));
+else *(CLI_DI+(R(event,**(CLI_LEAD+(R(event,*argp)))))) = (cache);
+*(CLI_SI+(R(event,*cache))) = (*(CLI_LEAD+(R(event,*argp))));
 *(CLI_LEAD+(R(event,*argp))) = (cache);
-R(d,**(CLI_LEAD+(R(event,*argp)))) = (0x00);
+*(CLI_DI+(R(event,**(CLI_LEAD+(R(event,*argp)))))) = (0x00);
 // Aux.
 *(CLI_OFFSET+(R(event,*argp))) = (*(CLI_BASE+(R(event,*argp))));
 *(CLI_INDEX+(R(event,*argp))) = (*(CLI_LEAD+(R(event,*argp))));
 }
 
 else {
-R(s,*(R(d,**(CLI_INDEX+(R(event,*argp)))))) = (cache);
-R(d,*cache) = (R(d,**(CLI_INDEX+(R(event,*argp)))));
-R(s,*cache) = (*(CLI_INDEX+(R(event,*argp))));
-R(d,**(CLI_INDEX+(R(event,*argp)))) = (cache);
+*(CLI_SI+(R(event,**(CLI_DI+(R(event,**(CLI_INDEX+(R(event,*argp))))))))) = (cache);
+*(CLI_DI+(R(event,*cache))) = (*(CLI_DI+(R(event,**(CLI_INDEX+(R(event,*argp)))))));
+*(CLI_SI+(R(event,*cache))) = (*(CLI_INDEX+(R(event,*argp))));
+*(CLI_DI+(R(event,**(CLI_INDEX+(R(event,*argp)))))) = (cache);
 // Aux.
 *(CLI_INDEX+(R(event,*argp))) = (cache);
 }

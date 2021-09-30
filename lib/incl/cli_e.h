@@ -20,6 +20,12 @@ CLI_ERR,
 };
 
 enum {
+CLI_SI,
+CLI_DI,
+CLI_CACHE,
+};
+
+enum {
 CLI_UNDO,
 CLI_REDO,
 };

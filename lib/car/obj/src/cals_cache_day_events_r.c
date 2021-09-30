@@ -37,7 +37,7 @@ ev = (*(CLI_INDEX+(R(event,*argp))));
 if(!(cals_update_time_for_periodic_events_in_the_day(criterion,ev))) return(0x00);
 }}}
 
-cache = (R(s,*cache));
+cache = (*(CLI_SI+(R(event,*cache))));
 
 return(0x01+(cals_cache_day_events_r(criterion,cache,argp)));
 }

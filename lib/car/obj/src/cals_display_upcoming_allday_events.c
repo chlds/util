@@ -39,7 +39,7 @@ if(!r) return(0x00);
 printf("\n");
 }
 
-argp = (R(s,*argp));
+argp = (*(CLI_SI+(R(event,*argp))));
 
 return(0x01+(cals_display_upcoming_allday_events(argp)));
 }

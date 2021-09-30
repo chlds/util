@@ -18,7 +18,7 @@ if(!argp) return(0x00);
 ev = (*(CLI_LEAD+(R(event,*argp))));
 if(!ev) return(0x00);
 
-*(CLI_LEAD+(R(event,*argp))) = (R(s,*ev));
+*(CLI_LEAD+(R(event,*argp))) = (*(CLI_SI+(R(event,*ev))));
 
 R(w,*ev) = (0x00);
 R(b,*ev) = (0x00);

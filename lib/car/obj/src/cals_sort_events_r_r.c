@@ -20,7 +20,7 @@ if(!argp) return(0x00);
 
 ev = (*(CLI_INDEX+(R(event,*argp))));
 if(!ev) return(0x00);
-*(CLI_INDEX+(R(event,*argp))) = (R(s,*ev));
+*(CLI_INDEX+(R(event,*argp))) = (*(CLI_SI+(R(event,*ev))));
 
 AND(flag,0x00);
 t = (R(t,*ev));

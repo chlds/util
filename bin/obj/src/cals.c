@@ -222,7 +222,7 @@ break;
 }
 printf("\n");
 }
-ev = (R(s,*ev));
+ev = (*(CLI_SI+(R(event,*ev))));
 }}
 
 if(CALS_BOUND&(R(flag,R(roll,cs)))) {

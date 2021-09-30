@@ -55,7 +55,7 @@ hr = (t/(60));
 printf("(%s %lld %s %lld %s) \n","in about",hr,"h. and",mn,"min.");
 }}
 
-argp = (R(s,*argp));
+argp = (*(CLI_SI+(R(event,*argp))));
 
 return(0x01+(cals_display_upcoming_events_r_r(criterion,argp)));
 }

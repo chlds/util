@@ -36,7 +36,7 @@ printf("%s \n","<< Error at fn. cals_update_time_for_periodic_events_in_the_day(
 return(0x00);
 }}}
 
-cache = (R(s,*cache));
+cache = (*(CLI_SI+(R(event,*cache))));
 
 return(0x01+(cals_cache_periodic_events_in_the_day_r(arg,cache,argp)));
 }
