@@ -418,9 +418,10 @@ signed(__cdecl ct2(signed char(di), signed char(*base)));
 signed(__cdecl ct(signed char(*argp)));
 /* Count letters up to one or more you'd select or to the terminating null character. */
 
-signed(__cdecl ct_f(signed(__cdecl**(f)) (void(*argp))));
+signed(__cdecl ct_f(signed(__cdecl**f)(void(*argp))));
 /* Count function pointers. */
 
+signed(__cdecl ct_v(signed char(**argp)));
 signed(__cdecl ct_p(void(**argp)));
 /* Count pointers. */
 
