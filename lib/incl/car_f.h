@@ -263,6 +263,7 @@ signed(__cdecl cals_outv_legible_r(signed(arg/* delay */),signed char(**argp)));
 signed(__cdecl cals_outv_legible(signed(arg/* delay */),signed char(**argp)));
 signed(__cdecl cli_outv_legible_r(signed(arg/* delay */),signed char(**argp)));
 signed(__cdecl cli_outv_legible(signed(arg/* delay */),signed char(**argp)));
+signed(__cdecl cli_outv_r(signed char(**argp)));
 signed(__cdecl cli_outv(signed char(**argp)));
 signed(__cdecl cli_outs_legible_r(signed(arg/* delay */),signed char(*argp)));
 signed(__cdecl cli_outs_legible(signed(arg/* delay */),signed char(*argp)));
