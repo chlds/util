@@ -8,8 +8,9 @@ Along with C library
 */
 
 
-signed(__cdecl agent_cvlf(signed(argc),signed char(**argv),signed char(**envp)));
-signed(__cdecl agent_lk(signed(argc),signed char(**argv),signed char(**envp)));
+signed(__cdecl cals_agent(signed(argc),signed char(**argv),signed char(**envp)));
+signed(__cdecl cvlf_agent(signed(argc),signed char(**argv),signed char(**envp)));
+signed(__cdecl lk_agent(signed(argc),signed char(**argv),signed char(**envp)));
 
 signed(__cdecl c_kbhit(void));
 signed(__cdecl c_getch(signed(arg)));

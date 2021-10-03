@@ -13,7 +13,7 @@ This program may immediately cause a stack overflow.
 # include "./../../../incl/config.h"
 # include "./../../../incl/c_dir.h"
 
-signed(__cdecl agent_lk(signed(argc),signed char(**argv),signed char(**envp))) {
+signed(__cdecl lk_agent(signed(argc),signed char(**argv),signed char(**envp))) {
 
 auto signed char *(opt[]) = {
 (signed char(*)) ("a"),

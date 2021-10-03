@@ -16,7 +16,7 @@ signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 auto signed r;
 
 AND(r,0x00);
-if(!(agent_cvlf(argc,argv,envp))) r = cli_message(r,"<< Error at fn. agent_cvlf()");
+if(!(cvlf_agent(argc,argv,envp))) r = cli_message(r,"<< Error at fn. cvlf_agent()");
 
 return(r);
 }
