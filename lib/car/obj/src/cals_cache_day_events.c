@@ -22,7 +22,7 @@ if(!argp) return(0x00);
 
 if(!(CALS_INIT&(R(flag,*argp)))) return(0x00);
 
-r = cals_init_roll(cache);
+r = cals_init_roll(0x00,cache);
 if(!r) {
 printf("%s \n","<< Error at fn. cals_init_roll()");
 return(0x00);

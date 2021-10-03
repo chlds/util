@@ -22,7 +22,7 @@ auto signed short flag;
 if(!argp) return(0x00);
 if(*argp) return(0x00);
 
-r = cals_init_roll(*argp);
+r = cals_init_roll(0x00,*argp);
 if(!r) {
 printf("%s \n","<< Error at fn. cals_init_roll()");
 return(0x00);

@@ -8,7 +8,7 @@ Initialise
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_init(cals_t(*argp))) {
+signed(__cdecl cals_init(signed(arg),cals_t(*argp))) {
 
 auto time_t t;
 auto signed r;
@@ -22,7 +22,7 @@ if(!r) return(0x00);
 
 OR(R(periodic,R(today,*argp)),CALS_APERIODIC);
 
-r = cals_init_roll(&(R(roll,*argp)));
+r = cals_init_roll(arg,&(R(roll,*argp)));
 if(!r) return(0x00);
 
 r = (~0x00);
@@ -48,13 +48,13 @@ R(flag,*argp) = (0x00);
 R(optl,*argp) = (0x00);
 
 // also
-r = cli_init_property(0x00,&(R(property,*argp)));
+r = cli_init_property(arg,&(R(property,*argp)));
 if(!r) {
 printf("%s \n","<< Error at fn. cli_init_property()");
 return(0x00);
 }
 
-OR(R(flag,*argp),CALS_INIT);
+if(!arg) OR(R(flag,*argp),CALS_INIT);
 
 return(0x01);
 }

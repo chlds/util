@@ -21,7 +21,7 @@ if(!argp) return(0x00);
 
 if(!(CALS_INIT&(R(flag,*argp)))) return(0x00);
 
-r = cals_init_roll(cache);
+r = cals_init_roll(0x00,cache);
 if(!r) return(0x00);
 
 OR(R(flag,*argp),CALS_ERROR);

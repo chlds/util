@@ -125,7 +125,7 @@ void *optl;
 } typedef cals_event_t;
 
 struct cals_roll {
-//* deprecated
+/* deprecated
 cals_event_t today;
 signed short day[0x02];
 signed short month[0x02];
