@@ -62,7 +62,7 @@ if(DBG) printf("%s \n","<< Error at fn. color_text()");
 }}
 
 // also
-if(CALS_TIME_ALLDAY&(R(flag,*argp))) printf("[%s] ","All-day");
+if(CALS_TIME_ALLDAY&(R(flag,*argp))) printf("%s ","All-day");
 if(!(CALS_TIME_ALLDAY&(R(flag,*argp)))) {
 hr = (*(CALS_HR+(R(time,*argp))));
 b = ("%2d:%02d   ");

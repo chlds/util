@@ -27,6 +27,7 @@ printf("\t%s \n","cals.exe [flags[ FILE]] [months]");
 
 printf("\n");
 printf("\t%s \n","Flags:");
+printf("\t%s \n","c Colour the events");
 printf("\t%s \n","e Entry of events to be stored at file <event.csv> in directory ~/.cals/");
 printf("\t%s \n","h Help");
 printf("\t%s \n","l <FILE> Load a CSV - comma-separated values - file for events");
@@ -38,7 +39,7 @@ printf("\n");
 printf("\t%s \n","Example:");
 printf("\t%s \n","cals.exe ev Conference second Tue. of every month, Sep. 2021, at 14:00");
 printf("\t%s \n","cals.exe ev 20-minute workout Sep. 1, at 5:50, every day");
-printf("\t%s \n","cals.exe ev Tea with Ms Marple Feb. 14, 2021, at 15:30");
+printf("\t%s \n","cals.exe ev Afternoon tea party Feb. 14, 2021, at 15:30");
 printf("\t%s \n","cals.exe e A Happy New Year Jan. 1, every year");
 printf("\t%s \n","cals.exe v 12");
 printf("\t%s \n","cals.exe -6");

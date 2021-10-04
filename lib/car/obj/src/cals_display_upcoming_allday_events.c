@@ -27,8 +27,7 @@ if(!argp) return(0x00);
 
 if(CALS_TIME_ALLDAY&(R(flag,*argp))) {
 printf("\t");
-printf("%s","Allday");
-printf("| ");
+printf("%s ","All-day");
 // column right
 b = (R(b,*argp));
 // r = cli_outs(b);

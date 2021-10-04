@@ -41,7 +41,7 @@ printf(" %s \n","Current local time");
 
 printf("\t");
 hr = (R(tm_hour,*tp));
-b = ("%2d:%02d ");
+b = ("%2d:%02d   ");
 if(CALS_MERIDIEM&(R(flag,*cache))) {
 b = ("%2d:%02dam ");
 if(!(hr<(12))) b = ("%2d:%02dpm ");
@@ -49,13 +49,12 @@ hr = (hr%(12));
 }
 printf(b,hr,R(tm_min,*tp));
 
-printf("  ");
 printf("%s %d ",*(CAPS_DAYOFTHEWEEK+(R(tm_wday,*tp))),R(tm_mday,*tp));
 printf("%s %d \n",*(CAPS_MONTH+(R(tm_mon,*tp))),1900+(R(tm_year,*tp)));
 printf("\n");
 
 i = (day);
-printf(" %s \n",*(message+(--i)));
+printf(" %s \n",*(--i+(message)));
 
 return(cals_display_upcoming_events_r(criterion,cache,argp));
 }
