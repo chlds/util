@@ -19,6 +19,7 @@ if(!si) return(0x00);
 R(w,*di) = (R(w,*si));
 R(b,*di) = (R(b,*si));
 R(t,*di) = (R(t,*si));
+R(colors,*di) = (R(colors,*si));
 R(flag,*di) = (R(flag,*si));
 R(periodic,*di) = (R(periodic,*si));
 

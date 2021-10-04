@@ -24,5 +24,7 @@ if(!r) return(0x00);
 r = cals_copy_events(*(CLI_INDEX+(R(event,*argp))),cache);
 if(!r) return(0x00);
 
+R(colors,**(CLI_INDEX+(R(event,*argp)))) = (R(colors,*argp));
+
 return(0x01);
 }

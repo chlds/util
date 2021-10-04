@@ -10,13 +10,10 @@ Flag
 
 signed(__cdecl cals_flag_e(cals_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto signed char **argv;
-
 auto cals_event_t event;
 auto signed i,r;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 r = cals_init_event(&event);

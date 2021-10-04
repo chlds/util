@@ -43,6 +43,7 @@ while(i) {
 
 R(b,*argp) = (0x00);
 R(w,*argp) = (0x00);
+AND(R(colors,*argp),0x00);
 AND(R(flag,*argp),0x00);
 AND(R(periodic,*argp),0x00);
 

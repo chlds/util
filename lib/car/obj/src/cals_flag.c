@@ -12,6 +12,7 @@ signed(__cdecl cals_flag(signed char(**argv),cals_t(*argp))) {
 
 auto signed(__cdecl*f)(cals_t(*argp));
 auto signed(__cdecl*(fn[]))(cals_t(*argp)) = {
+(signed(__cdecl*)(cals_t(*))) (cals_flag_c),
 (signed(__cdecl*)(cals_t(*))) (cals_flag_e),
 (signed(__cdecl*)(cals_t(*))) (cals_flag_h),
 (signed(__cdecl*)(cals_t(*))) (cals_flag_m),
@@ -21,7 +22,7 @@ auto signed(__cdecl*(fn[]))(cals_t(*argp)) = {
 };
 
 auto signed char *(fl[]) = {
-"e","h","m","n","v",0x00,
+"c","e","h","m","n","v",0x00,
 };
 
 auto signed char **v;

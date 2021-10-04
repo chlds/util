@@ -24,6 +24,7 @@ signed(__cdecl elapse_days_since(signed short(wk),time_t(arg)));
 // convert into second minutes of a first day of the first week, refer time.h
 
 signed(__cdecl cals_flag(signed char(**argv),cals_t(*argp)));
+signed(__cdecl cals_flag_c(cals_t(*argp)));
 signed(__cdecl cals_flag_e(cals_t(*argp)));
 signed(__cdecl cals_flag_h(cals_t(*argp)));
 signed(__cdecl cals_flag_m(cals_t(*argp)));

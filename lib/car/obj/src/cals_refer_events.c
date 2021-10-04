@@ -29,6 +29,8 @@ printf("%s \n","<< Error at fn. cals_init_roll()");
 return(0x00);
 }
 
+R(colors,roll) = (R(colors,*argp));
+
 // for today
 ev = (&(R(today,*argp)));
 r = cals_refer_events_internal(flag,ev,argp);

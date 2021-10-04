@@ -44,7 +44,8 @@ while(r) {
 *(r+(R(t,*argp))) = (R(t,R(today,*argp)));
 }
 
-R(flag,*argp) = (0x00);
+AND(R(colors,*argp),0x00);
+AND(R(flag,*argp),0x00);
 R(optl,*argp) = (0x00);
 
 // also

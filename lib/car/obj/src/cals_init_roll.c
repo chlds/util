@@ -27,6 +27,7 @@ printf("%s \n","<< Error at fn. cals_unbind_events()");
 return(0x00);
 }}}
 
+AND(R(colors,*argp),0x00);
 AND(R(flag,*argp),0x00);
 R(optl,*argp) = (0x00);
 

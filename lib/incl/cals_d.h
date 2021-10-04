@@ -116,6 +116,7 @@ signed char *b;
 signed short *w;
 time_t t;
 // signed long long /* time_t */ ll;
+signed short colors;
 signed short flag;
 signed short periodic;
 signed short time[CALS_TIME];
@@ -125,13 +126,7 @@ void *optl;
 } typedef cals_event_t;
 
 struct cals_roll {
-/* deprecated
-cals_event_t today;
-signed short day[0x02];
-signed short month[0x02];
-time_t wk1[0x04];
-time_t t[0x04];
-//*/
+signed short colors;
 signed short flag;
 cals_event_t *event[0x04];
 void *optl;
@@ -146,6 +141,7 @@ cli_codepage_t codepage;
 cli_property_t property;
 cals_event_t today;
 cals_roll_t roll;
+signed short colors;
 signed short flag;
 void *optl;
 } typedef cals_t;
