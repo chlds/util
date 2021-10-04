@@ -15,6 +15,7 @@ auto signed char *b;
 auto time_t hr,mn;
 auto time_t t;
 auto signed i,r;
+auto signed short colors;
 auto signed short cols;
 auto rect_t rect;
 auto signed delay = (0x00);
@@ -34,7 +35,8 @@ b = (R(b,*argp));
 if(!(rect_beta(CLI_IN,CLI_RULE,&rect))) return(0x00);
 cols = (*(CLI_BASE+(R(right,rect))));
 cols = (cols+(0x01+(~(0x03*(0x08)))));
-r = cals_output(delay,cols,sym,b);
+colors = (R(colors,*argp));
+r = cals_output(delay,colors,cols,sym,b);
 if(!r) return(0x00);
 printf("\n");
 }

@@ -12,7 +12,7 @@ Return the number of rows output for characters (..or the number of characters).
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_outv_legible_r(signed(arg/* delay */),signed char(**argp))) {
+signed(__cdecl cals_outv_legible_r(signed(arg/* delay */),signed short(colors),signed char(**argp))) {
 
 auto signed char *b;
 auto signed i,r;
@@ -29,6 +29,11 @@ cli_out(b);
 b++;
 }
 
+if(colors) {
+if(!(color_text(0xFF&(colors),0xFF&(colors>>(0x08))))) {
+if(DBG) printf("%s \n","<< Error at fn. color_text()");
+}}
+
 cli_align(ALIGN_TAB);
 
 // msleep(arg);
@@ -37,5 +42,10 @@ cli_outs_legible(arg,*argp);
 argp++;
 if(!(cli_es(CTRL_K))) return(0x00);
 
-return(0x01+(cals_outv_legible_r(arg,argp)));
+if(colors) {
+if(!(color_text(COLOR_RESET,COLOR_BG_RESET))) {
+if(DBG) printf("%s \n","<< Error at fn. color_text()");
+}}
+
+return(0x01+(cals_outv_legible_r(arg,colors,argp)));
 }

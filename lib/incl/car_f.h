@@ -258,10 +258,10 @@ signed(__cdecl ncharbyte(signed(arg)));
 /* Encode a character into bytes based on UTF-8. */
 
 signed(__cdecl cli_nout(signed(arg),signed char(*argp)));
-signed(__cdecl cals_output(signed(arg/* delay */),signed short(cols),signed char(*sym),signed char(*argp)));
+signed(__cdecl cals_output(signed(arg/* delay */),signed short(colors),signed short(cols),signed char(*sym),signed char(*argp)));
 signed(__cdecl cli_output(signed(arg/* delay */),signed short(cols),signed char(*sym),signed char(*argp)));
-signed(__cdecl cals_outv_legible_r(signed(arg/* delay */),signed char(**argp)));
-signed(__cdecl cals_outv_legible(signed(arg/* delay */),signed char(**argp)));
+signed(__cdecl cals_outv_legible_r(signed(arg/* delay */),signed short(colors),signed char(**argp)));
+signed(__cdecl cals_outv_legible(signed(arg/* delay */),signed short(colors),signed char(**argp)));
 signed(__cdecl cli_outv_legible_r(signed(arg/* delay */),signed char(**argp)));
 signed(__cdecl cli_outv_legible(signed(arg/* delay */),signed char(**argp)));
 signed(__cdecl cli_outv_r(signed char(**argp)));

@@ -12,7 +12,7 @@ Return the number of rows output for characters (..or the number of characters).
 # define CAR
 # include "./../../../incl/config.h"
 
-signed(__cdecl cals_output(signed(arg/* delay */),signed short(cols),signed char(*sym),signed char(*argp))) {
+signed(__cdecl cals_output(signed(arg/* delay */),signed short(colors),signed short(cols),signed char(*sym),signed char(*argp))) {
 
 static signed char lf = (LF);
 auto signed const QUANTUM = (0x10);
@@ -37,7 +37,7 @@ return(0x00);
 }
 
 AND(flag,0x00);
-r = cals_outv_legible(arg,v);
+r = cals_outv_legible(arg,colors,v);
 if(!r) {
 OR(flag,CLI_IRR);
 printf("%s \n","<< Error at fn. cals_outv_legible()");

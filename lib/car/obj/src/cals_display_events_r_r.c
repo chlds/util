@@ -18,6 +18,7 @@ auto signed i,r;
 auto signed short wk,di,mo,yr;
 auto signed short hr;
 auto signed short cols;
+auto signed short colors;
 auto signed short flag;
 auto rect_t rect;
 auto signed delay = (0x00);
@@ -52,6 +53,14 @@ if(cals_event_in_the_day(t,argp)) OR(flag,0x01);
 // column of the left
 if(!flag) printf(" %2d %s ",*(CALS_DI+(R(date,*argp))),*(CAPS_DAYOFTHEWK+(*(CALS_WK+(R(date,*argp))))));
 else printf("\t");
+
+colors = (R(colors,*argp));
+if(CALS_APERIODIC&(R(periodic,*argp))) AND(colors,0x00);
+if(colors) {
+if(!(color_text(0xFF&(colors),0xFF&(colors>>(0x08))))) {
+if(DBG) printf("%s \n","<< Error at fn. color_text()");
+}}
+
 // also
 if(CALS_TIME_ALLDAY&(R(flag,*argp))) printf("[%s] ","All-day");
 if(!(CALS_TIME_ALLDAY&(R(flag,*argp)))) {
@@ -65,13 +74,20 @@ hr = (hr%(12));
 printf(b,hr,*(CALS_MN+(R(time,*argp))));
 }
 
+if(colors) {
+if(!(color_text(COLOR_RESET,COLOR_BG_RESET))) {
+if(DBG) printf("%s \n","<< Error at fn. color_text()");
+}}
+
 // column of the right
 b = (R(b,*argp));
 // r = cli_outs(b);
 if(!(rect_beta(CLI_IN,CLI_RULE,&rect))) return(0x00);
 cols = (*(CLI_BASE+(R(right,rect))));
 cols = (cols+(0x01+(~(0x03*(0x08)))));
-r = cals_output(delay,cols,sym,b);
+colors = (R(colors,*argp));
+if(CALS_APERIODIC&(R(periodic,*argp))) AND(colors,0x00);
+r = cals_output(delay,colors,cols,sym,b);
 if(!r) return(0x00);
 if(DBG) {
 printf("[");
@@ -80,7 +96,7 @@ printf("%s ",*(DAYOFTHEWK+(*(CALS_WK+(R(date,*argp))))));
 printf("%2d:%02d:%02d",*(CALS_HR+(R(time,*argp))),*(CALS_MN+(R(time,*argp))),*(CALS_SM+(R(time,*argp))));
 printf("] ");
 }
-if(!(cli_es(CTRL_K))) return(0x00);
+// if(!(cli_es(CTRL_K))) return(0x00);
 if(DBG) {
 t = (R(t,*argp));
 printf("[t: %lld] ",t);

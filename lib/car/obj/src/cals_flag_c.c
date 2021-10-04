@@ -23,5 +23,5 @@ OR(flag,COLOR_BRIGHT_WHITE);
 R(colors,*argp) = (flag);
 AND(flag,0x00);
 
-return(0x01);
+return(color_text(COLOR_RESET,COLOR_BG_RESET));
 }
