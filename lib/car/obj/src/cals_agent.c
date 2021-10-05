@@ -4,9 +4,9 @@ Refer at <corecrt_wtime.h>
 */
 
 
-# define C_CODE_STDS
 # define CALEND
 # define CAR
+# include <stdio.h>
 # include "./../../../incl/config.h"
 
 signed(__cdecl cals_agent(signed(argc),signed char(**argv),signed char(**envp))) {

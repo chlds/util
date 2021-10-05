@@ -4,9 +4,11 @@ Go backward for months
 //*/
 
 
-# define C_CODE_STDS
 # define CALEND
 # define CAR
+# include <errno.h>
+# include <string.h>
+# include <stdio.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cals_backward_r(signed(arg),cals_t(*argp))) {

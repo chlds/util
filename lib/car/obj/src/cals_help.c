@@ -7,9 +7,9 @@ Currently under construction
 //*/
 
 
-# define C_CODE_STDS
 # define CALEND
 # define CAR
+# include <stdio.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cals_help(cals_t(*argp))) {
