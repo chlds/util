@@ -5,6 +5,13 @@ Remarks:
 */
 
 
+# define __cdecl
+// # define COMPILE_IN_GCC_WSL64
+
+# ifdef COMPILE_IN_GCC_WSL64
+# define __cdecl __attribute__((ms_abi))
+# endif
+
 # include "./dbg.h"
 # include "./ctrl.h"
 # include "./cli_codepage.h"
