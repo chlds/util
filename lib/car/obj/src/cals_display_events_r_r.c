@@ -55,7 +55,7 @@ if(!flag) printf(" %2d %s ",*(CALS_DI+(R(date,*argp))),*(CAPS_DAYOFTHEWK+(*(CALS
 else printf("\t");
 
 colors = (R(colors,*argp));
-if(CALS_APERIODIC&(R(periodic,*argp))) AND(colors,0x00);
+if(CALS_APERIODIC&(R(periodic,*argp))) AND(colors,0xFF);
 if(colors) {
 if(!(color_text(0xFF&(colors),0xFF&(colors>>(0x08))))) {
 if(DBG) printf("%s \n","<< Error at fn. color_text()");
@@ -85,8 +85,6 @@ b = (R(b,*argp));
 if(!(rect_beta(CLI_IN,CLI_RULE,&rect))) return(0x00);
 cols = (*(CLI_BASE+(R(right,rect))));
 cols = (cols+(0x01+(~(0x03*(0x08)))));
-colors = (R(colors,*argp));
-if(CALS_APERIODIC&(R(periodic,*argp))) AND(colors,0x00);
 r = cals_output(delay,colors,cols,sym,b);
 if(!r) return(0x00);
 if(DBG) {
