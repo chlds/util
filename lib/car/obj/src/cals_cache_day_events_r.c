@@ -6,13 +6,13 @@ Cache events.
 
 # define CALEND
 # define CAR
+# include <stdio.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cals_cache_day_events_r(time_t(criterion),cals_event_t(*cache),cals_roll_t(*argp))) {
 
 auto cals_event_t *ev;
 auto struct tm *tp;
-
 auto time_t t;
 auto signed i,r;
 auto signed short flag;
@@ -32,6 +32,11 @@ if(!(CALS_PERIODIC&(R(flag,*cache)))) OR(i,0x01);
 f = (*(i+(fn)));
 if(f(criterion,cache)) {
 if(!(cals_cache_events(cache,argp))) return(0x00);
+if(DBG) {
+printf("<< Cached: ");
+cals_out_e(*(CLI_INDEX+(R(event,*argp))));
+printf("\n");
+}
 if(CALS_PERIODIC&(R(flag,*cache))) {
 ev = (*(CLI_INDEX+(R(event,*argp))));
 if(!(cals_update_time_for_periodic_events_in_the_day(criterion,ev))) return(0x00);

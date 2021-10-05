@@ -12,7 +12,6 @@ signed(__cdecl cals_cache_upcoming_events(time_t(criterion),cals_event_t(**cache
 
 auto cals_event_t *ev;
 auto struct tm *tp;
-
 auto time_t t;
 auto signed i,r;
 auto signed short flag;

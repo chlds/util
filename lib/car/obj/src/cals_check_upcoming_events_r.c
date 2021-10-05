@@ -37,9 +37,11 @@ if(!r) return(0x00);
 
 if(!ev) {
 if(*(CLI_LEAD+(R(event,*cache)))) {
+if(!(CALS_TIME_ALLDAY&(R(flag,**(CLI_LEAD+(R(event,*cache))))))) {
+// for all-day events only
 r = cals_remove_cached_events(cache);
 if(!r) return(0x00);
-}}
+}}}
 else *(CLI_INDEX+(R(event,*cache))) = (ev);
 
 dif = (dif+(24*(60*(60))));

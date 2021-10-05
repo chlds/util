@@ -25,6 +25,8 @@ LF,0x00,
 
 if(!argp) return(0x00);
 
+t = (R(t,*argp));
+if(!(t<(criterion))) {
 if(!(CALS_TIME_ALLDAY&(R(flag,*argp)))) {
 hr = (*(CALS_HR+(R(time,*argp))));
 b = ("%2d:%02d   ");
@@ -54,7 +56,7 @@ else {
 mn = (t%(60));
 hr = (t/(60));
 printf("(%s %lld %s %lld %s) \n","in about",hr,"h. and",mn,"min.");
-}}
+}}}
 
 argp = (*(CLI_SI+(R(event,*argp))));
 
