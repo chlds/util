@@ -7,21 +7,12 @@ Currently under construction
 //*/
 
 
-# define C_CODE_STDS
 # define CALEND
 # define CAR
+# include <stdio.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cals_convert(signed char(*b),cals_event_t(*argp))) {
-
-static signed deci = (0x0A);
-static signed hexa = (0x10);
-static signed commas = (0x03);
-static signed char comma = (',');
-
-auto signed short interrupted_error = (0x02);
-auto signed short allocated_memory = (0x01);
-auto signed char delim = ('\n');
 
 auto struct tm *tp;
 auto signed char *p;
@@ -30,6 +21,13 @@ auto signed i,r;
 auto signed short yr,mo,di,wk;
 auto signed short hr,mn,sm;
 auto signed short flag;
+auto signed deci = (0x0A);
+auto signed hexa = (0x10);
+auto signed commas = (0x03);
+auto signed char comma = (',');
+auto signed short interrupted_error = (0x02);
+auto signed short allocated_memory = (0x01);
+auto signed char delim = ('\n');
 
 if(!b) return(0x00);
 if(!argp) return(0x00);
@@ -128,12 +126,12 @@ r = ct(b);
 r++;
 r = (r*(sizeof(*b)));
 if(r<(0x00)) return(0x00);
-p = (signed char(*)) malloc(r);
+p = (signed char(*)) alloc(r);
 if(!p) return(0x00);
 
 r = cpy(p,b);
 if(!r) {
-free(p);
+rl(p);
 p = (0x00);
 printf("%s \n","<< Error at fn. cpy()");
 return(0x00);
@@ -141,7 +139,7 @@ return(0x00);
 
 if(R(b,*argp)) {
 embed(0x00,R(b,*argp));
-free(R(b,*argp));
+rl(R(b,*argp));
 }
 R(b,*argp) = (p);
 

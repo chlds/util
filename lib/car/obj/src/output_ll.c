@@ -9,23 +9,19 @@ Use in debugging
 */
 
 
-# define C_CODE_STDS
 # define CAR
+# include <stdio.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl output_ll(KNOT(*argp))) {
 
-/* **** DATA, BSS and STACK */
 auto KNOT *cache;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 cache = (argp);
 argp = ((*argp).d);
-
-printf("%s", (*cache).p);
-printf("%s", ", ");
+printf("%s, ",(*cache).p);
 
 return(0x01+(output_ll(argp)));
 }

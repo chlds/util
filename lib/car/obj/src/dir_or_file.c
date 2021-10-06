@@ -4,19 +4,17 @@ Is it a directory or file..?
 */
 
 
-# define C_CODE_STDS
 # define C_W32API
 # define CAR
+# include <stdio.h>
 # include "../../../incl/config.h"
 
 signed short(__cdecl dir_or_file(WIN32_FIND_DATA(*argp))) {
 
-auto signed char const A_DOT_CHARACTER = ('.');
-
 auto signed char *p;
 auto signed short flag;
+auto signed char const A_DOT_CHARACTER = ('.');
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 p = (R(cFileName,*argp));
