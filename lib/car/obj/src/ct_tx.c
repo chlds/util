@@ -35,7 +35,7 @@ b = (signed char(*)) alloc(r);
 if(!b) return(0x00);
 
 AND(flag,0x00);
-r = ncpy(b,argp,--r);
+r = ncpy(--r,b,argp);
 if(!r) INC(flag);
 
 if(!flag) {

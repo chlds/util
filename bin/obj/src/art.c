@@ -121,7 +121,7 @@ if(!(r^(EOF))) {
 *cur = (0x00);
 break;
 }
-r = ncpy(cur,ldbuff,r);
+r = ncpy(r,cur,ldbuff);
 if(!r) break;
 ADD(cur,r);
 ADD(i,r);

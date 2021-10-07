@@ -34,7 +34,7 @@ b = (signed char(*)) alloc(r);
 if(!b) return(0x00);
 
 *b = (0x00);
-r = ncpy(b,si,i);
+r = ncpy(i,b,si);
 b = (0x00);
 if(i^(r)) return(0x00);
 

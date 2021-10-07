@@ -206,6 +206,13 @@ auto signed const DELAY = (0x03*(QUANTUM));
 
 if(!argp) return(0x00);
 
+// thread priorities
+r = td_priority(0x01);
+if(!r) {
+printf("%s \n","<< Error at fn. td_priority()");
+return(0x00);
+}
+
 INC(R(Running,*argp));
 
 if(!(R(cmdl_time_Toggle,*argp))) INC(R(cmdl_time_Toggle,*argp));

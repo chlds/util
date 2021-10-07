@@ -183,6 +183,7 @@ signed(__cdecl cv_ord_f(signed char(**table),signed(*retv),signed char(*argp)));
 signed(__cdecl ords_part(signed char(**di),signed char(*si)));
 signed(__cdecl ords(signed char(**di),signed char(*si)));
 signed(__cdecl ord(signed char(*di),signed char(si)));
+signed(__cdecl ord_vd(signed(**di),signed(si)));
 signed(__cdecl ord_d(signed(*di),signed(si)));
 // check the ordinal number.
 
@@ -367,8 +368,12 @@ signed(__cdecl cpy_f_r(signed(*fd)));
 signed(__cdecl cpy_f(signed char(*di),signed char(*si)));
 signed(__cdecl cpy_p(signed char(**di),signed char(**si)));
 signed(__cdecl cpy2p(signed char(*di),signed char(*deadline),signed char(*si)));
-signed(__cdecl ncpy(signed char(*di),signed char(*si),signed(arg)));
+signed(__cdecl ncpy(signed(arg),signed char(*di),signed char(*si)));
 signed(__cdecl cpy2(signed char(cache),signed char(*di),signed char(*si)));
+signed(__cdecl cpy_q(signed long long(*di),signed long long(*si)));
+signed(__cdecl cpy_d(signed(*di),signed(*si)));
+signed(__cdecl cpy_w(signed short(*di),signed short(*si)));
+signed(__cdecl cpy_b(signed char(*di),signed char(*si)));
 signed(__cdecl cpy(signed char(*di),signed char(*si)));
 /* Copy to the di out of the si */
 
@@ -422,6 +427,10 @@ signed(__cdecl ct(signed char(*argp)));
 signed(__cdecl ct_f(signed(__cdecl**f)(void(*argp))));
 /* Count function pointers. */
 
+signed(__cdecl ct_vq(signed long long(**argp)));
+signed(__cdecl ct_vd(signed(**argp)));
+signed(__cdecl ct_vw(signed short(**argp)));
+signed(__cdecl ct_vb(signed char(**argp)));
 signed(__cdecl ct_v(signed char(**argp)));
 signed(__cdecl ct_p(void(**argp)));
 /* Count pointers. */

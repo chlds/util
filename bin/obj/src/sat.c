@@ -11,23 +11,26 @@ on branch develop
 # include "./../../../lib/incl/config.h"
 
 # define BUFF (0x400)
-
 # define COUNT_FUNCTIONS (1+(8))
 # define CMDFLAG (1)
 
-/* **** entry point */
 signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 
+auto signed char *cur,*base,*p;
+auto signed i,l,r;
+auto signed count,total;
+auto signed dif,length;
+auto signed short flag;
+auto signed char c;
+auto SAT sat;
+auto KNOT *cache,*knot;
+// auto CARD **cards;
+// auto CARD *card;
 auto signed const QUANTUM = (0x10);
 auto signed const SNOOZE = (0x04);
 auto signed const DELAY = (0x03*(QUANTUM));
-
-auto SAT sat;
-auto KNOT *cache,*knot;
-
-auto CARD **cards;
-auto CARD *card;
-
+auto unsigned createdflags = (0x00);
+auto unsigned stacksize = (0x00);
 auto unsigned(__stdcall*(fn[COUNT_FUNCTIONS/* i.e., CARDS */])) (void(*argp)) = {
 (unsigned(__stdcall*) (void(*))) (cmdl2_exit),
 (unsigned(__stdcall*) (void(*))) (cmdl2_help),
@@ -39,7 +42,6 @@ auto unsigned(__stdcall*(fn[COUNT_FUNCTIONS/* i.e., CARDS */])) (void(*argp)) = 
 (unsigned(__stdcall*) (void(*))) (cmdl2_history),
 (unsigned(__stdcall*) (void(*))) (0x00),
 };
-
 auto signed char *(term[COUNT_FUNCTIONS/* i.e., CARDS */]) = {
 (char signed(*)) ("--exit"),
 (char signed(*)) ("--help"),
@@ -52,48 +54,19 @@ auto signed char *(term[COUNT_FUNCTIONS/* i.e., CARDS */]) = {
 (char signed(*)) (0x00),
 };
 
-auto unsigned createdflags = (0x00);
-auto unsigned stacksize = (0x00);
-
-auto signed char *cur,*base,*p;
-
-auto signed i,l,r;
-auto signed count,total;
-auto signed dif,length;
-
-auto signed short flag;
-auto signed char c;
-
-/* **** CODE/TEXT */
 // process priorities
-r = GetPriorityClass(GetCurrentProcess());
+r = ps_priority(0x01);
 if(!r) {
-r = GetLastError();
-printf("%s %d %s %Xh \n","<< Error at fn. GetPriorityClass() with no.",r,"or",r);
+printf("%s \n","<< Error at fn. ps_priority()");
 return(0x00);
 }
-if(r^(ABOVE_NORMAL_PRIORITY_CLASS)) {
-r = SetPriorityClass(GetCurrentProcess(),ABOVE_NORMAL_PRIORITY_CLASS);
-if(!r) {
-r = GetLastError();
-printf("%s %d %s %Xh \n","<< Error at fn. SetPriorityClass() with no.",r,"or",r);
-return(0x00);
-}}
 
 // thread priorities
-r = GetThreadPriority(GetCurrentThread());
-if(!(r^(THREAD_PRIORITY_ERROR_RETURN))) {
-r = GetLastError();
-printf("%s %d %s %Xh \n","<< Error at fn. GetThreadPriority() with no.",r,"or",r);
+r = td_priority(0x01);
+if(!r) {
+printf("%s \n","<< Error at fn. td_priority()");
 return(0x00);
 }
-if(r^(THREAD_PRIORITY_ABOVE_NORMAL)) {
-r = SetThreadPriority(GetCurrentThread(),THREAD_PRIORITY_ABOVE_NORMAL);
-if(!r) {
-r = GetLastError();
-printf("%s %d %s %Xh \n","<< Error at fn. SetThreadPriority() with no.",r,"or",r);
-return(0x00);
-}}
 
 // init.
 sat.Announcements = (0x00);

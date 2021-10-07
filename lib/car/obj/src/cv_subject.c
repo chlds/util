@@ -45,7 +45,7 @@ AND(R(flag,*argp),flag);
 
 AND(flag,0x00);
 i = (r);
-r = ncpy(p,b,--i);
+r = ncpy(--i,p,b);
 if(!r) flag++;
 if(i^(r)) flag++;
 if(flag) {

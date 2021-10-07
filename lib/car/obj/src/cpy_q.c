@@ -7,9 +7,9 @@ Copy to the <di> out of the <si>
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cpy(signed char(*di),signed char(*si))) {
+signed(__cdecl cpy_q(signed long long(*di),signed long long(*si))) {
 
-auto signed char cache;
+auto signed long long cache;
 
 if(!di) return(0x00);
 if(!si) return(0x00);
@@ -24,5 +24,5 @@ cache = (*si);
 di++;
 si++;
 
-return(0x01+(cpy(di,si)));
+return(0x01+(cpy_q(di,si)));
 }

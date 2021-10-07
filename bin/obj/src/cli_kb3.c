@@ -95,7 +95,7 @@ if(!r) {
 printf("%s\n","<< Error at fn. cli_in()");
 return(0x00);
 }
-r = ncpy(p,buff,r);
+r = ncpy(r,p,buff);
 p = (p+(r));
 if(!(i^(CR))) flag = (0x01);
 if(!(i^(LF))) flag = (0x01);

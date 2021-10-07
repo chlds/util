@@ -106,4 +106,8 @@ signed(__cdecl cli_history(cli_page_t(*argp)));
 signed(__cdecl cli_in_w(signed(*character),signed char(*argp),signed(size)));
 /* Get Unicode bytes in UTF-8 out of the keyboard. */
 
+signed(__cdecl td_priority(signed(arg)));
+signed(__cdecl ps_priority(signed(arg)));
+// Decrease or increase the priority.
+
 // and more..

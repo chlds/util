@@ -91,7 +91,7 @@ r++;
 p = (signed char(*)) alloc(r);
 R(b,*argp) = (p);
 if(!p) return(0x00);
-ncpy(p,content,l);
+ncpy(l,p,content);
 rm_trailing_blanks(p);
 p = (0x00);
 }
