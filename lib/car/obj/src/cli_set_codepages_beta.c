@@ -2,8 +2,6 @@
 
 Set code pages for console input/output.
 
-Along with C and Windows libraries
-
 Remarks:
 The beta edition is for Win32 API.
 Based on UTF-8
@@ -11,20 +9,15 @@ Based on UTF-8
 
 
 # define CAR
-
-# include <conio.h>
 # include <stdio.h>
-# include <stdlib.h>
 # include <windows.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cli_set_codepages_beta(signed(codepage_input),signed(codepage_output))) {
 
-/* **** DATA, BSS and STACK */
 auto signed i,r;
 auto signed short flag;
 
-/* **** CODE/TEXT */
 if(codepage_input) {
 r = SetConsoleCP(codepage_input);
 if(!r) {
