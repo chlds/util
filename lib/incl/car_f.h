@@ -247,6 +247,8 @@ signed(__cdecl decode2w(signed(size),signed short(*di),signed char(*si)));
 /* Decode */
 
 signed(__cdecl cli_in(signed(*character),signed char(*argp),signed(size)));
+signed(__cdecl cli_i_b_r(signed char(**argp)));
+signed(__cdecl cli_i_b(signed char(**argp)));
 /* Get Unicode bytes in UTF-8 out of the keyboard. */
 
 signed(__cdecl cli_support_meta_keys(signed(*character),signed char(second),signed char(first)));

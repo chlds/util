@@ -30,8 +30,8 @@ return(0x00);
 }
 
 if(arg<(CLI_RULE)) {
-*(arg+(R(left,*argp))) = (0x00);
-*(arg+(R(top,*argp))) = (0x00);
+*(arg+(R(left,*argp))) = (0x01);
+*(arg+(R(top,*argp))) = (0x01);
 *(arg+(R(right,*argp))) = (R(ws_col,w));
 *(arg+(R(bottom,*argp))) = (R(ws_row,w));
 }
@@ -39,8 +39,8 @@ if(arg<(CLI_RULE)) {
 else {
 i = (CLI_RULE);
 while(i) {
-*(--i+(R(left,*argp))) = (0x00);
-*(i+(R(top,*argp))) = (0x00);
+*(--i+(R(left,*argp))) = (0x01);
+*(i+(R(top,*argp))) = (0x01);
 *(i+(R(right,*argp))) = (R(ws_col,w));
 *(i+(R(bottom,*argp))) = (R(ws_row,w));
 }}
