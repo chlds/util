@@ -9,12 +9,13 @@ Get a byte or bytes for one character based on UTF-8 out of the key board.
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_i_b_r(signed char(**argp))) {
+signed(__cdecl cli_i_b_r(signed(arg),signed char(**argp))) {
 
 auto signed char *b;
 auto signed r;
 auto signed short flag;
 
+if(!arg) return(0x00);
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
@@ -33,5 +34,5 @@ b++;
 *b = (0x00);
 b = (0x00);
 
-return(0x01+(cli_i_b_r(argp)));
+return(0x01+(cli_i_b_r(--arg,argp)));
 }

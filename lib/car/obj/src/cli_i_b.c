@@ -38,5 +38,16 @@ b++;
 *b = (0x00);
 b = (0x00);
 
-return(0x01+(cli_i_b_r(argp)));
+AND(flag,0x00);
+r = nbytechar(r);
+if(!r) OR(flag,0x01);
+if(EQ(SEQ_FLAG,r)) OR(flag,0x01);
+if(flag) {
+embed(0x00,*argp);
+rl(*argp);
+*argp = (b);
+return(0x00);
+}
+
+return(0x01+(cli_i_b_r(--r,argp)));
 }
