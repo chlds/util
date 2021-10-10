@@ -273,6 +273,8 @@ signed(__cdecl cli_outs_legible_r(signed(arg/* delay */),signed char(*argp)));
 signed(__cdecl cli_outs_legible(signed(arg/* delay */),signed char(*argp)));
 signed(__cdecl cli_outs(signed char(*argp)));
 signed(__cdecl cli_out(signed char(*argp)));
+signed(__cdecl cli_o_b(signed char(*argp)));
+signed(__cdecl pair_b(signed short(*di),signed(si)));
 signed(__cdecl decode_b_r(signed(arg),signed(*di),signed char(*si)));
 signed(__cdecl decode_b(signed(*di),signed char(*si)));
 signed(__cdecl decode_surrogate_second(signed short(*di),signed(si)));
