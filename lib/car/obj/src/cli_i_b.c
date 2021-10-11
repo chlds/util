@@ -7,6 +7,7 @@ Call fn. rl() later.
 Call fn. _getch twice to read <Ctrl-@>.
 The first call returns (0x00) and the second call returns (0x03)..
 Return the number of bytes for one character.
+Return (~0x00) if a meta key starting from (0x00) is detected.
 Refer at fn. cli_i.
 */
 
@@ -37,6 +38,14 @@ b = (*argp);
 b++;
 *b = (0x00);
 b = (0x00);
+
+if(!(**argp)) {
+// for a meta key starting from (0x00).
+r = cli_i_except(argp);
+if(!r) printf("%s \n","<< Error at fn. cli_i_except()");
+else r = (~0x00);
+return(r);
+}
 
 AND(flag,0x00);
 r = nbytechar(r);
