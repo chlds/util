@@ -13,6 +13,7 @@ Read.
 signed(__cdecl rd_pages_r(page_t(*argp),signed(fd))) {
 
 auto signed char *b;
+auto rule_t *rule;
 auto page_t *page;
 auto signed i,r;
 auto signed short flag;
@@ -49,12 +50,14 @@ if(!page) {
 printf("%s \n","<< No page..");
 return(0x00);
 }
-if(*(CLI_BASE+(R(b,*page)))) {
+
+rule = (CLI_BASE+(R(rule,*page)));
+if(*(CLI_BASE+(R(b,*rule)))) {
 printf("%s \n","<< Already allocated to the b..");
 return(0x00);
 }
 
-*(CLI_BASE+(R(b,*page))) = (b);
+*(CLI_BASE+(R(b,*rule))) = (b);
 r = rm_br(b);
 if(!r) {
 printf("%s \n","<< Error at fn. rm_br()");
@@ -62,6 +65,7 @@ return(0x00);
 }
 
 b = (0x00);
+rule = (0x00);
 
 return(0x01+(rd_pages_r(argp,fd)));
 }

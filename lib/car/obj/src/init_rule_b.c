@@ -10,7 +10,7 @@ Refer at fn. init_rule.
 # define CAR
 # include "./../../../incl/config.h"
 
-signed(__cdecl init_rule_b(signed short(arg),cli_rule_t(*argp))) {
+signed(__cdecl init_rule_b(signed short(arg),rule_t(*argp))) {
 
 auto signed char *b;
 auto signed i,r;

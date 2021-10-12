@@ -14,6 +14,7 @@ Refer at fn. unmap_pages and fn. unbind_pages.
 signed(__cdecl concat_pages(signed short(flag),page_t(*di),page_t(*si))) {
 
 auto signed char *b;
+auto rule_t *rule;
 auto page_t *page;
 auto signed insert;
 auto signed r;
@@ -21,7 +22,8 @@ auto signed r;
 if(!di) return(0x00);
 if(!si) return(0x00);
 
-b = (*(CLI_BASE+(R(b,*di))));
+rule = (CLI_BASE+(R(rule,*di)));
+b = (*(CLI_BASE+(R(b,*rule))));
 if(b) return(0x00);
 
 AND(insert,0x00);

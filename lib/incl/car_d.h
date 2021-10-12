@@ -40,8 +40,8 @@ signed char *(b[OBJS]);
 
 struct page {
 struct page *(page[PAGES]);
-signed char *(b[OBJS]);
 signed short flag[FLAGS];
+rule_t rule[OBJS];
 } typedef page_t;
 
 typedef struct coords {

@@ -14,8 +14,9 @@ Refer at fn. unbind_pages.
 
 signed(__cdecl bind_pages(signed short(arg),page_t(*argp))) {
 
-auto page_t *page;
 auto signed char *b;
+auto rule_t *rule;
+auto page_t *page;
 auto signed i,r;
 auto signed short flag;
 
@@ -24,7 +25,8 @@ if(!argp) return(0x00);
 flag = (*(CLI_BASE+(R(flag,*argp))));
 if(!(CLI_INIT&(flag))) return(0x00);
 
-b = (*(CLI_BASE+(R(b,*argp))));
+rule = (CLI_BASE+(R(rule,*argp)));
+b = (*(CLI_BASE+(R(b,*rule))));
 if(b) return(0x00);
 
 r = (0x01*(sizeof(*page)));

@@ -11,7 +11,7 @@ Refer at fn. init_rule_b.
 # include <stdio.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl init_rule(signed short(flag),signed(arg),cli_rule_t(**argp))) {
+signed(__cdecl init_rule(signed short(flag),signed(arg),rule_t(**argp))) {
 
 auto signed char *b;
 auto signed i,r;

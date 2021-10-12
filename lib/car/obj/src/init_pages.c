@@ -13,6 +13,7 @@ Refer at fn. cli_restore.
 signed(__cdecl init_pages(signed(arg),page_t(*argp))) {
 
 auto signed char *b;
+auto rule_t *rule;
 auto page_t *page;
 auto signed r;
 auto signed short flag;
@@ -23,27 +24,21 @@ if(!argp) return(0x00);
 flag = (*(CLI_BASE+(R(flag,*argp))));
 if(!(CLI_INIT&(flag))) AND(arg,0x00);
 
-// destroy
-if(arg) {
-AND(arg,0x00);
-b = (*(CLI_BASE+(R(b,*argp))));
-embed(0x00,b);
-if(b) rl(b);
+rule = (R(rule,*argp));
+r = init_rule(arg,CLI_RULE,&rule);
+if(!r) {
+printf("%s \n","<< Error at fn. init_rule()");
+return(0x00);
 }
 
 AND(flag,0x00);
 page = (0x00);
-b = (0x00);
-r = (OBJS);
-while(r) *(--r+(R(b,*argp))) = (b);
 r = (PAGES);
 while(r) *(--r+(R(page,*argp))) = (page);
 r = (FLAGS);
 while(r) *(--r+(R(flag,*argp))) = (flag);
 
-AND(r,0x00);
 OR(*(CLI_BASE+(R(flag,*argp))),CLI_INIT);
-OR(r,0x01);
 
-return(r);
+return(0x01);
 }
