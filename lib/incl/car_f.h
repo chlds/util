@@ -54,6 +54,7 @@ signed(__cdecl ctrl_rsb(void(*argp)));
 signed(__cdecl ctrl_ca(void(*argp)));
 signed(__cdecl ctrl_ll(void(*argp)));
 signed(__cdecl ctrl_fn_r(signed(arg),void(*argp)));
+signed(__cdecl ctrl_fn_b(signed(arg),void(*argp)));
 signed(__cdecl ctrl_fn(signed char(*cache),void(*argp)));
 
 signed(__cdecl cl_b(signed(arg)));
