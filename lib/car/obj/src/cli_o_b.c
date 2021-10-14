@@ -1,6 +1,6 @@
 /*
 
-Output one character based on UTF-8 to the console screen.
+Output one character based on UTF-8 to the console screen in UTF-16.
 
 Remarks:
 Return the number of bytes decoded out of the array.

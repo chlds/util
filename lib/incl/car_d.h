@@ -26,24 +26,6 @@ Build a linked list.
 
 # define COMMON_OBJS (0x04)
 
-# define OBJS (0x04)
-# define FLAGS (OBJS)
-# define PAGES (OBJS)
-
-typedef void(__cdecl*SIGHDR_T)(signed);
-// SIGHDR_T(__cdecl signal(signed(A),SIGHDR_T(B)));
-// void(__cdecl*(__cdecl signal(signed(A),void(__cdecl*B)(signed))))(signed);
-
-struct rule {
-signed char *(b[OBJS]);
-} typedef rule_t;
-
-struct page {
-struct page *(page[PAGES]);
-signed short flag[FLAGS];
-rule_t rule[OBJS];
-} typedef page_t;
-
 typedef struct coords {
 signed short x;
 signed short y;

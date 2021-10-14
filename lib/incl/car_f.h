@@ -256,6 +256,9 @@ signed(__cdecl cli_i_b(signed char(**argp)));
 /* Get Unicode bytes in UTF-8 out of the keyboard. */
 
 signed(__cdecl cli_support_meta_keys(signed(*character),signed char(second),signed char(first)));
+signed(__cdecl decode_keys(signed(arg),signed(*di),signed char(*si)));
+signed(__cdecl decode_key_01(signed(*di),signed char(*si)));
+signed(__cdecl decode_key_00(signed(*di),signed char(*si)));
 /* Support for function and arrow keys */
 
 signed(__cdecl encode_w_r(signed(arg),signed char(*di),signed(si)));

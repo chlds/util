@@ -51,6 +51,14 @@
 # define CLI_SNAPSHOTS (CLI_OBJS)
 # define CLI_PAGES (CLI_OBJS)
 
+# define OBJS (0x04)
+# define FLAGS (OBJS)
+# define PAGES (OBJS)
+
+typedef void(__cdecl*SIGHDR_T)(signed);
+// SIGHDR_T(__cdecl signal(signed(A),SIGHDR_T(B)));
+// void(__cdecl*(__cdecl signal(signed(A),void(__cdecl*B)(signed))))(signed);
+
 struct coord {
 signed short x[CLI_OBJS];
 signed short y[CLI_OBJS];
@@ -67,6 +75,23 @@ struct pixel {
 signed x[CLI_OBJS];
 signed y[CLI_OBJS];
 } typedef pixel_t;
+
+struct rule {
+signed char *(b[OBJS]);
+} typedef rule_t;
+
+struct page {
+struct page *(page[PAGES]);
+signed short flag[FLAGS];
+rule_t rule[OBJS];
+} typedef page_t;
+
+struct ty {
+signed char *(b[OBJS]);
+signed short flag[OBJS];
+signed r[OBJS];
+page_t page;
+} typedef ty_t;
 
 struct cli_rule {
 signed char *(b[CLI_OBJS]);
