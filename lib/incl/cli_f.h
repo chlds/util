@@ -59,6 +59,7 @@ signed(__cdecl cli_vt_opt(cli_property_t(*argp)));
 signed(__cdecl cli_opt_b(void(*argp),signed(__cdecl*f)(void(*argp))));
 signed(__cdecl cli_opt(cli_property_t(*argp)));
 signed(__cdecl cli_message(signed(arg),signed char(*argp)));
+signed(__cdecl cli_mon_b(ty_t(*argp)));
 signed(__cdecl cli_mon(signed short(arg),cli_property_t(*argp)));
 signed(__cdecl cli_refresh(cli_text_t(*argp)));
 signed(__cdecl cli_fn_ahead(cli_property_t(*argp)));

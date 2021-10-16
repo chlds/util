@@ -78,6 +78,9 @@ signed(__cdecl unmap_pages(page_t(*argp)));
 signed(__cdecl concat_pages(signed short(flag),page_t(*di),page_t(*si)));
 signed(__cdecl bind_pages(signed short(arg),page_t(*argp)));
 signed(__cdecl init_pages(signed(arg),page_t(*argp)));
+
+signed(__cdecl append_rule_b(signed(arg),page_t(*argp)));
+signed(__cdecl rule_b(rule_t(*di),signed char(*si)));
 signed(__cdecl init_rule_b(signed short(arg),rule_t(*argp)));
 signed(__cdecl init_rule(signed short(flag),signed(arg),rule_t(**argp)));
 

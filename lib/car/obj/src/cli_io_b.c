@@ -32,6 +32,20 @@ rule = (CLI_BASE+(R(rule,*page)));
 // b = (*(CLI_INDEX+(R(b,*rule))));
 // if(!b) return(0x00);
 
+// append
+r = append_rule_b(CLI_OFFSET,page);
+if(!r) {
+printf("%s \n","<< Error at fn. append_rule_b()");
+return(0x00);
+}
+
+// monitor
+r = cli_opt_b(argp,cli_mon_b);
+if(!r) {
+printf("%s \n","<< Error at fn. cli_opt_b()");
+return(0x00);
+}
+
 b = (0x00);
 r = cli_opt_b(&b,cli_i_b);
 if(!r) {
