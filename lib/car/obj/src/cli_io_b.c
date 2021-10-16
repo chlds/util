@@ -32,6 +32,13 @@ rule = (CLI_BASE+(R(rule,*page)));
 // b = (*(CLI_INDEX+(R(b,*rule))));
 // if(!b) return(0x00);
 
+// restore
+r = restore_rule_b(CLI_OFFSET,page);
+if(!r) {
+printf("%s \n","<< Error at fn. restore_rule_b()");
+return(0x00);
+}
+
 // append
 r = append_rule_b(CLI_OFFSET,page);
 if(!r) {
