@@ -32,17 +32,15 @@ rule = (CLI_BASE+(R(rule,*page)));
 // b = (*(CLI_INDEX+(R(b,*rule))));
 // if(!b) return(0x00);
 
-// restore
 r = restore_rule_b(CLI_OFFSET,page);
 if(!r) {
 printf("%s \n","<< Error at fn. restore_rule_b()");
 return(0x00);
 }
 
-// append
-r = append_rule_b(CLI_OFFSET,page);
+r = store_rule_b(CLI_OFFSET,page);
 if(!r) {
-printf("%s \n","<< Error at fn. append_rule_b()");
+printf("%s \n","<< Error at fn. store_rule_b()");
 return(0x00);
 }
 
@@ -70,25 +68,24 @@ return(0x00);
 }
 
 AND(flag,0x00);
+if(!(rule_b(0x01,rule,b))) OR(flag,0x01);
+if(!flag) {
 if(!(DEL^(i))) i = (CTRL_D);
 if(i<(CTRL_KEYS)) {
+if(!(EQ(HT,*b))) embed(0x00,*(CLI_INDEX+(R(b,*rule))));
 r = ctrl_fn_b(i,argp);
 if(!r) {
 printf("%s \n","<< Error at fn. ctrl_fn_b()");
 OR(flag,CLI_ERROR);
 // return(0x00);
 }}
-
 else {
 r = cli_out_b(0x08,b);
 if(!r) {
 printf("%s \n","<< Error at fn. cli_out_b()");
 OR(flag,CLI_ERROR);
 // return(0x00);
-}
-// b = (r+(b));
-// *(CLI_INDEX+(R(b,*rule))) = (b);
-}
+}}}
 
 embed(0x00,b);
 rl(b);
