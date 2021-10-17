@@ -16,6 +16,7 @@ signed(__cdecl pin_beta(cli_clipboard_t(*argp)));
 signed(__cdecl v_map_beta(cli_text_t(*cache),cli_clipboard_t(*argp)));
 signed(__cdecl v_unmap_beta(cli_clipboard_t(*argp)));
 signed(__cdecl cli_init_pages(cli_spool_t(*argp)));
+signed(__cdecl cli_io_b_r(signed(arg),ty_t(*argp)));
 signed(__cdecl cli_io_b(ty_t(*argp)));
 signed(__cdecl cli_io(cli_property_t(*argp)));
 signed(__cdecl cli_ctrl_fn_internal(signed(arg),void(*argp)));

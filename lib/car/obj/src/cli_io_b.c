@@ -70,27 +70,15 @@ return(0x00);
 AND(flag,0x00);
 if(!(rule_b(0x01,rule,b))) OR(flag,0x01);
 if(!flag) {
-if(!(DEL^(i))) i = (CTRL_D);
-if(i<(CTRL_KEYS)) {
-if(!(EQ(HT,*b))) embed(0x00,*(CLI_INDEX+(R(b,*rule))));
-r = ctrl_fn_b(i,argp);
+r = cli_io_b_r(i,argp);
 if(!r) {
-printf("%s \n","<< Error at fn. ctrl_fn_b()");
+printf("%s \n","<< Error at fn. cli_io_b_r()");
 OR(flag,CLI_ERROR);
-// return(0x00);
 }}
-else {
-r = cli_out_b(0x08,b);
-if(!r) {
-printf("%s \n","<< Error at fn. cli_out_b()");
-OR(flag,CLI_ERROR);
-// return(0x00);
-}}}
 
 embed(0x00,b);
 rl(b);
 b = (0x00);
-
 if(flag) OR(*(CLI_BASE+(R(flag,*argp))),CLI_ERROR);
 
 return(0x01+(cli_io_b(argp)));
