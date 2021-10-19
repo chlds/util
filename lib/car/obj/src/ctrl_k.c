@@ -11,7 +11,7 @@ Refer at fn. ctrl_fn.
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl ctrl_k(void(*argp))) {
+signed(__cdecl ctrl_k(ty_t(*argp))) {
 
 auto signed char *b;
 auto signed r;
@@ -22,5 +22,5 @@ if(!argp) return(0x00);
 if(DBG) printf("%s ","<Ctrl-K>");
 
 // return(f(argp));
-return(0x01);
+return(ctrl_kick(argp));
 }
