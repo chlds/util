@@ -22,6 +22,7 @@ auto signed short flag;
 if(!argp) return(0x00);
 
 page = (&(R(page,*argp)));
+OR(*(CLI_BASE+(R(flag,*page))),CLI_MORPH);
 rule = (CLI_BASE+(R(rule,*page)));
 b = (*(CLI_INDEX+(R(b,*rule))));
 if(!b) return(0x00);

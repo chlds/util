@@ -27,12 +27,11 @@ if(CLI_ERROR&(flag)) return(0x00);
 if(CLI_QUIT&(flag)) return(0x00);
 if(CLI_BR&(flag)) return(0x00);
 
+AND(flag,0x00);
 page = (&(R(page,*argp)));
-rule = (CLI_BASE+(R(rule,*page)));
-// b = (*(CLI_INDEX+(R(b,*rule))));
-// if(!b) return(0x00);
+if(CLI_MORPH&(*(CLI_BASE+(R(flag,*page))))) OR(flag,0x01);
 
-r = restore_rule_b(CLI_OFFSET,page);
+r = restore_rule_b(flag,CLI_OFFSET,page);
 if(!r) {
 printf("%s \n","<< Error at fn. restore_rule_b()");
 return(0x00);
@@ -43,6 +42,10 @@ if(!r) {
 printf("%s \n","<< Error at fn. store_rule_b()");
 return(0x00);
 }
+
+rule = (CLI_BASE+(R(rule,*page)));
+// b = (*(CLI_INDEX+(R(b,*rule))));
+// if(!b) return(0x00);
 
 r = flush_b(0x08,CLI_INDEX,rule);
 if(!r) {

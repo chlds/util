@@ -80,7 +80,7 @@ signed(__cdecl bind_pages(signed short(arg),page_t(*argp)));
 signed(__cdecl init_pages(signed(arg),page_t(*argp)));
 
 signed(__cdecl store_rule_b(signed(arg),page_t(*argp)));
-signed(__cdecl restore_rule_b(signed(arg),page_t(*argp)));
+signed(__cdecl restore_rule_b(signed short(arg_b),signed(arg),page_t(*argp)));
 signed(__cdecl backup_rule_b(signed(arg),page_t(*argp)));
 signed(__cdecl rule_b(signed(arg),rule_t(*di),signed char(*si)));
 signed(__cdecl init_rule_b(signed short(arg),rule_t(*argp)));

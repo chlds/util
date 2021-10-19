@@ -11,7 +11,7 @@ Based on rule *(CLI_BASE+(R(rule,R(page,ty.
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl restore_rule_b(signed(arg),page_t(*argp))) {
+signed(__cdecl restore_rule_b(signed short(arg_b),signed(arg),page_t(*argp))) {
 
 auto signed char *b;
 auto rule_t *rule;
@@ -30,7 +30,7 @@ b = (*(CLI_BASE+(R(b,*rule))));
 // if(!b) return(0x00);
 
 rule = (CLI_BASE+(R(rule,*argp)));
-r = rule_b(0x01,rule,b);
+r = rule_b(arg_b,rule,b);
 if(!r) return(0x00);
 
 return(0x01);

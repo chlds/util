@@ -11,9 +11,10 @@ Refer at fn. ctrl_fn.
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl ctrl_a(void(*argp))) {
+signed(__cdecl ctrl_a(ty_t(*argp))) {
 
 auto signed char *b;
+auto page_t *page;
 auto signed r;
 auto signed short flag;
 
@@ -21,6 +22,12 @@ if(!argp) return(0x00);
 
 if(DBG) printf("%s ","<Ctrl-A>");
 
+page = (&(R(page,*argp)));
+AND(flag,0x00);
+OR(flag,CLI_MORPH);
+NOT(flag);
+AND(*(CLI_BASE+(R(flag,*page))),flag);
+
 // return(f(argp));
-return(0x01);
+return(cli_es(CTRL_A));
 }
