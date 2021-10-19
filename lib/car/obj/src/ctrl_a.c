@@ -3,7 +3,7 @@
 Press <Ctrl-A> to invoke the function.
 
 Remarks:
-Refer at fn. ctrl_fn.
+Refer at fn. ctrl_fn_b.
 */
 
 
