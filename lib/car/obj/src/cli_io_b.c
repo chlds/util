@@ -30,6 +30,7 @@ if(CLI_BR&(flag)) return(0x00);
 AND(flag,0x00);
 page = (&(R(page,*argp)));
 if(CLI_MORPH&(*(CLI_BASE+(R(flag,*page))))) OR(flag,0x01);
+if(CLI_FORCED&(*(CLI_BASE+(R(flag,*page))))) INC(flag);
 
 r = restore_rule_b(flag,CLI_OFFSET,page);
 if(!r) {
