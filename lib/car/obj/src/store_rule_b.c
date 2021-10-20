@@ -11,25 +11,29 @@ Based on rule *(CLI_BASE+(R(rule,R(page,ty.
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl store_rule_b(signed(arg),page_t(*argp))) {
+signed(__cdecl store_rule_b(signed(di),signed(si),page_t(*argp))) {
 
 auto signed char *b;
 auto rule_t *rule;
 auto signed r;
 auto signed short flag;
 
-if(arg<(0x00)) return(0x00);
-if(!(arg<(CLI_RULE))) return(0x00);
+if(di<(0x00)) return(0x00);
+if(!(di<(CLI_RULE))) return(0x00);
+if(!(si<(CLI_RULE))) return(0x00);
+if(si<(0x00)) return(0x00);
 if(!argp) return(0x00);
 
 flag = (*(CLI_BASE+(R(flag,*argp))));
 if(!(CLI_INIT&(flag))) return(0x00);
 
-rule = (CLI_BASE+(R(rule,*argp)));
+if(EQ(di,si)) return(0x01);
+
+rule = (si+(R(rule,*argp)));
 b = (*(CLI_INDEX+(R(b,*rule))));
 // if(!b) return(0x00);
 
-rule = (arg+(R(rule,*argp)));
+rule = (di+(R(rule,*argp)));
 if(!(init_rule_b(0x01,rule))) return(0x00);
 
 r = rule_b(0x00,rule,b);

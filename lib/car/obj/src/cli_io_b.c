@@ -38,7 +38,7 @@ printf("%s \n","<< Error at fn. restore_rule_b()");
 return(0x00);
 }
 
-r = store_rule_b(CLI_OFFSET,page);
+r = store_rule_b(CLI_OFFSET,CLI_BASE,page);
 if(!r) {
 printf("%s \n","<< Error at fn. store_rule_b()");
 return(0x00);
