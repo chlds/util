@@ -14,7 +14,8 @@ Refer at fn. cli_init_property.
 
 signed(__cdecl cli_init_text(signed(arg),cli_text_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
+auto signed char *b;
+auto signed i,r;
 auto signed char CUE_SYM[] = {
 SYM_EXCLAMATION_MARK,
 SYM_QUOTATION_MARK,
@@ -51,10 +52,6 @@ SYM_TILDE,
 0x00,
 };
 
-auto signed char *b;
-auto signed i,r;
-
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
 // initialise
