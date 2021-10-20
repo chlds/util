@@ -63,6 +63,8 @@ signed(__cdecl cli_message(signed(arg),signed char(*argp)));
 signed(__cdecl cli_mon_b(ty_t(*argp)));
 signed(__cdecl cli_mon(signed short(arg),cli_property_t(*argp)));
 signed(__cdecl cli_refresh(cli_text_t(*argp)));
+signed(__cdecl ctrl_ahead(ty_t(*argp)));
+signed(__cdecl ctrl_trim(ty_t(*argp)));
 signed(__cdecl cli_fn_ahead(cli_property_t(*argp)));
 signed(__cdecl cli_fn_backward(cli_property_t(*argp)));
 signed(__cdecl cli_fn_indent(cli_property_t(*argp)));
