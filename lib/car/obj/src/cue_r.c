@@ -36,6 +36,7 @@ else OR(flag,BYTE_S_H);
 
 r = ct_a(argp);
 if(!r) return(0x00);
+if(!(EQ(SP,*argp))) {
 if(!(BYTE_MUL<(r))) {
 OR(flag,BYTE_ONE);
 if(!(BYTE_SYM&(flag))) {
@@ -44,7 +45,7 @@ if(BYTE_MUL&(flag)) return(0x00);
 if(BYTE_MUL<(r)) {
 if(flag&(BYTE_SYM|(BYTE_ONE))) return(0x00);
 OR(flag,BYTE_MUL);
-}
+}}
 
 return(r+(cue_r(flag,sym,r+(argp))));
 }
