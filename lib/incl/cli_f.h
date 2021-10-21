@@ -72,6 +72,7 @@ signed(__cdecl cli_fn_del(cli_property_t(*argp)));
 signed(__cdecl ctrl_edge(ty_t(*argp)));
 signed(__cdecl cli_fn_edge(cli_property_t(*argp)));
 signed(__cdecl cli_fn_forward(cli_property_t(*argp)));
+signed(__cdecl ctrl_go(ty_t(*argp)));
 signed(__cdecl cli_fn_go(cli_property_t(*argp)));
 signed(__cdecl ctrl_bs(ty_t(*argp)));
 signed(__cdecl cli_fn_bs(cli_property_t(*argp)));

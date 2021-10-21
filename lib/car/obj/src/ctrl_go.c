@@ -1,6 +1,6 @@
 /*
 
-Leap backward.
+Leap forward.
 
 Remarks:
 Refer at util/lib/obj/src/cli_io_b.c
@@ -12,7 +12,7 @@ Refer at util/lib/obj/src/cli_io_b.c
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl ctrl_leap(ty_t(*argp))) {
+signed(__cdecl ctrl_go(ty_t(*argp))) {
 
 auto signed char *sym;
 auto signed char *b;
@@ -59,38 +59,42 @@ SYM_TILDE,
 if(!argp) return(0x00);
 
 page = (&(R(page,*argp)));
-rule = (CLI_BASE+(R(rule,*page)));
+rule = (CLI_OFFSET+(R(rule,*page)));
 b = (*(CLI_INDEX+(R(b,*rule))));
-if(EQ(b,*(CLI_BASE+(R(b,*rule))))) return(0x01);
+if(!(*b)) return(0x01);
 
 sym = (CUE_SYM);
-r = cue_back(sym,b,*(CLI_BASE+(R(b,*rule))));
+r = cue(sym,b);
 if(!r) return(0x00);
 
-b = (b+(0x01+(~r)));
+b = (r+(b));
 *(CLI_INDEX+(R(b,*rule))) = (b);
-b = (0x00);
-r = cat_b(&b,*(CLI_INDEX+(R(b,*rule))),*(CLI_BASE+(R(b,*(CLI_OFFSET+(R(rule,*page)))))),(void*) 0x00);
-if(!r) return(0x00);
+r = store_rule_b(CLI_INDEX,CLI_OFFSET,page);
+if(!r) {
+printf("%s \n","<< Error at fn. store_rule_b()");
+return(0x00);
+}
 
-r = init_rule(0x01,CLI_OFFSET,&rule);
+embed(0x00,b);
+r = restore_rule_b(0x02,CLI_OFFSET,page);
+if(!r) {
+printf("%s \n","<< Error at fn. restore_rule_b()");
+return(0x00);
+}
+
+r = store_rule_b(CLI_OFFSET,CLI_INDEX,page);
+if(!r) {
+printf("%s \n","<< Error at fn. store_rule_b()");
+return(0x00);
+}
+
+rule = (R(rule,*page));
+r = init_rule(0x01,CLI_INDEX,&rule);
 if(!r) {
 printf("%s \n","<< Error at fn. init_rule()");
-rl(b);
 return(0x00);
 }
 
-r = rule_b(0x00,CLI_OFFSET+(R(rule,*page)),b);
-if(!r) {
-printf("%s \n","<< Error at fn. rule_b()");
-rl(b);
-return(0x00);
-}
-
-embed(0x00,b);
-rl(b);
-b = (*(CLI_INDEX+(R(b,*rule))));
-embed(0x00,b);
 if(!(cli_es(CTRL_A))) return(0x00);
 
 b = (*(CLI_BASE+(R(b,*rule))));
