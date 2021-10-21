@@ -12,16 +12,13 @@ Based on UTF-8
 
 signed(__cdecl cue_back_r(signed short(flag),signed char(*sym),signed char(*cache),signed char(*argp))) {
 
-/* **** DATA, BSS and STACK */
+auto signed char *b;
+auto signed r;
 auto signed short BYTE_ONE = (0x01);
 auto signed short BYTE_MUL = (0x02);
 auto signed short BYTE_SYM = (0x04);
 auto signed short BYTE_END = (0x08);
 
-auto signed char *b;
-auto signed r;
-
-/* **** CODE/TEXT */
 if(!sym) return(0x00);
 if(!cache) return(0x00);
 if(!argp) return(0x00);
