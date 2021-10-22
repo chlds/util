@@ -11,7 +11,7 @@ Refer at fn. ctrl_fn_b.
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl ctrl_i(void(*argp))) {
+signed(__cdecl ctrl_i(ty_t(*argp))) {
 
 auto signed char *b;
 auto signed r;
@@ -22,5 +22,5 @@ if(!argp) return(0x00);
 if(DBG) printf("%s ","<Ctrl-I>");
 
 // return(f(argp));
-return(indent_b(0x08));
+return(ctrl_indent(argp));
 }

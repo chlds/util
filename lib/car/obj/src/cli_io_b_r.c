@@ -41,7 +41,7 @@ return(0x00);
 
 if(!(DEL^(arg))) arg = (CTRL_D);
 if(arg<(CTRL_KEYS)) {
-if(!(EQ(HT,*b))) embed(0x00,b);
+embed(0x00,b);
 r = ctrl_fn_b(arg,argp);
 if(!r) printf("%s \n","<< Error at fn. ctrl_fn_b()");
 }
