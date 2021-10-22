@@ -21,8 +21,8 @@ if(!argp) return(0x00);
 
 if(DBG) printf("%s ","<Ctrl-J>");
 
-OR(*(CLI_BASE+(R(flag,*argp))),CLI_BR);
+// OR(*(CLI_BASE+(R(flag,*argp))),CLI_BR);
 
 // return(f(argp));
-return(0x01);
+return(ctrl_del_backward(argp));
 }

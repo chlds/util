@@ -3,7 +3,7 @@
 Press <Ctrl-Q> to invoke the function.
 
 Remarks:
-Refer at fn. ctrl_fn.
+Refer at fn. ctrl_fn_b.
 */
 
 
@@ -21,8 +21,6 @@ if(!argp) return(0x00);
 
 if(DBG) printf("%s ","<Ctrl-Q>");
 
-OR(*(CLI_BASE+(R(flag,*argp))),CLI_QUIT);
-
 // return(f(argp));
-return(0x01);
+return(ctrl_esc(argp));
 }
