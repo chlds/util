@@ -69,6 +69,7 @@ signed(__cdecl cli_fn_ahead(cli_property_t(*argp)));
 signed(__cdecl cli_fn_backward(cli_property_t(*argp)));
 signed(__cdecl ctrl_indent(ty_t(*argp)));
 signed(__cdecl cli_fn_indent(cli_property_t(*argp)));
+signed(__cdecl ctrl_del(ty_t(*argp)));
 signed(__cdecl cli_fn_del(cli_property_t(*argp)));
 signed(__cdecl ctrl_edge(ty_t(*argp)));
 signed(__cdecl cli_fn_edge(cli_property_t(*argp)));
