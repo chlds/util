@@ -48,23 +48,10 @@ rule = (CLI_BASE+(R(rule,*page)));
 // b = (*(CLI_INDEX+(R(b,*rule))));
 // if(!b) return(0x00);
 
-r = flush_b(0x08,CLI_INDEX,rule);
+r = cli_flush(0x08,rule);
 if(!r) {
 /*
-printf("%s \n","<< Error at fn. flush_b()");
-return(0x00);
-//*/
-}
-
-b = (*(CLI_BASE+(R(b,*rule))));
-if(!b) return(0x00);
-if(!(cli_es(CTRL_K))) return(0x00);
-if(!(cli_es(CTRL_A))) return(0x00);
-
-r = cli_outs_b(0x08,b);
-if(!r) {
-/*
-printf("%s \n","<< Error at fn. cli_outs_b()");
+printf("%s \n","<< Error at fn. cli_flush()");
 return(0x00);
 //*/
 }
