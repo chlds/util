@@ -1,7 +1,9 @@
 /*
 
-Remarks:
 Refer command charmap
+
+Remarks:
+Refer at header file config.h.
 */
 
 

@@ -7,6 +7,7 @@ Refer at fn. cli_restore.
 */
 
 
+# define CLI_SYMB
 # define CAR
 # include "./../../../incl/config.h"
 
@@ -40,9 +41,12 @@ b = (0x00);
 r = (OBJS);
 while(r) {
 *(--r+(R(b,*argp))) = (b);
+*(r+(R(sym,*argp))) = (b);
 *(r+(R(flag,*argp))) = (0x00);
 *(r+(R(r,*argp))) = (0x00);
 }
+
+if(!arg) *(CLI_BASE+(R(sym,*argp))) = (CUE_SYM);
 
 OR(*(CLI_BASE+(R(flag,*argp))),CLI_INIT);
 

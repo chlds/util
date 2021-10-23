@@ -88,6 +88,7 @@ rule_t rule[OBJS];
 
 struct ty {
 signed char *(b[OBJS]);
+signed char *(sym[OBJS]);
 signed short flag[OBJS];
 signed r[OBJS];
 page_t page;

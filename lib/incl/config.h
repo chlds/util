@@ -57,6 +57,11 @@ Remarks:
 # include "./cli_sym.h"
 # endif
 
+# ifdef CLI_SYMB
+# include "./cli_sym.h"
+# include "./cue_sym.h"
+# endif
+
 # ifdef CLI_ASCII
 # include "./cli_ascii.h"
 # endif
