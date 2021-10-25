@@ -28,7 +28,7 @@ AND(flag,0x00);
 clipboard = (&(R(clipboard,*argp)));
 text = (&(R(text,*argp)));
 
-r = cli_clip_to_empty_beta();
+r = clip_to_empty_beta();
 if(!r) return(0x00);
 
 r = v_map_beta(text,clipboard);

@@ -10,7 +10,7 @@ signed(__cdecl color_text_bg(signed(arg)));
 signed(__cdecl color_text_fg(signed(arg)));
 signed(__cdecl init_ty(signed(arg),ty_t(*argp)));
 signed(__cdecl cli_init_clipboards(signed(arg),cli_clipboard_t(*argp)));
-signed(__cdecl cli_clip_to_empty_beta(void));
+signed(__cdecl clip_to_empty_beta(void));
 signed(__cdecl clipboard_to_pin_paste_beta(signed(arg),cli_clipboard_t(*argp)));
 signed(__cdecl pin_beta(cli_clipboard_t(*argp)));
 signed(__cdecl v_map_beta(cli_text_t(*cache),cli_clipboard_t(*argp)));
