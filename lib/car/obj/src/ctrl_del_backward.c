@@ -27,7 +27,7 @@ rule = (CLI_BASE+(R(rule,*page)));
 b = (*(CLI_INDEX+(R(b,*rule))));
 if(EQ(b,*(CLI_BASE+(R(b,*rule))))) return(0x01);
 
-sym = (*(CLI_BASE+(R(sym,*argp))));
+sym = (*(CLI_BASE+(R(b,R(config,*argp)))));
 r = cue_back(sym,b,*(CLI_BASE+(R(b,*rule))));
 if(!r) return(0x00);
 

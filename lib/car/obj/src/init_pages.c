@@ -24,15 +24,27 @@ if(!argp) return(0x00);
 flag = (*(CLI_BASE+(R(flag,*argp))));
 if(!(CLI_INIT&(flag))) AND(arg,0x00);
 
+// destroy
+if(arg) {
+b = (*(CLI_BASE+(R(b,*argp))));
+embed(0x00,b);
+if(b) rl(b);
+}
+
+//* deprecated
 rule = (R(rule,*argp));
 r = init_rule(arg,CLI_RULE,&rule);
 if(!r) {
 printf("%s \n","<< Error at fn. init_rule()");
 return(0x00);
 }
+//*/
 
 AND(flag,0x00);
 page = (0x00);
+b = (0x00);
+r = (OBJS);
+while(r) *(--r+(R(b,*argp))) = (b);
 r = (PAGES);
 while(r) *(--r+(R(page,*argp))) = (page);
 r = (FLAGS);

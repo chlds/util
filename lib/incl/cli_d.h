@@ -81,17 +81,37 @@ signed char *(b[OBJS]);
 } typedef rule_t;
 
 struct page {
+signed char *(b[OBJS]);
 struct page *(page[PAGES]);
 signed short flag[FLAGS];
-rule_t rule[OBJS];
+rule_t rule[OBJS]; // deprecated
 } typedef page_t;
 
-struct ty {
+struct config {
 signed char *(b[OBJS]);
-signed char *(sym[OBJS]);
-signed short flag[OBJS];
-signed r[OBJS];
+signed param[OBJS];
+signed short flag[FLAGS];
+} typedef config_t;
+
+struct edit {
+signed char *(b[OBJS]);
+signed param[OBJS];
+} typedef edit_t;
+
+struct debug {
+signed char *(b[OBJS]);
+rule_t rule[OBJS];
+signed param[OBJS];
+signed short flag[FLAGS];
+} typedef debug_t;
+
+struct ty {
+config_t config;
+edit_t edit;
+debug_t debug;
 page_t page;
+rule_t rule[OBJS];
+signed short flag[OBJS];
 } typedef ty_t;
 
 struct cli_rule {

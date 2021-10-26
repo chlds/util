@@ -8,6 +8,7 @@ signed(__cdecl color_text_r(signed char(*argp)));
 signed(__cdecl color_text(signed(fg),signed(bg)));
 signed(__cdecl color_text_bg(signed(arg)));
 signed(__cdecl color_text_fg(signed(arg)));
+signed(__cdecl init_config(signed(arg),config_t(*argp)));
 signed(__cdecl init_ty(signed(arg),ty_t(*argp)));
 signed(__cdecl cli_init_clipboards(signed(arg),cli_clipboard_t(*argp)));
 signed(__cdecl clip_to_empty_beta(void));
