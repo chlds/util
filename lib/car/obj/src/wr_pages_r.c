@@ -13,7 +13,7 @@ Write.
 signed(__cdecl wr_pages_r(signed(fd),page_t(*argp))) {
 
 auto signed char *b;
-auto rule_t *rule;
+// auto rule_t *rule;
 auto signed i,r;
 auto signed short flag;
 auto signed char *br = ("\n");
@@ -21,8 +21,9 @@ auto signed char *br = ("\n");
 if(fd<(0x00)) return(0x00);
 if(!argp) return(0x00);
 
-rule = (CLI_BASE+(R(rule,*argp)));
-b = (*(CLI_BASE+(R(b,*rule))));
+// rule = (CLI_BASE+(R(rule,*argp)));
+// b = (*(CLI_BASE+(R(b,*rule))));
+b = (*(CLI_BASE+(R(b,*argp))));
 if(!b) {
 printf("%s \n","<< No memory block allocated to the b..");
 return(0x00);
@@ -53,6 +54,8 @@ return(0x00);
 }}
 
 argp = (*(CLI_DI+(R(page,*argp))));
+b = (0x00);
+// rule = (0x00);
 
 return(0x01+(wr_pages_r(fd,argp)));
 }
