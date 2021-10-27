@@ -32,13 +32,13 @@ page = (&(R(page,*argp)));
 if(CLI_MORPH&(*(CLI_BASE+(R(flag,*page))))) OR(flag,0x01);
 if(CLI_FORCED&(*(CLI_BASE+(R(flag,*page))))) INC(flag);
 
-r = restore_rule_b(flag,CLI_OFFSET,page);
+r = restore_rule_b(flag,CLI_OFFSET,R(rule,*page));
 if(!r) {
 printf("%s \n","<< Error at fn. restore_rule_b()");
 return(0x00);
 }
 
-r = store_rule_b(CLI_OFFSET,CLI_BASE,page);
+r = store_rule_b(CLI_OFFSET,CLI_BASE,R(rule,*page));
 if(!r) {
 printf("%s \n","<< Error at fn. store_rule_b()");
 return(0x00);

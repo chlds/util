@@ -1,6 +1,9 @@
 /* **** Notes
 
 Append.
+
+Remarks:
+Refer at fn. rule_b.
 //*/
 
 

@@ -3,7 +3,7 @@
 Concatenate with a rule.
 
 Remarks:
-Refer at fn. store_rule_b, backup_rule_b and restore_rule_b.
+Refer at fn. append_rule_b, store_rule_b, backup_rule_b and restore_rule_b.
 */
 
 

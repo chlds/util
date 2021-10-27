@@ -33,20 +33,20 @@ if(!r) return(0x00);
 
 b = (r+(b));
 *(CLI_INDEX+(R(b,*rule))) = (b);
-r = store_rule_b(CLI_LEAD,CLI_OFFSET,page);
+r = store_rule_b(CLI_LEAD,CLI_OFFSET,R(rule,*page));
 if(!r) {
 printf("%s \n","<< Error at fn. store_rule_b()");
 return(0x00);
 }
 
 embed(0x00,b);
-r = restore_rule_b(0x02,CLI_OFFSET,page);
+r = restore_rule_b(0x02,CLI_OFFSET,R(rule,*page));
 if(!r) {
 printf("%s \n","<< Error at fn. restore_rule_b()");
 return(0x00);
 }
 
-r = store_rule_b(CLI_OFFSET,CLI_LEAD,page);
+r = store_rule_b(CLI_OFFSET,CLI_LEAD,R(rule,*page));
 if(!r) {
 printf("%s \n","<< Error at fn. store_rule_b()");
 return(0x00);
