@@ -19,8 +19,8 @@ auto page_t *page;
 auto signed i,r;
 auto signed short flag;
 
-page = (&(R(page,*argp)));
-rule = (CLI_OFFSET+(R(rule,*page)));
+// page = (&(R(page,*argp)));
+rule = (CLI_OFFSET+(R(rule,*argp)));
 b = (*(CLI_INDEX+(R(b,*rule))));
 if(!(*b)) return(0x01);
 

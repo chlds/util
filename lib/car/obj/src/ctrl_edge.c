@@ -21,8 +21,8 @@ auto signed short flag;
 
 if(!argp) return(0x00);
 
-page = (&(R(page,*argp)));
-OR(*(CLI_BASE+(R(flag,*page))),CLI_FORCED);
+// page = (&(R(page,*argp)));
+OR(*(CLI_BASE+(R(flag,*argp))),CLI_FORCED);
 
 return(0x01);
 }

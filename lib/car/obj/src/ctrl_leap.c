@@ -22,8 +22,8 @@ auto signed short flag;
 
 if(!argp) return(0x00);
 
-page = (&(R(page,*argp)));
-rule = (CLI_BASE+(R(rule,*page)));
+// page = (&(R(page,*argp)));
+rule = (R(rule,*argp));
 b = (*(CLI_INDEX+(R(b,*rule))));
 if(EQ(b,*(CLI_BASE+(R(b,*rule))))) return(0x01);
 
@@ -34,17 +34,17 @@ if(!r) return(0x00);
 b = (b+(0x01+(~r)));
 *(CLI_INDEX+(R(b,*rule))) = (b);
 b = (0x00);
-r = cat_b(&b,*(CLI_INDEX+(R(b,*rule))),*(CLI_BASE+(R(b,*(CLI_OFFSET+(R(rule,*page)))))),(void*) 0x00);
+r = cat_b(&b,*(CLI_INDEX+(R(b,*rule))),*(CLI_BASE+(R(b,*(CLI_OFFSET+(rule))))),(void*) 0x00);
 if(!r) return(0x00);
 
-r = init_rule(0x01,CLI_OFFSET,&rule);
+r = init_rule(0x01,CLI_OFFSET,rule);
 if(!r) {
 printf("%s \n","<< Error at fn. init_rule()");
 rl(b);
 return(0x00);
 }
 
-r = rule_b(0x00,CLI_OFFSET+(R(rule,*page)),b);
+r = rule_b(0x00,CLI_OFFSET+(rule),b);
 if(!r) {
 printf("%s \n","<< Error at fn. rule_b()");
 rl(b);

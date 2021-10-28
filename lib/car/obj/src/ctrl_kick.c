@@ -21,12 +21,11 @@ auto signed short flag;
 
 if(!argp) return(0x00);
 
-page = (&(R(page,*argp)));
-rule = (R(rule,*page));
-r = init_rule(0x01,CLI_OFFSET,&rule);
+// page = (&(R(page,*argp)));
+rule = (R(rule,*argp));
+r = init_rule(0x01,CLI_OFFSET,rule);
 if(!r) return(0x00);
 
-// rule = (CLI_BASE+(R(rule,*page)));
 b = (*(CLI_INDEX+(R(b,*rule))));
 if(!(*b)) return(0x01);
 

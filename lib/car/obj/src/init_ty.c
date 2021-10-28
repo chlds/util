@@ -41,7 +41,7 @@ return(0x00);
 }
 
 rule = (R(rule,*argp));
-r = init_rule(arg,CLI_RULE,&rule);
+r = init_rule(arg,CLI_RULE,rule);
 if(!r) {
 printf("%s \n","<< Error at fn. init_rule()");
 return(0x00);

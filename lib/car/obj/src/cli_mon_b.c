@@ -59,12 +59,12 @@ if(!(cli_es(CTRL_N))) return(0x00);
 // r = _putch('\n');
 
 /* monitor */
-page = (&(R(page,*argp)));
+// page = (&(R(page,*argp)));
 
 AND(l,0x00);
 AND(i,0x00);
 while(i<(CLI_RULE)) {
-rule = (i+(R(rule,*page)));
+rule = (i+(R(rule,*argp)));
 AND(i,0x00);
 while(i<(CLI_RULE)) {
 b = (*(i+(R(b,*rule))));

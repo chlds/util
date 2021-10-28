@@ -22,8 +22,8 @@ auto signed short flag;
 if(arg&(~CTRL_MASK)) return(0x00);
 if(!argp) return(0x00);
 
-page = (&(R(page,*argp)));
-rule = (CLI_BASE+(R(rule,*page)));
+// page = (&(R(page,*argp)));
+rule = (R(rule,*argp));
 b = (*(CLI_INDEX+(R(b,*rule))));
 if(*b) return(0x00);
 

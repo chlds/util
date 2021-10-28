@@ -20,11 +20,11 @@ auto signed short flag;
 
 if(!argp) return(0x00);
 
-page = (&(R(page,*argp)));
+// page = (&(R(page,*argp)));
 AND(flag,0x00);
 OR(flag,CLI_MORPH);
 NOT(flag);
-AND(*(CLI_BASE+(R(flag,*page))),flag);
+AND(*(CLI_BASE+(R(flag,*argp))),flag);
 
 // return(f(argp));
 return(cli_es(CTRL_A));

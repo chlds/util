@@ -21,8 +21,8 @@ auto signed short flag;
 
 if(!argp) return(0x00);
 
-page = (&(R(page,*argp)));
-rule = (CLI_BASE+(R(rule,*page)));
+// page = (&(R(page,*argp)));
+rule = (R(rule,*argp));
 b = (*(CLI_BASE+(R(b,*rule))));
 embed(0x00,b);
 
