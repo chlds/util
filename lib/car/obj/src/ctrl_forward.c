@@ -31,32 +31,40 @@ if(!r) return(0x00);
 
 b = (r+(b));
 *(CLI_INDEX+(R(b,*rule))) = (b);
+b = (0x00);
+if(!(cat_b(&b,*(CLI_INDEX+(R(b,*rule))),(void*) 0x00))) {
+printf("%s \n","<< Error at fn. cat_b()");
+return(0x00);
+}
+
+embed(0x00,*(CLI_INDEX+(R(b,*rule))));
 rule = (R(rule,*argp));
-r = store_rule_b(CLI_LEAD,CLI_OFFSET,rule);
+r = restore_rule_b(0x02,CLI_OFFSET,rule);
 if(!r) {
-printf("%s \n","<< Error at fn. store_rule_b()");
+printf("%s \n","<< Error at fn. restore_rule_b()");
+embed(0x00,b);
+rl(b);
+return(0x00);
+}
+
+r = init_rule(0x01,CLI_OFFSET,rule);
+if(!r) {
+printf("%s \n","<< Error at fn. init_rule()");
+embed(0x00,b);
+rl(b);
+return(0x00);
+}
+
+r = rule_b(0x00,CLI_OFFSET+(rule),b);
+if(!r) {
+printf("%s \n","<< Error at fn. rule_b()");
+embed(0x00,b);
+rl(b);
 return(0x00);
 }
 
 embed(0x00,b);
-r = restore_rule_b(0x02,CLI_OFFSET,rule);
-if(!r) {
-printf("%s \n","<< Error at fn. restore_rule_b()");
-return(0x00);
-}
-
-r = store_rule_b(CLI_OFFSET,CLI_LEAD,rule);
-if(!r) {
-printf("%s \n","<< Error at fn. store_rule_b()");
-return(0x00);
-}
-
-r = init_rule(0x01,CLI_LEAD,rule);
-if(!r) {
-printf("%s \n","<< Error at fn. init_rule()");
-return(0x00);
-}
-
+rl(b);
 if(!(cli_es(CTRL_A))) return(0x00);
 
 b = (*(CLI_BASE+(R(b,*rule))));
