@@ -1,6 +1,6 @@
 /* **** Notes
 
-Convert an array of letters into the page format.
+Convert an array of pointers for letters into the page format.
 
 Remarks:
 Call fn. unbind_pages later.
@@ -25,7 +25,7 @@ flag = (*(CLI_BASE+(R(flag,*di))));
 if(!(CLI_INIT&(flag))) return(0x00);
 
 r = cv_pv_r(di,si);
-if(!r) return(0x00);
+// if(!r) return(0x00);
 
 return(r);
 }

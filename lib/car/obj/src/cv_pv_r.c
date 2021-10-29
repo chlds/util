@@ -1,6 +1,6 @@
 /* **** Notes
 
-Convert an array of letters into the page format.
+Convert an array of pointers for letters into the page format.
 
 Remarks:
 Call fn. unbind_pages later.

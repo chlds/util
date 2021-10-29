@@ -355,7 +355,7 @@ signed(__cdecl append_b(signed char(*di),signed char(*si)));
 
 signed(__cdecl cv_pv_r(page_t(*di),signed char(**si)));
 signed(__cdecl cv_pv(page_t(*di),signed char(**si)));
-/* Convert an array of letters into the page format. */
+/* Convert an array of pointers for letters into the page format. */
 
 signed(__cdecl cv_ww_r(signed short(arg),signed char(**di),signed short(*flag),signed char(*sym),signed char(*si)));
 signed(__cdecl cv_ww(signed short(arg),signed char(***di),signed char(*sym),signed char(*si)));
