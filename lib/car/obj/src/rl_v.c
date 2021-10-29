@@ -1,6 +1,9 @@
 /* **** Notes
 
-Unmap all the buffers allocated by fn. cv_v.
+Unmap all the buffers allocated by fn. cv_v, cv_ww or..
+
+Remarks:
+Refer at fn. cv_pv, cli_outv or cli_output.
 */
 
 

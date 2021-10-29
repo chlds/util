@@ -75,6 +75,8 @@ signed(__cdecl wr_pages(signed(fd),page_t(*argp)));
 
 signed(__cdecl unbind_pages(page_t(*argp)));
 signed(__cdecl unmap_pages(page_t(*argp)));
+signed(__cdecl output_pages_r(signed short(arg/* align */),page_t(*argp)));
+signed(__cdecl output_pages(signed short(arg/* align */),page_t(*argp)));
 signed(__cdecl concat_pages(signed short(flag),page_t(*di),page_t(*si)));
 signed(__cdecl bind_pages(signed short(arg),page_t(*argp)));
 signed(__cdecl init_pages(signed(arg),page_t(*argp)));
@@ -350,6 +352,10 @@ signed(__cdecl concat_b(signed char(*argp), ...));
 
 signed(__cdecl append_b(signed char(*di),signed char(*si)));
 /* Append the si to the di. */
+
+signed(__cdecl cv_pv_r(page_t(*di),signed char(**si)));
+signed(__cdecl cv_pv(page_t(*di),signed char(**si)));
+/* Convert an array of letters into the page format. */
 
 signed(__cdecl cv_ww_r(signed short(arg),signed char(**di),signed short(*flag),signed char(*sym),signed char(*si)));
 signed(__cdecl cv_ww(signed short(arg),signed char(***di),signed char(*sym),signed char(*si)));
