@@ -365,6 +365,10 @@ signed(__cdecl wrap_words_r(signed short(arg),signed(*cache),signed char(*sym),s
 signed(__cdecl wrap_words(signed short(arg),signed char(*sym),signed char(*argp)));
 /* Map an array of pointers for words-wrap arrays on the RAM. */
 
+signed(__cdecl out_lines_r(signed short(arg/* align */),signed short(cols),signed char(*sym),signed char(*argp)));
+signed(__cdecl out_lines(signed short(arg/* align */),signed short(cols),signed char(*sym),signed char(*argp)));
+/* Output lines. */
+
 signed(__cdecl out_oneline_r(signed(n),signed short(arg/* align */),signed char(**argp)));
 signed(__cdecl out_oneline(signed short(arg/* align */),signed short(cols),signed char(*sym),signed char(*argp)));
 /* Output only one line. */
