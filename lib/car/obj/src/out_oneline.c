@@ -32,6 +32,7 @@ if(!r) return(0x00);
 r = wrap(cols,v);
 if(!r) {
 rl_v(&v);
+if(cols<(ct(argp))) return(out_oneline_limited(cols,argp));
 return(0x00);
 }
 

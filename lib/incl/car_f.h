@@ -369,6 +369,7 @@ signed(__cdecl out_lines_r(signed short(arg/* align */),signed short(cols),signe
 signed(__cdecl out_lines(signed short(arg/* align */),signed short(cols),signed char(*sym),signed char(*argp)));
 /* Output lines. */
 
+signed(__cdecl out_oneline_limited(signed short(arg),signed char(*argp)));
 signed(__cdecl out_oneline_r(signed(n),signed short(arg/* align */),signed char(**argp)));
 signed(__cdecl out_oneline(signed short(arg/* align */),signed short(cols),signed char(*sym),signed char(*argp)));
 /* Output only one line. */
