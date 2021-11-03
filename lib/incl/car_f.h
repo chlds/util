@@ -480,6 +480,8 @@ signed(__cdecl csv_rm_trailing_blanks_r(signed(arg),signed char(*argp)));
 signed(__cdecl csv_rm_trailing_blanks(signed char(*argp)));
 signed(__cdecl rm_trailing_blanks_r(signed(arg),signed char(*argp)));
 signed(__cdecl rm_trailing_blanks(signed char(*argp)));
+signed(__cdecl rm_trailing_spaces_r(signed(arg),signed char(*argp)));
+signed(__cdecl rm_trailing_spaces(signed char(*argp)));
 signed(__cdecl rm_br_r(signed(arg),signed char(*argp)));
 signed(__cdecl rm_br(signed char(*argp)));
 signed(__cdecl embedback_r(signed(arg),signed char(*argp)));
