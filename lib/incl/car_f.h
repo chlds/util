@@ -389,6 +389,7 @@ signed(__cdecl cv_v_r(signed char(**di),signed short(*flag),signed char(*si)));
 signed(__cdecl cv_v(signed char(***di),signed char(*si)));
 /* Map an array of pointers for word-split arrays on and unmap the ones out of the RAM */
 
+signed(__cdecl cue_argt(signed char(*argp)));
 signed(__cdecl cue2(signed char(*base)));
 /* Cue */
 
@@ -396,6 +397,8 @@ signed(__cdecl ct_words_r(signed short(flag),signed(*retv),signed char(*cache),s
 signed(__cdecl ct_words(signed char(*sym),signed char(*base)));
 /* Count words to the terminating null character. */
 
+signed(__cdecl ct_argt_r(signed char(*argp)));
+signed(__cdecl ct_argt(signed char(*argp)));
 signed(__cdecl ct_wrds_r(signed short(flag),signed(*retv),signed char(*base)));
 signed(__cdecl ct_ars_r(signed short(flag),signed(*retv),signed char(*base)));
 signed(__cdecl ct_ars(signed(*retv),signed char(*base)));
@@ -476,6 +479,7 @@ signed(__cdecl ct_v(signed char(**argp)));
 signed(__cdecl ct_p(void(**argp)));
 /* Count pointers. */
 
+signed(__cdecl rm_brs(signed char(*argp)));
 signed(__cdecl csv_rm_trailing_blanks_r(signed(arg),signed char(*argp)));
 signed(__cdecl csv_rm_trailing_blanks(signed char(*argp)));
 signed(__cdecl rm_trailing_blanks_r(signed(arg),signed char(*argp)));
