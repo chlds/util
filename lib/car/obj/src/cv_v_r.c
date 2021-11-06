@@ -21,7 +21,7 @@ if(!si) return(0x00);
 
 *di = (0x00);
 
-si = (si+(cue2(si)));
+si = (si+(cue_ready(si)));
 
 r = ct2(SP,si);
 i = (r);

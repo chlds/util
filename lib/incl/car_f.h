@@ -390,7 +390,7 @@ signed(__cdecl cv_v(signed char(***di),signed char(*si)));
 /* Map an array of pointers for word-split arrays on and unmap the ones out of the RAM */
 
 signed(__cdecl cue_argt(signed char(*argp)));
-signed(__cdecl cue2(signed char(*base)));
+signed(__cdecl cue_ready(signed char(*argp)));
 /* Cue */
 
 signed(__cdecl ct_words_r(signed short(flag),signed(*retv),signed char(*cache),signed char(*base)));

@@ -14,7 +14,7 @@ auto signed i,r;
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
-argp = (argp+(cue2(argp)));
+argp = (argp+(cue_ready(argp)));
 
 r = ct2(SP,argp);
 argp = (r+(argp));

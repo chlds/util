@@ -15,5 +15,5 @@ signed(__cdecl ct_argt(signed char(*argp))) {
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
-return(ct_argt_r(argp+(cue2(argp))));
+return(ct_argt_r(argp+(cue_ready(argp))));
 }
