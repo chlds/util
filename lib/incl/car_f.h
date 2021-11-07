@@ -385,11 +385,14 @@ signed(__cdecl ct_wo(signed char(*sym),signed char(*argp)));
 
 signed(__cdecl rl_v_r(signed char(**argp)));
 signed(__cdecl rl_v(signed char(***argp)));
+signed(__cdecl cv_argt_r(signed char(**di),signed char(*si)));
+signed(__cdecl cv_argt(signed char(***di),signed char(*si)));
 signed(__cdecl cv_v_r(signed char(**di),signed short(*flag),signed char(*si)));
 signed(__cdecl cv_v(signed char(***di),signed char(*si)));
 /* Map an array of pointers for word-split arrays on and unmap the ones out of the RAM */
 
 signed(__cdecl cue_argt(signed char(*argp)));
+signed(__cdecl cue_argt_ready(signed char(*argp)));
 signed(__cdecl cue_ready(signed char(*argp)));
 /* Cue */
 
