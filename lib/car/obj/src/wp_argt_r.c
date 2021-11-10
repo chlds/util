@@ -7,7 +7,7 @@ Count.
 # define CAR
 # include "./../../../incl/config.h"
 
-signed(__cdecl wrap_r(signed short(arg),signed(*cache),signed char(**argp))) {
+signed(__cdecl wp_argt_r(signed short(arg),signed(*cache),signed char(**argp))) {
 
 auto signed r;
 
@@ -21,7 +21,12 @@ if(!r) return(r);
 
 *cache = (r+(*cache));
 argp++;
-if(arg<(*cache)) return(0x00);
+if(arg<(*cache)) {
+if(EQ(arg,*cache)) return(0x01);
+return(0x00);
+}
 
-return(0x01+(wrap_r(arg,cache,argp)));
+INC(*cache);
+
+return(0x01+(wp_argt_r(arg,cache,argp)));
 }

@@ -374,6 +374,15 @@ signed(__cdecl out_oneline_r(signed(n),signed short(arg/* align */),signed char(
 signed(__cdecl out_oneline(signed short(arg/* align */),signed short(cols),signed char(*sym),signed char(*argp)));
 /* Output only one line. */
 
+signed(__cdecl out_argt_line_limited_r(signed short(cols),signed char(*argp)));
+signed(__cdecl out_argt_line_limited(signed short(cols),signed char(**argp)));
+signed(__cdecl out_argt_line_r(signed(n),signed char(**argp)));
+signed(__cdecl out_argt_line(signed short(cols),signed char(**argp)));
+signed(__cdecl out_argt_r(signed short(cols),signed char(**argp)));
+signed(__cdecl out_argt(signed short(cols),signed char(**argp)));
+
+signed(__cdecl wp_argt_r(signed short(arg),signed(*cache),signed char(**argp)));
+signed(__cdecl wp_argt(signed short(arg),signed char(**argp)));
 signed(__cdecl wrap_r(signed short(arg),signed(*cache),signed char(**argp)));
 signed(__cdecl wrap(signed short(arg),signed char(**argp)));
 /* Count. */
