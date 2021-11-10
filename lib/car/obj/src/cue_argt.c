@@ -20,7 +20,7 @@ HT,LF,CR,SP,0x00,
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
-r = cue(0x00,argp);
+r = cue(b,argp);
 argp = (r+(argp));
 i = ord(b,*argp);
 if(!(i<(ct(b)))) return(r);
