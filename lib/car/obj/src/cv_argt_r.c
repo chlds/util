@@ -18,26 +18,25 @@ if(!si) return(0x00);
 *di = (0x00);
 if(!(*si)) return(0x00);
 
-AND(r,0x00);
-if(EQ(HT,*si)) si++;
-if(!(EQ(HT,*si))) {
 r = ct_to(0x00,si);
 if(!r) return(0x00);
+
 r++;
 r = (r*(sizeof(*b)));
 b = (signed char(*)) alloc(r);
 *di = (b);
 if(!b) return(0x00);
+
 *b = (0x00);
 r = ncpy(--r,b,si);
 if(!r) return(0x00);
+
 si = (r+(si));
 si = (si+(cue_argt(si)));
 rm_brs(*di);
 di++;
 AND(r,0x00);
 OR(r,0x01);
-}
 
 return(r+(cv_argt_r(di,si)));
 }
