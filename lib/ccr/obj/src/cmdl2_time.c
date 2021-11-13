@@ -199,7 +199,7 @@ auto signed i,l,r;
 auto signed short flag;
 auto signed char c;
 
-auto signed const LIMIT = (3*(3600)); // for 3h
+auto signed const LIMIT = (6*(3600)); // for 6h
 auto signed const QUANTUM = (0x10);
 auto signed const SNOOZE = (0x04);
 auto signed const DELAY = (0x03*(QUANTUM));
