@@ -11,9 +11,9 @@ Refer at fn. rl.
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl concatenate(signed(arg),signed char(**di),signed char(*si))) {
+signed(__cdecl concatenate_w(signed(arg),signed short(**di),signed short(*si))) {
 
-auto signed char *b;
+auto signed short *w;
 auto signed r;
 auto signed short flag;
 
@@ -22,22 +22,22 @@ if(!di) return(0x00);
 // if(!si) return(0x00);
 // if(!(*di)) return(0x00);
 
-r = ct(*di);
-r = (r+(ct(si)));
+r = ct_w(*di);
+r = (r+(ct_w(si)));
 r = (arg+(r));
 r++;
 r = (r*(sizeof(**di)));
-b = (signed char(*)) alloc(r);
-if(!b) return(0x00);
+w = (signed short(*)) alloc(r);
+if(!w) return(0x00);
 
-if(!(cpy(b,*di))) *b = (0x00);
-cpy(b+(ct(b)),si);
+if(!(cpy_w(w,*di))) *w = (0x00);
+cpy_w(w+(ct_w(w)),si);
 
-embed(0x00,*di);
+embed_w(0x00,*di);
 if(*di) rl(*di);
 
-*di = (b);
-b = (0x00);
+*di = (w);
+w = (0x00);
 
 return(r);
 }
