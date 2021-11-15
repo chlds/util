@@ -57,6 +57,11 @@ signed(__cdecl ctrl_fn_r(signed(arg),void(*argp)));
 signed(__cdecl ctrl_fn_b(signed(arg),void(*argp)));
 signed(__cdecl ctrl_fn(signed char(*cache),void(*argp)));
 
+signed(__cdecl cre_w(signed char(*perm),signed short(*path)));
+signed(__cdecl xt_parse_permission_w(signed(*retv),signed(*cache),signed char(*argp)));
+signed(__cdecl xt_parse_access_w(signed(*retv),signed char(*argp)));
+signed(__cdecl xt_parse_w(signed(*permission),signed(*access),signed char(*argp)));
+signed(__cdecl xt_w(signed char(*param),signed short(*path),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
 signed(__cdecl cre_b(signed char(*perm),signed char(*path)));
 signed(__cdecl xt_parse_permission(signed(*retv),signed(*cache),signed char(*argp)));
 signed(__cdecl xt_parse_access(signed(*retv),signed char(*argp)));

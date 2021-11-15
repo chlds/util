@@ -7,11 +7,13 @@ Create.
 # define CAR
 # include "./../../../lib/incl/config.h"
 
-signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
+// signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
+signed(__cdecl wmain(signed(argc),signed short(**argv),signed short(**envp))) {
 
 auto void *argp;
 auto signed char *b;
-auto signed char *path;
+// auto signed char *path;
+auto signed short *path;
 auto signed i,r;
 auto signed short flag;
 auto signed(__cdecl*f)(signed(arg),void(*argp));
@@ -32,9 +34,10 @@ AND(r,0x00);
 path = (*(argv+(argc+(~r))));
 // argp = (0x00);
 // f = (0x00);
-r = cre_b(param,path);
+// r = cre_b(param,path);
+r = cre_w(param,path);
 if(!r) {
-printf("%s \n","<< Error at fn. cre_b()");
+printf("%s \n","<< Error at fn. cre_w()");
 return(0x00);
 }
 
