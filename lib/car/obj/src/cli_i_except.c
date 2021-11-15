@@ -37,6 +37,8 @@ b = (*argp);
 b++;
 *b = (0x00);
 b = (0x00);
+AND(r,0x00);
+NOT(r);
 
-return(0x01+(cli_i_except_r(argp)));
+return(r+(cli_i_except_r(argp)));
 }

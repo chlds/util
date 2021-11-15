@@ -14,6 +14,10 @@ signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 auto signed char *b,*p;
 auto signed i,r;
 auto signed short flag;
+auto signed char *announce = ("The sequence of three bytes EFh BFh BDh in UTF-8 represents the Unicode Replacement Character U+FFFD.");
+
+printf("[%s] \n",announce);
+printf("\n");
 
 AND(flag,0x00);
 while(0x01) {
@@ -23,7 +27,7 @@ r = cli_opt_b(&b,cli_i_b);
 if(!r) OR(flag,0x01);
 if(!flag) {
 p = (b);
-if(EQ(r,~0x00)) printf("00h ");
+if(r<(0x00)) printf("(00h) ");
 while(*p) {
 printf("%02Xh ",0xFF&(*p));
 p++;

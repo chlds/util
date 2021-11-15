@@ -39,13 +39,8 @@ b++;
 *b = (0x00);
 b = (0x00);
 
-if(!(**argp)) {
+if(!(**argp)) return(cli_i_except(argp));
 // for a meta key starting from (0x00).
-r = cli_i_except(argp);
-if(!r) printf("%s \n","<< Error at fn. cli_i_except()");
-else r = (~0x00);
-return(r);
-}
 
 AND(flag,0x00);
 r = nbytechar(r);
