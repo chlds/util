@@ -44,8 +44,8 @@ return(0x00);
 }
 
 AND(r,0x00);
-if(!f) OR(r,0x01);
 if(f) r = f(fd,argp);
+else OR(r,0x01);
 
 AND(i,0x00);
 NOT(i);

@@ -8,6 +8,7 @@ Along with C library
 */
 
 
+signed(__cdecl dupl_agent_w(signed(argc),signed short(**argv),signed short(**envp)));
 signed(__cdecl cals_agent(signed(argc),signed char(**argv),signed char(**envp)));
 signed(__cdecl cvlf_agent(signed(argc),signed char(**argv),signed char(**envp)));
 signed(__cdecl lk_agent(signed(argc),signed char(**argv),signed char(**envp)));
@@ -57,6 +58,11 @@ signed(__cdecl ctrl_fn_r(signed(arg),void(*argp)));
 signed(__cdecl ctrl_fn_b(signed(arg),void(*argp)));
 signed(__cdecl ctrl_fn(signed char(*cache),void(*argp)));
 
+signed(__cdecl init_fl(fl_t(*argp)));
+signed(__cdecl wr_after_reading_r(signed(arg),signed char(*cache),fl_t(*argp)));
+signed(__cdecl wr_after_reading(fl_t(*argp)));
+signed(__cdecl wr_after_opening_w(signed(fd),fl_t(*argp)));
+signed(__cdecl rd_after_opening_w(signed(fd),fl_t(*argp)));
 signed(__cdecl cre_w(signed char(*perm),signed short(*path)));
 signed(__cdecl xt_parse_permission_w(signed(*retv),signed(*cache),signed char(*argp)));
 signed(__cdecl xt_parse_access_w(signed(*retv),signed char(*argp)));

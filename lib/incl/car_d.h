@@ -26,6 +26,11 @@ Build a linked list.
 
 # define COMMON_OBJS (0x04)
 
+struct fl {
+void *(v[OBJS]);
+signed fd[OBJS];
+} typedef fl_t;
+
 typedef struct coords {
 signed short x;
 signed short y;
