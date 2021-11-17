@@ -99,5 +99,5 @@ printf("%s \n","<< Error");
 return(0x00);
 }
 
-return(0x01);
+return(0x00);
 }

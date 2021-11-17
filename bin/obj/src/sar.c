@@ -338,5 +338,5 @@ printf("\n");
 if(!(OPT_VERBOSE&(flag))) l = (n);
 printf("%s %d \n","Total for processes:",l);
 
-return(0x01);
+return(0x00);
 }

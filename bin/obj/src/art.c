@@ -156,5 +156,5 @@ printf("%s \n","<< Error at fn. cl_b()");
 return(r);
 }
 
-return(0x01);
+return(0x00);
 }

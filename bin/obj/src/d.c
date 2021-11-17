@@ -41,5 +41,5 @@ printf("\n");
 printf("\n");
 printf("Done ! \n");
 
-return(0x01);
+return(0x00);
 }

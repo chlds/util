@@ -245,5 +245,5 @@ while(i) {
 
 printf("%s \n","All DONE!");
 
-return(0x01);
+return(0x00);
 }

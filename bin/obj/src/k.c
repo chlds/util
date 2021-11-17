@@ -35,5 +35,5 @@ if(!(CR^(c))) break;
 printf("\n");
 printf("%s\n","Done!");
 
-return(0x01);
+return(0x00);
 }

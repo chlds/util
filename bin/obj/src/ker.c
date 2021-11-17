@@ -58,5 +58,5 @@ if(!(LF^(R(AsciiChar,R(uChar,ker))))) break;
 
 printf("%s\n","Done!");
 
-return(0x01);
+return(0x00);
 }

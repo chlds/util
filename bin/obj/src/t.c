@@ -67,5 +67,5 @@ printf("%s %Xh \n","and the flag of the Daylight Savings Time is:",(*tp).tm_isds
 printf("%d %s \n",(*tp).tm_yday,"days since January 1");
 //*/
 
-return(0x01);
+return(0x00);
 }

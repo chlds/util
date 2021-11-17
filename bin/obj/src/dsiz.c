@@ -87,5 +87,5 @@ printf("\n");
 printf("%40s%3zd \n","size of datatype e.g., union wxyz: ",sizeof(z));
 printf("%40s%3zd \n","size of datatype union wxyz*: ",sizeof(pz));
 
-return(0x01);
+return(0x00);
 }

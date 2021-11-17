@@ -44,5 +44,5 @@ return(0x00);
 printf("\n");
 printf("Done ! \n");
 
-return(0x01);
+return(0x00);
 }

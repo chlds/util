@@ -39,5 +39,5 @@ printf("\n");
 printf("%15I64Xh%s",diff," (");
 printf("%I64d%s\n",diff," Bytes) ");
 
-return(0x01);
+return(0x00);
 }

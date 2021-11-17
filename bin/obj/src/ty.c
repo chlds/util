@@ -207,5 +207,5 @@ R(l,R(edit,R(ty,cli_w32_stat))) = (0x00);
 
 if(flag) return(0x00);
 
-return(0x01);
+return(0x00);
 }

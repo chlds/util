@@ -76,5 +76,5 @@ cputs(" \n");
 if(!flag) printf("%s \n","Done!");
 else printf("%s \n","Oops!");
 
-return(0x01);
+return(0x00);
 }

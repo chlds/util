@@ -43,5 +43,5 @@ if(flag) return(0x00);
 
 printf("%d %s \n",i,"environment variables");
 
-return(0x01);
+return(0x00);
 }
