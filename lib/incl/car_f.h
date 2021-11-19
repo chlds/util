@@ -58,6 +58,10 @@ signed(__cdecl ctrl_fn_r(signed(arg),void(*argp)));
 signed(__cdecl ctrl_fn_b(signed(arg),void(*argp)));
 signed(__cdecl ctrl_fn(signed char(*cache),void(*argp)));
 
+signed(__cdecl rd_k_r(signed char(**di),signed char(*delim),signed(n),signed(fd)));
+signed(__cdecl rd_k(signed(arg),signed char(**di),signed(fd)));
+signed(__cdecl ld_b_r(signed(fd),fl_t(*argp)));
+signed(__cdecl ld_b(signed(range),signed(offset),signed char(**di),signed char(*si/* path */)));
 signed(__cdecl init_fl(fl_t(*argp)));
 signed(__cdecl wr_after_reading_r(signed(arg),signed char(*cache),fl_t(*argp)));
 signed(__cdecl wr_after_reading(fl_t(*argp)));
@@ -109,6 +113,8 @@ signed(__cdecl writef(signed short(arg),signed(fd),void(*argp),signed(size)));
 signed(__cdecl readf(signed short(arg),signed(fd),void(*argp),signed(size)));
 signed(__cdecl openf(signed short(arg),signed char(*path),signed(mode),signed(permission)));
 signed(__cdecl statf(signed short(arg),signed char(*path),void(*argp)));
+
+signed(__cdecl sz_f(signed char(*argp)));
 
 signed(__cdecl backup_f(signed char(*extension),signed char(*argp)));
 signed(__cdecl trunc_f(signed char(*cache/* an extension for backups */),signed char(*path)));
@@ -416,6 +422,8 @@ signed(__cdecl cv_v_r(signed char(**di),signed short(*flag),signed char(*si)));
 signed(__cdecl cv_v(signed char(***di),signed char(*si)));
 /* Map an array of pointers for word-split arrays on and unmap the ones out of the RAM */
 
+signed(__cdecl cue_fd(signed(offset),signed(fd)));
+
 signed(__cdecl cue_argt(signed char(*argp)));
 signed(__cdecl cue_argt_ready(signed char(*argp)));
 signed(__cdecl cue_ready(signed char(*argp)));
@@ -446,6 +454,7 @@ signed(__cdecl cpy_q(signed long long(*di),signed long long(*si)));
 signed(__cdecl cpy_d(signed(*di),signed(*si)));
 signed(__cdecl cpy_w(signed short(*di),signed short(*si)));
 signed(__cdecl cpy_b(signed char(*di),signed char(*si)));
+signed(__cdecl cpy_l(signed char(*di),signed char(*si)));
 signed(__cdecl cpy(signed char(*di),signed char(*si)));
 /* Copy to the di out of the si */
 
@@ -521,6 +530,9 @@ signed(__cdecl embedback(signed(arg),signed char(*argp)));
 signed(__cdecl embed_w_rr(signed(arg),signed short(*argp)));
 signed(__cdecl embed_w_r(signed short(*argp)));
 signed(__cdecl embed_w(signed(arg),signed short(*argp)));
+signed(__cdecl embed_l_rr(signed(arg),signed char(*argp)));
+signed(__cdecl embed_l_r(signed char(*argp)));
+signed(__cdecl embed_l(signed(arg),signed char(*argp)));
 signed(__cdecl embed_rr(signed(arg),signed char(*argp)));
 signed(__cdecl embed_r(signed char(*argp)));
 signed(__cdecl embed(signed(arg),signed char(*argp)));
