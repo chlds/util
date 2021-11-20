@@ -32,8 +32,9 @@ if(EQ(0x02,argc)) AND(offset,0x00);
 
 if(0x02<(argc)) {
 b = (*(argv+(argc+(~0x00))));
-r = cv_da(0x0A,&i,b);
+r = cv_da_xe(0x0A,&i,b);
 if(!r) AND(i,0x00);
+if(i<(0x00)) AND(i,0x00);
 offset = (i);
 }
 
