@@ -37,11 +37,6 @@ return(0x00);
 }
 
 r = out_oneline_r(r,arg,v);
-if(!r) {
-rl_v(&v);
-return(0x00);
-}
-
 rl_v(&v);
 
 return(r);

@@ -38,9 +38,6 @@ if(i<(0x00)) AND(i,0x00);
 offset = (i);
 }
 
-printf("Offset: %d \n",offset);
-printf("\n");
-
 b = (0x00);
 path = (*(argv+(0x01)));
 r = ld_b(range,offset,&b,path);
@@ -49,7 +46,8 @@ if(!r) printf("%s \n","<< Error at fn. ld_b()");
 if(r) {
 out_lines(align,cols,sym,b);
 printf("\n");
-printf("[%d %s] \n",r,"bytes");
+printf("[%d %s] \n",r,"bytes read");
+printf("[%d %s] \n",offset,"bytes offset");
 }
 
 embed_l(0x00,b);

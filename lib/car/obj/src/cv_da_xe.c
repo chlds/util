@@ -28,7 +28,6 @@ AND(flag,0x00);
 if(!(minus^(*si))) OR(flag,0x01);
 
 r = cv_da_xe_r(radix,table,di,si);
-
 if(flag) *di = (0x01+(~(*di)));
 
 return(r);
