@@ -1,6 +1,6 @@
 /* **** Notes
 
-Display one line or about 512 bytes in UTF-8.
+Display one line or about 1024 bytes in UTF-8.
 */
 
 
@@ -15,11 +15,14 @@ auto signed char *b;
 auto signed char *path;
 auto signed offset;
 auto signed i,r;
-auto signed range = (0x02*(0xFF));
+auto signed range = (0x04*(0x100));
+auto signed short align = (0x08);
+auto signed short cols = (80);
+auto signed char *sym = (0x00);
 
 if(argc<(0x02)) {
 printf("\n");
-printf("  %s \n","Display one line or about 512 bytes in UTF-8.");
+printf("  %s \n","Display one line or about 1024 bytes in UTF-8.");
 printf("\n");
 printf("  %s \n","lit <file> [offset]");
 return(0x00);
@@ -43,7 +46,7 @@ r = ld_b(range,offset,&b,path);
 if(!r) printf("%s \n","<< Error at fn. ld_b()");
 
 if(r) {
-cli_outs_b(0x08,b);
+out_lines(align,cols,sym,b);
 printf("\n");
 printf("[%d %s] \n",r,"bytes");
 }
