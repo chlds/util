@@ -46,8 +46,8 @@ if(!r) printf("%s \n","<< Error at fn. ld_b()");
 if(r) {
 out_lines(align,cols,sym,b);
 printf("\n");
-printf("[%d %s] \n",r,"bytes read");
-printf("[%d %s] \n",offset,"bytes offset");
+printf("[%d/%d %s] \n",offset,r,"bytes offset/read");
+printf("[%d %s] \n",offset+(r),"bytes reached");
 }
 
 embed_l(0x00,b);

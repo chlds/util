@@ -1,8 +1,6 @@
 /* **** Notes
 
-dupl [-options] <di> <si>
-
-to duplicate/copy to file <di> out of file <si> in the binary format
+Duplicate in the binary format.
 */
 
 

@@ -63,10 +63,11 @@ signed(__cdecl rd_k(signed(arg),signed char(**di),signed(fd)));
 signed(__cdecl ld_b_r(signed(fd),fl_t(*argp)));
 signed(__cdecl ld_b(signed(range),signed(offset),signed char(**di),signed char(*si/* path */)));
 signed(__cdecl init_fl(fl_t(*argp)));
-signed(__cdecl wr_after_reading_r(signed(arg),signed char(*cache),fl_t(*argp)));
-signed(__cdecl wr_after_reading(fl_t(*argp)));
+signed(__cdecl wr_ds_r_r(signed(arg),signed char(*cache),fl_t(*argp)));
+signed(__cdecl wr_ds_r(fl_t(*argp)));
 signed(__cdecl wr_after_opening_w(signed(fd),fl_t(*argp)));
 signed(__cdecl rd_after_opening_w(signed(fd),fl_t(*argp)));
+signed(__cdecl wr_ds_w(signed short(**argp)));
 signed(__cdecl cre_w(signed char(*perm),signed short(*path)));
 signed(__cdecl xt_parse_permission_w(signed(*retv),signed(*cache),signed char(*argp)));
 signed(__cdecl xt_parse_access_w(signed(*retv),signed char(*argp)));
@@ -543,6 +544,7 @@ signed(__cdecl embed(signed(arg),signed char(*argp)));
 signed(__cdecl n_putch(signed(n),signed(letter)));
 /* Output the letter n times. */
 
+signed(__cdecl sw_p(void(**di),void(**si)));
 signed(__cdecl sw(signed(*di),signed(*si)));
 signed(__cdecl nsort(signed(count),signed(*base)));
 signed(__cdecl bsort(signed(count),signed(*base)));

@@ -1,8 +1,9 @@
 /* **** Notes
 
-dupl [-options] <di> <si>
+Retrieve a file descriptor to read.
 
-to duplicate/copy to file <di> out of file <si> in the binary format
+Remarks:
+Refer at fn. wr_ds_w.
 */
 
 

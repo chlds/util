@@ -1,8 +1,6 @@
 /* **** Notes
 
-dupl [-options] <di> <si>
-
-to duplicate/copy to file <di> out of file <si> in the binary format
+Duplicate.
 */
 
 
@@ -10,7 +8,7 @@ to duplicate/copy to file <di> out of file <si> in the binary format
 # include <stdio.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl wr_after_reading(fl_t(*argp))) {
+signed(__cdecl wr_ds_r(fl_t(*argp))) {
 
 auto signed char *b;
 auto signed r;
@@ -25,7 +23,7 @@ r = (r*(sizeof(*b)));
 b = (signed char(*)) alloc(r);
 if(!b) return(0x00);
 
-r = wr_after_reading_r(buff,b,argp);
+r = wr_ds_r_r(buff,b,argp);
 
 embed(buff,b);
 rl(b);

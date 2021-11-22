@@ -1,8 +1,6 @@
 /* **** Notes
 
-dupl [-options] <di> <si>
-
-to duplicate/copy to file <di> out of file <si> in the binary format
+Agent.
 */
 
 
@@ -12,12 +10,11 @@ to duplicate/copy to file <di> out of file <si> in the binary format
 
 signed(__cdecl dupl_agent_w(signed(argc),signed short(**argv),signed short(**envp))) {
 
-auto signed short *w;
+auto signed short **w;
 auto signed i,r;
 auto signed short flag;
 auto fl_t fl;
 auto signed threshold = (0x03);
-auto signed char *perm = ("rdonly,binary");
 
 if(!argv) return(0x00);
 // if(!envp) return(0x00);
@@ -34,20 +31,9 @@ printf("  %s \n","dupl [-options] .. <destination_file> <source_file>");
 return(0x01);
 }
 
-/* initialise */
-r = init_fl(&fl);
-if(!r) {
-printf("%s \n","<< Error at fn. init_fl()");
-return(0x00);
-}
+w = (argv+(argc+(~0x01)));
+r = wr_ds_w(w);
+if(!r) printf("%s \n","<< Error at fn. wr_ds_w()");
 
-AND(r,0x00);
-r = (threshold+(~r));
-while(r) {
-w = (*(argv+(argc+(~(--r)))));
-*(r+(R(v,fl))) = (void*) (w);
-if(!w) return(0x00);
-}
-
-return(xt_w(perm,w,&fl,rd_after_opening_w));
+return(r);
 }

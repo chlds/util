@@ -1,8 +1,9 @@
 /* **** Notes
 
-dupl [-options] <di> <si>
+Retrieve a file descriptor to write.
 
-to duplicate/copy to file <di> out of file <si> in the binary format
+Remarks:
+Refer at fn. wr_ds_w.
 */
 
 
@@ -21,5 +22,5 @@ if(!argp) return(0x00);
 
 *(CLI_DI+(R(fd,*argp))) = (fd);
 
-return(wr_after_reading(argp));
+return(wr_ds_r(argp));
 }
