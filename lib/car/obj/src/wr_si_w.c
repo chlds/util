@@ -11,7 +11,7 @@ Refer at fn. wr_ds_w.
 # include <stdio.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl rd_after_opening_w(signed(fd),fl_t(*argp))) {
+signed(__cdecl wr_si_w(signed(fd),fl_t(*argp))) {
 
 auto signed short *w;
 auto signed r;
@@ -24,5 +24,5 @@ if(!argp) return(0x00);
 *(CLI_SI+(R(fd,*argp))) = (fd);
 w = (signed short(*)) (*(CLI_DI+(R(v,*argp))));
 
-return(xt_w(perm,w,argp,wr_after_opening_w));
+return(xt_w(perm,w,argp,wr_di_w));
 }

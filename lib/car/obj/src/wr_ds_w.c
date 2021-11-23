@@ -39,5 +39,5 @@ argp++;
 if(!w) return(0x00);
 }
 
-return(xt_w(perm,w,&fl,rd_after_opening_w));
+return(xt_w(perm,w,&fl,wr_si_w));
 }

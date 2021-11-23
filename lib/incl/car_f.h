@@ -65,8 +65,8 @@ signed(__cdecl ld_b(signed(range),signed(offset),signed char(**di),signed char(*
 signed(__cdecl init_fl(fl_t(*argp)));
 signed(__cdecl wr_ds_r_r(signed(arg),signed char(*cache),fl_t(*argp)));
 signed(__cdecl wr_ds_r(fl_t(*argp)));
-signed(__cdecl wr_after_opening_w(signed(fd),fl_t(*argp)));
-signed(__cdecl rd_after_opening_w(signed(fd),fl_t(*argp)));
+signed(__cdecl wr_di_w(signed(fd),fl_t(*argp)));
+signed(__cdecl wr_si_w(signed(fd),fl_t(*argp)));
 signed(__cdecl wr_ds_w(signed short(**argp)));
 signed(__cdecl cre_w(signed char(*perm),signed short(*path)));
 signed(__cdecl xt_parse_permission_w(signed(*retv),signed(*cache),signed char(*argp)));
