@@ -444,6 +444,7 @@ signed(__cdecl ct_wrds(signed char(*base)));
 signed(__cdecl ct_args(signed char(*argp)));
 /* Count arguments to the terminating null character. */
 
+signed(__cdecl wr_rd_l(signed(*fd),signed char(*cache),signed(size)));
 signed(__cdecl wr_rd_r(signed(*fd),signed char(*cache),signed(size)));
 signed(__cdecl wr_rd(signed(*fd)));
 signed(__cdecl cpy_f(signed char(*di),signed char(*si)));
