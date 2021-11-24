@@ -8,24 +8,29 @@ Copy.
 # include <stdio.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl cpy_f_r(signed(*fd))) {
+signed(__cdecl wr_rd(signed(*fd))) {
 
 auto signed char *b;
 auto signed i,r;
-auto signed buff = (1638400);
 
 if(!fd) return(0x00);
 
-r = (buff*(sizeof(*b)));
-i = (r);
+AND(i,0x00);
+OR(i,0x01);
+SHL(i,0x0E);
+i = (100*(i));
+--i;
+r = (i);
+r++;
+r = (r*(sizeof(*b)));
 b = (signed char(*)) alloc(r);
 if(!b) {
 printf("%s \n","<< Error at fn. alloc()");
 return(0x00);
 }
 
-r = rdwr_f(fd,b,r);
-if(!r) printf("%s \n","<< Error at fn. rdwr_f()");
+r = wr_rd_r(fd,b,r);
+if(!r) printf("%s \n","<< Error at fn. wr_rd_r()");
 
 embed(i,b);
 rl(b);

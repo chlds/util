@@ -9,7 +9,7 @@ Read and write.
 # include <errno.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl rdwr_f(signed(*fd),signed char(*cache),signed(size))) {
+signed(__cdecl wr_rd_r(signed(*fd),signed char(*cache),signed(size))) {
 
 auto signed char *b;
 auto signed i,r;
@@ -32,5 +32,5 @@ printf("%s \n","<< Error at fn. wr_b()");
 return(0x00);
 }
 
-return(r+(rdwr_f(fd,cache,size)));
+return(r+(wr_rd_r(fd,cache,size)));
 }

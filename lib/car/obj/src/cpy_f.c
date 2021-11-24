@@ -71,9 +71,9 @@ printf("%s %Xh \n","and i is",i);
 return(0x00);
 }}
 
-r = cpy_f_r(fd);
+r = wr_rd(fd);
 l = (r);
-if(!r) printf("%s \n","<< Error at fn. cpy_f_r()");
+if(!r) printf("%s \n","<< Error at fn. wr_rd()");
 
 // close
 i = (0x02);
