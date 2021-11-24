@@ -13,14 +13,15 @@ Refer at fn. wr_ds_w.
 
 signed(__cdecl wr_di_w(signed(fd),fl_t(*argp))) {
 
-auto signed short *w;
+auto signed *d;
 auto signed r;
 auto signed short flag;
 
 if(fd<(0x00)) return(0x00);
 if(!argp) return(0x00);
 
-*(CLI_DI+(R(fd,*argp))) = (fd);
+d = (R(fd,*argp));
+*(CLI_DI+(d)) = (fd);
 
-return(wr_ds_r(argp));
+return(wr_rd(d));
 }
