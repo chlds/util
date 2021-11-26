@@ -39,9 +39,9 @@ return(0x00);
 if(DBG) printf("%d%s \n",R(st_size,stats),"bytes");
 
 //*
-r = trunc_f(0x00,di);
+r = wr_trunc_b(0x00,di);
 if(!r) {
-printf("%s \n","<< Error at fn. trunc_f()");
+printf("%s \n","<< Error at fn. wr_trunc_b()");
 return(0x00);
 }
 //*/

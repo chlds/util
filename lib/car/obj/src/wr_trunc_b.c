@@ -15,14 +15,12 @@ Truncate.
 # include <errno.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl trunc_f(signed char(*cache/* an extension for backups */),signed char(*path))) {
+signed(__cdecl wr_trunc_b(signed char(*cache/* an extension for backups */),signed char(*path))) {
 
 auto struct stat stats;
 auto signed char *b;
-auto signed fd;
 auto signed i,r;
 auto signed short flag;
-auto signed access_right = (O_BINARY|(O_RDWR|(O_TRUNC)));
 
 if(!path) return(0x00);
 
@@ -38,25 +36,12 @@ if(DBG) printf("%d%s \n",R(st_size,stats),"bytes");
 
 // backup
 if(cache) {
-r = backup_f(cache,path);
+r = wr_bkup_b(cache,path);
 if(!r) {
-printf("%s \n","<< Error at fn. backup_f()");
-return(0x00);
+// printf("%s \n","<< Error at fn. wr_bkup_b()");
+// return(0x00);
+// e.g., 0B written.
 }}
 
-// open
-fd = op_b(path,&access_right,(void*)0x00);
-if(!(fd^(~0x00))) {
-printf("%s %Xh \n","<< Error at fn. op_b() with errno",errno);
-return(0x00);
-}
-
-// close
-i = (~0x00);
-if(EQ(i,cl_b(fd))) {
-printf("%s \n","<< Error at fn. cl_b()");
-return(0x00);
-}
-
-return(0x01);
+return(trunc_b(path));
 }

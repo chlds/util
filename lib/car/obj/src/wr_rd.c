@@ -30,7 +30,8 @@ return(0x00);
 }
 
 r = wr_rd_r(fd,b,r);
-if(!r) printf("%s \n","<< Error at fn. wr_rd_r()");
+// if(!r) printf("%s \n","<< Error at fn. wr_rd_r()");
+// e.g., 0B written.
 
 embed(i,b);
 rl(b);

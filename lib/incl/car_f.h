@@ -117,8 +117,9 @@ signed(__cdecl statf(signed short(arg),signed char(*path),void(*argp)));
 
 signed(__cdecl sz_f(signed char(*argp)));
 
-signed(__cdecl backup_f(signed char(*extension),signed char(*argp)));
-signed(__cdecl trunc_f(signed char(*cache/* an extension for backups */),signed char(*path)));
+signed(__cdecl wr_bkup_b(signed char(*extension),signed char(*argp)));
+signed(__cdecl wr_trunc_b(signed char(*cache/* an extension for backups */),signed char(*path)));
+signed(__cdecl trunc_b(signed char(*path)));
 
 signed(__cdecl wr_s_r(signed(fd),signed char(*argp)));
 signed(__cdecl wr_s(signed char(*di),signed char(*si)));
@@ -132,6 +133,8 @@ signed char(*__cdecl rf_env(signed char(*argp)));
 // refer.
 
 signed(__cdecl init_v(signed(arg),void(**argp)));
+signed(__cdecl init_w(signed(cached),signed(arg),signed short(**argp)));
+signed(__cdecl init_b(signed(cached),signed(arg),signed char(**argp)));
 // initialise.
 
 void*(__cdecl alloc(signed(arg)));
@@ -449,7 +452,6 @@ signed(__cdecl ct_args(signed char(*argp)));
 signed(__cdecl wr_rd_l(signed(*fd),signed char(*cache),signed(size)));
 signed(__cdecl wr_rd_r(signed(*fd),signed char(*cache),signed(size)));
 signed(__cdecl wr_rd(signed(*fd)));
-signed(__cdecl cpy_f(signed char(*di),signed char(*si)));
 signed(__cdecl cpy_p(signed char(**di),signed char(**si)));
 signed(__cdecl cpy2p(signed char(*di),signed char(*deadline),signed char(*si)));
 signed(__cdecl ncpy(signed(arg),signed char(*di),signed char(*si)));
