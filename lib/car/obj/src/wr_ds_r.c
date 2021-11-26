@@ -1,9 +1,9 @@
 /* **** Notes
 
-Retrieve a file descriptor to write.
+Store contents after retrieving a file descriptor to write.
 
 Remarks:
-Refer at fn. wr_ds_w.
+Refer at fn. wr_ds_w and fn. wr_ds_b.
 */
 
 
@@ -11,7 +11,7 @@ Refer at fn. wr_ds_w.
 # include <stdio.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl wr_di_w(signed(fd),fl_t(*argp))) {
+signed(__cdecl wr_ds_r(signed(fd),fl_t(*argp))) {
 
 auto signed *d;
 auto signed r;

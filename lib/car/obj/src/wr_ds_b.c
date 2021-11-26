@@ -12,9 +12,9 @@ write di,si
 # include <stdio.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl wr_ds_w(signed short(**argp))) {
+signed(__cdecl wr_ds_b(signed char(**argp))) {
 
-auto signed short *w;
+auto signed char *b;
 auto signed i,r;
 auto signed short flag;
 auto fl_t fl;
@@ -33,11 +33,11 @@ return(0x00);
 AND(r,0x00);
 r = (threshold+(~r));
 while(r) {
-w = (*argp);
+b = (*argp);
 argp++;
-*(--r+(R(v,fl))) = (void*) (w);
-if(!w) return(0x00);
+*(--r+(R(v,fl))) = (void*) (b);
+if(!b) return(0x00);
 }
 
-return(xt_w(perm,w,&fl,wr_ds_w_r));
+return(xt(perm,b,&fl,wr_ds_b_r));
 }
