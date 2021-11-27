@@ -1,16 +1,13 @@
 /* **** Notes
 
 Convert into an array.
-
-Remarks:
-After calling fn. cv_bv, please call fn. rl to unmap the buffer allocated on the RAM.
 */
 
 
 # define CAR
 # include "./../../../incl/config.h"
 
-signed(__cdecl cv_bv_r(signed char(*di),signed char(**si))) {
+signed(__cdecl cv_bv_xe_r(signed char(*di),signed char(**si))) {
 
 auto signed i,r;
 
@@ -31,5 +28,5 @@ di = (r+(di));
 di++;
 si++;
 
-return(0x01+(cv_bv_r(di,si)));
+return(0x01+(cv_bv_xe_r(di,si)));
 }
