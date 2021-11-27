@@ -526,6 +526,8 @@ signed(__cdecl ct_v(signed char(**argp)));
 signed(__cdecl ct_p(void(**argp)));
 /* Count pointers. */
 
+signed(__cdecl rm_trails_r(signed(arg),signed char(*cache),signed char(*argp)));
+signed(__cdecl rm_trails(signed char(*cache),signed char(*argp)));
 signed(__cdecl rm_brs(signed char(*argp)));
 signed(__cdecl csv_rm_trailing_blanks_r(signed(arg),signed char(*argp)));
 signed(__cdecl csv_rm_trailing_blanks(signed char(*argp)));
