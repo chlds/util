@@ -154,8 +154,8 @@ signed(__cdecl /* __attribute__((ms_abi)) */ cat_b_r(signed char(**di),signed ch
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_b(signed char(**argp),...));
 /* Concatenate to the terminating null pointer. */
 
-signed(__cdecl cv_wv(signed short(**di),signed short(**si)));
-signed(__cdecl cv_bv(signed char(**di),signed char(**si)));
+signed(__cdecl cv_wv(signed short(*cache),signed short(**di),signed short(**si)));
+signed(__cdecl cv_bv(signed char(*cache),signed char(**di),signed char(**si)));
 signed(__cdecl cv_bv_xe_r(signed char(*di),signed char(**si)));
 signed(__cdecl cv_bv_xe(signed char(**di),signed char(**si)));
 /* After calling fn. cv_bv, please call fn. rl to unmap the buffer allocated on the RAM. */

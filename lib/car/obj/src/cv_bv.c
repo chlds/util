@@ -11,7 +11,7 @@ Based on UTF-8
 # define CAR
 # include "./../../../incl/config.h"
 
-signed(__cdecl cv_bv(signed char(**di),signed char(**si))) {
+signed(__cdecl cv_bv(signed char(*cache),signed char(**di),signed char(**si))) {
 
 auto signed r;
 
@@ -20,13 +20,12 @@ if(!si) return(0x00);
 if(!(*si)) return(0x00);
 
 r = concatenate(0x00,di,*si);
-si++;
 if(!r) return(0x00);
+if(cache) {
+if(!(concatenate(0x00,di,cache))) return(0x00);
+}
 
-//*
-AND(r,0x00);
-OR(r,0x01);
-//*/
+si++;
 
-return(r+(cv_bv(di,si)));
+return(0x01+(cv_bv(cache,di,si)));
 }
