@@ -146,8 +146,6 @@ signed(__cdecl rl(void(*argp)));
 signed(__cdecl cat_p(signed char(***di),signed char(*si)));
 /* Concatenate pointers. */
 
-signed(__cdecl csv_cat_b_r(signed char(**di),signed char(**si)));
-signed(__cdecl csv_cat_b(signed char(**argp),...));
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_w_r(signed short(**di),signed short(**si)));
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_w(signed short(**argp),...));
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_b_r(signed char(**di),signed char(**si)));
@@ -529,8 +527,6 @@ signed(__cdecl ct_p(void(**argp)));
 signed(__cdecl rm_trails_r(signed(arg),signed char(*cache),signed char(*argp)));
 signed(__cdecl rm_trails(signed char(*cache),signed char(*argp)));
 signed(__cdecl rm_brs(signed char(*argp)));
-signed(__cdecl csv_rm_trailing_blanks_r(signed(arg),signed char(*argp)));
-signed(__cdecl csv_rm_trailing_blanks(signed char(*argp)));
 signed(__cdecl rm_trailing_blanks_r(signed(arg),signed char(*argp)));
 signed(__cdecl rm_trailing_blanks(signed char(*argp)));
 signed(__cdecl rm_trailing_spaces_r(signed(arg),signed char(*argp)));
