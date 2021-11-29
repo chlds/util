@@ -15,62 +15,14 @@ Using along with fn. finds
 
 signed(__cdecl rddir(c_dirs_info_t(*argp))) {
 
-static signed attrib[] = {
-(signed) (FILE_ATTRIBUTE_ARCHIVE),
-(signed) (FILE_ATTRIBUTE_COMPRESSED),
-(signed) (FILE_ATTRIBUTE_DEVICE),
-(signed) (FILE_ATTRIBUTE_DIRECTORY),
-(signed) (FILE_ATTRIBUTE_ENCRYPTED),
-(signed) (FILE_ATTRIBUTE_HIDDEN),
-(signed) (FILE_ATTRIBUTE_INTEGRITY_STREAM),
-(signed) (FILE_ATTRIBUTE_NORMAL),
-(signed) (FILE_ATTRIBUTE_NOT_CONTENT_INDEXED),
-(signed) (FILE_ATTRIBUTE_NO_SCRUB_DATA),
-(signed) (FILE_ATTRIBUTE_OFFLINE),
-(signed) (FILE_ATTRIBUTE_READONLY),
-(signed) (FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS),
-(signed) (FILE_ATTRIBUTE_RECALL_ON_OPEN),
-(signed) (FILE_ATTRIBUTE_REPARSE_POINT),
-(signed) (FILE_ATTRIBUTE_SPARSE_FILE),
-(signed) (FILE_ATTRIBUTE_SYSTEM),
-(signed) (FILE_ATTRIBUTE_TEMPORARY),
-(signed) (FILE_ATTRIBUTE_VIRTUAL),
-(signed) (0x00),
-};
-
-static signed char *(attribp[]) = {
-(char signed(*)) ("Archive"),
-(char signed(*)) ("Compressed"),
-(char signed(*)) ("Device"),
-(char signed(*)) ("Directory"),
-(char signed(*)) ("Encrypted"),
-(char signed(*)) ("Hidden"),
-(char signed(*)) ("Integrity stream"),
-(char signed(*)) ("Normal"),
-(char signed(*)) ("Not content indexed"),
-(char signed(*)) ("No scrub data"),
-(char signed(*)) ("Offline"),
-(char signed(*)) ("Read-only"),
-(char signed(*)) ("Recall on data access"),
-(char signed(*)) ("Recall on open"),
-(char signed(*)) ("Reparse point"),
-(char signed(*)) ("Sparse file"),
-(char signed(*)) ("System"),
-(char signed(*)) ("Temporary"),
-(char signed(*)) ("Virtual"),
-(char signed(*)) (0x00),
-};
-
-auto SYSTEMTIME st;
-
 void *dis;
 auto signed char *path;
 auto signed char *craft;
 auto signed char *b,*p,*t;
-
 auto signed i,r;
 auto signed short disable;
 auto signed short flag;
+auto SYSTEMTIME st;
 
 if(!argp) return(0x00);
 if(!(R(dis,*argp))) return(0x00);
@@ -165,7 +117,7 @@ else OR(disable,0x01);
 /* Check the attributes of a directory or of a file */
 if(!disable) {
 if(OPT_ATTRIBS&(R(flag,*argp))) {
-r = attrib_of(R(dwFileAttributes,R(wfd,*(R(dis,*argp)))),attrib,attribp);
+r = attrib_of(R(dwFileAttributes,R(wfd,*(R(dis,*argp)))));
 if(!r) printf("%s \n","An error has occurred at fn. attrib_of().");
 }
 printf("\n");

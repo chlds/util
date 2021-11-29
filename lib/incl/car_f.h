@@ -350,7 +350,7 @@ signed(__cdecl column(signed short(cols),signed(algn),signed char(*base)));
 signed(__cdecl reading(signed char(*di),signed(size)));
 
 signed(__cdecl attrib_of_r(signed(cache),signed(*di),signed char(**si)));
-signed(__cdecl attrib_of(signed(cache),signed(*di),signed char(**si)));
+signed(__cdecl attrib_of(signed(arg)));
 
 signed(__cdecl cvlf_rddir(void/* c_dirs_info_t */(*argp)));
 signed(__cdecl cvlf_finds(void/* c_dirs_info_t */(*argp)));
