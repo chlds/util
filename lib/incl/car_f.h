@@ -568,3 +568,7 @@ signed(__cdecl cat_ll(KNOT(*argp)));
 signed(__cdecl catppp(signed char(***argp)));
 signed(__cdecl catpp(signed char(**argp)));
 /* Output character lines out of the argument. */
+
+signed(__cdecl opt_vt_b(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
+signed(__cdecl opt_b(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
+/* Set up the environment. */
