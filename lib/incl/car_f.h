@@ -430,6 +430,7 @@ signed(__cdecl cv_v_r(signed char(**di),signed short(*flag),signed char(*si)));
 signed(__cdecl cv_v(signed char(***di),signed char(*si)));
 /* Map an array of pointers for word-split arrays on and unmap the ones out of the RAM */
 
+signed(__cdecl cue_fd_r(signed(*argp),signed(offset),signed(fd)));
 signed(__cdecl cue_fd(signed(offset),signed(fd)));
 
 signed(__cdecl cue_argt(signed char(*argp)));
