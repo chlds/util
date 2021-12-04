@@ -58,6 +58,14 @@ signed(__cdecl ctrl_fn_r(signed(arg),void(*argp)));
 signed(__cdecl ctrl_fn_b(signed(arg),void(*argp)));
 signed(__cdecl ctrl_fn(signed char(*cache),void(*argp)));
 
+signed(__cdecl appd_ds_w_r(signed(fd),fl_t(*argp)));
+signed(__cdecl appd_ds_w(signed short(**argp)));
+signed(__cdecl appd_ds_b_r(signed(fd),fl_t(*argp)));
+signed(__cdecl appd_ds_b(signed char(**argp)));
+signed(__cdecl appdw_ds_r(signed short(*di),signed short(**si)));
+signed(__cdecl appdw_ds(signed short(**argp)));
+signed(__cdecl appd_ds_r(signed char(*di),signed char(**si)));
+signed(__cdecl appd_ds(signed char(**argp)));
 signed(__cdecl rd_k_r(signed char(**di),signed char(*delim),signed(n),signed(fd)));
 signed(__cdecl rd_k(signed(arg),signed char(**di),signed(fd)));
 signed(__cdecl ld_b_r(signed(fd),fl_t(*argp)));
