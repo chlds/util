@@ -563,6 +563,8 @@ signed(__cdecl sw(signed(*di),signed(*si)));
 signed(__cdecl nsort(signed(count),signed(*base)));
 signed(__cdecl bsort(signed(count),signed(*base)));
 
+signed(__cdecl clip_b(signed(arg),signed char(**argp)));
+
 signed(__cdecl concatenate_w(signed(arg),signed short(**di),signed short(*si)));
 signed(__cdecl concatenate(signed(arg),signed char(**di),signed char(*si)));
 /* Release the *di later. */
