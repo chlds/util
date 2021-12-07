@@ -27,7 +27,7 @@ if(!di) return(0x00);
 if(!si) return(0x00);
 
 AND(r,0x00);
-if(!(EQ(arg,~0x00))) OR(r,0x02);
+if(0x00<(arg)) OR(r,0x02);
 if(EQ(0xE0,0xFF&(*si))) {
 if(!(EQ(0x03,ct(si)))) --r;
 }

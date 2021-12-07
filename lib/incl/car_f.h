@@ -143,6 +143,8 @@ signed char(*__cdecl rf_env(signed char(*argp)));
 signed(__cdecl init_v(signed(arg),void(**argp)));
 signed(__cdecl init_w(signed(cached),signed(arg),signed short(**argp)));
 signed(__cdecl init_b(signed(cached),signed(arg),signed char(**argp)));
+signed(__cdecl cli_init_b_r(signed(cache),signed(arg),signed char(**argp)));
+signed(__cdecl cli_init_b(signed(cache),signed(arg),signed char(**argp)));
 // initialise.
 
 void*(__cdecl alloc(signed(arg)));
@@ -299,6 +301,8 @@ signed(__cdecl cli_i_except_r(signed char(**argp)));
 signed(__cdecl cli_i_except(signed char(**argp)));
 signed(__cdecl cli_i_b_r(signed(arg),signed char(**argp)));
 signed(__cdecl cli_i_b(signed char(**argp)));
+signed(__cdecl c_i_r(signed(arg),signed char(**argp)));
+signed(__cdecl c_i(signed char(**argp)));
 /* Get Unicode bytes in UTF-8 out of the keyboard. */
 
 signed(__cdecl cli_support_meta_keys(signed(*character),signed char(second),signed char(first)));
@@ -327,6 +331,7 @@ signed(__cdecl cli_outs_legible(signed(arg/* delay */),signed char(*argp)));
 signed(__cdecl cli_outs(signed char(*argp)));
 signed(__cdecl cli_out(signed char(*argp)));
 signed(__cdecl cli_o_b(signed char(*argp)));
+signed(__cdecl c_o(signed(arg),signed char(*argp)));
 signed(__cdecl pair_b(signed short(*di),signed(si)));
 signed(__cdecl decode_b_r(signed(arg),signed(*di),signed char(*si)));
 signed(__cdecl decode_b(signed(*di),signed char(*si)));
