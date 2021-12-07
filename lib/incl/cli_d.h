@@ -100,18 +100,19 @@ signed param[OBJS];
 
 struct debug {
 signed char *(b[OBJS]);
-rule_t rule[OBJS];
 signed param[OBJS];
 signed short flag[FLAGS];
+rule_t rule[OBJS]; // deprecated
 } typedef debug_t;
 
 struct ty {
+signed char *(b[OBJS]);
+signed short flag[OBJS];
+page_t page;
 config_t config;
 edit_t edit;
 debug_t debug;
-page_t page;
-rule_t rule[OBJS];
-signed short flag[OBJS];
+rule_t rule[OBJS]; // deprecated
 } typedef ty_t;
 
 struct cli_rule {

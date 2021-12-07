@@ -13,6 +13,7 @@ Refer at fn. cli_restore.
 
 signed(__cdecl init_ty(signed(arg),ty_t(*argp))) {
 
+auto signed char **v;
 auto signed char *b;
 auto config_t *config;
 auto rule_t *rule;
@@ -47,6 +48,13 @@ printf("%s \n","<< Error at fn. init_rule()");
 return(0x00);
 }
 
+v = (R(b,*argp));
+r = cli_init_b(arg,CLI_RULE,v);
+if(!r) {
+printf("%s \n","<< Error at fn. cli_init_b()");
+return(0x00);
+}
+
 r = (OBJS);
 while(r) AND(*(--r+(R(flag,*argp))),0x00);
 if(!arg) {
@@ -54,6 +62,7 @@ if(!arg) {
 OR(*(CLI_BASE+(R(flag,*argp))),CLI_INIT);
 }
 
+v = (0x00);
 rule = (0x00);
 page = (0x00);
 config = (0x00);
