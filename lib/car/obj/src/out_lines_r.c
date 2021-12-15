@@ -27,7 +27,7 @@ if(!(*argp)) return(0x00);
 if(arg<(0x01)) arg = (0x08);
 if(0x08<(arg)) arg = (0x08);
 
-r = cli_o_b(br);
+r = cli_o_b(0x01,br);
 r = out_oneline(arg,cols,sym,argp);
 argp = (r+(argp));
 if(!r) return(0x00);

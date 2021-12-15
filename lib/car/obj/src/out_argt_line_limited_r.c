@@ -29,7 +29,7 @@ if(!r) return(0x00);
 // if(!(cli_es(CTRL_K))) return(0x00);
 
 if(*argp) {
-if(!(cli_o_b(br))) return(0x00);
+if(!(cli_o_b(0x01,br))) return(0x00);
 }
 
 return(r+(out_argt_line_limited_r(cols,argp)));

@@ -1,9 +1,9 @@
 /*
 
-Output one character based on UTF-8 to the console screen in UTF-16.
+Output one character or characters based on UTF-8 to the console screen in UTF-16.
 
 Remarks:
-Return the number of bytes decoded out of the array.
+Return a number of bytes decoded out of the array.
 */
 
 
@@ -11,13 +11,14 @@ Return the number of bytes decoded out of the array.
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_o_b(signed char(*argp))) {
+signed(__cdecl cli_o_b(signed(arg),signed char(*argp))) {
 
 auto signed char *b;
 auto signed i,r;
 auto signed short flag;
 auto signed short surrog[0x01+(0x02)];
 
+if(arg<(0x01)) return(0x00);
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
@@ -43,5 +44,8 @@ printf("%s \n","<< Error at fn. _putwch()");
 return(0x00);
 }
 
-return(r);
+arg = (arg+(0x01+(~r)));
+argp = (r+(argp));
+
+return(r+(cli_o_b(arg,argp)));
 }

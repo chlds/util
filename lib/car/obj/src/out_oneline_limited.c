@@ -26,9 +26,9 @@ if(!r) return(0x00);
 arg = (arg+(0x01+(~r)));
 if(arg<(0x00)) return(0x00);
 
-r = cli_o_b(argp);
+r = cli_out_b(0x08,argp);
 argp = (r+(argp));
-if(!r) return(cli_message(0x00,"<< Error at fn. cli_o_b() \n"));
+if(!r) return(cli_message(0x00,"<< Error at fn. cli_out_b() \n"));
 
 return(r+(out_oneline_limited(arg,argp)));
 }

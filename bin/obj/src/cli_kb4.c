@@ -27,6 +27,10 @@ auto signed short flag;
 /* **** CODE/TEXT */
 system("cls");
 
+printf("\n");
+printf("  %s \n","Currently under construction");
+
+/* Currently under construction..
 r = cli_init_property(0x00,&property);
 if(!r) {
 printf("%s \n","<< Error at fn. cli_init_property()");
@@ -75,6 +79,7 @@ while(i) if(*(CLI_BASE+(R(b,*(--i+(R(rule,R(text,property)))))))) return(0x00);
 cputs(" \n");
 if(!flag) printf("%s \n","Done!");
 else printf("%s \n","Oops!");
+//*/
 
 return(0x00);
 }

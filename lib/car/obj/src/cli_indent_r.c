@@ -16,7 +16,7 @@ auto signed short flag;
 
 if(!arg) return(0x00);
 
-r = cli_o_b(b);
+r = cli_o_b(0x01,b);
 if(!r) return(0x00);
 
 return(r+(cli_indent_r(--arg)));

@@ -26,12 +26,11 @@ if(0x08<(arg)) arg = (0x08);
 if(!(HT^(*argp))) {
 r = cli_indent(cli_reckon(arg/* align */));
 if(!r) printf("%s \n","<< Error at fn. cli_indent()");
+return(r);
 }
 
-else {
-r = cli_o_b(argp);
+r = cli_o_b(0x01,argp);
 if(!r) printf("%s \n","<< Error at fn. cli_o_b()");
-}
 
 return(r);
 }

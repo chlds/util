@@ -19,14 +19,10 @@ auto signed i,r;
 if(arg<(0x00)) return(0x00);
 if(!argp) return(0x00);
 
-if(arg<(CLI_RULE)) r = init_rule_b(flag,arg+(argp));
-// if(!(arg<(CLI_RULE))) {
-else {
-i = (CLI_RULE);
-while(i) {
-r = init_rule_b(flag,--i+(argp));
-if(!r) break;
-}}
+if(arg<(CLI_RULE)) return(init_rule_b(flag,arg+(argp)));
+
+r = init_rule_b_r(flag,CLI_RULE,argp);
+if(CLI_RULE^(r)) AND(r,0x00);
 
 return(r);
 }

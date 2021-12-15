@@ -12,32 +12,25 @@ Based on UTF-8
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_kb_r(cli_property_t(*argp))) {
+signed(__cdecl cli_kb_r(ty_t(*argp))) {
 
-/* **** DATA, BSS and STACK */
-auto CLI_COORD coord;
-
-auto cli_text_t *t;
-auto cli_rule_t *rule;
 auto signed char *b;
 auto signed i,r;
 auto signed short flag;
+auto coord_t coord;
+auto rect_t rect;
 
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-if(!(CLI_INIT&(*(CLI_BASE+(R(flag,*argp)))))) return(0x00);
+flag = (*(CLI_BASE+(R(flag,*argp))));
+if(!(CLI_INIT&(flag))) return(0x00);
+if(CLI_QUIT&(flag)) return(0x01);
+if(CLI_PBR&(flag)) return(0x01);
+if(CLI_BR&(flag)) return(0x01);
 
-if(CLI_QUIT&(R(flag,R(text,*argp)))) return(0x01);
-
-AND(flag,0x00);
-OR(flag,CLI_PBR);
-OR(flag,CLI_BR);
-if(flag&(R(flag,R(text,*argp)))) return(0x01);
-
-r = cli_io(argp);
+r = cli_io_b(argp);
 if(!r) {
-r = cli_message(r,"<< Error at fn. cli_io() \n");
+r = cli_message(r,"<< Error at fn. cli_io_b() \n");
 return(0x00);
 }
 
