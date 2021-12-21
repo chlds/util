@@ -58,6 +58,8 @@ signed(__cdecl ctrl_fn_r(signed(arg),void(*argp)));
 signed(__cdecl ctrl_fn_b(signed(arg),void(*argp)));
 signed(__cdecl ctrl_fn(signed char(*cache),void(*argp)));
 
+signed(__cdecl appd_b_r(signed(fd),fl_t(*argp)));
+signed(__cdecl appd_b(signed(arg/* code of line break */),signed char(*di/* path */),signed char(*si/* contents */)));
 signed(__cdecl appd_ds_w_r(signed(fd),fl_t(*argp)));
 signed(__cdecl appd_ds_w(signed short(**argp)));
 signed(__cdecl appd_ds_b_r(signed(fd),fl_t(*argp)));
