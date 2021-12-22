@@ -1,9 +1,6 @@
 /* **** Notes
 
 Store bytes.
-
-Remarks:
-Append.
 //*/
 
 
@@ -15,7 +12,7 @@ Append.
 # include <errno.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl appd_b_r(signed(fd),fl_t(*argp))) {
+signed(__cdecl str_b_r(signed(fd),fl_t(*argp))) {
 
 auto signed char *b;
 auto signed i,r;

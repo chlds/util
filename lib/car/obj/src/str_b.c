@@ -4,7 +4,7 @@ Store bytes.
 
 Remarks:
 Code of line break: CRLF, LF or (0x00).
-Append.
+Create, append or truncate.
 //*/
 
 
@@ -17,7 +17,7 @@ Append.
 # include <errno.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl appd_b(signed(arg/* code of line break */),signed char(*di/* path */),signed char(*si/* contents */))) {
+signed(__cdecl str_b(signed(arg/* code of line break */),signed char(*perm),signed char(*di/* path */),signed char(*si/* contents */))) {
 
 auto void *argp;
 auto signed char *b;
@@ -26,9 +26,10 @@ auto signed i,r;
 auto signed short flag;
 auto signed char *crlf = ("\r\n");
 auto signed char *lf = ("\n");
-auto signed char *perm = ("creat,append,rdwr,binary,iread,iwrite");
 auto signed(__cdecl*f)(signed(arg),void(*argp));
+// e.g., auto signed char *perm = ("creat,excl,append,trunc,rdwr,rdonly,wronly,binary,text,iread,iwrite");
 
+if(!perm) return(0x00);
 if(!di) return(0x00);
 if(!si) return(0x00);
 
