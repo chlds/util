@@ -1,5 +1,9 @@
 /* cals_f.h */
 
+signed(__cdecl cals_date(signed short(**argp),time_t(arg)));
+signed(__cdecl cals_time(signed short(**argp),time_t(arg)));
+// map the date/time.
+
 signed short(__cdecl day_before(signed short(arg)));
 signed short(__cdecl day_after(signed short(arg)));
 
