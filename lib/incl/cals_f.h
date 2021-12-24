@@ -1,6 +1,10 @@
 /* cals_f.h */
 
+signed(__cdecl chrono_date_r(signed(arg),signed char(**di),signed short(*si)));
+signed(__cdecl chrono_date(signed char(**argp),time_t(arg)));
 signed(__cdecl cals_date(signed short(**argp),time_t(arg)));
+signed(__cdecl chrono_time_r(signed(arg),signed char(**di),signed short(*si)));
+signed(__cdecl chrono_time(signed char(**argp),time_t(arg)));
 signed(__cdecl cals_time(signed short(**argp),time_t(arg)));
 // map the date/time.
 
