@@ -73,7 +73,7 @@ signed(__cdecl rd_k_r(signed char(**di),signed char(*delim),signed(n),signed(fd)
 signed(__cdecl rd_k(signed(arg),signed char(**di),signed(fd)));
 signed(__cdecl ld_b_r(signed(fd),fl_t(*argp)));
 signed(__cdecl ld_b(signed(range),signed(offset),signed char(**di),signed char(*si/* path */)));
-signed(__cdecl init_fl(fl_t(*argp)));
+signed(__cdecl init_fl(signed(arg),fl_t(*argp)));
 signed(__cdecl wr_ds_r(signed(fd),fl_t(*argp)));
 signed(__cdecl wr_ds_w_r(signed(fd),fl_t(*argp)));
 signed(__cdecl wr_ds_w(signed short(**argp)));

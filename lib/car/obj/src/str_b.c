@@ -33,7 +33,7 @@ if(!perm) return(0x00);
 if(!di) return(0x00);
 if(!si) return(0x00);
 
-if(!(init_fl(&fl))) return(0x00);
+if(!(init_fl(0x00,&fl))) return(0x00);
 
 b = (0x00);
 if(arg) {

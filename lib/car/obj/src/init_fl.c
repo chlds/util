@@ -10,13 +10,17 @@ Refer at fn. cli_restore.
 # define CAR
 # include "./../../../incl/config.h"
 
-signed(__cdecl init_fl(fl_t(*argp))) {
+signed(__cdecl init_fl(signed(arg),fl_t(*argp))) {
 
 auto signed char *b;
 auto signed r;
 auto signed short flag;
 
 if(!argp) return(0x00);
+
+// destroy
+r = (OBJS);
+if(arg) while(r) rl(*(--r+(R(v,*argp))));
 
 // initialise
 b = (0x00);

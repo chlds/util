@@ -30,7 +30,7 @@ printf("%s \n","<< Over..");
 return(0x00);
 }
 
-r = init_fl(&fl);
+r = init_fl(0x00,&fl);
 if(!r) {
 printf("%s \n","<< Error at fn. init_fl()");
 return(0x00);
