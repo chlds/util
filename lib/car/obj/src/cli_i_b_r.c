@@ -22,17 +22,10 @@ if(!(*argp)) return(0x00);
 if(!(_kbhit())) return(0x00);
 
 r = _getch();
-if(!(concatenate(0x01,argp,0x00))) {
-printf("%s \n","<< Error at fn. concatenate()");
+if(!(cat_bb(argp,r))) {
+printf("%s \n","<< Error at fn. cat_bb()");
 return(0x00);
 }
-
-b = (*argp);
-b = (b+(ct(b)));
-*b = (r);
-b++;
-*b = (0x00);
-b = (0x00);
 
 return(0x01+(cli_i_b_r(--arg,argp)));
 }

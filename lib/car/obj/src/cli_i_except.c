@@ -27,16 +27,11 @@ if(!(*argp)) return(0x00);
 if(**argp) return(0x00);
 
 r = _getch();
-if(!(concatenate(0x01,argp,0x00))) {
-printf("%s \n","<< Error at fn. concatenate()");
+if(!(cat_bb(argp,r))) {
+printf("%s \n","<< Error at fn. cat_bb()");
 return(0x00);
 }
 
-b = (*argp);
-*b = (r);
-b++;
-*b = (0x00);
-b = (0x00);
 AND(r,0x00);
 NOT(r);
 

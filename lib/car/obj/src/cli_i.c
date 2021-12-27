@@ -30,16 +30,10 @@ printf("%s\n","<< Error at fn. c_getch()");
 return(0x00);
 }
 
-if(!(concatenate(0x01,argp,0x00))) {
-printf("%s \n","<< Error at fn. concatenate()");
+if(!(cat_bb(argp,r))) {
+printf("%s \n","<< Error at fn. cat_bb()");
 return(0x00);
 }
-
-b = (*argp);
-*b = (r);
-b++;
-*b = (0x00);
-b = (0x00);
 
 return(0x01+(cli_i_r(argp)));
 }

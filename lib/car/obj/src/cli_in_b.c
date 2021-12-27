@@ -29,8 +29,8 @@ printf("%s \n","<< Error at fn. cli_i_b()");
 return(0x00);
 }
 
-if(!(concatenate(0x00,argp,b))) {
-printf("%s \n","<< Error at fn. concatenate()");
+if(!(concat_bb(argp,b))) {
+printf("%s \n","<< Error at fn. concat_bb()");
 AND(r,0x00);
 }
 
