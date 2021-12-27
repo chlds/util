@@ -157,6 +157,9 @@ void*(__cdecl alloc(signed(arg)));
 signed(__cdecl rl(void(*argp)));
 // release i.e., fn. free.
 
+signed(__cdecl cat_v(signed(arg/* code of line break */),signed char(*argp/* separator */),signed char(**di),signed char(**si)));
+/* Concatenate. */
+
 signed(__cdecl cat_p(signed char(***di),signed char(*si)));
 /* Concatenate pointers. */
 
@@ -575,6 +578,10 @@ signed(__cdecl clip_b(signed(arg),signed char(**argp)));
 signed(__cdecl concatenate_w(signed(arg),signed short(**di),signed short(*si)));
 signed(__cdecl concatenate(signed(arg),signed char(**di),signed char(*si)));
 /* Release the *di later. */
+
+signed(__cdecl concat_bb(signed char(**di),signed char(*si)));
+signed(__cdecl cat_bb(signed char(**di),signed char(si)));
+/* Call fn. rl later to release buffer. */
 
 signed(__cdecl cv_l_r(signed short(radix),signed char(*di_tbl),signed char(*si_tbl),signed char(*di),signed char(*si)));
 signed(__cdecl cv_l(signed char(*di_tbl),signed char(*si_tbl),signed char(*di),signed char(*si)));
