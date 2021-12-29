@@ -9,6 +9,7 @@ Append.
 
 
 # define CAR
+# define CALEND
 # include <stdio.h>
 # include "../../../incl/config.h"
 
@@ -28,8 +29,8 @@ time(&t);
 AND(flag,0x00);
 v = (b);
 if(!(init_b(0x00,CLI_OBJS,v))) return(0x00);
-if(!(chrono_date(CLI_BASE+(v),t))) return(0x00);
-if(!(chrono_time(CLI_OFFSET+(v),t))) OR(flag,0x01);
+if(!(chrono_date(CLI_BASE+(v),&t))) return(0x00);
+if(!(chrono_time(CLI_OFFSET+(v),&t))) OR(flag,0x01);
 
 *(CLI_INDEX+(v)) = (si);
 if(!flag) {

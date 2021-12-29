@@ -11,19 +11,18 @@ Call fn. rl later.
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_date(signed short(**argp),time_t(arg))) {
+signed(__cdecl cals_date(signed short(**di),time_t(*si))) {
 
 auto signed short *w;
 auto struct tm *tp;
 auto time_t t;
 auto signed i,r;
 
-if(!argp) return(0x00);
-if(*argp) return(0x00);
+if(!di) return(0x00);
+if(!si) return(0x00);
+if(*di) return(0x00);
 
-// time(&t);
-t = (arg);
-tp = localtime(&t);
+tp = localtime(si);
 if(!tp) return(0x00);
 
 r = (CALS_DATE);
@@ -38,7 +37,7 @@ if(!w) return(0x00);
 *(CALS_DI+(w)) = (R(tm_mday,*tp));
 *(CALS_WK+(w)) = (R(tm_wday,*tp));
 
-*argp = (w);
+*di = (w);
 w = (0x00);
 
 return(CALS_DATE);
