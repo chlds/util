@@ -11,7 +11,7 @@ Call fn. rl later.
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl cals_time(signed short(**di),time_t(*si))) {
+signed(__cdecl cals_time(signed(arg),signed short(**di),time_t(*si))) {
 
 auto signed short *w;
 auto struct tm *tp;
@@ -22,7 +22,8 @@ if(!di) return(0x00);
 if(!si) return(0x00);
 if(*di) return(0x00);
 
-tp = localtime(si);
+tp = gmtime(si);
+if(arg) tp = localtime(si);
 if(!tp) return(0x00);
 
 r = (CALS_TIME);

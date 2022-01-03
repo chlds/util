@@ -13,7 +13,7 @@ Append.
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_log(signed char(*di/* path */),signed char(*si/* contents */))) {
+signed(__cdecl cli_log(signed(arg),signed char(*di/* path */),signed char(*si/* contents */))) {
 
 auto signed char **v;
 auto time_t t;
@@ -26,23 +26,16 @@ if(!si) return(0x00);
 
 time(&t);
 
-AND(flag,0x00);
-v = (b);
-if(!(init_b(0x00,CLI_OBJS,v))) return(0x00);
-if(!(chrono_date(CLI_BASE+(v),&t))) return(0x00);
-if(!(chrono_time(CLI_OFFSET+(v),&t))) OR(flag,0x01);
+r = (CLI_OBJS);
+r = (r*(sizeof(*v)));
+v = (signed char(**)) alloc(r);
+if(!v) return(0x00);
 
-*(CLI_INDEX+(v)) = (si);
-if(!flag) {
-r = cli_log_r(di,v);
-if(!r) {
-printf("%s \n","<< Error at fn. cli_log_r()");
-OR(flag,0x01);
-}}
+r = cli_log_b(arg,v,di,&t,si);
+if(!r) printf("%s \n","<< Error at fn. cli_log_b()");
 
-*(CLI_INDEX+(v)) = (0x00);
-if(!(init_b(0x01,CLI_OBJS,v))) return(0x00);
-if(flag) AND(r,0x00);
+rl(v);
+v = (0x00);
 
 return(r);
 }

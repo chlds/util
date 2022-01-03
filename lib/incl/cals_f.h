@@ -1,11 +1,16 @@
 /* cals_f.h */
 
+signed(__cdecl cli_log_b_r(signed(arg),signed char(**cache),signed char(*di/* path */),time_t(*argp),signed char(*si/* contents */)));
+signed(__cdecl cli_log_b(signed(arg),signed char(**cache),signed char(*di/* path */),time_t(*argp),signed char(*si/* contents */)));
+signed(__cdecl chrono_diff_r(signed char(**di),time_t(*si)));
+signed(__cdecl chrono_diff(signed char(**di),time_t(*si)));
+signed(__cdecl diff_gmt(time_t(*di),time_t(*si)));
 signed(__cdecl chrono_date_r(signed(arg),signed char(**di),signed short(*si)));
-signed(__cdecl chrono_date(signed char(**di),time_t(*si)));
-signed(__cdecl cals_date(signed short(**di),time_t(*si)));
+signed(__cdecl chrono_date(signed(arg),signed char(**di),time_t(*si)));
+signed(__cdecl cals_date(signed(arg),signed short(**di),time_t(*si)));
 signed(__cdecl chrono_time_r(signed(arg),signed char(**di),signed short(*si)));
-signed(__cdecl chrono_time(signed char(**di),time_t(*si)));
-signed(__cdecl cals_time(signed short(**di),time_t(*si)));
+signed(__cdecl chrono_time(signed(arg),signed char(**di),time_t(*si)));
+signed(__cdecl cals_time(signed(arg),signed short(**di),time_t(*si)));
 // map the date/time.
 
 signed short(__cdecl day_before(signed short(arg)));

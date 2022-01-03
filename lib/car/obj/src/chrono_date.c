@@ -11,7 +11,7 @@ Call fn. rl later.
 # define CAR
 # include "../../../incl/config.h"
 
-signed(__cdecl chrono_date(signed char(**di),time_t(*si))) {
+signed(__cdecl chrono_date(signed(arg),signed char(**di),time_t(*si))) {
 
 auto signed char *b;
 auto signed short *w;
@@ -24,7 +24,7 @@ if(!si) return(0x00);
 if(*di) return(0x00);
 
 w = (0x00);
-r = cals_date(&w,si);
+r = cals_date(arg,&w,si);
 if(!r) return(0x00);
 
 r = chrono_date_r(CALS_DATE,di,w);
