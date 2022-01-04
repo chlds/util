@@ -41,11 +41,13 @@ b = (ng);
 if(!(cat_b(di,b,(void*)0x00))) return(0x00);
 
 b = (0x00);
+p = ("");
 ch = (t/(60*(60)));
 ch = (ch%(24));
 r = (signed) (ch);
+if(r<(0x0A)) p = ("0");
 if(!(cv_d(0x0A,&b,r))) return(0x00);
-r = cat_bb(di,*b);
+r = cat_b(di,p,b,(void*)0x00);
 if(EQ(minus,*b)) AND(r,0x00);
 embed(0x00,b);
 rl(b);
