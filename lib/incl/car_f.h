@@ -9,6 +9,11 @@ Along with C library
 
 
 signed(__cdecl dupl_agent_w(signed(argc),signed short(**argv),signed short(**envp)));
+
+signed(__cdecl agent_jd(void(*argp)));
+signed(__cdecl agent_jd_w_r(signed(argc),signed char(*argp),signed char(*envp)));
+signed(__cdecl agent_jd_w(signed(argc),signed short(**argv),signed short(**envp)));
+
 signed(__cdecl cals_agent(signed(argc),signed char(**argv),signed char(**envp)));
 signed(__cdecl cvlf_agent(signed(argc),signed char(**argv),signed char(**envp)));
 signed(__cdecl lk_agent(signed(argc),signed char(**argv),signed char(**envp)));
@@ -292,6 +297,8 @@ signed(__cdecl ct_a_back(signed char(*argp)));
 signed(__cdecl ct_a(signed char(*argp)));
 /* Based on UTF-8 */
 
+signed(__cdecl encode_bv_r(signed char(**di),signed short(**si)));
+signed(__cdecl encode_bv(signed char(**di),signed short(**si)));
 signed(__cdecl encode_bw_r(signed char(**di),signed short(*si)));
 signed(__cdecl encode_bw(signed char(**di),signed short(*si)));
 /* Encode along with surrogate pairs. */
