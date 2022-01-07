@@ -344,7 +344,8 @@ signed(__cdecl cli_outs_legible(signed(arg/* delay */),signed char(*argp)));
 signed(__cdecl cli_outs(signed char(*argp)));
 signed(__cdecl cli_out(signed char(*argp)));
 signed(__cdecl cli_o_b(signed(arg),signed char(*argp)));
-signed(__cdecl pair_b(signed short(*di),signed(si)));
+signed(__cdecl pair_wd_r(signed short(**di),signed(si)));
+signed(__cdecl pair_wd(signed short(**di),signed(si)));
 signed(__cdecl decode_b_r(signed(arg),signed(*di),signed char(*si)));
 signed(__cdecl decode_b(signed(*di),signed char(*si)));
 signed(__cdecl decode_surrogate_second(signed short(*di),signed(si)));
@@ -583,9 +584,9 @@ signed(__cdecl bsort(signed(count),signed(*base)));
 signed(__cdecl clip_b(signed(arg),signed char(**argp)));
 
 signed(__cdecl concatenate_w(signed(arg),signed short(**di),signed short(*si)));
+signed(__cdecl concat_ww(signed short(**di),signed short(*si)));
+signed(__cdecl cat_ww(signed short(**di),signed short(si)));
 signed(__cdecl concatenate(signed(arg),signed char(**di),signed char(*si)));
-/* Release the *di later. */
-
 signed(__cdecl concat_bb(signed char(**di),signed char(*si)));
 signed(__cdecl cat_bb(signed char(**di),signed char(si)));
 /* Call fn. rl later to release buffer. */
