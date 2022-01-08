@@ -4,6 +4,8 @@ Pair bytes into a two-word character based on UTF-16.
 
 Remarks:
 Call fn. rl later.
+subtract minuend, subtrahend; subtraction to find the difference
+divid dividend, divisor; division to find the quotient (and the remainder)
 */
 
 

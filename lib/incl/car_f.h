@@ -344,6 +344,8 @@ signed(__cdecl cli_outs_legible(signed(arg/* delay */),signed char(*argp)));
 signed(__cdecl cli_outs(signed char(*argp)));
 signed(__cdecl cli_out(signed char(*argp)));
 signed(__cdecl cli_o_b(signed(arg),signed char(*argp)));
+signed(__cdecl unpair_dw_r(signed(*di),signed short(*si)));
+signed(__cdecl unpair_dw(signed(*di),signed short(*si)));
 signed(__cdecl pair_wd_r(signed short(**di),signed(si)));
 signed(__cdecl pair_wd(signed short(**di),signed(si)));
 signed(__cdecl decode_b_r(signed(arg),signed(*di),signed char(*si)));
