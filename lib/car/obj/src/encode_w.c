@@ -26,6 +26,10 @@ Expressed in UTF-8
 
 signed(__cdecl encode_w(signed char(**di),signed(si))) {
 
+auto signed char *b;
+auto signed i,r;
+auto signed short flag;
+auto signed char c;
 auto signed utf_16 = (0xFFFF);
 auto signed al[] = {
 (signed) (0x00), // a one-byte character expressed in .o***.**** (7-bit)
@@ -36,14 +40,10 @@ auto signed al[] = {
 (signed) (0x00),
 };
 
-auto signed char *b;
-auto signed i,r;
-auto signed short flag;
-auto signed char c;
-
 if(!di) return(0x00);
 if(*di) return(0x00);
 
+si = (utf_16&(si));
 r = ncharbyte(si);
 if(!r) {
 printf("%s \n","<< Error at fn. ncharbyte()");
@@ -61,8 +61,6 @@ si = (0x7F&(si));
 b = (0x00);
 return(0x01);
 }
-
-si = (utf_16&(si));
 
 AND(flag,0x00);
 r = encode_w_r(r,b,si);
