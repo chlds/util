@@ -324,9 +324,11 @@ signed(__cdecl decode_key_01(signed(*di),signed char(*si)));
 signed(__cdecl decode_key_00(signed(*di),signed char(*si)));
 /* Support for function and arrow keys */
 
-signed(__cdecl encode_w_r(signed(arg),signed char(*di),signed(si)));
-signed(__cdecl encode_w(signed char(**di),signed(si)));
-signed(__cdecl encode_surrogate_w(signed char(**di),signed short(second),signed short(first)));
+signed(__cdecl encode_d_r(signed(arg),signed char(*di),signed(si)));
+signed(__cdecl encode_d(signed char(**di),signed(si)));
+signed(__cdecl encode_w_r(signed(arg),signed char(*di),signed(si))); // deprecated
+signed(__cdecl encode_w(signed char(**di),signed(si))); // deprecated
+signed(__cdecl encode_surrogate_w(signed char(**di),signed short(second),signed short(first))); // deprecated
 signed(__cdecl ncharbyte(signed(arg)));
 /* Encode a character into bytes based on UTF-8. */
 

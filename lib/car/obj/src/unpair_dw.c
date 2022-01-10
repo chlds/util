@@ -17,6 +17,8 @@ auto signed char *b;
 auto signed short *w;
 auto signed r;
 auto signed short flag;
+auto signed utf_16 = (0xFFFF);
+auto signed ten_b = (0x3FF); // in 10b
 auto signed first = (0xD800);
 auto signed second = (0xDC00);
 
@@ -24,16 +26,18 @@ if(!di) return(0x00);
 if(!si) return(0x00);
 
 w = (si);
-if(!(EQ(first,first&(*w)))) return(0x00);
+r = (signed) (*w);
+r = (utf_16&(r));
+if(!(EQ(first,r&(~ten_b)))) return(0x00);
 
 w++;
-if(!(EQ(second,second&(*w)))) return(0x00);
-
 r = (signed) (*w);
-AND(r,0x3FF);
-// in 10b
-flag = (~second);
-AND(r,flag);
+r = (utf_16&(r));
+if(!(EQ(second,r&(~ten_b)))) return(0x00);
+
+AND(r,ten_b);
+// second = (~second);
+// AND(r,second);
 *di = (r);
 
 return(0x02+(unpair_dw_r(di,si)));
