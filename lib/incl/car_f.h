@@ -303,10 +303,6 @@ signed(__cdecl encode_bw_r(signed char(**di),signed short(*si)));
 signed(__cdecl encode_bw(signed char(**di),signed short(*si)));
 /* Encode along with surrogate pairs. */
 
-signed(__cdecl encode2b_r(signed char(**di),signed short(*si)));
-signed(__cdecl encode2b(signed char(**di),signed short(*si)));
-/* Encode along with no surrogate pairs. */
-
 signed(__cdecl decode2w(signed(size),signed short(*di),signed char(*si)));
 /* Decode */
 
@@ -326,8 +322,6 @@ signed(__cdecl decode_key_00(signed(*di),signed char(*si)));
 
 signed(__cdecl encode_d_r(signed(arg),signed char(*di),signed(si)));
 signed(__cdecl encode_d(signed char(**di),signed(si)));
-signed(__cdecl encode_w_r(signed(arg),signed char(*di),signed(si))); // deprecated
-signed(__cdecl encode_w(signed char(**di),signed(si))); // deprecated
 signed(__cdecl encode_surrogate_w(signed char(**di),signed short(second),signed short(first))); // deprecated
 signed(__cdecl ncharbyte(signed(arg)));
 /* Encode a character into bytes based on UTF-8. */
