@@ -9,6 +9,7 @@ Support for surrogate pairs.
 
 
 # define CAR
+# include <stdio.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl encode_bw(signed char(**di),signed short(*si))) {
@@ -20,6 +21,13 @@ auto signed short flag;
 if(!di) return(0x00);
 if(*di) return(0x00);
 if(!si) return(0x00);
+
+if(!(*si)) {
+b = (0x00);
+r = concatenate(0x00,di,b);
+if(!r) printf("%s \n","<< Error at fn. concatenate()");
+return(0x00);
+}
 
 r = encode_bw_r(di,si);
 if(!(*di)) AND(r,0x00);
