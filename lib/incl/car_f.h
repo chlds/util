@@ -63,6 +63,7 @@ signed(__cdecl ctrl_fn_r(signed(arg),void(*argp)));
 signed(__cdecl ctrl_fn_b(signed(arg),void(*argp)));
 signed(__cdecl ctrl_fn(signed char(*cache),void(*argp)));
 
+signed(__cdecl jd_b(signed(arg/* code of line break */),signed char(*di),signed char(**si)));
 signed(__cdecl str_b_r(signed(fd),fl_t(*argp)));
 signed(__cdecl str_b(signed(arg/* code of line break */),signed char(*perm),signed char(*di/* path */),signed char(*si/* contents */)));
 signed(__cdecl appd_b(signed(arg/* code of line break */),signed char(*di/* path */),signed char(*si/* contents */)));
