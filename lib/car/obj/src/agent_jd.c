@@ -31,32 +31,13 @@ v++;
 b = (*v);
 if(b) {
 r = cmpr_partially(&i,b,hyphen);
-if(!i) lim++;
-}
+if(!i) {
+lim++;
+v++;
+}}
 
 r = (*(CLI_BASE+(R(fd,*fl))));
-if(r<(lim)) {
-printf("  %s \n","Jot down.");
-printf("\n");
-printf("  %s \n","Syntax:");
-printf("  %s \n","jd [flag] <FILE> ..");
-printf("\n");
-printf("  %s \n","Example:");
-printf("  %s \n","jd - ./cba.txt Hi there!");
-printf("  %s \n","jd abc.txt Hi there!");
-printf("\n");
-printf("  %s \n","GitHub: github.com/chlds/util/");
-/*
-printf("  %s \n","jd ..");
-printf("\n");
-printf("  %s \n","Remarks:");
-printf("  %s \n","The PATH can be omitted by writing \"eq path, PATH\" in path ~/.jd/config.txt, e.g.,");
-printf("  %s \n","eq path, ./log.txt");
-//*/
-return(0x01);
-}
-
-if(EQ(0x04,lim)) v++;
+if(r<(lim)) return(jd_help());
 
 path = (*v);
 v++;

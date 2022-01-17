@@ -10,6 +10,7 @@ Along with C library
 
 signed(__cdecl dupl_agent_w(signed(argc),signed short(**argv),signed short(**envp)));
 
+signed(__cdecl jd_help(void));
 signed(__cdecl agent_jd(void(*argp)));
 signed(__cdecl agent_jd_w_r(signed(argc),signed char(*argp),signed char(*envp)));
 signed(__cdecl agent_jd_w(signed(argc),signed short(**argv),signed short(**envp)));
