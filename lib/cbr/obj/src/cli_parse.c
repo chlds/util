@@ -10,9 +10,6 @@ LF (0x0A)
 
 
 # define CBR
-
-# include <io.h>
-# include <conio.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <time.h>
@@ -24,21 +21,17 @@ LF (0x0A)
 
 signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp))) {
 
-// second half of the default config directory
-auto signed char *second_half = ("/.ty/config.txt");
-
-auto signed short name[CLI_NAME] = {
-(signed short) (0x00),
-};
-
 auto struct _stat stats;
 auto signed char *path;
 auto signed char *p;
-auto signed fd;
-auto signed access;
-auto signed permission;
+auto signed short *w;
 auto signed i,r;
 auto signed short flag;
+// second half of the default config directory
+auto signed char *second_half = ("/.ty/config.txt");
+auto signed short name[CLI_NAME] = {
+(signed short) (0x00),
+};
 
 if(!argp) return(0x00);
 
@@ -101,47 +94,26 @@ printf("%s %d%s \n","<< Could not load because the config file size exceeds ",CL
 return(0x00);
 }
 
-// open to configure
-AND(access,0x00);
-OR(access,_O_RDONLY);
-OR(access,_O_BINARY);
+// configure
 if(flag) {
-fd = _open(path,access);
-if(!(fd^(~0x00))) {
-printf("%s \n","<< Error at fn. _open()");
-return(0x00);
-}}
-else {
-fd = _wopen(name,access);
-if(!(fd^(~0x00))) {
-printf("%s \n","<< Error at fn. _wopen()");
-return(0x00);
-}}
-// parse
-r = cli_eq(fd,argp);
-if(!r) {
-printf("%s \n","<< Error at fn. cli_eq()");
-return(0x00);
+r = parse_b(path,argp,cli_eq);
+if(!r) printf("%s \n","<< Error at fn. parse_b()");
 }
-// close
-r = _close(fd);
-if(!(r^(~0x00))) {
-printf("%s \n","<< Error at fn. _close()");
-return(0x00);
+else {
+r = parse_w(name,argp,cli_eq);
+if(!r) printf("%s \n","<< Error at fn. parse_w()");
 }
 
 if(flag) {
 if(path) rl(path);
 path = (0x00);
 }
-
 else {
-p = (signed char(*)) (name);
-r = embed(CLI_NAME,p);
-if(!r) {
-printf("%s \n","<< Error at fn. embed()");
+w = (name);
+if(!(embed_w(0x00,w))) {
+printf("%s \n","<< Error at fn. embed_w()");
 return(0x00);
 }}
 
-return(0x01);
+return(r);
 }
