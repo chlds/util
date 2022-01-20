@@ -11,22 +11,16 @@ LF (0x0A)
 
 # define CBR
 # include <stdio.h>
-# include <stdlib.h>
-# include <time.h>
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <errno.h>
 # include "../../../incl/config.h"
 
 signed(__cdecl cli_parse(CLI_TYPEWRITER(*argp))) {
 
-auto struct _stat stats;
 auto signed char *path;
 auto signed char *p;
 auto signed short *w;
 auto signed i,r;
 auto signed short flag;
+auto size_t size;
 // second half of the default config directory
 auto signed char *second_half = ("/.ty/config.txt");
 auto signed short name[CLI_NAME] = {
@@ -55,18 +49,17 @@ return(0x00);
 }
 if(CLI_DBG) printf("%s %s \n","Path:",path);
 /* Check the configuration file size. */
-r = _stat(path,&stats);
-if(!(r^(~0x00))) {
-if(!(ENOENT^(errno))) {
+r = already_exist_b(&size,path);
+if(!r) {
+if(EQ(size,~0x00)) {
 printf("%s %s \n","<< No config file at",path);
 rl(path);
 path = (0x00);
 return(0x01);
 }
-else {
-printf("%s \n","<< Error at fn. _stat()");
+printf("%s \n","<< Error at fn. already_exist_b()");
 return(0x00);
-}}}
+}}
 
 else {
 path = (R(file,R(config,*argp)));
@@ -75,21 +68,20 @@ if(!r) {
 printf("%s \n","<< Error at fn. decode2w()");
 return(0x00);
 }
-r = _wstat(name,&stats);
-if(!(r^(~0x00))) {
-if(!(ENOENT^(errno))) {
+r = already_exist_w(&size,name);
+if(!r) {
+if(EQ(size,~0x00)) {
 printf("%s \n","<< No configuration file");
 return(0x01);
 }
-else {
-printf("%s \n","<< Error at fn. _wstat()");
+printf("%s \n","<< Error at fn. already_exist_w()");
 return(0x00);
-}}}
+}}
 
-R(size,R(config,*argp)) = (R(st_size,stats));
+R(size,R(config,*argp)) = (size);
 if(CLI_DBG) printf("%d%s \n",R(size,R(config,*argp)),"bytes at (R(size,R(config,*argp");
 
-if(CLI_CONFIG_FILE<(R(st_size,stats))) {
+if(CLI_CONFIG_FILE<(size)) {
 printf("%s %d%s \n","<< Could not load because the config file size exceeds ",CLI_CONFIG_FILE,"bytes..");
 return(0x00);
 }
