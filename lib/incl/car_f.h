@@ -205,8 +205,6 @@ signed(__cdecl read_f(signed char(**di),signed char(delim),signed(fd)));
 signed(__cdecl cat_read_f(signed char(**di),signed char(delim),signed(fd)));
 /* read bytes to the delimiter. */
 
-signed(__cdecl store_b(signed short(linebreak),signed(access_right),signed(permission),signed char(*b),signed char(*path)));
-
 signed(__cdecl cv_hr_r(signed short(*hr),signed short(*mn),signed char(*si)));
 signed(__cdecl cv_hr(signed short(*hr),signed short(*mn),signed char(*si)));
 
