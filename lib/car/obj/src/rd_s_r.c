@@ -9,15 +9,15 @@ Read.
 # include <errno.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl rd_s_r(signed char(**di),signed(fd))) {
+signed(__cdecl rd_s_r(signed(fd),signed char(**di))) {
 
 auto signed char *b;
 auto signed i,r;
 auto signed short flag;
 auto signed buff = (102400);
 
-if(!di) return(0x00);
 if(fd<(0x00)) return(0x00);
+if(!di) return(0x00);
 
 r = (buff*(sizeof(*b)));
 b = (signed char(*)) alloc(r);
@@ -47,5 +47,5 @@ return(0x00);
 rl(b);
 b = (0x00);
 
-return(0x01+(rd_s_r(di,fd)));
+return(0x01+(rd_s_r(fd,di)));
 }

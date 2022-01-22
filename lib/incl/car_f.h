@@ -67,6 +67,8 @@ signed(__cdecl ctrl_fn(signed char(*cache),void(*argp)));
 signed(__cdecl jd_b(signed(arg/* code of line break */),signed char(*di),signed char(**si)));
 signed(__cdecl parse_w(signed short(*path),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
 signed(__cdecl parse_b(signed char(*path),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
+signed(__cdecl ed_w(signed short(*path),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
+signed(__cdecl ed_b(signed char(*path),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
 signed(__cdecl str_b_r(signed(fd),fl_t(*argp)));
 signed(__cdecl str_b(signed(arg/* code of line break */),signed char(*perm),signed char(*di/* path */),signed char(*si/* contents */)));
 signed(__cdecl appd_b(signed(arg/* code of line break */),signed char(*di/* path */),signed char(*si/* contents */)));
@@ -147,7 +149,7 @@ signed(__cdecl trunc_b(signed char(*path)));
 
 signed(__cdecl wr_s_r(signed(fd),signed char(*argp)));
 signed(__cdecl wr_s(signed char(*di),signed char(*si)));
-signed(__cdecl rd_s_r(signed char(**di),signed(fd)));
+signed(__cdecl rd_s_r(signed(fd),signed char(**di)));
 signed(__cdecl rd_s(signed char(**di),signed char(*si)));
 
 signed(__cdecl art_r_r(signed short(*flag),signed short(cols),signed char(*sym),signed(fd)));
