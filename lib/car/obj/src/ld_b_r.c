@@ -12,15 +12,15 @@ signed(__cdecl ld_b_r(signed(fd),fl_t(*argp))) {
 
 auto signed char *b;
 auto signed r;
-auto signed offset;
 auto signed range;
 auto signed short flag;
+auto size_t offset;
 
 if(fd<(0x00)) return(0x00);
 if(!argp) return(0x00);
 
 *(CLI_SI+(R(fd,*argp))) = (fd);
-offset = (*(CLI_OFFSET+(R(fd,*argp))));
+offset = (size_t) (0xFFFFFFFF&(*(CLI_OFFSET+(R(fd,*argp)))));
 r = cue_fd(offset,fd);
 if(EQ(r,~0x00)) return(0x00);
 

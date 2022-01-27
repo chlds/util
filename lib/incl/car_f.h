@@ -83,7 +83,7 @@ signed(__cdecl appd_ds(signed char(**argp)));
 signed(__cdecl rd_k_r(signed char(**di),signed char(*delim),signed(n),signed(fd)));
 signed(__cdecl rd_k(signed(arg),signed char(**di),signed(fd)));
 signed(__cdecl ld_b_r(signed(fd),fl_t(*argp)));
-signed(__cdecl ld_b(signed(range),signed(offset),signed char(**di),signed char(*si/* path */)));
+signed(__cdecl ld_b(size_t(offset),signed(range),signed char(**di),signed char(*si/* path */)));
 signed(__cdecl init_fl(signed(arg),fl_t(*argp)));
 signed(__cdecl wr_ds_r(signed(fd),fl_t(*argp)));
 signed(__cdecl wr_ds_w_r(signed(fd),fl_t(*argp)));
@@ -141,7 +141,8 @@ signed(__cdecl readf(signed short(arg),signed(fd),void(*argp),signed(size)));
 signed(__cdecl openf(signed short(arg),signed char(*path),signed(mode),signed(permission)));
 signed(__cdecl statf(signed short(arg),signed char(*path),void(*argp)));
 
-signed(__cdecl sz_f(signed char(*argp)));
+size_t(__cdecl sz_w(signed short(*argp)));
+size_t(__cdecl sz_b(signed char(*argp)));
 
 signed(__cdecl wr_bkup_b(signed char(*extension),signed char(*argp)));
 signed(__cdecl wr_trunc_b(signed char(*cache/* an extension for backups */),signed char(*path)));
@@ -461,8 +462,20 @@ signed(__cdecl cv_v_r(signed char(**di),signed short(*flag),signed char(*si)));
 signed(__cdecl cv_v(signed char(***di),signed char(*si)));
 /* Map an array of pointers for word-split arrays on and unmap the ones out of the RAM */
 
-signed(__cdecl cue_fd_r(signed(*argp),signed(offset),signed(fd)));
-signed(__cdecl cue_fd(signed(offset),signed(fd)));
+signed(__cdecl sub_vd_r(signed(*retv/* remainder */),signed(arg/* column-base for di */),signed(*di),signed(si)));
+signed(__cdecl sub_vd(signed(*retv/* remainder */),signed(arg/* column-base for di */),signed(*di),signed(si)));
+/* Subtract to retrieve the remainder and number of carry-overs. */
+
+signed(__cdecl cv_sv_r(size_t(*di),signed(si)));
+signed(__cdecl cv_sv(size_t(*di),signed(*si)));
+/* Convert into data type size_t out of an array of double words. */
+
+signed(__cdecl cv_vs_r(signed(arg),signed(*di),size_t(*si)));
+signed(__cdecl cv_vs(signed(**di),size_t(*si)));
+/* Convert into an array of double words out of data type size_t. */
+
+signed(__cdecl cue_fd_r(size_t(*argp),size_t(offset),signed(arg),signed(fd)));
+signed(__cdecl cue_fd(size_t(offset),signed(fd)));
 
 signed(__cdecl cue_argt(signed char(*argp)));
 signed(__cdecl cue_argt_ready(signed char(*argp)));
@@ -567,6 +580,9 @@ signed(__cdecl rm_br_r(signed(arg),signed char(*argp)));
 signed(__cdecl rm_br(signed char(*argp)));
 signed(__cdecl embedback_r(signed(arg),signed char(*argp)));
 signed(__cdecl embedback(signed(arg),signed char(*argp)));
+signed(__cdecl embed_d_rr(signed(arg),signed(*argp)));
+signed(__cdecl embed_d_r(signed(*argp)));
+signed(__cdecl embed_d(signed(arg),signed(*argp)));
 signed(__cdecl embed_w_rr(signed(arg),signed short(*argp)));
 signed(__cdecl embed_w_r(signed short(*argp)));
 signed(__cdecl embed_w(signed(arg),signed short(*argp)));
@@ -588,6 +604,9 @@ signed(__cdecl bsort(signed(count),signed(*base)));
 
 signed(__cdecl clip_b(signed(arg),signed char(**argp)));
 
+signed(__cdecl concatenate_d(signed(arg),signed(**di),signed(*si)));
+signed(__cdecl concat_dd(signed(**di),signed(*si)));
+signed(__cdecl cat_dd(signed(**di),signed(si)));
 signed(__cdecl concatenate_w(signed(arg),signed short(**di),signed short(*si)));
 signed(__cdecl concat_ww(signed short(**di),signed short(*si)));
 signed(__cdecl cat_ww(signed short(**di),signed short(si)));

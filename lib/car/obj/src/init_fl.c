@@ -26,7 +26,8 @@ if(arg) while(r) rl(*(--r+(R(v,*argp))));
 b = (0x00);
 r = (OBJS);
 while(r) {
-AND(*(--r+(R(fd,*argp))),0x00);
+--r;
+AND(*(r+(R(fd,*argp))),0x00);
 *(r+(R(v,*argp))) = (void*) (b);
 }
 

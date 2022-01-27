@@ -13,8 +13,8 @@ signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 
 auto signed char *b;
 auto signed char *path;
-auto signed offset;
 auto signed i,r;
+auto size_t offset;
 auto signed range = (0x04*(0x100));
 auto signed short align = (0x08);
 auto signed short cols = (80);
@@ -33,21 +33,23 @@ if(EQ(0x02,argc)) AND(offset,0x00);
 if(0x02<(argc)) {
 b = (*(argv+(argc+(~0x00))));
 r = cv_da_xe(0x0A,&i,b);
+// r = cv_sa_xe(0x0A,&offset,b);
 if(!r) AND(i,0x00);
 if(i<(0x00)) AND(i,0x00);
-offset = (i);
+offset = (size_t) (0xFFFFFFFF&(i));
+if(DBG) printf("%s: %zdB \n","Offset",offset);
 }
 
 b = (0x00);
 path = (*(argv+(0x01)));
-r = ld_b(range,offset,&b,path);
+r = ld_b(offset,range,&b,path);
 if(!r) printf("%s \n","<< Error at fn. ld_b()");
 
 if(r) {
 out_lines(align,cols,sym,b);
 printf("\n");
-printf("[%d/%d %s] \n",offset,r,"bytes offset/read");
-printf("[%d %s] \n",offset+(r),"bytes reached");
+printf("[%zd/%d %s] \n",offset,r,"bytes offset/read");
+printf("[%zd %s] \n",offset+(r),"bytes reached");
 }
 
 embed_l(0x00,b);
