@@ -1,28 +1,29 @@
 /* **** Notes
 
-Convert into a signed double word out of characters.
+Convert into a size_t out of characters.
 //*/
 
 
 # define CAR
+# include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cv_da_xe_r(signed short(radix),signed char(*table),signed(*di),signed char(*si))) {
+signed(__cdecl cv_sa_xe_r(signed short(radix),signed char(*table),size_t(*di),signed char(*si))) {
 
 auto signed r;
-auto signed s;
 auto signed short flag;
 auto signed char c;
+auto size_t s;
 auto signed kb = (1024);
 auto signed k = (1000);
 auto signed e[] = {
-3,2,1,0x00,
+7,6,5,4,3,2,1,0x00,
 };
 auto signed char *(ub[]) = {
-"G","M","K",0x00,
+"Z","E","P","T","G","M","K",0x00,
 };
 auto signed char *(u[]) = {
-"g","m","k",0x00,
+"z","e","p","t","g","m","k",0x00,
 };
 
 if(!table) return(0x00);
@@ -52,5 +53,5 @@ while(--r) s = (kb*(s));
 
 si++;
 
-return(0x01+(cv_da_xe_r(radix,table,di,si)));
+return(0x01+(cv_sa_xe_r(radix,table,di,si)));
 }
