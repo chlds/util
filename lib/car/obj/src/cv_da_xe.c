@@ -9,14 +9,13 @@ Convert into a signed double word out of characters.
 
 signed(__cdecl cv_da_xe(signed short(radix),signed(*di),signed char(*si))) {
 
+auto signed r;
+auto signed short flag;
 auto signed char *table = ("0123456789ABCDEF");
-auto signed char minus = ('-');
 auto signed short hexa = (0x10);
 auto signed short deci = (0x0A);
 auto signed short bina = (0x02);
-
-auto signed i,r;
-auto signed short flag;
+auto signed char minus = ('-');
 
 if(!di) return(0x00);
 if(!si) return(0x00);

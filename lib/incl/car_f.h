@@ -241,6 +241,8 @@ signed(__cdecl cv_sa_r(signed short(radix),signed char(*table),size_t(*di),signe
 signed(__cdecl cv_sa(signed short(radix),size_t(*di),signed char(*si)));
 // convert into a size_t out of characters.
 
+signed(__cdecl cv_dv_r(signed short(radix),signed(*di),signed char(**si)));
+signed(__cdecl cv_dv(signed short(radix),signed(*di),signed char(**si)));
 signed(__cdecl cv_da_xe_r(signed short(radix),signed char(*table),signed(*di),signed char(*si)));
 signed(__cdecl cv_da_xe(signed short(radix),signed(*di),signed char(*si)));
 signed(__cdecl cv_da_first_r(signed short(arg),signed short(radix),signed char(*table),signed(*di),signed char(*si)));
