@@ -3,7 +3,7 @@
 Convert into an array of double words out of data type size_t.
 
 Remarks:
-Refer at fn. cv_sv_r.
+Refer at fn. cv_sd_r.
 //*/
 
 
@@ -11,7 +11,7 @@ Refer at fn. cv_sv_r.
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cv_vs_r(signed(arg),signed(*di),size_t(*si))) {
+signed(__cdecl cv_ds_r(signed(arg),signed(*di),size_t(*si))) {
 
 auto signed *d;
 auto signed r;
@@ -38,5 +38,5 @@ return(0x01);
 INC(*(0x01+(di)));
 *si = (s);
 
-return(0x01+(cv_vs_r(--arg,di,si)));
+return(0x01+(cv_ds_r(--arg,di,si)));
 }

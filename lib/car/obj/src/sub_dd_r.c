@@ -3,7 +3,7 @@
 Subtract to retrieve the remainder and number of carry-overs.
 
 Remarks:
-Refer at fn. cv_vs and fn. cv_sv.
+Refer at fn. cv_ds and fn. cv_sd.
 //*/
 
 
@@ -11,7 +11,7 @@ Refer at fn. cv_vs and fn. cv_sv.
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl sub_vd_r(signed(*retv/* remainder */),signed(arg/* column-base for di */),signed(*di),signed(si))) {
+signed(__cdecl sub_dd_r(signed(*retv/* remainder */),signed(arg/* column-base for di */),signed(*di),signed(si))) {
 
 auto signed char *b;
 auto signed r;
@@ -35,5 +35,5 @@ r = (r+(arg));
 
 *di = (r);
 
-return(0x01+(sub_vd_r(retv,arg,di,si)));
+return(0x01+(sub_dd_r(retv,arg,di,si)));
 }
