@@ -11,29 +11,29 @@ Refer at fn. cv_ds and fn. cv_sd.
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl sub_dd_r(signed(*retv/* remainder */),signed(arg/* column-base for di */),signed(*di),signed(si))) {
+signed(__cdecl sub_dd_r(signed(*retv/* remainder */),signed(subtrahend),signed(arg/* column-base for argp */),signed(*argp))) {
 
 auto signed char *b;
 auto signed r;
 auto signed short flag;
 
 if(!retv) return(0x00);
+if(subtrahend<(0x01)) return(0x00);
 if(arg<(0x01)) return(0x00);
-if(!di) return(0x00);
-if(si<(0x01)) return(0x00);
+if(!argp) return(0x00);
 
-r = (*di);
-r = (r+(0x01+(~si)));
+r = (*argp);
+r = (r+(0x01+(~subtrahend)));
 if(r<(0x01)) {
-if(!(*(0x01+(di)))) {
-*retv = (*di);
+if(!(*(0x01+(argp)))) {
+*retv = (*argp);
 return(0x00);
 }
-DEC(*(0x01+(di)));
+DEC(*(0x01+(argp)));
 r = (r+(arg));
 }
 
-*di = (r);
+*argp = (r);
 
-return(0x01+(sub_dd_r(retv,arg,di,si)));
+return(0x01+(sub_dd_r(retv,subtrahend,arg,argp)));
 }

@@ -470,8 +470,8 @@ signed(__cdecl cv_v_r(signed char(**di),signed short(*flag),signed char(*si)));
 signed(__cdecl cv_v(signed char(***di),signed char(*si)));
 /* Map an array of pointers for word-split arrays on and unmap the ones out of the RAM */
 
-signed(__cdecl sub_dd_r(signed(*retv/* remainder */),signed(arg/* column-base for di */),signed(*di),signed(si)));
-signed(__cdecl sub_dd(signed(*retv/* remainder */),signed(arg/* column-base for di */),signed(*di),signed(si)));
+signed(__cdecl sub_dd_r(signed(*retv/* remainder */),signed(subtrahend),signed(arg/* column-base for argp */),signed(*argp)));
+signed(__cdecl sub_dd(signed(*retv/* remainder */),signed(subtrahend),signed(arg/* column-base for argp */),signed(*argp)));
 /* Subtract to retrieve the remainder and number of carry-overs. */
 
 signed(__cdecl cv_sd_r(size_t(*di),signed(si)));
