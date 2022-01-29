@@ -1,16 +1,18 @@
 /* **** Notes
 
-Convert into a signed double word out of an array of pointers for characters.
+Convert into a size_t out of an array of pointers for characters.
 //*/
 
 
 # define CAR
+# include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cv_dv_r(signed short(radix),signed(*di),signed char(**si))) {
+signed(__cdecl cv_sv_r(signed short(radix),size_t(*di),signed char(**si))) {
 
-auto signed i,r;
+auto signed r;
 auto signed short flag;
+auto size_t s;
 auto signed short hexa = (0x10);
 auto signed short deci = (0x0A);
 auto signed short bina = (0x02);
@@ -21,15 +23,15 @@ if(!(*si)) return(0x00);
 if(radix<(bina)) radix = (deci);
 if(hexa<(radix)) radix = (deci);
 
-AND(i,0x00);
-r = cv_da_xe(radix,&i,*si);
+AND(s,0x00);
+r = cv_sa_xe(radix,&s,*si);
 if(r) {
 AND(r,0x00);
 OR(r,0x01);
 }
 
-ADD(*di,i);
+ADD(*di,s);
 si++;
 
-return(r+(cv_dv_r(radix,di,si)));
+return(r+(cv_sv_r(radix,di,si)));
 }

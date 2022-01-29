@@ -235,6 +235,8 @@ signed(__cdecl recharge(signed char(**argp),signed(arg)));
 signed(__cdecl cli_unmap(signed(times),signed char(**argp)));
 // Unmap.
 
+signed(__cdecl cv_sv_r(signed short(radix),size_t(*di),signed char(**si)));
+signed(__cdecl cv_sv(signed short(radix),size_t(*di),signed char(**si)));
 signed(__cdecl cv_sa_xe_r(signed short(radix),signed char(*table),size_t(*di),signed char(*si)));
 signed(__cdecl cv_sa_xe(signed short(radix),size_t(*di),signed char(*si)));
 signed(__cdecl cv_sa_r(signed short(radix),signed char(*table),size_t(*di),signed char(*si)));
