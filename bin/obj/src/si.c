@@ -13,7 +13,8 @@ signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 
 auto signed char *b;
 auto signed i,l,r;
-auto struct _stat stats;
+auto size_t s;
+auto struct _stati64 stats;
 auto time_t t[CLI_RULE];
 auto signed char *(stat_v[]) = {
 "Created  at",
@@ -61,10 +62,10 @@ if(argc<(0x02)) return(0x00);
 printf("\n");
 
 b = (*(argv+(argc+(~0x00))));
-r = _stat(b,&stats);
+r = _stati64(b,&stats);
 if(!(r^(~0x00))) {
 if(EQ(ENOENT,errno)) printf("%s \n","<< No file..");
-else printf("%s \n","<< Error at fn. _stat()");
+else printf("%s %Xh \n","<< Error at fn. _stati64() with errno.",errno);
 return(0x00);
 }
 
@@ -86,7 +87,9 @@ printf(" ");
 printf("%s \n",b);
 
 printf("%s %d, ","MODE",R(st_mode,stats));
-printf("%s %d  ","SIZE",R(st_size,stats));
+
+s = (size_t) (R(st_size,stats));
+printf("%s %zu  ","SIZE",s);
 printf("\n");
 
 printf("%s %d, ","UID",R(st_uid,stats));

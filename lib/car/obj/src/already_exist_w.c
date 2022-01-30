@@ -19,7 +19,7 @@ LF (0x0A)
 
 signed(__cdecl already_exist_w(size_t(*size),signed short(*argp))) {
 
-auto struct _stat stats;
+auto struct _stati64 stats;
 auto signed char *b;
 auto signed short *w;
 auto signed r;
@@ -31,14 +31,14 @@ if(!argp) return(0x00);
 AND(r,0x00);
 *size = (size_t) (r);
 
-r = _wstat(argp,&stats);
+r = _wstati64(argp,&stats);
 if(!(r^(~0x00))) {
 if(!(ENOENT^(errno))) NOT(*size);
-if(DBG) printf("%s %Xh \n","<< Error at fn. _wstat() with errno.",errno);
+if(DBG) printf("%s %Xh \n","<< Error at fn. _wstati64() with errno.",errno);
 return(0x00);
 }
 
-*size = (R(st_size,stats));
+*size = (size_t) (R(st_size,stats));
 
 return(0x01);
 }

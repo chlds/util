@@ -19,11 +19,11 @@ LF (0x0A)
 
 signed(__cdecl already_exist_b(size_t(*size),signed char(*argp))) {
 
-auto struct _stat stats;
 auto signed char *b;
 auto signed short *w;
 auto signed r;
 auto signed short flag;
+auto struct _stati64 stats;
 
 if(!size) return(0x00);
 if(!argp) return(0x00);
@@ -31,14 +31,14 @@ if(!argp) return(0x00);
 AND(r,0x00);
 *size = (size_t) (r);
 
-r = _stat(argp,&stats);
+r = _stati64(argp,&stats);
 if(!(r^(~0x00))) {
 if(!(ENOENT^(errno))) NOT(*size);
-if(DBG) printf("%s %Xh \n","<< Error at fn. _stat() with errno.",errno);
+if(DBG) printf("%s %Xh \n","<< Error at fn. _stati64() with errno.",errno);
 return(0x00);
 }
 
-*size = (R(st_size,stats));
+*size = (size_t) (R(st_size,stats));
 
 return(0x01);
 }

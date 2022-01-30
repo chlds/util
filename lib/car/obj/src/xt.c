@@ -11,22 +11,22 @@ Extract and execute.
 
 signed(__cdecl xt(signed char(*param),signed char(*path),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp)))) {
 
-auto struct stat stats;
 auto signed ac;
 auto signed pm;
 auto signed i,r;
 auto signed fd;
 auto signed short flag;
+auto struct _stati64 stats;
 
 if(!param) return(0x00);
 if(!path) return(0x00);
 // if(!argp) return(0x00);
 // if(!f) return(0x00);
 
-r = stat(path,&stats);
+r = _stati64(path,&stats);
 if(EQ(r,~0x00)) {
 if(!(EQ(ENOENT,errno))) {
-printf("%s \n","<< Error at fn. stat()");
+printf("%s %Xh \n","<< Error at fn. _stati64() with errno.",errno);
 return(0x00);
 }}
 

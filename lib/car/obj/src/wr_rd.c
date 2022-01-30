@@ -18,7 +18,7 @@ if(!fd) return(0x00);
 AND(i,0x00);
 OR(i,0x01);
 SHL(i,0x0E);
-i = (100*(i));
+i = (1000*(i));
 --i;
 r = (i);
 r++;
@@ -33,7 +33,8 @@ r = wr_rd_r(fd,b,r);
 // if(!r) printf("%s \n","<< Error at fn. wr_rd_r()");
 // e.g., 0B written.
 
-embed(i,b);
+// embed(i,b);
+embed_l(i,b);
 rl(b);
 b = (0x00);
 
