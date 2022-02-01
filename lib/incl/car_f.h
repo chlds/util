@@ -480,8 +480,8 @@ signed(__cdecl cv_sd_r(size_t(*di),signed(si)));
 signed(__cdecl cv_sd(size_t(*di),signed(*si)));
 /* Convert into data type size_t out of an array of double words. */
 
-signed(__cdecl cv_ds_r(signed(arg),signed(*di),size_t(*si)));
-signed(__cdecl cv_ds(signed(**di),size_t(*si)));
+signed(__cdecl cv_ds_r(signed(*di),size_t(si)));
+signed(__cdecl cv_ds(signed(**di),size_t(si)));
 /* Convert into an array of double words out of data type size_t. */
 
 signed(__cdecl cue_fd_l(size_t(*argp),size_t(offset),signed(arg),signed(fd)));

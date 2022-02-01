@@ -11,6 +11,7 @@ Display one line or about 1024 bytes in UTF-8.
 
 signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 
+auto signed char **v;
 auto signed char *b;
 auto signed char *path;
 auto signed i,r;
@@ -31,12 +32,14 @@ return(0x00);
 if(EQ(0x02,argc)) AND(offset,0x00);
 
 if(0x02<(argc)) {
-b = (*(argv+(argc+(~0x00))));
-r = cv_da_xe(0x0A,&i,b);
-// r = cv_sa_xe(0x0A,&offset,b);
-if(!r) AND(i,0x00);
-if(i<(0x00)) AND(i,0x00);
-offset = (size_t) (0xFFFFFFFF&(i));
+v = (0x02+(argv));
+// b = (*(argv+(argc+(~0x00))));
+// r = cv_da_xe(0x0A,&i,b);
+// if(!r) AND(i,0x00);
+// if(i<(0x00)) AND(i,0x00);
+// offset = (size_t) (i);
+r = cv_sv(0x0A,&offset,v);
+if(offset<(0x00)) AND(offset,0x00);
 if(DBG) printf("%s: %zdB \n","Offset",offset);
 }
 
