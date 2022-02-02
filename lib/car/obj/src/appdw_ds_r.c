@@ -40,5 +40,5 @@ return(0x00);
 
 si++;
 
-return(r+(appdw_ds_r(di,si)));
+return(0x01+(appdw_ds_r(di,si)));
 }

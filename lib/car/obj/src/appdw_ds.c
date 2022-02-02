@@ -31,5 +31,5 @@ return(0x00);
 v = (0x02+(argp));
 w = (*argp);
 
-return(r+(appdw_ds_r(w,v)));
+return(0x01+(appdw_ds_r(w,v)));
 }

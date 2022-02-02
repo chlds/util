@@ -37,7 +37,7 @@ return(0x00);
 }
 
 printf("\n");
-printf("[%d bytes] \n",r);
+printf("[%s: %d] \n","Appended files",r);
 
 return(0x00);
 }

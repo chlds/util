@@ -39,7 +39,7 @@ return(0x00);
 if(pm) fd = _wopen(path,ac,pm);
 else fd = _wopen(path,ac);
 if(EQ(fd,~0x00)) {
-printf("%s \n","<< Error at fn. _wopen()");
+printf("%s %Xh \n","<< Error at fn. _wopen() with errno.",errno);
 return(0x00);
 }
 
@@ -50,7 +50,7 @@ else OR(r,0x01);
 AND(i,0x00);
 NOT(i);
 if(EQ(i,_close(fd))) {
-printf("%s \n","<< Error at fn. _close()");
+printf("%s %Xh \n","<< Error at fn. _close() with errno.",errno);
 return(0x00);
 }
 

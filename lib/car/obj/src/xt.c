@@ -39,7 +39,7 @@ return(0x00);
 if(pm) fd = op_b(path,&ac,&pm,(void*)0x00);
 else fd = op_b(path,&ac,(void*)0x00);
 if(EQ(fd,~0x00)) {
-printf("%s \n","<< Error at fn. op_b()");
+printf("%s %Xh \n","<< Error at fn. op_b() with errno.",errno);
 return(0x00);
 }
 
@@ -50,7 +50,7 @@ else OR(r,0x01);
 AND(i,0x00);
 NOT(i);
 if(EQ(i,cl_b(fd))) {
-printf("%s \n","<< Error at fn. cl_b()");
+printf("%s %Xh \n","<< Error at fn. cl_b() with errno.",errno);
 return(0x00);
 }
 
