@@ -24,6 +24,12 @@ if(arg<(0x01)) return(0x00);
 if(fd<(0x00)) return(0x00);
 
 AND(*argp,0x00);
+r = (arg);
+r++;
+r = (r*(sizeof(*b)));
+b = (signed char(*)) alloc(r);
+if(!b) return(0x00);
+
 while(0x01) {
 if(!offset) break;
 r = (arg);
@@ -33,23 +39,17 @@ else {
 r = (signed) (offset);
 AND(offset,0x00);
 }
-r++;
-r = (r*(sizeof(*b)));
-b = (signed char(*)) alloc(r);
-if(!b) break;
 *b = (0x00);
-r = rd_b(fd,b,--r);
+r = rd_b(fd,b,r);
 ADD(*argp,r);
 if(!r) AND(offset,0x00);
-if(r<(0x00)) {
-AND(offset,0x00);
-AND(r,0x00);
+if(r<(0x00)) AND(offset,0x00);
 }
-*(r+(b)) = (0x00);
-embed_l(0x00,b);
+
+*(arg+(b)) = (0x00);
+embed_l(arg,b);
 if(b) rl(b);
 b = (0x00);
-}
 
 return(0x01);
 }
