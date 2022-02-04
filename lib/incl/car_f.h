@@ -306,6 +306,8 @@ signed(__cdecl cv_ds_b(signed char(*argp),signed char(di),signed char(si)));
 signed(__cdecl ct_l(signed char(*argp)));
 /* Count and convert. */
 
+signed(__cdecl cf_ff_w(signed short(*di),signed char(*si)));
+signed(__cdecl cf_ff(signed char(*di),signed char(*si)));
 signed(__cdecl cf_f_extensions(signed char(*cache),signed char(*argp)));
 signed(__cdecl cf_dir(signed char(*argp)));
 /* Confirm. */
