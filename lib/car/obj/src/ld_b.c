@@ -18,12 +18,31 @@ auto signed *d;
 auto signed i,r;
 auto signed short flag;
 auto fl_t fl;
+auto signed char *(ff_s[]) = {
+("Character Device"),
+("Regular"),
+("Directory"),
+0x00,
+};
+auto signed char *(ff[]) = {
+("chr"),
+("reg"),
+("dir"),
+0x00,
+};
 
 if(offset<(0x00)) return(0x00);
 if(range<(0x01)) return(0x00);
 if(!di) return(0x00);
 if(*di) return(0x00);
 if(!si) return(0x00);
+
+r = cf_ff(si,*(0x01+(ff)));
+if(!r) {
+// printf("%s \n","<< Error at fn. cf_ff()");
+printf("%s %s \n",si,"is not a regular file..");
+return(0x00);
+}
 
 if(!(offset<(sz_b(si)))) {
 printf("%s \n","<< Over..");

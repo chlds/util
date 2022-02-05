@@ -45,8 +45,10 @@ if(!si) return(0x00);
 w = (di);
 r = _wstati64(w,&stats);
 if(!(r^(~0x00))) {
+if(DBG) {
 if(EQ(ENOENT,errno)) printf("%s \n","<< No file");
 else printf("%s %Xh \n","<< Error at fn. _wstati64() with errno.",errno);
+}
 return(0x00);
 }
 

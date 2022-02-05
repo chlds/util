@@ -13,7 +13,7 @@ auto signed char *b;
 auto signed i,r;
 
 if(!di) return(0x00);
-if(!delim) return(0x00);
+// if(!delim) return(0x00);
 if(!n) return(0x00);
 if(fd<(0x00)) return(0x00);
 
@@ -45,8 +45,10 @@ return(0x00);
 *(r+(b)) = (0x00);
 if(!r) return(0x00);
 
+if(delim) {
 r = ord(delim,*b);
 if(r<(ct(delim))) return(0x01);
+}
 
 // stop
 if(n<(0x00)) {
