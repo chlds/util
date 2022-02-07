@@ -11,24 +11,26 @@ Call fn. rl later.
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl rd_k(signed(arg),signed char(**di),signed(fd))) {
+signed(__cdecl rd_k(signed char(**di),signed char(*delim),signed(n),signed(fd))) {
 
 auto signed char *b;
 auto signed i,r;
 auto signed short flag;
+/* e.g.,
 auto signed char delim[] = {
 // SP,
 // CR,
 LF,
 0x00,
 };
+//*/
 
-if(arg<(0x01)) return(0x00);
 if(!di) return(0x00);
 if(*di) return(0x00);
+if(n<(0x01)) return(0x00);
 if(fd<(0x00)) return(0x00);
 
-r = rd_k_r(di,delim,arg,fd);
+r = rd_k_r(di,delim,n,fd);
 if(!(*di)) AND(r,0x00);
 if(!r) printf("%s \n","<< Error at fn. rd_k_r()");
 

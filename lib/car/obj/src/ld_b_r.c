@@ -11,6 +11,7 @@ Load.
 signed(__cdecl ld_b_r(signed(fd),fl_t(*argp))) {
 
 auto signed char *b;
+auto signed char *delim;
 auto signed *d;
 auto signed r;
 auto signed range;
@@ -28,14 +29,15 @@ printf("%s \n","<< Error at fn. cv_sd()");
 return(0x00);
 }
 
-if(0x01/* DBG */) printf("[%s: %zu] \n","Offset",offset);
+if(DBG) printf("[%s: %zu] \n","Offset",offset);
 
 r = cue_fd(offset,fd);
 if(EQ(r,~0x00)) return(0x00);
 
+delim = (signed char(*)) (*(CLI_LEAD+(R(v,*argp))));
 range = (*(CLI_INDEX+(R(fd,*argp))));
 b = (0x00);
-r = rd_k(range,&b,fd);
+r = rd_k(&b,delim,range,fd);
 if(!r) {
 embed_l(0x00,b);
 if(b) rl(b);

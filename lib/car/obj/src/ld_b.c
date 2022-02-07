@@ -11,7 +11,7 @@ Call fn. rl later.
 # include <stdio.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl ld_b(size_t(offset),signed(range),signed char(**di),signed char(*si/* path */))) {
+signed(__cdecl ld_b(size_t(offset),signed(range),signed char(**di),signed char(*delim),signed char(*si/* path */))) {
 
 auto signed char *b;
 auto signed *d;
@@ -62,6 +62,7 @@ printf("%s \n","<< Error at fn. cv_ds()");
 return(0x00);
 }
 
+*(CLI_LEAD+(R(v,fl))) = (void*) (delim);
 *(CLI_INDEX+(R(v,fl))) = (void*) (d);
 *(CLI_INDEX+(R(fd,fl))) = (range);
 r = parse_b(si,&fl,ld_b_r);

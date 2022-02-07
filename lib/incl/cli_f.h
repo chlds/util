@@ -98,6 +98,7 @@ signed(__cdecl ctrl_bullet(ty_t(*argp)));
 signed(__cdecl cli_fn_bullet(cli_property_t(*argp)));
 signed(__cdecl cli_flush_b(signed short(arg/* align */),signed char(*argp)));
 signed(__cdecl cli_flush(signed short(arg/* align */),rule_t(*argp)));
+signed(__cdecl cli_outs_vt(signed short(arg/* align */),signed char(*argp)));
 signed(__cdecl cli_outs_b(signed short(arg/* align */),signed char(*argp)));
 signed(__cdecl cli_out_b(signed short(arg/* align */),signed char(*argp)));
 signed(__cdecl cli_coord_outs(signed short(arg/* align */),signed char(*argp)));
