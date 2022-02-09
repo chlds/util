@@ -379,6 +379,8 @@ signed(__cdecl cue_back_r(signed short(flag),signed char(*sym),signed char(*cach
 signed(__cdecl cue_back(signed char(*sym),signed char(*cache),signed char(*argp)));
 /* Retrieve the leading address to a previous word or symbol. */
 
+signed(__cdecl cue_va_r(signed short(flag),signed char(*sym),signed char(*argp)));
+signed(__cdecl cue_va(signed char(*sym),signed char(*argp)));
 signed(__cdecl cue_r(signed short(flag),signed char(*sym),signed char(*argp)));
 signed(__cdecl cue(signed char(*sym),signed char(*argp)));
 /* Retrieve bytes to the leading address of a word or symbol. */
@@ -461,8 +463,11 @@ signed(__cdecl wrap_r(signed short(arg),signed(*cache),signed char(**argp)));
 signed(__cdecl wrap(signed short(arg),signed char(**argp)));
 /* Count. */
 
+signed(__cdecl cv_va_r(signed char(**di),signed short(*flag),signed char(*sym),signed char(*si)));
+signed(__cdecl cv_va(signed char(***di),signed char(*sym),signed char(*si)));
 signed(__cdecl cv_wo_r(signed char(**di),signed short(*flag),signed char(*sym),signed char(*si)));
 signed(__cdecl cv_wo(signed char(***di),signed char(*sym),signed char(*si)));
+signed(__cdecl ct_va(signed char(*sym),signed char(*argp)));
 signed(__cdecl ct_wo(signed char(*sym),signed char(*argp)));
 /* Map an array of pointers on the RAM. */
 
