@@ -11,8 +11,6 @@ signed(__cdecl cue_va_r(signed short(flag),signed char(*sym),signed char(*argp))
 
 auto signed char *b;
 auto signed r;
-auto signed char cr = ('\r');
-auto signed char lf = ('\n');
 auto signed short BYTE_ONE = (0x01);
 auto signed short BYTE_MUL = (0x02);
 auto signed short BYTE_SYM = (0x04);
@@ -23,8 +21,9 @@ if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 if(!(HT^(*argp))) return(0x00);
 
-if(EQ(cr,*argp)) return(0x00);
-if(EQ(lf,*argp)) return(0x00);
+// also
+if(EQ(CR,*argp)) return(0x00);
+if(EQ(LF,*argp)) return(0x00);
 
 if(SP^(*argp)) {
 if(BYTE_S_H&(flag)) return(0x00);
