@@ -25,6 +25,8 @@ if(!si) return(0x00);
 if(!(*flag)) return(0x00);
 
 r = cue_va(sym,si);
+if(!r) return(0x00);
+
 i = (r);
 r++;
 r = (r*(sizeof(*b)));

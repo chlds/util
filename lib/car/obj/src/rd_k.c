@@ -34,7 +34,7 @@ r = rd_k_r(di,delim,n,fd);
 if(!(*di)) AND(r,0x00);
 if(!r) printf("%s \n","<< Error at fn. rd_k_r()");
 
-rm_br(*di);
+// rm_br(*di);
 
 return(r);
 }
