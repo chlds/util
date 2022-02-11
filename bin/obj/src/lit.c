@@ -41,7 +41,7 @@ if(!(cmpr(&i,b,"l"))) {
 if(!i) threshold++;
 // else sym = (0x00);
 // or display one line of the content
-if(!(cmpr(&i,b,"u"))) {
+if(!(cmpr(&i,b,"k"))) {
 // printf("%s \n","<< Error at fn. cmpr()");
 // return(0x00);
 }
@@ -58,11 +58,11 @@ printf("  %s \n","lit [flag] <file> [offset]");
 printf("\n");
 printf("  %s \n","Flags");
 printf("  %s \n","l Display one line or about 1kB of the content");
-printf("  %s \n","u Display about 1kB of the content");
+printf("  %s \n","k Display about 1kB of the content");
 printf("\n");
 printf("  %s \n","Example");
 printf("  %s \n","lit l cba.txt 12");
-printf("  %s \n","lit u cba.txt");
+printf("  %s \n","lit k cba.txt");
 printf("  %s \n","lit cba.txt 6");
 printf("  %s \n","lit cba.txt");
 return(0x00);
@@ -88,8 +88,9 @@ if(!r) printf("%s \n","<< Error at fn. ld_b()");
 
 if(r) {
 sym = (0x00);
-cli_outs_vt(align,b);
 // out_lines(align,cols,sym,b);
+// cli_outs_vt(align,b);
+cli_o_lines_vt(cols,align,sym,b);
 printf("\n");
 printf("[%zd/%d %s] \n",offset,r,"bytes offset/read");
 printf("[%zd %s] \n",offset+(r),"bytes reached");
