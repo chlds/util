@@ -15,7 +15,7 @@ Refer at fn. cv_sd.
 signed(__cdecl cv_ds(signed(**di),size_t(si))) {
 
 auto signed *d;
-auto signed i,r;
+auto signed r;
 auto signed short flag;
 auto size_t s;
 
@@ -23,13 +23,14 @@ if(!di) return(0x00);
 if(*di) return(0x00);
 // if(!si) return(0x00);
 
-i = (0x01+(0x02));
-r = (i*(sizeof(**di)));
+r = (OBJS);
+r = (r*(sizeof(**di)));
 d = (signed*) alloc(r);
 *di = (d);
 if(!d) return(0x00);
 
-while(i) *(--i+(d)) = (0x00);
+r = (OBJS);
+while(r) *(--r+(d)) = (0x00);
 r = cv_ds_r(d,si);
 
 return(r);

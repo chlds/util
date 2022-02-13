@@ -22,13 +22,7 @@ if(!di) return(0x00);
 if(!si) return(0x00);
 
 AND(*di,0x00);
-r = (*(0x01+(si)));
-if(r<(0x00)) return(0x00);
+AND(r,0x00);
 
-r = cv_sd_r(di,r);
-s = (*si);
-ADD(*di,s);
-r++;
-
-return(r);
+return(cv_sd_r(di,si,r));
 }

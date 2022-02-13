@@ -19,6 +19,10 @@ signed(__cdecl cals_agent(signed(argc),signed char(**argv),signed char(**envp)))
 signed(__cdecl cvlf_agent(signed(argc),signed char(**argv),signed char(**envp)));
 signed(__cdecl lk_agent(signed(argc),signed char(**argv),signed char(**envp)));
 
+signed(__cdecl bpb_r(signed char(arg)));
+signed(__cdecl bpb(void));
+/* Bits par byte */
+
 signed(__cdecl c_kbhit(void));
 signed(__cdecl c_getch(signed(arg)));
 signed(__cdecl c_putch(signed(arg)));
@@ -492,10 +496,14 @@ signed(__cdecl sub_dd_r(signed(*retv/* remainder */),signed(subtrahend),signed(a
 signed(__cdecl sub_dd(signed(*retv/* remainder */),signed(subtrahend),signed(arg/* column-base for argp */),signed(*argp)));
 /* Subtract to retrieve the remainder and number of carry-overs. */
 
-signed(__cdecl cv_sd_r(size_t(*di),signed(si)));
+signed(__cdecl carry_over_r(size_t(*retv),signed(n/* notation */),signed(e)));
+signed(__cdecl carry_over(size_t(*retv),signed(n/* notation */),signed(e)));
+signed(__cdecl cv_sd_r(size_t(*di),signed(*si),signed(arg)));
 signed(__cdecl cv_sd(size_t(*di),signed(*si)));
 /* Convert into data type size_t out of an array of double words. */
 
+signed(__cdecl cv_ds_rr_r(signed(arg),signed(*argp)));
+signed(__cdecl cv_ds_rr(signed(*argp)));
 signed(__cdecl cv_ds_r(signed(*di),size_t(si)));
 signed(__cdecl cv_ds(signed(**di),size_t(si)));
 /* Convert into an array of double words out of data type size_t. */
