@@ -15,10 +15,12 @@ Inspect the byte order.
 
 signed(__cdecl insp_b(signed char(*di/* path */),signed char(*si))) {
 
+auto signed char *b;
 auto signed *d;
 auto signed r;
 auto size_t s;
 auto fl_t fl;
+auto signed char *dir = ("dir");
 auto signed(__cdecl*f)(signed(arg),void(*argp));
 auto signed(__cdecl*(fn[]))(signed(arg),void(*argp)) = {
 insp_b_utf_8,
@@ -32,10 +34,12 @@ auto signed char *(a[]) = {
 if(!di) return(0x00);
 if(!si) return(0x00);
 
-r = cf_ff(di,"dir");
+b = (dir);
+r = cf_ff(di,b);
 if(r) {
-printf("[%s] \n","Directory");
-return(0x00);
+cmpr(&r,si,b);
+if(!r) return(0x01);
+else return(0x00);
 }
 
 AND(s,0x00);
