@@ -23,6 +23,12 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed(__cdecl insp_b_utf_8_r_r(signed char(*argp),signed(cache),signed(fd),size_t(arg)));
+signed(__cdecl insp_b_utf_8_r(signed(cache),signed(fd),size_t(arg)));
+signed(__cdecl insp_b_utf_8(signed(fd),void(*argp)));
+signed(__cdecl insp_b(signed char(*di/* path */),signed char(*si)));
+/* Inspect the byte order */
+
 signed(__cdecl c_kbhit(void));
 signed(__cdecl c_getch(signed(arg)));
 signed(__cdecl c_putch(signed(arg)));

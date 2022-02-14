@@ -15,7 +15,6 @@ Inspect the byte order.
 
 signed(__cdecl insp_b(signed char(*di/* path */),signed char(*si))) {
 
-/* Currently under construction
 auto signed *d;
 auto signed r;
 auto size_t s;
@@ -25,7 +24,7 @@ auto signed(__cdecl*(fn[]))(signed(arg),void(*argp)) = {
 insp_b_utf_8,
 0x00,
 };
-auto signed char *(a[])) = {
+auto signed char *(a[]) = {
 ("utf-8"),
 (0x00),
 };
@@ -33,13 +32,19 @@ auto signed char *(a[])) = {
 if(!di) return(0x00);
 if(!si) return(0x00);
 
+r = cf_ff(di,"dir");
+if(r) {
+printf("[%s] \n","Directory");
+return(0x00);
+}
+
 AND(s,0x00);
-r = already_exist_b(&s,si);
+r = already_exist_b(&s,di);
 if(!r) return(0x00);
 if(!s) return(0x01);
 
 r = ords(a,si);
-if(!(r<(ct_vb(a))) return(0x00);
+if(!(r<(ct_vb(a)))) return(0x00);
 
 f = (*(r+(fn)));
 d = (0x00);
@@ -52,11 +57,9 @@ return(0x00);
 r = parse_b(di,d,f);
 // if(!r) printf("%s \n","<< Error at fn. parse_b()");
 
-embed_d(0x02,d);
+embed_d(OBJS,d);
 rl(d);
 d = (0x00);
 
 return(r);
-//*/
-return(0x01);
 }
