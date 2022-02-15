@@ -1,3 +1,5 @@
+signed(__cdecl cv_main_optl_vt(MAIN_T(argf),signed(argc),signed short(**argv),signed short(**envp)));
+signed(__cdecl cv_main_optl(MAIN_T(argf),signed(argc),signed short(**argv),signed short(**envp)));
 signed(__cdecl cv_main_r(MAIN_T(argf),signed(argc),signed short(**argv),signed char(**envp)));
 signed(__cdecl cv_main(MAIN_T(argf),signed(argc),signed short(**argv),signed short(**envp)));
 signed(__cdecl cli_log_r_r(signed char(*di/* path */),signed char(*si/* contents */)));

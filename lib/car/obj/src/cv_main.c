@@ -1,6 +1,6 @@
 /* **** Notes
 
-Convert.
+Convert into UTF-8.
 */
 
 
