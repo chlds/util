@@ -174,8 +174,8 @@ signed(__cdecl cals_init(signed(arg),cals_t(*argp)));
 signed(__cdecl cals_opt_r(signed(arg),cals_t(*argp)));
 signed(__cdecl cals_opt(signed(arg),cals_t(*argp)));
 signed(__cdecl cals_help(cals_t(*argp)));
-signed(__cdecl cals_agent_r(signed(arg/* months */),signed char(*path),cals_t(*argp)));
-signed(__cdecl cals_agent(signed(argc),signed char(**argv),signed char(**envp)));
+signed(__cdecl cals_flip(signed(arg/* months */),signed char(*path),cals_t(*argp)));
+signed(__cdecl agent_cals(signed(argc),signed char(**argv),signed char(**envp)));
 
 signed(__cdecl cals_reparse(signed char(**b),cals_event_t(*argp)));
 // convert an event into a CSV.

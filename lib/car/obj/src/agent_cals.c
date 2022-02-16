@@ -9,7 +9,7 @@ Refer at <corecrt_wtime.h>
 # include <stdio.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl cals_agent(signed(argc),signed char(**argv),signed char(**envp))) {
+signed(__cdecl agent_cals(signed(argc),signed char(**argv),signed char(**envp))) {
 
 auto cals_event_t *ev;
 auto signed char *b;
@@ -60,8 +60,8 @@ OR(R(flag,cs),flag);
 printf("%s \n","<< Error at fn. cals_flag()");
 }
 
-r = cals_agent_r(for_months,path,&cs);
-if(!r) printf("%s \n","<< Error at fn. cals_agent_r()");
+r = cals_flip(for_months,path,&cs);
+if(!r) printf("%s \n","<< Error at fn. cals_flip()");
 
 path = (0x00);
 

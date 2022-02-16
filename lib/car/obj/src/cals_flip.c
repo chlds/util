@@ -11,7 +11,7 @@ Refer at <corecrt_wtime.h>
 # include <stdio.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl cals_agent_r(signed(arg/* months */),signed char(*path),cals_t(*argp))) {
+signed(__cdecl cals_flip(signed(arg/* months */),signed char(*path),cals_t(*argp))) {
 
 auto cals_event_t *ev;
 auto struct tm *tp;

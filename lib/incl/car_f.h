@@ -13,7 +13,6 @@ signed(__cdecl dupl_agent_w(signed(argc),signed short(**argv),signed short(**env
 signed(__cdecl jd_help(void));
 signed(__cdecl agent_jd(signed(argc),signed char(**argv),signed char(**envp)));
 
-signed(__cdecl cals_agent(signed(argc),signed char(**argv),signed char(**envp)));
 signed(__cdecl cvlf_agent(signed(argc),signed char(**argv),signed char(**envp)));
 signed(__cdecl lk_agent(signed(argc),signed char(**argv),signed char(**envp)));
 

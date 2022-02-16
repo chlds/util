@@ -28,8 +28,8 @@ r = cv_argv_bw(&v,argv);
 if(!r) OR(flag,0x01);
 
 if(!flag) {
-r = cals_agent(argc,v,0x00);
-if(!r) printf("%s \n","<< Error at fn. cals_agent()");
+r = agent_cals(argc,v,0x00);
+if(!r) printf("%s \n","<< Error at fn. agent_cals()");
 }
 
 if(v) {
