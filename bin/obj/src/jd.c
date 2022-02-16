@@ -14,8 +14,8 @@ auto signed char *b;
 auto signed r;
 auto signed short flag;
 
-r = agent_jd_w(argc,argv,envp);
-if(!r) printf("%s \n","<< Error at fn. agent_jd_w()");
+r = cv_main_optl_vt(agent_jd,argc,argv,envp);
+if(!r) printf("%s \n","<< Error at fn. cv_main_optl_vt()");
 
 return(0x00);
 }
