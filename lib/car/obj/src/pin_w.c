@@ -4,6 +4,7 @@ Pin.
 
 Remarks:
 Refer at fn. clipboard_map and clipboard_unmap.
+Based on UTF-16
 */
 
 

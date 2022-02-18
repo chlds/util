@@ -3,7 +3,7 @@
 Empty.
 
 Remarks:
-Refer at util/lib/obj/src/cli_init_roll.c and util/bin/obj/src/ty.c
+Refer at fn. clipboard_map and clipboard_unmap.
 */
 
 
