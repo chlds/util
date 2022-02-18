@@ -672,3 +672,10 @@ signed(__cdecl catpp(signed char(**argp)));
 signed(__cdecl opt_vt_b(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
 signed(__cdecl opt_b(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
 /* Set up the environment. */
+
+void *(__cdecl alloc_g(signed(arg)));
+void *(__cdecl lock_g(void(*argp)));
+signed(__cdecl cpy_g(void(*di),signed short(*si)));
+signed(__cdecl unlock_g(void(*argp)));
+signed(__cdecl rl_g(void(*argp)));
+/* Pin to the clipboard. */
