@@ -673,6 +673,16 @@ signed(__cdecl opt_vt_b(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),vo
 signed(__cdecl opt_b(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
 /* Set up the environment. */
 
+signed(__cdecl pin_w_rrr(void(*argp)));
+signed(__cdecl pin_w_rr(void(*argp)));
+signed(__cdecl pin_w_r(void(*di),signed short(*si)));
+signed(__cdecl pin_w(signed short(*argp)));
+signed(__cdecl pin_b(signed char(*argp)));
+void *(__cdecl currently_working_window(void));
+signed(__cdecl clipboard_map(void(*argp)));
+signed(__cdecl clipboard_empty(void));
+signed(__cdecl clipboard_store_w(void(*argp)));
+signed(__cdecl clipboard_unmap(void));
 void *(__cdecl alloc_g(signed(arg)));
 void *(__cdecl lock_g(void(*argp)));
 signed(__cdecl cpy_g(void(*di),signed short(*si)));
