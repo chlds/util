@@ -1,6 +1,6 @@
 /*
 
-Pin.
+Pin it to your clipboard.
 
 Remarks:
 Refer at fn. clipboard_map and clipboard_unmap.

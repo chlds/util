@@ -10,6 +10,9 @@ Along with C library
 
 signed(__cdecl dupl_agent_w(signed(argc),signed short(**argv),signed short(**envp)));
 
+signed(__cdecl unpin_help(void));
+signed(__cdecl agent_unpin(signed(argc),signed char(**argv),signed char(**envp)));
+
 signed(__cdecl pin_help(void));
 signed(__cdecl agent_pin(signed(argc),signed char(**argv),signed char(**envp)));
 
@@ -676,6 +679,9 @@ signed(__cdecl opt_vt_b(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),vo
 signed(__cdecl opt_b(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
 /* Set up the environment. */
 
+signed(__cdecl unpin_b(void));
+/* Unpin it to your clipboard. */
+
 signed(__cdecl pin_w_rrr(void(*argp)));
 signed(__cdecl pin_w_rr(void(*argp)));
 signed(__cdecl pin_w_r(void(*di),signed short(*si)));
@@ -691,4 +697,4 @@ void *(__cdecl lock_g(void(*argp)));
 signed(__cdecl cpy_g(void(*di),signed short(*si)));
 signed(__cdecl unlock_g(void(*argp)));
 signed(__cdecl rl_g(void(*argp)));
-/* Pin to the clipboard. */
+/* Pin it to your clipboard. */
