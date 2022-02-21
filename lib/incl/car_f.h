@@ -679,6 +679,13 @@ signed(__cdecl opt_vt_b(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),vo
 signed(__cdecl opt_b(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
 /* Set up the environment. */
 
+void *(__cdecl currently_working_process(void));
+signed(__cdecl currently_working_pid(void));
+signed(__cdecl currently_working_window_tid_pid(signed(*di),void(*si)));
+signed(__cdecl unmap_ps(void(*argp)));
+void *(__cdecl map_ps(signed(pid)));
+/* Operate threads and processes. */
+
 signed(__cdecl unpin_b(void));
 /* Unpin it to your clipboard. */
 
@@ -690,8 +697,6 @@ signed(__cdecl pin_b(signed char(*argp)));
 void *(__cdecl currently_working_window(void));
 void *(__cdecl currently_working_clipboard_window(void));
 void *(__cdecl currently_working_clipboard_owner(void));
-void *(__cdecl currently_working_process(void));
-signed(__cdecl currently_working_pid(void));
 signed(__cdecl clipboard_map(void(*argp)));
 signed(__cdecl clipboard_empty(void));
 signed(__cdecl clipboard_store_w(void(*argp)));
