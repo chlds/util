@@ -3,7 +3,7 @@
 Close an open object handle.
 
 Remarks:
-Refer at fn. map_ps.
+Refer at fn. map_td.
 */
 
 
@@ -12,7 +12,7 @@ Refer at fn. map_ps.
 # include <windows.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl unmap_ps(void(*argp))) {
+signed(__cdecl unmap_td(void(*argp))) {
 
 auto signed r;
 

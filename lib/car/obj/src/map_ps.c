@@ -1,6 +1,6 @@
 /*
 
-Open.
+Open an existing local process object.
 
 Remarks:
 Refer at fn. clipboard_map and clipboard_unmap.
