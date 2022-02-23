@@ -3,7 +3,7 @@
 Open an existing local process object.
 
 Remarks:
-Refer at fn. clipboard_map and clipboard_unmap.
+Refer at fn. unmap_ps.
 */
 
 
@@ -21,8 +21,8 @@ auto signed perm = (PROCESS_ALL_ACCESS);
 
 v = (void(*)) OpenProcess(perm,inherit,pid);
 if(!v) {
-r = GetLastError();
-if(!(EQ(ERROR_SUCCESS,r))) printf("%s %d %s %Xh \n","<< Error at fn. OpenProcess() with no.",r,"or",r);
+r = currently_occurring_error();
+if(r) printf("%s %d %s %Xh \n","<< Error at fn. OpenProcess() with no.",r,"or",r);
 }
 
 return(v);

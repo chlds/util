@@ -21,8 +21,8 @@ auto signed perm = (THREAD_ALL_ACCESS);
 
 v = (void(*)) OpenThread(perm,inherit,tid);
 if(!v) {
-r = GetLastError();
-if(!(EQ(ERROR_SUCCESS,r))) printf("%s %d %s %Xh \n","<< Error at fn. OpenThread() with no.",r,"or",r);
+r = currently_occurring_error();
+if(r) printf("%s %d %s %Xh \n","<< Error at fn. OpenThread() with no.",r,"or",r);
 }
 
 return(v);

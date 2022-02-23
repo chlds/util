@@ -3,7 +3,7 @@
 Close an open object handle.
 
 Remarks:
-Refer at fn. map_td.
+Refer at fn. map_ps_token.
 */
 
 
@@ -11,7 +11,7 @@ Refer at fn. map_td.
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl unmap_td(void(*argp))) {
+signed(__cdecl unmap_ps_token(void(*argp))) {
 
 auto signed r;
 

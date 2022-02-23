@@ -679,6 +679,7 @@ signed(__cdecl opt_vt_b(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),vo
 signed(__cdecl opt_b(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
 /* Set up the environment. */
 
+signed(__cdecl currently_occurring_error(void));
 void *(__cdecl currently_working_process_token(void));
 void *(__cdecl currently_working_process(void));
 void *(__cdecl currently_working_thread_token(void));
@@ -688,10 +689,13 @@ signed(__cdecl currently_working_tid(void));
 signed(__cdecl currently_working_pid_process(void(*argp)));
 signed(__cdecl currently_working_tid_thread(void(*argp)));
 signed(__cdecl currently_working_window_tid_pid(signed(*di),void(*si)));
+signed(__cdecl unmap_obj(void(*argp)));
+signed(__cdecl unmap_ps_token(void(*argp)));
 signed(__cdecl unmap_ps(void(*argp)));
 signed(__cdecl unmap_td(void(*argp)));
+void *(__cdecl map_ps_token(void(*argp)));
 void *(__cdecl map_ps(signed(pid)));
-void *(__cdecl map_td(signed(pid)));
+void *(__cdecl map_td(signed(tid)));
 /* Operate threads and processes. */
 
 signed(__cdecl unpin_b(void));
