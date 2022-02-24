@@ -692,9 +692,11 @@ signed(__cdecl currently_working_window_tid_pid(signed(*di),void(*si)));
 signed(__cdecl unmap_obj(void(*argp)));
 signed(__cdecl unmap_ps_token(void(*argp)));
 signed(__cdecl unmap_ps(void(*argp)));
+signed(__cdecl unmap_td_token(void(*argp)));
 signed(__cdecl unmap_td(void(*argp)));
 void *(__cdecl map_ps_token(void(*argp)));
 void *(__cdecl map_ps(signed(pid)));
+void *(__cdecl map_td_token(signed(arg/* open as self */),void(*argp)));
 void *(__cdecl map_td(signed(tid)));
 /* Operate threads and processes. */
 
