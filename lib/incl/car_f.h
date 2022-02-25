@@ -680,6 +680,9 @@ signed(__cdecl opt_b(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),void(
 /* Set up the environment. */
 
 signed(__cdecl currently_occurring_error(void));
+signed(__cdecl cv_priv_luid_r(signed char(*di),signed(arg),signed(low),signed(high)));
+signed(__cdecl cv_priv_luid(signed char(**di),signed(low),signed(high)));
+signed(__cdecl cv_luid_priv(signed(*low),signed(*high),signed char(*si)));
 void *(__cdecl currently_working_process_token(void));
 void *(__cdecl currently_working_process(void));
 void *(__cdecl currently_working_thread_token(void));

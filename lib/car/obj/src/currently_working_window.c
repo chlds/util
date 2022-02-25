@@ -21,7 +21,7 @@ auto signed short flag;
 // v = (void(*)) GetConsoleWindow();
 v = (void(*)) GetForegroundWindow();
 if(!v) {
-r = GetLastError();
+r = currently_occurring_error();
 printf("%s %d %s %Xh \n","<< Error at fn. GetForegroundWindow() with no.",r,"or",r);
 }
 
