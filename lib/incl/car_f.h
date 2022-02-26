@@ -680,6 +680,8 @@ signed(__cdecl opt_b(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),void(
 /* Set up the environment. */
 
 signed(__cdecl currently_occurring_error(void));
+signed(__cdecl currently_granting_privileges_r(signed(arg),signed char(**di),void(*si/* structure token privileges */)));
+signed(__cdecl currently_granting_privileges(signed char(***di),void(*si/* structure token privileges */)));
 signed(__cdecl currently_granting_token_privileges_r(signed(arg),void(*di),void(*si/* token */)));
 signed(__cdecl currently_granting_token_privileges(void(**di),void(*si/* token */)));
 signed(__cdecl cv_priv_luid_r(signed char(*di),signed(arg),signed(low),signed(high)));

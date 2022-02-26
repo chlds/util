@@ -3,7 +3,6 @@
 Retrieve a specified type of information about an access token.
 
 Remarks:
-Call fn. rl later.
 Refer at fn. cv_luid_priv, cv_priv_luid, map_ps, map_ps_token or..
 */
 
