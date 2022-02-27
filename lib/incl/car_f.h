@@ -10,6 +10,15 @@ Along with C library
 
 signed(__cdecl dupl_agent_w(signed(argc),signed short(**argv),signed short(**envp)));
 
+signed(__cdecl priv_rrrrrr(signed char(**argp)));
+signed(__cdecl priv_rrrrr(signed char(**argp)));
+signed(__cdecl priv_rrrr(void(*argp)));
+signed(__cdecl priv_rrr(void(*argp)));
+signed(__cdecl priv_rr(void(*argp)));
+signed(__cdecl priv_r(signed char(*argp)));
+signed(__cdecl priv_help(void));
+signed(__cdecl agent_priv(signed(argc),signed char(**argv),signed char(**envp)));
+
 signed(__cdecl unpin_help(void));
 signed(__cdecl agent_unpin(signed(argc),signed char(**argv),signed char(**envp)));
 
@@ -682,6 +691,7 @@ signed(__cdecl opt_b(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),void(
 signed(__cdecl currently_occurring_error(void));
 signed(__cdecl currently_granting_privileges_r(signed(arg),signed char(**di),void(*si/* structure token privileges */)));
 signed(__cdecl currently_granting_privileges(signed char(***di),void(*si/* structure token privileges */)));
+signed(__cdecl currently_granting_n_privileges(void(*argp/* structure token privileges */)));
 signed(__cdecl currently_granting_token_privileges_r(signed(arg),void(*di),void(*si/* token */)));
 signed(__cdecl currently_granting_token_privileges(void(**di),void(*si/* token */)));
 signed(__cdecl cv_priv_luid_r(signed char(*di),signed(arg),signed(low),signed(high)));
