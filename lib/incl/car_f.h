@@ -28,6 +28,9 @@ signed(__cdecl agent_pin(signed(argc),signed char(**argv),signed char(**envp)));
 signed(__cdecl jd_help(void));
 signed(__cdecl agent_jd(signed(argc),signed char(**argv),signed char(**envp)));
 
+signed(__cdecl lit_help(void));
+signed(__cdecl agent_lit(signed(argc),signed char(**argv),signed char(**envp)));
+
 signed(__cdecl cvlf_agent(signed(argc),signed char(**argv),signed char(**envp)));
 signed(__cdecl lk_agent(signed(argc),signed char(**argv),signed char(**envp)));
 
