@@ -5,6 +5,7 @@ Help.
 
 
 # define CAR
+# include <stdio.h>
 # include "./../../../incl/config.h"
 
 signed(__cdecl lit_help(void)) {

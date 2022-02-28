@@ -4,9 +4,8 @@ Display one line or about 1024 bytes in UTF-8.
 */
 
 
-# define C_CODE_STDS
-# define CALEND
 # define CAR
+# include <stdio.h>
 # include "./../../../incl/config.h"
 
 signed(__cdecl agent_lit(signed(argc),signed char(**argv),signed char(**envp))) {

@@ -197,6 +197,9 @@ void*(__cdecl alloc(signed(arg)));
 signed(__cdecl rl(void(*argp)));
 // release i.e., fn. free.
 
+signed(__cdecl cat_va_r(signed char(**di),signed char(*si)));
+signed(__cdecl cat_va(signed char(***di),signed char(*si)));
+
 signed(__cdecl cat_v(signed(arg/* code of line break */),signed char(*argp/* separator */),signed char(**di),signed char(**si)));
 /* Concatenate. */
 
@@ -638,6 +641,9 @@ signed(__cdecl rm_br_r(signed(arg),signed char(*argp)));
 signed(__cdecl rm_br(signed char(*argp)));
 signed(__cdecl embedback_r(signed(arg),signed char(*argp)));
 signed(__cdecl embedback(signed(arg),signed char(*argp)));
+signed(__cdecl embed_v_rr(signed(arg),signed char(**argp)));
+signed(__cdecl embed_v_r(signed char(**argp)));
+signed(__cdecl embed_v(signed(arg),signed char(**argp)));
 signed(__cdecl embed_d_rr(signed(arg),signed(*argp)));
 signed(__cdecl embed_d_r(signed(*argp)));
 signed(__cdecl embed_d(signed(arg),signed(*argp)));
