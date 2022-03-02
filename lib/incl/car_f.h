@@ -22,6 +22,10 @@ signed(__cdecl agent_priv(signed(argc),signed char(**argv),signed char(**envp)))
 signed(__cdecl unpin_help(void));
 signed(__cdecl agent_unpin(signed(argc),signed char(**argv),signed char(**envp)));
 
+signed(__cdecl depin_help(void));
+signed(__cdecl agent_depin(signed(argc),signed char(**argv),signed char(**envp)));
+/* Output clipboard text. */
+
 signed(__cdecl pin_help(void));
 signed(__cdecl agent_pin(signed(argc),signed char(**argv),signed char(**envp)));
 
@@ -730,6 +734,11 @@ void *(__cdecl map_td(signed(tid)));
 signed(__cdecl unpin_b(void));
 /* Unpin it to your clipboard. */
 
+signed(__cdecl depin_b_rr(signed char(**di),void(*si)));
+signed(__cdecl depin_b_r(signed char(**argp)));
+signed(__cdecl depin_b(signed char(**argp)));
+/* De-pin. */
+
 signed(__cdecl pin_w_rrr(void(*argp)));
 signed(__cdecl pin_w_rr(void(*argp)));
 signed(__cdecl pin_w_r(void(*di),signed short(*si)));
@@ -741,6 +750,7 @@ void *(__cdecl currently_working_clipboard_owner(void));
 signed(__cdecl clipboard_map(void(*argp)));
 signed(__cdecl clipboard_empty(void));
 signed(__cdecl clipboard_store_w(void(*argp)));
+void *(__cdecl clipboard_retrieve_w(void));
 signed(__cdecl clipboard_unmap(void));
 signed(__cdecl count_clipboard_formats(void));
 void *(__cdecl alloc_g(signed(arg)));
