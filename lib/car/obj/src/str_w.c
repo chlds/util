@@ -17,7 +17,7 @@ Create, append or truncate.
 # include <errno.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl str_b(signed(arg/* code of line break */),signed char(*perm),signed char(*di/* path */),signed char(*si/* contents */))) {
+signed(__cdecl str_w(signed(arg/* code of line break */),signed char(*perm),signed short(*di/* path */),signed char(*si/* contents */))) {
 
 auto signed char *b;
 auto void *argp;
@@ -47,5 +47,5 @@ if(!(EQ(LF,arg))) b = (crlf);
 argp = (void*) (&fl);
 f = (str_b_r);
 
-return(xt(perm,di,argp,f));
+return(xt_w(perm,di,argp,f));
 }

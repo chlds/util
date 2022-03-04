@@ -40,6 +40,7 @@ if(pm) fd = op_b(path,&ac,&pm,(void*)0x00);
 else fd = op_b(path,&ac,(void*)0x00);
 if(EQ(fd,~0x00)) {
 printf("%s %Xh \n","<< Error at fn. op_b() with errno.",errno);
+if(EQ(EEXIST,errno)) printf("%s \n","Error: Already in existence");
 return(0x00);
 }
 

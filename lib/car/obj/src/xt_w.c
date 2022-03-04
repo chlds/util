@@ -40,6 +40,7 @@ if(pm) fd = _wopen(path,ac,pm);
 else fd = _wopen(path,ac);
 if(EQ(fd,~0x00)) {
 printf("%s %Xh \n","<< Error at fn. _wopen() with errno.",errno);
+if(EQ(EEXIST,errno)) printf("%s \n","Error: Already in existence");
 return(0x00);
 }
 

@@ -22,6 +22,9 @@ signed(__cdecl agent_priv(signed(argc),signed char(**argv),signed char(**envp)))
 signed(__cdecl unpin_help(void));
 signed(__cdecl agent_unpin(signed(argc),signed char(**argv),signed char(**envp)));
 
+signed(__cdecl depin_store_r(signed char(*di),signed char(*si)));
+signed(__cdecl depin_store(signed char(**argp)));
+signed(__cdecl depin_output(void));
 signed(__cdecl depin_help(void));
 signed(__cdecl agent_depin(signed(argc),signed char(**argv),signed char(**envp)));
 /* Output clipboard text. */
@@ -98,6 +101,7 @@ signed(__cdecl parse_w(signed short(*path),void(*argp),signed(__cdecl*f)(signed(
 signed(__cdecl parse_b(signed char(*path),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
 signed(__cdecl ed_w(signed short(*path),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
 signed(__cdecl ed_b(signed char(*path),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
+signed(__cdecl str_w(signed(arg/* code of line break */),signed char(*perm),signed short(*di/* path */),signed char(*si/* contents */)));
 signed(__cdecl str_b_r(signed(fd),fl_t(*argp)));
 signed(__cdecl str_b(signed(arg/* code of line break */),signed char(*perm),signed char(*di/* path */),signed char(*si/* contents */)));
 signed(__cdecl appd_b(signed(arg/* code of line break */),signed char(*di/* path */),signed char(*si/* contents */)));
