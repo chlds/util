@@ -14,6 +14,7 @@ auto signed char **v;
 auto signed char *b;
 auto signed r;
 auto signed short flag;
+auto signed char *a = ("a");
 auto signed char *o = ("o");
 
 v = (argv);
@@ -21,12 +22,16 @@ v++;
 b = (*v);
 if(!b) return(depin_output());
 
+AND(flag,0x00);
 cmpr(&r,b,o);
-if(!r) {
+if(!r) OR(flag,0x02);
+
+cmpr(&r,b,a);
+if(!r) OR(flag,0x01);
+if(flag) {
 v++;
 b = (*v);
-if(!b) return(depin_help());
-else return(depin_store(argv));
+if(b) return(depin_store(flag,argv));
 }
 
 return(depin_help());
