@@ -8,6 +8,9 @@ Along with C library
 */
 
 
+void *(__cdecl knit_b(signed(arg/* size */),void(*argp),void(__cdecl*f)(void(*argp))));
+/* Create a thread. */
+
 signed(__cdecl dupl_agent_w(signed(argc),signed short(**argv),signed short(**envp)));
 
 signed(__cdecl priv_rrrrrr(signed char(**argp)));
