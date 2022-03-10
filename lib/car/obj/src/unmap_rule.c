@@ -1,6 +1,6 @@
 /* **** Notes
 
-Initialise
+Release.
 
 Remarks:
 Refer at fn. init_rule.
@@ -10,14 +10,16 @@ Refer at fn. init_rule.
 # define CAR
 # include "./../../../incl/config.h"
 
-signed(__cdecl init_rule_b(signed short(arg),rule_t(*argp))) {
+signed(__cdecl unmap_rule(rule_t(*argp))) {
 
 auto signed char *b;
 auto signed r;
 
 if(!argp) return(0x00);
 
-if(arg) return(unmap_rule(argp));
+b = (*(CLI_BASE+(R(b,*argp))));
+embed(0x00,b);
+if(b) rl(b);
 
 b = (0x00);
 r = (CLI_OBJS);

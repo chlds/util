@@ -103,7 +103,7 @@ access = (_O_CREAT|(_O_APPEND|(_O_WRONLY|(_O_BINARY))));
 fd = _wopen(w,access,permission);
 if(!(fd^(~(0x00)))) {
 if(!(EEXIST^(errno))) {
-OR(R(flag,*argp),CLI_ALREADY_EXIST);
+OR(R(flag,*argp),CLI_ALREADY);
 return(0x01);
 }
 OR(R(flag,R(commandline,*argp)),CLI_IRR);

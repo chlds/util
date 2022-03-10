@@ -57,4 +57,12 @@ KNOT *(knot[COMMON_OBJS/* KNOTS */]);
 void *optl;
 } REEL;
 
+struct sat_v2 {
+signed run;
+rule_t rule[OBJS];
+signed short flag[OBJS];
+paragraph_t *(paragraph[OBJS]);
+void *optl;
+} typedef sat_t;
+
 // and more..

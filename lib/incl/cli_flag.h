@@ -7,7 +7,7 @@
 // # define CLI_APPEND (0x20)
 # define CL_QUIT (0x40)
 # define CLI_MONITOR (0x80)
-# define CLI_ALREADY_EXIST (0x100)
+# define CLI_ALREADY (0x100)
 # define CLI_OVERWRITE (0x200)
 # define CLI_REFRESH (0x400)
 # define CLI_FORCED (0x800)

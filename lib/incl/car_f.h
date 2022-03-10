@@ -8,8 +8,27 @@ Along with C library
 */
 
 
+void(__cdecl cmdl_exit_b(void(*argp)));
+void(__cdecl cmdl_help_b(void(*argp)));
+void(__cdecl cmdl_clear_b(void(*argp)));
+void(__cdecl cmdl_time_b(void(*argp)));
+void(__cdecl cmdl_open_b(void(*argp)));
+void(__cdecl cmdl_save_b(void(*argp)));
+void(__cdecl cmdl_output_b(void(*argp)));
+void(__cdecl cmdl_history_b(void(*argp)));
+signed(__cdecl cmdl_help_b_r(void(*argp)));
+signed(__cdecl cmdl_clear_b_r(void(*argp)));
+signed(__cdecl cmdl_time_b_r(void(*argp)));
+signed(__cdecl cmdl_open_b_r(void(*argp)));
+signed(__cdecl cmdl_save_b_r(void(*argp)));
+signed(__cdecl cmdl_output_b_r(void(*argp)));
+signed(__cdecl cmdl_history_b_r(void(*argp)));
+void *(__cdecl stitch_b(signed(arg/* stack size of threads */),signed char(*cache),void(*argp)));
+/* Run in a subroutine. */
+void(__cdecl unknit_b(void));
 void *(__cdecl knit_b(signed(arg/* size */),void(*argp),void(__cdecl*f)(void(*argp))));
-/* Create a thread. */
+/* Create/terminate a thread. */
+signed(__cdecl agent_sat(signed(argc),signed char(**argv),signed char(**envp)));
 
 signed(__cdecl dupl_agent_w(signed(argc),signed short(**argv),signed short(**envp)));
 
@@ -170,6 +189,13 @@ signed(__cdecl rule_b(signed(arg),rule_t(*di),signed char(*si)));
 signed(__cdecl init_rule_b_r(signed short(flag),signed(arg),rule_t(*argp)));
 signed(__cdecl init_rule_b(signed short(arg),rule_t(*argp)));
 signed(__cdecl init_rule(signed short(flag),signed(arg),rule_t(*argp)));
+signed(__cdecl unmap_rule(rule_t(*argp)));
+signed(__cdecl map_rule(signed(arg),rule_t(*argp)));
+signed(__cdecl remap_rule(signed(arg),rule_t(*argp)));
+signed(__cdecl replace_rule(rule_t(*di),signed char(*si)));
+signed(__cdecl cat_rule_rr(signed char(**di),signed char(**si)));
+signed(__cdecl cat_rule_r(rule_t(*di),signed char(**si)));
+signed(__cdecl cat_rule(rule_t *argp,...));
 
 signed(__cdecl closef(signed short(arg),signed(fd)));
 signed(__cdecl writef(signed short(arg),signed(fd),void(*argp),signed(size)));

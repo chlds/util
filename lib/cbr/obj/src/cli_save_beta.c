@@ -76,7 +76,7 @@ return(0x01);
 return(0x00);
 }
 if(!(CLI_OVERWRITE&(R(flag,R(ty,*argp))))) {
-if(CLI_ALREADY_EXIST&(R(flag,R(ty,*argp)))) {
+if(CLI_ALREADY&(R(flag,R(ty,*argp)))) {
 r = cli_confirm_save_beta(argp);
 if(!r) {
 printf("%s\n","<< Error at fn. cli_confirm_save_beta()");
