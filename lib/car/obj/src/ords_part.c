@@ -1,6 +1,9 @@
 /* **** Notes
 
 Check the ordinal number.
+
+Remarks:
+Refer at fn. reords_part.
 //*/
 
 
@@ -16,7 +19,7 @@ if(!si) return(0x00);
 
 if(!(*di)) return(0x00);
 
-r = cmpr_part(&i,si,*di);
+r = cmpr_part(&i,*di,si);
 if(!i) return(0x00);
 
 di++;

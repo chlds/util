@@ -16,7 +16,7 @@ if(!retv) return(0x00);
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 
-r = ords(table,argp);
+r = reords_part(table,argp);
 if(r<(ct_p(table))) {
 *retv = (r);
 return(0x00);

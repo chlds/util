@@ -11,7 +11,7 @@ on branch develop
 void *(__cdecl stitch_b(signed(arg/* stack size of threads */),signed char(*cache),void(*argp))) {
 
 auto signed char *b;
-auto void *h;
+auto void *v;
 auto signed r;
 auto signed short flag;
 auto sat_t sat;
@@ -44,16 +44,15 @@ if(!argp) return(0x00);
 
 b = (cache);
 r = ords(term,b);
-if(!r) return(0x00);
 if(!(r<(ct_vb(term)))) return(0x00);
 if(arg<(0x00)) AND(arg,0x00);
 /* stack size of threads */
 
 // run in a sub-routine
 f = (*(r+(fn)));
-h = knit_b(arg,argp,f);
-if(!h) printf("%s \n","<< Error at fn. knit_b()");
+v = knit_b(arg,argp,f);
+if(!v) printf("%s \n","<< Error at fn. knit_b()");
 // e.g., unmap the rest..
 
-return(h);
+return(v);
 }

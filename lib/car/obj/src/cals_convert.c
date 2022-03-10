@@ -38,10 +38,7 @@ OR(R(flag,*argp),CALS_INVALID);
 //*/
 
 r = cv_ords(0x00/* front */,MONTH_V,&i,b);
-if(!r) {
-printf("%s \n","<< Error at fn. cv_ords()");
-return(0x00);
-}
+// if(!r) return(0x00);
 
 mo = (signed short) (i);
 *(CALS_MO+(R(date,*argp))) = (mo);

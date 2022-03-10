@@ -326,6 +326,9 @@ signed(__cdecl cv_ord_l_r(signed(arg),signed char(**table),signed(*retv),signed 
 signed(__cdecl cv_ord_l(signed char(**table),signed(*retv),signed char(*argp)));
 signed(__cdecl cv_ord_f_r(signed char(**table),signed(*retv),signed char(*argp)));
 signed(__cdecl cv_ord_f(signed char(**table),signed(*retv),signed char(*argp)));
+signed(__cdecl reords_partially(signed char(**di),signed char(*si)));
+signed(__cdecl reords_part(signed char(**di),signed char(*si)));
+signed(__cdecl ords_partially(signed char(**di),signed char(*si)));
 signed(__cdecl ords_part(signed char(**di),signed char(*si)));
 signed(__cdecl ords(signed char(**di),signed char(*si)));
 signed(__cdecl ord(signed char(*di),signed char(si)));
