@@ -160,8 +160,8 @@ signed(__cdecl rd_b(signed(fd),signed char(*argp),signed(arg)));
 signed(__cdecl wr_b(signed(fd),signed char(*argp),signed(arg)));
 signed(__cdecl op_b(signed char(*path),signed(*argp),...));
 
-signed(__cdecl already_exist_w(size_t(*size),signed short(*argp)));
-signed(__cdecl already_exist_b(size_t(*size),signed char(*argp)));
+signed(__cdecl already_w(size_t(*size),signed short(*argp)));
+signed(__cdecl already_b(size_t(*size),signed char(*argp)));
 
 signed(__cdecl msleep(signed(arg)));
 void(__cdecl sleep_b(signed(arg)));

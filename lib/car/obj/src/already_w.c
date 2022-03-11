@@ -1,6 +1,6 @@
 /* **** Notes
 
-Stat.
+Already in existence or under..
 
 Remarks:
 CR (0x0D)
@@ -17,7 +17,7 @@ LF (0x0A)
 # include <errno.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl already_exist_b(size_t(*size),signed char(*argp))) {
+signed(__cdecl already_w(size_t(*size),signed short(*argp))) {
 
 auto signed char *b;
 auto signed short *w;
@@ -28,13 +28,19 @@ auto struct _stati64 stats;
 if(!size) return(0x00);
 if(!argp) return(0x00);
 
+/*
+r = ct_w(argp);
+if(r<(0x01)) return(0x00);
+if('/'^(*(--r+(argp)))) return(0x00);
+//*/
+
 AND(r,0x00);
 *size = (size_t) (r);
-
-r = _stati64(argp,&stats);
+r = _wstati64(argp,&stats);
 if(!(r^(~0x00))) {
-if(!(ENOENT^(errno))) NOT(*size);
-if(DBG) printf("%s %Xh \n","<< Error at fn. _stati64() with errno.",errno);
+if(EQ(ENOENT,errno)) NOT(*size);
+if(DBG) printf("%s %Xh \n","<< Error at fn. _wstati64() with errno.",errno);
+if(EQ(EINVAL,errno)) printf("%s \n","Error: An invalid parameter");
 return(0x00);
 }
 

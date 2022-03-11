@@ -49,7 +49,7 @@ return(0x00);
 }
 if(CLI_DBG) printf("%s %s \n","Path:",path);
 /* Check the configuration file size. */
-r = already_exist_b(&size,path);
+r = already_b(&size,path);
 if(!r) {
 if(EQ(size,~0x00)) {
 printf("%s %s \n","<< No config file at",path);
@@ -57,7 +57,7 @@ rl(path);
 path = (0x00);
 return(0x01);
 }
-printf("%s \n","<< Error at fn. already_exist_b()");
+printf("%s \n","<< Error at fn. already_b()");
 return(0x00);
 }}
 
@@ -68,13 +68,13 @@ if(!r) {
 printf("%s \n","<< Error at fn. decode2w()");
 return(0x00);
 }
-r = already_exist_w(&size,name);
+r = already_w(&size,name);
 if(!r) {
 if(EQ(size,~0x00)) {
 printf("%s \n","<< No configuration file");
 return(0x01);
 }
-printf("%s \n","<< Error at fn. already_exist_w()");
+printf("%s \n","<< Error at fn. already_w()");
 return(0x00);
 }}
 

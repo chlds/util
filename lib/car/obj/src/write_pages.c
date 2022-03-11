@@ -23,10 +23,10 @@ flag = (*(CLI_BASE+(R(flag,*si))));
 if(!(CLI_INIT&(flag))) return(0x00);
 
 // check the file stat.
-r = already_exist_b(&size,di);
+r = already_b(&size,di);
 if(!r) {
 if(EQ(size,~0x00)) printf("%s \n","<< No file..");
-else printf("%s \n","<< Error at fn. already_exist_b()");
+else printf("%s \n","<< Error at fn. already_b()");
 return(0x00);
 }
 

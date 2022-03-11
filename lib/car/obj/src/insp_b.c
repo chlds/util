@@ -43,7 +43,7 @@ else return(0x00);
 }
 
 AND(s,0x00);
-r = already_exist_b(&s,di);
+r = already_b(&s,di);
 if(!r) return(0x00);
 if(!s) return(0x01);
 

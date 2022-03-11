@@ -53,10 +53,10 @@ return(0x00);
 if(CALS_VERBOSE&(R(flag,*argp))) printf("%s %s \n","Path:",path);
 
 // check the event file stat.
-r = already_exist_b(&size,path);
+r = already_b(&size,path);
 if(!r) {
 if(EQ(size,~0x00)) OR(r,0x01);
-else printf("%s \n","<< Error at fn. already_exist_b()");
+else printf("%s \n","<< Error at fn. already_b()");
 }
 
 if(r) {

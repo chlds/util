@@ -26,10 +26,10 @@ if(!argp) return(0x00);
 if(!f) return(0x00);
 
 // check the file stat.
-r = already_exist_b(&size,path);
+r = already_b(&size,path);
 if(!r) {
 // if(EQ(size,~0x00)) printf("%s \n","<< No file");
-// else printf("%s \n","<< Error at fn. already_exist_b()");
+// else printf("%s \n","<< Error at fn. already_b()");
 return(0x00);
 }
 

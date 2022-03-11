@@ -19,7 +19,7 @@ auto size_t s;
 if(!argp) return(~0x00);
 if(!(*argp)) return(~0x00);
 
-r = already_exist_w(&s,argp);
+r = already_w(&s,argp);
 if(!r) return(~0x00);
 
 return(s);
