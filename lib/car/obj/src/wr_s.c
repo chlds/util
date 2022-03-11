@@ -18,9 +18,9 @@ if(!di) return(0x00);
 if(!si) return(0x00);
 
 //*
-r = wr_trunc_b(0x00,di);
+r = trunc_b(0x00,di);
 if(!r) {
-printf("%s \n","<< Error at fn. wr_trunc_b()");
+printf("%s \n","<< Error at fn. trunc_b()");
 return(0x00);
 }
 //*/

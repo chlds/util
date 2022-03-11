@@ -24,9 +24,9 @@ return(0x00);
 }
 
 AND(flag,0x00);
-r = wr_trunc_b(cache,argp);
+r = trunc_b(cache,argp);
 if(!r) {
-printf("%s \n","<< Error at fn. wr_trunc_b()");
+printf("%s \n","<< Error at fn. trunc_b()");
 OR(flag,0x01);
 }
 

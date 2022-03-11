@@ -206,9 +206,9 @@ signed(__cdecl statf(signed short(arg),signed char(*path),void(*argp)));
 size_t(__cdecl sz_w(signed short(*argp)));
 size_t(__cdecl sz_b(signed char(*argp)));
 
-signed(__cdecl wr_bkup_b(signed char(*extension),signed char(*argp)));
-signed(__cdecl wr_trunc_b(signed char(*cache/* an extension for backups */),signed char(*path)));
-signed(__cdecl trunc_b(signed char(*path)));
+signed(__cdecl trunc_b_r(signed char(*path)));
+signed(__cdecl trunc_b(signed char(*cache/* an extension for backups */),signed char(*path)));
+signed(__cdecl backup_b(signed char(*extension),signed char(*argp)));
 
 signed(__cdecl wr_s_r(signed(fd),signed char(*argp)));
 signed(__cdecl wr_s(signed char(*di),signed char(*si)));
