@@ -351,6 +351,8 @@ signed(__cdecl cmpr_part_r(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr_part(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr_partially_r(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr_partially(signed(*cache),signed char(*di),signed char(*si)));
+signed(__cdecl cmpr_w_r(signed(*cache),signed short(*di),signed short(*si)));
+signed(__cdecl cmpr_w(signed(*cache),signed short(*di),signed short(*si)));
 signed(__cdecl cmpr_r(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr(signed(*cache),signed char(*di),signed char(*si)));
 /* Compare ones in case sensitive character strings */
@@ -375,10 +377,12 @@ signed(__cdecl cv_ds_b(signed char(*argp),signed char(di),signed char(si)));
 signed(__cdecl ct_l(signed char(*argp)));
 /* Count and convert. */
 
+signed(__cdecl cf_dir_w(signed short(*argp)));
+signed(__cdecl cf_dir(signed char(*argp)));
 signed(__cdecl cf_ff_w(signed short(*di),signed char(*si)));
 signed(__cdecl cf_ff(signed char(*di),signed char(*si)));
+signed(__cdecl cf_f_extensions_w(signed short(*cache),signed short(*argp)));
 signed(__cdecl cf_f_extensions(signed char(*cache),signed char(*argp)));
-signed(__cdecl cf_dir(signed char(*argp)));
 /* Confirm. */
 
 signed(__cdecl ct_a_back_r(signed char(*argp)));

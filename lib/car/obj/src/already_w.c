@@ -39,8 +39,10 @@ AND(r,0x00);
 r = _wstati64(argp,&stats);
 if(!(r^(~0x00))) {
 if(EQ(ENOENT,errno)) NOT(*size);
-if(DBG) printf("%s %Xh \n","<< Error at fn. _wstati64() with errno.",errno);
+if(DBG) {
+printf("%s %Xh \n","<< Error at fn. _wstati64() with errno.",errno);
 if(EQ(EINVAL,errno)) printf("%s \n","Error: An invalid parameter");
+}
 return(0x00);
 }
 
