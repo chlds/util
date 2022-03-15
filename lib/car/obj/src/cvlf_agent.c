@@ -20,22 +20,7 @@ auto signed i,l,r;
 auto signed short flag;
 auto c_dirs_info_t cdi;
 
-if(argc<(0x02)) {
-printf("\n");
-printf(" Convert the code of line break into LF. \n");
-printf("\n");
-printf(" Syntax: \n");
-printf(" cvlf.exe <DIR> <EXTENSION> \n");
-printf(" cvlf.exe <FILE> \n");
-printf("\n");
-printf(" Example: \n");
-printf(" cvlf.exe ./ .c \n");
-printf(" cvlf.exe cba.c \n");
-printf("\n");
-printf(" Back files up before running this function if you'd like.. \n");
-return(0x01);
-}
-
+if(argc<(0x02)) return(cvlf_help());
 if(argc<(0x03)) {
 r = cv_lf(0x00/* backup */,*(argv+(argc+(~0x00))));
 if(!r) {
