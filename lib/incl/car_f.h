@@ -197,12 +197,6 @@ signed(__cdecl cat_rule_rr(signed char(**di),signed char(**si)));
 signed(__cdecl cat_rule_r(rule_t(*di),signed char(**si)));
 signed(__cdecl cat_rule(rule_t *argp,...));
 
-signed(__cdecl closef(signed short(arg),signed(fd)));
-signed(__cdecl writef(signed short(arg),signed(fd),void(*argp),signed(size)));
-signed(__cdecl readf(signed short(arg),signed(fd),void(*argp),signed(size)));
-signed(__cdecl openf(signed short(arg),signed char(*path),signed(mode),signed(permission)));
-signed(__cdecl statf(signed short(arg),signed char(*path),void(*argp)));
-
 size_t(__cdecl sz_w(signed short(*argp)));
 size_t(__cdecl sz_b(signed char(*argp)));
 
