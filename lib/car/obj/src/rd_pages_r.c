@@ -10,12 +10,11 @@ Read.
 # include <errno.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl rd_pages_r(page_t(*argp),signed(fd))) {
+signed(__cdecl rd_pages_r(signed(fd),page_t(*argp))) {
 
 auto signed char *b;
-// auto rule_t *rule;
-auto page_t *page;
-auto signed i,r;
+auto page_t *p;
+auto signed r;
 auto signed short flag;
 auto signed char delim[] = {
 // SP,
@@ -23,8 +22,8 @@ LF,
 0x00,
 };
 
-if(!argp) return(0x00);
 if(fd<(0x00)) return(0x00);
+if(!argp) return(0x00);
 
 b = (0x00);
 r = rd_f(&b,delim,fd);
@@ -39,35 +38,40 @@ b = (0x00);
 return(0x00);
 }
 
-r = bind_pages(CLI_BR,argp);
+AND(flag,0x00);
+r = ct(b);
+if(r) {
+if(EQ(LF,*(--r+(b)))) OR(flag,CLI_BR);
+}
+
+r = bind_pages(flag,argp);
 if(!r) {
 printf("%s \n","<< Error at fn. bind_pages()");
 return(0x00);
 }
 
-page = (*(CLI_INDEX+(R(page,*argp))));
-if(!page) {
+p = (*(CLI_INDEX+(R(page,*argp))));
+if(!p) {
 printf("%s \n","<< No page..");
 return(0x00);
 }
 
-// rule = (CLI_BASE+(R(rule,*page)));
-// if(*(CLI_BASE+(R(b,*rule)))) {
-if(*(CLI_BASE+(R(b,*page)))) {
+if(*(CLI_BASE+(R(b,*p)))) {
 printf("%s \n","<< Already allocated to the b..");
 return(0x00);
 }
 
-// *(CLI_BASE+(R(b,*rule))) = (b);
-*(CLI_BASE+(R(b,*page))) = (b);
+*(CLI_BASE+(R(b,*p))) = (b);
 r = rm_br(b);
+/* e.g., no break
 if(!r) {
 printf("%s \n","<< Error at fn. rm_br()");
 return(0x00);
 }
+//*/
 
+p = (0x00);
 b = (0x00);
-// rule = (0x00);
 
-return(0x01+(rd_pages_r(argp,fd)));
+return(0x01+(rd_pages_r(fd,argp)));
 }

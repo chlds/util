@@ -14,7 +14,7 @@ signed(__cdecl init_pages(signed(arg),page_t(*argp))) {
 
 auto signed char *b;
 auto rule_t *rule;
-auto page_t *page;
+auto page_t *p;
 auto signed r;
 auto signed short flag;
 
@@ -41,12 +41,12 @@ return(0x00);
 //*/
 
 AND(flag,0x00);
-page = (0x00);
+p = (0x00);
 b = (0x00);
 r = (OBJS);
 while(r) *(--r+(R(b,*argp))) = (b);
 r = (PAGES);
-while(r) *(--r+(R(page,*argp))) = (page);
+while(r) *(--r+(R(page,*argp))) = (p);
 r = (FLAGS);
 while(r) *(--r+(R(flag,*argp))) = (flag);
 

@@ -19,23 +19,22 @@ signed(__cdecl read_pages(page_t(*di),signed char(*si))) {
 
 auto signed char *b;
 auto signed fd;
-auto signed i,r;
+auto signed r;
 auto signed short flag;
-auto struct stat stats;
-auto signed access_right = (O_BINARY|(O_RDONLY));
+auto size_t size;
+auto signed char *perm = ("rdonly,binary,");
 
 if(!di) return(0x00);
 if(!si) return(0x00);
 
-// check the file stat.
-r = stat(si,&stats);
-if(!(r^(~0x00))) {
-if(EQ(ENOENT,errno)) printf("%s \n","<< No file..");
-else printf("%s \n","<< Error at fn. stat()");
+r = already_b(&size,si);
+if(!r) {
+if(EQ(size,~0x00)) printf("%s \n","<< No file..");
+else printf("%s \n","<< Error at fn. already_b()");
 return(0x00);
 }
 
-if(DBG) printf("%d%s \n",R(st_size,stats),"bytes");
+if(DBG) printf("%zu%s \n",size,"bytes");
 
 r = init_pages(0x00,di);
 if(!r) {
@@ -43,20 +42,5 @@ printf("%s \n","<< Error at fn. init_pages()");
 return(0x00);
 }
 
-fd = op_b(si,&access_right,(void*)0x00);
-if(!(fd^(~0x00))) {
-printf("%s %Xh \n","<< Error at fn. op_b() with errno",errno);
-return(0x00);
-}
-
-r = rd_pages(di,fd);
-if(!r) printf("%s \n","<< Error at fn. rd_pages()");
-
-i = (~0x00);
-if(EQ(i,cl_b(fd))) {
-printf("%s %Xh \n","<< Error at fn. cl_b() with errno",errno);
-return(0x00);
-}
-
-return(r);
+return(xt(perm,si,di,rd_pages));
 }

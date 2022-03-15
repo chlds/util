@@ -168,8 +168,8 @@ void(__cdecl sleep_b(signed(arg)));
 
 signed(__cdecl cv_lf(signed char(*cache/* an extension for backups */),signed char(*argp)));
 signed(__cdecl read_pages(page_t(*di),signed char(*si)));
-signed(__cdecl rd_pages_r(page_t(*argp),signed(fd)));
-signed(__cdecl rd_pages(page_t(*argp),signed(fd)));
+signed(__cdecl rd_pages_r(signed(fd),page_t(*argp)));
+signed(__cdecl rd_pages(signed(fd),page_t(*argp)));
 signed(__cdecl write_pages(signed char(*di),page_t(*si)));
 signed(__cdecl wr_pages_r(signed(fd),page_t(*argp)));
 signed(__cdecl wr_pages(signed(fd),page_t(*argp)));
