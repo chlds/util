@@ -7,16 +7,18 @@ This program may immediately cause a stack overflow.
 */
 
 
-# define CALEND
 # define CAR
-# include "../../../lib/incl/config.h"
+# include "./../../../lib/incl/config.h"
 
-signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
+signed(__cdecl wmain(signed(argc),signed short(**argv),signed short(**envp))) {
 
+auto signed char **v;
+auto signed char *b;
 auto signed r;
+auto signed short flag;
 
-AND(r,0x00);
-if(!(cvlf_agent(argc,argv,envp))) r = cli_message(r,"<< Error at fn. cvlf_agent()");
+r = cv_main_optl_vt(agent_cvlf,argc,argv,envp);
+if(!r) printf("%s \n","<< Error at fn. cv_main_optl_vt()");
 
-return(r);
+return(0x00);
 }

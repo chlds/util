@@ -61,7 +61,7 @@ signed(__cdecl lit_help(void));
 signed(__cdecl agent_lit(signed(argc),signed char(**argv),signed char(**envp)));
 
 signed(__cdecl cvlf_help(void));
-signed(__cdecl cvlf_agent(signed(argc),signed char(**argv),signed char(**envp)));
+signed(__cdecl agent_cvlf(signed(argc),signed char(**argv),signed char(**envp)));
 signed(__cdecl agent_lk(signed(argc),signed char(**argv),signed char(**envp)));
 
 signed(__cdecl bpb_r(signed char(arg)));

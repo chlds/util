@@ -13,7 +13,7 @@ This program may immediately cause a stack overflow.
 # include "./../../../incl/config.h"
 # include "./../../../incl/c_dir.h"
 
-signed(__cdecl cvlf_agent(signed(argc),signed char(**argv),signed char(**envp))) {
+signed(__cdecl agent_cvlf(signed(argc),signed char(**argv),signed char(**envp))) {
 
 auto signed char *b,*p,*t;
 auto signed i,l,r;
@@ -23,11 +23,8 @@ auto c_dirs_info_t cdi;
 if(argc<(0x02)) return(cvlf_help());
 if(argc<(0x03)) {
 r = cv_lf(0x00/* backup */,*(argv+(argc+(~0x00))));
-if(!r) {
-printf("%s \n","<< Error at fn. cv_lf()");
-return(0x00);
-}
-return(0x01);
+if(!r) printf("%s \n","<< Error at fn. cv_lf()");
+return(r);
 }
 
 p = (*(argv+(argc+(~0x01))));
