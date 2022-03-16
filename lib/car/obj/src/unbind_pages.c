@@ -12,7 +12,7 @@ Refer at fn. bind_pages.
 
 signed(__cdecl unbind_pages(page_t(*argp))) {
 
-auto page_t *page;
+auto page_t *p;
 auto signed r;
 auto signed short flag;
 
@@ -22,10 +22,8 @@ flag = (*(CLI_BASE+(R(flag,*argp))));
 if(!(CLI_INIT&(flag))) return(0x00);
 
 r = unmap_pages(argp);
-
-page = (*(CLI_LEAD+(R(page,*argp))));
-if(page) return(0x00);
-
+p = (*(CLI_LEAD+(R(page,*argp))));
+if(p) return(0x00);
 if(!(init_pages(0x01,argp))) return(0x00);
 
 return(r);

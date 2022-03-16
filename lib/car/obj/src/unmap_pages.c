@@ -13,24 +13,22 @@ Refer at fn. concat_pages and fn. bind_pages.
 
 signed(__cdecl unmap_pages(page_t(*argp))) {
 
-auto page_t *page;
-auto signed char *p;
-auto signed i,r;
+auto page_t *p;
+// auto signed r;
 
 if(!argp) return(0x00);
 
-page = (*(CLI_LEAD+(R(page,*argp))));
-if(!page) return(0x00);
+p = (*(CLI_LEAD+(R(page,*argp))));
+if(!p) return(0x00);
 
-*(CLI_LEAD+(R(page,*argp))) = (*(CLI_SI+(R(page,*page))));
-r = init_pages(0x01,page);
-if(!r) {
+*(CLI_LEAD+(R(page,*argp))) = (*(CLI_SI+(R(page,*p))));
+if(!(init_pages(0x01,p))) {
 printf("%s \n","<< Error at fn. init_page()");
 return(0x00);
 }
 
-rl(page);
-page = (0x00);
+rl(p);
+p = (0x00);
 
 return(0x01+(unmap_pages(argp)));
 }

@@ -3,7 +3,7 @@
 Unmap all the buffers allocated by fn. cv_v, cv_wo, cv_ww or..
 
 Remarks:
-Refer at fn. cv_pv, cli_outv or cli_output.
+Refer at fn. cv_pages, cli_outv or cli_output.
 */
 
 
