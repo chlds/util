@@ -13,8 +13,12 @@ This program may immediately cause a stack overflow.
 # include "./../../../incl/config.h"
 # include "./../../../incl/c_dir.h"
 
-signed(__cdecl lk_agent(signed(argc),signed char(**argv),signed char(**envp))) {
+signed(__cdecl agent_lk(signed(argc),signed char(**argv),signed char(**envp))) {
 
+auto signed char *b,*p,*t;
+auto signed i,l,r;
+auto signed short flag;
+auto c_dirs_info_t cdi;
 auto signed char *(opt[]) = {
 (signed char(*)) ("a"),
 (signed char(*)) ("i"),
@@ -24,7 +28,6 @@ auto signed char *(opt[]) = {
 (signed char(*)) ("d"),
 (signed char(*)) (0x00),
 };
-
 auto signed opt_flags[] = {
 (signed) (OPT_ATTRIBS),
 (signed) (OPT_IGNORE),
@@ -34,11 +37,6 @@ auto signed opt_flags[] = {
 (signed) (OPT_DIRECTORIES),
 (signed) (0x00),
 };
-
-auto signed char *b,*p,*t;
-auto signed i,l,r;
-auto signed short flag;
-auto c_dirs_info_t cdi;
 
 p = (*(argv+(argc+(~0x00))));
 if(argc<(0x02)) p = ("./*");
@@ -110,16 +108,15 @@ cdi.flag = (flag);
 cdi.dis = (0x00);
 *(CLI_LK_PATH+(R(b,cdi))) = (b);
 
-r = lk_vt_opt(&cdi);
-if(!r) {
-r = cli_message(r,"<< An error has occurred at fn. lk_vt_opt() \n");
+if(!(finds(&cdi))) {
+cli_message(0x00,"<< An error has occurred at fn. finds() \n");
 OR(flag,OPT_ERROR);
 }
 
 if(OPT_IGNORE&(flag)) {
 r = embed(0x00,t);
 // if(!r) cli_message(r,"<< Error at fn. embed() \n");
-r = rl(t);
+rl(t);
 }
 
 t = (0x00);
@@ -128,7 +125,7 @@ t = (0x00);
 if(b) {
 r = embed(0x00,b);
 if(!r) cli_message(r,"<< Error at fn. embed() \n");
-r = rl(b);
+rl(b);
 b = (0x00);
 }
 

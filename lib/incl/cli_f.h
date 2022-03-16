@@ -64,7 +64,6 @@ signed(__cdecl es_rsb(void));
 signed(__cdecl es_ca(void));
 signed(__cdecl es_ll(void));
 signed(__cdecl cli_init_virtual_terminal_beta(signed(arg),cli_virtual_terminal_t(*argp)));
-signed(__cdecl lk_vt_opt(void/* c_dirs_info_t */(*argp)));
 signed(__cdecl cli_vt_opt(cli_property_t(*argp)));
 signed(__cdecl cli_opt_b(void(*argp),signed(__cdecl*f)(void(*argp))));
 signed(__cdecl cli_opt(cli_property_t(*argp)));
