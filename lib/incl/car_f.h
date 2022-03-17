@@ -392,10 +392,12 @@ signed(__cdecl encode_bv_r(signed char(**di),signed short(**si)));
 signed(__cdecl encode_bv(signed char(**di),signed short(**si)));
 signed(__cdecl encode_bw_r(signed char(**di),signed short(*si)));
 signed(__cdecl encode_bw(signed char(**di),signed short(*si)));
+signed(__cdecl cv_bw(signed char(**di),signed short(*si)));
 /* Encode along with surrogate pairs. */
 
 signed(__cdecl decode_wb_r(signed short(**di),signed char(*si)));
 signed(__cdecl decode_wb(signed short(**di),signed char(*si)));
+signed(__cdecl cv_wb(signed short(**di),signed char(*si)));
 signed(__cdecl decode2w(signed(size),signed short(*di),signed char(*si)));
 /* Decode */
 
