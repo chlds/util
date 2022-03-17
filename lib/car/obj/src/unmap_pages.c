@@ -23,7 +23,7 @@ if(!p) return(0x00);
 
 *(CLI_LEAD+(R(page,*argp))) = (*(CLI_SI+(R(page,*p))));
 if(!(init_pages(0x01,p))) {
-printf("%s \n","<< Error at fn. init_page()");
+printf("%s \n","<< Error at fn. init_pages()");
 return(0x00);
 }
 

@@ -20,8 +20,8 @@ auto signed short flag;
 
 if(!argp) return(0x00);
 
-flag = (*(CLI_BASE+(R(flag,*argp))));
-if(!(CLI_INIT&(flag))) return(0x00);
+b = (*(CLI_BASE+(R(b,*argp))));
+if(b) return(0x00);
 
 rule = (CLI_INDEX+(R(rule,*argp)));
 if(!arg) {

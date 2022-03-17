@@ -61,7 +61,7 @@ struct sat_v2 {
 signed run;
 rule_t rule[OBJS];
 signed short flag[OBJS];
-paragraph_t *(paragraph[OBJS]);
+page_t *(page[OBJS]);
 void *optl;
 } typedef sat_t;
 

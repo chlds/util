@@ -22,8 +22,8 @@ if(arg<(0x00)) return(0x00);
 if(!(arg<(CLI_RULE))) return(0x00);
 if(!argp) return(0x00);
 
-flag = (*(CLI_BASE+(R(flag,*argp))));
-if(!(CLI_INIT&(flag))) return(0x00);
+b = (*(CLI_BASE+(R(b,*argp))));
+if(b) return(0x00);
 
 rule = (CLI_BASE+(R(rule,*argp)));
 b = (*(CLI_BASE+(R(b,*rule))));

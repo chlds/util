@@ -19,8 +19,8 @@ auto signed char *perm = ("wronly,binary,");
 if(!di) return(0x00);
 if(!si) return(0x00);
 
-flag = (*(CLI_BASE+(R(flag,*si))));
-if(!(CLI_INIT&(flag))) return(0x00);
+b = (*(CLI_BASE+(R(b,*si))));
+if(b) return(0x00);
 
 // check the file stat.
 r = already_b(&size,di);

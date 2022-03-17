@@ -42,12 +42,6 @@ struct rule {
 signed char *(b[OBJS]);
 } typedef rule_t;
 
-struct paragraph {
-rule_t rule;
-signed short flag[OBJS];
-struct paragraph *(paragraph[OBJS]);
-} typedef paragraph_t;
-
 struct page {
 signed char *(b[OBJS]);
 struct page *(page[PAGES]);
