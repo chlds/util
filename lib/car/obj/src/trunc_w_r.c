@@ -7,9 +7,9 @@ Truncate.
 # define CAR
 # include "./../../../incl/config.h"
 
-signed(__cdecl trunc_b_r(signed char(*path))) {
+signed(__cdecl trunc_w_r(signed short(*path))) {
 
-auto signed char *b;
+auto signed short *w;
 auto void *argp;
 auto signed r;
 auto signed(__cdecl*f)(signed(arg),void(*argp));
@@ -20,5 +20,5 @@ if(!path) return(0x00);
 argp = (0x00);
 f = (0x00);
 
-return(xt(perm,path,argp,f));
+return(xt_w(perm,path,argp,f));
 }

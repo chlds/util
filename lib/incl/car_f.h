@@ -201,8 +201,11 @@ signed(__cdecl cat_rule(rule_t *argp,...));
 size_t(__cdecl sz_w(signed short(*argp)));
 size_t(__cdecl sz_b(signed char(*argp)));
 
+signed(__cdecl trunc_w_r(signed short(*path)));
+signed(__cdecl trunc_w(signed short(*cache/* an extension for backups */),signed short(*path)));
 signed(__cdecl trunc_b_r(signed char(*path)));
 signed(__cdecl trunc_b(signed char(*cache/* an extension for backups */),signed char(*path)));
+signed(__cdecl backup_w(signed short(*extension),signed short(*argp)));
 signed(__cdecl backup_b(signed char(*extension),signed char(*argp)));
 
 signed(__cdecl wr_s_r(signed(fd),signed char(*argp)));

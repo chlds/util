@@ -13,7 +13,6 @@ signed(__cdecl backup_b(signed char(*extension),signed char(*argp))) {
 auto signed char **v;
 auto signed char *b;
 auto signed r;
-auto signed short flag;
 auto signed char *(a[OBJS]);
 
 if(!extension) return(0x00);
