@@ -39,7 +39,7 @@ if(argc<(lim)) return(jd_help());
 
 path = (*v);
 v++;
-if(EQ(0x04,lim)) return(jd_b(LF,path,v));
+if(EQ(0x04,lim)) return(agent_jd_r(LF,path,v));
 
 return(cli_log_v(local,path,v));
 }

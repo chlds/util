@@ -55,6 +55,7 @@ signed(__cdecl pin_help(void));
 signed(__cdecl agent_pin(signed(argc),signed char(**argv),signed char(**envp)));
 
 signed(__cdecl jd_help(void));
+signed(__cdecl agent_jd_r(signed(arg/* code of line break */),signed char(*di/* path */),signed char(**si)));
 signed(__cdecl agent_jd(signed(argc),signed char(**argv),signed char(**envp)));
 
 signed(__cdecl lit_help(void));
@@ -119,6 +120,7 @@ signed(__cdecl ctrl_fn_r(signed(arg),void(*argp)));
 signed(__cdecl ctrl_fn_b(signed(arg),void(*argp)));
 signed(__cdecl ctrl_fn(signed char(*cache),void(*argp)));
 
+signed(__cdecl jd_w(signed(arg/* code of line break */),signed short(*di),signed char(**si)));
 signed(__cdecl jd_b(signed(arg/* code of line break */),signed char(*di),signed char(**si)));
 signed(__cdecl parse_w(signed short(*path),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
 signed(__cdecl parse_b(signed char(*path),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
@@ -127,6 +129,7 @@ signed(__cdecl ed_b(signed char(*path),void(*argp),signed(__cdecl*f)(signed(arg)
 signed(__cdecl str_w(signed(arg/* code of line break */),signed char(*perm),signed short(*di/* path */),signed char(*si/* contents */)));
 signed(__cdecl str_b_r(signed(fd),fl_t(*argp)));
 signed(__cdecl str_b(signed(arg/* code of line break */),signed char(*perm),signed char(*di/* path */),signed char(*si/* contents */)));
+signed(__cdecl appd_w(signed(arg/* code of line break */),signed short(*di/* path */),signed char(*si/* contents */)));
 signed(__cdecl appd_b(signed(arg/* code of line break */),signed char(*di/* path */),signed char(*si/* contents */)));
 signed(__cdecl appd_ds_w_r(signed(fd),fl_t(*argp)));
 signed(__cdecl appd_ds_w(signed short(**argp)));
