@@ -15,8 +15,7 @@ Append.
 signed(__cdecl cli_log_r(signed char(*di/* path */),signed char(**si/* contents */))) {
 
 auto signed char *b;
-auto signed i,r;
-auto signed short flag;
+auto signed r;
 auto signed char *separator = (" ");
 
 if(!di) return(0x00);

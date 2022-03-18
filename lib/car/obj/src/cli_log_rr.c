@@ -14,25 +14,25 @@ Append.
 
 signed(__cdecl cli_log_rr(signed char(*di/* path */),signed char(*si/* contents */))) {
 
+auto signed short *w;
 auto void *argp;
-auto signed char *b;
-auto fl_t fl;
-auto signed i,r;
-auto signed short flag;
-auto signed char *crlf = ("\r\n");
-auto signed char *lf = ("\n");
-auto signed char *perm = ("creat,append,rdwr,binary,iread,iwrite");
-auto signed(__cdecl*f)(signed(arg),void(*argp));
+auto signed r;
 
 if(!di) return(0x00);
 if(!si) return(0x00);
 
-if(!(init_fl(0x00,&fl))) return(0x00);
-*(CLI_OFFSET+(R(v,fl))) = (void*) (lf);
-*(CLI_BASE+(R(v,fl))) = (void*) (si);
+w = (0x00);
+if(!(cv_wb(&w,di))) {
+printf("%s \n","<< Error at fn. cv_wb()");
+return(0x00);
+}
 
-argp = (void*) (&fl);
-f = (str_b_r);
+r = cli_log_rrr(w,si);
+if(!r) printf("%s \n","<< Error at fn. cli_log_rrr()");
 
-return(xt(perm,di,argp,f));
+embed_w(0x00,w);
+rl(w);
+w = (0x00);
+
+return(r);
 }
