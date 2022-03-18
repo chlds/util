@@ -120,9 +120,9 @@ printf("%s \n","<< Error at fn. encode_surrogate_w()");
 OR(flag,0x01);
 }}
 else {
-r = encode_bw(&b,buff);
+r = cv_bw(&b,buff);
 if(!r) {
-printf("%s \n","<< Error at fn. encode_bw()");
+printf("%s \n","<< Error at fn. cv_bw()");
 OR(flag,0x01);
 }}
 

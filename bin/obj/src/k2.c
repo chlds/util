@@ -48,7 +48,7 @@ if(r) {
 w++;
 }
 *w = (0x00);
-r = encode_bw(&b,buff);
+r = cv_bw(&b,buff);
 printf("%s%d%s ","(",r,"B:");
 AND(i,0x00);
 while(*(b+(i))) printf("%Xh%s",0xFF&(*(b+(i++))),",");

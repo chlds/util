@@ -66,10 +66,10 @@ flag = (0x02);
 b = (signed char(*)) (*(CLI_B+(R(base,R(clipboard,R(ty,*argp))))));
 
 if(!flag) {
-r = encode_bw(&b,w);
+r = cv_bw(&b,w);
 if(!r) {
 /* empty or..
-printf("%s\n","<< Error at fn. encode_bw()");
+printf("%s \n","<< Error at fn. cv_bw()");
 flag++;
 //*/
 }}

@@ -22,9 +22,9 @@ auto signed short flag;
 if(!argp) return(0x00);
 
 w = (0x00);
-r = decode_wb(&w,argp);
+r = cv_wb(&w,argp);
 if(!r) {
-printf("%s \n","<< Error at fn. decode_wb()");
+printf("%s \n","<< Error at fn. cv_wb()");
 return(0x00);
 }
 

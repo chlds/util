@@ -24,7 +24,7 @@ return(0x00);
 }
 
 b = (0x00);
-r = encode_bw(&b,*si);
+r = cv_bw(&b,*si);
 if(!r) return(0x00);
 
 *di = (b);

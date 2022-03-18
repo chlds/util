@@ -32,7 +32,7 @@ if(!(arg<(r))) return(0x00);
 
 b = (*(arg+(perm)));
 w = (0x00);
-r = decode_wb(&w,di);
+r = cv_wb(&w,di);
 if(!r) return(0x00);
 
 r = str_w(0x00,b,w,si);

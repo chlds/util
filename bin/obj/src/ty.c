@@ -65,9 +65,9 @@ config = (*(argv+(--i)));
 AND(flag,0x00);
 b = (0x00);
 if(config) {
-r = encode_bw(&b,config);
+r = cv_bw(&b,config);
 if(!r) {
-printf("%s \n","<< Error at fn. encode_bw()");
+printf("%s \n","<< Error at fn. cv_bw()");
 return(0x00);
 }
 r = keep(&(R(file,R(config,R(ty,cli_w32_stat)))),b);
@@ -81,9 +81,9 @@ R(l,R(config,R(ty,cli_w32_stat))) = (r);
 
 b = (0x00);
 if(edit) {
-r = encode_bw(&b,edit);
+r = cv_bw(&b,edit);
 if(!r) {
-printf("%s \n","<< Error at fn. encode_bw()");
+printf("%s \n","<< Error at fn. cv_bw()");
 rl(R(file,R(config,R(ty,cli_w32_stat))));
 return(0x00);
 }

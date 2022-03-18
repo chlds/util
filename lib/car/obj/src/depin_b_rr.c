@@ -29,8 +29,8 @@ printf("%s \n","<< Error at fn. lock_g()");
 return(0x00);
 }
 
-r = encode_bw(di,w);
-// if(!r) printf("%s \n","<< Error at fn. encode_bw()");
+r = cv_bw(di,w);
+// if(!r) printf("%s \n","<< Error at fn. cv_bw()");
 
 if(!(unlock_g(g))) {
 printf("%s \n","<< Error at fn. unlock_g()");

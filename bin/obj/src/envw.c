@@ -19,9 +19,9 @@ AND(flag,0x00);
 b = (0x00);
 i = (0x00);
 while(*(envp+(i))) {
-r = encode_bw(&b,*(envp+(i)));
+r = cv_bw(&b,*(envp+(i)));
 if(!r) {
-printf("%s \n","<< Error at fn. encode_bw()");
+printf("%s \n","<< Error at fn. cv_bw()");
 return(0x00);
 }
 printf("%d. %s%d%s",i,"[",r,"] ");
