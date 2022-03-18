@@ -12,7 +12,7 @@ Append.
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl cli_log_r_r(signed char(*di/* path */),signed char(*si/* contents */))) {
+signed(__cdecl cli_log_rr(signed char(*di/* path */),signed char(*si/* contents */))) {
 
 auto void *argp;
 auto signed char *b;

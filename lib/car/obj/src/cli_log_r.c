@@ -25,7 +25,7 @@ if(!si) return(0x00);
 b = (0x00);
 if(!(cat_v(0x00,separator,&b,si))) return(0x00);
 
-r = cli_log_r_r(di,b);
+r = cli_log_rr(di,b);
 embed(0x00,b);
 rl(b);
 b = (0x00);
