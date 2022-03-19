@@ -66,8 +66,8 @@ if(DBG) printf("%s: %zdB \n","Offset",offset);
 
 b = (0x00);
 path = (*(argv+(threshold+(~0x00))));
-r = ld_b(offset,range,&b,sym,path);
-if(!r) printf("%s \n","<< Error at fn. ld_b()");
+r = map_b(offset,range,&b,sym,path);
+if(!r) printf("%s \n","<< Error at fn. map_b()");
 
 if(r) {
 sym = (0x00);
@@ -80,9 +80,8 @@ printf("[%zd/%d %s] \n",offset,r,"bytes offset/read");
 printf("[%zd %s] \n",offset+(r),"bytes reached");
 }
 
-embed_l(0x00,b);
-if(b) rl(b);
-b = (0x00);
+r = unmap_b(&b);
+if(!r) printf("%s \n","<< Error at fn. unmap_b()");
 
-return(0x01);
+return(r);
 }

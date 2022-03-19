@@ -11,7 +11,7 @@ Call fn. rl later.
 # include <stdio.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl ld_b(size_t(offset),signed(range),signed char(**di),signed char(*delim),signed char(*si/* path */))) {
+signed(__cdecl ld_w(size_t(offset),signed(range),signed char(**di),signed char(*delim),signed short(*si/* path */))) {
 
 auto signed char *b;
 auto signed *d;
@@ -37,14 +37,14 @@ if(!di) return(0x00);
 if(*di) return(0x00);
 if(!si) return(0x00);
 
-r = cf_ff(si,*(0x01+(ff)));
+r = cf_ff_w(si,*(0x01+(ff)));
 if(!r) {
-// printf("%s \n","<< Error at fn. cf_ff()");
+// printf("%s \n","<< Error at fn. cf_ff_w()");
 printf("%s \n","Not a regular file..");
 return(0x00);
 }
 
-if(!(offset<(sz_b(si)))) {
+if(!(offset<(sz_w(si)))) {
 printf("%s \n","<< Over..");
 return(0x00);
 }
@@ -65,7 +65,7 @@ return(0x00);
 *(CLI_LEAD+(R(v,fl))) = (void*) (delim);
 *(CLI_INDEX+(R(v,fl))) = (void*) (d);
 *(CLI_INDEX+(R(fd,fl))) = (range);
-r = parse_b(si,&fl,ld_b_r);
+r = parse_w(si,&fl,ld_b_r);
 b = (signed char(*)) (*(CLI_DI+(R(v,fl))));
 if(!r) {
 embed_l(0x00,b);
