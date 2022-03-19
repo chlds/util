@@ -32,6 +32,10 @@ signed(__cdecl agent_sat(signed(argc),signed char(**argv),signed char(**envp)));
 
 signed(__cdecl dupl_agent_w(signed(argc),signed short(**argv),signed short(**envp)));
 
+signed(__cdecl agent_si_rr(signed char(*primary),signed short(*secondary)));
+signed(__cdecl agent_si_r(signed char(*argp)));
+signed(__cdecl agent_si(signed(argc),signed char(**argv),signed char(**envp)));
+
 signed(__cdecl priv_rrrrrr(signed char(**argp)));
 signed(__cdecl priv_rrrrr(signed char(**argp)));
 signed(__cdecl priv_rrrr(void(*argp)));
@@ -144,6 +148,7 @@ signed(__cdecl rd_k(signed char(**di),signed char(*delim),signed(n),signed(fd)))
 signed(__cdecl ld_b_r(signed(fd),fl_t(*argp)));
 signed(__cdecl ld_w(size_t(offset),signed(range),signed char(**di),signed char(*delim),signed short(*si/* path */)));
 signed(__cdecl ld_b(size_t(offset),signed(range),signed char(**di),signed char(*delim),signed char(*si/* path */)));
+signed(__cdecl unmap_w(signed short(**argp)));
 signed(__cdecl unmap_b(signed char(**argp)));
 signed(__cdecl map_b(size_t(offset),signed(range),signed char(**di),signed char(*delim),signed char(*si/* path */)));
 signed(__cdecl init_fl(signed(arg),fl_t(*argp)));
