@@ -13,14 +13,7 @@ Refer at fn. ctrl_fn_b.
 
 signed(__cdecl ctrl_x(ty_t(*argp))) {
 
-auto signed char *b;
-auto signed r;
-auto signed short flag;
-
-if(!argp) return(0x00);
-
 if(DBG) printf("%s ","<Ctrl-X>");
 
-// return(f(argp));
 return(ctrl_trim(argp));
 }

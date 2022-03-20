@@ -15,7 +15,6 @@ signed(__cdecl ctrl_fn(signed char(*cache),void(*argp))) {
 
 auto signed char *b;
 auto signed r;
-auto signed short flag;
 
 if(!cache) return(0x00);
 if(!argp) return(0x00);

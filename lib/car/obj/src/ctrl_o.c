@@ -13,12 +13,6 @@ Refer at fn. ctrl_fn.
 
 signed(__cdecl ctrl_o(void(*argp))) {
 
-auto signed char *b;
-auto signed r;
-auto signed short flag;
-
-if(!argp) return(0x00);
-
 if(DBG) printf("%s ","<Ctrl-O>");
 
 // return(f(argp));

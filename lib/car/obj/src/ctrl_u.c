@@ -13,12 +13,6 @@ Refer at fn. ctrl_fn.
 
 signed(__cdecl ctrl_u(void(*argp))) {
 
-auto signed char *b;
-auto signed r;
-auto signed short flag;
-
-if(!argp) return(0x00);
-
 if(DBG) printf("%s ","<Ctrl-U>");
 
 // return(f(argp));
