@@ -8,6 +8,8 @@ Along with C library
 */
 
 
+signed(__cdecl agent_alpha(signed(argc),signed char(**argv),signed char(**envp)));
+
 void(__cdecl cmdl_exit_b(void(*argp)));
 void(__cdecl cmdl_help_b(void(*argp)));
 void(__cdecl cmdl_clear_b(void(*argp)));
