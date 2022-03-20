@@ -56,16 +56,16 @@ return(0x00);
 }
 
 // monitor
-r = cli_opt_b(argp,cli_mon_b);
+r = cli_mon_b(argp);
 if(!r) {
-printf("%s \n","<< Error at fn. cli_opt_b()");
+printf("%s \n","<< Error at fn. cli_mon_b()");
 return(0x00);
 }
 
 b = (0x00);
-r = cli_opt_b(&b,cli_i_b);
+r = cli_i_b(&b);
 if(!r) {
-printf("%s \n","<< Error at fn. cli_opt_b()");
+printf("%s \n","<< Error at fn. cli_i_b()");
 return(0x00);
 }
 

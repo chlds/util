@@ -31,9 +31,9 @@ b = (*(CLI_INDEX+(R(b,*rule))));
 if(!b) return(0x00);
 
 /* monitor; e.g., Ctrl-G (0x07) the bell tolls.
-r = cli_opt_b(argp,cli_mon_b);
+r = cli_mon_b(argp);
 if(!r) {
-printf("%s \n","<< Error at fn. cli_opt_b()");
+printf("%s \n","<< Error at fn. cli_mon_b()");
 return(0x00);
 }
 //*/

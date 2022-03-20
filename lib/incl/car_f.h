@@ -10,6 +10,7 @@ Along with C library
 
 signed(__cdecl agent_alpha(signed(argc),signed char(**argv),signed char(**envp)));
 signed(__cdecl agent_cli_kb4(signed(argc),signed char(**argv),signed char(**envp)));
+signed(__cdecl agent_d(signed(argc),signed char(**argv),signed char(**envp)));
 
 void(__cdecl cmdl_exit_b(void(*argp)));
 void(__cdecl cmdl_help_b(void(*argp)));
@@ -751,8 +752,8 @@ signed(__cdecl catppp(signed char(***argp)));
 signed(__cdecl catpp(signed char(**argp)));
 /* Output character lines out of the argument. */
 
-signed(__cdecl opt_b(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
-/* Set up the environment. */
+signed(__cdecl f_optl(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
+/* Be flexible. */
 
 signed(__cdecl currently_occurring_error(void));
 signed(__cdecl currently_granting_privileges_r(signed(arg),signed char(**di),void(*si/* structure token privileges */)));
