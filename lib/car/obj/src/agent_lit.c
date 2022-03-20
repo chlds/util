@@ -72,8 +72,6 @@ if(!r) printf("%s \n","<< Error at fn. map_b()");
 if(r) {
 sym = (0x00);
 // out_lines(align,cols,sym,b);
-// cli_outs_vt(align,b);
-// cli_o_lines_vt(cols,align,sym,b);
 cli_o_lines(cols,align,sym,b);
 printf("\n");
 printf("[%zd/%d %s] \n",offset,r,"bytes offset/read");

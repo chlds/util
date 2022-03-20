@@ -545,7 +545,6 @@ signed(__cdecl out_argt_line(signed short(cols),signed char(**argp)));
 signed(__cdecl out_argt_r(signed short(cols),signed char(**argp)));
 signed(__cdecl out_argt(signed short(cols),signed char(**argp)));
 
-signed(__cdecl cli_o_lines_vt(signed short(cols),signed short(arg/* align */),signed char(*sym),signed char(*argp)));
 signed(__cdecl cli_o_lines_r(signed short(cols),signed short(arg/* align */),signed char(*sym),signed char(*argp)));
 signed(__cdecl cli_o_lines(signed short(cols),signed short(arg/* align */),signed char(*sym),signed char(*argp)));
 signed(__cdecl cli_o_line_limited(signed short(cols),signed short(arg/* align */),signed char(*argp)));
