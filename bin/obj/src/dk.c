@@ -14,7 +14,7 @@ auto signed char *b;
 auto signed r;
 auto signed short flag;
 
-r = cv_main_optl_vt(agent_d,argc,argv,envp);
+r = cv_main_optl_vt(agent_dk,argc,argv,envp);
 if(!r) printf("%s \n","<< Error at fn. cv_main_optl_vt()");
 
 return(0x00);

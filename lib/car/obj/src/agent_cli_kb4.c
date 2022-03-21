@@ -22,7 +22,7 @@ auto cli_property_t property;
 auto signed i,r;
 auto signed short flag;
 
-if(!(cli_es(CTRL_L))) return(0x00);
+if(!(clear_rows(0x00))) return(0x00);
 
 printf("\n");
 printf("  %s \n","Currently under construction");
