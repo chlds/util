@@ -66,6 +66,9 @@ signed(__cdecl jd_help(void));
 signed(__cdecl agent_jd_r(signed(arg/* code of line break */),signed char(*di/* path */),signed char(**si)));
 signed(__cdecl agent_jd(signed(argc),signed char(**argv),signed char(**envp)));
 
+signed(__cdecl cre_help(void));
+signed(__cdecl agent_cre(signed(argc),signed char(**argv),signed char(**envp)));
+
 signed(__cdecl lit_help(void));
 signed(__cdecl agent_lit(signed(argc),signed char(**argv),signed char(**envp)));
 

@@ -31,6 +31,9 @@ printf("\t%s \n","lit l cba.txt 12");
 printf("\t%s \n","lit k cba.txt");
 printf("\t%s \n","lit cba.txt 6");
 printf("\t%s \n","lit cba.txt");
+printf("\n");
+
+printf("\t%s \n","GitHub: github.com/chlds/util/");
 
 return(0x01);
 }
