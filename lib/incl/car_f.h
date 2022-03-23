@@ -39,7 +39,8 @@ void *(__cdecl knit_b(signed(arg/* size */),void(*argp),void(__cdecl*f)(void(*ar
 /* Create/terminate a thread. */
 signed(__cdecl agent_sat(signed(argc),signed char(**argv),signed char(**envp)));
 
-signed(__cdecl dupl_agent_w(signed(argc),signed short(**argv),signed short(**envp)));
+signed(__cdecl dupl_help(void));
+signed(__cdecl agent_dupl(signed(argc),signed char(**argv),signed char(**envp)));
 
 signed(__cdecl agent_si_rr(signed char(*primary),signed short(*secondary)));
 signed(__cdecl agent_si_r(signed char(*argp)));
@@ -577,6 +578,10 @@ signed(__cdecl ct_va(signed char(*sym),signed char(*argp)));
 signed(__cdecl ct_wo(signed char(*sym),signed char(*argp)));
 /* Map an array of pointers on the RAM. */
 
+signed(__cdecl cv_wb_v_r(signed short(**di),signed char(**si)));
+signed(__cdecl cv_wb_v(signed short(***di),signed char(**si)));
+signed(__cdecl rl_vw_r(signed short(**argp)));
+signed(__cdecl rl_vw(signed short(***argp)));
 signed(__cdecl rl_v_r(signed char(**argp)));
 signed(__cdecl rl_v(signed char(***argp)));
 signed(__cdecl cv_argt_r(signed char(**di),signed char(*si)));

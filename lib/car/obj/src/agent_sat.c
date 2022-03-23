@@ -11,7 +11,7 @@ A satellite
 
 # define BUFF (0x400)
 
-signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
+signed(__cdecl agent_sat(signed(argc),signed char(**argv),signed char(**envp))) {
 
 /* Currently under construction
 auto signed char *cur,*base,*p;

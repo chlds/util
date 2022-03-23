@@ -10,11 +10,13 @@ Duplicate in the binary format.
 
 signed(__cdecl wmain(signed(argc),signed short(**argv),signed short(**envp))) {
 
+auto signed char **v;
+auto signed char *b;
 auto signed r;
 auto signed short flag;
 
-r = dupl_agent_w(argc,argv,envp);
-if(!r) printf("%s \n","<< Error at fn. dupl_agent_w()");
+r = cv_main_optl_vt(agent_dupl,argc,argv,envp);
+if(!r) printf("%s \n","<< Error at fn. cv_main_optl_vt()");
 
 return(0x00);
 }
