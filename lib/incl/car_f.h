@@ -278,8 +278,8 @@ signed(__cdecl cv_bv_xe_r(signed char(*di),signed char(**si)));
 signed(__cdecl cv_bv_xe(signed char(**di),signed char(**si)));
 /* After calling fn. cv_bv, please call fn. rl to unmap the buffer allocated on the RAM. */
 
-signed(__cdecl cv_argv_bw_r(signed char(**di),signed short(**si)));
-signed(__cdecl cv_argv_bw(signed char(***di),signed short(**si)));
+signed(__cdecl cv_bw_v_r(signed char(**di),signed short(**si)));
+signed(__cdecl cv_bw_v(signed char(***di),signed short(**si)));
 // convert into a table pointer of pointers secured for bytes in UTF-8.
 
 signed(__cdecl rf_leap_years(signed short(arg)));

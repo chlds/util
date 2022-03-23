@@ -14,7 +14,6 @@ Based on UTF-16 and UTF-8
 
 signed(__cdecl cv_wb_v_r(signed short(**di),signed char(**si))) {
 
-auto signed char *b;
 auto signed short *w;
 auto signed r;
 

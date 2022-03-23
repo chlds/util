@@ -14,7 +14,6 @@ Based on UTF-16 and UTF-8
 
 signed(__cdecl cv_wb_v(signed short(***di),signed char(**si))) {
 
-auto signed char **b;
 auto signed short **w;
 auto signed r;
 auto signed short flag;
@@ -24,6 +23,8 @@ if(*di) return(0x00);
 if(!si) return(0x00);
 
 r = ct_vb(si);
+if(!r) return(0x00);
+
 r++;
 r = (r*(sizeof(*w)));
 w = (signed short(**)) alloc(r);

@@ -23,9 +23,9 @@ if(!(EQ(argc,ct_vw(argv)))) return(0x00);
 
 v = (0x00);
 if(envp) {
-r = cv_argv_bw(&v,envp);
+r = cv_bw_v(&v,envp);
 if(!r) {
-printf("%s \n","<< Error at fn. cv_argv_bw()");
+printf("%s \n","<< Error at fn. cv_bw_v()");
 return(0x00);
 }}
 

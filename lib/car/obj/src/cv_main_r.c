@@ -20,9 +20,9 @@ if(!argv) return(0x00);
 // if(!envp) return(0x00);
 
 v = (0x00);
-r = cv_argv_bw(&v,argv);
+r = cv_bw_v(&v,argv);
 if(!r) {
-printf("%s \n","<< Error at fn. cv_argv_bw()");
+printf("%s \n","<< Error at fn. cv_bw_v()");
 return(0x00);
 }
 
