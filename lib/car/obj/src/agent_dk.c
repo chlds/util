@@ -4,9 +4,8 @@ Detect keys.
 */
 
 
-# define C_CODE_STDS
-# define CALEND
 # define CAR
+# include <stdio.h>
 # include "./../../../incl/config.h"
 
 signed(__cdecl agent_dk(signed(argc),signed char(**argv),signed char(**envp))) {
@@ -27,18 +26,17 @@ b = (0x00);
 if(flag) break;
 r = cli_i_b(&b);
 if(!r) OR(flag,0x01);
-if(!flag) {
-p = (b);
-if(r<(0x00)) printf("(00h) ");
-while(*p) {
-printf("%02Xh ",0xFF&(*p));
-p++;
-}
 if(EQ('\r',*b)) OR(flag,0x01);
 if(EQ('\n',*b)) OR(flag,0x01);
-if(b) rl(b);
-printf("\n");
+if(!flag) {
+if(!(agent_dk_r(r,b))) {
+printf("%s \n","<< Error at fn. agent_dk_r()");
+OR(flag,0x01);
 }}
+embed(0x00,b);
+rl(b);
+if(!flag) printf("\n");
+}
 
 printf("\n");
 printf("Done ! \n");
