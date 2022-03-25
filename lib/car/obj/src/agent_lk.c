@@ -15,7 +15,7 @@ This program may immediately cause a stack overflow.
 
 signed(__cdecl agent_lk(signed(argc),signed char(**argv),signed char(**envp))) {
 
-auto signed char *b,*p,*t;
+auto signed char *b,*t;
 auto signed i,l,r;
 auto signed short flag;
 auto c_dirs_info_t cdi;
@@ -38,29 +38,11 @@ auto signed opt_flags[] = {
 (signed) (0x00),
 };
 
-p = (*(argv+(argc+(~0x00))));
-if(argc<(0x02)) p = ("./*");
+if(argc<(0x02)) return(lk_help());
 
-r = ct(p);
-if(!r) return(0x00);
-
-i = (r);
-if('*'^(*(p+(--i)))) {
-if('/'^(*(p+(i)))) r++;
-r++;
-}
-
-r++;
-r = (r*(sizeof(*p)));
-b = (signed char(*)) alloc(r);
-if(!b) return(0x00);
-
-r = cpy(b,p);
-if('*'^(*(b+(r+(~0x00))))) {
-if('/'^(*(b+(r+(~0x00))))) *(b+(r++)) = ('/');
-*(b+(r++)) = ('*');
-*(b+(r)) = (0x00);
-}
+b = (0x00);
+if(!(arr_dir(&b,*(argv+(argc+(~0x00)))))) return(0x00);
+if(DBG) printf("%s: %s \n","Path",b);
 
 XOR(flag,flag);
 if(0x02<(argc)) {
@@ -129,8 +111,7 @@ rl(b);
 b = (0x00);
 }
 
-p = (b);
-*(CLI_LK_PATH+(R(b,cdi))) = (p);
+*(CLI_LK_PATH+(R(b,cdi))) = (b);
 
 printf("\n");
 printf(" %d %s \n",*(CLI_LK_DIRECTORY+(R(r,cdi))),"directories");

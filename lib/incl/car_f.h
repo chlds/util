@@ -85,6 +85,8 @@ signed(__cdecl agent_lit(signed(argc),signed char(**argv),signed char(**envp)));
 
 signed(__cdecl cvlf_help(void));
 signed(__cdecl agent_cvlf(signed(argc),signed char(**argv),signed char(**envp)));
+
+signed(__cdecl lk_help(void));
 signed(__cdecl agent_lk(signed(argc),signed char(**argv),signed char(**envp)));
 
 signed(__cdecl bpb_r(signed char(arg)));
@@ -254,6 +256,9 @@ signed(__cdecl init_b(signed(cached),signed(arg),signed char(**argp)));
 signed(__cdecl cli_init_b_r(signed(cache),signed(arg),signed char(**argp)));
 signed(__cdecl cli_init_b(signed(cache),signed(arg),signed char(**argp)));
 // initialise.
+
+signed(__cdecl arr_dir(signed char(**di),signed char(*si)));
+// arrange.
 
 void*(__cdecl alloc(signed(arg)));
 // allocate i.e., fn. malloc.
