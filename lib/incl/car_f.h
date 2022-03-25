@@ -87,6 +87,7 @@ signed(__cdecl cvlf_help(void));
 signed(__cdecl agent_cvlf(signed(argc),signed char(**argv),signed char(**envp)));
 
 signed(__cdecl lk_help(void));
+signed(__cdecl lk_flags(signed short(*di),signed char(*si)));
 signed(__cdecl agent_lk(signed(argc),signed char(**argv),signed char(**envp)));
 
 signed(__cdecl bpb_r(signed char(arg)));
@@ -768,6 +769,9 @@ signed(__cdecl cv_l_r(signed short(radix),signed char(*di_tbl),signed char(*si_t
 signed(__cdecl cv_l(signed char(*di_tbl),signed char(*si_tbl),signed char(*di),signed char(*si)));
 signed char*(__cdecl cv_a(signed(arg),signed char(*argp)));
 /* Release at the return pointer later */
+
+signed(__cdecl flag_b_r(signed char(**cache),signed short(*argp),signed short(*di),signed char(*si)));
+signed(__cdecl flag_b(signed char(**cache),signed short(*argp),signed short(*di),signed char(*si)));
 
 signed(__cdecl cat_ll(KNOT(*argp)));
 

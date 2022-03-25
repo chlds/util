@@ -16,55 +16,24 @@ This program may immediately cause a stack overflow.
 signed(__cdecl agent_lk(signed(argc),signed char(**argv),signed char(**envp))) {
 
 auto signed char *b,*t;
-auto signed i,l,r;
+auto signed r;
 auto signed short flag;
 auto c_dirs_info_t cdi;
-auto signed char *(opt[]) = {
-(signed char(*)) ("a"),
-(signed char(*)) ("i"),
-(signed char(*)) ("r"),
-(signed char(*)) ("u"),
-(signed char(*)) ("v"),
-(signed char(*)) ("d"),
-(signed char(*)) (0x00),
-};
-auto signed opt_flags[] = {
-(signed) (OPT_ATTRIBS),
-(signed) (OPT_IGNORE),
-(signed) (OPT_RECURSION),
-(signed) (OPT_UNLIMITED),
-(signed) (OPT_VERBOSE),
-(signed) (OPT_DIRECTORIES),
-(signed) (0x00),
-};
 
 if(argc<(0x02)) return(lk_help());
 
-b = (0x00);
-if(!(arr_dir(&b,*(argv+(argc+(~0x00)))))) return(0x00);
-if(DBG) printf("%s: %s \n","Path",b);
-
 XOR(flag,flag);
 if(0x02<(argc)) {
-AND(l,0x00);
-while(*(opt+(l))) {
-AND(i,0x00);
-r = cmpr_part(&i,*(argv+(0x01)),*(opt+(l)));
-if(!i) OR(flag,*(opt_flags+(l)));
-l++;
-}
+b = (*(argv+(0x01)));
+if(!(lk_flags(&flag,b))) return(0x00);
 // also
-AND(i,0x00);
-r = cv_da(0x0A,&i,*(argv+(0x01)));
-if(!r) {
-if(b) rl(b);
-return(0x00);
-}
-if(i<(0x00)) i = (0x01+(~i));
-if(i) {
+AND(r,0x00);
+if(!(cv_da(0x0A,&r,b))) return(0x00);
+if(r<(0x00)) r = (0x01+(~r));
+if(r) {
 OR(flag,OPT_RECURSION);
 OR(flag,OPT_DEPTH);
-i++;
+r++;
 }}
 
 // ignore case distinctions or..
@@ -76,16 +45,17 @@ t = (*(argv+(0x02)));
 // also
 if(OPT_IGNORE&(flag)) {
 t = cv_a(0x00,t);
-if(!t) {
-rl(b);
-return(0x00);
-}
+if(!t) return(0x00);
 *(CLI_LK_TARGET+(R(b,cdi))) = (t);
 }}
 
-cdi.depth = (i);
-i = (CLI_LK_FILES);
-while(i) *(--i+(R(r,cdi))) = (0x00);
+b = (0x00);
+if(!(arr_dir(&b,*(argv+(argc+(~0x00)))))) return(0x00);
+if(DBG) printf("%s: %s \n","Path",b);
+
+cdi.depth = (r);
+r = (CLI_LK_FILES);
+while(r) *(--r+(R(r,cdi))) = (0x00);
 cdi.flag = (flag);
 cdi.dis = (0x00);
 *(CLI_LK_PATH+(R(b,cdi))) = (b);
