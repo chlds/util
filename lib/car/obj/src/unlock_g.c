@@ -23,7 +23,7 @@ if(!argp) return(0x00);
 g = (argp);
 r = GlobalUnlock(g);
 if(!r) {
-r = GetLastError();
+r = currently_occurring_error();
 if(NO_ERROR^(r)) {
 printf("%s %d %s %Xh \n","<< Error at fn. GlobalUnlock() with no.",r,"or",r);
 return(0x00);

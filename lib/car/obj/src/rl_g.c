@@ -21,7 +21,7 @@ if(!argp) return(0x00);
 
 g = GlobalFree(argp);
 if(g) {
-r = GetLastError();
+r = currently_occurring_error();
 printf("%s %d %s %Xh \n","<< Error at fn. GlobalFree() with no.",r,"or",r);
 return(0x00);
 }

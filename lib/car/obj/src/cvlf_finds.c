@@ -26,7 +26,7 @@ if(!argp) return(0x00);
 dis.p_dir = (*(CLI_LK_PATH+(R(b,*argp))));
 dis.search = (void(*)) FindFirstFile(dis.p_dir,&(R(wfd,dis)));
 if(EQ(INVALID_HANDLE_VALUE,dis.search)) {
-r = GetLastError();
+r = currently_occurring_error();
 if(OPT_VERBOSE&(R(flag,*argp))) {
 printf("%s %Xh \n","<< Error at fn. FindFirstFile() with error no.",r);
 if(!(r^(ERROR_FILE_NOT_FOUND))) printf("%s \n","No matching files can be found.");
@@ -55,7 +55,7 @@ R(dis,*argp) = (&dis);
 
 /* Close */
 if(!(FindClose(dis.search))) {
-r = GetLastError();
+r = currently_occurring_error();
 printf("%s %Xh \n","<< Error at fn. FindClose() with error no.",r);
 return(0x00);
 }

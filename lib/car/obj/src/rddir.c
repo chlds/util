@@ -129,7 +129,7 @@ printf("\n");
 /* Read i.e., update with the search handle */
 r = FindNextFile(R(search,*(R(dis,*argp))),&(R(wfd,*(R(dis,*argp)))));
 if(!r) {
-r = GetLastError();
+r = currently_occurring_error();
 if(r^(ERROR_NO_MORE_FILES)) printf("%s %Xh \n","<< Error at fn. FindNextFile() with error no.",r);
 return(0x01);
 }

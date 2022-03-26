@@ -20,7 +20,7 @@ if(!argp) return(0x00);
 
 r = GetThreadId(argp);
 if(!r) {
-r = GetLastError();
+r = currently_occurring_error();
 if(!(EQ(ERROR_SUCCESS,r))) printf("%s %d %s %Xh \n","<< Error at fn. GetThreadId() with no.",r,"or",r);
 return(0x00);
 }

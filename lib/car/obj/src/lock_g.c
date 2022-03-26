@@ -23,7 +23,7 @@ if(!argp) return(0x00);
 g = (argp);
 g = (signed short(*)) GlobalLock(g);
 if(!g) {
-r = GetLastError();
+r = currently_occurring_error();
 printf("%s %d %s %Xh \n","<< Error at fn. GlobalLock() with no.",r,"or",r);
 }
 

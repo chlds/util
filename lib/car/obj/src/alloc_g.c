@@ -21,7 +21,7 @@ if(arg<(0x01)) return(0x00);
 
 g = GlobalAlloc(GMEM_SHARE|GHND,arg);
 if(!g) {
-r = GetLastError();
+r = currently_occurring_error();
 printf("%s %d %s %Xh \n","<< Error at fn. GlobalAlloc() with no.",r,"or",r);
 }
 
