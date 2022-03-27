@@ -32,10 +32,10 @@ if(!(R(p_dir,*(R(dis,*argp))))) return(0x00);
 p = (R(cFileName,R(wfd,*(R(dis,*argp)))));
 
 flag = (signed short) dir_or_file(&(R(wfd,*(R(dis,*argp)))));
-if(DBG) printf("%s %d \n","The flag after using fn. dir_or_file() is:",flag);
+if(DBG) printf("%s %Xh \n","The flag after using fn. dir_or_file() is:",flag);
 
 if(OPT_RECURSION&(R(flag,*argp))) {
-if(flag&(C_DIR+(C_DOTDIR))) {
+if(!(flag&(C_PDIR+(C_CURRDIR+(C_FILE))))) {
 
 // backup
 dis = (R(dis,*argp));

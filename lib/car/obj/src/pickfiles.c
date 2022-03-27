@@ -119,7 +119,7 @@ Sleep(DELAY);
 }
 
 flag = (signed short) dir_or_file(&wfd);
-if(flag&(C_DOTDIR|(C_DIR))) {
+if(!(flag&(C_PDIR+(C_CURRDIR+(C_FILE))))) {
 // Going to recur
 sprintf(buff,"%s%s%s",di,wfd.cFileName,"/*");
 if(DBG) printf("%s %s \n","concatenated buff is:",buff);
