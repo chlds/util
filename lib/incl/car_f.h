@@ -410,6 +410,9 @@ signed(__cdecl cv_ds_b(signed char(*argp),signed char(di),signed char(si)));
 signed(__cdecl ct_l(signed char(*argp)));
 /* Count and convert. */
 
+signed short(__cdecl attrib_b_r(signed char(*path),signed char(*argp)));
+signed short(__cdecl attrib_b(signed char(*path),signed char(*argp)));
+
 signed(__cdecl cf_dir_w(signed short(*argp)));
 signed(__cdecl cf_dir(signed char(*argp)));
 signed(__cdecl cf_ff_w(signed short(*di),signed char(*si)));
@@ -511,7 +514,6 @@ signed(__cdecl attrib_of(signed(arg)));
 signed(__cdecl cvlf_rddir(void/* c_dirs_info_t */(*argp)));
 signed(__cdecl cvlf_finds(void/* c_dirs_info_t */(*argp)));
 
-signed(__cdecl pickfiles(signed char(*di /* path */ ), signed char(*si /* string */ )));
 signed(__cdecl rddir(void/* c_dirs_info_t */(*argp)));
 signed(__cdecl finds(void/* c_dirs_info_t */(*argp)));
 /* Close, read and open a directory entry out of the argp. */
@@ -722,6 +724,8 @@ signed(__cdecl rm_trailing_spaces_r(signed(arg),signed char(*argp)));
 signed(__cdecl rm_trailing_spaces(signed char(*argp)));
 signed(__cdecl rm_br_r(signed(arg),signed char(*argp)));
 signed(__cdecl rm_br(signed char(*argp)));
+signed(__cdecl rm_asterisk_r(signed(arg),signed char(*argp)));
+signed(__cdecl rm_asterisk(signed char(*argp)));
 signed(__cdecl embedback_r(signed(arg),signed char(*argp)));
 signed(__cdecl embedback(signed(arg),signed char(*argp)));
 signed(__cdecl embed_v_rr(signed(arg),signed char(**argp)));

@@ -32,9 +32,8 @@ if(!(R(search,*(R(dis,*argp))))) return(0x00);
 if(!(R(p_dir,*(R(dis,*argp))))) return(0x00);
 
 p = (R(cFileName,R(wfd,*(R(dis,*argp)))));
-
-flag = (signed short) dir_or_file(&(R(wfd,*(R(dis,*argp)))));
-if(DBG) printf("%s %Xh \n","The flag after using fn. dir_or_file() is:",flag);
+flag = (signed short) attrib_b(R(p_dir,*(R(dis,*argp))),p);
+if(DBG) printf("[%Xh] ",flag);
 
 if(!(flag&(C_PDIR+(C_CURRDIR+(C_FILE))))) {
 // backup
