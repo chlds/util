@@ -68,10 +68,10 @@ if(DBG) printf(" %d %s %s \n",r,"dir/files read on",dis.p_dir);
 R(dis,*argp) = (&dis);
 
 /* Close */
-if(!(FindClose(dis.search))) {
+if(!(close_dir_b(dis.search))) {
 if(OPT_DEPTH&(R(flag,*argp))) INC(R(depth,*argp));
 r = currently_occurring_error();
-printf("%s %Xh \n","<< Error at fn. FindClose() with error no.",r);
+printf("%s %Xh \n","<< Error at fn. close_dir_b() with error no.",r);
 return(0x00);
 }
 
