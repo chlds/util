@@ -126,10 +126,10 @@ printf("\n");
 *(b+(ct(b))) = ('*');
 
 /* Read i.e., update with the search handle */
-r = FindNextFile(R(search,*(R(dis,*argp))),&(R(wfd,*(R(dis,*argp)))));
+r = read_dir_b(R(search,*(R(dis,*argp))),&(R(wfd,*(R(dis,*argp)))));
+if(!(r^(~0x00))) return(0x01);
 if(!r) {
-r = currently_occurring_error();
-if(r^(ERROR_NO_MORE_FILES)) printf("%s %Xh \n","<< Error at fn. FindNextFile() with error no.",r);
+printf("%s \n","<< Error at fn. read_dir_b()");
 return(0x01);
 }
 
