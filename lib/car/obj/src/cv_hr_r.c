@@ -46,11 +46,7 @@ if(0x01<(r)) --b;
 
 --b;
 r = ct_digits(b);
-if(r<(0x02)) {
-b++;
-r = ct_digits(b);
 if(r<(0x01)) return(0x00);
-}
 
 if(!(cv_da(0x0A,&r,b))) return(0x00);
 if(r<(0x00)) r = (0x01+(~r));
