@@ -312,6 +312,7 @@ signed(__cdecl cat_read_f(signed char(**di),signed char(delim),signed(fd)));
 
 signed(__cdecl cv_hr_r(signed short(*hr),signed short(*mn),signed char(*si)));
 signed(__cdecl cv_hr(signed short(*hr),signed short(*mn),signed char(*si)));
+signed(__cdecl cv_mn(signed short(*mn),signed char(*si)));
 
 signed(__cdecl concat_argv_rr(signed char(*di),signed char(**si)));
 signed(__cdecl concat_argv_r_r(signed(*di),signed char(**si)));
