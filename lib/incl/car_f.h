@@ -310,6 +310,7 @@ signed(__cdecl read_f(signed char(**di),signed char(delim),signed(fd)));
 signed(__cdecl cat_read_f(signed char(**di),signed char(delim),signed(fd)));
 /* read bytes to the delimiter. */
 
+signed(__cdecl alert_b_r(signed(arg),signed short(hr),signed short(mn)));
 signed(__cdecl alert_b(signed(arg),signed char(*argp)));
 signed(__cdecl cv_hr_r(signed short(*hr),signed short(*mn),signed char(*si)));
 signed(__cdecl cv_hr(signed short(*hr),signed short(*mn),signed char(*si)));

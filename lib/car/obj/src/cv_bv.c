@@ -21,11 +21,12 @@ if(!(*si)) return(0x00);
 
 r = concatenate(0x00,di,*si);
 if(!r) return(0x00);
-if(cache) {
-if(!(concatenate(0x00,di,cache))) return(0x00);
-}
 
 si++;
+if(*si) {
+if(cache) {
+if(!(concatenate(0x00,di,cache))) return(0x00);
+}}
 
 return(0x01+(cv_bv(cache,di,si)));
 }
