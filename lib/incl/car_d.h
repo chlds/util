@@ -26,6 +26,10 @@ Build a linked list.
 
 # define COMMON_OBJS (0x04)
 
+struct alert {
+signed r[OBJS];
+} typedef alert_t;
+
 struct fl {
 void *(v[OBJS]);
 signed fd[OBJS];
