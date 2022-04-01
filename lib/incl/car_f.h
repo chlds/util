@@ -88,7 +88,7 @@ signed(__cdecl agent_cvlf(signed(argc),signed char(**argv),signed char(**envp)))
 
 signed(__cdecl close_dir_b(void(*argp)));
 signed(__cdecl read_dir_b(void(*cache/* search */),void(*argp)));
-void *(__cdecl open_dir_b(signed char(*path),void(*argp)));
+void *(__cdecl open_dir_b(signed short(arg/* flag */),signed char(*path),void(*argp)));
 signed(__cdecl lk_help(void));
 signed(__cdecl lk_flags(signed short(*di),signed char(*si)));
 signed(__cdecl agent_lk(signed(argc),signed char(**argv),signed char(**envp)));
@@ -310,8 +310,6 @@ signed(__cdecl read_f(signed char(**di),signed char(delim),signed(fd)));
 signed(__cdecl cat_read_f(signed char(**di),signed char(delim),signed(fd)));
 /* read bytes to the delimiter. */
 
-signed(__cdecl alert_siesta(signed(arg/* minutes */),alert_t(*argp)));
-signed(__cdecl init_alert(alert_t(*argp)));
 signed(__cdecl alert_b_r(signed(arg),signed short(hr),signed short(mn)));
 signed(__cdecl alert_b(signed(arg),signed char(*argp)));
 signed(__cdecl cv_hr_r(signed short(*hr),signed short(*mn),signed char(*si)));
@@ -546,6 +544,9 @@ signed(__cdecl concat_b_r(signed char(*di), signed char(*bp)));
 signed(__cdecl concat_b(signed char(*argp), ...));
 /* Copy strings to the argp (with sufficient buffer). */
 
+signed(__cdecl quot_b(signed(arg/* size */),signed char(*di/* buff */),signed char(*si)));
+/* Enclose in double quotation marks. */
+
 signed(__cdecl append_b(signed char(*di),signed char(*si)));
 /* Append the si to the di. */
 
@@ -685,6 +686,9 @@ signed(__cdecl ctdn2(signed char(sym),signed char(*argp)));
 signed(__cdecl ct_digits_r(signed char(*fig),signed char(*argp)));
 signed(__cdecl ct_digits(signed char(*argp)));
 /* Count digits. */
+
+signed(__cdecl cf_no(signed char(*argp)));
+/* Confirm. */
 
 signed(__cdecl align_backward(signed(arg),signed char(*argp)));
 signed(__cdecl align_b(signed(arg),signed char(*argp)));

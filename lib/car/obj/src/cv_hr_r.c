@@ -42,9 +42,13 @@ i++;
 embed(0x00,b);
 r = ct(argp);
 if(!r) return(0x00);
-if(0x01<(r)) --b;
 
 --b;
+if(--r) {
+--b;
+if(!(cf_no(b))) b++;
+}
+
 r = ct_digits(b);
 if(r<(0x01)) return(0x00);
 
