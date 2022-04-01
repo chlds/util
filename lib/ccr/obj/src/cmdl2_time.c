@@ -471,6 +471,7 @@ printf("%s%zd \n","Now this is: ",t);
 
 /* A loop */
 AND(flag,0x00);
+*buff = (0x00);
 while(t<(deadline)) {
 if(R(Announcements,*argp)) break;
 if(!(R(cmdl_time_Toggle,*argp))) break;
@@ -481,23 +482,20 @@ time(&t);
 zzz = (-t+(deadline));
 // One second: Get and release a handle of the common device context to transfer a bit block to an off-screen buffer.
 AND(flag,0x00);
-r = transcribe_to_beta(*(region+(X)),*(region+(Y)),*(CLI_DI+(dc)),*(window+(ACTIVE)));
-if(!r) {
+if(!(transcribe_to_beta(*(region+(X)),*(region+(Y)),*(CLI_DI+(dc)),*(window+(ACTIVE))))) {
 printf("%s \n","<< Error at fn. transcribe_to_beta()");
 OR(flag,0x01);
 }
 if(!flag) {
 // 3/4. transparency
 //* Fill the region on a back-screen buffer
-r = FillRgn(*(CLI_SI+(dc)),(void(*)) *(obj+(REGION)),(void(*)) lace);
-if(!r) {
+if(!(FillRgn(*(CLI_SI+(dc)),(void(*)) *(obj+(REGION)),(void*)lace))) {
 printf("%s \n","<< Error at FillRgn()");
 break;
 }
 //*/
 //* Map a loaded bitmap image to a destination back-screen buffer out of a source back-screen (e.g., off-screen) buffer.
-r = BitBlt(*(CLI_DI+(dc)),0x00,0x00,*(region+(X)),*(region+(Y)),*(CLI_SI+(dc)),0x00,0x00,SRCAND);
-if(!r) {
+if(!(BitBlt(*(CLI_DI+(dc)),0x00,0x00,*(region+(X)),*(region+(Y)),*(CLI_SI+(dc)),0x00,0x00,SRCAND))) {
 r = GetLastError();
 printf("%s %d %s %Xh \n","<< Error at fn. BitBlt() with error no.",r,"or",r);
 OR(flag,0x01);
@@ -513,27 +511,16 @@ st.wHour,st.wMinute,st.wSecond,st.wMilliseconds,\
 zzz,"\" left"
 );
 // 1st outputting
-old_textcolor = SetTextColor(*(CLI_DI+(dc)),SHADE_TEXTCOLOR);
-if(!(old_textcolor^(CLR_INVALID))) printf("%s \n","<< Error at fn. SetTextColor()");
-r = ct(buff);
-if(!r) printf("%s \n","<< Error at ct()");
-else r = TextOut(*(CLI_DI+(dc)),SHADE_XPOS+(*(pos+(X))),SHADE_YPOS+(*(pos+(Y))),buff,r);
-if(!r) printf("%s \n","<< Error at fn. TextOut()");
-old_textcolor = SetTextColor(*(CLI_DI+(dc)),old_textcolor);
-if(!(old_textcolor^(CLR_INVALID))) printf("%s \n","<< Error at fn. SetTextColor() to restore");
+if(!(text_out_beta(*(CLI_DI+(dc)),SHADE_XPOS+(*(pos+(X))),SHADE_YPOS+(*(pos+(Y))),buff,ct(buff),SHADE_TEXTCOLOR))) {
+printf("%s \n","<< Error at fn. text_out_beta()");
+}
 // 2nd outputting
-old_textcolor = SetTextColor(*(CLI_DI+(dc)),TEXTCOLOR);
-if(!(old_textcolor^(CLR_INVALID))) printf("%s \n","<< Error at SetTextColor() the second");
-r = ct(buff);
-if(!r) printf("%s \n","<< Error at ct()");
-else r = TextOut(*(CLI_DI+(dc)),*(pos+(X)),*(pos+(Y)),buff,r);
-if(!r) printf("%s \n","<< Error at fn. TextOut() the second");
-old_textcolor = SetTextColor(*(CLI_DI+(dc)),old_textcolor);
-if(!(old_textcolor^(CLR_INVALID))) printf("%s \n","<< Error at SetTextColor() the second to restore");
+if(!(text_out_beta(*(CLI_DI+(dc)),*(pos+(X)),*(pos+(Y)),buff,ct(buff),TEXTCOLOR))) {
+printf("%s \n","<< Error at fn. text_out_beta() the second");
+}
 // Two seconds: Get and release a handle of the common device context to transfer a bit block to the primary screen.
 if(!flag) {
-r = transcribe_beta(*(region+(X)),*(region+(Y)),*(window+(ACTIVE)),*(CLI_DI+(dc)));
-if(!r) {
+if(!(transcribe_beta(*(region+(X)),*(region+(Y)),*(window+(ACTIVE)),*(CLI_DI+(dc))))) {
 printf("%s \n","<< Error at fn. transcribe_beta()");
 OR(flag,0x01);
 }}}}
