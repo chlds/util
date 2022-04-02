@@ -49,7 +49,6 @@ auto signed char *(errors[]) = {
 if(argc<(0x03)) return(sched_help());
 
 time(&t);
-printf("%s ","Scheduled at");
 cals_out_t(t);
 printf("\n");
 if(!(init_sched(&sched))) return(0x00);
