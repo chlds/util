@@ -77,12 +77,10 @@ path = (*(0x01+(argv)));
 if(DBG) printf("path: [%s] \n",path);
 if(!(quot_b(size,buff,path))) return(0x00);
 
-b = (buff);
-printf("%s %s %s %2d:%2d \n","Launch",b,"at",hr,mn);
-printf("\n");
-
 printf("%s \n","Pressing any key cancels the schedule.");
 printf("\n");
+b = (buff);
+printf("%s %s %s %2d:%02d \n","Launch",b,"at",hr,mn);
 if(!(sched_b(local,&sched))) {
 printf("%s \n","<< Error at fn. sched_b()");
 return(0x00);

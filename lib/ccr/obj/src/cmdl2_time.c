@@ -115,12 +115,12 @@ auto signed const SHADE_XPOS = (0x02);
 auto signed const SHADE_YPOS = (0x02);
 
 // 0/4. transparency
-auto unsigned LACE = (0x9F9F9F);
+auto signed LACE = (0x8F8F8F);
 
 // dark
-auto unsigned SOLIDBRUSH = (0x3F3F3F);
-auto signed const SHADE_TEXTCOLOR = (0x404040|(SOLIDBRUSH));
-auto signed const TEXTCOLOR = (0xF0F0F0&(0x808080|(SHADE_TEXTCOLOR)));
+auto signed SOLIDBRUSH = (0x404040);
+auto signed SHADE_TEXTCOLOR = (0x303030|(SOLIDBRUSH));
+auto signed TEXTCOLOR = (0x808080|(SHADE_TEXTCOLOR));
 
 auto SYSTEMTIME st;
 
@@ -487,6 +487,10 @@ printf("%s \n","<< Error at fn. transcribe_to_beta()");
 OR(flag,0x01);
 }
 if(!flag) {
+// correct outputting
+if(!(text_out_beta(*(CLI_DI+(dc)),SHADE_XPOS+(*(pos+(X))),SHADE_YPOS+(*(pos+(Y))),buff,ct(buff),TEXTCOLOR))) {
+printf("%s \n","<< Error at fn. text_out_beta()");
+}
 // 3/4. transparency
 //* Fill the region on a back-screen buffer
 if(!(FillRgn(*(CLI_SI+(dc)),(void(*)) *(obj+(REGION)),(void*)lace))) {
