@@ -37,16 +37,15 @@ if(OPT_UNLIMITED^(OPT_UNLIMITED&(R(flag,*argp)))) Sleep(DELAY);
 
 /* Open(, map, store or..) on the RAM */
 dis.p_dir = (*(CLI_LK_PATH+(R(b,*argp))));
-dis.search = (void(*)) open_dir_b(OPT_VERBOSE&(R(flag,*argp)),dis.p_dir,&(R(wfd,dis)));
+dis.search = (void(*)) open_dir_b(dis.p_dir,&(R(wfd,dis)));
 if(!(dis.search)) {
+r = currently_occurring_error();
 if(OPT_DEPTH&(R(flag,*argp))) INC(R(depth,*argp));
 if(OPT_VERBOSE&(R(flag,*argp))) {
-printf("%s \n","<< Error at fn. open_dir_b()");
-if(0x01/* DBG */) {
-// monitoring
-printf(" [%s %s] \n","dis.p_dir:",dis.p_dir);
-printf(" [%s %s] \n","*(CLI_LK_PATH+(R(b,*argp:",*(CLI_LK_PATH+(R(b,*argp))));
-}}
+printf("%s %Xh \n","<< Error at fn. open_dir_b() with error no.",r);
+printf("\t[%s] \n",dis.p_dir);
+if(EQ(0x05,r)) printf("\t[%s] \n","Access denied");
+}
 return(0x00);
 }
 

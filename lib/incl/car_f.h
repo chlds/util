@@ -88,7 +88,7 @@ signed(__cdecl agent_cvlf(signed(argc),signed char(**argv),signed char(**envp)))
 
 signed(__cdecl close_dir_b(void(*argp)));
 signed(__cdecl read_dir_b(void(*cache/* search */),void(*argp)));
-void *(__cdecl open_dir_b(signed short(arg/* flag */),signed char(*path),void(*argp)));
+void *(__cdecl open_dir_b(signed char(*path),void(*argp)));
 signed(__cdecl lk_help(void));
 signed(__cdecl lk_flags(signed short(*di),signed char(*si)));
 signed(__cdecl agent_lk(signed(argc),signed char(**argv),signed char(**envp)));
