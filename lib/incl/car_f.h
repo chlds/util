@@ -670,15 +670,6 @@ signed(__cdecl include_num_internal(signed short(*flagp), signed char(*argp)));
 signed(__cdecl include_num(signed char(*argp)));
 /* Check numerals. */
 
-signed(__cdecl ctdn_to_wrap_r(signed short(edge),signed(arg/* align */),signed(*retv),signed char(*cache/* sym */),signed char(*argp)));
-signed(__cdecl ctdn_to_wrap(signed short(edge),signed(arg/* align */),signed char(*cache/* sym */),signed char(*argp)));
-/* Count down to wrap words. */
-
-signed(__cdecl ctdn_to_r(signed short(flag),signed(arg),signed char(*cache),signed char(*argp)));
-signed(__cdecl ctdn_to(signed char(*cache),signed char(*argp)));
-signed(__cdecl cf(signed short(*flag),signed char(*cache),signed char(*argp)));
-/* Count down letters to find an offset point. */
-
 signed(__cdecl ctdn2_r(signed(arg),signed char(sym),signed char(*argp)));
 signed(__cdecl ctdn2(signed char(sym),signed char(*argp)));
 /* Count letters down to the specific symbol. */
