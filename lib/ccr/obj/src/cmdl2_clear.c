@@ -7,27 +7,21 @@ unsigned int(__stdcall fn(void(*argp))) for fn. _beginthreadex
 */
 
 
-# define C_CODE_STDS
 # define CCR
+# include <stdio.h>
 # include "../../../incl/config.h"
 
 unsigned(__stdcall cmdl2_clear(SAT(*argp))) {
 
-/* **** DATA */
-auto signed i,r;
+auto signed r;
 
-/* **** CODE/TEXT */
+if(!argp) printf("%s \n","<< Error at cmdl2_clear()");
+
 INC(R(Running,*argp));
-
-system("cls");
-
-printf("\n");
-printf("%s \n", "Please type --exit or press <Ctrl-C> to stop.");
-printf("%s \n", "Commandlet or text:");
-
-printf("\n");
+r = cmdl2_clear_r(argp);
+if(!r) printf("%s \n","<< Error at cmdl2_clear_r()");
 
 DEC(R(Running,*argp));
 
-return(0x00);
+return(r);
 }

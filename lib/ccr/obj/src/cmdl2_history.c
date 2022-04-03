@@ -9,42 +9,21 @@ is for a doubly LL i.e.,
 */
 
 
-# define C_CODE_STDS
 # define CCR
+# include <stdio.h>
 # include "../../../incl/config.h"
 
 unsigned(__stdcall cmdl2_history(SAT(*argp))) {
 
-/* **** DATA */
-auto signed const QUANTUM = (0x10);
-auto signed const DELAY = (0x01*(QUANTUM));
+auto signed r;
 
-auto struct knot *cache,*lead,*base;
-auto signed i,r;
-
-/* **** CODE/TEXT */
-if(!argp) return(0x00);
+if(!argp) printf("%s \n","<< Error at cmdl2_history()");
 
 INC(R(Running,*argp));
-
-printf("\n");
-
-i = (i^(i));
-
-base = (*(CLI_BASE+(R(knot,R(reel,*argp)))));
-cache = (base);
-
-while(cache) {
-if(R(Announcements,*argp)) break;
-Sleep(DELAY);
-printf("  %d%s",i++,". ");
-if(R(p,*cache)) printf("%s \n",R(p,*cache));
-cache = R(d,*cache);
-}
-
-printf("\n");
+r = cmdl2_history_r(argp);
+if(!r) printf("%s \n","<< Error at cmdl2_history_r()");
 
 DEC(R(Running,*argp));
 
-return(0x00);
+return(r);
 }

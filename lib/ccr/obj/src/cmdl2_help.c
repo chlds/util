@@ -4,37 +4,21 @@ Commandlet to help
 */
 
 
-# define C_CODE_STDS
 # define CCR
+# include <stdio.h>
 # include "../../../incl/config.h"
 
 unsigned(__stdcall cmdl2_help(SAT(*argp))) {
 
-/* **** DATA */
-auto signed i,r;
+auto signed r;
 
-/* **** CODE/TEXT */
+if(!argp) printf("%s \n","<< Error at cmdl2_help()");
+
 INC(R(Running,*argp));
-
-/* Monitoring
-printf("%s\n","<< cmdl_exit runs.");
-printf("%s\n",(signed char(*)) argp);
-//*/
-
-printf("\n");
-
-printf("  %s\n","Commandlets:");
-printf("\n");
-printf("  %s\n","--exit to exit");
-printf("  %s\n","--help to help");
-printf("  %s\n","--clear to clear the screen");
-printf("  %s\n","--time [seconds] to display the local time");
-printf("  %s\n","--output to output except for the commandlets");
-printf("  %s\n","--history to output the history");
-
-printf("\n");
+r = cmdl2_help_r(argp);
+if(!r) printf("%s \n","<< Error at cmdl2_help_r()");
 
 DEC(R(Running,*argp));
 
-return(0x00);
+return(r);
 }

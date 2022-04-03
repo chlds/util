@@ -13,11 +13,10 @@ unsigned int(__stdcall fn(void(*argp))) for fn. _beginthreadex
 
 unsigned(__stdcall cmdl2_exit(SAT(*argp))) {
 
-auto signed i,r;
+auto signed r;
 
 /* **** Monitoring
-printf("%s\n", "<< cmdl_exit runs.");
-printf("%s\n", (signed char(*)) argp);
+printf("%s \n", "<< cmdl_exit runs.");
 //*/
 
 INC(R(Announcements,*argp));
