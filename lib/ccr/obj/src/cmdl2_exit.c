@@ -19,7 +19,7 @@ auto signed r;
 printf("%s \n", "<< cmdl_exit runs.");
 //*/
 
-INC(R(Announcements,*argp));
+INC(R(announce,*argp));
 
 return(0x01);
 }

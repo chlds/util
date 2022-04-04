@@ -22,9 +22,10 @@ typedef struct sat {
 signed char *(cur[COMMON_OBJS]);
 signed char *(base[COMMON_OBJS]);
 signed short flag;
-signed short Announcements;
-signed short cmdl_time_Toggle;
-signed Running;
+signed short announce;
+signed short toggle;
+signed run;
+signed period;
 REEL reel;
 void *optl;
 } SAT;

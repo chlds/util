@@ -82,7 +82,7 @@ XOR(i,i);
 base = (*(CLI_BASE+(R(knot,R(reel,*argp)))));
 cache = (base);
 while(cache) {
-if(R(Announcements,*argp)) {
+if(R(announce,*argp)) {
 uncmpltflag++;
 break;
 }

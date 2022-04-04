@@ -30,7 +30,7 @@ base = (*(CLI_BASE+(R(knot,R(reel,*argp)))));
 cache = (base);
 
 while(cache) {
-if(R(Announcements,*argp)) break;
+if(R(announce,*argp)) break;
 Sleep(DELAY);
 printf("  %d%s",i++,". ");
 if(R(p,*cache)) printf("%s \n",R(p,*cache));

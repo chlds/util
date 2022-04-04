@@ -69,9 +69,10 @@ return(0x00);
 }
 
 // init.
-sat.Announcements = (0x00);
-sat.cmdl_time_Toggle = (0x00);
-sat.Running = (0x00);
+AND(sat.announce,0x00);
+AND(sat.toggle,0x00);
+AND(sat.run,0x00);
+AND(sat.period,0x00);
 
 /*
 r = make_cards(term,fn,&cards);
@@ -108,7 +109,7 @@ XOR(total,total);
 XOR(flag,flag);
 
 while(2) {
-if(sat.Announcements) break;
+if(sat.announce) break;
 cache = (struct knot(*)) malloc(sizeof(*cache));
 if(!cache) {
 printf("%s \n","<< Error at fn. malloc()");
@@ -176,8 +177,8 @@ printf("\n");
 /* Monitor behavior of the other sub-threads to be stopped by sub-thread cmdl2_exit. */
 i = (0xFF);
 while(0x01) {
-printf("\r%s %d ","Sub-threads to be stopped: ",sat.Running);
-if(!(sat.Running)) break;
+printf("\r%s %d ","Sub-threads to be stopped: ",sat.run);
+if(!(sat.run)) break;
 /* CPU idling */
 Sleep(DELAY);
 --i;

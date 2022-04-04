@@ -17,11 +17,11 @@ auto signed r;
 
 if(!argp) printf("%s \n","<< Error at cmdl2_clear()");
 
-INC(R(Running,*argp));
+INC(R(run,*argp));
 r = cmdl2_clear_r(argp);
 if(!r) printf("%s \n","<< Error at cmdl2_clear_r()");
 
-DEC(R(Running,*argp));
+DEC(R(run,*argp));
 
 return(r);
 }

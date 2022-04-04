@@ -43,7 +43,7 @@ i = (i^(i));
 cache = (*(CLI_BASE+(R(knot,R(reel,*argp)))));
 
 while(cache) {
-if(R(Announcements,*argp)) break;
+if(R(announce,*argp)) break;
 Sleep(DELAY);
 // Check the command flag i.e., CMDFLAG to be set
 if(!(R(flag,*cache))) {

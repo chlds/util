@@ -82,7 +82,7 @@ XOR(interrupt_flag,interrupt_flag);
 XOR(i,i);
 
 while(1) {
-if(R(Announcements,*argp)) {
+if(R(announce,*argp)) {
 interrupt_flag++;
 break;
 }
