@@ -13,7 +13,7 @@ is for a doubly LL i.e.,
 # define CCR
 # include "../../../incl/config.h"
 
-unsigned(__stdcall cmdl2_output_r(SAT(*argp))) {
+signed(__cdecl cmdl2_output_r(SAT(*argp))) {
 
 auto struct knot *cache,*lead,*base;
 auto signed char *p;

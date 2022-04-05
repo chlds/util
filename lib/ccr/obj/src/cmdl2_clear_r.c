@@ -12,7 +12,7 @@ unsigned int(__stdcall fn(void(*argp))) for fn. _beginthreadex
 # include <stdlib.h>
 # include "../../../incl/config.h"
 
-unsigned(__stdcall cmdl2_clear_r(SAT(*argp))) {
+signed(__cdecl cmdl2_clear_r(SAT(*argp))) {
 
 auto signed r;
 

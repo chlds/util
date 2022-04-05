@@ -16,7 +16,7 @@ Implemented along with fn. cv_v() and with fn. rl_v()
 # define CCR
 # include "../../../incl/config.h"
 
-unsigned(__stdcall cmdl2_save_r(SAT(*argp))) {
+signed(__cdecl cmdl2_save_r(SAT(*argp))) {
 
 auto signed char **pp;
 auto signed char *p;

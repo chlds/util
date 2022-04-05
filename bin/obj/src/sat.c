@@ -29,6 +29,9 @@ auto KNOT *cache,*knot;
 auto signed const QUANTUM = (0x10);
 auto signed const SNOOZE = (0x04);
 auto signed const DELAY = (0x03*(QUANTUM));
+auto signed height = (21);
+auto signed width = (7);
+auto signed char *name = ("tahoma");
 auto unsigned createdflags = (0x00);
 auto unsigned stacksize = (0x00);
 auto unsigned(__stdcall*(fn[COUNT_FUNCTIONS/* i.e., CARDS */])) (void(*argp)) = {
@@ -73,6 +76,9 @@ AND(sat.announce,0x00);
 AND(sat.toggle,0x00);
 AND(sat.run,0x00);
 AND(sat.period,0x00);
+R(height,R(font,sat)) = (height);
+R(width,R(font,sat)) = (width);
+R(name,R(font,sat)) = (name);
 
 /*
 r = make_cards(term,fn,&cards);

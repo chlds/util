@@ -26,7 +26,7 @@ Transparency
 # include <wincodecsdk.h>
 # pragma comment(lib, "windowscodecs.lib")
 
-unsigned(__stdcall cmdl2_time_rrrr(SAT(*argp))) {
+signed(__cdecl cmdl2_time_rrrr(SAT(*argp))) {
 
 // for the module handles
 enum {
@@ -57,17 +57,6 @@ auto unsigned old_textalign;
 
 auto signed const BKMODE = (TRANSPARENT);
 auto signed const BKCOLOR = (0x000000);
-
-auto signed const SHADE_XPOS = (0x02);
-auto signed const SHADE_YPOS = (0x02);
-
-// 0/4. transparency
-auto signed LACE = (0x8F8F8F);
-
-// dark
-auto signed SOLIDBRUSH = (0x404040);
-auto signed SHADE_TEXTCOLOR = (0x303030|(SOLIDBRUSH));
-auto signed TEXTCOLOR = (0x808080|(SHADE_TEXTCOLOR));
 
 auto SYSTEMTIME st;
 
@@ -122,24 +111,11 @@ auto unsigned pos[COUNT_POS] = {
 (unsigned) (0x00),
 };
 
-// 1/4. transparency
-auto void *lace = (0x00);
-
-auto signed height_font = (21);
-auto signed width_font = (7);
-auto signed escapement_font = (0x00);
-auto signed orientation_font = (0x00);
-auto signed weight_font = (FW_REGULAR);
-auto unsigned italic_font = (0x00);
-auto unsigned underline_font = (0x00);
-auto unsigned strikeout_font = (0x00);
-auto unsigned charset_font = (ANSI_CHARSET);
-auto unsigned outprecision_font = (OUT_TT_ONLY_PRECIS);
-auto unsigned clipprecision_font = (0x00);
-auto unsigned quality_font = (0x00);
-auto unsigned pitchandfamily_font = (0x00);
-auto signed char facename_font[] = ("Tahoma");
-
+// transparency
+auto void *lace;
+auto void *rgn;
+auto void *brush,*font;
+auto void *old_brush,*old_font;
 auto KNOT *cache,*lead,*base;
 
 auto signed period;
@@ -153,57 +129,28 @@ auto signed const DELAY = (0x03*(QUANTUM));
 
 if(!argp) return(0x00);
 
-/* Screen Metrics */
-*(scr+(X)) = GetSystemMetrics(SM_CXSCREEN);
-if(!(*(scr+(X)))) {
-printf("%s \n","<< Error at GetSystemMetrics(SM_CXSCREEN).");
-return(0x00);
-}
-
-*(scr+(Y)) = GetSystemMetrics(SM_CYSCREEN);
-if(!(*(scr+(Y)))) {
-printf("%s \n","<< Error at GetSystemMetrics(SM_CYSCREEN).");
-return(0x00);
-}
-
-*(region+(X)) = (*(scr+(X)));
-*(region+(Y)) = (SHADE_YPOS+(height_font));
-
+r = currently_operating_pixels(0x00);
+*(region+(X)) = (r);
+*(region+(Y)) = (SHADE_YPOS+(R(height,R(font,*argp))));
 *(pos+(X)) = (0x00);
 *(pos+(Y)) = (0x00);
 
 /* Map objects on the RAM */
-*(obj+(REGION)) = (void(*)) CreateRectRgn(0x00,0x00,*(region+(X)),*(region+(Y)));
-if(!(*(obj+(REGION)))) {
-printf("%s \n","<< Error at CreateRectRgn()");
-return(0x00);
-}
-// else printf("%s%p \n","The handle of a region object created/mapped on the RAM will be on offset ",*(obj+(REGION)));
+rgn = (*(CLI_BASE+(R(region,*argp))));
+if(!rgn) return(0x00);
+// if(DBG) printf("%s %p \n","A region object created/mapped on the RAM will be on offset ",rgn);
 
-*(obj+(BRUSH)) = (void(*)) CreateSolidBrush(SOLIDBRUSH);
-if(!(*(obj+(BRUSH)))) {
-printf("%s \n","<< Error at CreateSolidBrush()");
-return(0x00);
-}
-// else printf("%s%p \n","The handle of a brush object created/mapped on the RAM will be on offset ",*(obj+(BRUSH)));
+brush = (*(CLI_BASE+(R(brush,*argp))));
+if(!brush) return(0x00);
+// if(DBG) printf("%s %p \n","A brush object created/mapped on the RAM will be on offset",brush);
 
-// 2/4. transparency
-lace = (void(*)) CreateSolidBrush(LACE);
-if(!lace) {
-printf("%s \n","<< Error at CreateSolidBrush() for lace..");
-return(0x00);
-}
+// transparency
+lace = (*(CLI_OFFSET+(R(brush,*argp))));
+if(!lace) return(0x00);
 
-*(obj+(FONT)) = (void(*)) CreateFont(
-height_font,width_font,escapement_font,orientation_font,weight_font,\
-italic_font,underline_font,strikeout_font,charset_font,outprecision_font,clipprecision_font,\
-quality_font,pitchandfamily_font,(char signed*) facename_font
-);
-if(!(*(obj+(FONT)))) {
-printf("%s \n","<< Error at fn. CreateFont()");
-return(0x00);
-}
-// else printf("%s%p \n","The handle of a font object created/mapped on the RAM will be on offset ",*(obj+(FONT)));
+font = (*(CLI_BASE+(R(v,R(font,*argp)))));
+if(!font) return(0x00);
+// if(DBG) printf("%s %p \n","A font object created/mapped on the RAM will be on offset",font);
 
 /* Retrieve a handle to the desktop window */
 *(window+(ACTIVE)) = GetDesktopWindow();
@@ -283,23 +230,22 @@ return(0x00);
 
 
 /* Selecting the created, loaded or mapped objects to two memory Device Context */
-*(old_obj+(BRUSH)) = (void(*)) SelectObject(*(CLI_DI+(dc)),(void(*)) *(obj+(BRUSH)));
-
-if(!(*(old_obj+(BRUSH)))) {
+old_brush = (void(*)) SelectObject(*(CLI_DI+(dc)),(void*)brush);
+if(!old_brush) {
 printf("%s \n","<< Error at fn. SelectObject() of the Brush with the NULL.");
 return(0x00);
 }
-if(EQ(HGDI_ERROR,*(old_obj+(BRUSH)))) {
+if(EQ(HGDI_ERROR,old_brush)) {
 printf("%s \n","<< Error at fn. SelectObject() of the Brush with the HGDI_ERROR");
 return(0x00);
 }
 
-*(old_obj+(FONT)) = (void(*)) SelectObject(*(CLI_DI+(dc)),(void(*)) *(obj+(FONT)));
-if(!(*(old_obj+(FONT)))) {
+old_font = (void(*)) SelectObject(*(CLI_DI+(dc)),(void*)font);
+if(!old_font) {
 printf("%s \n","<< Error at fn. SelectObject(FONT) with the NULL.");
 return(0x00);
 }
-if(EQ(HGDI_ERROR,*(old_obj+(FONT)))) {
+if(EQ(HGDI_ERROR,old_font)) {
 printf("%s \n","<< Error at fn. SelectObject(FONT) with the HGDI_ERROR");
 return(0x00);
 }
@@ -388,7 +334,7 @@ printf("%s \n","<< Error at fn. text_out_beta()");
 }
 // 3/4. transparency
 //* Fill the region on a back-screen buffer
-if(!(FillRgn(*(CLI_SI+(dc)),(void(*)) *(obj+(REGION)),(void*)lace))) {
+if(!(FillRgn(*(CLI_SI+(dc)),(void*)rgn,(void*)lace))) {
 printf("%s \n","<< Error at FillRgn()");
 break;
 }
@@ -463,19 +409,26 @@ printf("%s%d \n","<< Error at fn. SelectObject to de-select a compatible bitmap 
 return(0x00);
 }}
 
-/* De-select two objects out of the compatible device context */
-// i = (-2+(COUNT_OBJS));
-i = (0x02); // i.e., BRUSH and FONT..
-while(i) {
-*(old_obj+(i)) = (void(*)) SelectObject(*(CLI_DI+(dc)), (void(*)) *(old_obj+(--i)));
-if(!(*(old_obj+(i)))) {
-printf("%s%d \n","<< Error at fn. SelectObject to de-select and i is: ",i);
+/* De-select two objects i.e., BRUSH and FONT.. out of the compatible device context */
+old_font = (void*) SelectObject(*(CLI_DI+(dc)),(void*)old_font);
+if(!old_font) {
+printf("%s \n","<< Error at fn. SelectObject to de-select");
 return(0x00);
 }
-if(EQ(HGDI_ERROR,*(old_obj+(i)))) {
-printf("%s%d \n","<< Error at fn. SelectObject to de-select with HGDI_ERROR and i is: ",i);
+if(EQ(HGDI_ERROR,old_font)) {
+printf("%s \n","<< Error at fn. SelectObject to de-select with HGDI_ERROR");
 return(0x00);
-}}
+}
+
+old_brush = (void*) SelectObject(*(CLI_DI+(dc)),(void*)old_brush);
+if(!old_brush) {
+printf("%s \n","<< Error at fn. SelectObject to de-select");
+return(0x00);
+}
+if(EQ(HGDI_ERROR,old_brush)) {
+printf("%s \n","<< Error at fn. SelectObject to de-select with HGDI_ERROR");
+return(0x00);
+}
 
 /* Deleting/unmapping two compatible bitmap objects on the RAM */
 i = (-1+(COUNT_DC));
@@ -492,27 +445,6 @@ while(i) {
 r = DeleteDC(*(dc+(--i)));
 if(!r) {
 printf("%s%d \n","<< Error at fn. DeleteDC() and i is: ",i);
-return(0x00);
-}}
-
-// 4/4. transparency
-r = DeleteObject(lace);
-if(!r) {
-printf("%s \n","<< Error at fn. DeleteObject() for lace..");
-return(0x00);
-}
-
-/* **** **** Delete(, unload or unmap) all the objects mapped on the RAM */
-/* **** Except a handle of the module object of the process to currently run on */
-/* **** Should <an offset handle of the current module object returned by fn. GetModuleHandle()> be released..? */
-/* Aux., except an <un-loaded> bitmap object: (-1) */
-
-// i = (-1+(COUNT_OBJS));
-i = (0x03); // i.e., REGION, BRUSH and FONT..
-while(i) {
-r = DeleteObject(*(obj+(--i)));
-if(!r) {
-printf("%s%d \n","<< Error at fn. DeleteObject() and the i is: ",i);
 return(0x00);
 }}
 

@@ -10,7 +10,7 @@ Transparency
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-unsigned(__stdcall cmdl2_time_rrr(SAT(*argp))) {
+signed(__cdecl cmdl2_time_rrr(SAT(*argp))) {
 
 auto signed char **v;
 auto signed char *b;
@@ -55,8 +55,8 @@ if(!period) period = (default_period);
 
 R(period,*argp) = (period);
 
-r = cmdl2_time_rrrr(argp);
-if(!r) printf("%s \n","<< Error at fn. cmdl2_time_rrrr()");
+r = cmdl2_time_brush(argp);
+if(!r) printf("%s \n","<< Error at fn. cmdl2_time_brush()");
 
 return(r);
 }

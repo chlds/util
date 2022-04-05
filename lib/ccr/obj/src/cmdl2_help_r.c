@@ -8,7 +8,7 @@ Commandlet to help
 # define CCR
 # include "../../../incl/config.h"
 
-unsigned(__stdcall cmdl2_help_r(SAT(*argp))) {
+signed(__cdecl cmdl2_help_r(SAT(*argp))) {
 
 auto signed r;
 

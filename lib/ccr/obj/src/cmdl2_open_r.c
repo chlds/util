@@ -17,7 +17,7 @@ And also with a flag to be added for code to run as far as possible to the end.
 # define CCR
 # include "../../../incl/config.h"
 
-unsigned(__stdcall cmdl2_open_r(SAT(*argp))) {
+signed(__cdecl cmdl2_open_r(SAT(*argp))) {
 
 auto signed char **pp;
 auto signed char *p;

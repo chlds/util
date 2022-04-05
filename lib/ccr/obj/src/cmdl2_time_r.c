@@ -17,7 +17,7 @@ label cpu_idle, cpu_freq and more for an extensible code..
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-unsigned(__stdcall cmdl2_time_r(SAT(*argp))) {
+signed(__cdecl cmdl2_time_r(SAT(*argp))) {
 
 auto signed char *b;
 auto signed r;

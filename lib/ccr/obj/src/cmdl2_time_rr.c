@@ -10,7 +10,7 @@ Transparency
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-unsigned(__stdcall cmdl2_time_rr(SAT(*argp))) {
+signed(__cdecl cmdl2_time_rr(SAT(*argp))) {
 
 auto signed char *b;
 auto signed r;
