@@ -670,8 +670,8 @@ signed(__cdecl include_num_internal(signed short(*flagp), signed char(*argp)));
 signed(__cdecl include_num(signed char(*argp)));
 /* Check numerals. */
 
-signed(__cdecl ctdn2_r(signed(arg),signed char(sym),signed char(*argp)));
-signed(__cdecl ctdn2(signed char(sym),signed char(*argp)));
+signed(__cdecl ctdn_r(signed(arg),signed char(sym),signed char(*argp)));
+signed(__cdecl ctdn(signed char(sym),signed char(*argp)));
 /* Count letters down to the specific symbol. */
 
 signed(__cdecl ct_digits_r(signed char(*fig),signed char(*argp)));

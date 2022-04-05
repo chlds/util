@@ -16,7 +16,7 @@ if(!mn) return(0x00);
 if(!argp) return(0x00);
 
 b = (argp);
-r = ctdn2(':',b);
+r = ctdn(':',b);
 if(r<(0x01)) return(0x00);
 
 b = (r+(b));
