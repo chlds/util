@@ -12,7 +12,6 @@ Transparency
 # define CCR
 
 # define COUNT_MODULES (1)
-# define COUNT_WINDOWS (1)
 # define COUNT_OBJS (5)
 # define COUNT_POS (4)
 # define COUNT_DC (3)
@@ -31,11 +30,6 @@ signed(__cdecl cmdl2_time_rrrr(SAT(*argp))) {
 // for the module handles
 enum {
 INSTANCE,
-};
-
-// for the window handles
-enum {
-ACTIVE,
 };
 
 // for the object handles
@@ -75,10 +69,6 @@ auto void *(module[COUNT_MODULES]) = {
 (void(*)) (0x00),
 };
 
-auto void *(window[COUNT_WINDOWS]) = {
-(void(*)) (0x00),
-};
-
 auto void *(old_obj[COUNT_OBJS]) = {
 (void(*)) (0x00),
 };
@@ -103,13 +93,11 @@ auto unsigned region[2] = {
 (unsigned) (0x00),
 };
 
-auto unsigned scr[2] = {
-(unsigned) (0x00),
-};
-
 auto unsigned pos[COUNT_POS] = {
 (unsigned) (0x00),
 };
+
+auto void *desktop;
 
 // transparency
 auto void *lace;
@@ -153,10 +141,10 @@ if(!font) return(0x00);
 // if(DBG) printf("%s %p \n","A font object created/mapped on the RAM will be on offset",font);
 
 /* Retrieve a handle to the desktop window */
-*(window+(ACTIVE)) = GetDesktopWindow();
+desktop = GetDesktopWindow();
 
 /* Create a bitmap object and two memory device contexts from the common DC */
-*(CLI_CACHE+(dc)) = (void(*)) GetDC((void(*)) *(window+(ACTIVE)));
+*(CLI_CACHE+(dc)) = (void(*)) GetDC((void*)desktop);
 if(!(*(CLI_CACHE+(dc)))) {
 printf("%s \n","<< Error at GetDC()");
 return(0x00);
@@ -184,8 +172,7 @@ return(0x00);
 }
 
 // Unmap the common device context only.
-r = ReleaseDC(*(window+(ACTIVE)),*(CLI_CACHE+(dc)));
-if(!r) {
+if(!(ReleaseDC(desktop,*(CLI_CACHE+(dc))))) {
 printf("%s \n","<< Error at ReleaseDC()");
 return(0x00);
 }
@@ -230,47 +217,31 @@ return(0x00);
 
 
 /* Selecting the created, loaded or mapped objects to two memory Device Context */
-old_brush = (void(*)) SelectObject(*(CLI_DI+(dc)),(void*)brush);
+old_brush = select_object_beta(*(CLI_DI+(dc)),brush);
 if(!old_brush) {
-printf("%s \n","<< Error at fn. SelectObject() of the Brush with the NULL.");
-return(0x00);
-}
-if(EQ(HGDI_ERROR,old_brush)) {
-printf("%s \n","<< Error at fn. SelectObject() of the Brush with the HGDI_ERROR");
+printf("%s \n","<< Error at fn. select_object_beta() for a brush");
 return(0x00);
 }
 
-old_font = (void(*)) SelectObject(*(CLI_DI+(dc)),(void*)font);
+old_font = select_object_beta(*(CLI_DI+(dc)),font);
 if(!old_font) {
-printf("%s \n","<< Error at fn. SelectObject(FONT) with the NULL.");
-return(0x00);
-}
-if(EQ(HGDI_ERROR,old_font)) {
-printf("%s \n","<< Error at fn. SelectObject(FONT) with the HGDI_ERROR");
+printf("%s \n","<< Error at fn. select_object_beta() for a font");
 return(0x00);
 }
 
 i = (-0x01+(COUNT_DC));
 while(i) {
 --i;
-*(old_bm+(i)) = (void(*)) SelectObject(*(dc+(i)),(void(*)) *(bm+(i)));
-if(!(*(old_bm+(i)))) {
-printf("%s \n","<< Error at fn. SelectObject(BITMAP) with the NULL.");
-return(0x00);
-}
-if(EQ(HGDI_ERROR,*(old_bm+(i)))) {
-printf("%s \n","<< Error at fn. SelectObject(BITMAP) with the HGDI_ERROR");
+*(i+(old_bm)) = select_object_beta(*(i+(dc)),*(i+(bm)));
+if(!(*(i+(old_bm)))) {
+printf("%s %d \n","<< Error at fn. select_object_beta() for a bitmap and i:",i);
 return(0x00);
 }}
 
 /* To (*(CLI_SI+(dc)))
-*(old_obj+(LOADEDBITMAP)) = (void(*)) SelectObject(*(CLI_SI+(dc)),(void(*)) *(obj+(LOADEDBITMAP)));
+*(old_obj+(LOADEDBITMAP)) = select_object_beta(*(CLI_SI+(dc)),*(obj+(LOADEDBITMAP)));
 if(!(*(old_obj+(LOADEDBITMAP)))) {
-printf("%s \n","<< Error at fn. SelectObject(LOADEDBITMAP) with the NULL.");
-return(0x00);
-}
-if(EQ(HGDI_ERROR,*(old_obj+(LOADEDBITMAP)))) {
-printf("%s \n","<< Error at fn. SelectObject(LOADEDBITMAP) with the HGDI_ERROR");
+printf("%s \n","<< Error at fn. select_object_beta() for a loadedbitmap");
 return(0x00);
 }
 //*/
@@ -323,7 +294,7 @@ time(&t);
 zzz = (-t+(deadline));
 // One second: Get and release a handle of the common device context to transfer a bit block to an off-screen buffer.
 AND(flag,0x00);
-if(!(transcribe_to_beta(*(region+(X)),*(region+(Y)),*(CLI_DI+(dc)),*(window+(ACTIVE))))) {
+if(!(transcribe_to_beta(*(region+(X)),*(region+(Y)),*(CLI_DI+(dc)),desktop))) {
 printf("%s \n","<< Error at fn. transcribe_to_beta()");
 OR(flag,0x01);
 }
@@ -365,7 +336,7 @@ printf("%s \n","<< Error at fn. text_out_beta() the second");
 }
 // Two seconds: Get and release a handle of the common device context to transfer a bit block to the primary screen.
 if(!flag) {
-if(!(transcribe_beta(*(region+(X)),*(region+(Y)),*(window+(ACTIVE)),*(CLI_DI+(dc))))) {
+if(!(transcribe_beta(*(region+(X)),*(region+(Y)),desktop,*(CLI_DI+(dc))))) {
 printf("%s \n","<< Error at fn. transcribe_beta()");
 OR(flag,0x01);
 }}}}
@@ -384,13 +355,9 @@ old_bkcolor = SetBkColor(*(CLI_DI+(dc)),old_bkcolor);
 if(!(old_bkcolor^(CLR_INVALID))) printf("%s \n","<< Error at fn. SetBkColor() to restore");
 
 /* De-selecting the handle of the loaded bitmap objects to a memory Device Context.
-*(old_obj+(LOADEDBITMAP)) = (void(*)) SelectObject(*(CLI_SI+(dc)), (void(*)) *(old_obj+(LOADEDBITMAP)));
+*(old_obj+(LOADEDBITMAP)) = select_object_beta(*(CLI_SI+(dc)),*(old_obj+(LOADEDBITMAP)));
 if(!(*(old_obj+(LOADEDBITMAP)))) {
-printf("%s \n","<< Error at fn. SelectObject to de-select a loaded bitmap to (*(CLI_SI+(dc)))");
-return(0x00);
-}
-if(EQ(HGDI_ERROR,*(old_obj+(LOADEDBITMAP)))) {
-printf("%s \n","<< Error at fn. SelectObject to de-select a loaded bitmap to (*(CLI_SI+(dc))) with HGDI_ERROR");
+printf("%s \n","<< Error at fn. select_object_beta for a loaded bitmap object");
 return(0x00);
 }
 //*/
@@ -399,52 +366,38 @@ return(0x00);
 i = (-0x01+(COUNT_DC));
 while(i) {
 --i;
-*(old_bm+(i)) = (void(*)) SelectObject(*(dc+(i)),(void(*)) *(old_bm+(i)));
-if(!(*(old_bm+(i)))) {
-printf("%s%d \n","<< Error at fn. SelectObject to de-select a compatible bitmap object and i is: ",i);
-return(0x00);
-}
-if(EQ(HGDI_ERROR,*(old_bm+(i)))) {
-printf("%s%d \n","<< Error at fn. SelectObject to de-select a compatible bitmap object with HGDI_ERROR and i is: ",i);
+*(i+(old_bm)) = select_object_beta(*(i+(dc)),*(i+(old_bm)));
+if(!(*(i+(old_bm)))) {
+printf("%s %d \n","<< Error at fn. select_object_beta() for an old compatible bitmap object and i:",i);
 return(0x00);
 }}
 
 /* De-select two objects i.e., BRUSH and FONT.. out of the compatible device context */
-old_font = (void*) SelectObject(*(CLI_DI+(dc)),(void*)old_font);
+old_font = select_object_beta(*(CLI_DI+(dc)),old_font);
 if(!old_font) {
-printf("%s \n","<< Error at fn. SelectObject to de-select");
-return(0x00);
-}
-if(EQ(HGDI_ERROR,old_font)) {
-printf("%s \n","<< Error at fn. SelectObject to de-select with HGDI_ERROR");
+printf("%s \n","<< Error at fn. select_object_beta() for an old font");
 return(0x00);
 }
 
-old_brush = (void*) SelectObject(*(CLI_DI+(dc)),(void*)old_brush);
+old_brush = select_object_beta(*(CLI_DI+(dc)),old_brush);
 if(!old_brush) {
-printf("%s \n","<< Error at fn. SelectObject to de-select");
-return(0x00);
-}
-if(EQ(HGDI_ERROR,old_brush)) {
-printf("%s \n","<< Error at fn. SelectObject to de-select with HGDI_ERROR");
+printf("%s \n","<< Error at fn. select_object_beta() for an old brush");
 return(0x00);
 }
 
 /* Deleting/unmapping two compatible bitmap objects on the RAM */
 i = (-1+(COUNT_DC));
 while(i) {
-r = DeleteObject(*(bm+(--i)));
-if(!r) {
-printf("%s%d \n","<< Error at fn. DeleteObject() to unmap a compatible bitmap object and i is: ",i);
+if(!(delete_object_beta(*(--i+(bm))))) {
+printf("%s %d \n","<< Error at fn. delete_object_beta() for a compatible bitmap object and i:",i);
 return(0x00);
 }}
 
 /* Deleting/unmapping two memory Device Contexts on the RAM */
 i = (-1+(COUNT_DC));
 while(i) {
-r = DeleteDC(*(dc+(--i)));
-if(!r) {
-printf("%s%d \n","<< Error at fn. DeleteDC() and i is: ",i);
+if(!(DeleteDC(*(--i+(dc))))) {
+printf("%s %d \n","<< Error at fn. DeleteDC() and i:",i);
 return(0x00);
 }}
 

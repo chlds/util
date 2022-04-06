@@ -670,6 +670,10 @@ signed(__cdecl include_num_internal(signed short(*flagp), signed char(*argp)));
 signed(__cdecl include_num(signed char(*argp)));
 /* Check numerals. */
 
+signed(__cdecl ctdn_a_r(signed(arg),signed char(*cache),signed char(*argp)));
+signed(__cdecl ctdn_a(signed char(*cache),signed char(*argp)));
+/* Count letters down to the specific array. */
+
 signed(__cdecl ctdn_r(signed(arg),signed char(sym),signed char(*argp)));
 signed(__cdecl ctdn(signed char(sym),signed char(*argp)));
 /* Count letters down to the specific symbol. */
