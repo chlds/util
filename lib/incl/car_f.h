@@ -317,6 +317,7 @@ signed(__cdecl cv_hr_light_r(signed short(*hr),signed char(*argp)));
 signed(__cdecl cv_hr_light(signed short(*hr),signed char(*argp)));
 signed(__cdecl cv_hr_r(signed short(*hr),signed short(*mn),signed char(*si)));
 signed(__cdecl cv_hr(signed short(*hr),signed short(*mn),signed char(*si)));
+signed(__cdecl cv_at(signed short(*hr),signed short(*mn),signed char(*argp)));
 signed(__cdecl cv_mn(signed short(*mn),signed char(*si)));
 
 signed(__cdecl concat_argv_rr(signed char(*di),signed char(**si)));

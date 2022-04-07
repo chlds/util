@@ -62,16 +62,16 @@ if(!(cv_bv(" ",&b,v))) return(0x00);
 if(DBG) printf("b. [%s] \n",b);
 
 printf("\n");
-if(!(cv_hr(&hr,&mn,b))) {
-printf("%s \n","<< Error at fn. cv_hr()");
-return(0x00);
-}
-
-*(CALS_HR+(R(time,sched))) = (hr);
-*(CALS_MN+(R(time,sched))) = (mn);
+r = agent_sched_r(&sched,b);
 embed(0x00,b);
 rl(b);
 b = (0x00);
+if(!r) {
+// printf("%s \n","<< Error at fn. agent_sched_r()");
+printf("%s \n","Error: Time could not be set.");
+return(0x00);
+}
+
 path = (*(0x01+(argv)));
 if(DBG) printf("path: [%s] \n",path);
 if(!(quot_b(size,buff,path))) return(0x00);
@@ -79,6 +79,8 @@ if(!(quot_b(size,buff,path))) return(0x00);
 printf("%s \n","Pressing any key cancels the schedule.");
 printf("\n");
 b = (buff);
+hr = (*(CALS_HR+(R(time,sched))));
+mn = (*(CALS_MN+(R(time,sched))));
 printf("%s %s %s %2d:%02d \n","Launch",b,"at",hr,mn);
 if(!(sched_b(local,&sched))) {
 printf("%s \n","<< Error at fn. sched_b()");

@@ -22,12 +22,7 @@ if(!argp) return(0x00);
 r = (CALS_TIME);
 while(r) *(--r+(R(time,*argp))) = (0x00);
 
-r = cv_hr(&hr,&mn,b);
-if(!r) {
-AND(mn,0x00);
-r = cv_hr_light(&hr,b);
-}
-
+r = cv_at(&hr,&mn,b);
 *(CALS_MN+(R(time,*argp))) = (mn);
 *(CALS_HR+(R(time,*argp))) = (hr);
 if(!r) {
