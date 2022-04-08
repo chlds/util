@@ -312,13 +312,15 @@ signed(__cdecl cat_read_f(signed char(**di),signed char(delim),signed(fd)));
 
 signed(__cdecl alert_b_r(signed(arg),signed short(hr),signed short(mn)));
 signed(__cdecl alert_b(signed(arg),signed char(*argp)));
+signed(__cdecl cv_hr_noon_r(signed short(*hr),signed char(*argp)));
+signed(__cdecl cv_hr_noon(signed short(*hr),signed char(*argp)));
 signed(__cdecl cv_hr_light_rr(signed short(*hr),signed char(*argp)));
 signed(__cdecl cv_hr_light_r(signed short(*hr),signed char(*argp)));
 signed(__cdecl cv_hr_light(signed short(*hr),signed char(*argp)));
 signed(__cdecl cv_hr_r(signed short(*hr),signed short(*mn),signed char(*si)));
 signed(__cdecl cv_hr(signed short(*hr),signed short(*mn),signed char(*si)));
-signed(__cdecl cv_at(signed short(*hr),signed short(*mn),signed char(*argp)));
 signed(__cdecl cv_mn(signed short(*mn),signed char(*si)));
+signed(__cdecl cv_at(signed short(*hr),signed short(*mn),signed char(*argp)));
 
 signed(__cdecl concat_argv_rr(signed char(*di),signed char(**si)));
 signed(__cdecl concat_argv_r_r(signed(*di),signed char(**si)));
