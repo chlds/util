@@ -8,7 +8,7 @@ Transcribe dots retrieved from a dc to a dc with a handle.
 # include <stdio.h>
 # include "../../../incl/config.h"
 
-signed(__cdecl transcribe_beta(signed(width),signed(height),void(*di/* hdl */),void(*si/* dc */))) {
+signed(__cdecl transcribe_hd_beta(signed(width),signed(height),void(*di/* hdl */),void(*si/* dc */))) {
 
 auto void *dc;
 auto signed r;

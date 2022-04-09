@@ -294,8 +294,8 @@ time(&t);
 zzz = (-t+(deadline));
 // One second: Get and release a handle of the common device context to transfer a bit block to an off-screen buffer.
 AND(flag,0x00);
-if(!(transcribe_to_beta(*(region+(X)),*(region+(Y)),*(CLI_DI+(dc)),desktop))) {
-printf("%s \n","<< Error at fn. transcribe_to_beta()");
+if(!(transcribe_dh_beta(*(region+(X)),*(region+(Y)),*(CLI_DI+(dc)),desktop))) {
+printf("%s \n","<< Error at fn. transcribe_dh_beta()");
 OR(flag,0x01);
 }
 if(!flag) {
@@ -336,8 +336,8 @@ printf("%s \n","<< Error at fn. text_out_beta() the second");
 }
 // Two seconds: Get and release a handle of the common device context to transfer a bit block to the primary screen.
 if(!flag) {
-if(!(transcribe_beta(*(region+(X)),*(region+(Y)),desktop,*(CLI_DI+(dc))))) {
-printf("%s \n","<< Error at fn. transcribe_beta()");
+if(!(transcribe_hd_beta(*(region+(X)),*(region+(Y)),desktop,*(CLI_DI+(dc))))) {
+printf("%s \n","<< Error at fn. transcribe_hd_beta()");
 OR(flag,0x01);
 }}}}
 
