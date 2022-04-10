@@ -21,6 +21,7 @@ void(*parent),void(*menu),void(*inst),void(*lp)
 signed(__cdecl currently_operating_pixels(signed(arg)));
 void *(__cdecl create_solid_brush_beta(signed(arg)));
 void *(__cdecl create_rect_rgn_beta(signed(xul),signed(yul),signed(xlr),signed(ylr)));
+void *(__cdecl create_font_bold_beta(signed(height),signed(width),signed char(*argp)));
 void *(__cdecl create_font_beta(signed(height),signed(width),signed char(*argp)));
 void *(__cdecl select_object_beta(void(*di/* dc */),void(*si/* obj */)));
 signed(__cdecl delete_object_beta(void(*argp)));
