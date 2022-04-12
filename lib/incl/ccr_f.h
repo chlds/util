@@ -12,6 +12,9 @@ signed(__cdecl message_box_beta(void(*hdl),signed char(*text),signed char(*capti
 signed(__cdecl message_box_mb_ok(void(*hdl),signed char(*text),signed char(*caption)));
 signed(__cdecl currently_occurring_error_mb_ok(signed(arg),void(*hdl),signed char(*argp)));
 
+void(__cdecl post_quit_message_beta(signed(arg)));
+signed(__cdecl show_window_beta(void(*hdl),signed(arg)));
+signed(__cdecl set_layered_window_attributes_beta(void(*hdl),signed(trans),signed char(alpha),signed(arg)));
 signed short(__cdecl register_class_ex_beta(void(*argp)));
 signed short(__cdecl register_class_beta(void(*argp)));
 void *(__cdecl create_window_beta(
