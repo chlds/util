@@ -19,8 +19,8 @@ if(!argv) return(0x00);
 if(!(*argv)) return(0x00);
 
 v = (argv);
-r = agent_ck_r(inst,prev_inst,v,cmdshow);
-if(!r) currently_occurring_error_mb_ok(0x00,0x00,"<< Error at fn. agent_ck_r()");
+r = agent_ck_r_mb(inst,prev_inst,v,cmdshow);
+if(!r) currently_occurring_error_mb_ok(0x00,0x00,"<< Error at fn. agent_ck_r_mb()");
 
 v = (0x00);
 

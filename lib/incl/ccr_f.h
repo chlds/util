@@ -4,7 +4,7 @@ Return (0x00) if the function fails.
 */
 
 
-signed(__cdecl agent_ck_r(void(*inst),void(*prev_inst),signed char(**argv),signed(cmdshow)));
+signed(__cdecl agent_ck_r_mb(void(*inst),void(*prev_inst),signed char(**argv),signed(cmdshow)));
 signed(__cdecl agent_ck(void(*inst),void(*prev_inst),signed char(**argv),signed(cmdshow)));
 
 signed(__cdecl agent_winmain(signed(__cdecl*f)(void(*inst),void(*prev_inst),signed char(**argv),signed(cmdshow)),void(*inst),void(*prev_inst),signed char(*argp),signed(cmdshow)));

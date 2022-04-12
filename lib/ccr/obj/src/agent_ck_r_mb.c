@@ -9,7 +9,7 @@ Agent.
 # include <windows.h>
 # include "./../../../incl/config.h"
 
-signed(__cdecl agent_ck_r(void(*inst),void(*prev_inst),signed char(**argv),signed(cmdshow))) {
+signed(__cdecl agent_ck_r_mb(void(*inst),void(*prev_inst),signed char(**argv),signed(cmdshow))) {
 
 auto signed char **v;
 auto signed char *b;
