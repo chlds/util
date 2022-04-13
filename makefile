@@ -34,10 +34,11 @@ OBJS = ./bin/obj/*.obj
 MAP = ./bin/obj/$(T).map
 EXE = ./bin/$(T).exe
 
+LIBR4 = ./lib/caw/caw.lib
 LIBR3 = ./lib/ccr/ccr.lib
 LIBR2 = ./lib/cbr/cbr.lib
 LIBR1 = ./lib/car/car.lib
-LIBRS = $(LIBR3) $(LIBR2) $(LIBR1)
+LIBRS = $(LIBR4) $(LIBR3) $(LIBR2) $(LIBR1)
 LIBR = ./lib/$(L).lib
 OS_LIBRS = user32.lib gdi32.lib psapi.lib advapi32.lib
 
@@ -64,9 +65,14 @@ $(OBJ): $(SRC) $(HDRS)
 	@echo "Stage 1 "
 	$(CC) $(CFLAGS) $(SRC)
 
-$(LIBR): $(LIBR3) $(LIBR2) $(LIBR1) $(HDRS)
+$(LIBR): $(LIBR4) $(LIBR3) $(LIBR2) $(LIBR1) $(HDRS)
 	@echo "Making LIBR.. "
 	lib.exe -out:$(LIBR) $(LIBRS)
+$(LIBR4): "lib/caw/obj/src/*.c" "lib/caw/obj/src/incl/*.h" $(CONFIG_HDR)
+	@echo "Making LIBR4.. "
+	cd lib/caw/
+	nmake
+	cd ../../
 $(LIBR3): "lib/ccr/obj/src/*.c" "lib/incl/ccr*.h" $(CONFIG_HDR)
 	@echo "Making LIBR3.. "
 	cd lib/ccr/

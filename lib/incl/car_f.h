@@ -803,7 +803,6 @@ signed(__cdecl catpp(signed char(**argp)));
 signed(__cdecl f_optl(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
 /* Be flexible. */
 
-signed(__cdecl currently_occurring_error(void));
 signed(__cdecl currently_granting_privileges_r(signed(arg),signed char(**di),void(*si/* structure token privileges */)));
 signed(__cdecl currently_granting_privileges(signed char(***di),void(*si/* structure token privileges */)));
 signed(__cdecl currently_granting_n_privileges(void(*argp/* structure token privileges */)));
