@@ -1,4 +1,8 @@
 signed(__cdecl currently_occurring_error(void));
+
+void *(__cdecl currently_working_clipboard_window(void));
+void *(__cdecl currently_working_clipboard_owner(void));
+
 signed(__cdecl currently_occurring_error_mb_ok(signed(arg),void(*hdl),signed char(*argp)));
 signed(__cdecl message_box_mb_ok(void(*hdl),signed char(*text),signed char(*caption)));
 signed(__cdecl message_box_beta(void(*hdl),signed char(*text),signed char(*caption),signed(type)));
