@@ -4,10 +4,6 @@ Return (0x00) if the function fails.
 */
 
 
-signed(__cdecl agent_ck_r_mb(void(*inst),void(*prev_inst),signed char(**argv),signed(cmdshow)));
-signed(__cdecl agent_ck(void(*inst),void(*prev_inst),signed char(**argv),signed(cmdshow)));
-
-signed(__cdecl agent_winmain(signed(__cdecl*f)(void(*inst),void(*prev_inst),signed char(**argv),signed(cmdshow)),void(*inst),void(*prev_inst),signed char(*argp),signed(cmdshow)));
 signed(__cdecl message_box_beta(void(*hdl),signed char(*text),signed char(*caption),signed(type)));
 signed(__cdecl message_box_mb_ok(void(*hdl),signed char(*text),signed char(*caption)));
 signed(__cdecl currently_occurring_error_mb_ok(signed(arg),void(*hdl),signed char(*argp)));

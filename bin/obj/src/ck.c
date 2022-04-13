@@ -20,6 +20,7 @@ auto signed short *w;
 auto signed r;
 auto signed short flag;
 
+/*
 b = (0x00);
 w = GetCommandLineW();
 if(!(cv_bw(&b,w))) {
@@ -32,6 +33,7 @@ if(!r) currently_occurring_error_mb_ok(0x00,0x00,"<< Error at fn. agent_winmain(
 
 rl(b);
 b = (0x00);
+//*/
 
 return(0x00);
 }
