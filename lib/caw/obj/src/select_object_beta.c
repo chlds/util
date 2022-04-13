@@ -7,9 +7,10 @@ Select a created, loaded, mapped or previous object into the specified device co
 The new object replaces the previous object of the same type.
 */
 
-# define CCR
-# include <windows.h>
-# include "../../../incl/config.h"
+
+# define CAR
+# include "./../../../incl/config.h"
+# include "./incl/config.h"
 
 void *(__cdecl select_object_beta(void(*di/* dc */),void(*si/* obj */))) {
 

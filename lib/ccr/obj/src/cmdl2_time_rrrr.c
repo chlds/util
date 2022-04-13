@@ -6,20 +6,16 @@ Remarks:
 Transparency
 */
 
-# define C_CODE_STDS
-# define C_W32API
 # define CALEND
 # define CCR
+# define CAW
+# include "../../../incl/config.h"
 
 # define COUNT_MODULES (1)
 # define COUNT_OBJS (5)
 # define COUNT_POS (4)
 # define COUNT_DC (3)
-
 # define BUFF (0x200)
-
-# include "../../../incl/config.h"
-
 # include <objbase.h> // for combaseapi.h
 # include <wincodec.h>
 # include <wincodecsdk.h>

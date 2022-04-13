@@ -3,6 +3,7 @@ signed(__cdecl currently_occurring_error_mb_ok(signed(arg),void(*hdl),signed cha
 signed(__cdecl message_box_mb_ok(void(*hdl),signed char(*text),signed char(*caption)));
 signed(__cdecl message_box_beta(void(*hdl),signed char(*text),signed char(*caption),signed(type)));
 
+signed(__cdecl currently_operating_pixels(signed(arg)));
 void *(__cdecl create_window_beta(
 signed char(*cn),signed char(*wn),signed(styl),
 signed(x),signed(y),signed(w),signed(h),
@@ -22,6 +23,8 @@ void *(__cdecl create_solid_brush_beta(signed(arg)));
 void *(__cdecl create_rect_rgn_beta(signed(xul),signed(yul),signed(xlr),signed(ylr)));
 void *(__cdecl create_font_bold_beta(signed(height),signed(width),signed char(*argp)));
 void *(__cdecl create_font_beta(signed(height),signed(width),signed char(*argp)));
+void *(__cdecl select_object_beta(void(*di/* dc */),void(*si/* obj */)));
+signed(__cdecl delete_object_beta(void(*argp)));
 
 void(__cdecl post_quit_message_beta(signed(arg)));
 LONG_PTR(__cdecl dispatch_message_beta(void(*argp)));
