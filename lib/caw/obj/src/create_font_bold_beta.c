@@ -3,9 +3,10 @@
 Wrap.
 */
 
-# define CCR
-# include <windows.h>
-# include "../../../incl/config.h"
+
+# define CAR
+# include "./../../../incl/config.h"
+# include "./incl/config.h"
 
 void*(__cdecl create_font_bold_beta(signed(height),signed(width),signed char(*argp))) {
 

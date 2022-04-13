@@ -12,21 +12,7 @@ signed(__cdecl show_window_beta(void(*hdl),signed(arg)));
 signed(__cdecl set_layered_window_attributes_beta(void(*hdl),signed(trans),signed char(alpha),signed(arg)));
 signed short(__cdecl register_class_ex_beta(void(*argp)));
 signed short(__cdecl register_class_beta(void(*argp)));
-void *(__cdecl create_window_beta(
-signed char(*cn),signed char(*wn),signed(styl),
-signed(x),signed(y),signed(w),signed(h),
-void(*parent),void(*menu),void(*inst),void(*lp)
-));
-void *(__cdecl create_window_ex_beta(
-signed(xstyl),signed char(*cn),signed char(*wn),signed(styl),
-signed(x),signed(y),signed(w),signed(h),
-void(*parent),void(*menu),void(*inst),void(*lp)
-));
 signed(__cdecl currently_operating_pixels(signed(arg)));
-void *(__cdecl create_solid_brush_beta(signed(arg)));
-void *(__cdecl create_rect_rgn_beta(signed(xul),signed(yul),signed(xlr),signed(ylr)));
-void *(__cdecl create_font_bold_beta(signed(height),signed(width),signed char(*argp)));
-void *(__cdecl create_font_beta(signed(height),signed(width),signed char(*argp)));
 void *(__cdecl select_object_beta(void(*di/* dc */),void(*si/* obj */)));
 signed(__cdecl delete_object_beta(void(*argp)));
 signed(__cdecl text_out_beta(void(*dc),signed(x),signed(y),signed char(*buff),signed(len),signed(clr)));

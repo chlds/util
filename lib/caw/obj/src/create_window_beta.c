@@ -3,9 +3,10 @@
 Wrap.
 */
 
-# define CCR
-# include <windows.h>
-# include "../../../incl/config.h"
+
+# define CAR
+# include "./../../../incl/config.h"
+# include "./incl/config.h"
 
 void *(__cdecl create_window_beta(
 signed char(*cn),signed char(*wn),signed(styl),

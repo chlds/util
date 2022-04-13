@@ -8,7 +8,7 @@ Make a font object.
 
 
 # define CCR
-# include <stdio.h>
+# define CAW
 # include "../../../incl/config.h"
 
 signed(__cdecl cmdl2_time_font(SAT(*argp))) {
