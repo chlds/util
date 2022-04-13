@@ -3,11 +3,10 @@
 Wrap.
 */
 
-# define CCR
-# include <stdio.h>
-# include <stdlib.h>
-# include <windows.h>
-# include "../../../incl/config.h"
+
+# define CAR
+# include "./../../../incl/config.h"
+# include "./incl/config.h"
 
 signed(__cdecl currently_occurring_error_mb_ok(signed(arg),void(*hdl),signed char(*argp))) {
 

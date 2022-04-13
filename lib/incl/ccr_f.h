@@ -4,10 +4,6 @@ Return (0x00) if the function fails.
 */
 
 
-signed(__cdecl message_box_beta(void(*hdl),signed char(*text),signed char(*caption),signed(type)));
-signed(__cdecl message_box_mb_ok(void(*hdl),signed char(*text),signed char(*caption)));
-signed(__cdecl currently_occurring_error_mb_ok(signed(arg),void(*hdl),signed char(*argp)));
-
 signed(__cdecl show_window_beta(void(*hdl),signed(arg)));
 signed(__cdecl set_layered_window_attributes_beta(void(*hdl),signed(trans),signed char(alpha),signed(arg)));
 signed short(__cdecl register_class_ex_beta(void(*argp)));
