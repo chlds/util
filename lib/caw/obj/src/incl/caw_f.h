@@ -14,6 +14,10 @@ signed(x),signed(y),signed(w),signed(h),
 void(*parent),void(*menu),void(*inst),void(*lp)
 ));
 
+signed short(__cdecl register_class_ex_beta(void(*argp)));
+signed short(__cdecl register_class_beta(void(*argp)));
+signed(__cdecl show_window_beta(void(*hdl),signed(arg)));
+
 void *(__cdecl create_solid_brush_beta(signed(arg)));
 void *(__cdecl create_rect_rgn_beta(signed(xul),signed(yul),signed(xlr),signed(ylr)));
 void *(__cdecl create_font_bold_beta(signed(height),signed(width),signed char(*argp)));

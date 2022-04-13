@@ -4,10 +4,7 @@ Return (0x00) if the function fails.
 */
 
 
-signed(__cdecl show_window_beta(void(*hdl),signed(arg)));
 signed(__cdecl set_layered_window_attributes_beta(void(*hdl),signed(trans),signed char(alpha),signed(arg)));
-signed short(__cdecl register_class_ex_beta(void(*argp)));
-signed short(__cdecl register_class_beta(void(*argp)));
 signed(__cdecl currently_operating_pixels(signed(arg)));
 void *(__cdecl select_object_beta(void(*di/* dc */),void(*si/* obj */)));
 signed(__cdecl delete_object_beta(void(*argp)));
