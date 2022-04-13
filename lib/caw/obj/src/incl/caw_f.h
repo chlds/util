@@ -17,6 +17,7 @@ void(*parent),void(*menu),void(*inst),void(*lp)
 
 signed short(__cdecl register_class_ex_beta(void(*argp)));
 signed short(__cdecl register_class_beta(void(*argp)));
+signed(__cdecl set_layered_window_attributes_beta(void(*hdl),signed(trans),signed char(alpha),signed(arg)));
 signed(__cdecl show_window_beta(void(*hdl),signed(arg)));
 
 void *(__cdecl create_solid_brush_beta(signed(arg)));
@@ -25,6 +26,10 @@ void *(__cdecl create_font_bold_beta(signed(height),signed(width),signed char(*a
 void *(__cdecl create_font_beta(signed(height),signed(width),signed char(*argp)));
 void *(__cdecl select_object_beta(void(*di/* dc */),void(*si/* obj */)));
 signed(__cdecl delete_object_beta(void(*argp)));
+
+signed(__cdecl text_out_beta(void(*dc),signed(x),signed(y),signed char(*buff),signed(len),signed(clr)));
+signed(__cdecl transcribe_dh_beta(signed(width),signed(height),void(*di/* dc */),void(*si/* hdl */)));
+signed(__cdecl transcribe_hd_beta(signed(width),signed(height),void(*di/* hdl */),void(*si/* dc */)));
 
 void(__cdecl post_quit_message_beta(signed(arg)));
 LONG_PTR(__cdecl dispatch_message_beta(void(*argp)));

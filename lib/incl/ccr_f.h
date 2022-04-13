@@ -4,10 +4,6 @@ Return (0x00) if the function fails.
 */
 
 
-signed(__cdecl set_layered_window_attributes_beta(void(*hdl),signed(trans),signed char(alpha),signed(arg)));
-signed(__cdecl text_out_beta(void(*dc),signed(x),signed(y),signed char(*buff),signed(len),signed(clr)));
-signed(__cdecl transcribe_dh_beta(signed(width),signed(height),void(*di/* dc */),void(*si/* hdl */)));
-signed(__cdecl transcribe_hd_beta(signed(width),signed(height),void(*di/* hdl */),void(*si/* dc */)));
 signed(__cdecl cmdl2_time_rrrr(void(*argp)));
 signed(__cdecl cmdl2_time_region(SAT(*argp)));
 signed(__cdecl cmdl2_time_font(SAT(*argp)));

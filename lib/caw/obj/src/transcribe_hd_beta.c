@@ -3,10 +3,10 @@
 Transcribe dots retrieved from a dc to a dc with a handle.
 */
 
-# define CCR
-# define C_W32API
-# include <stdio.h>
-# include "../../../incl/config.h"
+
+# define CAR
+# include "./../../../incl/config.h"
+# include "./incl/config.h"
 
 signed(__cdecl transcribe_hd_beta(signed(width),signed(height),void(*di/* hdl */),void(*si/* dc */))) {
 
