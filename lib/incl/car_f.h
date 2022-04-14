@@ -805,13 +805,11 @@ signed(__cdecl f_optl(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),void
 
 signed(__cdecl currently_granting_privileges_r(signed(arg),signed char(**di),void(*si/* structure token privileges */)));
 signed(__cdecl currently_granting_privileges(signed char(***di),void(*si/* structure token privileges */)));
-signed(__cdecl currently_granting_n_privileges(void(*argp/* structure token privileges */)));
 signed(__cdecl currently_granting_token_privileges_r(signed(arg),void(*di),void(*si/* token */)));
 signed(__cdecl currently_granting_token_privileges(void(**di),void(*si/* token */)));
 signed(__cdecl cv_priv_luid_r(signed char(*di),signed(arg),signed(low),signed(high)));
 signed(__cdecl cv_priv_luid(signed char(**di),signed(low),signed(high)));
 signed(__cdecl cv_luid_priv(signed(*low),signed(*high),signed char(*si)));
-signed(__cdecl currently_working_window_tid_pid(signed(*di),void(*si)));
 signed(__cdecl unmap_obj(void(*argp)));
 signed(__cdecl unmap_ps_token(void(*argp)));
 signed(__cdecl unmap_ps(void(*argp)));
@@ -836,7 +834,6 @@ signed(__cdecl pin_w_rr(void(*argp)));
 signed(__cdecl pin_w_r(void(*di),signed short(*si)));
 signed(__cdecl pin_w(signed short(*argp)));
 signed(__cdecl pin_b(signed char(*argp)));
-void *(__cdecl currently_working_window(void));
 signed(__cdecl count_clipboard_formats(void));
 void *(__cdecl alloc_g(signed(arg)));
 void *(__cdecl lock_g(void(*argp)));

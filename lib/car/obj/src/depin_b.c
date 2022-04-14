@@ -8,7 +8,7 @@ Refer at fn. clipboard_map and clipboard_unmap.
 
 
 # define CAR
-# include <stdio.h>
+# define CAW_H
 # include "../../../incl/config.h"
 
 signed(__cdecl depin_b(signed char(**argp))) {

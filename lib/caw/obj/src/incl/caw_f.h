@@ -16,6 +16,10 @@ signed(__cdecl currently_working_pid(void));
 signed(__cdecl currently_working_pid_process(void(*argp)));
 signed(__cdecl currently_working_tid(void));
 signed(__cdecl currently_working_tid_thread(void(*argp)));
+void *(__cdecl currently_working_window(void));
+signed(__cdecl currently_working_window_tid_pid(signed(*di),void(*si)));
+
+signed(__cdecl currently_granting_n_privileges(void(*argp/* structure token privileges */)));
 
 signed(__cdecl currently_occurring_error_mb_ok(signed(arg),void(*hdl),signed char(*argp)));
 signed(__cdecl message_box_mb_ok(void(*hdl),signed char(*text),signed char(*caption)));
