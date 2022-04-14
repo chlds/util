@@ -847,7 +847,6 @@ signed(__cdecl pin_b(signed char(*argp)));
 void *(__cdecl currently_working_window(void));
 signed(__cdecl clipboard_map(void(*argp)));
 signed(__cdecl clipboard_empty(void));
-signed(__cdecl clipboardempty(void));
 signed(__cdecl clipboard_store_w(void(*argp)));
 void *(__cdecl clipboard_retrieve_w(void));
 signed(__cdecl clipboard_unmap(void));

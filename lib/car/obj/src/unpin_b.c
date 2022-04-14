@@ -30,7 +30,7 @@ return(0x00);
 }
 
 r = clipboard_empty();
-if(!r) printf("%s \n","<< Error at fn. clipboard_empty()");
+if(!r) printf("%s %Xh \n","<< Error at fn. clipboard_empty() with no.",currently_occurring_error());
 
 if(!(clipboard_unmap())) {
 printf("%s \n","<< Error at fn. clipboard_unmap()");

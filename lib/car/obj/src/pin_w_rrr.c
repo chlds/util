@@ -21,7 +21,8 @@ if(!argp) return(0x00);
 
 r = clipboard_empty();
 if(!r) {
-printf("%s \n","<< Error at fn. clipboard_empty()");
+r = currently_occurring_error();
+printf("%s %d %s %Xh \n","<< Error at fn. clipboard_empty() with no.",r,"or",r);
 return(0x00);
 }
 
