@@ -1,5 +1,11 @@
 signed(__cdecl currently_occurring_error(void));
 
+signed(__cdecl clipboard_map(void(*argp)));
+signed(__cdecl clipboard_empty(void));
+signed(__cdecl clipboard_store_w(void(*argp)));
+void *(__cdecl clipboard_retrieve_w(void));
+signed(__cdecl clipboard_unmap(void));
+
 void *(__cdecl currently_working_clipboard_window(void));
 void *(__cdecl currently_working_clipboard_owner(void));
 signed(__cdecl currently_working_pid(void));
@@ -40,6 +46,6 @@ signed(__cdecl transcribe_dh_beta(signed(width),signed(height),void(*di/* dc */)
 signed(__cdecl transcribe_hd_beta(signed(width),signed(height),void(*di/* hdl */),void(*si/* dc */)));
 
 void(__cdecl post_quit_message_beta(signed(arg)));
-LONG_PTR(__cdecl dispatch_message_beta(void(*argp)));
+signed long long(__cdecl dispatch_message_beta(void(*argp)));
 signed(__cdecl translate_message_beta(void(*argp)));
 signed(__cdecl get_message_beta(void(*msg),void(*hdl),signed(min),signed(max)));

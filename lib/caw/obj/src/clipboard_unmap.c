@@ -8,9 +8,8 @@ Refer at fn. clipboard_map.
 
 
 # define CAR
-# include <stdio.h>
-# include <windows.h>
-# include "../../../incl/config.h"
+# include "./../../../incl/config.h"
+# include "./incl/config.h"
 
 signed(__cdecl clipboard_unmap(void)) {
 

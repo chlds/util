@@ -78,6 +78,10 @@ Remarks:
 # include "./ccr.h"
 # endif
 
+# ifdef CAW_H
+# include "./../caw/obj/src/incl/caw.h"
+# endif
+
 # ifdef CAW
 # include "./../caw/obj/src/incl/config.h"
 # endif
