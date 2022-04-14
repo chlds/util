@@ -811,10 +811,6 @@ signed(__cdecl currently_granting_token_privileges(void(**di),void(*si/* token *
 signed(__cdecl cv_priv_luid_r(signed char(*di),signed(arg),signed(low),signed(high)));
 signed(__cdecl cv_priv_luid(signed char(**di),signed(low),signed(high)));
 signed(__cdecl cv_luid_priv(signed(*low),signed(*high),signed char(*si)));
-void *(__cdecl currently_working_process_token(void));
-void *(__cdecl currently_working_process(void));
-void *(__cdecl currently_working_thread_token(void));
-void *(__cdecl currently_working_thread(void));
 signed(__cdecl currently_working_window_tid_pid(signed(*di),void(*si)));
 signed(__cdecl unmap_obj(void(*argp)));
 signed(__cdecl unmap_ps_token(void(*argp)));

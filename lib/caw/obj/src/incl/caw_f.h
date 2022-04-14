@@ -8,6 +8,10 @@ signed(__cdecl clipboard_unmap(void));
 
 void *(__cdecl currently_working_clipboard_window(void));
 void *(__cdecl currently_working_clipboard_owner(void));
+void *(__cdecl currently_working_process_token(void));
+void *(__cdecl currently_working_process(void));
+void *(__cdecl currently_working_thread_token(void));
+void *(__cdecl currently_working_thread(void));
 signed(__cdecl currently_working_pid(void));
 signed(__cdecl currently_working_pid_process(void(*argp)));
 signed(__cdecl currently_working_tid(void));
