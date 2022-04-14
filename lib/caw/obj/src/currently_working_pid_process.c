@@ -8,9 +8,8 @@ Until a process terminates, its process identifier uniquely identifies it on the
 
 
 # define CAR
-# include <stdio.h>
-# include <windows.h>
-# include "../../../incl/config.h"
+# include "./../../../incl/config.h"
+# include "./incl/config.h"
 
 signed(__cdecl currently_working_pid_process(void(*argp))) {
 

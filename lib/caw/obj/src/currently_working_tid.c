@@ -8,9 +8,8 @@ Until the thread terminates, the thread identifier uniquely identifies the threa
 
 
 # define CAR
-# include <stdio.h>
-# include <windows.h>
-# include "../../../incl/config.h"
+# include "./../../../incl/config.h"
+# include "./incl/config.h"
 
 signed(__cdecl currently_working_tid(void)) {
 
