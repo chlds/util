@@ -1,23 +1,32 @@
-# Make car library
+# Make library CAR
 
 L = car
-MSG = "Stage CAR.LIBR1"
-
-LIBR = $(L).lib
-OBJS = ./obj/*.obj
-SRCS = ./obj/src/*.c
-HDRS = ../incl/*.h
+LBR = ./$(L).lib
+MSG = "Build library CAR"
 
 CC = cl.exe
-CCFLAG = -Fo"./obj/" -c
-# CCFLAG = -Fo"./obj/" -Fa"./obj/src/" -c
+CFLAG = -c -Fo$(OBJ_DIR)
+SFLAG = -Fa$(SRC_DIR)
 
 LB = lib.exe
-LBFLAG = -out:$(LIBR)
+LFLAG = -out:$(LBR)
 
-$(LIBR): $(SRCS) $(HDRS)
+OBJ_DIR = ./obj/
+SRC_DIR = ./obj/src/
+HDR_DIR = ./obj/src/incl/
+HDRS = $(HDR_DIR)*.h
+SRCS = $(SRC_DIR)*.c
+OBJS = $(OBJ_DIR)*.obj
+
+$(LBR): $(SRCS) $(HDRS)
 	@echo $(MSG)
-	$(CC) $(CCFLAG) $(SRCS)
-	$(LB) $(LBFLAG) $(OBJS)
+	$(CC) $(CFLAG) $(SFLAG) $(SRCS)
+	$(LB) $(LFLAG) $(OBJS)
+
+.PHONY: _clean_all
+_clean_all:
+	del .\$(L).lib
+	del .\obj\*.obj
+	del .\obj\src\*.asm
 
 # and more..
