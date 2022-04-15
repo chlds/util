@@ -7,8 +7,6 @@ Refer at fn. clipboard_store_w, clipboard_map and clipboard_unmap.
 */
 
 
-# define CAR
-# include "./../../../incl/config.h"
 # include "./incl/config.h"
 
 void *(__cdecl clipboard_retrieve_w(void)) {

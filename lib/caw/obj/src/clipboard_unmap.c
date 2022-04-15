@@ -7,8 +7,6 @@ Refer at fn. clipboard_map.
 */
 
 
-# define CAR
-# include "./../../../incl/config.h"
 # include "./incl/config.h"
 
 signed(__cdecl clipboard_unmap(void)) {

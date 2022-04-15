@@ -8,8 +8,6 @@ Return the height if arg is non (0x00).
 */
 
 
-# define CAR
-# include "./../../../incl/config.h"
 # include "./incl/config.h"
 
 signed(__cdecl currently_operating_pixels(signed(arg))) {

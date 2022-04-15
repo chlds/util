@@ -7,8 +7,6 @@ Refer at fn. currently_granting_privileges and currently_granting_token_privileg
 */
 
 
-# define CAR
-# include "./../../../incl/config.h"
 # include "./incl/config.h"
 
 signed(__cdecl currently_granting_n_privileges(void(*argp/* structure token privileges */))) {

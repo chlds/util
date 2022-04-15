@@ -7,8 +7,6 @@ Refer at fn. currently_working_window and clipboard_unmap.
 */
 
 
-# define CAR
-# include "./../../../incl/config.h"
 # include "./incl/config.h"
 
 signed(__cdecl clipboard_map(void(*argp))) {
