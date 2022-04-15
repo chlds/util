@@ -1,13 +1,3 @@
-/*
-
-Return (0x00) if the function fails.
-
-Remarks:
-Arguments ..are initialised by wrapper functions
-Along with C library
-*/
-
-
 signed(__cdecl ctrl_at(void(*argp)));
 signed(__cdecl ctrl_a(void(*argp)));
 signed(__cdecl ctrl_b(void(*argp)));
@@ -40,10 +30,3 @@ signed(__cdecl ctrl_rs(void(*argp)));
 signed(__cdecl ctrl_rsb(void(*argp)));
 signed(__cdecl ctrl_ca(void(*argp)));
 signed(__cdecl ctrl_ll(void(*argp)));
-
-signed(__cdecl ct_q(signed long long(*argp)));
-signed(__cdecl ct_d(signed(*argp)));
-signed(__cdecl ct_w(signed short(*argp)));
-signed(__cdecl ct_b(signed char(*argp)));
-signed(__cdecl ct(signed char(*argp)));
-/* Count. */

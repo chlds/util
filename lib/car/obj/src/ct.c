@@ -4,8 +4,7 @@ Count letters to the terminating null character.
 */
 
 
-# define CAR
-# include "./../../../incl/config.h"
+# include "./incl/config.h"
 
 signed(__cdecl ct(signed char(*argp))) {
 

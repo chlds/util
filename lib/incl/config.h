@@ -67,7 +67,12 @@ Remarks:
 # endif
 
 # ifdef CAR
-# include "./../car/obj/src/incl/car.h"
+# define CAR_H
+# include "./car.h"
+# endif
+
+# ifdef CAR_H
+// # include "./../car/obj/src/incl/car.h"
 # endif
 
 # ifdef CBR
@@ -78,10 +83,11 @@ Remarks:
 # include "./ccr.h"
 # endif
 
-# ifdef CAW_H
-# include "./../caw/obj/src/incl/caw.h"
+# ifdef CAW
+# define CAW_H
+# include <windows.h>
 # endif
 
-# ifdef CAW
-# include "./../caw/obj/src/incl/config.h"
+# ifdef CAW_H
+# include "./../caw/obj/src/incl/caw.h"
 # endif
