@@ -7,8 +7,6 @@ A layered window is created by specifying WS_EX_LAYERED.
 */
 
 
-# define CAR
-# include "./../../../incl/config.h"
 # include "./incl/config.h"
 
 signed(__cdecl set_layered_window_attributes_beta(void(*hdl),signed(trans),signed char(alpha),signed(arg))) {

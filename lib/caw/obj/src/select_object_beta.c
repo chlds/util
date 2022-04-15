@@ -8,8 +8,6 @@ The new object replaces the previous object of the same type.
 */
 
 
-# define CAR
-# include "./../../../incl/config.h"
 # include "./incl/config.h"
 
 void *(__cdecl select_object_beta(void(*di/* dc */),void(*si/* obj */))) {

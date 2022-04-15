@@ -4,8 +4,6 @@ Wrap.
 */
 
 
-# define CAR
-# include "./../../../incl/config.h"
 # include "./incl/config.h"
 
 signed(__cdecl message_box_mb_ok(void(*hdl),signed char(*text),signed char(*caption))) {

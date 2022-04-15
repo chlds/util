@@ -4,8 +4,6 @@ Commandlet to output the local time
 */
 
 
-# define CAR
-# include "./../../../incl/config.h"
 # include "./incl/config.h"
 
 signed(__cdecl text_out_beta(void(*dc),signed(x),signed(y),signed char(*buff),signed(len),signed(clr))) {
