@@ -15,9 +15,11 @@ Remarks:
 # define OCTET (0x08)
 # define NIBBLE (0x04)
 
+# ifndef DUAL_CONFIG_H
 # include "./incl/ctrl.h"
 # include "./incl/dbg.h"
 # include "./incl/al.h"
+# endif
 
 # ifdef CODEPAGE_H
 # include "./cli_codepage.h"
@@ -28,7 +30,6 @@ Remarks:
 # endif
 
 # ifdef STDIO_H
-# include <errno.h>
 # include <stdio.h>
 # endif
 
@@ -88,4 +89,8 @@ Remarks:
 
 # ifdef CAW_H
 # include "./caw/obj/src/incl/caw.h"
+# endif
+
+# ifdef UNPIN_H
+# include "./unpin/obj/src/incl/unpin.h"
 # endif

@@ -60,9 +60,6 @@ signed(__cdecl priv_r(signed char(*argp)));
 signed(__cdecl priv_help(void));
 signed(__cdecl agent_priv(signed(argc),signed char(**argv),signed char(**envp)));
 
-signed(__cdecl unpin_help(void));
-signed(__cdecl agent_unpin(signed(argc),signed char(**argv),signed char(**envp)));
-
 signed(__cdecl depin_store_r(signed short(arg),signed char(*di),signed char(*si)));
 signed(__cdecl depin_store(signed short(arg),signed char(**argp)));
 signed(__cdecl depin_output(void));
@@ -820,9 +817,6 @@ void *(__cdecl map_ps(signed(pid)));
 void *(__cdecl map_td_token(signed(arg/* open as self */),void(*argp)));
 void *(__cdecl map_td(signed(tid)));
 /* Operate threads and processes. */
-
-signed(__cdecl unpin_b(void));
-/* Unpin it to your clipboard. */
 
 signed(__cdecl depin_b_rr(signed char(**di),void(*si)));
 signed(__cdecl depin_b_r(signed char(**argp)));

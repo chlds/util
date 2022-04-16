@@ -4,9 +4,9 @@ Help.
 */
 
 
-# define CAR
-# include <stdio.h>
-# include "./../../../incl/config.h"
+# define UNPIN_H
+# define STDIO_H
+# include "./../../../config.h"
 
 signed(__cdecl unpin_help(void)) {
 

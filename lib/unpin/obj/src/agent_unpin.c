@@ -4,9 +4,8 @@ Unpin it to your clipboard.
 */
 
 
-# define CAR
-# include <stdio.h>
-# include "./../../../incl/config.h"
+# define UNPIN_H
+# include "./../../../config.h"
 
 signed(__cdecl agent_unpin(signed(argc),signed char(**argv),signed char(**envp))) {
 
