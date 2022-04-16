@@ -8,7 +8,10 @@ The new object replaces the previous object of the same type.
 */
 
 
-# include "./incl/config.h"
+# define CAW_H
+# define STDIO_H
+# define WIN32_H
+# include "./../../../config.h"
 
 void *(__cdecl select_object_beta(void(*di/* dc */),void(*si/* obj */))) {
 

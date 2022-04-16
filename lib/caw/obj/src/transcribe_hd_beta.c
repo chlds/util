@@ -4,7 +4,10 @@ Transcribe dots retrieved from a dc to a dc with a handle.
 */
 
 
-# include "./incl/config.h"
+# define CAW_H
+# define STDIO_H
+# define WIN32_H
+# include "./../../../config.h"
 
 signed(__cdecl transcribe_hd_beta(signed(width),signed(height),void(*di/* hdl */),void(*si/* dc */))) {
 

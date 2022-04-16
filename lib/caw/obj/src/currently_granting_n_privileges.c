@@ -7,7 +7,10 @@ Refer at fn. currently_granting_privileges and currently_granting_token_privileg
 */
 
 
-# include "./incl/config.h"
+# define CAW_H
+# define STDIO_H
+# define WIN32_H
+# include "./../../../config.h"
 
 signed(__cdecl currently_granting_n_privileges(void(*argp/* structure token privileges */))) {
 

@@ -7,7 +7,10 @@ Refer at fn. currently_working_window and clipboard_unmap.
 */
 
 
-# include "./incl/config.h"
+# define CAW_H
+# define STDIO_H
+# define WIN32_H
+# include "./../../../config.h"
 
 signed(__cdecl clipboard_map(void(*argp))) {
 

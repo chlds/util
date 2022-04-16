@@ -4,7 +4,10 @@ Wrap.
 */
 
 
-# include "./incl/config.h"
+# define CAW_H
+# define STDIO_H
+# define WIN32_H
+# include "./../../../config.h"
 
 void *(__cdecl create_window_ex_beta(
 signed(xstyl),signed char(*cn),signed char(*wn),signed(styl),

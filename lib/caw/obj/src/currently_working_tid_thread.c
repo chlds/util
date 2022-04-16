@@ -7,7 +7,10 @@ Until a thread terminates, its thread identifier uniquely identifies it on the s
 */
 
 
-# include "./incl/config.h"
+# define CAW_H
+# define STDIO_H
+# define WIN32_H
+# include "./../../../config.h"
 
 signed(__cdecl currently_working_tid_thread(void(*argp))) {
 

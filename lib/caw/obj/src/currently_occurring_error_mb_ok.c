@@ -4,7 +4,11 @@ Wrap.
 */
 
 
-# include "./incl/config.h"
+# define CAW_H
+# define STDIO_H
+# define STDLIB_H
+# define WIN32_H
+# include "./../../../config.h"
 
 signed(__cdecl currently_occurring_error_mb_ok(signed(arg),void(*hdl),signed char(*argp))) {
 

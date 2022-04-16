@@ -8,7 +8,10 @@ Return the height if arg is non (0x00).
 */
 
 
-# include "./incl/config.h"
+# define CAW_H
+# define STDIO_H
+# define WIN32_H
+# include "./../../../config.h"
 
 signed(__cdecl currently_operating_pixels(signed(arg))) {
 

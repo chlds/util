@@ -7,7 +7,10 @@ Until the process terminates, the process identifier uniquely identifies the pro
 */
 
 
-# include "./incl/config.h"
+# define CAW_H
+# define STDIO_H
+# define WIN32_H
+# include "./../../../config.h"
 
 signed(__cdecl currently_working_pid(void)) {
 

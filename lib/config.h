@@ -27,6 +27,15 @@ Remarks:
 # include "./cli_property.h"
 # endif
 
+# ifdef STDIO_H
+# include <errno.h>
+# include <stdio.h>
+# endif
+
+# ifdef STDLIB_H
+# include <stdlib.h>
+# endif
+
 # ifdef C_H
 # include <errno.h>
 # include <stdio.h>

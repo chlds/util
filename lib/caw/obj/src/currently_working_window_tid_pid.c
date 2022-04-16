@@ -5,7 +5,10 @@ and optionally the identifier of the process that created the window.
 */
 
 
-# include "./incl/config.h"
+# define CAW_H
+# define STDIO_H
+# define WIN32_H
+# include "./../../../config.h"
 
 signed(__cdecl currently_working_window_tid_pid(signed(*di),void(*si))) {
 

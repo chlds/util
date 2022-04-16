@@ -7,7 +7,10 @@ Until a process terminates, its process identifier uniquely identifies it on the
 */
 
 
-# include "./incl/config.h"
+# define CAW_H
+# define STDIO_H
+# define WIN32_H
+# include "./../../../config.h"
 
 signed(__cdecl currently_working_pid_process(void(*argp))) {
 
