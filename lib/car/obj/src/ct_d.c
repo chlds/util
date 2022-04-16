@@ -4,7 +4,8 @@ Count to the terminating null double word.
 */
 
 
-# include "./incl/config.h"
+# define CAR_H
+# include "./../../../config.h"
 
 signed(__cdecl ct_d(signed(*argp))) {
 if(!argp) return(0x00);

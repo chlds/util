@@ -7,7 +7,8 @@ Refer at fn. ct_p and ct_bv.
 */
 
 
-# include "./incl/config.h"
+# define CAR_H
+# include "./../../../config.h"
 
 signed(__cdecl ct_v(signed char(**argp))) {
 

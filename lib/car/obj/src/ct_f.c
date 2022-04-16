@@ -4,7 +4,8 @@ Count function pointers.
 */
 
 
-# include "./incl/config.h"
+# define CAR_H
+# include "./../../../config.h"
 
 signed(__cdecl ct_f(signed(__cdecl**f)(void(*argp)))) {
 

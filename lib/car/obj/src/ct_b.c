@@ -4,7 +4,8 @@ Count to the terminating null byte.
 */
 
 
-# include "./incl/config.h"
+# define CAR_H
+# include "./../../../config.h"
 
 signed(__cdecl ct_b(signed char(*argp))) {
 if(!argp) return(0x00);
