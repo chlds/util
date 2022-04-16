@@ -12,11 +12,11 @@ Remarks:
 # define __cdecl __attribute__((ms_abi))
 # endif
 
-# include "./dbg.h"
 # include "./ctrl.h"
+# include "./dbg.h"
+# include "./al.h"
 # include "./cli_codepage.h"
 # include "./cli_property.h"
-# include "./cli_macro.h"
 
 # ifdef C_CODE_STDS
 # include <io.h>
