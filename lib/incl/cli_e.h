@@ -25,6 +25,16 @@ CLI_DI,
 CLI_CACHE,
 };
 
+/*
+enum {
+CLIH_SI,
+CLIH_DI,
+CLI_SI,
+CLI_DI,
+CACHE,
+};
+//*/
+
 enum {
 CLI_UNDO,
 CLI_REDO,
