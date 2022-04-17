@@ -140,16 +140,16 @@ if(!font) return(0x00);
 desktop = GetDesktopWindow();
 
 /* Create a bitmap object and two memory device contexts from the common DC */
-*(CLI_CACHE+(dc)) = (void(*)) GetDC((void*)desktop);
-if(!(*(CLI_CACHE+(dc)))) {
+*(CLI_INDEX+(dc)) = (void(*)) GetDC((void*)desktop);
+if(!(*(CLI_INDEX+(dc)))) {
 printf("%s \n","<< Error at GetDC()");
 return(0x00);
 }
-// else printf("%s%p \n","The handle of the common device context mapped on the RAM will be on offset ",*(CLI_CACHE+(dc)));
+// else printf("%s%p \n","The handle of the common device context mapped on the RAM will be on offset ",*(CLI_INDEX+(dc)));
 
 i = (-1+(COUNT_DC));
 while(i) {
-*(dc+(--i)) = (void(*)) CreateCompatibleDC(*(CLI_CACHE+(dc)));
+*(dc+(--i)) = (void(*)) CreateCompatibleDC(*(CLI_INDEX+(dc)));
 if(!(*(dc+(i)))) {
 printf("%s \n","<< Error at fn. CreateCompatibleDC()");
 return(0x00);
@@ -159,7 +159,7 @@ return(0x00);
 
 i = (-1+(COUNT_DC));
 while(i) {
-*(bm+(--i)) = (void(*)) CreateCompatibleBitmap(*(CLI_CACHE+(dc)),*(region+(X)),*(region+(Y)));
+*(bm+(--i)) = (void(*)) CreateCompatibleBitmap(*(CLI_INDEX+(dc)),*(region+(X)),*(region+(Y)));
 if(!(*(bm+(i)))) {
 printf("%s \n","<< Error at fn. CreateCompatibleBitmap()");
 return(0x00);
@@ -168,7 +168,7 @@ return(0x00);
 }
 
 // Unmap the common device context only.
-if(!(ReleaseDC(desktop,*(CLI_CACHE+(dc))))) {
+if(!(ReleaseDC(desktop,*(CLI_INDEX+(dc))))) {
 printf("%s \n","<< Error at ReleaseDC()");
 return(0x00);
 }

@@ -26,8 +26,8 @@ printf("%s \n","<< cmdl_time_b runs.");
 //*/
 
 INC(R(run,*argp));
-r = cmdl_time_b_r(argp);
-if(!r) printf("%s \n","<< Error at fn. cmdl_time_b_r()");
+// r = cmdl_time_b_r(argp);
+// if(!r) printf("%s \n","<< Error at fn. cmdl_time_b_r()");
 
 DEC(R(run,*argp));
 

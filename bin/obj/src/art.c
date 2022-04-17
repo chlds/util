@@ -26,7 +26,7 @@ auto signed short cols = (COLS);
 auto signed short algn = (0x08);
 
 auto signed char ldbuff[0x01+(LDBUFF)];
-auto signed fd[CLI_CACHE] = {
+auto signed fd[0x02] = {
 (signed) (0x00)
 };
 

@@ -14,26 +14,17 @@ CLI_Q,
 };
 
 enum {
+CLI_SI,
+CLI_DI,
+CLIH_SI,
+CLIH_DI,
+};
+
+enum {
 CLI_IN,
 CLI_OUT,
 CLI_ERR,
 };
-
-enum {
-CLI_SI,
-CLI_DI,
-CLI_CACHE,
-};
-
-/*
-enum {
-CLIH_SI,
-CLIH_DI,
-CLI_SI,
-CLI_DI,
-CACHE,
-};
-//*/
 
 enum {
 CLI_UNDO,

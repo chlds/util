@@ -128,7 +128,7 @@ signed short flag;
 signed short periodic;
 signed short time[CALS_TIME];
 signed short date[CALS_DATE];
-struct cals_event *(event[CLI_CACHE]);
+struct cals_event *(event[CLI_INDEX]);
 void *optl;
 } typedef cals_event_t;
 

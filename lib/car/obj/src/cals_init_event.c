@@ -47,7 +47,7 @@ AND(R(colors,*argp),0x00);
 AND(R(flag,*argp),0x00);
 AND(R(periodic,*argp),0x00);
 
-i = (CLI_CACHE);
+i = (CLI_INDEX);
 while(i) *(--i+(R(event,*argp))) = (0x00);
 R(optl,*argp) = (0x00);
 
