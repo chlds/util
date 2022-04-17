@@ -79,10 +79,6 @@ Remarks:
 # include "./cbr.h"
 # endif
 
-# ifdef CCR
-# include "./ccr.h"
-# endif
-
 # ifdef CAW
 # define CAW_H
 # include <windows.h>

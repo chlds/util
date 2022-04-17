@@ -1,3 +1,5 @@
+void(__cdecl sleep_beta(signed(arg)));
+
 signed(__cdecl currently_occurring_error(void));
 
 signed(__cdecl clipboard_map(void(*argp)));

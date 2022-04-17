@@ -6,8 +6,8 @@ Unpin it to your clipboard.
 
 # define DUAL_CONFIG_H
 # define UNPIN_H
+# define STDIO_H
 # define CAR
-# include <stdio.h>
 # include "./../../../lib/incl/config.h"
 # include "./../../../lib/config.h"
 

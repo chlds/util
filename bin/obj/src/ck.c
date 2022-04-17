@@ -8,10 +8,13 @@ Based on UTF-16
 */
 
 
-# define CCR
-# include <stdio.h>
-# include <windows.h>
+# define DUAL_CONFIG_H
+// # define CK_H
+# define STDIO_H
+# define WIN32_H
+# define CAR
 # include "./../../../lib/incl/config.h"
+# include "./../../../lib/config.h"
 
 signed(WINAPI wWinMain(HINSTANCE(inst),HINSTANCE(prev_inst),PWSTR(cmdline),signed(cmdshow))) {
 

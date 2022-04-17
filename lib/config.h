@@ -16,17 +16,14 @@ Remarks:
 # define NIBBLE (0x04)
 
 # ifndef DUAL_CONFIG_H
+# define OBJS (NIBBLE)
 # include "./incl/ctrl.h"
 # include "./incl/dbg.h"
 # include "./incl/al.h"
 # endif
 
 # ifdef CODEPAGE_H
-# include "./cli_codepage.h"
-# endif
-
-# ifdef CLI_H
-# include "./cli_property.h"
+# include "./incl/cli_codepage.h"
 # endif
 
 # ifdef STDIO_H
@@ -50,8 +47,8 @@ Remarks:
 # include <locale.h>
 # include <wchar.h>
 # include <signal.h>
-# ifndef CALENDAR_H
-# define CALENDAR_H
+# ifndef CALEND_H
+# define CALEND_H
 # endif
 # endif
 
@@ -65,9 +62,9 @@ Remarks:
 # include <tlhelp32.h>
 # endif
 
-# ifdef CALENDAR_H
+# ifdef CALEND_H
 # include <time.h>
-# include "./calend.h"
+# include "./incl/calend.h"
 # endif
 
 # ifdef SYM_H
@@ -83,12 +80,24 @@ Remarks:
 # include "./cli_ascii.h"
 # endif
 
+# ifdef CLI_H
+# include "./cli/obj/src/incl/cli.h"
+# endif
+
 # ifdef CAR_H
 # include "./car/obj/src/incl/car.h"
 # endif
 
 # ifdef CAW_H
 # include "./caw/obj/src/incl/caw.h"
+# endif
+
+# ifdef SAT_H
+# include "./sat/obj/src/incl/sat.h"
+# endif
+
+# ifdef CK_H
+# include "./ck/obj/src/incl/ck.h"
 # endif
 
 # ifdef UNPIN_H

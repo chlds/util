@@ -4,11 +4,14 @@ on branch develop
 */
 
 
-# define C_CODE_STDS
-# define C_MT
-# define CCR
-# define C_W32API
+# define DUAL_CONFIG_H
+# define SAT_H
+# define C_H
+# define MT_H
+# define WIN32_H
+# define CBR
 # include "./../../../lib/incl/config.h"
+# include "./../../../lib/config.h"
 
 # define BUFF (0x400)
 # define COUNT_FUNCTIONS (1+(8))
@@ -35,15 +38,15 @@ auto signed char *name = ("tahoma");
 auto unsigned createdflags = (0x00);
 auto unsigned stacksize = (0x00);
 auto unsigned(__stdcall*(fn[COUNT_FUNCTIONS/* i.e., CARDS */])) (void(*argp)) = {
-(unsigned(__stdcall*) (void(*))) (cmdl2_exit),
-(unsigned(__stdcall*) (void(*))) (cmdl2_help),
-(unsigned(__stdcall*) (void(*))) (cmdl2_clear),
-(unsigned(__stdcall*) (void(*))) (cmdl2_time),
-(unsigned(__stdcall*) (void(*))) (cmdl2_save),
-(unsigned(__stdcall*) (void(*))) (cmdl2_open),
-(unsigned(__stdcall*) (void(*))) (cmdl2_output),
-(unsigned(__stdcall*) (void(*))) (cmdl2_history),
-(unsigned(__stdcall*) (void(*))) (0x00),
+(unsigned(__stdcall*)(void*)) (cmdl2_exit),
+(unsigned(__stdcall*)(void*)) (cmdl2_help),
+(unsigned(__stdcall*)(void*)) (cmdl2_clear),
+(unsigned(__stdcall*)(void*)) (cmdl2_time),
+(unsigned(__stdcall*)(void*)) (cmdl2_save),
+(unsigned(__stdcall*)(void*)) (cmdl2_open),
+(unsigned(__stdcall*)(void*)) (cmdl2_output),
+(unsigned(__stdcall*)(void*)) (cmdl2_history),
+(unsigned(__stdcall*)(void*)) (0x00),
 };
 auto signed char *(term[COUNT_FUNCTIONS/* i.e., CARDS */]) = {
 (char signed(*)) ("--exit"),
@@ -99,12 +102,12 @@ r = (r*(sizeof(*base)));
 base = (signed char(*)) malloc(r);
 if(!base) return(0x00);
 cur = (base);
-i = (COMMON_OBJS);
+i = (OBJS);
 while(i) {
 *(--i+(R(cur,sat))) = (base);
 *(i+(R(base,sat))) = (base);
 }
-i = (COMMON_OBJS);
+i = (OBJS);
 while(i) {
 *(--i+(R(knot,R(reel,sat)))) = (0x00);
 }
@@ -244,7 +247,7 @@ embed(0x00,base);
 free(base);
 base = (0x00);
 cur = (base);
-i = (COMMON_OBJS);
+i = (OBJS);
 while(i) {
 *(--i+(R(cur,sat))) = (base);
 *(i+(R(base,sat))) = (base);
