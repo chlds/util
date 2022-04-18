@@ -51,6 +51,8 @@ signed run;
 signed period;
 time_font_t font;
 REEL reel;
+void **dc;
+void **bm;
 void *(brush[OBJS]);
 void *(region[OBJS]);
 } typedef SAT;

@@ -5,6 +5,8 @@ Return (0x00) if the function fails.
 
 
 signed(__cdecl cmdl2_time_rrrr(void(*argp)));
+signed(__cdecl cmdl2_time_bm(void(*argp)));
+signed(__cdecl cmdl2_time_dc(void(*argp)));
 signed(__cdecl cmdl2_time_region(SAT(*argp)));
 signed(__cdecl cmdl2_time_font(SAT(*argp)));
 signed(__cdecl cmdl2_time_brushes(SAT(*argp)));

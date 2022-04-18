@@ -85,14 +85,6 @@ auto void *(old_bm[COUNT_DC]) = {
 (void(*)) (0x00),
 };
 
-auto void *(bm[COUNT_DC]) = {
-(void(*)) (0x00),
-};
-
-auto void *(dc[COUNT_DC]) = {
-(void(*)) (0x00),
-};
-
 auto unsigned region[2] = {
 (unsigned) (0x00),
 };
@@ -101,6 +93,8 @@ auto unsigned pos[COUNT_POS] = {
 (unsigned) (0x00),
 };
 
+auto void **dc;
+auto void **bm;
 auto void *desktop;
 
 // transparency
@@ -144,42 +138,9 @@ font = (*(CLI_BASE+(R(v,R(font,*argp)))));
 if(!font) return(0x00);
 // if(DBG) printf("%s %p \n","A font object created/mapped on the RAM will be on offset",font);
 
-/* Retrieve a handle to the desktop window */
 desktop = GetDesktopWindow();
-
-/* Create a bitmap object and two memory device contexts from the common DC */
-*(CLI_INDEX+(dc)) = (void(*)) GetDC((void*)desktop);
-if(!(*(CLI_INDEX+(dc)))) {
-printf("%s \n","<< Error at GetDC()");
-return(0x00);
-}
-// else printf("%s%p \n","The handle of the common device context mapped on the RAM will be on offset ",*(CLI_INDEX+(dc)));
-
-i = (-1+(COUNT_DC));
-while(i) {
-*(dc+(--i)) = (void(*)) CreateCompatibleDC(*(CLI_INDEX+(dc)));
-if(!(*(dc+(i)))) {
-printf("%s \n","<< Error at fn. CreateCompatibleDC()");
-return(0x00);
-}
-// else printf("%s%p \n","The handle of a memory device context created/mapped on the RAM will be on offset ",*(dc+(i)));
-}
-
-i = (-1+(COUNT_DC));
-while(i) {
-*(bm+(--i)) = (void(*)) CreateCompatibleBitmap(*(CLI_INDEX+(dc)),*(region+(X)),*(region+(Y)));
-if(!(*(bm+(i)))) {
-printf("%s \n","<< Error at fn. CreateCompatibleBitmap()");
-return(0x00);
-}
-// else printf("%s%p \n","The handle of a compatible bitmap object created/mapped on the RAM will be on offset ",*(bm+(i)));
-}
-
-// Unmap the common device context only.
-if(!(ReleaseDC(desktop,*(CLI_INDEX+(dc))))) {
-printf("%s \n","<< Error at ReleaseDC()");
-return(0x00);
-}
+dc = (R(dc,*argp));
+bm = (R(bm,*argp));
 
 /* Get a handle of the module object (to load a bitmap file) */
 *(module+(INSTANCE)) = (void(*)) GetModuleHandle((signed char(*)) 0x00);
@@ -388,22 +349,6 @@ if(!old_brush) {
 printf("%s \n","<< Error at fn. select_object_beta() for an old brush");
 return(0x00);
 }
-
-/* Deleting/unmapping two compatible bitmap objects on the RAM */
-i = (-1+(COUNT_DC));
-while(i) {
-if(!(delete_object_beta(*(--i+(bm))))) {
-printf("%s %d \n","<< Error at fn. delete_object_beta() for a compatible bitmap object and i:",i);
-return(0x00);
-}}
-
-/* Deleting/unmapping two memory Device Contexts on the RAM */
-i = (-1+(COUNT_DC));
-while(i) {
-if(!(DeleteDC(*(--i+(dc))))) {
-printf("%s %d \n","<< Error at fn. DeleteDC() and i:",i);
-return(0x00);
-}}
 
 return(0x01);
 }
