@@ -7,9 +7,9 @@ Refer at fn. clipboard_map and clipboard_unmap.
 */
 
 
-# define CAR
-# include <stdio.h>
-# include "../../../incl/config.h"
+# define CAW_H
+# define PIN_H
+# include "./../../../config.h"
 
 signed(__cdecl pin_w_rrr(void(*argp))) {
 

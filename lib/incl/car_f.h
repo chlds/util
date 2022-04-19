@@ -67,9 +67,6 @@ signed(__cdecl depin_help(void));
 signed(__cdecl agent_depin(signed(argc),signed char(**argv),signed char(**envp)));
 /* Output clipboard text. */
 
-signed(__cdecl pin_help(void));
-signed(__cdecl agent_pin(signed(argc),signed char(**argv),signed char(**envp)));
-
 signed(__cdecl jd_help(void));
 signed(__cdecl agent_jd_r(signed(arg/* code of line break */),signed char(*di/* path */),signed char(**si)));
 signed(__cdecl agent_jd(signed(argc),signed char(**argv),signed char(**envp)));

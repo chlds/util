@@ -8,9 +8,12 @@ Based on UTF-16
 */
 
 
+# define DUAL_CONFIG_H
+# define CAW_H
+# define PIN_H
 # define CAR
-# include <stdio.h>
-# include "../../../incl/config.h"
+# include "./../../../incl/config.h"
+# include "./../../../config.h"
 
 signed(__cdecl pin_w(signed short(*argp))) {
 

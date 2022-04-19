@@ -100,6 +100,10 @@ Remarks:
 # include "./ck/obj/src/incl/ck.h"
 # endif
 
+# ifdef PIN_H
+# include "./pin/obj/src/incl/pin.h"
+# endif
+
 # ifdef UNPIN_H
 # include "./unpin/obj/src/incl/unpin.h"
 # endif

@@ -2,6 +2,13 @@ void(__cdecl sleep_beta(signed(arg)));
 
 signed(__cdecl currently_occurring_error(void));
 
+signed(__cdecl count_clipboard_formats(void));
+void *(__cdecl alloc_g(signed(arg)));
+void *(__cdecl lock_g(void(*argp)));
+signed(__cdecl cpy_g(void(*di),signed short(*si)));
+signed(__cdecl unlock_g(void(*argp)));
+signed(__cdecl rl_g(void(*argp)));
+
 signed(__cdecl clipboard_map(void(*argp)));
 signed(__cdecl clipboard_empty(void));
 signed(__cdecl clipboard_store_w(void(*argp)));

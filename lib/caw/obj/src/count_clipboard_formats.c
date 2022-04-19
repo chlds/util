@@ -7,10 +7,10 @@ Refer at fn. clipboard_map and clipboard_unmap.
 */
 
 
-# define CAR
-# include <stdio.h>
-# include <windows.h>
-# include "../../../incl/config.h"
+# define CAW_H
+# define STDIO_H
+# define WIN32_H
+# include "./../../../config.h"
 
 signed(__cdecl count_clipboard_formats(void)) {
 

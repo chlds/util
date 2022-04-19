@@ -4,9 +4,12 @@ Pin it to your clipboard.
 */
 
 
+# define DUAL_CONFIG_H
+# define PIN_H
+# define STDIO_H
 # define CAR
-# include <stdio.h>
 # include "./../../../lib/incl/config.h"
+# include "./../../../lib/config.h"
 
 signed(__cdecl wmain(signed(argc),signed short(**argv),signed short(**envp))) {
 

@@ -4,9 +4,11 @@ Pin it to your clipboard.
 */
 
 
+# define DUAL_CONFIG_H
+# define PIN_H
 # define CAR
-# include <stdio.h>
 # include "./../../../incl/config.h"
+# include "./../../../config.h"
 
 signed(__cdecl agent_pin(signed(argc),signed char(**argv),signed char(**envp))) {
 

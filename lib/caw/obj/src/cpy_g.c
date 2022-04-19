@@ -7,10 +7,12 @@ Refer at fn. alloc_g and rl_g.
 */
 
 
+# define DUAL_CONFIG_H
 # define CAR
-# include <stdio.h>
-# include <windows.h>
-# include "../../../incl/config.h"
+# define CAW_H
+# define STDIO_H
+# include "./../../../incl/config.h"
+# include "./../../../config.h"
 
 signed(__cdecl cpy_g(void(*di),signed short(*si))) {
 
