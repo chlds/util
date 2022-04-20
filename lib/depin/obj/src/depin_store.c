@@ -4,9 +4,12 @@ Store clipboard text.
 */
 
 
+# define DUAL_CONFIG_H
+# define DEPIN_H
+# define STDIO_H
 # define CAR
-# include <stdio.h>
 # include "./../../../incl/config.h"
+# include "./../../../config.h"
 
 signed(__cdecl depin_store(signed short(arg),signed char(**argp))) {
 

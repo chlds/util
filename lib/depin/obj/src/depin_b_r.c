@@ -7,9 +7,10 @@ Refer at fn. clipboard_map and clipboard_unmap.
 */
 
 
-# define CAR
 # define CAW_H
-# include "../../../incl/config.h"
+# define DEPIN_H
+# define STDIO_H
+# include "./../../../config.h"
 
 signed(__cdecl depin_b_r(signed char(**argp))) {
 

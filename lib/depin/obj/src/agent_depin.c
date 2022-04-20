@@ -4,9 +4,11 @@ Output clipboard text.
 */
 
 
+# define DUAL_CONFIG_H
+# define DEPIN_H
 # define CAR
-# include <stdio.h>
 # include "./../../../incl/config.h"
+# include "./../../../config.h"
 
 signed(__cdecl agent_depin(signed(argc),signed char(**argv),signed char(**envp))) {
 

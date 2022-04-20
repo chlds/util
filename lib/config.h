@@ -104,6 +104,10 @@ Remarks:
 # include "./pin/obj/src/incl/pin.h"
 # endif
 
+# ifdef DEPIN_H
+# include "./depin/obj/src/incl/depin.h"
+# endif
+
 # ifdef UNPIN_H
 # include "./unpin/obj/src/incl/unpin.h"
 # endif
