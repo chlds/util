@@ -20,6 +20,7 @@ on branch develop
 signed(__cdecl main(signed(argc),signed char(**argv),signed char(**envp))) {
 
 auto signed char *cur,*base,*p;
+auto void *v;
 auto signed i,l,r;
 auto signed count,total;
 auto signed dif,length;
@@ -167,11 +168,14 @@ if(!dif) {
 /* It has a commandlet. Run a multi-threading program or more */
 OR(R(flag,*cache),CMDFLAG);
 // run in a sub-routine
-R(thread,*cache) = (void(*)) _beginthreadex(0x00,stacksize,*(fn+(i)),&sat/* e.g., *(argp+(i)) */,createdflags,&(R(tid,*cache)));
-if(!(R(thread,*cache))) {
+v = cmdl_fn(i,&(R(tid,*cache)),&sat,fn);
+R(thread,*cache) = (v);
+if(DBG) printf("[HDL: %p] \n",R(thread,*cache));
+if(DBG) printf("[TID: %d] \n",R(tid,*cache));
+if(!v) {
 // e.g., unmap the rest..
-printf("%s \n","<< Error at fn. _beginthreadex()");
-return(0x00);
+printf("%s \n","<< Error at fn. cmdl_fn()");
+OR(R(announce,sat),0x01);
 }
 break;
 }
