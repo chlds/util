@@ -15,6 +15,10 @@ signed(__cdecl clipboard_store_w(void(*argp)));
 void *(__cdecl clipboard_retrieve_w(void));
 signed(__cdecl clipboard_unmap(void));
 
+signed(__cdecl min_window(void));
+signed(__cdecl max_window(void));
+signed(__cdecl restore_window(void));
+
 signed(__cdecl currently_granting_privileges_r(signed(arg),signed char(**di),void(*si/* structure token privileges */)));
 signed(__cdecl currently_granting_privileges(signed char(***di),void(*si/* structure token privileges */)));
 signed(__cdecl currently_granting_token_privileges_r(signed(arg),void(*di),void(*si/* token */)));
