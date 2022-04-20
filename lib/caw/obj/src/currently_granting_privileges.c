@@ -8,10 +8,13 @@ Refer at fn. cv_luid_priv, cv_priv_luid, map_ps, map_ps_token or..
 */
 
 
+# define DUAL_CONFIG_H
+# define CAW_H
+# define STDIO_H
+# define WIN32_H
 # define CAR
-# include <stdio.h>
-# include <windows.h>
-# include "../../../incl/config.h"
+# include "./../../../incl/config.h"
+# include "./../../../config.h"
 
 signed(__cdecl currently_granting_privileges(signed char(***di),void(*si/* structure token privileges */))) {
 

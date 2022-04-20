@@ -7,9 +7,9 @@ Refer at fn. map_td_token.
 */
 
 
-# define CAR
-# include <stdio.h>
-# include "../../../incl/config.h"
+# define CAW_H
+# define STDIO_H
+# include "./../../../config.h"
 
 signed(__cdecl unmap_td_token(void(*argp))) {
 

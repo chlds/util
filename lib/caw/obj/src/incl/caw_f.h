@@ -15,6 +15,24 @@ signed(__cdecl clipboard_store_w(void(*argp)));
 void *(__cdecl clipboard_retrieve_w(void));
 signed(__cdecl clipboard_unmap(void));
 
+signed(__cdecl currently_granting_privileges_r(signed(arg),signed char(**di),void(*si/* structure token privileges */)));
+signed(__cdecl currently_granting_privileges(signed char(***di),void(*si/* structure token privileges */)));
+signed(__cdecl currently_granting_token_privileges_r(signed(arg),void(*di),void(*si/* token */)));
+signed(__cdecl currently_granting_token_privileges(void(**di),void(*si/* token */)));
+signed(__cdecl cv_priv_luid_r(signed char(*di),signed(arg),signed(low),signed(high)));
+signed(__cdecl cv_priv_luid(signed char(**di),signed(low),signed(high)));
+signed(__cdecl cv_luid_priv(signed(*low),signed(*high),signed char(*si)));
+signed(__cdecl unmap_obj(void(*argp)));
+signed(__cdecl unmap_ps_token(void(*argp)));
+signed(__cdecl unmap_ps(void(*argp)));
+signed(__cdecl unmap_td_token(void(*argp)));
+signed(__cdecl unmap_td(void(*argp)));
+void *(__cdecl map_ps_token(void(*argp)));
+void *(__cdecl map_ps(signed(pid)));
+void *(__cdecl map_td_token(signed(arg/* open as self */),void(*argp)));
+void *(__cdecl map_td(signed(tid)));
+/* Operate threads and processes. */
+
 void *(__cdecl currently_working_clipboard_window(void));
 void *(__cdecl currently_working_clipboard_owner(void));
 void *(__cdecl currently_working_process_token(void));

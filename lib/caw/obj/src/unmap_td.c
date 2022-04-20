@@ -7,9 +7,9 @@ Refer at fn. map_td.
 */
 
 
-# define CAR
-# include <stdio.h>
-# include "../../../incl/config.h"
+# define CAW_H
+# define STDIO_H
+# include "./../../../config.h"
 
 signed(__cdecl unmap_td(void(*argp))) {
 

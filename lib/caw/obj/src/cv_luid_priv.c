@@ -7,10 +7,10 @@ Refer at fn. cv_priv_luid.
 */
 
 
-# define CAR
-# include <stdio.h>
-# include <windows.h>
-# include "../../../incl/config.h"
+# define CAW_H
+# define STDIO_H
+# define WIN32_H
+# include "./../../../config.h"
 
 signed(__cdecl cv_luid_priv(signed(*low),signed(*high),signed char(*si))) {
 
