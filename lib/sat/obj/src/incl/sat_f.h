@@ -4,6 +4,7 @@ Return (0x00) if the function fails.
 */
 
 
+signed(__cdecl agent_sat(signed(argc),signed char(**argv),signed char(**envp)));
 void*(__cdecl cmdl_fn(signed(arg),unsigned(*tid),void(*argp),unsigned(__stdcall**ff)(void(*argp))));
 
 signed(__cdecl cmdl2_time_rrrr(void(*argp)));
@@ -31,3 +32,7 @@ unsigned(__stdcall cmdl2_open(void(*argp)));
 unsigned(__stdcall cmdl2_save(void(*argp)));
 unsigned(__stdcall cmdl2_output(void(*argp)));
 unsigned(__stdcall cmdl2_history(void(*argp)));
+unsigned(__stdcall cmdl2_min(void(*argp)));
+unsigned(__stdcall cmdl2_max(void(*argp)));
+unsigned(__stdcall cmdl2_restore(void(*argp)));
+unsigned(__stdcall cmdl2_quit(void(*argp)));

@@ -29,6 +29,14 @@ printf("\t%s \n","--output to output except for the commandlets");
 printf("\t%s \n","--history to output the history");
 printf("\n");
 
+printf("\t%s \n","--min to minimise the window");
+printf("\t%s \n","--max to maximise the window");
+printf("\t%s \n","--restore to restore the window");
+printf("\n");
+
+printf("\t%s \n","--quit to quit (exit)");
+printf("\n");
+
 printf("\t%s \n","GitHub: github.com/chlds/util/");
 printf("\n");
 
