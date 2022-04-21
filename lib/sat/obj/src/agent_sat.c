@@ -190,7 +190,9 @@ break;
 i++;
 }
 // terminate
-if(!i) break;
+r = ct_vb(term);
+if(EQ(i,(--r))) break; // quit
+if(!i) break; // exit
 }
 
 printf("\n");
