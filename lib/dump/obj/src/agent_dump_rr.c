@@ -4,9 +4,13 @@ Dump a file in the binary
 */
 
 
+# define DUAL_CONFIG_H
+# define CAW_H
+# define DUMP_H
+# define STDIO_H
 # define CAR
-# include <stdio.h>
 # include "./../../../incl/config.h"
+# include "./../../../config.h"
 
 signed(__cdecl agent_dump_rr(signed(fd),void(*argp))) {
 
@@ -71,12 +75,12 @@ else printf(" %3X",d);
 else printf(" %02X",d);
 }
 else {
-if(!quickflag) sleep_b(DELAY);
+if(!quickflag) sleep_beta(DELAY);
 else {
 if(l<(SNOOZE)) l++;
 else {
 XOR(l,l);
-sleep_b(DELAY);
+sleep_beta(DELAY);
 }}
 printf("\n");
 printf("%08d: ",line++);

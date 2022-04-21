@@ -116,6 +116,10 @@ Remarks:
 # include "./dk/obj/src/incl/dk.h"
 # endif
 
+# ifdef DUMP_H
+# include "./dump/obj/src/incl/dump.h"
+# endif
+
 # ifdef PRIV_H
 # include "./priv/obj/src/incl/priv.h"
 # endif

@@ -6,10 +6,13 @@ Implemented with a flag to be added for code to run as far as possible to the en
 */
 
 
+# define DUAL_CONFIG_H
+# define DUMP_H
+# define STDIO_H
 # define CLI_ASCII
 # define CAR
-# include <stdio.h>
 # include "./../../../incl/config.h"
+# include "./../../../config.h"
 
 signed(__cdecl agent_dump(signed(argc),signed char(**argv),signed char(**envp))) {
 
