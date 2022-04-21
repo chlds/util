@@ -51,22 +51,6 @@ signed(__cdecl agent_si_rr(signed char(*primary),signed short(*secondary)));
 signed(__cdecl agent_si_r(signed char(*argp)));
 signed(__cdecl agent_si(signed(argc),signed char(**argv),signed char(**envp)));
 
-signed(__cdecl priv_rrrrrr(signed char(**argp)));
-signed(__cdecl priv_rrrrr(signed char(**argp)));
-signed(__cdecl priv_rrrr(void(*argp)));
-signed(__cdecl priv_rrr(void(*argp)));
-signed(__cdecl priv_rr(void(*argp)));
-signed(__cdecl priv_r(signed char(*argp)));
-signed(__cdecl priv_help(void));
-signed(__cdecl agent_priv(signed(argc),signed char(**argv),signed char(**envp)));
-
-signed(__cdecl depin_store_r(signed short(arg),signed char(*di),signed char(*si)));
-signed(__cdecl depin_store(signed short(arg),signed char(**argp)));
-signed(__cdecl depin_output(void));
-signed(__cdecl depin_help(void));
-signed(__cdecl agent_depin(signed(argc),signed char(**argv),signed char(**envp)));
-/* Output clipboard text. */
-
 signed(__cdecl jd_help(void));
 signed(__cdecl agent_jd_r(signed(arg/* code of line break */),signed char(*di/* path */),signed char(**si)));
 signed(__cdecl agent_jd(signed(argc),signed char(**argv),signed char(**envp)));
@@ -814,11 +798,6 @@ void *(__cdecl map_ps(signed(pid)));
 void *(__cdecl map_td_token(signed(arg/* open as self */),void(*argp)));
 void *(__cdecl map_td(signed(tid)));
 /* Operate threads and processes. */
-
-signed(__cdecl depin_b_rr(signed char(**di),void(*si)));
-signed(__cdecl depin_b_r(signed char(**argp)));
-signed(__cdecl depin_b(signed char(**argp)));
-/* De-pin. */
 
 signed(__cdecl pin_w_rrr(void(*argp)));
 signed(__cdecl pin_w_rr(void(*argp)));

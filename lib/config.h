@@ -111,3 +111,7 @@ Remarks:
 # ifdef UNPIN_H
 # include "./unpin/obj/src/incl/unpin.h"
 # endif
+
+# ifdef PRIV_H
+# include "./priv/obj/src/incl/priv.h"
+# endif

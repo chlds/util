@@ -4,9 +4,10 @@ Display the privileges to a process.
 */
 
 
-# define CAR
-# include <stdio.h>
-# include "./../../../incl/config.h"
+# define CAW_H
+# define PRIV_H
+# define STDIO_H
+# include "./../../../config.h"
 
 signed(__cdecl priv_rr(void(*argp))) {
 
