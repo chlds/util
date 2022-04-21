@@ -72,6 +72,7 @@ signed short(__cdecl register_class_ex_beta(void(*argp)));
 signed short(__cdecl register_class_beta(void(*argp)));
 signed(__cdecl set_layered_window_attributes_beta(void(*hdl),signed(trans),signed char(alpha),signed(arg)));
 signed(__cdecl show_window_beta(void(*hdl),signed(arg)));
+signed(__cdecl destroy_window_beta(void(*hdl)));
 
 void *(__cdecl create_solid_brush_beta(signed(arg)));
 void *(__cdecl create_rect_rgn_beta(signed(xul),signed(yul),signed(xlr),signed(ylr)));
