@@ -4,9 +4,9 @@ Detect keys.
 */
 
 
-# define CAR
-# include <stdio.h>
-# include "./../../../incl/config.h"
+# define DK_H
+# define STDIO_H
+# include "./../../../config.h"
 
 signed(__cdecl agent_dk_r(signed(arg),signed char(*argp))) {
 

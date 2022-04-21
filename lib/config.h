@@ -112,6 +112,10 @@ Remarks:
 # include "./unpin/obj/src/incl/unpin.h"
 # endif
 
+# ifdef DK_H
+# include "./dk/obj/src/incl/dk.h"
+# endif
+
 # ifdef PRIV_H
 # include "./priv/obj/src/incl/priv.h"
 # endif

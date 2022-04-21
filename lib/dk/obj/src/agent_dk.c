@@ -4,9 +4,12 @@ Detect keys.
 */
 
 
+# define DUAL_CONFIG_H
+# define DK_H
+# define STDIO_H
 # define CAR
-# include <stdio.h>
 # include "./../../../incl/config.h"
+# include "./../../../config.h"
 
 signed(__cdecl agent_dk(signed(argc),signed char(**argv),signed char(**envp))) {
 

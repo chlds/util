@@ -34,13 +34,15 @@ OBJS = ./bin/obj/*.obj
 MAP = ./bin/obj/$(T).map
 EXE = ./bin/$(T).exe
 
-# L9 = ck
-L8 = priv
+# L99 = ck
+L9 = priv
+L8 = dk
 L7 = pin
 L6 = depin
 L5 = unpin
 L4 = caw
 L3 = sat
+LIBR9 = ./lib/$(L9)/$(L9).lib
 LIBR8 = ./lib/$(L8)/$(L8).lib
 LIBR7 = ./lib/$(L7)/$(L7).lib
 LIBR6 = ./lib/$(L6)/$(L6).lib
@@ -49,7 +51,7 @@ LIBR4 = ./lib/$(L4)/$(L4).lib
 LIBR3 = ./lib/$(L3)/$(L3).lib
 LIBR2 = ./lib/cbr/cbr.lib
 LIBR1 = ./lib/car/car.lib
-LIBRS = $(LIBR8) $(LIBR7) $(LIBR6) $(LIBR5) $(LIBR4) $(LIBR3) $(LIBR2) $(LIBR1)
+LIBRS = $(LIBR9) $(LIBR8) $(LIBR7) $(LIBR6) $(LIBR5) $(LIBR4) $(LIBR3) $(LIBR2) $(LIBR1)
 LIBR = ./lib/$(L).lib
 OS_LIBRS = user32.lib gdi32.lib psapi.lib advapi32.lib
 
@@ -79,6 +81,11 @@ $(OBJ): $(SRC) $(HDRS)
 $(LIBR): $(LIBRS) $(HDRS)
 	@echo "Making LIBR.. "
 	lib.exe -out:$(LIBR) $(LIBRS)
+$(LIBR9): "lib/$(L9)/obj/src/*.c" "lib/$(L9)/obj/src/incl/*.h" $(CONFIG_HDR)
+	@echo "Making LIBR9.. "
+	cd lib/$(L9)/
+	nmake
+	cd ../../
 $(LIBR8): "lib/$(L8)/obj/src/*.c" "lib/$(L8)/obj/src/incl/*.h" $(CONFIG_HDR)
 	@echo "Making LIBR8.. "
 	cd lib/$(L8)/

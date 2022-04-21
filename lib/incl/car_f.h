@@ -11,12 +11,6 @@ Along with C library
 signed(__cdecl agent_alpha(signed(argc),signed char(**argv),signed char(**envp)));
 signed(__cdecl agent_cli_kb4(signed(argc),signed char(**argv),signed char(**envp)));
 
-signed(__cdecl agent_dk_rrrr(signed(arg),signed char(*argp)));
-signed(__cdecl agent_dk_rrr(signed(arg),signed char(*argp)));
-signed(__cdecl agent_dk_rr(signed(arg),signed char(*argp)));
-signed(__cdecl agent_dk_r(signed(arg),signed char(*argp)));
-signed(__cdecl agent_dk(signed(argc),signed char(**argv),signed char(**envp)));
-
 signed(__cdecl dump_help(void));
 signed(__cdecl agent_dump_rr(signed(fd),void(*argp)));
 signed(__cdecl agent_dump_r(fl_t(*argp)));
