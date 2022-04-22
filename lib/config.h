@@ -34,6 +34,10 @@ Remarks:
 # include <stdlib.h>
 # endif
 
+# ifdef TIME_H
+# include <time.h>
+# endif
+
 # ifdef C_H
 # include <errno.h>
 # include <stdio.h>
@@ -65,6 +69,10 @@ Remarks:
 # ifdef CALEND_H
 # include <time.h>
 # include "./incl/calend.h"
+# endif
+
+# ifdef CALS_H
+# include "./incl/cals.h"
 # endif
 
 # ifdef SYM_H

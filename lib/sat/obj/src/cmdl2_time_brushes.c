@@ -22,7 +22,7 @@ if(!argp) return(0x00);
 
 v = (void(*)) create_solid_brush_beta(LACE);
 if(!v) {
-printf("%s \n","<< Error at create_solid_brush_beta() for lace..");
+printf("%s \n","<< Error at fn. create_solid_brush_beta() for lace..");
 return(0x00);
 }
 

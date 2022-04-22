@@ -35,7 +35,7 @@ y = (SHADE_YPOS+(R(height,R(font,*argp))));
 desktop = GetDesktopWindow();
 cdc = (void*) GetDC((void*)desktop);
 if(!cdc) {
-printf("%s \n","<< Error at GetDC()");
+printf("%s \n","<< Error at fn. GetDC()");
 return(0x00);
 }
 
@@ -49,7 +49,7 @@ OR(flag,0x01);
 }}
 
 if(!(ReleaseDC(desktop,cdc))) {
-printf("%s \n","<< Error at ReleaseDC()");
+printf("%s \n","<< Error at fn. ReleaseDC()");
 OR(flag,0x01);
 }
 

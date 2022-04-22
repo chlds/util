@@ -28,7 +28,7 @@ x = (R(width,R(font,*argp)));
 b = (R(name,R(font,*argp)));
 v = (void(*)) create_font_beta(y,x,b);
 if(!v) {
-printf("%s \n","<< Error at create_font_beta()");
+printf("%s \n","<< Error at fn. create_font_beta()");
 return(0x00);
 }
 

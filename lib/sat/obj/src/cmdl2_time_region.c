@@ -26,7 +26,7 @@ h = (SHADE_YPOS+(R(height,R(font,*argp))));
 w = currently_operating_pixels(0x00);
 v = (void(*)) create_rect_rgn_beta(0x00,0x00,w,h);
 if(!v) {
-printf("%s \n","<< Error at create_rect_rgn_beta()");
+printf("%s \n","<< Error at fn. create_rect_rgn_beta()");
 return(0x00);
 }
 
