@@ -120,6 +120,10 @@ Remarks:
 # include "./unpin/obj/src/incl/unpin.h"
 # endif
 
+# ifdef CRE_H
+# include "./cre/obj/src/incl/cre.h"
+# endif
+
 # ifdef DK_H
 # include "./dk/obj/src/incl/dk.h"
 # endif

@@ -44,9 +44,6 @@ signed(__cdecl jd_help(void));
 signed(__cdecl agent_jd_r(signed(arg/* code of line break */),signed char(*di/* path */),signed char(**si)));
 signed(__cdecl agent_jd(signed(argc),signed char(**argv),signed char(**envp)));
 
-signed(__cdecl cre_help(void));
-signed(__cdecl agent_cre(signed(argc),signed char(**argv),signed char(**envp)));
-
 signed(__cdecl lit_help(void));
 signed(__cdecl agent_lit(signed(argc),signed char(**argv),signed char(**envp)));
 
@@ -148,12 +145,10 @@ signed(__cdecl wr_ds_w_r(signed(fd),fl_t(*argp)));
 signed(__cdecl wr_ds_w(signed short(**argp)));
 signed(__cdecl wr_ds_b_r(signed(fd),fl_t(*argp)));
 signed(__cdecl wr_ds_b(signed char(**argp)));
-signed(__cdecl cre_w(signed char(*perm),signed short(*path)));
 signed(__cdecl xt_parse_permission_w(signed(*retv),signed(*cache),signed char(*argp)));
 signed(__cdecl xt_parse_access_w(signed(*retv),signed char(*argp)));
 signed(__cdecl xt_parse_w(signed(*permission),signed(*access),signed char(*argp)));
 signed(__cdecl xt_w(signed char(*param),signed short(*path),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
-signed(__cdecl cre_b(signed char(*perm),signed char(*path)));
 signed(__cdecl xt_parse_permission(signed(*retv),signed(*cache),signed char(*argp)));
 signed(__cdecl xt_parse_access(signed(*retv),signed char(*argp)));
 signed(__cdecl xt_parse(signed(*permission),signed(*access),signed char(*argp)));
@@ -769,34 +764,3 @@ signed(__cdecl catpp(signed char(**argp)));
 
 signed(__cdecl f_optl(signed(arg),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
 /* Be flexible. */
-
-signed(__cdecl currently_granting_privileges_r(signed(arg),signed char(**di),void(*si/* structure token privileges */)));
-signed(__cdecl currently_granting_privileges(signed char(***di),void(*si/* structure token privileges */)));
-signed(__cdecl currently_granting_token_privileges_r(signed(arg),void(*di),void(*si/* token */)));
-signed(__cdecl currently_granting_token_privileges(void(**di),void(*si/* token */)));
-signed(__cdecl cv_priv_luid_r(signed char(*di),signed(arg),signed(low),signed(high)));
-signed(__cdecl cv_priv_luid(signed char(**di),signed(low),signed(high)));
-signed(__cdecl cv_luid_priv(signed(*low),signed(*high),signed char(*si)));
-signed(__cdecl unmap_obj(void(*argp)));
-signed(__cdecl unmap_ps_token(void(*argp)));
-signed(__cdecl unmap_ps(void(*argp)));
-signed(__cdecl unmap_td_token(void(*argp)));
-signed(__cdecl unmap_td(void(*argp)));
-void *(__cdecl map_ps_token(void(*argp)));
-void *(__cdecl map_ps(signed(pid)));
-void *(__cdecl map_td_token(signed(arg/* open as self */),void(*argp)));
-void *(__cdecl map_td(signed(tid)));
-/* Operate threads and processes. */
-
-signed(__cdecl pin_w_rrr(void(*argp)));
-signed(__cdecl pin_w_rr(void(*argp)));
-signed(__cdecl pin_w_r(void(*di),signed short(*si)));
-signed(__cdecl pin_w(signed short(*argp)));
-signed(__cdecl pin_b(signed char(*argp)));
-signed(__cdecl count_clipboard_formats(void));
-void *(__cdecl alloc_g(signed(arg)));
-void *(__cdecl lock_g(void(*argp)));
-signed(__cdecl cpy_g(void(*di),signed short(*si)));
-signed(__cdecl unlock_g(void(*argp)));
-signed(__cdecl rl_g(void(*argp)));
-/* Pin it to your clipboard. */

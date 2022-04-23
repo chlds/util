@@ -7,8 +7,12 @@ Refer at fn. cre_b.
 */
 
 
+# define DUAL_CONFIG_H
+# define CRE_H
+# define STDIO_H
 # define CAR
 # include "./../../../incl/config.h"
+# include "./../../../config.h"
 
 signed(__cdecl cre_w(signed char(*perm),signed short(*path))) {
 

@@ -4,8 +4,9 @@ Help.
 */
 
 
-# define CAR
-# include "./../../../incl/config.h"
+# define CRE_H
+# define STDIO_H
+# include "./../../../config.h"
 
 signed(__cdecl cre_help(void)) {
 
