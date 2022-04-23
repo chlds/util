@@ -26,6 +26,10 @@ Remarks:
 # include "./incl/cli_codepage.h"
 # endif
 
+# ifdef STDDEF_H
+# include <stddef.h>
+# endif
+
 # ifdef STDIO_H
 # include <stdio.h>
 # endif
@@ -36,6 +40,18 @@ Remarks:
 
 # ifdef TIME_H
 # include <time.h>
+# endif
+
+# ifdef ERRNO_H
+# include <errno.h>
+# endif
+
+# ifdef SYS_TYPES_H
+# include <sys/types.h>
+# endif
+
+# ifdef SYS_STAT_H
+# include <sys/stat.h>
 # endif
 
 # ifdef C_H
@@ -126,6 +142,10 @@ Remarks:
 
 # ifdef DK_H
 # include "./dk/obj/src/incl/dk.h"
+# endif
+
+# ifdef SI_H
+# include "./si/obj/src/incl/si.h"
 # endif
 
 # ifdef DUMP_H

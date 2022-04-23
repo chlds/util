@@ -4,10 +4,12 @@ Stat.
 */
 
 
-# define CALEND
+# define DUAL_CONFIG_H
+# define SI_H
+# define STDIO_H
 # define CAR
-# include <stdio.h>
 # include "./../../../incl/config.h"
+# include "./../../../config.h"
 
 signed(__cdecl agent_si_r(signed char(*argp))) {
 

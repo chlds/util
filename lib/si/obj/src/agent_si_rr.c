@@ -4,10 +4,18 @@ Refer at <corecrt_wtime.h>
 */
 
 
-# define C_CODE_STDS
-# define CALEND
+# define DUAL_CONFIG_H
+# define SI_H
+# define CALEND_H
+// # define CALS_H
+# define STDIO_H
+# define STDDEF_H
+# define ERRNO_H
+# define SYS_TYPES_H
+# define SYS_STAT_H
 # define CAR
 # include "./../../../incl/config.h"
+# include "./../../../config.h"
 
 signed(__cdecl agent_si_rr(signed char(*primary),signed short(*secondary))) {
 
