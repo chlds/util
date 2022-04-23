@@ -8,6 +8,8 @@ signed(__cdecl agent_sat(signed(argc),signed char(**argv),signed char(**envp)));
 void*(__cdecl cmdl_fn(signed(arg),unsigned(*tid),void(*argp),unsigned(__stdcall**ff)(void(*argp))));
 
 signed(__cdecl cmdl2_time_rrrr(void(*argp)));
+signed(__cdecl cmdl2_time_selects(void(*argp)));
+signed(__cdecl cmdl2_time_select(void(*argp)));
 signed(__cdecl cmdl2_time_bm(void(*argp)));
 signed(__cdecl cmdl2_time_dc(void(*argp)));
 signed(__cdecl cmdl2_time_region(SAT(*argp)));

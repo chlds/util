@@ -22,7 +22,6 @@ Transparency
 # define COUNT_MODULES (1)
 # define COUNT_OBJS (5)
 # define COUNT_POS (4)
-# define COUNT_DC (3)
 # define BUFF (0x200)
 # include <objbase.h> // for combaseapi.h
 # include <wincodec.h>
@@ -81,10 +80,6 @@ auto void *(obj[COUNT_OBJS]) = {
 (void(*)) (0x00),
 };
 
-auto void *(old_bm[COUNT_DC]) = {
-(void(*)) (0x00),
-};
-
 auto unsigned region[2] = {
 (unsigned) (0x00),
 };
@@ -100,8 +95,6 @@ auto void *desktop;
 // transparency
 auto void *lace;
 auto void *rgn;
-auto void *brush,*font;
-auto void *old_brush,*old_font;
 auto KNOT *cache,*lead,*base;
 
 auto signed period;
@@ -124,19 +117,10 @@ r = currently_operating_pixels(0x00);
 /* Map objects on the RAM */
 rgn = (*(CLI_BASE+(R(region,*argp))));
 if(!rgn) return(0x00);
-// if(DBG) printf("%s %p \n","A region object created/mapped on the RAM will be on offset ",rgn);
-
-brush = (*(CLI_BASE+(R(brush,*argp))));
-if(!brush) return(0x00);
-// if(DBG) printf("%s %p \n","A brush object created/mapped on the RAM will be on offset",brush);
 
 // transparency
 lace = (*(CLI_OFFSET+(R(brush,*argp))));
 if(!lace) return(0x00);
-
-font = (*(CLI_BASE+(R(v,R(font,*argp)))));
-if(!font) return(0x00);
-// if(DBG) printf("%s %p \n","A font object created/mapped on the RAM will be on offset",font);
 
 desktop = GetDesktopWindow();
 dc = (R(dc,*argp));
@@ -180,28 +164,6 @@ return(0x00);
 // else printf("%s%p \n","The handle of a loaded bitmap object created/mapped on the RAM will be on offset ",*(obj+(LOADEDBITMAP)));
 //*/
 
-
-/* Selecting the created, loaded or mapped objects to two memory Device Context */
-old_brush = select_object_beta(*(CLI_DI+(dc)),brush);
-if(!old_brush) {
-printf("%s \n","<< Error at fn. select_object_beta() for a brush");
-return(0x00);
-}
-
-old_font = select_object_beta(*(CLI_DI+(dc)),font);
-if(!old_font) {
-printf("%s \n","<< Error at fn. select_object_beta() for a font");
-return(0x00);
-}
-
-i = (-0x01+(COUNT_DC));
-while(i) {
---i;
-*(i+(old_bm)) = select_object_beta(*(i+(dc)),*(i+(bm)));
-if(!(*(i+(old_bm)))) {
-printf("%s %d \n","<< Error at fn. select_object_beta() for a bitmap and i:",i);
-return(0x00);
-}}
 
 /* To (*(CLI_SI+(dc)))
 *(old_obj+(LOADEDBITMAP)) = select_object_beta(*(CLI_SI+(dc)),*(obj+(LOADEDBITMAP)));
@@ -326,29 +288,6 @@ printf("%s \n","<< Error at fn. select_object_beta for a loaded bitmap object");
 return(0x00);
 }
 //*/
-
-// De-select compatible bitmap objects out of the compatible device contexts i.e., Mem. DC.
-i = (-0x01+(COUNT_DC));
-while(i) {
---i;
-*(i+(old_bm)) = select_object_beta(*(i+(dc)),*(i+(old_bm)));
-if(!(*(i+(old_bm)))) {
-printf("%s %d \n","<< Error at fn. select_object_beta() for an old compatible bitmap object and i:",i);
-return(0x00);
-}}
-
-/* De-select two objects i.e., BRUSH and FONT.. out of the compatible device context */
-old_font = select_object_beta(*(CLI_DI+(dc)),old_font);
-if(!old_font) {
-printf("%s \n","<< Error at fn. select_object_beta() for an old font");
-return(0x00);
-}
-
-old_brush = select_object_beta(*(CLI_DI+(dc)),old_brush);
-if(!old_brush) {
-printf("%s \n","<< Error at fn. select_object_beta() for an old brush");
-return(0x00);
-}
 
 return(0x01);
 }

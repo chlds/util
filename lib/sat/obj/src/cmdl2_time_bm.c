@@ -55,8 +55,8 @@ OR(flag,0x01);
 
 R(bm,*argp) = (bm);
 if(!flag) {
-r = cmdl2_time_rrrr(argp);
-if(!r) printf("%s \n","<< Error at fn. cmdl2_time_rrrr()");
+r = cmdl2_time_select(argp);
+if(!r) printf("%s \n","<< Error at fn. cmdl2_time_select()");
 }
 
 i = (OBJS);
