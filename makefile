@@ -45,6 +45,7 @@ L6 = depin
 L5 = unpin
 L4 = caw
 L3 = sat
+LIBR99 = # ./lib/$(L99)/$(L99).lib
 LIBR12 = ./lib/$(L12)/$(L12).lib
 LIBR11 = ./lib/$(L11)/$(L11).lib
 LIBR10 = ./lib/$(L10)/$(L10).lib
@@ -57,7 +58,7 @@ LIBR4 = ./lib/$(L4)/$(L4).lib
 LIBR3 = ./lib/$(L3)/$(L3).lib
 LIBR2 = ./lib/cbr/cbr.lib
 LIBR1 = ./lib/car/car.lib
-LIBRS = $(LIBR12) $(LIBR11) $(LIBR10) $(LIBR9) $(LIBR8) $(LIBR7) $(LIBR6) $(LIBR5) $(LIBR4) $(LIBR3) $(LIBR2) $(LIBR1)
+LIBRS = $(LIBR99) $(LIBR12) $(LIBR11) $(LIBR10) $(LIBR9) $(LIBR8) $(LIBR7) $(LIBR6) $(LIBR5) $(LIBR4) $(LIBR3) $(LIBR2) $(LIBR1)
 LIBR = ./lib/$(L).lib
 OS_LIBRS = user32.lib gdi32.lib psapi.lib advapi32.lib
 

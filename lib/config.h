@@ -12,6 +12,7 @@ Remarks:
 # define __cdecl __attribute__((ms_abi))
 # endif
 
+# define PERCENTAGE (100)
 # define OCTET (0x08)
 # define NIBBLE (0x04)
 
