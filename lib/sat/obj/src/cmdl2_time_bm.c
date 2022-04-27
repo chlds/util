@@ -31,7 +31,7 @@ auto signed short flag;
 if(!argp) return(0x00);
 
 x = currently_operating_pixels(0x00);
-y = (SHADE_YPOS+(R(height,R(font,*argp))));
+y = (SHADE_YPOS+(R(height,R(tf,*argp))));
 desktop = GetDesktopWindow();
 cdc = (void*) GetDC((void*)desktop);
 if(!cdc) {

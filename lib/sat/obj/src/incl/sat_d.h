@@ -16,7 +16,6 @@ struct time_font {
 signed char *name;
 signed width;
 signed height;
-void *(v[OBJS]);
 } typedef time_font_t;
 
 # ifndef DUAL_CONFIG_H
@@ -49,11 +48,12 @@ signed short announce;
 signed short toggle;
 signed run;
 signed period;
-time_font_t font;
+time_font_t tf;
 REEL reel;
 void **dc;
 void **bm;
 void *(brush[OBJS]);
+void *(font[OBJS]);
 void *(region[OBJS]);
 } typedef SAT;
 

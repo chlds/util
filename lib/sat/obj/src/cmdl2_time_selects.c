@@ -32,7 +32,7 @@ printf("%s \n","<< Error at fn. select_object_beta() for a brush");
 return(0x00);
 }
 
-v = (*(CLI_BASE+(R(v,R(font,*argp)))));
+v = (*(CLI_BASE+(R(font,*argp))));
 v = select_object_beta(*(CLI_DI+(R(dc,*argp))),v);
 oldfont = (v);
 if(!v) {

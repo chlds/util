@@ -34,7 +34,7 @@ OBJS = ./bin/obj/*.obj
 MAP = ./bin/obj/$(T).map
 EXE = ./bin/$(T).exe
 
-# L99 = ck
+L99 = ck
 L12 = si
 L11 = cre
 L10 = priv

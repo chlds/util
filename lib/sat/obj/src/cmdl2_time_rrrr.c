@@ -110,7 +110,7 @@ if(!argp) return(0x00);
 
 r = currently_operating_pixels(0x00);
 *(region+(X)) = (r);
-*(region+(Y)) = (SHADE_YPOS+(R(height,R(font,*argp))));
+*(region+(Y)) = (SHADE_YPOS+(R(height,R(tf,*argp))));
 *(pos+(X)) = (0x00);
 *(pos+(Y)) = (0x00);
 

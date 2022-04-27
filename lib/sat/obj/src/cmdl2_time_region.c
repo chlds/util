@@ -22,7 +22,7 @@ auto signed r;
 
 if(!argp) return(0x00);
 
-h = (SHADE_YPOS+(R(height,R(font,*argp))));
+h = (SHADE_YPOS+(R(height,R(tf,*argp))));
 w = currently_operating_pixels(0x00);
 v = (void(*)) create_rect_rgn_beta(0x00,0x00,w,h);
 if(!v) {

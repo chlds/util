@@ -88,9 +88,9 @@ AND(sat.announce,0x00);
 AND(sat.toggle,0x00);
 AND(sat.run,0x00);
 AND(sat.period,0x00);
-R(height,R(font,sat)) = (height);
-R(width,R(font,sat)) = (width);
-R(name,R(font,sat)) = (name);
+R(height,R(tf,sat)) = (height);
+R(width,R(tf,sat)) = (width);
+R(name,R(tf,sat)) = (name);
 
 /*
 r = make_cards(term,fn,&cards);
