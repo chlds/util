@@ -21,6 +21,7 @@ L = czr
 T =
 
 MSG = "Making.. "
+RES =
 
 HDR_PATH = ./lib/incl/
 HDRS = $(HDR_PATH)*.h
@@ -79,7 +80,7 @@ LIL = link.exe
 
 $(EXE): $(OBJ) $(LIBR) $(LIBRS) $(HDRS) # $(OS_LIBRS)
 	@echo $(MSG)
-	$(LIL) $(LILFLAGS) $(OBJ) $(LIBR) $(OS_LIBRS)
+	$(LIL) $(LILFLAGS) $(OBJ) $(LIBR) $(OS_LIBRS) $(RES)
 
 $(OBJ): $(SRC) $(HDRS)
 	@echo "Stage 1 "
