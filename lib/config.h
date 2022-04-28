@@ -79,6 +79,7 @@ Remarks:
 
 # ifdef WIN32_H
 # include <windows.h>
+# include <shellapi.h>
 # include <psapi.h>
 # include <tlhelp32.h>
 # endif
