@@ -126,6 +126,10 @@ Remarks:
 # include "./ck/obj/src/incl/ck.h"
 # endif
 
+# ifdef CK_RES_H
+# include "./ck/res/resource.h"
+# endif
+
 # ifdef PIN_H
 # include "./pin/obj/src/incl/pin.h"
 # endif
