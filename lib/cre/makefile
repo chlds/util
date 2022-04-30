@@ -6,7 +6,7 @@ MSG = "Build library CRE"
 
 CC = cl.exe
 CFLAG = -c -Fo$(OBJ_DIR)
-SFLAG = -Fa$(SRC_DIR)
+SFLAG = # -Fa$(SRC_DIR)
 
 LB = lib.exe
 LFLAG = -out:$(LBR)
