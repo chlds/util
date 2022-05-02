@@ -42,6 +42,7 @@ if(CALS_MERIDIEM&(R(flag,*argp))) {
 *b = ("%2d:%02dam ");
 if(!(hr<(12))) *b = ("%2d:%02dpm ");
 hr = (hr%(12));
+if(!hr) hr = (12);
 }
 printf("\t");
 printf(*b,hr,*(CALS_MN+(R(time,*argp))));
