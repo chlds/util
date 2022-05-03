@@ -8,6 +8,12 @@ Along with C library
 */
 
 
+signed char *(__cdecl cx_rr(signed char(*di),signed char(*si)));
+signed char *(__cdecl cx_r(signed(arg),signed char(*argp)));
+signed char *(__cdecl cx(signed(arg),signed char(*argp)));
+signed char *(__cdecl cv(signed(arg)));
+/* convert, concatenate and release */
+
 signed(__cdecl agent_alpha(signed(argc),signed char(**argv),signed char(**envp)));
 signed(__cdecl agent_cli_kb4(signed(argc),signed char(**argv),signed char(**envp)));
 
