@@ -8,6 +8,9 @@ Along with C library
 */
 
 
+signed char *(__cdecl cat_ahead(signed char(*di),signed char(*si)));
+/* concatenate and release */
+
 signed char *(__cdecl cx_rr(signed char(*di),signed char(*si)));
 signed char *(__cdecl cx_r(signed(arg),signed char(*argp)));
 signed char *(__cdecl cx(signed(arg),signed char(*argp)));
