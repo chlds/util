@@ -12,16 +12,10 @@ signed char *(__cdecl cat_ahead(signed char(*di),signed char(*si)));
 /* concatenate and release */
 
 signed char *(__cdecl cx_rr(signed char(*di),signed char(*et),signed char(*si)));
-signed char *(__cdecl cx3d_r(signed(arg),signed char(*et),signed char(*argp)));
-signed char *(__cdecl cx3d(signed(arg),signed char(*et),signed char(*argp)));
-signed char *(__cdecl cx2d_r(signed(arg),signed char(*et),signed char(*argp)));
-signed char *(__cdecl cx2d(signed(arg),signed char(*et),signed char(*argp)));
-signed char *(__cdecl cx_r(signed(arg),signed char(*et),signed char(*argp)));
-signed char *(__cdecl cx(signed(arg),signed char(*et),signed char(*argp)));
+signed char *(__cdecl cx_r(signed(digit),signed(arg),signed char(*et),signed char(*argp)));
+signed char *(__cdecl cx(signed(digit),signed(arg),signed char(*et),signed char(*argp)));
 signed char *(__cdecl cv_r(signed(arg/* n-digit */),signed char(*argp)));
-signed char *(__cdecl cv3d(signed(arg)));
-signed char *(__cdecl cv2d(signed(arg)));
-signed char *(__cdecl cv(signed(arg)));
+signed char *(__cdecl cv(signed(digit),signed(arg)));
 /* convert, concatenate and release */
 
 signed(__cdecl agent_alpha(signed(argc),signed char(**argv),signed char(**envp)));
