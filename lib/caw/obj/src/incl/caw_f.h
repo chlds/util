@@ -47,8 +47,9 @@ signed(__cdecl currently_working_pid(void));
 signed(__cdecl currently_working_pid_process(void(*argp)));
 signed(__cdecl currently_working_tid(void));
 signed(__cdecl currently_working_tid_thread(void(*argp)));
-void *(__cdecl currently_working_window(void));
 signed(__cdecl currently_working_window_tid_pid(signed(*di),void(*si)));
+signed long long(__cdecl currently_working_instance(void(*argp/* hdl */)));
+void *(__cdecl currently_working_window(void));
 
 signed(__cdecl currently_granting_n_privileges(void(*argp/* structure token privileges */)));
 
