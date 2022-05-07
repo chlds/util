@@ -8,6 +8,9 @@ Along with C library
 */
 
 
+signed(__cdecl commandlet(signed(arg/* stack size */),void(*argp),void(__cdecl*f)(void(*argp))));
+/* run in a subroutine */
+
 signed char *(__cdecl cat_ahead(signed char(*di),signed char(*si)));
 /* concatenate and release */
 
