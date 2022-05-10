@@ -170,7 +170,7 @@ signed(__cdecl op_b(signed char(*path),signed(*argp),...));
 signed(__cdecl already_w(size_t(*size),signed short(*argp)));
 signed(__cdecl already_b(size_t(*size),signed char(*argp)));
 
-signed(__cdecl xe(void(*argp),signed(__cdecl**fn)(void(*argp))));
+signed(__cdecl xe(signed(arg/* continue */),void(*argp),signed(__cdecl**fn)(void(*argp))));
 /* execute */
 
 signed(__cdecl msleep(signed(arg)));
