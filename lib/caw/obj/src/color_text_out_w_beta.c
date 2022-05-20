@@ -9,7 +9,7 @@ Commandlet to output the local time
 # define WIN32_H
 # include "./../../../config.h"
 
-signed(__cdecl text_out_beta(void(*dc),signed(x),signed(y),signed char(*buff),signed(len),signed(clr))) {
+signed(__cdecl color_text_out_w_beta(void(*dc),signed(x),signed(y),signed short(*buff),signed(len),signed(clr))) {
 
 auto signed old;
 auto signed r;
@@ -20,8 +20,8 @@ printf("%s \n","<< Error at fn. SetTextColor()");
 return(0x00);
 }
 
-r = TextOut(dc,x,y,buff,len);
-if(!r) printf("%s \n","<< Error at fn. TextOut()");
+r = TextOutW(dc,x,y,buff,len);
+if(!r) printf("%s \n","<< Error at fn. TextOutW()");
 
 old = SetTextColor(dc,old);
 if(EQ(CLR_INVALID,old)) {

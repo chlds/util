@@ -227,8 +227,8 @@ OR(flag,0x01);
 }
 if(!flag) {
 // correct outputting
-if(!(text_out_beta(*(CLI_DI+(dc)),SHADE_XPOS+(*(pos+(X))),SHADE_YPOS+(*(pos+(Y))),buff,ct(buff),TEXTCOLOR))) {
-printf("%s \n","<< Error at fn. text_out_beta()");
+if(!(color_text_out_beta(*(CLI_DI+(dc)),SHADE_XPOS+(*(pos+(X))),SHADE_YPOS+(*(pos+(Y))),buff,ct(buff),TEXTCOLOR))) {
+printf("%s \n","<< Error at fn. color_text_out_beta()");
 }
 // 3/4. transparency
 //* Fill the region on a back-screen buffer
@@ -254,12 +254,12 @@ st.wHour,st.wMinute,st.wSecond,st.wMilliseconds,\
 zzz,"\" left"
 );
 // 1st outputting
-if(!(text_out_beta(*(CLI_DI+(dc)),SHADE_XPOS+(*(pos+(X))),SHADE_YPOS+(*(pos+(Y))),buff,ct(buff),SHADE_TEXTCOLOR))) {
-printf("%s \n","<< Error at fn. text_out_beta()");
+if(!(color_text_out_beta(*(CLI_DI+(dc)),SHADE_XPOS+(*(pos+(X))),SHADE_YPOS+(*(pos+(Y))),buff,ct(buff),SHADE_TEXTCOLOR))) {
+printf("%s \n","<< Error at fn. color_text_out_beta()");
 }
 // 2nd outputting
-if(!(text_out_beta(*(CLI_DI+(dc)),*(pos+(X)),*(pos+(Y)),buff,ct(buff),TEXTCOLOR))) {
-printf("%s \n","<< Error at fn. text_out_beta() the second");
+if(!(color_text_out_beta(*(CLI_DI+(dc)),*(pos+(X)),*(pos+(Y)),buff,ct(buff),TEXTCOLOR))) {
+printf("%s \n","<< Error at fn. color_text_out_beta() the second");
 }
 // Two seconds: Get and release a handle of the common device context to transfer a bit block to the primary screen.
 if(!flag) {

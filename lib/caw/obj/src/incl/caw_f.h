@@ -82,7 +82,8 @@ void *(__cdecl create_font_beta(signed(height),signed(width),signed char(*argp))
 void *(__cdecl select_object_beta(void(*di/* dc */),void(*si/* obj */)));
 signed(__cdecl delete_object_beta(void(*argp)));
 
-signed(__cdecl text_out_beta(void(*dc),signed(x),signed(y),signed char(*buff),signed(len),signed(clr)));
+signed(__cdecl color_text_out_w_beta(void(*dc),signed(x),signed(y),signed short(*buff),signed(len),signed(clr)));
+signed(__cdecl color_text_out_beta(void(*dc),signed(x),signed(y),signed char(*buff),signed(len),signed(clr)));
 signed(__cdecl transcribe_dh_beta(signed(width),signed(height),void(*di/* dc */),void(*si/* hdl */)));
 signed(__cdecl transcribe_hd_beta(signed(width),signed(height),void(*di/* hdl */),void(*si/* dc */)));
 
