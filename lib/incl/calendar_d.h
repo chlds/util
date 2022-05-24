@@ -4,6 +4,7 @@ Based on UTF-8
 //*/
 
 
+# include "./calendar_cn.h"
 # include "./calendar_de.h"
 # include "./calendar_en.h"
 # include "./calendar_es.h"
