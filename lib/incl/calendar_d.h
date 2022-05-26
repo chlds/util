@@ -16,3 +16,4 @@ Based on UTF-8
 # include "./calendar_jp.h"
 # include "./calendar_nl.h"
 # include "./calendar_pt.h"
+# include "./calendar_se.h"
