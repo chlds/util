@@ -4,6 +4,10 @@ Based on UTF-8
 //*/
 
 
+static signed char *(CALENDAR_WK_IN_IT[]) = {
+"d.","l.","ma.","me.","g.","v.","s.",0x00,
+};
+
 static signed char lunedi[] = {
 'l','u','n','e','d',0xC3,0xAC,0x00,
 };

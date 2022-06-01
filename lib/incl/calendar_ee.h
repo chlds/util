@@ -4,6 +4,10 @@ Based on UTF-8
 //*/
 
 
+static signed char *(CALENDAR_WK_IN_EE[]) = {
+"P","E","T","K","N","R","L",0x00,
+};
+
 static signed char puhapaev[] = {
 'p',0xC3,0xBC,'h','a','p',0xC3,0xA4,'e','v',0x00,
 };

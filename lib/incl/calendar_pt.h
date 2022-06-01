@@ -4,6 +4,10 @@ Based on UTF-8
 //*/
 
 
+static signed char *(CALENDAR_WK_IN_PT[]) = {
+"Dom.","2a.","3a.","4a.","5a.","6a.","Sab.",0x00,
+};
+
 static signed char tuesday_pt[] = {
 't','e','r',0xC3,0xA7,'a','-','f','e','i','r','a',0x00,
 };

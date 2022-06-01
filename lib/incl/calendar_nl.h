@@ -4,6 +4,10 @@ Based on UTF-8
 //*/
 
 
+static signed char *(CALENDAR_WK_IN_NL[]) = {
+"Zo","Ma","Di","Wo","Do","Vr","Za",0x00,
+};
+
 static signed char *(CALENDAR_WEEK_IN_NL[]) = {
 "zondag","maandag","dinsdag","woensdag","donderdag","vrijdag","zaterdag",0x00,
 };

@@ -4,6 +4,10 @@ Based on UTF-8
 //*/
 
 
+static signed char *(CALENDAR_WK_IN_FR[]) = {
+"Di","Lu","Ma","Me","Je","Ve","Sa",0x00,
+};
+
 static signed char *(CALENDAR_WEEK_IN_FR[]) = {
 "dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi",0x00,
 };

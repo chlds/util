@@ -4,6 +4,10 @@ Based on UTF-8
 //*/
 
 
+static signed char *(CALENDAR_WK_IN_FI[]) = {
+"su.","ma.","ti.","ke.","to.","pe.","la.",0x00,
+};
+
 static signed char *(CALENDAR_WEEK_IN_FI[]) = {
 "sunnuntai","maanantai","tiistai","keskiviikko","torstai","perjantai","lauantai",0x00,
 };

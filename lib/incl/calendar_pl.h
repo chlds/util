@@ -4,6 +4,13 @@ Based on UTF-8
 //*/
 
 
+static signed char wed_pl[] = {
+0xC5,0x9A,'r',0x00,
+};
+static signed char *(CALENDAR_WK_IN_PL[]) = {
+"Ni","Pn","Wt",wed_pl,"Cz","Pi","So",0x00,
+};
+
 static signed char poniedzialek[] = {
 'p','o','n','i','e','d','z','i','a',0xC5,0x82,'e','k',0x00,
 };
