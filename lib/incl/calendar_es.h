@@ -4,6 +4,10 @@ Based on UTF-8
 //*/
 
 
+static signed char *(CALENDAR_WK_IN_ES[]) = {
+"D","L","M","X","J","V","S",0x00,
+};
+
 static signed char miercoles[] = {
 'm','i',0xC3,0xA9,'r','c','o','l','e','s',0x00,
 };
