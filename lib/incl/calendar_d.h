@@ -13,6 +13,7 @@ Based on UTF-8
 # include "./calendar_fi.h"
 # include "./calendar_fr.h"
 # include "./calendar_gr.h"
+# include "./calendar_hu.h"
 # include "./calendar_it.h"
 # include "./calendar_jp.h"
 # include "./calendar_ll.h"
