@@ -18,6 +18,10 @@ static signed char *(CALENDAR_WEEK_IN_ES[]) = {
 "domingo","lunes","martes",miercoles,"jueves","viernes",sabado,0x00,
 };
 
+static signed char *(CALENDAR_DAY_IN_ES[]) = {
+"","primero",0x00,
+};
+
 static signed char *(CALENDAR_MONTH_IN_ES[]) = {
 "","enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",0x00,
 };

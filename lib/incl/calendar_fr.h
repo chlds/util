@@ -12,6 +12,10 @@ static signed char *(CALENDAR_WEEK_IN_FR[]) = {
 "dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi",0x00,
 };
 
+static signed char *(CALENDAR_DAY_IN_FR[]) = {
+"","1er",0x00,
+};
+
 static signed char fevrier[] = {
 'f',0xC3,0xA9,'v','r','i','e','r',0x00,
 };
