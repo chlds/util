@@ -27,6 +27,13 @@ static signed char *(CALENDAR_WEEK_IN_IT[]) = {
 "domenica",lunedi,martedi,mercoledi,giovedi,venerdi,"sabato",0x00,
 };
 
+static signed char first_it[] = {
+'1',0xC2,0xBA,0x00,
+};
+static signed char *(CALENDAR_DAY_IN_IT[]) = {
+"",first_it,0x00,
+};
+
 static signed char *(CALENDAR_MONTH_IN_IT[]) = {
 "","gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre",0x00,
 };
