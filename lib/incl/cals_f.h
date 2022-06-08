@@ -43,6 +43,7 @@ signed(__cdecl cv_wk_mo(signed short(wk),time_t(*di),time_t(si)));
 signed(__cdecl elapse_days_since(signed short(wk),time_t(arg)));
 // convert into second minutes of a first day of the first week, refer time.h
 
+signed(__cdecl ctdn_yr(time_t(arg)));
 signed(__cdecl ctdn_wk(signed short(wk),time_t(arg)));
 signed(__cdecl ord_di_wk(time_t(arg)));
 
