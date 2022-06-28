@@ -695,17 +695,6 @@ signed(__cdecl ct2(signed char(di), signed char(*base)));
 signed(__cdecl ct(signed char(*argp)));
 /* Count letters up to one or more you'd select or to the terminating null character. */
 
-signed(__cdecl ct_f(signed(__cdecl**f)(void(*argp))));
-/* Count function pointers. */
-
-signed(__cdecl ct_vq(signed long long(**argp)));
-signed(__cdecl ct_vd(signed(**argp)));
-signed(__cdecl ct_vw(signed short(**argp)));
-signed(__cdecl ct_vb(signed char(**argp)));
-signed(__cdecl ct_v(signed char(**argp)));
-signed(__cdecl ct_p(void(**argp)));
-/* Count pointers. */
-
 signed(__cdecl rm_trails_r(signed(arg),signed char(*cache),signed char(*argp)));
 signed(__cdecl rm_trails(signed char(*cache),signed char(*argp)));
 signed(__cdecl rm_brs(signed char(*argp)));

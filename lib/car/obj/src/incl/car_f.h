@@ -8,6 +8,17 @@ Along with C library
 */
 
 
+signed(__cdecl ct_f(signed(__cdecl**f)(void(*argp))));
+/* Count function pointers. */
+
+signed(__cdecl ct_vq(signed long long(**argp)));
+signed(__cdecl ct_vd(signed(**argp)));
+signed(__cdecl ct_vw(signed short(**argp)));
+signed(__cdecl ct_vb(signed char(**argp)));
+signed(__cdecl ct_v(signed char(**argp)));
+signed(__cdecl ct_p(void(**argp)));
+/* Count pointers. */
+
 signed(__cdecl ct_q(signed long long(*argp)));
 signed(__cdecl ct_d(signed(*argp)));
 signed(__cdecl ct_w(signed short(*argp)));
@@ -15,10 +26,3 @@ signed(__cdecl ct_b(signed char(*argp)));
 signed(__cdecl ct_l(signed char(*argp)));
 signed(__cdecl ct(signed char(*argp)));
 /* Count. */
-
-signed(__cdecl ct_f(signed(__cdecl**f)(void(*argp))));
-/* Count function pointers. */
-
-signed(__cdecl ct_v(signed char(**argp)));
-signed(__cdecl ct_p(void(**argp)));
-/* Count pointers. */
