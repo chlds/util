@@ -695,19 +695,6 @@ signed(__cdecl ct2(signed char(di), signed char(*base)));
 signed(__cdecl ct(signed char(*argp)));
 /* Count letters up to one or more you'd select or to the terminating null character. */
 
-signed(__cdecl rm_trails_r(signed(arg),signed char(*cache),signed char(*argp)));
-signed(__cdecl rm_trails(signed char(*cache),signed char(*argp)));
-signed(__cdecl rm_brs(signed char(*argp)));
-signed(__cdecl rm_trailing_blanks_r(signed(arg),signed char(*argp)));
-signed(__cdecl rm_trailing_blanks(signed char(*argp)));
-signed(__cdecl rm_trailing_spaces_r(signed(arg),signed char(*argp)));
-signed(__cdecl rm_trailing_spaces(signed char(*argp)));
-signed(__cdecl rm_br_r(signed(arg),signed char(*argp)));
-signed(__cdecl rm_br(signed char(*argp)));
-signed(__cdecl rm_asterisk_r(signed(arg),signed char(*argp)));
-signed(__cdecl rm_asterisk(signed char(*argp)));
-// Remove
-
 signed(__cdecl n_putch(signed(n),signed(letter)));
 /* Output the letter n times. */
 

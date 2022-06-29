@@ -8,6 +8,19 @@ Along with C library
 */
 
 
+signed(__cdecl rm_trails_r(signed(arg),signed char(*cache),signed char(*argp)));
+signed(__cdecl rm_trails(signed char(*cache),signed char(*argp)));
+signed(__cdecl rm_brs(signed char(*argp)));
+signed(__cdecl rm_trailing_spaces_r(signed(arg),signed char(*argp)));
+signed(__cdecl rm_trailing_spaces(signed char(*argp)));
+signed(__cdecl rm_trailing_blanks_r(signed(arg),signed char(*argp)));
+signed(__cdecl rm_trailing_blanks(signed char(*argp)));
+signed(__cdecl rm_br_r(signed(arg),signed char(*argp)));
+signed(__cdecl rm_br(signed char(*argp)));
+signed(__cdecl rm_asterisk_r(signed(arg),signed char(*argp)));
+signed(__cdecl rm_asterisk(signed char(*argp)));
+// Remove
+
 signed(__cdecl embedback_r(signed(arg),signed char(*argp)));
 signed(__cdecl embedback(signed(arg),signed char(*argp)));
 signed(__cdecl embed_v_rr(signed(arg),signed char(**argp)));
