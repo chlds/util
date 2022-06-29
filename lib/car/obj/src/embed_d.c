@@ -4,18 +4,11 @@ Embed.
 */
 
 
-# define CAR
-# include <stdio.h>
-# include "../../../incl/config.h"
+# define CAR_H
+# include "./../../../config.h"
 
 signed(__cdecl embed_d(signed(arg),signed(*argp))) {
-
-auto signed r;
-
 if(!argp) return(0x00);
-
-if(arg) r = embed_d_rr(arg,argp);
-else r = embed_d_r(argp);
-
-return(r);
+if(arg) return(embed_d_rr(arg,argp));
+return(embed_d_r(argp));
 }
