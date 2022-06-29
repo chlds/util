@@ -345,15 +345,6 @@ signed(__cdecl cv_ord_l_r(signed(arg),signed char(**table),signed(*retv),signed 
 signed(__cdecl cv_ord_l(signed char(**table),signed(*retv),signed char(*argp)));
 signed(__cdecl cv_ord_f_r(signed char(**table),signed(*retv),signed char(*argp)));
 signed(__cdecl cv_ord_f(signed char(**table),signed(*retv),signed char(*argp)));
-signed(__cdecl reords_partially(signed char(**di),signed char(*si)));
-signed(__cdecl reords_part(signed char(**di),signed char(*si)));
-signed(__cdecl ords_partially(signed char(**di),signed char(*si)));
-signed(__cdecl ords_part(signed char(**di),signed char(*si)));
-signed(__cdecl ords(signed char(**di),signed char(*si)));
-signed(__cdecl ord(signed char(*di),signed char(si)));
-signed(__cdecl ord_vd(signed(**di),signed(si)));
-signed(__cdecl ord_d(signed(*di),signed(si)));
-// check the ordinal number.
 
 signed(__cdecl cv_d_r(signed short(radix),signed char(*table),signed char(*di),signed(si)));
 signed(__cdecl cv_d(signed short(radix),signed char(**di),signed(si)));
@@ -365,16 +356,6 @@ signed(__cdecl car(signed short(radix),signed(arg)));
 
 signed(__cdecl count_to(signed char(*sym),signed char(*argp)));
 // count to a symbol or to the terminating null character.
-
-signed(__cdecl cmpr_part_r(signed(*cache),signed char(*di),signed char(*si)));
-signed(__cdecl cmpr_part(signed(*cache),signed char(*di),signed char(*si)));
-signed(__cdecl cmpr_partially_r(signed(*cache),signed char(*di),signed char(*si)));
-signed(__cdecl cmpr_partially(signed(*cache),signed char(*di),signed char(*si)));
-signed(__cdecl cmpr_w_r(signed(*cache),signed short(*di),signed short(*si)));
-signed(__cdecl cmpr_w(signed(*cache),signed short(*di),signed short(*si)));
-signed(__cdecl cmpr_r(signed(*cache),signed char(*di),signed char(*si)));
-signed(__cdecl cmpr(signed(*cache),signed char(*di),signed char(*si)));
-/* Compare ones in case sensitive character strings */
 
 signed(__cdecl compare(signed char(*di),signed char(*si)));
 /* Compare addresses. */

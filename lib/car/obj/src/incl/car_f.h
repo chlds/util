@@ -8,6 +8,26 @@ Along with C library
 */
 
 
+signed(__cdecl cmpr_part_r(signed(*cache),signed char(*di),signed char(*si)));
+signed(__cdecl cmpr_part(signed(*cache),signed char(*di),signed char(*si)));
+signed(__cdecl cmpr_partially_r(signed(*cache),signed char(*di),signed char(*si)));
+signed(__cdecl cmpr_partially(signed(*cache),signed char(*di),signed char(*si)));
+signed(__cdecl cmpr_w_r(signed(*cache),signed short(*di),signed short(*si)));
+signed(__cdecl cmpr_w(signed(*cache),signed short(*di),signed short(*si)));
+signed(__cdecl cmpr_r(signed(*cache),signed char(*di),signed char(*si)));
+signed(__cdecl cmpr(signed(*cache),signed char(*di),signed char(*si)));
+/* Compare ones in case sensitive character strings */
+
+signed(__cdecl reords_partially(signed char(**di),signed char(*si)));
+signed(__cdecl reords_part(signed char(**di),signed char(*si)));
+signed(__cdecl ords_partially(signed char(**di),signed char(*si)));
+signed(__cdecl ords_part(signed char(**di),signed char(*si)));
+signed(__cdecl ords(signed char(**di),signed char(*si)));
+signed(__cdecl ord(signed char(*di),signed char(si)));
+signed(__cdecl ord_vd(signed(**di),signed(si)));
+signed(__cdecl ord_d(signed(*di),signed(si)));
+/* Check the ordinal number. */
+
 signed(__cdecl rm_trails_r(signed(arg),signed char(*cache),signed char(*argp)));
 signed(__cdecl rm_trails(signed char(*cache),signed char(*argp)));
 signed(__cdecl rm_brs(signed char(*argp)));
