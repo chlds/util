@@ -4,13 +4,12 @@ Return the number of weeks to the first day of weeks in the new year based on th
 
 Remarks:
 Refer at fn. ctdn_wk and ord_di_wk.
-Refer at <corecrt_wtime.h>
 */
 
 
-# define CAR
-# include <time.h>
-# include "../../../incl/config.h"
+# define CAT_H
+# define TIME_H
+# include "./../../../config.h"
 
 signed(__cdecl ctdn_yr(time_t(arg))) {
 

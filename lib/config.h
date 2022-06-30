@@ -114,14 +114,22 @@ Remarks:
 # ifdef CLI_H
 # include "./cli/obj/src/incl/cli.h"
 # endif
+// CLI I/O
 
 # ifdef CAR_H
 # include "./car/obj/src/incl/car.h"
 # endif
+// C, A and Essentials
+
+# ifdef CAT_H
+# include "./cat/obj/src/incl/cat.h"
+# endif
+// C, A and Time
 
 # ifdef CAW_H
 # include "./caw/obj/src/incl/caw.h"
 # endif
+// C, A and Win32
 
 # ifdef SAT_H
 # include "./sat/obj/src/incl/sat.h"

@@ -4,13 +4,12 @@ Return days elapsed since a first day of the week.
 
 Remarks:
 Return (~0x00) on failure.
-Refer at <corecrt_wtime.h>
 */
 
 
-# define CAR
-# include <time.h>
-# include "../../../incl/config.h"
+# define CAT_H
+# define TIME_H
+# include "./../../../config.h"
 
 signed(__cdecl ctdn_wk(signed short(wk),time_t(arg))) {
 

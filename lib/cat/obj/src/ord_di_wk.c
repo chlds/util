@@ -4,9 +4,9 @@ Convert into an ordinal number of the day of the week of the month from the time
 //*/
 
 
-# define CAR
-# include <time.h>
-# include "../../../incl/config.h"
+# define CAT_H
+# define TIME_H
+# include "./../../../config.h"
 
 signed(__cdecl ord_di_wk(time_t(arg))) {
 

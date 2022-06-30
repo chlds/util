@@ -1,4 +1,4 @@
-# Make an executable file (after making czr library)
+# Make an executable file (after making ca library)
 #
 # Synopsis
 # cl.exe -c *.c (to compile the C files)
@@ -17,7 +17,7 @@
 # That screws up the LIB environment variable in the OS.
 
 
-L = czr
+L = ca
 T =
 
 MSG = "Making.. "
@@ -36,6 +36,7 @@ MAP = ./bin/obj/$(T).map
 EXE = ./bin/$(T).exe
 
 L99 = ck
+L13 = cat
 L12 = si
 L11 = cre
 L10 = priv
@@ -47,6 +48,7 @@ L5 = unpin
 L4 = caw
 L3 = sat
 LIBR99 = # ./lib/$(L99)/$(L99).lib
+LIBR13 = ./lib/$(L13)/$(L13).lib
 LIBR12 = ./lib/$(L12)/$(L12).lib
 LIBR11 = ./lib/$(L11)/$(L11).lib
 LIBR10 = ./lib/$(L10)/$(L10).lib
@@ -59,7 +61,7 @@ LIBR4 = ./lib/$(L4)/$(L4).lib
 LIBR3 = ./lib/$(L3)/$(L3).lib
 LIBR2 = ./lib/cbr/cbr.lib
 LIBR1 = ./lib/car/car.lib
-LIBRS = $(LIBR99) $(LIBR12) $(LIBR11) $(LIBR10) $(LIBR9) $(LIBR8) $(LIBR7) $(LIBR6) $(LIBR5) $(LIBR4) $(LIBR3) $(LIBR2) $(LIBR1)
+LIBRS = $(LIBR99) $(LIBR13) $(LIBR12) $(LIBR11) $(LIBR10) $(LIBR9) $(LIBR8) $(LIBR7) $(LIBR6) $(LIBR5) $(LIBR4) $(LIBR3) $(LIBR2) $(LIBR1)
 LIBR = ./lib/$(L).lib
 OS_LIBRS = user32.lib gdi32.lib psapi.lib advapi32.lib
 
@@ -89,6 +91,11 @@ $(OBJ): $(SRC) $(HDRS)
 $(LIBR): $(LIBRS) $(HDRS)
 	@echo "Making LIBR.. "
 	lib.exe -out:$(LIBR) $(LIBRS)
+$(LIBR13): "lib/$(L13)/obj/src/*.c" "lib/$(L13)/obj/src/incl/*.h" $(CONFIG_HDR)
+	@echo "Making LIBR13.. "
+	cd lib/$(L13)/
+	nmake
+	cd ../../
 $(LIBR12): "lib/$(L12)/obj/src/*.c" "lib/$(L12)/obj/src/incl/*.h" $(CONFIG_HDR)
 	@echo "Making LIBR12.. "
 	cd lib/$(L12)/

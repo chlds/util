@@ -7,10 +7,9 @@ Refer at <corecrt_wtime.h>
 */
 
 
-# define CAR
-# define CALEND
-// # include <time.h>
-# include "../../../incl/config.h"
+# define CAT_H
+# define TIME_H
+# include "./../../../config.h"
 
 signed(__cdecl ct_wk(signed short(wk),time_t(arg))) {
 
