@@ -8,6 +8,30 @@ Along with C library
 */
 
 
+void*(__cdecl alloc(signed(arg)));
+/* Allocate i.e., fn. malloc */
+
+signed(__cdecl rl(void(*argp)));
+/* Release i.e., fn. free */
+
+signed(__cdecl cv_dv_r(signed short(radix),signed(*di),signed char(**si)));
+signed(__cdecl cv_dv(signed short(radix),signed(*di),signed char(**si)));
+signed(__cdecl cv_da_xe_r(signed short(radix),signed char(*table),signed(*di),signed char(*si)));
+signed(__cdecl cv_da_xe(signed short(radix),signed(*di),signed char(*si)));
+signed(__cdecl cv_da_first_r(signed short(arg),signed short(radix),signed char(*table),signed(*di),signed char(*si)));
+signed(__cdecl cv_da_first(signed short(radix),signed(*di),signed char(*si)));
+signed(__cdecl cv_da_r(signed short(radix),signed char(*table),signed(*di),signed char(*si)));
+signed(__cdecl cv_da(signed short(radix),signed(*di),signed char(*si)));
+/* Convert into a signed double word out of characters */
+
+signed(__cdecl cv_d_r(signed short(radix),signed char(*table),signed char(*di),signed(si)));
+signed(__cdecl cv_d(signed short(radix),signed char(**di),signed(si)));
+/* Convert a signed double word into letters */
+
+signed(__cdecl car_r(signed short(radix),signed(arg)));
+signed(__cdecl car(signed short(radix),signed(arg)));
+/* Count column digits for a double word */
+
 signed(__cdecl sw_p(void(**di),void(**si)));
 signed(__cdecl sw(signed(*di),signed(*si)));
 signed(__cdecl nsort(signed(count),signed(*base)));

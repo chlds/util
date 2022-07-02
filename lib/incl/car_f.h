@@ -8,6 +8,12 @@ Along with C library
 */
 
 
+void*(__cdecl alloc(signed(arg)));
+/* Allocate i.e., fn. malloc */
+
+signed(__cdecl rl(void(*argp)));
+/* Release i.e., fn. free */
+
 signed(__cdecl commandlet(signed(arg/* stack size */),void(*argp),void(__cdecl*f)(void(*argp))));
 /* run in a subroutine */
 
@@ -234,12 +240,6 @@ signed(__cdecl cli_init_b(signed(cache),signed(arg),signed char(**argp)));
 signed(__cdecl arr_dir(signed char(**di),signed char(*si)));
 // arrange.
 
-void*(__cdecl alloc(signed(arg)));
-// allocate i.e., fn. malloc.
-
-signed(__cdecl rl(void(*argp)));
-// release i.e., fn. free.
-
 signed(__cdecl cat_va_r(signed char(**di),signed char(*si)));
 signed(__cdecl cat_va(signed char(***di),signed char(*si)));
 signed(__cdecl concat_va(signed char(***di),signed char(**si)));
@@ -324,16 +324,6 @@ signed(__cdecl cv_sa_r(signed short(radix),signed char(*table),size_t(*di),signe
 signed(__cdecl cv_sa(signed short(radix),size_t(*di),signed char(*si)));
 // convert into a size_t out of characters.
 
-signed(__cdecl cv_dv_r(signed short(radix),signed(*di),signed char(**si)));
-signed(__cdecl cv_dv(signed short(radix),signed(*di),signed char(**si)));
-signed(__cdecl cv_da_xe_r(signed short(radix),signed char(*table),signed(*di),signed char(*si)));
-signed(__cdecl cv_da_xe(signed short(radix),signed(*di),signed char(*si)));
-signed(__cdecl cv_da_first_r(signed short(arg),signed short(radix),signed char(*table),signed(*di),signed char(*si)));
-signed(__cdecl cv_da_first(signed short(radix),signed(*di),signed char(*si)));
-signed(__cdecl cv_da_r(signed short(radix),signed char(*table),signed(*di),signed char(*si)));
-signed(__cdecl cv_da(signed short(radix),signed(*di),signed char(*si)));
-// convert into a signed double word out of characters.
-
 signed(__cdecl cv_ords_r(signed(arg/* front or from behind */),signed char(***vi),signed(*di),signed char(*si)));
 signed(__cdecl cv_ords(signed(arg/* front or from behind */),signed char(***vi),signed(*di),signed char(*si)));
 signed(__cdecl cv_ord(signed(arg/* front or from behind */),signed char(**table),signed(*retv),signed char(*argp)));
@@ -341,14 +331,6 @@ signed(__cdecl cv_ord_l_r(signed(arg),signed char(**table),signed(*retv),signed 
 signed(__cdecl cv_ord_l(signed char(**table),signed(*retv),signed char(*argp)));
 signed(__cdecl cv_ord_f_r(signed char(**table),signed(*retv),signed char(*argp)));
 signed(__cdecl cv_ord_f(signed char(**table),signed(*retv),signed char(*argp)));
-
-signed(__cdecl cv_d_r(signed short(radix),signed char(*table),signed char(*di),signed(si)));
-signed(__cdecl cv_d(signed short(radix),signed char(**di),signed(si)));
-// convert a signed double word into letters.
-
-signed(__cdecl car_r(signed short(radix),signed(arg)));
-signed(__cdecl car(signed short(radix),signed(arg)));
-// count column digits for a double word.
 
 signed(__cdecl count_to(signed char(*sym),signed char(*argp)));
 // count to a symbol or to the terminating null character.
