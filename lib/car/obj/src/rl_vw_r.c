@@ -7,18 +7,15 @@ Refer at fn. rl_v.
 */
 
 
-# define CAR
-# include "../../../incl/config.h"
+# define CAR_H
+# include "./../../../config.h"
 
 signed(__cdecl rl_vw_r(signed short(**argp))) {
-
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
-
 embed_w(0x00,*argp);
 rl(*argp);
 *argp = (0x00);
 argp++;
-
 return(0x01+(rl_vw_r(argp)));
 }

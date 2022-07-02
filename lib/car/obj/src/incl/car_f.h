@@ -11,8 +11,33 @@ Along with C library
 void*(__cdecl alloc(signed(arg)));
 /* Allocate i.e., fn. malloc */
 
+signed(__cdecl rl_vw_r(signed short(**argp)));
+signed(__cdecl rl_vw(signed short(***argp)));
+signed(__cdecl rl_v_r(signed char(**argp)));
+signed(__cdecl rl_v(signed char(***argp)));
 signed(__cdecl rl(void(*argp)));
 /* Release i.e., fn. free */
+
+signed(__cdecl clip_b(signed(arg),signed char(**argp)));
+/* Clip */
+
+signed(__cdecl cpy(signed char(*di),signed char(*si)));
+/* Copy to the di out of the si */
+
+signed(__cdecl cue_va_r(signed short(flag),signed char(*sym),signed char(*argp)));
+signed(__cdecl cue_va(signed char(*sym),signed char(*argp)));
+signed(__cdecl cue_r(signed short(flag),signed char(*sym),signed char(*argp)));
+signed(__cdecl cue(signed char(*sym),signed char(*argp)));
+/* Retrieve bytes to the leading address of a word or symbol. */
+
+signed(__cdecl cue_ready(signed char(*argp)));
+signed(__cdecl cue_argt_ready(signed char(*argp)));
+signed(__cdecl cue_argt(signed char(*argp)));
+/* Cue */
+
+signed(__cdecl ct_argt_r(signed char(*argp)));
+signed(__cdecl ct_argt(signed char(*argp)));
+/* Count arguments */
 
 signed(__cdecl cv_dv_r(signed short(radix),signed(*di),signed char(**si)));
 signed(__cdecl cv_dv(signed short(radix),signed(*di),signed char(**si)));

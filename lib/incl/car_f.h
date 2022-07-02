@@ -657,8 +657,6 @@ signed(__cdecl ct(signed char(*argp)));
 signed(__cdecl n_putch(signed(n),signed(letter)));
 /* Output the letter n times. */
 
-signed(__cdecl clip_b(signed(arg),signed char(**argp)));
-
 signed(__cdecl concatenate_d(signed(arg),signed(**di),signed(*si)));
 signed(__cdecl concat_dd(signed(**di),signed(*si)));
 signed(__cdecl cat_dd(signed(**di),signed(si)));
