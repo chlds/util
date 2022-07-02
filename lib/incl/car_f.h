@@ -66,10 +66,6 @@ signed(__cdecl lk_help(void));
 signed(__cdecl lk_flags(signed short(*di),signed char(*si)));
 signed(__cdecl agent_lk(signed(argc),signed char(**argv),signed char(**envp)));
 
-signed(__cdecl bpb_r(signed char(arg)));
-signed(__cdecl bpb(void));
-/* Bits par byte */
-
 signed(__cdecl insp_b_utf_8_r_r(signed char(*argp),signed(cache),signed(fd),size_t(arg)));
 signed(__cdecl insp_b_utf_8_r(signed(cache),signed(fd),size_t(arg)));
 signed(__cdecl insp_b_utf_8(signed(fd),void(*argp)));
@@ -678,11 +674,6 @@ signed(__cdecl ct(signed char(*argp)));
 
 signed(__cdecl n_putch(signed(n),signed(letter)));
 /* Output the letter n times. */
-
-signed(__cdecl sw_p(void(**di),void(**si)));
-signed(__cdecl sw(signed(*di),signed(*si)));
-signed(__cdecl nsort(signed(count),signed(*base)));
-signed(__cdecl bsort(signed(count),signed(*base)));
 
 signed(__cdecl clip_b(signed(arg),signed char(**argp)));
 

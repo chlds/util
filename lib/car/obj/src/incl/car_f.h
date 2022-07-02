@@ -8,6 +8,12 @@ Along with C library
 */
 
 
+signed(__cdecl sw_p(void(**di),void(**si)));
+signed(__cdecl sw(signed(*di),signed(*si)));
+signed(__cdecl nsort(signed(count),signed(*base)));
+signed(__cdecl bsort(signed(count),signed(*base)));
+/* Switch */
+
 signed(__cdecl cmpr_part_r(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr_part(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr_partially_r(signed(*cache),signed char(*di),signed char(*si)));
@@ -64,7 +70,7 @@ signed(__cdecl embed(signed(arg),signed char(*argp)));
 // Embed
 
 signed(__cdecl ct_f(signed(__cdecl**f)(void(*argp))));
-/* Count function pointers. */
+/* Count function pointers */
 
 signed(__cdecl ct_vq(signed long long(**argp)));
 signed(__cdecl ct_vd(signed(**argp)));
@@ -72,7 +78,7 @@ signed(__cdecl ct_vw(signed short(**argp)));
 signed(__cdecl ct_vb(signed char(**argp)));
 signed(__cdecl ct_v(signed char(**argp)));
 signed(__cdecl ct_p(void(**argp)));
-/* Count pointers. */
+/* Count pointers */
 
 signed(__cdecl ct_q(signed long long(*argp)));
 signed(__cdecl ct_d(signed(*argp)));
@@ -80,4 +86,8 @@ signed(__cdecl ct_w(signed short(*argp)));
 signed(__cdecl ct_b(signed char(*argp)));
 signed(__cdecl ct_l(signed char(*argp)));
 signed(__cdecl ct(signed char(*argp)));
-/* Count. */
+/* Count */
+
+signed(__cdecl bpb_r(signed char(arg)));
+signed(__cdecl bpb(void));
+/* Bits par byte */
