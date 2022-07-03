@@ -21,6 +21,9 @@ signed(__cdecl rl(void(*argp)));
 signed(__cdecl clip_b(signed(arg),signed char(**argp)));
 /* Clip */
 
+signed(__cdecl cat_p(signed char(***di),signed char(*si)));
+/* Concatenate pointers */
+
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_w_r(signed short(**di),signed short(**si)));
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_w(signed short(**argp),...));
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_b_r(signed char(**di),signed char(**si)));
@@ -38,6 +41,10 @@ signed(__cdecl concat_bb(signed char(**di),signed char(*si)));
 signed(__cdecl cat_bb(signed char(**di),signed char(si)));
 /* Call fn. rl later to release buffer */
 
+signed(__cdecl cpy2p(signed char(*di),signed char(*deadline),signed char(*si)));
+signed(__cdecl cpy2(signed char(cache),signed char(*di),signed char(*si)));
+signed(__cdecl ncpy(signed(arg),signed char(*di),signed char(*si)));
+signed(__cdecl cpy_p(signed char(**di),signed char(**si)));
 signed(__cdecl cpy_q(signed long long(*di),signed long long(*si)));
 signed(__cdecl cpy_d(signed(*di),signed(*si)));
 signed(__cdecl cpy_w(signed short(*di),signed short(*si)));
