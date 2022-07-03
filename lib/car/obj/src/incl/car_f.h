@@ -21,6 +21,28 @@ signed(__cdecl rl(void(*argp)));
 signed(__cdecl clip_b(signed(arg),signed char(**argp)));
 /* Clip */
 
+signed(__cdecl /* __attribute__((ms_abi)) */ cat_w_r(signed short(**di),signed short(**si)));
+signed(__cdecl /* __attribute__((ms_abi)) */ cat_w(signed short(**argp),...));
+signed(__cdecl /* __attribute__((ms_abi)) */ cat_b_r(signed char(**di),signed char(**si)));
+signed(__cdecl /* __attribute__((ms_abi)) */ cat_b(signed char(**argp),...));
+/* Concatenate to the terminating null pointer */
+
+signed(__cdecl concatenate_d(signed(arg),signed(**di),signed(*si)));
+signed(__cdecl concat_dd(signed(**di),signed(*si)));
+signed(__cdecl cat_dd(signed(**di),signed(si)));
+signed(__cdecl concatenate_w(signed(arg),signed short(**di),signed short(*si)));
+signed(__cdecl concat_ww(signed short(**di),signed short(*si)));
+signed(__cdecl cat_ww(signed short(**di),signed short(si)));
+signed(__cdecl concatenate(signed(arg),signed char(**di),signed char(*si)));
+signed(__cdecl concat_bb(signed char(**di),signed char(*si)));
+signed(__cdecl cat_bb(signed char(**di),signed char(si)));
+/* Call fn. rl later to release buffer */
+
+signed(__cdecl cpy_q(signed long long(*di),signed long long(*si)));
+signed(__cdecl cpy_d(signed(*di),signed(*si)));
+signed(__cdecl cpy_w(signed short(*di),signed short(*si)));
+signed(__cdecl cpy_b(signed char(*di),signed char(*si)));
+signed(__cdecl cpy_l(signed char(*di),signed char(*si)));
 signed(__cdecl cpy(signed char(*di),signed char(*si)));
 /* Copy to the di out of the si */
 

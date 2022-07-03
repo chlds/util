@@ -11,19 +11,15 @@ Based on UTF-8
 */
 
 
-# define CAR
+# define CAR_H
 # include <stdarg.h>
-# include "./../../../incl/config.h"
+# include "./../../../config.h"
 
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_b(signed char **argp,...)) {
-
 auto signed char **b;
-
 if(!argp) return(0x00);
 // if(!(*argp)) return(0x00);
-
 b = (signed char(**)) (&argp);
 b++;
-
 return(cat_b_r(argp,b));
 }
