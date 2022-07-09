@@ -605,10 +605,6 @@ signed(__cdecl cpy_l(signed char(*di),signed char(*si)));
 signed(__cdecl cpy(signed char(*di),signed char(*si)));
 /* Copy to the di out of the si */
 
-signed(__cdecl include_num_internal(signed short(*flagp), signed char(*argp)));
-signed(__cdecl include_num(signed char(*argp)));
-/* Check numerals. */
-
 signed(__cdecl ctdn_v_r(signed(arg),signed char(**cache),signed char(*argp)));
 signed(__cdecl ctdn_v(signed char(**cache),signed char(*argp)));
 /* Count letters down to the specific arrays. */

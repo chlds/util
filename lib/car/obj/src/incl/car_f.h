@@ -18,6 +18,15 @@ signed(__cdecl rl_v(signed char(***argp)));
 signed(__cdecl rl(void(*argp)));
 /* Release i.e., fn. free */
 
+signed(__cdecl unmap_w(signed short(**argp)));
+signed(__cdecl unmap_b(signed char(**argp)));
+/* Unmap */
+
+signed(__cdecl cv_hr_r(signed short(*hr),signed short(*mn),signed char(*si)));
+signed(__cdecl cv_hr(signed short(*hr),signed short(*mn),signed char(*si)));
+signed(__cdecl cv_mn(signed short(*mn),signed char(*si)));
+signed(__cdecl cv_at(signed short(*hr),signed short(*mn),signed char(*argp)));
+
 signed(__cdecl clip_b(signed(arg),signed char(**argp)));
 /* Clip */
 
@@ -146,6 +155,26 @@ signed(__cdecl embed_rr(signed(arg),signed char(*argp)));
 signed(__cdecl embed_r(signed char(*argp)));
 signed(__cdecl embed(signed(arg),signed char(*argp)));
 // Embed
+
+signed(__cdecl ctdn_v_r(signed(arg),signed char(**cache),signed char(*argp)));
+signed(__cdecl ctdn_v(signed char(**cache),signed char(*argp)));
+/* Count letters down to the specific arrays */
+
+signed(__cdecl ctdn_a_r(signed(arg),signed char(*cache),signed char(*argp)));
+signed(__cdecl ctdn_a(signed char(*cache),signed char(*argp)));
+/* Count letters down to the specific array */
+
+signed(__cdecl ctdn_r(signed(arg),signed char(sym),signed char(*argp)));
+signed(__cdecl ctdn(signed char(sym),signed char(*argp)));
+/* Count letters down to the specific symbol */
+
+signed(__cdecl ct_digits_r(signed char(*fig),signed char(*argp)));
+signed(__cdecl ct_digits(signed char(*argp)));
+/* Count digits */
+
+signed(__cdecl incl_num(signed char(*argp)));
+signed(__cdecl cf_no(signed char(*argp)));
+/* Confirm numerals */
 
 signed(__cdecl ct_f(signed(__cdecl**f)(void(*argp))));
 /* Count function pointers */
