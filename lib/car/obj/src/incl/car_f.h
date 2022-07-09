@@ -22,10 +22,18 @@ signed(__cdecl unmap_w(signed short(**argp)));
 signed(__cdecl unmap_b(signed char(**argp)));
 /* Unmap */
 
+signed(__cdecl alert_b_r(signed(arg),signed short(hr),signed short(mn)));
+signed(__cdecl alert_b(signed(arg),signed char(*argp)));
+signed(__cdecl cv_hr_noon_r(signed short(*hr),signed char(*argp)));
+signed(__cdecl cv_hr_noon(signed short(*hr),signed char(*argp)));
+signed(__cdecl cv_hr_light_rr(signed short(*hr),signed char(*argp)));
+signed(__cdecl cv_hr_light_r(signed short(*hr),signed char(*argp)));
+signed(__cdecl cv_hr_light(signed short(*hr),signed char(*argp)));
 signed(__cdecl cv_hr_r(signed short(*hr),signed short(*mn),signed char(*si)));
 signed(__cdecl cv_hr(signed short(*hr),signed short(*mn),signed char(*si)));
 signed(__cdecl cv_mn(signed short(*mn),signed char(*si)));
 signed(__cdecl cv_at(signed short(*hr),signed short(*mn),signed char(*argp)));
+/* Convert into time */
 
 signed(__cdecl clip_b(signed(arg),signed char(**argp)));
 /* Clip */
