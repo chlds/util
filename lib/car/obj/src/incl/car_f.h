@@ -22,6 +22,17 @@ signed(__cdecl unmap_w(signed short(**argp)));
 signed(__cdecl unmap_b(signed char(**argp)));
 /* Unmap */
 
+signed(__cdecl unpair_dw_r(signed(*di),signed short(*si)));
+signed(__cdecl unpair_dw(signed(*di),signed short(*si)));
+signed(__cdecl pair_wd_r(signed short(**di),signed(si)));
+signed(__cdecl pair_wd(signed short(**di),signed(si)));
+signed(__cdecl decode_b_r(signed(arg),signed(*di),signed char(*si)));
+signed(__cdecl decode_b(signed(*di),signed char(*si)));
+signed(__cdecl decode_surrogate_second(signed short(*di),signed(si)));
+signed(__cdecl decode_surrogate_first(signed short(*di),signed(si)));
+signed(__cdecl nbytechar(signed char(arg)));
+/* Output UTF-16 characters decoded out of UTF-8 bytes */
+
 signed(__cdecl alert_b_r(signed(arg),signed short(hr),signed short(mn)));
 signed(__cdecl alert_b(signed(arg),signed char(*argp)));
 signed(__cdecl cv_hr_noon_r(signed short(*hr),signed char(*argp)));
@@ -183,6 +194,10 @@ signed(__cdecl ct_digits(signed char(*argp)));
 signed(__cdecl incl_num(signed char(*argp)));
 signed(__cdecl cf_no(signed char(*argp)));
 /* Confirm numerals */
+
+signed(__cdecl ct_to(signed char(*cache),signed char(*argp)));
+signed(__cdecl ct2(signed char(di), signed char(*base)));
+/* Count to */
 
 signed(__cdecl ct_f(signed(__cdecl**f)(void(*argp))));
 /* Count function pointers */

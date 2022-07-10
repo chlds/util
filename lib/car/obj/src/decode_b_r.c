@@ -13,19 +13,16 @@ Expressed in UTF-8
 */
 
 
-# define CAR
-# include "../../../incl/config.h"
+# define CAR_H
+# include "./../../../config.h"
 
 signed(__cdecl decode_b_r(signed(arg),signed(*di),signed char(*si))) {
-
-auto signed seq_mask = (0x3F); // the 6-bit (.ooii.iiii) mask for a sequential character to an n-byte character
 auto signed i,r;
-
+auto signed seq_mask = (0x3F); // the 6-bit (.ooii.iiii) mask for a sequential character to an n-byte character
 if(arg<(0x01)) return(0x00);
 if(!di) return(0x00);
 if(!si) return(0x00);
 if(!(*si)) return(0x00);
-
 r = (signed) (*si);
 r = (seq_mask&(r));
 i = (*di);
@@ -33,6 +30,5 @@ i = (i<<(0x06));
 i = (r|(i));
 *di = (i);
 si++;
-
 return(0x01+(decode_b_r(--arg,di,si)));
 }

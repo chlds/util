@@ -1,6 +1,6 @@
 /*
 
-Decode bytes into a character based on UTF-16.
+Decode bytes into a character based on UTF-16
 
 Check the leading byte for one Unicode character based on UTF-8:
 
@@ -20,11 +20,11 @@ Expressed in UTF-8
 */
 
 
-# define CAR
-# include "../../../incl/config.h"
+# define CAR_H
+# include "./../../../config.h"
 
 signed(__cdecl decode_b(signed(*di),signed char(*si))) {
-
+auto signed i,r;
 auto signed al[] = {
 (signed) (0x00), // a one-byte character expressed in .o***.**** (7-bit)
 (signed) (0x80), // a sequential byte with efficient 6 bits expressed in .io**.**** (6-bit) for the n-byte characters
@@ -33,28 +33,20 @@ auto signed al[] = {
 (signed) (0xF0), // a four-byte character expressed in .iiii.o*** .io**.**** .io**.**** .io**.**** (21-bit(3+6+6+6))
 (signed) (0x00),
 };
-
-auto signed i,r;
-
 if(!di) return(0x00);
 if(!si) return(0x00);
 if(!(*si)) return(0x00);
-
 i = nbytechar(*si);
 if(!(0x80^(i))) return(0x00);
 if(!i) return(i);
-
 r = (signed) (*si);
 r = (0xFF&(r));
 r = (r&(~(*(al+(i)))));
 *di = (r);
 if(!(--i)) return(0x01);
-
 si++;
 r = decode_b_r(i,di,si);
 if(!r) return(r);
-
 r++;
-
 return(r);
 }
