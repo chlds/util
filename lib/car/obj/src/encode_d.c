@@ -1,6 +1,6 @@
 /*
 
-Encode a character into bytes based on UTF-8.
+Encode a character into bytes based on UTF-8
 
 Check the leading byte for one Unicode character based on UTF-8:
 
@@ -20,15 +20,13 @@ Expressed in UTF-8
 */
 
 
-# define CAR
-# include <stdio.h>
-# include "../../../incl/config.h"
+# define CAR_H
+# define STDIO_H
+# include "./../../../config.h"
 
 signed(__cdecl encode_d(signed char(**di),signed(si))) {
-
 auto signed char *b;
-auto signed i,r;
-auto signed short flag;
+auto signed r;
 auto signed char c;
 auto signed mask = (0x1FFFFF); // in 21b
 auto signed al[] = {
@@ -39,20 +37,16 @@ auto signed al[] = {
 (signed) (0xF0), // a four-byte character expressed in .iiii.o*** .io**.**** .io**.**** .io**.**** (21-bit(3+6+6+6))
 (signed) (0x00),
 };
-
 if(!di) return(0x00);
 if(*di) return(0x00);
-
 si = (mask&(si));
 r = ncharbyte(si);
 if(!r) {
 printf("%s \n","<< Error at fn. ncharbyte()");
 return(r);
 }
-
 b = (0x00);
 if(!(concatenate(r,&b,0x00))) return(0x00);
-
 *(r+(b)) = (0x00);
 if(!(0x01^(r))) {
 si = (0x7F&(si));
@@ -61,7 +55,6 @@ si = (0x7F&(si));
 b = (0x00);
 return(0x01);
 }
-
 r = encode_d_r(r,b,si);
 if(!r) {
 if(0x01/* DBG */) printf("%s \n","<< Error at fn. encode_d_r()");
@@ -71,11 +64,9 @@ b = (0x00);
 *di = (b);
 return(0x00);
 }
-
 c = (*b);
 *b = (c|(*(al+(r))));
 *di = (b);
 b = (0x00);
-
 return(r);
 }

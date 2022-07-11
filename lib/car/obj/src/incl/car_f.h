@@ -22,6 +22,24 @@ signed(__cdecl unmap_w(signed short(**argp)));
 signed(__cdecl unmap_b(signed char(**argp)));
 /* Unmap */
 
+signed(__cdecl cv_argt_r(signed char(**di),signed char(*si)));
+signed(__cdecl cv_argt(signed char(***di),signed char(*si)));
+signed(__cdecl cv_v_r(signed char(**di),signed short(*flag),signed char(*si)));
+signed(__cdecl cv_v(signed char(***di),signed char(*si)));
+/* Map an array of pointers for word-split arrays on and unmap the ones out of the RAM */
+
+signed(__cdecl cv_wv(signed short(*cache),signed short(**di),signed short(**si)));
+signed(__cdecl cv_bv(signed char(*cache),signed char(**di),signed char(**si)));
+signed(__cdecl cv_bv_xe_r(signed char(*di),signed char(**si)));
+signed(__cdecl cv_bv_xe(signed char(**di),signed char(**si)));
+/* After calling fn. cv_bv, please call fn. rl to unmap the buffer allocated on the RAM. */
+
+signed(__cdecl cv_wb_v_r(signed short(**di),signed char(**si)));
+signed(__cdecl cv_wb_v(signed short(***di),signed char(**si)));
+signed(__cdecl cv_wb(signed short(**di),signed char(*si)));
+signed(__cdecl decode_wb_r(signed short(**di),signed char(*si)));
+signed(__cdecl decode_wb(signed short(**di),signed char(*si)));
+signed(__cdecl decode2w(signed(size),signed short(*di),signed char(*si))); // deprecated
 signed(__cdecl unpair_dw_r(signed(*di),signed short(*si)));
 signed(__cdecl unpair_dw(signed(*di),signed short(*si)));
 signed(__cdecl pair_wd_r(signed short(**di),signed(si)));
@@ -32,6 +50,19 @@ signed(__cdecl decode_surrogate_second(signed short(*di),signed(si)));
 signed(__cdecl decode_surrogate_first(signed short(*di),signed(si)));
 signed(__cdecl nbytechar(signed char(arg)));
 /* Output UTF-16 characters decoded out of UTF-8 bytes */
+
+signed(__cdecl cv_bw_v_r(signed char(**di),signed short(**si)));
+signed(__cdecl cv_bw_v(signed char(***di),signed short(**si)));
+signed(__cdecl cv_bw(signed char(**di),signed short(*si)));
+signed(__cdecl encode_bv_r(signed char(**di),signed short(**si)));
+signed(__cdecl encode_bv(signed char(**di),signed short(**si)));
+signed(__cdecl encode_bw_r(signed char(**di),signed short(*si)));
+signed(__cdecl encode_bw(signed char(**di),signed short(*si)));
+signed(__cdecl encode_d_r(signed(arg),signed char(*di),signed(si)));
+signed(__cdecl encode_d(signed char(**di),signed(si)));
+signed(__cdecl encode_surrogate_w(signed char(**di),signed short(second),signed short(first))); // deprecated
+signed(__cdecl ncharbyte(signed(arg)));
+/* Encode a character into bytes based on UTF-8. */
 
 signed(__cdecl alert_b_r(signed(arg),signed short(hr),signed short(mn)));
 signed(__cdecl alert_b(signed(arg),signed char(*argp)));
