@@ -1,20 +1,16 @@
 /* **** Notes
 
-Convert.
+Convert
 
 Remarks:
-Call fn. rl later to release buffer.
-An n-digit number at least
-Refer at fn. cx.
-Based on UTF-8
+Call fn. rl later
 */
 
 
-# define CAR
-# include "./../../../incl/config.h"
+# define CAR_H
+# include "./../../../config.h"
 
 signed char *(__cdecl cv_r(signed(arg/* n-digit */),signed char(*argp))) {
-
 auto signed char *b;
 auto signed r;
 auto signed char *(a[]) = {
@@ -36,15 +32,12 @@ auto signed char *(a[]) = {
 "000000000000000",
 0x00,
 };
-
 if(!argp) return(0x00);
-
 b = (argp);
 r = (arg+(0x01+(~(ct(b)))));
 if(0x00<(r)) {
 r = (r%(ct_vb(a)));
 b = cat_ahead(b,*(r+(a)));
 }
-
 return(b);
 }
