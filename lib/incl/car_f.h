@@ -633,9 +633,6 @@ signed(__cdecl ct_txt(signed(arg/* align */),signed char(*argp)));
 signed(__cdecl ct_tx(signed(to),signed(arg/* align */),signed char(*argp)));
 /* Count letters along with alignement of the tab to the null character. */
 
-signed(__cdecl ct_word_backward(signed(left),signed char(*argp)));
-/* Count length of a word backward. */
-
 signed(__cdecl ct_only(signed char(di), signed char(*argp)));
 /* Count a specific letter only. */
 

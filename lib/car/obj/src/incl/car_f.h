@@ -22,6 +22,14 @@ signed(__cdecl unmap_w(signed short(**argp)));
 signed(__cdecl unmap_b(signed char(**argp)));
 /* Unmap */
 
+signed(__cdecl cv_va_r(signed char(**di),signed short(*flag),signed char(*sym),signed char(*si)));
+signed(__cdecl cv_va(signed char(***di),signed char(*sym),signed char(*si)));
+signed(__cdecl cv_wo_r(signed char(**di),signed short(*flag),signed char(*sym),signed char(*si)));
+signed(__cdecl cv_wo(signed char(***di),signed char(*sym),signed char(*si)));
+signed(__cdecl ct_va(signed char(*sym),signed char(*argp)));
+signed(__cdecl ct_wo(signed char(*sym),signed char(*argp)));
+/* Map an array of pointers on the RAM. */
+
 signed(__cdecl cv_ww_r(signed short(arg),signed char(**di),signed short(*flag),signed char(*sym),signed char(*si)));
 signed(__cdecl cv_ww(signed short(arg),signed char(***di),signed char(*sym),signed char(*si)));
 signed(__cdecl ct_ww_r(signed short(arg),signed char(*sym),signed char(*argp)));
