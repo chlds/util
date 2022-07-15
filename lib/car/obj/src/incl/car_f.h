@@ -22,6 +22,14 @@ signed(__cdecl unmap_w(signed short(**argp)));
 signed(__cdecl unmap_b(signed char(**argp)));
 /* Unmap */
 
+signed(__cdecl cv_ww_r(signed short(arg),signed char(**di),signed short(*flag),signed char(*sym),signed char(*si)));
+signed(__cdecl cv_ww(signed short(arg),signed char(***di),signed char(*sym),signed char(*si)));
+signed(__cdecl ct_ww_r(signed short(arg),signed char(*sym),signed char(*argp)));
+signed(__cdecl ct_ww(signed short(arg),signed char(*sym),signed char(*argp)));
+signed(__cdecl wrap_words_r(signed short(arg),signed(*cache),signed char(*sym),signed char(*argp)));
+signed(__cdecl wrap_words(signed short(arg),signed char(*sym),signed char(*argp)));
+/* Map an array of pointers for words-wrap arrays on the RAM */
+
 signed(__cdecl cv_argt_r(signed char(**di),signed char(*si)));
 signed(__cdecl cv_argt(signed char(***di),signed char(*si)));
 signed(__cdecl cv_v_r(signed char(**di),signed short(*flag),signed char(*si)));
@@ -123,9 +131,19 @@ signed(__cdecl cue_argt_ready(signed char(*argp)));
 signed(__cdecl cue_argt(signed char(*argp)));
 /* Cue */
 
+signed(__cdecl ct_words_r(signed short(flag),signed(*retv),signed char(*cache),signed char(*base)));
+signed(__cdecl ct_words(signed char(*sym),signed char(*base)));
+/* Count words to the terminating null character */
+
 signed(__cdecl ct_argt_r(signed char(*argp)));
 signed(__cdecl ct_argt(signed char(*argp)));
-/* Count arguments */
+signed(__cdecl ct_wrds_r(signed short(flag),signed(*retv),signed char(*base)));
+signed(__cdecl ct_ars_r(signed short(flag),signed(*retv),signed char(*base)));
+signed(__cdecl ct_ars(signed(*retv),signed char(*base)));
+signed(__cdecl ct_ars2(signed char(*base)));
+signed(__cdecl ct_wrds(signed char(*base)));
+signed(__cdecl ct_args(signed char(*argp)));
+/* Count arguments to the terminating null character */
 
 signed(__cdecl cv_dv_r(signed short(radix),signed(*di),signed char(**si)));
 signed(__cdecl cv_dv(signed short(radix),signed(*di),signed char(**si)));
