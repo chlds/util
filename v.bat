@@ -1,0 +1,1 @@
+cd ./bin/obj/src/
