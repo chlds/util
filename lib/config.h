@@ -21,6 +21,7 @@ Remarks:
 # include "./incl/ctrl.h"
 # include "./incl/dbg.h"
 # include "./incl/al.h"
+// # include "./incl/typ.h"
 # endif
 
 # ifdef CODEPAGE_H
