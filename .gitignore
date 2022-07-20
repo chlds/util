@@ -14,10 +14,10 @@
 /**/*.asm
 
 # Batch files
-/**/*.bat
+# /**/*.bat
 
 # shell script files
-/**/*.sh
+# /**/*.sh
 
 # notes
 /**/*.txt
