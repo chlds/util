@@ -1,0 +1,10 @@
+signed(__cdecl cal_map_diff_b_r(signed char(**di),time_t(*si)));
+signed(__cdecl cal_map_diff_b(signed char(**di),time_t(*si)));
+signed(__cdecl cal_diff_gmt(time_t(*di),time_t(*si)));
+signed(__cdecl cal_map_date_b_r(signed(arg),signed char(**di),signed short(*si)));
+signed(__cdecl cal_map_date_b(signed(arg),signed char(**di),time_t(*si)));
+signed(__cdecl cal_map_date(signed(arg),signed short(**di),time_t(*si)));
+signed(__cdecl cal_map_time_b_r(signed(arg),signed char(**di),signed short(*si)));
+signed(__cdecl cal_map_time_b(signed(arg),signed char(**di),time_t(*si)));
+signed(__cdecl cal_map_time(signed(arg),signed short(**di),time_t(*si)));
+signed(__cdecl cal_out_time(time_t(arg)));

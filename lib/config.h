@@ -132,6 +132,10 @@ Remarks:
 # endif
 // C, A and Win32
 
+# ifdef CAL_H
+# include "./cal/obj/src/incl/cal.h"
+# endif
+
 # ifdef SAT_H
 # include "./sat/obj/src/incl/sat.h"
 # endif
