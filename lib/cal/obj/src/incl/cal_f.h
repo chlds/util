@@ -1,3 +1,10 @@
+signed(__cdecl cal_crown_yr_r(signed short(arg),time_t(*argp)));
+signed(__cdecl cal_crown_yr(signed short(arg),time_t(*argp)));
+signed(__cdecl cal_crown_mo_r(signed short(arg),time_t(*argp)));
+signed(__cdecl cal_crown_mo(signed short(arg),time_t(*argp)));
+signed(__cdecl cal_crown_midnight(time_t(*argp)));
+signed(__cdecl cal_crown(signed short(mo),signed short(yr),time_t(*argp)));
+signed(__cdecl cal_day_thirty_one(signed short(arg/* month */)));
 signed(__cdecl cal_map_diff_b_r(signed char(**di),time_t(*si)));
 signed(__cdecl cal_map_diff_b(signed char(**di),time_t(*si)));
 signed(__cdecl cal_diff_gmt(time_t(*di),time_t(*si)));
