@@ -2,6 +2,8 @@ signed(__cdecl cal_crown_yr_r(signed short(arg),time_t(*argp)));
 signed(__cdecl cal_crown_yr(signed short(arg),time_t(*argp)));
 signed(__cdecl cal_crown_mo_r(signed short(arg),time_t(*argp)));
 signed(__cdecl cal_crown_mo(signed short(arg),time_t(*argp)));
+signed(__cdecl cal_crown_di(signed short(arg),time_t(*argp)));
+signed(__cdecl cal_crown_day_one(time_t(*argp)));
 signed(__cdecl cal_crown_midnight(time_t(*argp)));
 signed(__cdecl cal_crown(signed short(mo),signed short(yr),time_t(*argp)));
 signed(__cdecl cal_day_thirty_one(signed short(arg/* month */)));
