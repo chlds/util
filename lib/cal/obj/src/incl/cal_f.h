@@ -1,3 +1,10 @@
+signed(__cdecl cal_crown_wk_periodic_rrr(signed(ordinary),signed short(arg),time_t(*argp)));
+signed(__cdecl cal_crown_wk_periodic_rr(signed(ordinary),signed short(arg),time_t(*argp)));
+signed(__cdecl cal_crown_wk_periodic_r(signed(ordinary),signed short(arg),time_t(*argp)));
+signed(__cdecl cal_crown_wk_periodic(signed(ordinary),signed short(arg),time_t(*argp)));
+signed(__cdecl cal_crown_wk(signed short(arg),time_t(*argp)));
+signed(__cdecl cal_by_wk(signed short(wk),time_t(arg)));
+signed(__cdecl cal_by_mo(signed short(mo),time_t(arg)));
 signed(__cdecl cal_crown_yr_r(signed short(arg),time_t(*argp)));
 signed(__cdecl cal_crown_yr(signed short(arg),time_t(*argp)));
 signed(__cdecl cal_crown_mo_r(signed short(arg),time_t(*argp)));
