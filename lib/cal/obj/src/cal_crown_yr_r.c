@@ -11,32 +11,27 @@ Overwrite time
 
 signed(__cdecl cal_crown_yr_r(signed short(arg),time_t(*argp))) {
 auto struct tm *tp;
-auto signed weeks;
-auto signed short mo;
+auto signed short yr;
 auto time_t t;
-auto signed short dec = (0x0B);
-auto signed short jan = (0x00);
-auto signed days = (0x07);
-if(!argp) return(0x00);
-if(!arg) return(0x01);
+auto signed weeks = (53);
+auto signed days = (7);
+if(!argp) return(~0x00);
 t = (*argp);
 tp = localtime(&t);
 if(!tp) {
-*argp = (0x00);
+*argp = (~0x00);
 return(0x00);
 }
-mo = (R(tm_mon,*tp));
-weeks = (53);
-if(!(jan^(mo))) {
-if(arg<(0x00)) weeks = (52);
-}
-if(!(dec^(mo))) {
-if(!(arg<(0x00))) weeks = (52);
+yr = (1900+(R(tm_year,*tp)));
+if(EQ(arg,yr)) {
+*argp = (t);
+return(0x00);
 }
 t = (weeks*(days*(24*(60*(60)))));
-if(arg<(0x00)) t = (0x01+(~t));
 *argp = (t+(*argp));
-if(arg<(0x00)) arg++;
-else --arg;
+if(!(cal_crown_day_one(argp))) {
+*argp = (~0x00);
+return(0x00);
+}
 return(0x01+(cal_crown_yr_r(arg,argp)));
 }

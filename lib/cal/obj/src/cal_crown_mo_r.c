@@ -11,30 +11,27 @@ Overwrite time
 
 signed(__cdecl cal_crown_mo_r(signed short(arg),time_t(*argp))) {
 auto struct tm *tp;
-auto signed weeks;
-auto signed short di;
+auto signed short mo;
 auto time_t t;
-auto signed days = (0x07);
-if(!argp) return(0x00);
-if(!arg) return(0x01);
+auto signed weeks = (5);
+auto signed days = (7);
+if(!argp) return(~0x00);
+if(!(cal_crown_day_one(argp))) {
+*argp = (~0x00);
+return(0x00);
+}
 t = (*argp);
 tp = localtime(&t);
 if(!tp) {
-*argp = (0x00);
+*argp = (~0x00);
 return(0x00);
 }
-di = (R(tm_mday,*tp));
-weeks = (0x04);
-if(!(di<(weeks*(days)))) {
-if(arg<(0x00)) weeks = (0x05);
-}
-if(di<(days)) {
-if(!(arg<(0x00))) weeks = (0x05);
-}
-t = (weeks*(days*(24*(60*(60)))));
-if(arg<(0x00)) t = (0x01+(~t));
+mo = (R(tm_mon,*tp));
+if(EQ(arg,mo)) return(0x00);
+mo = (arg+(0x01+(~mo)));
+t = (24*(60*(60)));
+if(mo<(0x00)) t = (0x01+(~t));
+else t = (weeks*(days*(t)));
 *argp = (t+(*argp));
-if(arg<(0x00)) arg++;
-else --arg;
 return(0x01+(cal_crown_mo_r(arg,argp)));
 }

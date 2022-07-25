@@ -1,3 +1,7 @@
+signed(__cdecl cal_crown_wk_mo_r(signed short(wk),signed short(mo),time_t(*argp)));
+signed(__cdecl cal_crown_wk_mo(signed short(wk),time_t(*argp)));
+signed(__cdecl elapse_days_r(signed short(wk),time_t(*argp)));
+signed(__cdecl elapse_days(signed short(wk),time_t(arg)));
 signed(__cdecl cal_crown_wk_periodic_rrr(signed(ordinary),signed short(arg),time_t(*argp)));
 signed(__cdecl cal_crown_wk_periodic_rr(signed(ordinary),signed short(arg),time_t(*argp)));
 signed(__cdecl cal_crown_wk_periodic_r(signed(ordinary),signed short(arg),time_t(*argp)));

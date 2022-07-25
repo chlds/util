@@ -1,6 +1,9 @@
 /* **** Notes
 
 Overwrite time
+
+Remarks:
+Return (~0x00) on failure
 */
 
 
@@ -10,20 +13,18 @@ Overwrite time
 # include "./../../../config.h"
 
 signed(__cdecl cal_crown_mo(signed short(arg),time_t(*argp))) {
-auto struct tm *tp;
 auto signed r;
-auto signed short mo;
 auto time_t t;
-if(!(arg<(0x0C))) return(0x00);
-if(arg<(0x00)) return(0x00);
-if(!argp) return(0x00);
+auto signed short months = (0x0C);
+auto signed short dec = (0x0B);
+auto signed short jan = (0x00);
+if(!(arg<(months))) return(~0x00);
+if(arg<(jan)) return(~0x00);
+if(!argp) return(~0x00);
 t = (*argp);
-tp = localtime(&t);
-if(!tp) return(0x00);
-mo = (R(tm_mon,*tp));
-mo = (arg+(0x01+(~mo)));
-r = cal_crown_mo_r(mo,&t);
-if(!t) return(0x00);
+r = cal_crown_mo_r(arg,&t);
+if(EQ(r,~0x00)) return(r);
+if(EQ(t,~0x00)) return(~0x00);
 *argp = (t);
 return(r);
 }
