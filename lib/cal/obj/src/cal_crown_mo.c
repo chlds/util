@@ -11,6 +11,7 @@ Overwrite time
 
 signed(__cdecl cal_crown_mo(signed short(arg),time_t(*argp))) {
 auto struct tm *tp;
+auto signed r;
 auto signed short mo;
 auto time_t t;
 if(!(arg<(0x0C))) return(0x00);
@@ -21,5 +22,8 @@ tp = localtime(&t);
 if(!tp) return(0x00);
 mo = (R(tm_mon,*tp));
 mo = (arg+(0x01+(~mo)));
-return(cal_crown_mo_r(mo,argp));
+r = cal_crown_mo_r(mo,&t);
+if(!t) return(0x00);
+*argp = (t);
+return(r);
 }

@@ -19,7 +19,10 @@ if(!argp) return(0x00);
 if(!arg) return(0x01);
 t = (*argp);
 tp = localtime(&t);
-if(!tp) return(0x00);
+if(!tp) {
+*argp = (0x00);
+return(0x00);
+}
 di = (R(tm_mday,*tp));
 weeks = (0x04);
 if(!(di<(weeks*(days)))) {

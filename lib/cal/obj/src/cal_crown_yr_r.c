@@ -21,7 +21,10 @@ if(!argp) return(0x00);
 if(!arg) return(0x01);
 t = (*argp);
 tp = localtime(&t);
-if(!tp) return(0x00);
+if(!tp) {
+*argp = (0x00);
+return(0x00);
+}
 mo = (R(tm_mon,*tp));
 weeks = (53);
 if(!(jan^(mo))) {

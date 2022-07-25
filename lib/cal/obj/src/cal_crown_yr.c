@@ -11,6 +11,7 @@ Overwrite time
 
 signed(__cdecl cal_crown_yr(signed short(arg),time_t(*argp))) {
 auto struct tm *tp;
+auto signed r;
 auto signed short yr;
 auto time_t t;
 auto signed short ad_h = (2100);
@@ -23,5 +24,8 @@ tp = localtime(&t);
 if(!tp) return(0x00);
 yr = (1900+(R(tm_year,*tp)));
 yr = (arg+(0x01+(~yr)));
-return(cal_crown_yr_r(yr,argp));
+r = cal_crown_yr_r(yr,&t);
+if(!t) return(0x00);
+*argp = (t);
+return(r);
 }
