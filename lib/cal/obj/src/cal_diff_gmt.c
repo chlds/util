@@ -1,9 +1,6 @@
 /* **** Notes
 
 Difference with Greenwich Mean Time
-
-Remarks:
-Return (0x00) on failure
 */
 
 
@@ -12,7 +9,7 @@ Return (0x00) on failure
 # define TIME_H
 # include "./../../../config.h"
 
-signed(__cdecl cal_diff_gmt(time_t(*di),time_t(*si))) {
+signed(__cdecl cal_diff_gmt(time_t(*di),time_t(si))) {
 auto struct tm *tp;
 auto signed short flag;
 auto signed short yr,mo,day;
@@ -21,8 +18,9 @@ auto time_t g;
 auto time_t t;
 auto time_t d = (24*(60*(60)));
 if(!di) return(0x00);
-if(!si) return(0x00);
-tp = localtime(si);
+if(si<(0x00)) return(0x00);
+t = (si);
+tp = localtime(&t);
 if(!tp) return(0x00);
 sm = (R(tm_sec,*tp));
 mn = (R(tm_min,*tp));
@@ -31,7 +29,8 @@ day = (R(tm_mday,*tp));
 mo = (R(tm_mon,*tp));
 yr = (1900+(R(tm_year,*tp)));
 t = (sm+(60*(mn+(60*(hr)))));
-tp = gmtime(si);
+g = (si);
+tp = gmtime(&g);
 if(!tp) return(0x00);
 hr = (R(tm_hour,*tp));
 mn = (R(tm_min,*tp));

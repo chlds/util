@@ -3,7 +3,7 @@
 Overwrite time
 
 Remarks:
-Keep running
+Return (~0x00) on failure
 */
 
 
@@ -14,20 +14,23 @@ Keep running
 
 signed(__cdecl cal_crown_sm(signed short(arg),time_t(*argp))) {
 auto struct tm *tp;
+auto signed r;
 auto signed short sm;
 auto time_t t;
-if(!(arg<(60))) return(0x00);
-if(arg<(0x00)) return(0x00);
-if(!argp) return(0x00);
+if(!(arg<(60))) return(~0x00);
+if(arg<(0x00)) return(~0x00);
+if(!argp) return(~0x00);
 t = (*argp);
 tp = localtime(&t);
-if(!tp) return(0x00);
+if(!tp) return(~0x00);
 sm = (R(tm_sec,*tp));
 if(sm) {
 t = (sm);
 t = (0x01+(~t));
 t = (t+(*argp));
 }
+r = cal_crown_sm_r(arg,&t);
+if(EQ(r,~0x00)) return(r);
 *argp = (t);
-return(cal_crown_sm_r(arg,argp));
+return(r);
 }

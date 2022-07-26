@@ -12,7 +12,7 @@ Call fn. rl later
 # define TIME_H
 # include "./../../../config.h"
 
-signed(__cdecl cal_map_diff_b_r(signed char(**di),time_t(*si))) {
+signed(__cdecl cal_map_diff_b_r(signed char(**di),time_t(si))) {
 auto signed char *b;
 auto signed char *p;
 auto time_t ch;
@@ -25,8 +25,8 @@ auto signed char *ps = ("+");
 auto signed char *ng = ("-");
 if(!di) return(0x00);
 if(*di) return(0x00);
-if(!si) return(0x00);
-t = (*si);
+if(si<(0x00)) return(0x00);
+t = (si);
 if(!(t<(d))) return(0x00);
 b = (ps);
 if(t<(0x00)) {
