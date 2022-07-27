@@ -8,6 +8,10 @@ Along with C library
 */
 
 
+signed(__cdecl flag_b_r(signed char(**v),signed char(*a),signed short(*di),signed short(*si)));
+signed(__cdecl flag_b(signed char(**v),signed char(*a),signed short(*di),signed short(*si)));
+/* Flag */
+
 void*(__cdecl alloc(signed(arg)));
 /* Allocate i.e., fn. malloc */
 
