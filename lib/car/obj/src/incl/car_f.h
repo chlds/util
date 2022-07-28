@@ -8,6 +8,16 @@ Along with C library
 */
 
 
+signed(__cdecl cf_dir_w(signed short(*argp)));
+signed(__cdecl cf_dir(signed char(*argp)));
+signed(__cdecl cf_ff_w(signed short(*di),signed char(*si)));
+signed(__cdecl cf_ff(signed char(*di),signed char(*si)));
+signed(__cdecl cf_f_extensions_w(signed short(*cache),signed short(*argp)));
+signed(__cdecl cf_f_extensions(signed char(*cache),signed char(*argp)));
+signed(__cdecl already_w(size_t(*size),signed short(*argp)));
+signed(__cdecl already_b(size_t(*size),signed char(*argp)));
+/* Confirm */
+
 signed(__cdecl flag_b_r(signed char(**v),signed char(*a),signed short(*di),signed short(*si)));
 signed(__cdecl flag_b(signed char(**v),signed char(*a),signed short(*di),signed short(*si)));
 /* Flag */
@@ -127,6 +137,15 @@ signed(__cdecl concatenate(signed(arg),signed char(**di),signed char(*si)));
 signed(__cdecl concat_bb(signed char(**di),signed char(*si)));
 signed(__cdecl cat_bb(signed char(**di),signed char(si)));
 /* Call fn. rl later to release buffer */
+
+signed(__cdecl arr_dir(signed char(**di),signed char(*si)));
+/* Arrange */
+
+signed(__cdecl quot_b(signed(arg/* size */),signed char(*di/* buff */),signed char(*si)));
+/* Enclose in double quotation marks */
+
+signed(__cdecl append_b(signed char(*di),signed char(*si)));
+/* Append */
 
 signed(__cdecl cpy2p(signed char(*di),signed char(*deadline),signed char(*si)));
 signed(__cdecl cpy2(signed char(cache),signed char(*di),signed char(*si)));

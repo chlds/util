@@ -1,19 +1,17 @@
 /* **** Notes
 
-Confirm the file format.
+Confirm the file format
 */
 
 
-# define CAR
-# include <io.h>
-# include <stdio.h>
+# define CAR_H
+# define STDIO_H
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <errno.h>
-# include "./../../../incl/config.h"
+# include "./../../../config.h"
 
 signed(__cdecl cf_ff_w(signed short(*di),signed char(*si))) {
-
 auto signed short *w;
 auto signed i,r;
 auto size_t s;
@@ -38,10 +36,8 @@ _S_IFREG,
 // _S_IFSOCK,
 0x00,
 };
-
 if(!di) return(0x00);
 if(!si) return(0x00);
-
 w = (di);
 r = _wstati64(w,&stats);
 if(!(r^(~0x00))) {
@@ -51,12 +47,10 @@ else printf("%s %Xh \n","<< Error at fn. _wstati64() with errno.",errno);
 }
 return(0x00);
 }
-
 r = ords(ff,si);
 if(r<(ct_vb(ff))) {
 i = (_S_IFMT&(R(st_mode,stats)));
 if(i&(*(r+(mode)))) return(0x01);
 }
-
 return(0x00);
 }
