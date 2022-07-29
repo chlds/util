@@ -95,7 +95,7 @@ printf("%s ",*(DAYOFTHEWK+(*(CALS_WK+(R(date,*argp))))));
 printf("%2d:%02d:%02d",*(CALS_HR+(R(time,*argp))),*(CALS_MN+(R(time,*argp))),*(CALS_SM+(R(time,*argp))));
 printf("] ");
 }
-// if(!(cli_es(CTRL_K))) return(0x00);
+// if(!(es(CTRL_K))) return(0x00);
 if(DBG) {
 t = (R(t,*argp));
 printf("[t: %lld] ",t);

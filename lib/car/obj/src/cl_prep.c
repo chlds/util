@@ -35,9 +35,9 @@ return(0x00);
 cy = (*(CLI_BASE+(R(y,coord))));
 y = (*(CLI_BASE+(R(bottom,rect))));
 y++;
-if(!(cli_es(CTRL_A))) return(0x00);
+if(!(es(CTRL_A))) return(0x00);
 if(!(cy^(y+(0x01+(~(*(CLI_BASE+(R(top,rect))))))))) {
-if(!(cli_es(CTRL_U))) return(0x00);
+if(!(es(CTRL_U))) return(0x00);
 }
 else {
 y = (y+(0x01+(~cy)));
@@ -45,10 +45,10 @@ y = (y+(0x01+(0x01+(~CLI_FOOTER_HEIGHT))));
 if(y<(0x00)) return(0x00);
 while(y) {
 --y;
-if(!(cli_es(CTRL_N))) return(0x00);
+if(!(es(CTRL_N))) return(0x00);
 }}
 
-if(!(cli_es(CTRL_K))) return(0x00);
+if(!(es(CTRL_K))) return(0x00);
 
 /* The two-row footer */
 r = (signed) (0x01+(*(CLI_BASE+(R(right,rect)))));
@@ -73,7 +73,7 @@ b = (0x00);
 printf("\r");
 printf("\n");
 
-if(!(cli_es(CTRL_K))) return(0x00);
+if(!(es(CTRL_K))) return(0x00);
 
 return(0x01);
 }

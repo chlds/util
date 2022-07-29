@@ -27,5 +27,5 @@ b = (*(CLI_BASE+(R(b,*rule))));
 embed(0x00,b);
 
 // return(f(argp));
-return(cli_es(CTRL_A));
+return(es(CTRL_A));
 }

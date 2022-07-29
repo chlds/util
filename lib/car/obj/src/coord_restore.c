@@ -9,5 +9,5 @@ Coordinate.
 
 signed(__cdecl coord_restore(void)) {
 
-return(cli_es(CTRL_R));
+return(es(CTRL_R));
 }

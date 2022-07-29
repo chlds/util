@@ -38,7 +38,7 @@ r = cli_o_b(0x01,br);
 r = cli_o_line(cols,arg,sym,argp);
 argp = (r+(argp));
 if(!r) return(0x00);
-// if(!(cli_es(CTRL_K))) return(0x00);
+// if(!(es(CTRL_K))) return(0x00);
 
 return(0x01+(cli_o_lines_r(cols,arg,sym,argp)));
 }

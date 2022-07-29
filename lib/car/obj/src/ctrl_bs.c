@@ -31,7 +31,7 @@ if(!r) return(0x00);
 
 b = (b+(0x01+(~r)));
 embed(0x00,b);
-if(!(cli_es(CTRL_A))) return(0x00);
+if(!(es(CTRL_A))) return(0x00);
 
 b = (*(CLI_BASE+(R(b,*rule))));
 b = (b+(cli_outs_b(0x08,b)));

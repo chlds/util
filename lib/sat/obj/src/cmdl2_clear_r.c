@@ -19,8 +19,8 @@ signed(__cdecl cmdl2_clear_r(SAT(*argp))) {
 
 auto signed r;
 
-if(!(cli_es(CTRL_T))) return(0x00);
-if(!(cli_es(CTRL_L))) return(0x00);
+if(!(es(CTRL_T))) return(0x00);
+if(!(es(CTRL_L))) return(0x00);
 
 printf("\n");
 

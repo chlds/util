@@ -23,7 +23,7 @@ auto signed short y;
 /* **** CODE/TEXT */
 if(!argp) return(0x00);
 
-if(!(cli_es(CTRL_T))) return(0x00);
+if(!(es(CTRL_T))) return(0x00);
 
 r = cli_display_header(argp);
 if(!r) {
@@ -34,7 +34,7 @@ return(0x00);
 i = (0x02);
 while(i) {
 --i;
-if(!(cli_es(CTRL_K))) return(0x00);
+if(!(es(CTRL_K))) return(0x00);
 printf("\r");
 printf("\n");
 }

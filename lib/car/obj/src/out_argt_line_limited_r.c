@@ -26,7 +26,7 @@ if(!(*argp)) return(0x00);
 r = out_oneline_limited(cols,argp);
 argp = (r+(argp));
 if(!r) return(0x00);
-// if(!(cli_es(CTRL_K))) return(0x00);
+// if(!(es(CTRL_K))) return(0x00);
 
 if(*argp) {
 if(!(cli_o_b(0x01,br))) return(0x00);

@@ -25,7 +25,7 @@ if(!b) return(0x00);
 
 cli_outs_b(arg,b);
 argp = (*(CLI_DI+(R(page,*argp))));
-// if(!(cli_es(CTRL_K))) return(0x00);
+// if(!(es(CTRL_K))) return(0x00);
 
 if(!(cli_o_b(0x01,"\n"))) return(0x00);
 

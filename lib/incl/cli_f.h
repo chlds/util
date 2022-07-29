@@ -32,7 +32,7 @@ signed(__cdecl cli_io_b(ty_t(*argp)));
 signed(__cdecl cli_io(cli_property_t(*argp)));
 signed(__cdecl cli_ctrl_fn_internal(signed(arg),void(*argp)));
 signed(__cdecl cli_ctrl_fn(signed(arg),cli_property_t(*argp)));
-signed(__cdecl cli_es(signed(arg)));
+signed(__cdecl es(signed(arg)));
 signed(__cdecl es_at(void));
 signed(__cdecl es_a(void));
 signed(__cdecl es_b(void));

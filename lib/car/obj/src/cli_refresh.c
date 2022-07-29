@@ -27,8 +27,8 @@ if(!b) return(0x00);
 r = cli_coord_outs(R(align,*argp),b);
 // if(!r) return(0x00);
 
-if(!(cli_es(CTRL_K))) return(0x00);
-if(!(cli_es(CTRL_A))) return(0x00);
+if(!(es(CTRL_K))) return(0x00);
+if(!(es(CTRL_A))) return(0x00);
 
 embed(0x00,b);
 b = (*(CLI_BASE+(R(b,*rule))));

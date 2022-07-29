@@ -27,5 +27,5 @@ NOT(flag);
 AND(*(CLI_BASE+(R(flag,*argp))),flag);
 
 // return(f(argp));
-return(cli_es(CTRL_A));
+return(es(CTRL_A));
 }

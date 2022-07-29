@@ -8,7 +8,7 @@ signed(__cdecl coord_b(signed(io),signed(arg),coord_t(*argp)));
 signed(__cdecl rect_b_r_r(signed char(*y),signed char(*x)));
 signed(__cdecl rect_b_r(signed(arg),rect_t(*argp)));
 signed(__cdecl rect_b(signed(io),signed(arg),rect_t(*argp)));
-signed(__cdecl cli_es(signed(arg)));
+signed(__cdecl es(signed(arg)));
 signed(__cdecl es_at(void));
 signed(__cdecl es_a(void));
 signed(__cdecl es_b(void));

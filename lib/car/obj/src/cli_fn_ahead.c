@@ -35,5 +35,5 @@ r = coord_beta(CLI_OUT,CLI_BASE,&coord);
 if(!r) return(0x00);
 //*/
 
-return(cli_es(CTRL_A));
+return(es(CTRL_A));
 }

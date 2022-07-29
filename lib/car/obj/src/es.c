@@ -1,14 +1,13 @@
 /* **** Notes
 
-Escape sequences.
+Escape sequences
 */
 
 
 # define CAR
 # include "./../../../incl/config.h"
 
-signed(__cdecl cli_es(signed(arg))) {
-
+signed(__cdecl es(signed(arg))) {
 auto signed(__cdecl*f)(void);
 auto signed(__cdecl*(fn[]))(void) = {
 es_at,es_a,es_b,es_c,
@@ -21,11 +20,8 @@ es_x,es_y,es_z,es_lsb,
 es_rs,es_rsb,es_ca,es_ll,
 0x00,
 };
-
 if(!(arg<(CTRL_KEYS))) return(0x00);
 if(arg<(0x00)) return(0x00);
-
 f = (*(arg+(fn)));
-
 return(f());
 }

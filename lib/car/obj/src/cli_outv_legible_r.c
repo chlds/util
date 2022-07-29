@@ -26,7 +26,7 @@ sleep_b(arg);
 
 cli_outs_legible(arg,*argp);
 argp++;
-// if(!(cli_es(CTRL_K))) return(0x00);
+// if(!(es(CTRL_K))) return(0x00);
 
 return(0x01+(cli_outv_legible_r(arg,argp)));
 }

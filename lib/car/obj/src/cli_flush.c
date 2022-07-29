@@ -24,8 +24,8 @@ if(!b) return(0x00);
 
 r = cli_flush_b(arg,b);
 // if(!r) return(0x00);
-if(!(cli_es(CTRL_K))) return(0x00);
-if(!(cli_es(CTRL_A))) return(0x00);
+if(!(es(CTRL_K))) return(0x00);
+if(!(es(CTRL_A))) return(0x00);
 
 b = (*(CLI_BASE+(R(b,*argp))));
 if(!b) return(0x00);
