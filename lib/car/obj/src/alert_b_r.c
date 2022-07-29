@@ -14,9 +14,7 @@ Return (~0x01) if more than 5 minutes ahead.
 # include "./../../../config.h"
 
 signed(__cdecl alert_b_r(signed(arg),signed short(hr),signed short(mn))) {
-auto signed char *b;
 auto struct tm *tp;
-auto signed r;
 auto signed short h;
 auto signed short m;
 auto time_t t;

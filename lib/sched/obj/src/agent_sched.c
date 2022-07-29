@@ -1,18 +1,23 @@
 /* **** Notes
 
-Schedule.
+Schedule
+
+Remarks:
+Refer fn. execvpe
 */
 
 
-# define CAR
-# define CALEND
-# include <stdio.h>
+# define SCHED_H
+# define CAR_H
+# define CAL_H
+# define CAT_H
+# define TIME_H
+# define STDIO_H
 # include <process.h>
 # include <errno.h>
-# include "./../../../incl/config.h"
+# include "./../../../config.h"
 
 signed(__cdecl agent_sched(signed(argc),signed char(**argv),signed char(**envp))) {
-
 auto signed char **v,**e;
 auto signed char *b;
 auto signed char *path;
@@ -25,16 +30,6 @@ auto signed local = (0x01);
 auto signed size = (0x200);
 auto signed char buff[0x200];
 auto signed char *(a[0x02]);
-auto signed error[] = {
-E2BIG,
-EACCES,
-EINVAL,
-EMFILE,
-ENOENT,
-ENOEXEC,
-ENOMEM,
-0x00,
-};
 auto signed char *(errors[]) = {
 "E2BIG",
 "EACCES",
@@ -45,22 +40,28 @@ auto signed char *(errors[]) = {
 "ENOMEM",
 0x00,
 };
-
+auto signed error[] = {
+E2BIG,
+EACCES,
+EINVAL,
+EMFILE,
+ENOENT,
+ENOEXEC,
+ENOMEM,
+0x00,
+};
 if(argc<(0x03)) return(sched_help());
-
 time(&t);
-cals_out_t(t);
+cal_out_time(t);
 printf("\n");
 if(!(init_sched(&sched))) return(0x00);
 // if(!envp) return(0x00);
-
-OR(*(CLI_BASE+(R(flag,sched))),CLI_MONITOR);
+OR(*(R(flag,sched)),SCHED_MONITOR);
 b = (0x00);
 v = (argv);
 v++;
 if(!(cv_bv(" ",&b,v))) return(0x00);
 if(DBG) printf("b. [%s] \n",b);
-
 printf("\n");
 r = agent_sched_r(&sched,b);
 embed(0x00,b);
@@ -71,24 +72,21 @@ if(!r) {
 printf("%s \n","Error: Time could not be set.");
 return(0x00);
 }
-
 path = (*(0x01+(argv)));
 if(DBG) printf("path: [%s] \n",path);
 if(!(quot_b(size,buff,path))) return(0x00);
-
 printf("%s \n","Pressing any key cancels the schedule.");
 printf("\n");
 b = (buff);
-hr = (*(CALS_HR+(R(time,sched))));
-mn = (*(CALS_MN+(R(time,sched))));
+hr = (*(SCHED_HR+(R(time,sched))));
+mn = (*(SCHED_MN+(R(time,sched))));
 printf("%s %s %s %2d:%02d \n","Launch",b,"at",hr,mn);
 if(!(sched_b(local,&sched))) {
 printf("%s \n","<< Error at fn. sched_b()");
 return(0x00);
 }
-
-flag = (*(CLI_BASE+(R(flag,sched))));
-if(CLI_ALREADY&(flag)) {
+flag = (*(R(flag,sched)));
+if(SCHED_ALREADY&(flag)) {
 e = (envp);
 v = (a);
 *v = (b);
@@ -101,10 +99,8 @@ printf("%s %Xh \n","<< Error at fn. execvpe() with errno.",errno);
 r = ct_vb(errors);
 while(r) if(EQ(errno,*(--r+(error)))) printf("%s %s. \n","<< Occurred an error with",*(r+(errors)));
 }}
-
 b = (0x00);
 printf("\n");
 printf("%s \n","Cancelled");
-
 return(0x01);
 }

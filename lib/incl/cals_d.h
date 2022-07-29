@@ -111,13 +111,6 @@ static signed char **(MONTH_V[]) = {
 CAPS_MONTH,MON,(signed char(**)) (0x00),
 };
 
-struct sched {
-signed r[OBJS];
-signed short flag[OBJS];
-signed short time[CALS_TIME];
-signed short date[CALS_DATE];
-} typedef sched_t;
-
 struct cals_event {
 signed char *b;
 signed short *w;

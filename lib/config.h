@@ -176,6 +176,10 @@ Remarks:
 # include "./dump/obj/src/incl/dump.h"
 # endif
 
+# ifdef SCHED_H
+# include "./sched/obj/src/incl/sched.h"
+# endif
+
 # ifdef PRIV_H
 # include "./priv/obj/src/incl/priv.h"
 # endif
