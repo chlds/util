@@ -8,6 +8,13 @@ Along with C library
 */
 
 
+signed(__cdecl catppp(signed char(***argp)));
+signed(__cdecl catpp(signed char(**argp)));
+/* Output character lines */
+
+signed(__cdecl xe(signed(arg/* continue */),void(*argp),signed(__cdecl**fn)(void(*argp))));
+/* Execute */
+
 signed(__cdecl cf_dir_w(signed short(*argp)));
 signed(__cdecl cf_dir(signed char(*argp)));
 signed(__cdecl cf_ff_w(signed short(*di),signed char(*si)));
@@ -117,6 +124,11 @@ signed char *(__cdecl cv_r(signed(arg/* n-digit */),signed char(*argp)));
 signed char *(__cdecl cv(signed(digit),signed(arg)));
 signed char *(__cdecl cat_ahead(signed char(*di),signed char(*si)));
 /* convert, concatenate and release */
+
+signed(__cdecl cat_va_r(signed char(**di),signed char(*si)));
+signed(__cdecl cat_va(signed char(***di),signed char(*si)));
+signed(__cdecl concat_va(signed char(***di),signed char(**si)));
+/* Concatenate */
 
 signed(__cdecl cat_p(signed char(***di),signed char(*si)));
 /* Concatenate pointers */

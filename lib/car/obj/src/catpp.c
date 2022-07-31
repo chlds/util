@@ -1,21 +1,17 @@
 /* **** Notes
 
-Output character lines out of the argument
+Output character lines
 */
 
 
-# define CAR
-# include "../../../incl/config.h"
-# include <stdio.h>
+# define CAR_H
+# define STDIO_H
+# include "./../../../config.h"
 
 signed(__cdecl catpp(signed char(**argp))) {
-
-/* **** CODE/TEXT */
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
-
-printf("%s\n", *argp);
-
+printf("%s\n",*argp);
 argp++;
-return(1+(catpp(argp)));
+return(0x01+(catpp(argp)));
 }
