@@ -125,6 +125,12 @@ signed char *(__cdecl cv(signed(digit),signed(arg)));
 signed char *(__cdecl cat_ahead(signed char(*di),signed char(*si)));
 /* convert, concatenate and release */
 
+signed(__cdecl ct_av_b_r(signed(*di),signed char(**si)));
+signed(__cdecl ct_av_b(signed(*di),signed char(**si)));
+signed(__cdecl cpy_av_b(signed char(*di),signed char(**si)));
+signed(__cdecl concat_argv(signed(offset),signed char(**di),signed char(**si)));
+/* Concatenate */
+
 signed(__cdecl cat_va_r(signed char(**di),signed char(*si)));
 signed(__cdecl cat_va(signed char(***di),signed char(*si)));
 signed(__cdecl concat_va(signed char(***di),signed char(**si)));

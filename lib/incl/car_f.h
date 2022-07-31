@@ -292,9 +292,9 @@ signed(__cdecl cv_hr(signed short(*hr),signed short(*mn),signed char(*si)));
 signed(__cdecl cv_mn(signed short(*mn),signed char(*si)));
 signed(__cdecl cv_at(signed short(*hr),signed short(*mn),signed char(*argp)));
 
-signed(__cdecl concat_argv_rr(signed char(*di),signed char(**si)));
-signed(__cdecl concat_argv_r_r(signed(*di),signed char(**si)));
-signed(__cdecl concat_argv_r(signed(*di),signed char(**si)));
+signed(__cdecl ct_av_b_r(signed(*di),signed char(**si)));
+signed(__cdecl ct_av_b(signed(*di),signed char(**si)));
+signed(__cdecl cpy_av_b(signed char(*di),signed char(**si)));
 signed(__cdecl concat_argv(signed(offset),signed char(**di),signed char(**si)));
 
 signed(__cdecl sub_da(signed(arg),signed char(*argp)));
