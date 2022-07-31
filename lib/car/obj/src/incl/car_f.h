@@ -128,6 +128,7 @@ signed char *(__cdecl cat_ahead(signed char(*di),signed char(*si)));
 signed(__cdecl cat_va_r(signed char(**di),signed char(*si)));
 signed(__cdecl cat_va(signed char(***di),signed char(*si)));
 signed(__cdecl concat_va(signed char(***di),signed char(**si)));
+signed(__cdecl cat_v(signed(arg/* code of line break */),signed char(*argp/* separator */),signed char(**di),signed char(**si)));
 /* Concatenate */
 
 signed(__cdecl cat_p(signed char(***di),signed char(*si)));
