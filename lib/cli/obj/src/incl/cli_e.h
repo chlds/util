@@ -5,12 +5,14 @@ CLI_INDEX,
 CLI_LEAD,
 };
 
+/*
 enum {
 CLI_B,
 CLI_W,
 CLI_D,
 CLI_Q,
 };
+//*/
 
 enum {
 CLI_SI,

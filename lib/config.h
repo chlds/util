@@ -18,6 +18,7 @@ Remarks:
 
 # ifndef DUAL_CONFIG_H
 # define OBJS (NIBBLE)
+# include "./incl/cli.h"
 # include "./incl/ctrl.h"
 # include "./incl/dbg.h"
 # include "./incl/al.h"
