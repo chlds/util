@@ -280,6 +280,9 @@ signed(__cdecl embed_r(signed char(*argp)));
 signed(__cdecl embed(signed(arg),signed char(*argp)));
 // Embed
 
+signed(__cdecl sub_da(signed(arg),signed char(*argp)));
+/* Subtract */
+
 signed(__cdecl ctdn_v_r(signed(arg),signed char(**cache),signed char(*argp)));
 signed(__cdecl ctdn_v(signed char(**cache),signed char(*argp)));
 /* Count letters down to the specific arrays */
