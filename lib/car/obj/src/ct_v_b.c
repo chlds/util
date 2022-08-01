@@ -1,15 +1,15 @@
 /* **** Notes
 
-Count pointers.
+Count
 */
 
 
 # define CAR_H
 # include "./../../../config.h"
 
-signed(__cdecl ct_vq(signed long long(**argp))) {
+signed(__cdecl ct_v_b(signed char(**argp))) {
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 argp++;
-return(0x01+(ct_vq(argp)));
+return(0x01+(ct_v_b(argp)));
 }

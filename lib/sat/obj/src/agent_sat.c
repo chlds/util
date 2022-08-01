@@ -190,7 +190,7 @@ break;
 i++;
 }
 // terminate
-r = ct_vb(term);
+r = ct_v_b(term);
 if(EQ(i,(--r))) break; // quit
 if(!i) break; // exit
 }

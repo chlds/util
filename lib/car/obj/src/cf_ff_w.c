@@ -48,7 +48,7 @@ else printf("%s %Xh \n","<< Error at fn. _wstati64() with errno.",errno);
 return(0x00);
 }
 r = ords(ff,si);
-if(r<(ct_vb(ff))) {
+if(r<(ct_v_b(ff))) {
 i = (_S_IFMT&(R(st_mode,stats)));
 if(i&(*(r+(mode)))) return(0x01);
 }

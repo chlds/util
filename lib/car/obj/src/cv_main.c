@@ -1,6 +1,6 @@
 /* **** Notes
 
-Convert into UTF-8.
+Convert into UTF-8
 */
 
 
@@ -19,7 +19,7 @@ if(argc<(0x01)) return(0x00);
 if(!argv) return(0x00);
 // if(!envp) return(0x00);
 
-if(!(EQ(argc,ct_vw(argv)))) return(0x00);
+if(!(EQ(argc,ct_v_w(argv)))) return(0x00);
 
 v = (0x00);
 if(envp) {

@@ -36,7 +36,7 @@ if(!argp) return(0x00);
 b = (argp);
 r = (arg+(0x01+(~(ct(b)))));
 if(0x00<(r)) {
-r = (r%(ct_vb(a)));
+r = (r%(ct_v_b(a)));
 b = cat_ahead(b,*(r+(a)));
 }
 return(b);

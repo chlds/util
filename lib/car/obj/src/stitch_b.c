@@ -44,7 +44,7 @@ if(!argp) return(0x00);
 
 b = (cache);
 r = ords(term,b);
-if(!(r<(ct_vb(term)))) return(0x00);
+if(!(r<(ct_v_b(term)))) return(0x00);
 if(arg<(0x00)) AND(arg,0x00);
 /* stack size of threads */
 

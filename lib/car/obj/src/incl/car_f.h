@@ -310,10 +310,10 @@ signed(__cdecl ct2(signed char(di), signed char(*base)));
 signed(__cdecl ct_f(signed(__cdecl**f)(void(*argp))));
 /* Count function pointers */
 
-signed(__cdecl ct_vq(signed long long(**argp)));
-signed(__cdecl ct_vd(signed(**argp)));
-signed(__cdecl ct_vw(signed short(**argp)));
-signed(__cdecl ct_vb(signed char(**argp)));
+signed(__cdecl ct_v_q(signed long long(**argp)));
+signed(__cdecl ct_v_d(signed(**argp)));
+signed(__cdecl ct_v_w(signed short(**argp)));
+signed(__cdecl ct_v_b(signed char(**argp)));
 signed(__cdecl ct_v(signed char(**argp)));
 signed(__cdecl ct_p(void(**argp)));
 /* Count pointers */

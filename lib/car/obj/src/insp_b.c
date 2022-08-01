@@ -48,7 +48,7 @@ if(!r) return(0x00);
 if(!s) return(0x01);
 
 r = ords(a,si);
-if(!(r<(ct_vb(a)))) return(0x00);
+if(!(r<(ct_v_b(a)))) return(0x00);
 
 f = (*(r+(fn)));
 d = (0x00);

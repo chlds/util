@@ -22,7 +22,7 @@ if(!b) return(0x00);
 *b = (0x00);
 r = cpy(b,si);
 v = (di);
-r = ct_vb(v);
+r = ct_v_b(v);
 *(r+(di)) = (b);
 return(0x01);
 }

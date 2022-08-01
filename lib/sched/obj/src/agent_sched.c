@@ -96,7 +96,7 @@ v = (a);
 r = execvpe(path,v,e);
 if(EQ(r,~0x00)) {
 printf("%s %Xh \n","<< Error at fn. execvpe() with errno.",errno);
-r = ct_vb(errors);
+r = ct_v_b(errors);
 while(r) if(EQ(errno,*(--r+(error)))) printf("%s %s. \n","<< Occurred an error with",*(r+(errors)));
 }}
 b = (0x00);

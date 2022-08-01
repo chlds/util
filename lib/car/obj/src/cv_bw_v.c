@@ -19,7 +19,7 @@ auto signed short flag;
 if(!di) return(0x00);
 if(*di) return(0x00);
 if(!si) return(0x00);
-r = ct_vw(si);
+r = ct_v_w(si);
 if(!r) return(0x00);
 r++;
 r = (r*(sizeof(*b)));
@@ -28,7 +28,7 @@ if(!b) return(0x00);
 AND(flag,0x00);
 r = cv_bw_v_r(b,si);
 if(!r) OR(flag,0x01);
-if(r^(ct_vw(si))) OR(flag,0x02);
+if(r^(ct_v_w(si))) OR(flag,0x02);
 if(flag) {
 printf("%s \n","<< Error at fn. cv_bw_v_r()");
 AND(r,0x00);

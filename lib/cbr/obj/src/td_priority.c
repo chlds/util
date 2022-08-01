@@ -31,7 +31,7 @@ THREAD_PRIORITY_TIME_CRITICAL,
 
 if(!arg) return(0x00);
 
-r = ct_vd(priors);
+r = ct_v_d(priors);
 if(!r) return(0x00);
 
 while(r) **(r+(priors)) = (*(--r+(prior)));
@@ -45,13 +45,13 @@ return(0x00);
 }
 
 r = ord_vd(priors,r);
-if(r<(ct_vd(priors))) {
+if(r<(ct_v_d(priors))) {
 if(arg<(0x00)) --r;
 else r++;
 }
 
 if(r<(0x00)) return(0x00);
-if(!(r<(ct_vd(priors)))) return(0x00);
+if(!(r<(ct_v_d(priors)))) return(0x00);
 
 if(DBG) printf("%s %d/%Xh \n","<< td_priority:",*(r+(prior)),*(r+(prior)));
 

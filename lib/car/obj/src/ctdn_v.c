@@ -12,6 +12,6 @@ auto signed r;
 if(!cache) return(0x00);
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
-r = ct_vb(cache);
+r = ct_v_b(cache);
 return(ctdn_v_r(r,cache,argp));
 }

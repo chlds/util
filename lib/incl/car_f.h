@@ -8,6 +8,14 @@ Along with C library
 */
 
 
+signed(__cdecl ct_v_q(signed long long(**argp)));
+signed(__cdecl ct_v_d(signed(**argp)));
+signed(__cdecl ct_v_w(signed short(**argp)));
+signed(__cdecl ct_v_b(signed char(**argp)));
+signed(__cdecl ct_v(signed char(**argp)));
+signed(__cdecl ct_p(void(**argp)));
+/* Count pointers */
+
 void*(__cdecl alloc(signed(arg)));
 /* Allocate i.e., fn. malloc */
 
