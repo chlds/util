@@ -47,9 +47,8 @@ return(pin_f(b));
 //*/
 
 b = (0x00);
-r = cv_bv(" ",&b,v);
-if(!r) {
-printf("%s \n","<< Error at fn. cv_bv()");
+if(!(cv_av_b(" ",&b,v))) {
+printf("%s \n","<< Error at fn. cv_av_b()");
 return(0x00);
 }
 

@@ -60,7 +60,7 @@ OR(*(R(flag,sched)),SCHED_MONITOR);
 b = (0x00);
 v = (argv);
 v++;
-if(!(cv_bv(" ",&b,v))) return(0x00);
+if(!(cv_av_b(" ",&b,v))) return(0x00);
 if(DBG) printf("b. [%s] \n",b);
 printf("\n");
 r = agent_sched_r(&sched,b);
