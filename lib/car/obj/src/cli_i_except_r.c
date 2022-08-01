@@ -21,8 +21,8 @@ if(!(*argp)) return(0x00);
 if(!(_kbhit())) return(0x00);
 
 r = _getch();
-if(!(cat_bb(argp,r))) {
-printf("%s \n","<< Error at fn. cat_bb()");
+if(!(cat_ab(argp,r))) {
+printf("%s \n","<< Error at fn. cat_ab()");
 return(0x00);
 }
 

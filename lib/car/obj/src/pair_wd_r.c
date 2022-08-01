@@ -3,7 +3,7 @@
 Pair bytes into a two-word character based on UTF-16
 
 Remarks:
-Call fn. rl later.
+Call fn. rl later
 subtract minuend, subtrahend; subtraction to find the difference
 divid dividend, divisor; division to find the quotient (and the remainder)
 */
@@ -22,7 +22,7 @@ AND(r,0x3FF);
 // in 10b
 OR(r,second);
 w = (signed short) (r);
-r = cat_ww(di,w);
+r = cat_aw(di,w);
 if(!r) return(0x00);
 return(0x02);
 }

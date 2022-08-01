@@ -24,10 +24,10 @@ if(arg<(0x01)) return(~0x00);
 if(!argp) return(~0x00);
 
 d = (0x00);
-r = cat_dd(&d,*argp);
+r = cat_ad(&d,*argp);
 if(!r) return(~0x00);
 
-r = cat_dd(&d,*(0x01+(argp)));
+r = cat_ad(&d,*(0x01+(argp)));
 if(!r) {
 rl(d);
 return(~0x00);

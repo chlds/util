@@ -22,8 +22,8 @@ return(0x00);
 }
 if(!(0x03<(r))) {
 w = (signed short) (i);
-if(!(cat_ww(di,w))) {
-printf("%s \n","<< Error at fn. cat_ww()");
+if(!(cat_aw(di,w))) {
+printf("%s \n","<< Error at fn. cat_aw()");
 return(0x00);
 }
 return(0x01+(decode_wb_r(di,si)));
@@ -32,16 +32,16 @@ if(!(decode_surrogate_first(&w,i))) {
 printf("%s \n","<< Error at fn. decode_surrogate_first()");
 return(0x00);
 }
-if(!(cat_ww(di,w))) {
-printf("%s \n","<< Error at fn. cat_ww()");
+if(!(cat_aw(di,w))) {
+printf("%s \n","<< Error at fn. cat_aw()");
 return(0x00);
 }
 if(!(decode_surrogate_second(&w,i))) {
 printf("%s \n","<< Error at fn. decode_surrogate_second()");
 return(0x00);
 }
-if(!(cat_ww(di,w))) {
-printf("%s \n","<< Error at fn. cat_ww()");
+if(!(cat_aw(di,w))) {
+printf("%s \n","<< Error at fn. cat_aw()");
 return(0x00);
 }
 return(0x02+(decode_wb_r(di,si)));
