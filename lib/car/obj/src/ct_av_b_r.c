@@ -13,7 +13,6 @@ if(!di) return(0x00);
 if(!si) return(0x00);
 if(!(*si)) return(0x00);
 r = ct(*si);
-r++;
 *di = (r+(*di));
 si++;
 return(0x01+(ct_av_b_r(di,si)));
