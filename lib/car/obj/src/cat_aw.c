@@ -15,7 +15,7 @@ auto signed short *w;
 auto signed r;
 if(!di) return(0x00);
 // if(!si) return(0x00);
-// if(*di) return(0x00);
+// if(!(*di)) return(0x00);
 r = ct_w(*di);
 r++;
 r++;

@@ -1,11 +1,6 @@
 /* **** Notes
 
-Concatenate to the terminating null pointer.
-
-Remarks:
-Release buffer later.
-Add an ABI attribute of functions to both the declaration and definition 
-of variadic functions to compile C source files with GCC on WSL (Ubuntu 64-bit).
+Concatenate to the terminating null pointer
 */
 
 
@@ -17,7 +12,7 @@ auto signed r;
 if(!di) return(0x00);
 if(!si) return(0x00);
 if(!(*si)) return(0x00);
-r = concatenate(0x00,di,*si);
+r = cat_a_b(di,*si);
 si++;
 if(!r) return(0x00);
 return(0x01+(cat_b_r(di,si)));

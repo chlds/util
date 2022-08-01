@@ -15,7 +15,7 @@ auto signed *d;
 auto signed r;
 if(!di) return(0x00);
 // if(!si) return(0x00);
-// if(*di) return(0x00);
+// if(!(*di)) return(0x00);
 r = ct_d(*di);
 r++;
 r++;
