@@ -24,17 +24,17 @@ if(!(*si)) {
 if(arg) {
 b = (lf);
 if(!(EQ(LF,arg))) b = (crlf);
-if(!(concat_bb(di,b))) return(0x00);
+if(!(cat_a_b(di,b))) return(0x00);
 b = (0x00);
 }
 return(0x00);
 }
 b = (*si);
 si++;
-if(!(concat_bb(di,b))) return(0x00);
+if(!(cat_a_b(di,b))) return(0x00);
 if(*si) {
 if(argp) {
-if(!(concat_bb(di,argp))) return(0x00);
+if(!(cat_a_b(di,argp))) return(0x00);
 }}
 return(0x01+(cat_v(arg,argp,di,si)));
 }

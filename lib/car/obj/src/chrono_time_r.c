@@ -28,14 +28,14 @@ AND(flag,0x00);
 b = (0x00);
 if(!(cv_d(0x0A,&b,*(--arg+(si))))) return(0x00);
 if(!(0x01<(ct(b)))) {
-if(!(concat_bb(di,p))) OR(flag,0x01);
+if(!(cat_a_b(di,p))) OR(flag,0x01);
 }
-if(!(concat_bb(di,b))) OR(flag,0x01);
+if(!(cat_a_b(di,b))) OR(flag,0x01);
 rl(b);
 b = (0x00);
 if(flag) return(0x00);
 if(arg) {
-if(!(concat_bb(di,colon))) return(0x00);
+if(!(cat_a_b(di,colon))) return(0x00);
 }
 
 return(0x01+(chrono_time_r(arg,di,si)));

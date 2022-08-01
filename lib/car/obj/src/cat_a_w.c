@@ -1,20 +1,20 @@
 /* **** Notes
 
-Concatenate.
+Concatenate
 
 Remarks:
-Call fn. rl later.
+Call fn. rl later
 */
 
 
 # define CAR_H
 # include "./../../../config.h"
 
-signed(__cdecl concat_ww(signed short(**di),signed short(*si))) {
+signed(__cdecl cat_a_w(signed short(**di),signed short(*si))) {
 auto signed short *w;
 auto signed r;
 if(!di) return(0x00);
-if(!si) return(0x00);
+// if(!si) return(0x00);
 // if(*di) return(0x00);
 r = ct_w(*di);
 r = (r+(ct_w(si)));

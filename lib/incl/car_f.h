@@ -649,15 +649,15 @@ signed(__cdecl n_putch(signed(n),signed(letter)));
 /* Output the letter n times. */
 
 signed(__cdecl concatenate_d(signed(arg),signed(**di),signed(*si)));
-signed(__cdecl concat_dd(signed(**di),signed(*si)));
-signed(__cdecl cat_dd(signed(**di),signed(si)));
 signed(__cdecl concatenate_w(signed(arg),signed short(**di),signed short(*si)));
-signed(__cdecl concat_ww(signed short(**di),signed short(*si)));
-signed(__cdecl cat_ww(signed short(**di),signed short(si)));
 signed(__cdecl concatenate(signed(arg),signed char(**di),signed char(*si)));
-signed(__cdecl concat_bb(signed char(**di),signed char(*si)));
+signed(__cdecl cat_a_d(signed(**di),signed(*si)));
+signed(__cdecl cat_a_w(signed short(**di),signed short(*si)));
+signed(__cdecl cat_a_b(signed char(**di),signed char(*si)));
+signed(__cdecl cat_dd(signed(**di),signed(si)));
+signed(__cdecl cat_ww(signed short(**di),signed short(si)));
 signed(__cdecl cat_bb(signed char(**di),signed char(si)));
-/* Call fn. rl later to release buffer. */
+/* Call fn. rl later */
 
 signed(__cdecl cv_l_r(signed short(radix),signed char(*di_tbl),signed char(*si_tbl),signed char(*di),signed char(*si)));
 signed(__cdecl cv_l(signed char(*di_tbl),signed char(*si_tbl),signed char(*di),signed char(*si)));

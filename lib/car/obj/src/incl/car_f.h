@@ -145,15 +145,15 @@ signed(__cdecl /* __attribute__((ms_abi)) */ cat_b(signed char(**argp),...));
 /* Concatenate to the terminating null pointer */
 
 signed(__cdecl concatenate_d(signed(arg),signed(**di),signed(*si)));
-signed(__cdecl concat_dd(signed(**di),signed(*si)));
-signed(__cdecl cat_dd(signed(**di),signed(si)));
 signed(__cdecl concatenate_w(signed(arg),signed short(**di),signed short(*si)));
-signed(__cdecl concat_ww(signed short(**di),signed short(*si)));
-signed(__cdecl cat_ww(signed short(**di),signed short(si)));
 signed(__cdecl concatenate(signed(arg),signed char(**di),signed char(*si)));
-signed(__cdecl concat_bb(signed char(**di),signed char(*si)));
+signed(__cdecl cat_a_d(signed(**di),signed(*si)));
+signed(__cdecl cat_a_w(signed short(**di),signed short(*si)));
+signed(__cdecl cat_a_b(signed char(**di),signed char(*si)));
+signed(__cdecl cat_dd(signed(**di),signed(si)));
+signed(__cdecl cat_ww(signed short(**di),signed short(si)));
 signed(__cdecl cat_bb(signed char(**di),signed char(si)));
-/* Call fn. rl later to release buffer */
+/* Call fn. rl later */
 
 signed(__cdecl arr_dir(signed char(**di),signed char(*si)));
 /* Arrange */
