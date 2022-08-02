@@ -27,8 +27,8 @@ printf("%s \n","<< Error at fn. cv_wb()");
 return(0x00);
 }
 
-r = cli_log_rrr(w,si);
-if(!r) printf("%s \n","<< Error at fn. cli_log_rrr()");
+r = appd_w(LF,w,si);
+if(!r) printf("%s \n","<< Error at fn. appd_w()");
 
 embed_w(0x00,w);
 rl(w);
