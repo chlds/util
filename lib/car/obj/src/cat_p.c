@@ -36,7 +36,7 @@ rl(p);
 return(0x00);
 }
 *b = (0x00);
-r = cpy_p(b,*di);
+r = cpy_v_b(b,*di);
 *(r+(b)) = (p);
 *(0x01+(r+(b))) = (0x00);
 rl(*di);

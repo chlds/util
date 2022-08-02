@@ -175,7 +175,7 @@ signed(__cdecl append_b(signed char(*di),signed char(*si)));
 signed(__cdecl cpy2p(signed char(*di),signed char(*deadline),signed char(*si)));
 signed(__cdecl cpy2(signed char(cache),signed char(*di),signed char(*si)));
 signed(__cdecl ncpy(signed(arg),signed char(*di),signed char(*si)));
-signed(__cdecl cpy_p(signed char(**di),signed char(**si)));
+signed(__cdecl cpy_v_b(signed char(**di),signed char(**si)));
 signed(__cdecl cpy_q(signed long long(*di),signed long long(*si)));
 signed(__cdecl cpy_d(signed(*di),signed(*si)));
 signed(__cdecl cpy_w(signed short(*di),signed short(*si)));

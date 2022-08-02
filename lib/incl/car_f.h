@@ -602,7 +602,7 @@ signed(__cdecl ct_args(signed char(*argp)));
 signed(__cdecl wr_rd_l(signed(*fd),signed char(*cache),signed(size)));
 signed(__cdecl wr_rd_r(signed(*fd),signed char(*cache),signed(size)));
 signed(__cdecl wr_rd(signed(*fd)));
-signed(__cdecl cpy_p(signed char(**di),signed char(**si)));
+signed(__cdecl cpy_v_b(signed char(**di),signed char(**si)));
 signed(__cdecl cpy2p(signed char(*di),signed char(*deadline),signed char(*si)));
 signed(__cdecl ncpy(signed(arg),signed char(*di),signed char(*si)));
 signed(__cdecl cpy2(signed char(cache),signed char(*di),signed char(*si)));
