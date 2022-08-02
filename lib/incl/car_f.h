@@ -172,9 +172,11 @@ signed(__cdecl xt_parse_permission(signed(*retv),signed(*cache),signed char(*arg
 signed(__cdecl xt_parse_access(signed(*retv),signed char(*argp)));
 signed(__cdecl xt_parse(signed(*permission),signed(*access),signed char(*argp)));
 signed(__cdecl xt(signed char(*param),signed char(*path),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
+signed(__cdecl cl_w(signed(arg)));
 signed(__cdecl cl_b(signed(arg)));
 signed(__cdecl rd_b(signed(fd),signed char(*argp),signed(arg)));
 signed(__cdecl wr_b(signed(fd),signed char(*argp),signed(arg)));
+signed(__cdecl op_w(signed short(*path),signed(*argp),...));
 signed(__cdecl op_b(signed char(*path),signed(*argp),...));
 
 signed(__cdecl already_w(size_t(*size),signed short(*argp)));

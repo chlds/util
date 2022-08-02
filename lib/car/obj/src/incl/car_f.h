@@ -8,6 +8,14 @@ Along with C library
 */
 
 
+signed(__cdecl cl_w(signed(arg)));
+signed(__cdecl cl_b(signed(arg)));
+signed(__cdecl rd_b(signed(fd),signed char(*argp),signed(arg)));
+signed(__cdecl wr_b(signed(fd),signed char(*argp),signed(arg)));
+signed(__cdecl op_w(signed short(*path),signed(*argp),...));
+signed(__cdecl op_b(signed char(*path),signed(*argp),...));
+/* Operation */
+
 signed(__cdecl catppp(signed char(***argp)));
 signed(__cdecl catpp(signed char(**argp)));
 /* Output character lines */

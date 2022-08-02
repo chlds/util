@@ -3,7 +3,7 @@
 Close
 
 Remarks:
-Refer at fn. op_b
+Refer at fn. op_w
 */
 
 
@@ -12,6 +12,6 @@ Refer at fn. op_b
 # include <errno.h>
 # include "./../../../config.h"
 
-signed(__cdecl cl_b(signed(arg))) {
-return(close(arg));
+signed(__cdecl cl_w(signed(arg))) {
+return(_close(arg));
 }
