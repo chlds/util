@@ -1,43 +1,27 @@
 /* **** Notes
 
-Append.
+Append
 
 Remarks:
 write di,si
-; write contents into a storage
 */
 
 
-# define CAR
-# include <stdio.h>
-# include "./../../../incl/config.h"
+# define CAR_H
+# include "./../../../config.h"
 
 signed(__cdecl appd_ds_w(signed short(**argp))) {
-
 auto signed short *w;
-auto signed i,r;
-auto signed short flag;
-auto fl_t fl;
-auto signed threshold = (0x03);
+auto signed *(a[OBJS]);
 auto signed char *perm = ("rdonly,binary");
-
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
-
-r = init_fl(0x00,&fl);
-if(!r) {
-printf("%s \n","<< Error at fn. init_fl()");
-return(0x00);
-}
-
-AND(r,0x00);
-r = (threshold+(~r));
-while(r) {
 w = (*argp);
+*(CLI_B+(a)) = (signed*) (w);
 argp++;
-*(--r+(R(v,fl))) = (void*) (w);
+if(!argp) return(0x00);
+w = (*argp);
+*(CLI_W+(a)) = (signed*) (w);
 if(!w) return(0x00);
-}
-
-return(xt_w(perm,w,&fl,appd_ds_w_r));
+return(xt_w(perm,w,a,appd_ds_w_r));
 }

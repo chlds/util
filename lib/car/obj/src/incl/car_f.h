@@ -8,6 +8,18 @@ Along with C library
 */
 
 
+signed(__cdecl wr_rd_l(signed(*fd),signed char(*cache),signed(size)));
+signed(__cdecl wr_rd_r(signed(*fd),signed char(*cache),signed(size)));
+signed(__cdecl wr_rd(signed(*fd)));
+signed(__cdecl wr_ds_r(signed(fd),signed(**argp)));
+signed(__cdecl wr_ds_w_r(signed(fd),signed(**argp)));
+signed(__cdecl wr_ds_w(signed short(**argp)));
+signed(__cdecl wr_ds_b_r(signed(fd),signed(**argp)));
+signed(__cdecl wr_ds_b(signed char(**argp)));
+signed(__cdecl appd_ds_w_r(signed(fd),signed(**argp)));
+signed(__cdecl appd_ds_w(signed short(**argp)));
+signed(__cdecl appd_ds_b_r(signed(fd),signed(**argp)));
+signed(__cdecl appd_ds_b(signed char(**argp)));
 signed(__cdecl cl_w(signed(arg)));
 signed(__cdecl cl_b(signed(arg)));
 signed(__cdecl rd_b(signed(fd),signed char(*argp),signed(arg)));

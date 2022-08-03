@@ -1,28 +1,21 @@
 /* **** Notes
 
-Retrieve a file descriptor to read.
-
-Remarks:
-Refer at fn. wr_ds_b_r.
+Retrieve a file descriptor to read
 */
 
 
-# define CAR
-# include <stdio.h>
-# include "./../../../incl/config.h"
+# define CAR_H
+# include "./../../../config.h"
 
-signed(__cdecl appd_ds_b_r(signed(fd),fl_t(*argp))) {
-
+signed(__cdecl appd_ds_b_r(signed(fd),signed(**argp))) {
+auto signed **v;
 auto signed char *b;
-auto signed r;
-auto signed short flag;
 auto signed char *perm = ("append,rdwr,binary");
-
 if(fd<(0x00)) return(0x00);
 if(!argp) return(0x00);
-
-*(CLI_SI+(R(fd,*argp))) = (fd);
-b = (signed char(*)) (*(CLI_DI+(R(v,*argp))));
-
+v = (argp);
+*(CLI_W+(v)) = (&fd);
+b = (signed char(*)) (*(CLI_B+(v)));
+v = (0x00);
 return(xt(perm,b,argp,wr_ds_r));
 }
