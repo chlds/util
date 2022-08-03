@@ -32,9 +32,11 @@ r = cat_b(&b,R(p_dir,*argp),p,(void*) 0x00);
 if(!r) return(0x00);
 if(DBG) printf("[%s: %s] \n","b",b);
 
-r = cat_p(di,b);
+r = append_va_b(di,b);
+embed(0x00,b);
+rl(b);
+b = (0x00);
 if(!r) return(0x00);
-if(DBG) printf("[%s: %s] \n","b",b);
 
 /* Read i.e., update with the search handle */
 r = FindNextFile(R(search,*argp),&(R(wfd,*argp)));

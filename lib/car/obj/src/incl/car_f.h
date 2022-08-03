@@ -143,8 +143,8 @@ signed(__cdecl concat_va(signed char(***di),signed char(**si)));
 signed(__cdecl cat_v(signed(arg/* code of line break */),signed char(*argp/* separator */),signed char(**di),signed char(**si)));
 /* Concatenate */
 
-signed(__cdecl cat_p(signed char(***di),signed char(*si)));
-/* Concatenate pointers */
+signed(__cdecl append_va_b(signed char(***di),signed char(*si)));
+/* Append */
 
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_w_r(signed short(**di),signed short(**si)));
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_w(signed short(**argp),...));
