@@ -8,6 +8,12 @@ Along with C library
 */
 
 
+signed(__cdecl ed_w(signed short(*path),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
+signed(__cdecl ed_b(signed char(*path),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
+signed(__cdecl str_w(signed(arg/* code of line break */),signed char(*perm),signed short(*di/* path */),signed char(*si/* contents */)));
+signed(__cdecl str_b_rr(signed(fd),signed char(**argp)));
+signed(__cdecl str_b_r(signed(fd),void(*argp)));
+signed(__cdecl str_b(signed(arg/* code of line break */),signed char(*perm),signed char(*di/* path */),signed char(*si/* contents */)));
 signed(__cdecl wr_rd_l(signed(*fd),signed char(*cache),signed(size)));
 signed(__cdecl wr_rd_r(signed(*fd),signed char(*cache),signed(size)));
 signed(__cdecl wr_rd(signed(*fd)));
@@ -43,6 +49,8 @@ signed(__cdecl cf_f_extensions_w(signed short(*cache),signed short(*argp)));
 signed(__cdecl cf_f_extensions(signed char(*cache),signed char(*argp)));
 signed(__cdecl already_w(size_t(*size),signed short(*argp)));
 signed(__cdecl already_b(size_t(*size),signed char(*argp)));
+signed(__cdecl already_in_w(signed short(*argp)));
+signed(__cdecl already_in_b(signed char(*argp)));
 /* Confirm */
 
 signed(__cdecl flag_b_r(signed char(**v),signed char(*a),signed short(*di),signed short(*si)));

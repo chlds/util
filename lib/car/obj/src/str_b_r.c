@@ -4,10 +4,8 @@ Store bytes
 */
 
 
-# define CAR
-# include <stdio.h>
-# include <errno.h>
-# include "../../../incl/config.h"
+# define CAR_H
+# include "./../../../config.h"
 
 signed(__cdecl str_b_r(signed(fd),void(*argp))) {
 auto signed char **v;

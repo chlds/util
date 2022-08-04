@@ -4,17 +4,14 @@ Store bytes
 */
 
 
-# define CAR
-# include <stdio.h>
+# define CAR_H
+# define STDIO_H
 # include <errno.h>
-# include "../../../incl/config.h"
+# include "./../../../config.h"
 
 signed(__cdecl str_b_rr(signed(fd),signed char(**argp))) {
-
-auto signed char **v;
 auto signed char *b;
-auto signed i,r;
-
+auto signed r;
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 b = (*argp);
