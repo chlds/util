@@ -9,6 +9,7 @@ Along with C library
 
 
 signed(__cdecl cat_pg(signed short(flag),pg_t(*di),pg_t(*si)));
+signed(__cdecl bind_pg_r(pg_t(*di),pg_t(*si)));
 signed(__cdecl bind_pg(pg_t(*argp)));
 signed(__cdecl unmap_pg(pg_t(*argp)));
 signed(__cdecl unbind_pg(pg_t(*argp)));

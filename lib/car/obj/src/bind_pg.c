@@ -25,16 +25,11 @@ if(!p) {
 printf("%s \n","<< Error at fn. alloc()");
 return(0x00);
 }
-if(!(init_pg(0x00,p))) {
-printf("%s \n","<< Error at fn. init_pg()");
-rl(p);
-return(0x00);
-}
-r = cat_pg(0x00/* i.e., in a doubly LL */,argp,p);
+r = bind_pg_r(argp,p);
 if(!r) {
-printf("%s \n","<< Error at fn. cat_pg()");
+printf("%s \n","<< Error at fn. bind_pg_r()");
 rl(p);
-return(0x00);
+p = (0x00);
 }
 return(r);
 }
