@@ -8,7 +8,13 @@ Along with C library
 */
 
 
-signed(__cdecl init_pg(pg_t(*argp)));
+signed(__cdecl cat_pg(signed short(flag),pg_t(*di),pg_t(*si)));
+signed(__cdecl bind_pg(pg_t(*argp)));
+signed(__cdecl unmap_pg(pg_t(*argp)));
+signed(__cdecl unbind_pg(pg_t(*argp)));
+signed(__cdecl init_rule_v_b_r(signed(arg),signed char(**argp)));
+signed(__cdecl init_rule_v_b(signed(cached),signed(arg),signed char(**argp)));
+signed(__cdecl init_pg(signed(arg),pg_t(*argp)));
 /* Page */
 
 signed(__cdecl init_v_w(signed(cached),signed(arg),signed short(**argp)));

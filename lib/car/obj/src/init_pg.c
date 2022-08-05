@@ -7,16 +7,17 @@ Initialise
 # define CAR_H
 # include "./../../../config.h"
 
-signed(__cdecl init_pg(pg_t(*argp))) {
-auto signed char *b;
+signed(__cdecl init_pg(signed(arg),pg_t(*argp))) {
+auto signed char **v;
 auto pg_t *p;
 auto signed r;
 if(!argp) return(0x00);
-b = (0x00);
+AND(r,0x00);
+OR(r,OBJS);
 p = (0x00);
-r = (OBJS);
 while(r) *(--r+(R(p,*argp))) = (p);
-r = (OBJS);
-while(r) *(--r+(R(b,*argp))) = (b);
+v = (R(b,*argp));
+r = init_rule_v_b(arg,OBJS,v);
+if(!(EQ(OBJS,r))) return(0x00);
 return(0x01);
 }
