@@ -4,3 +4,15 @@ CLI_W,
 CLI_D,
 CLI_Q,
 };
+
+enum {
+CLIH_BASE,
+CLIH_OFFSET,
+CLIH_INDEX,
+CLIH_DIFF,
+};
+
+enum {
+CLIH_SI,
+CLIH_DI,
+};

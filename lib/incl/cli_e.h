@@ -16,8 +16,6 @@ CLI_Q,
 enum {
 CLI_SI,
 CLI_DI,
-CLIH_SI,
-CLIH_DI,
 };
 
 enum {

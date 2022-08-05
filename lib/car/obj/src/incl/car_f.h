@@ -8,6 +8,9 @@ Along with C library
 */
 
 
+signed(__cdecl init_pg(pg_t(*argp)));
+/* Page */
+
 signed(__cdecl init_v_w(signed(cached),signed(arg),signed short(**argp)));
 signed(__cdecl init_v_b(signed(cached),signed(arg),signed char(**argp)));
 /* Initialise */
