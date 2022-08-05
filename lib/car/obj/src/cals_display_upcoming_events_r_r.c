@@ -26,9 +26,9 @@ LF,0x00,
 
 if(!argp) return(0x00);
 
-r = init_b(0x00,CLI_RULE,b);
+r = init_v_b(0x00,CLI_RULE,b);
 if(!r) {
-printf("%s \n","<< Error at fn. init_b()");
+printf("%s \n","<< Error at fn. init_v_b()");
 return(0x00);
 }
 
@@ -81,9 +81,9 @@ if(!r) OR(flag,0x01);
 printf("\n");
 }}
 
-r = init_b(0x01,CLI_RULE,b);
+r = init_v_b(0x01,CLI_RULE,b);
 if(!r) {
-printf("%s \n","<< Error at fn. init_b()");
+printf("%s \n","<< Error at fn. init_v_b()");
 return(0x00);
 }
 

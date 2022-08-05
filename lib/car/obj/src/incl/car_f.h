@@ -8,6 +8,16 @@ Along with C library
 */
 
 
+signed(__cdecl init_v_w(signed(cached),signed(arg),signed short(**argp)));
+signed(__cdecl init_v_b(signed(cached),signed(arg),signed char(**argp)));
+/* Initialise */
+
+signed(__cdecl trunc_w_r(signed short(*path)));
+signed(__cdecl trunc_w(signed short(*cache/* an extension for backups */),signed short(*path)));
+signed(__cdecl trunc_b_r(signed char(*path)));
+signed(__cdecl trunc_b(signed char(*cache/* an extension for backups */),signed char(*path)));
+signed(__cdecl backup_w(signed short(*extension),signed short(*argp)));
+signed(__cdecl backup_b(signed char(*extension),signed char(*argp)));
 signed(__cdecl jd_w(signed(arg/* code of line break */),signed short(*di),signed char(**si)));
 signed(__cdecl jd_b(signed(arg/* code of line break */),signed char(*di),signed char(**si)));
 signed(__cdecl parse_w(signed short(*path),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));

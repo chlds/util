@@ -247,8 +247,8 @@ signed char(*__cdecl rf_env(signed char(*argp)));
 // refer.
 
 signed(__cdecl init_v(signed(arg),void(**argp)));
-signed(__cdecl init_w(signed(cached),signed(arg),signed short(**argp)));
-signed(__cdecl init_b(signed(cached),signed(arg),signed char(**argp)));
+signed(__cdecl init_v_w(signed(cached),signed(arg),signed short(**argp)));
+signed(__cdecl init_v_b(signed(cached),signed(arg),signed char(**argp)));
 signed(__cdecl cli_init_b_r(signed(cache),signed(arg),signed char(**argp)));
 signed(__cdecl cli_init_b(signed(cache),signed(arg),signed char(**argp)));
 // initialise.

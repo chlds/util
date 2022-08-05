@@ -28,12 +28,12 @@ if(!si) return(0x00);
 // if(*cache) return(0x00);
 
 v = (cache);
-if(!(init_b(0x00,CLI_OBJS,v))) return(0x00);
+if(!(init_v_b(0x00,CLI_OBJS,v))) return(0x00);
 
 r = cli_log_b_r(arg,v,di,argp,si);
 if(!r) printf("%s \n","<< Error at fn. cli_log_b_r()");
 
-if(!(init_b(0x01,CLI_OBJS,v))) return(0x00);
+if(!(init_v_b(0x01,CLI_OBJS,v))) return(0x00);
 
 return(r);
 }
