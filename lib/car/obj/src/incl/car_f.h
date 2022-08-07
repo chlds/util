@@ -161,12 +161,21 @@ signed(__cdecl encode_surrogate_w(signed char(**di),signed short(second),signed 
 signed(__cdecl ncharbyte(signed(arg)));
 /* Encode a character into bytes based on UTF-8. */
 
-signed(__cdecl cli_in_b(signed char(**argp)));
+signed(__cdecl ci_b_except_r(signed char(**argp)));
+signed(__cdecl ci_b_rrr(signed(arg),signed char(**argp)));
+signed(__cdecl ci_b_rr(signed char(**argp)));
+signed char *(__cdecl ci_b_r(signed(arg)));
+signed char *(__cdecl ci_b_except(void));
+signed char *(__cdecl ci_b(void));
+signed char *(__cdecl cin_b(void));
+signed char *(__cdecl cli_in_b(void));
+/* Input */
+
 signed(__cdecl cli_i_except_r(signed char(**argp)));
 signed(__cdecl cli_i_except(signed char(**argp)));
 signed(__cdecl cli_i_b_r(signed(arg),signed char(**argp)));
 signed(__cdecl cli_i_b(signed char(**argp)));
-/* Get Unicode bytes in UTF-8 out of the keyboard */
+/* Get Unicode bytes in UTF-8 out of the keyboard -- deprecated */
 
 signed(__cdecl ct_a_back_r(signed char(*argp)));
 signed(__cdecl ct_a_back(signed char(*argp)));

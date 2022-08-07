@@ -398,7 +398,7 @@ signed(__cdecl cv_wb(signed short(**di),signed char(*si)));
 signed(__cdecl decode2w(signed(size),signed short(*di),signed char(*si)));
 /* Decode */
 
-signed(__cdecl cli_in_b(signed char(**argp)));
+signed char *(__cdecl cli_in_b(void));
 signed(__cdecl cli_in(signed(*character),signed char(*argp),signed(size))); // deprecated
 signed(__cdecl cli_i_except_r(signed char(**argp)));
 signed(__cdecl cli_i_except(signed char(**argp)));
