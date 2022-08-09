@@ -7,7 +7,6 @@ Transparency
 */
 
 
-# define CLI_H
 # define CAW_H
 # define SAT_H
 # define STDIO_H
@@ -24,16 +23,16 @@ auto signed short flag;
 if(!argp) return(0x00);
 
 AND(flag,0x00);
-v = (*(CLI_BASE+(R(brush,*argp))));
-v = select_object_beta(*(CLI_DI+(R(dc,*argp))),v);
+v = (*(CLI_B+(R(brush,*argp))));
+v = select_object_beta(*(CLIH_DI+(R(dc,*argp))),v);
 oldbrush = (v);
 if(!v) {
 printf("%s \n","<< Error at fn. select_object_beta() for a brush");
 return(0x00);
 }
 
-v = (*(CLI_BASE+(R(font,*argp))));
-v = select_object_beta(*(CLI_DI+(R(dc,*argp))),v);
+v = (*(CLI_B+(R(font,*argp))));
+v = select_object_beta(*(CLIH_DI+(R(dc,*argp))),v);
 oldfont = (v);
 if(!v) {
 printf("%s \n","<< Error at fn. select_object_beta() for a font");
@@ -45,13 +44,13 @@ r = cmdl2_time_rrrr(argp);
 if(!r) printf("%s \n","<< Error at fn. cmdl2_time_rrrr()");
 }
 
-v = select_object_beta(*(CLI_DI+(R(dc,*argp))),oldfont);
+v = select_object_beta(*(CLIH_DI+(R(dc,*argp))),oldfont);
 if(!v) {
 printf("%s \n","<< Error at fn. select_object_beta()");
 OR(flag,0x01);
 }
 
-v = select_object_beta(*(CLI_DI+(R(dc,*argp))),oldbrush);
+v = select_object_beta(*(CLIH_DI+(R(dc,*argp))),oldbrush);
 if(!v) {
 printf("%s \n","<< Error at fn. select_object_beta()");
 return(0x00);
