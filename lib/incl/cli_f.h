@@ -8,7 +8,7 @@ signed(__cdecl cli_log(signed(arg/* local */),signed char(*di/* path */),signed 
 signed(__cdecl cli_log_v(signed(arg/* local */),signed char(*di/* path */),signed char(**si/* contents */)));
 signed(__cdecl coord_b_r_r(signed char(*y),signed char(*x)));
 signed(__cdecl coord_b_r(signed(arg),coord_t(*argp)));
-signed(__cdecl coord_b(signed(io),signed(arg),coord_t(*argp)));
+signed(__cdecl coord_b(signed short(flag),signed(arg),coord_t(*argp)));
 signed(__cdecl init_coord(coord_t(*argp)));
 signed(__cdecl rect_b_r_r(signed char(*y),signed char(*x)));
 signed(__cdecl rect_b_r(signed(arg),rect_t(*argp)));
@@ -113,7 +113,9 @@ signed(__cdecl cli_replace_text_attributes_beta(signed(arg),cli_property_t(*argp
 signed(__cdecl cli_restore_text_attributes_beta(cli_property_t(*argp)));
 signed(__cdecl cli_retrieve_standard_handles_beta(void(**argp)));
 signed(__cdecl rect_report(signed(arg),rect_t(*argp)));
-signed(__cdecl coord_report_r(signed(arg),signed char(*cache),coord_t(*argp)));
+signed(__cdecl coord_report_r_r(signed(arg),coord_t(*di),signed char(*si)));
+signed(__cdecl coord_report_rr(signed char(**argp)));
+signed(__cdecl coord_report_r(signed char(**argp)));
 signed(__cdecl coord_report(signed(arg),coord_t(*argp)));
 signed(__cdecl coord_restore(void));
 signed(__cdecl coord_save(void));

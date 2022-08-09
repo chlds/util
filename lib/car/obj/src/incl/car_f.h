@@ -8,6 +8,7 @@ Along with C library
 */
 
 
+signed(__cdecl o_pg(signed(arg/* align */),pg_t(*argp)));
 signed(__cdecl cat_pg(signed short(flag),pg_t(*di),pg_t(*si)));
 signed(__cdecl bind_pg_r(pg_t(*di),pg_t(*si)));
 signed(__cdecl bind_pg(pg_t(*argp)));
@@ -130,6 +131,27 @@ signed(__cdecl cv_v(signed char(***di),signed char(*si)));
 signed(__cdecl cv_av_w(signed short(*cache),signed short(**di),signed short(**si)));
 signed(__cdecl cv_av_b(signed char(*cache),signed char(**di),signed char(**si)));
 /* Convert */
+
+signed(__cdecl coord_restore(void));
+signed(__cdecl coord_save(void));
+signed(__cdecl coord_report_r_r(signed(arg),coord_t(*di),signed char(*si)));
+signed(__cdecl coord_report_rr(signed char(**argp)));
+signed(__cdecl coord_report_r(signed char(**argp)));
+signed(__cdecl coord_report(signed(arg),coord_t(*argp)));
+signed(__cdecl coord_b_r_r(signed char(*y),signed char(*x)));
+signed(__cdecl coord_b_r(signed(arg),coord_t(*argp)));
+signed(__cdecl coord_b(signed short(flag),signed(arg),coord_t(*argp)));
+signed(__cdecl init_coord(coord_t(*argp)));
+signed(__cdecl clear_rows_r(signed(arg)));
+signed(__cdecl clear_rows(signed(arg)));
+
+signed(__cdecl cli_output_b(signed short(arg/* align */),signed char(*argp)));
+signed(__cdecl cli_out_b(signed short(arg/* align */),signed char(*argp)));
+signed(__cdecl cli_indent_r(signed short(arg)));
+signed(__cdecl cli_indent(signed short(arg)));
+signed(__cdecl cli_reckon(signed short(arg/* align */)));
+signed(__cdecl cli_o_b(signed(arg),signed char(*argp)));
+/* Output Unicode characters decoded out of Unicode bytes */
 
 signed(__cdecl cv_wb_v_r(signed short(**di),signed char(**si)));
 signed(__cdecl cv_wb_v(signed short(***di),signed char(**si)));
@@ -408,6 +430,41 @@ signed(__cdecl ct_b(signed char(*argp)));
 signed(__cdecl ct_l(signed char(*argp)));
 signed(__cdecl ct(signed char(*argp)));
 /* Count */
+
+signed(__cdecl es(signed(arg)));
+signed(__cdecl es_at(void));
+signed(__cdecl es_a(void));
+signed(__cdecl es_b(void));
+signed(__cdecl es_c(void));
+signed(__cdecl es_d(void));
+signed(__cdecl es_e(void));
+signed(__cdecl es_f(void));
+signed(__cdecl es_g(void));
+signed(__cdecl es_h(void));
+signed(__cdecl es_i(void));
+signed(__cdecl es_j(void));
+signed(__cdecl es_k(void));
+signed(__cdecl es_l(void));
+signed(__cdecl es_m(void));
+signed(__cdecl es_n(void));
+signed(__cdecl es_o(void));
+signed(__cdecl es_p(void));
+signed(__cdecl es_q(void));
+signed(__cdecl es_r(void));
+signed(__cdecl es_s(void));
+signed(__cdecl es_t(void));
+signed(__cdecl es_u(void));
+signed(__cdecl es_v(void));
+signed(__cdecl es_w(void));
+signed(__cdecl es_x(void));
+signed(__cdecl es_y(void));
+signed(__cdecl es_z(void));
+signed(__cdecl es_lsb(void));
+signed(__cdecl es_rs(void));
+signed(__cdecl es_rsb(void));
+signed(__cdecl es_ca(void));
+signed(__cdecl es_ll(void));
+/* Escape sequences */
 
 signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));

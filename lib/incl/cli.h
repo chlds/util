@@ -16,3 +16,8 @@ enum {
 CLIH_SI,
 CLIH_DI,
 };
+
+struct coord {
+signed short x[OBJS];
+signed short y[OBJS];
+} typedef coord_t;

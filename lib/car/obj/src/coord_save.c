@@ -1,13 +1,12 @@
 /*
 
-Coordinate.
+Coordinate
 */
 
 
-# define CAR
-# include "../../../incl/config.h"
+# define CAR_H
+# include "./../../../config.h"
 
 signed(__cdecl coord_save(void)) {
-
 return(es(CTRL_S));
 }
