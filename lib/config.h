@@ -12,14 +12,9 @@ Remarks:
 # define __cdecl __attribute__((ms_abi))
 # endif
 
-# define PERCENTAGE (100)
-# define OCTET (0x08)
-# define NIBBLE (0x04)
-
 # ifndef DUAL_CONFIG_H
-# define OBJS (NIBBLE)
-# include "./incl/cli.h"
 # include "./incl/ctrl.h"
+# include "./incl/cli.h"
 # include "./incl/dbg.h"
 # include "./incl/al.h"
 // # include "./incl/typ.h"
