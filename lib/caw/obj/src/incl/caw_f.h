@@ -91,3 +91,4 @@ void(__cdecl post_quit_message_beta(signed(arg)));
 signed long long(__cdecl dispatch_message_beta(void(*argp)));
 signed(__cdecl translate_message_beta(void(*argp)));
 signed(__cdecl get_message_beta(void(*msg),void(*hdl),signed(min),signed(max)));
+signed(__cdecl agent_winmain(signed(__cdecl*f)(void(*inst),void(*prev_inst),signed char(**argv),signed(cmdshow)),void(*inst),void(*prev_inst),signed char(*argp),signed(cmdshow)));

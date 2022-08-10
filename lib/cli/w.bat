@@ -1,1 +1,0 @@
-cd ./obj/src/

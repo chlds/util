@@ -1,14 +1,11 @@
 /* **** Notes
 
-Output clipboard text.
+Output clipboard text
 */
 
 
-# define DUAL_CONFIG_H
 # define DEPIN_H
 # define STDIO_H
-# define CAR
-# include "./../../../lib/incl/config.h"
 # include "./../../../lib/config.h"
 
 signed(__cdecl wmain(signed(argc),signed short(**argv),signed short(**envp))) {

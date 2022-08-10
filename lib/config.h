@@ -20,6 +20,10 @@ Remarks:
 // # include "./incl/typ.h"
 # endif
 
+# ifdef COLOR_H
+# include "./incl/cli_colors.h"
+# endif
+
 # ifdef CODEPAGE_H
 # include "./incl/cli_codepage.h"
 # endif
@@ -108,10 +112,12 @@ Remarks:
 # include "./cli_ascii.h"
 # endif
 
+/*
 # ifdef CLI_H
 # include "./cli/obj/src/incl/cli.h"
 # endif
 // CLI I/O
+//*/
 
 # ifdef CAR_H
 # include "./car/obj/src/incl/car.h"

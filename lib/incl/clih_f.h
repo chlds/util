@@ -1,0 +1,10 @@
+signed(__cdecl color_text_r(signed char(*argp)));
+signed(__cdecl color_text(signed(fg),signed(bg)));
+signed(__cdecl color_text_bg(signed(arg)));
+signed(__cdecl color_text_fg(signed(arg)));
+signed(__cdecl cli_message(signed(arg),signed char(*argp)));
+signed(__cdecl cli_init_virtual_terminal_beta(signed(arg),cli_virtual_terminal_t(*argp)));
+signed(__cdecl cv_main_optl_vt(MAIN_T(argf),signed(argc),signed short(**argv),signed short(**envp)));
+signed(__cdecl cv_main_optl(MAIN_T(argf),signed(argc),signed short(**argv),signed short(**envp)));
+signed(__cdecl cv_main_r(MAIN_T(argf),signed(argc),signed short(**argv),signed char(**envp)));
+signed(__cdecl cv_main(MAIN_T(argf),signed(argc),signed short(**argv),signed short(**envp)));

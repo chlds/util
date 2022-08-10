@@ -1,18 +1,21 @@
 /* **** Notes
 
-Text attributes.
+Text attributes
 
 Remarks:
 Virtual Terminal
 */
 
 
-# define CAR
-# include <stdio.h>
-# include "./../../../incl/config.h"
+# define CAR_H
+# define COLOR_H
+# define STDIO_H
+# include "./../../../config.h"
 
 signed(__cdecl color_text_bg(signed(arg))) {
-
+auto signed char *b;
+auto signed r;
+auto signed short flag;
 auto signed bg[] = {
 COLOR_BG_BLACK,
 COLOR_BG_RED,
@@ -32,26 +35,16 @@ COLOR_BG_BRIGHT_CYAN,
 COLOR_BG_BRIGHT_WHITE,
 0x00,
 };
-
-auto signed char *b;
-auto signed r;
-auto signed short flag;
-
 r = ord_d(bg,arg);
 if(!(r<(ct_d(bg)))) arg = (COLOR_BG_RESET);
-
 b = (0x00);
 r = cv_d(0x0A,&b,arg);
 if(!r) return(0x00);
-
 AND(flag,0x00);
 r = color_text_r(b);
 if(!r) OR(flag,0x01);
-
 if(b) rl(b);
 b = (0x00);
-
 if(flag) AND(r,0x00);
-
 return(r);
 }
