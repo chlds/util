@@ -6,12 +6,10 @@ Implemented with a flag to be added for code to run as far as possible to the en
 */
 
 
-# define DUAL_CONFIG_H
 # define DUMP_H
+# define CAR_H
 # define STDIO_H
-# define CLI_ASCII
-# define CAR
-# include "./../../../incl/config.h"
+# define ASCII_H
 # include "./../../../config.h"
 
 signed(__cdecl agent_dump(signed(argc),signed char(**argv),signed char(**envp))) {
@@ -22,12 +20,12 @@ auto signed r;
 auto signed short quickflag;
 auto signed line;
 auto signed total;
-auto fl_t fl;
+auto flh_t fl;
 auto signed lim = (0x02);
 
 if(argc<(lim)) return(dump_help());
-if(!(init_fl(0x00,&fl))) {
-printf("%s \n","<< Error at fn. init_fl()");
+if(!(init_flh(0x00,&fl))) {
+printf("%s \n","<< Error at fn. init_flh()");
 return(0x00);
 }
 
@@ -37,21 +35,21 @@ if(lim<(argc)) quickflag++;
 if(0x03<(argc)) v = (signed char(**)) (cli_ascii);
 
 b = (*(argv+(argc+(~0x00))));
-*(CLI_BASE+(R(fd,fl))) = (quickflag);
-*(CLI_OFFSET+(R(v,fl))) = (void*) (v);
-*(CLI_BASE+(R(v,fl))) = (void*) (b);
+*(CLIH_BASE+(R(fd,fl))) = (quickflag);
+*(CLIH_OFFSET+(R(v,fl))) = (void*) (v);
+*(CLIH_BASE+(R(v,fl))) = (void*) (b);
 
 r = agent_dump_r(&fl);
 if(!r) printf("%s \n","<< Error at fn. agent_dump_r()");
 
 printf("\n");
-line = (*(CLI_INDEX+(R(fd,fl))));
-total = (*(CLI_LEAD+(R(fd,fl))));
+line = (*(CLIH_INDEX+(R(fd,fl))));
+total = (*(CLIH_DIFF+(R(fd,fl))));
 printf("%d %s \n",line,"lines");
 printf("%s %d %s \n","Total:",total,"bytes");
 
-if(!(init_fl(0x00,&fl))) {
-printf("%s \n","<< Error at fn. init_fl()");
+if(!(init_flh(0x00,&fl))) {
+printf("%s \n","<< Error at fn. init_flh()");
 return(0x00);
 }
 

@@ -4,18 +4,16 @@ Dump a file in the binary
 */
 
 
-# define DUAL_CONFIG_H
-# define CAW_H
 # define DUMP_H
+# define CAR_H
+# define CAW_H
 # define STDIO_H
-# define CAR
-# include "./../../../incl/config.h"
 # include "./../../../config.h"
 
 signed(__cdecl agent_dump_rr(signed(fd),void(*argp))) {
 
 auto signed char **v;
-auto fl_t *fl;
+auto flh_t *fl;
 auto signed l,r;
 auto signed d;
 auto signed row;
@@ -31,9 +29,9 @@ auto signed DELAY = (0x02*(QUANTUM));
 if(fd<(0x00)) return(0x00);
 if(!argp) return(0x00);
 
-fl = (fl_t*) (argp);
-quickflag = (*(CLI_BASE+(R(fd,*fl))));
-v = (signed char(**)) (*(CLI_OFFSET+(R(v,*fl))));
+fl = (flh_t*) (argp);
+quickflag = (*(CLIH_BASE+(R(fd,*fl))));
+v = (signed char(**)) (*(CLIH_OFFSET+(R(v,*fl))));
 if(DBG) printf("%s %Xh \n","File descriptor to read the file is:",fd);
 
 /* Outputting */
@@ -93,8 +91,8 @@ else printf(" %02X",d);
 XOR(row,row);
 }}
 
-*(CLI_INDEX+(R(fd,*fl))) = (line);
-*(CLI_LEAD+(R(fd,*fl))) = (total);
+*(CLIH_INDEX+(R(fd,*fl))) = (line);
+*(CLIH_DIFF+(R(fd,*fl))) = (total);
 AND(total,0x00);
 AND(line,0x00);
 fl = (0x00);

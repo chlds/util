@@ -26,6 +26,11 @@ Build a linked list.
 
 # define COMMON_OBJS (0x04)
 
+struct flh {
+void *(v[OBJS]);
+signed fd[OBJS];
+} typedef flh_t;
+
 struct fl {
 void *(v[OBJS]);
 signed fd[OBJS];

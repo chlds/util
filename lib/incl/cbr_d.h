@@ -136,11 +136,4 @@ CLI_PIXEL pixel;
 void *optl;
 } CLI_TYPEWRITER;
 
-typedef struct cli_stat {
-cli_codepage_t codepage;
-cli_virtual_terminal_t vt;
-CLI_TYPEWRITER ty;
-void *optl;
-} CLI_STAT;
-
 // and more..

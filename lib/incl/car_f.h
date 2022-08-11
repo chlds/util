@@ -155,6 +155,7 @@ signed(__cdecl ld_b(size_t(offset),signed(range),signed char(**di),signed char(*
 signed(__cdecl unmap_w(signed short(**argp)));
 signed(__cdecl unmap_b(signed char(**argp)));
 signed(__cdecl map_b(size_t(offset),signed(range),signed char(**di),signed char(*delim),signed char(*si/* path */)));
+signed(__cdecl init_flh(signed(arg),flh_t(*argp))); // deprecated..
 signed(__cdecl init_fl(signed(arg),fl_t(*argp)));
 signed(__cdecl wr_rd_l(signed(*fd),signed char(*cache),signed(size)));
 signed(__cdecl wr_rd_r(signed(*fd),signed char(*cache),signed(size)));

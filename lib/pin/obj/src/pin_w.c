@@ -1,29 +1,23 @@
 /*
 
-Pin.
+Pin
 
 Remarks:
-Refer at fn. clipboard_map and clipboard_unmap.
+Refer at fn. clipboard_map and clipboard_unmap
 Based on UTF-16
 */
 
 
-# define DUAL_CONFIG_H
+# define CAR_H
 # define CAW_H
 # define PIN_H
-# define CAR
-# include "./../../../incl/config.h"
 # include "./../../../config.h"
 
 signed(__cdecl pin_w(signed short(*argp))) {
-
 auto signed short *w;
 auto void *g;
 auto signed r;
-auto signed short flag;
-
 if(!argp) return(0x00);
-
 w = (argp);
 r = ct_w(w);
 r++;
@@ -33,14 +27,11 @@ if(!g) {
 printf("%s \n","<< Error at fn. alloc_g()");
 return(0x00);
 }
-
 r = pin_w_r(g,argp);
 if(!r) printf("%s \n","<< Error at fn. pin_w_r()");
-
 if(!(rl_g(g))) {
 printf("%s \n","<< Error at fn. rl_g()");
 return(0x00);
 }
-
 return(r);
 }

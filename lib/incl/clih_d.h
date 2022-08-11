@@ -17,6 +17,12 @@ typedef void(__cdecl*SIGHDR_T)(signed);
 // SIGHDR_T(__cdecl signal(signed(A),SIGHDR_T(B)));
 // void(__cdecl*(__cdecl signal(signed(A),void(__cdecl*B)(signed))))(signed);
 
+struct flh {
+void *(v[OBJS]);
+signed fd[OBJS];
+} typedef flh_t;
+// deprecated..
+
 struct coord {
 signed short x[OBJS];
 signed short y[OBJS];
