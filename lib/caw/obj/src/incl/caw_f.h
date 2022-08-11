@@ -50,6 +50,7 @@ signed(__cdecl currently_working_tid_thread(void(*argp)));
 signed(__cdecl currently_working_window_tid_pid(signed(*di),void(*si)));
 signed long long(__cdecl currently_working_instance(void(*argp/* hdl */)));
 void *(__cdecl currently_working_window(void));
+void *(__cdecl currently_working_standard_handle(signed(arg)));
 
 signed(__cdecl currently_granting_n_privileges(void(*argp/* structure token privileges */)));
 

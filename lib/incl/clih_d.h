@@ -1,5 +1,5 @@
-# define CLI_IRQ (0x01)
-# define CLI_INIT (0x02)
+# define CLIH_IRQ (0x01)
+# define CLIH_INIT (0x02)
 
 # define OCTET (0x08)
 # define ALIGN (OCTET)
@@ -37,5 +37,4 @@ signed y[OBJS];
 struct cli_virtual_terminal {
 signed mode[OBJS];
 signed short flag;
-void *optl;
 } typedef cli_virtual_terminal_t;
