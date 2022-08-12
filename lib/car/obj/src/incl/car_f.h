@@ -10,6 +10,10 @@ Along with C library
 
 signed(__cdecl init_flh(signed(arg),flh_t(*argp))); // deprecated..
 
+signed(__cdecl cue_pg_rr(signed short(arg),signed char(*sym),pg_t(*argp)));
+signed(__cdecl cue_pg_r(signed short(arg),signed char(*sym),pg_t(*argp)));
+signed(__cdecl cue_pg(signed char(*sym),pg_t(*argp)));
+signed(__cdecl ct_pg(signed short(align),signed char(*sym),pg_t(*argp)));
 signed(__cdecl o_pg(signed(arg/* align */),pg_t(*argp)));
 signed(__cdecl cat_pg(signed short(flag),pg_t(*di),pg_t(*si)));
 signed(__cdecl bind_pg_r(pg_t(*di),pg_t(*si)));
