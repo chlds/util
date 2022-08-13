@@ -12,7 +12,7 @@ signed(__cdecl coord_b(signed short(flag),signed(arg),coord_t(*argp)));
 signed(__cdecl init_coord(coord_t(*argp)));
 signed(__cdecl rect_b_r_r(signed char(*y),signed char(*x)));
 signed(__cdecl rect_b_r(signed(arg),rect_t(*argp)));
-signed(__cdecl rect_b(signed(io),signed(arg),rect_t(*argp)));
+signed(__cdecl rect_b(signed short(flag),signed(arg),rect_t(*argp)));
 signed(__cdecl color_text_r(signed char(*argp)));
 signed(__cdecl color_text(signed(fg),signed(bg)));
 signed(__cdecl color_text_bg(signed(arg)));

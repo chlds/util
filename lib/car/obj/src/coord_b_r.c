@@ -21,8 +21,8 @@ if(!(arg<(OBJS))) return(0x00);
 if(arg<(0x00)) return(0x00);
 if(!argp) return(0x00);
 AND(flag,0x00);
-i = (0x02);
-while(i) *(--i+(a)) = (0x00);
+r = (0x02);
+while(r) *(--r+(a)) = (0x00);
 x = (signed) (*(arg+(R(x,*argp))));
 y = (signed) (*(arg+(R(y,*argp))));
 // Y

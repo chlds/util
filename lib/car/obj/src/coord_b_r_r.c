@@ -19,7 +19,7 @@ if(!x) return(0x00);
 b = (0x00);
 r = cat_b(&b,p,y,";",x,"H",(void*) 0x00);
 if(!r) return(0x00);
-r = wr_b(0x01/* CLI_OUT */,b,ct(b));
+r = wr_b(CLIH_OUT,b,ct(b));
 if(!(r^(~0x00))) AND(r,0x00);
 embed(0x00,b);
 rl(b);

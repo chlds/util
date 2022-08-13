@@ -148,6 +148,10 @@ signed(__cdecl coord_b_r_r(signed char(*y),signed char(*x)));
 signed(__cdecl coord_b_r(signed(arg),coord_t(*argp)));
 signed(__cdecl coord_b(signed short(flag),signed(arg),coord_t(*argp)));
 signed(__cdecl init_coord(coord_t(*argp)));
+signed(__cdecl rect_report(signed(arg),rect_t(*argp)));
+signed(__cdecl rect_b_r_r(signed char(*y),signed char(*x)));
+signed(__cdecl rect_b_r(signed(arg),rect_t(*argp)));
+signed(__cdecl rect_b(signed short(flag),signed(arg),rect_t(*argp)));
 signed(__cdecl clear_rows_r(signed(arg)));
 signed(__cdecl clear_rows(signed(arg)));
 

@@ -1,26 +1,20 @@
 /*
 
-Set CLI_IN to get the current rectangle or CLI_OUT to set the rectangle at argument io.
+Set CLI_IN to get the current rectangle
+or CLI_OUT to set the rectangle
+at the flag
 
 Remarks:
 Only in the Virtual Terminal
 */
 
 
-# define CAR
-# include "../../../incl/config.h"
+# define CAR_H
+# include "./../../../config.h"
 
-signed(__cdecl rect_b(signed(io),signed(arg),rect_t(*argp))) {
-
-auto signed char *b;
-auto signed i,r;
-auto signed short flag;
-
+signed(__cdecl rect_b(signed short(flag),signed(arg),rect_t(*argp))) {
 if(arg<(0x00)) return(0x00);
 if(!argp) return(0x00);
-
-if(!(io^(CLI_IN))) return(rect_report(arg,argp));
-if(!(io^(CLI_OUT))) return(rect_b_r(arg,argp));
-
-return(0x00);
+if(!flag) return(rect_report(arg,argp));
+return(rect_b_r(arg,argp));
 }
