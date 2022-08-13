@@ -10,6 +10,16 @@ Along with C library
 
 signed(__cdecl init_flh(signed(arg),flh_t(*argp))); // deprecated..
 
+signed(__cdecl co_br(void));
+signed(__cdecl spool_pg_r(signed(arg),pg_t(**di),pg_t(*si)));
+pg_t *(__cdecl spool_pg(signed(arg),pg_t(*argp)));
+signed(__cdecl output_pg(signed(colm),signed(arg/* align */),signed char(*sym),pg_t(*argp)));
+signed(__cdecl coord_out_pg_over_rr(signed(n),signed(colm),signed(arg/* align */),pg_t(*argp)));
+signed(__cdecl coord_out_pg_over_r(signed(n),signed(colm),signed(arg/* align */),pg_t(*argp)));
+signed(__cdecl coord_out_pg_over(signed(n),signed(colm),signed(arg/* align */),pg_t(*argp)));
+signed(__cdecl coord_out_pg(signed(colm),signed(arg/* align */),signed char(*sym),pg_t(*argp)));
+signed(__cdecl out_pg_r(signed(n),signed(arg/* align */),pg_t(*argp)));
+signed(__cdecl out_pg(signed(arg/* align */),signed char(*sym),pg_t(*argp)));
 signed(__cdecl cue_pg_rr(signed short(arg),signed char(*sym),pg_t(*argp)));
 signed(__cdecl cue_pg_r(signed short(arg),signed char(*sym),pg_t(*argp)));
 signed(__cdecl cue_pg(signed char(*sym),pg_t(*argp)));
