@@ -1,22 +1,19 @@
 /* **** Notes
 
-Alpha.
+Alpha
 */
 
 
-# define CAR
-# include <stdio.h>
-# include <stddef.h>
-# include "./../../../incl/config.h"
+# define CAR_H
+# define STDIO_H
+# define STDDEF_H
+# include "./../../../config.h"
 
 signed(__cdecl agent_alpha(signed(argc),signed char(**argv),signed char(**envp))) {
-
 auto signed char **v;
 auto signed char *b;
 auto signed short *w;
-auto page_t *p;
 auto signed r;
 auto size_t size;
-
 return(0x01);
 }
