@@ -24,8 +24,8 @@ printf("%s \n","<< Error at fn. cv_pg()");
 return(0x00);
 }
 r = output_pg_r(colm,arg,sym,p);
-if(!(unbind_pg(p))) {
-printf("%s \n","<< Error at fn. unbind_pg()");
+if(!(rl_pg(&p))) {
+printf("%s \n","<< Error at fn. rl_pg()");
 return(0x00);
 }
 return(r);
