@@ -19,7 +19,7 @@ p = (pg_t*) alloc(r);
 if(!p) return(0x00);
 r = cv_pg_r(arg,sym,p,argp);
 if(!r) {
-unbind_pg(p);
+rl(p);
 p = (0x00);
 }
 return(p);
