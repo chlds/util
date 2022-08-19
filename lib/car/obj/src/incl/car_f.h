@@ -10,6 +10,10 @@ Along with C library
 
 signed(__cdecl init_flh(signed(arg),flh_t(*argp))); // deprecated..
 
+signed(__cdecl cv_pa_rrr(signed(n),pg_t(*di),signed char(*si)));
+signed(__cdecl cv_pa_rr(signed(arg),signed char(*sym),pg_t(*di),signed char(*si)));
+signed(__cdecl cv_pa_r(signed(arg),signed char(*sym),pg_t(*di),signed char(*si)));
+pg_t *(__cdecl cv_pa(signed(arg),signed char(*sym),signed char(*argp)));
 signed(__cdecl cv_ap_r(signed(arg),signed char(**di),pg_t(*si)));
 signed char *(__cdecl cv_ap(signed(arg),pg_t(*argp)));
 signed(__cdecl mon_b(signed(arg),pg_t(*argp)));
