@@ -24,5 +24,6 @@ b = (0x00);
 }
 *di = (b);
 if(!b) return(0x00);
+si = (*(CLIH_DI+(R(p,*si))));
 return(0x01+(cv_ap_r(arg,di,si)));
 }
