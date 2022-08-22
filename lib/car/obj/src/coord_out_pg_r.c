@@ -24,10 +24,12 @@ r = ct(b);
 //
 if(col<(r)) {
 if(colm<(r)) return(coord_out_pg_overline(colm,arg,sym,argp));
-if(EQ(SP,*b)) OR(flag,0x01);
+// if(EQ(SP,*b)) OR(flag,0x01);
 co_br(0x01);
+return(0x00);
 }
-if(!flag) cli_outs_b(arg,b);
+r = cli_outs_b(arg,b);
+if(!r) return(0x00);
 argp = (*(CLIH_DI+(R(p,*argp))));
 return(0x01+(coord_out_pg_r(colm,arg,sym,argp)));
 }

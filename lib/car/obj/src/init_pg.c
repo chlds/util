@@ -17,7 +17,7 @@ OR(r,OBJS);
 p = (0x00);
 while(r) *(--r+(R(p,*argp))) = (p);
 v = (R(b,*argp));
-r = init_rule_v_b(arg,OBJS,v);
+r = init_va(arg,OBJS,v);
 if(!(EQ(OBJS,r))) return(0x00);
 return(0x01);
 }

@@ -1,5 +1,7 @@
 # define CLIH_IRQ (0x01)
-# define CLIH_INIT (0x02)
+# define CLIH_QUIT (0x02)
+# define CLIH_INIT (0x04)
+# define CLIH_ERROR (0x08)
 
 # define COLM (0x50)
 # define OCTET (0x08)

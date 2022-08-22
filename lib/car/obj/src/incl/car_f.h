@@ -10,13 +10,19 @@ Along with C library
 
 signed(__cdecl init_flh(signed(arg),flh_t(*argp))); // deprecated..
 
+signed(__cdecl io_b_r(signed(colm),signed(arg),signed char(*sy),signed char(**argp)));
+signed(__cdecl io_b(signed(colm),signed(arg),signed char(*sy),signed char(*argp)));
+signed(__cdecl rule_va_r(signed(dif),signed(arg),signed char(**argp)));
+signed(__cdecl rule_va(signed(dif),signed(arg),signed char(**argp)));
+/* I/O */
+
 signed(__cdecl cv_pa_rrr(signed(n),pg_t(*di),signed char(*si)));
 signed(__cdecl cv_pa_rr(signed(arg),signed char(*sym),pg_t(*di),signed char(*si)));
 signed(__cdecl cv_pa_r(signed(arg),signed char(*sym),pg_t(*di),signed char(*si)));
 pg_t *(__cdecl cv_pa(signed(arg),signed char(*sym),signed char(*argp)));
 signed(__cdecl cv_ap_r(signed(arg),signed char(**di),pg_t(*si)));
 signed char *(__cdecl cv_ap(signed(arg),pg_t(*argp)));
-signed(__cdecl mon_b(signed(arg),pg_t(*argp)));
+signed(__cdecl mon_b(signed(arg),pg_t(*argp),signed char(**argpp)));
 signed(__cdecl co_br(signed(arg)));
 signed(__cdecl coord_outs_b_r(signed(colm),signed(arg/* align */),signed char(*argp)));
 signed(__cdecl coord_outs_b(signed(colm),signed(arg/* align */),signed char(*argp)));
@@ -31,6 +37,7 @@ signed(__cdecl cv_pg_r(signed(arg),signed char(*sym),pg_t(*di),pg_t(*si)));
 pg_t *(__cdecl cv_pg(signed(arg),signed char(*sym),pg_t(*argp)));
 signed(__cdecl output_pg_r(signed(colm),signed(arg/* align */),signed char(*sym),pg_t(*argp)));
 signed(__cdecl output_pg(signed(colm),signed(arg/* align */),signed char(*sym),pg_t(*argp)));
+signed(__cdecl output_pa(signed(colm),signed(arg/* align */),signed char(*sym),signed char(*argp)));
 signed(__cdecl cue_out_pg_r(signed(n),signed(arg/* align */),pg_t(*argp)));
 signed(__cdecl cue_out_pg(signed(arg/* align */),signed char(*sym),pg_t(*argp)));
 signed(__cdecl out_pg(signed(arg/* align */),pg_t(*argp)));
@@ -42,12 +49,14 @@ signed(__cdecl o_pg(signed(arg/* align */),pg_t(*argp)));
 signed(__cdecl cat_pg(signed short(flag),pg_t(*di),pg_t(*si)));
 signed(__cdecl bind_pg_r(pg_t(*di),pg_t(*si)));
 signed(__cdecl bind_pg(pg_t(*argp)));
-signed(__cdecl init_rule_v_b_r(signed(arg),signed char(**argp)));
-signed(__cdecl init_rule_v_b(signed(cached),signed(arg),signed char(**argp)));
+signed(__cdecl init_va(signed(cached),signed(arg),signed char(**argp)));
 signed(__cdecl init_pg(signed(arg),pg_t(*argp)));
 signed(__cdecl unmap_pg(pg_t(*argp)));
 signed(__cdecl unbind_pg(pg_t(*argp)));
 signed(__cdecl rl_pg(pg_t(**argp)));
+signed(__cdecl ct_b_to_pg_r(pg_t(*di),pg_t(*si)));
+signed(__cdecl ct_b_to_pg(pg_t(*di),pg_t(*si)));
+signed(__cdecl ct_b_up_to_pg(signed(arg),pg_t(*argp)));
 /* Page */
 
 signed(__cdecl init_v_w(signed(cached),signed(arg),signed short(**argp)));
@@ -181,6 +190,7 @@ signed(__cdecl rect_b_r(signed(arg),rect_t(*argp)));
 signed(__cdecl rect_b(signed short(flag),signed(arg),rect_t(*argp)));
 signed(__cdecl clear_rows_r(signed(arg)));
 signed(__cdecl clear_rows(signed(arg)));
+signed(__cdecl caret_b(signed(x),signed(y)));
 
 signed(__cdecl cli_output_b(signed short(arg/* align */),signed char(*argp)));
 signed(__cdecl cli_outs_b(signed short(arg/* align */),signed char(*argp)));

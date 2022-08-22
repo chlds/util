@@ -15,5 +15,15 @@ auto signed char *b;
 auto signed short *w;
 auto signed r;
 auto size_t size;
+auto signed all;
+// auto signed x,y;
+/*
+x = (0x01);
+y = (0x01);
+if(!(caret_b(x,y))) return(0x00);
+//*/
+AND(all,0x00);
+if(!(clear_rows(all))) return(0x00);
+//
 return(0x01);
 }
