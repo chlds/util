@@ -409,6 +409,8 @@ signed(__cdecl rm_br_r(signed(arg),signed char(*argp)));
 signed(__cdecl rm_br(signed char(*argp)));
 signed(__cdecl rm_asterisk_r(signed(arg),signed char(*argp)));
 signed(__cdecl rm_asterisk(signed char(*argp)));
+signed(__cdecl rm_b_r(signed(n),signed(arg),signed char(*argp)));
+signed(__cdecl rm_b(signed(arg),signed char(*argp)));
 // Remove
 
 signed(__cdecl embedback_r(signed(arg),signed char(*argp)));
