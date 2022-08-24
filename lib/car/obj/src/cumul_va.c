@@ -1,6 +1,9 @@
 /* **** Notes
 
-Rule
+Cumulate
+
+Remarks:
+Refer at fn. align_va and fn. rule_va
 */
 
 
@@ -8,9 +11,11 @@ Rule
 # define STDIO_H
 # include "./../../../config.h"
 
-signed(__cdecl rule_va_r(signed(dif),signed(arg),signed char(**argp))) {
+signed(__cdecl cumul_va(signed(dif),signed(arg),signed char(**argp))) {
 auto signed char *b;
 auto signed r;
+if(dif<(0x00)) return(0x00);
+if(!arg) return(0x00);
 if(!(arg<(OBJS))) return(0x00);
 if(!argp) return(0x00);
 AND(r,0x00);
@@ -20,5 +25,5 @@ INC(r);
 while(--r) INC(b);
 *(arg+(argp)) = (b);
 arg++;
-return(0x01+(rule_va_r(dif,arg,argp)));
+return(0x01+(cumul_va(dif,arg,argp)));
 }

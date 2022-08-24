@@ -12,8 +12,12 @@ signed(__cdecl init_flh(signed(arg),flh_t(*argp))); // deprecated..
 
 signed(__cdecl io_b_r(signed(colm),signed(arg),signed char(*sy),signed char(**argp)));
 signed(__cdecl io_b(signed(colm),signed(arg),signed char(*sy),signed char(*argp)));
-signed(__cdecl rule_va_r(signed(dif),signed(arg),signed char(**argp)));
+signed(__cdecl cumul_pg(signed(dif),signed(arg),pg_t(*argp)));
+signed(__cdecl cumul_va(signed(dif),signed(arg),signed char(**argp)));
+signed(__cdecl rule_pg(signed(dif),signed(arg),pg_t(*argp)));
 signed(__cdecl rule_va(signed(dif),signed(arg),signed char(**argp)));
+signed(__cdecl align_pg(pg_t(*argp)));
+signed(__cdecl align_va(signed char(**argp)));
 /* I/O */
 
 signed(__cdecl cv_pa_rrr(signed(n),pg_t(*di),signed char(*si)));
