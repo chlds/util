@@ -58,7 +58,7 @@ signed(__cdecl init_pg(signed(arg),pg_t(*argp)));
 signed(__cdecl unmap_pg(pg_t(*argp)));
 signed(__cdecl unbind_pg(pg_t(*argp)));
 signed(__cdecl rl_pg(pg_t(**argp)));
-signed(__cdecl ct_b_to_pg_r(pg_t(*di),pg_t(*si)));
+signed(__cdecl ct_to_pg(pg_t(*di),pg_t(*si)));
 signed(__cdecl ct_b_to_pg(pg_t(*di),pg_t(*si)));
 signed(__cdecl ct_b_up_to_pg(signed(arg),pg_t(*argp)));
 /* Page */
@@ -187,6 +187,7 @@ signed(__cdecl coord_b_r(signed(arg),coord_t(*argp)));
 signed(__cdecl coord_b(signed short(flag),signed(arg),coord_t(*argp)));
 signed(__cdecl coord_y_b(void));
 signed(__cdecl coord_x_b(void));
+signed(__cdecl coord_xy_b(signed(x),signed(y)));
 signed(__cdecl init_coord(coord_t(*argp)));
 signed(__cdecl rect_report(signed(arg),rect_t(*argp)));
 signed(__cdecl rect_b_r_r(signed char(*y),signed char(*x)));

@@ -1,9 +1,6 @@
 /*
 
 Count
-
-Remarks:
-Based on UTF-8
 */
 
 
@@ -11,6 +8,14 @@ Based on UTF-8
 # include "./../../../config.h"
 
 signed(__cdecl ct_b_to_pg(pg_t(*di),pg_t(*si))) {
-if(!di) return(0x00);
-return(ct_b_to_pg_r(di,si));
+auto signed char *b;
+auto signed r;
+// if(!di) return(0x00);
+if(!si) return(0x00);
+if(EQ(di,si)) return(0x00);
+b = (*(CLIH_BASE+(R(b,*si))));
+r = ct(b);
+if(!r) return(0x00);
+si = (*(CLIH_DI+(R(p,*si))));
+return(r+(ct_b_to_pg(di,si)));
 }
