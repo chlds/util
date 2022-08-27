@@ -17,7 +17,7 @@ auto signed short flag;
 auto signed short x,y;
 auto signed char c;
 auto signed short algn = (0x08);
-auto signed short row = (0x08);
+auto signed short row = (0x10);
 auto signed char *m = "No pg..";
 auto signed char *(a[]) = {
 "B","O","I","D",0x00,
@@ -41,8 +41,10 @@ return(0x00);
 if(!(clear_rows(0x01))) return(0x00);
 r = (0x50);
 while(--r) _putch('*');
-co_br(0x01);
+co_br(~0x00);
 /* monitor */
+co_br(0x01);
+printf("[%s] \n","PG");
 if(argp) {
 r = (OBJS);
 while(r) {
@@ -54,6 +56,8 @@ cli_outs_b(algn,b);
 co_br(0x01);
 }}
 // also
+co_br(0x01);
+printf("[%s] \n","VA");
 if(argpp) {
 r = (OBJS);
 while(r) {

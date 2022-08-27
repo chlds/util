@@ -25,5 +25,8 @@ if(!(caret_b(x,y))) return(0x00);
 AND(all,0x00);
 if(!(clear_rows(all))) return(0x00);
 //
+co_br(0x00);
+printf("\n");
+printf("Done!\n");
 return(0x01);
 }

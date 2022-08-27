@@ -12,12 +12,22 @@ signed(__cdecl init_flh(signed(arg),flh_t(*argp))); // deprecated..
 
 signed(__cdecl io_b_r(signed(colm),signed(arg),signed char(*sy),signed char(**argp)));
 signed(__cdecl io_b(signed(colm),signed(arg),signed char(*sy),signed char(*argp)));
+signed(__cdecl io_o_b_r(signed(colm),signed(arg),signed(offs),signed char(*sy),signed char(**argp)));
+signed(__cdecl io_o_b(signed(colm),signed(arg),signed char(*sy),signed char(*argp)));
+signed(__cdecl out_o_pa(signed(colm),signed(arg/* align */),signed(*offs),signed char(*sym),signed char(*argp)));
+signed(__cdecl out_o_pg(signed(colm),signed(arg/* align */),signed(*offs),signed char(*sym),pg_t(*argp)));
+signed(__cdecl coord_out_o_pg_overline(signed(colm),signed(arg/* align */),signed char(*sym),pg_t(*argp)));
+signed(__cdecl coord_out_o_pg_r(signed(colm),signed(arg/* align */),signed char(*sym),pg_t(*argp)));
+signed(__cdecl coord_out_o_pg(signed(colm),signed(arg/* align */),signed char(*sym),pg_t(*argp)));
 signed(__cdecl cumul_pg(signed(dif),signed(arg),pg_t(*argp)));
 signed(__cdecl cumul_va(signed(dif),signed(arg),signed char(**argp)));
 signed(__cdecl rule_pg(signed(dif),signed(arg),pg_t(*argp)));
 signed(__cdecl rule_va(signed(dif),signed(arg),signed char(**argp)));
 signed(__cdecl align_pg(pg_t(*argp)));
 signed(__cdecl align_va(signed char(**argp)));
+signed(__cdecl ct_pg_rows(signed(colm),pg_t(*argp)));
+signed(__cdecl ct_rows_r(signed(arg),signed char(*argp)));
+signed(__cdecl ct_rows(signed(colm),signed char(*argp)));
 /* I/O */
 
 signed(__cdecl cv_pa_rrr(signed(n),pg_t(*di),signed char(*si)));
@@ -187,15 +197,14 @@ signed(__cdecl coord_b_r(signed(arg),coord_t(*argp)));
 signed(__cdecl coord_b(signed short(flag),signed(arg),coord_t(*argp)));
 signed(__cdecl coord_y_b(void));
 signed(__cdecl coord_x_b(void));
-signed(__cdecl coord_xy_b(signed(x),signed(y)));
 signed(__cdecl init_coord(coord_t(*argp)));
+signed(__cdecl caret_b(signed(x),signed(y)));
 signed(__cdecl rect_report(signed(arg),rect_t(*argp)));
 signed(__cdecl rect_b_r_r(signed char(*y),signed char(*x)));
 signed(__cdecl rect_b_r(signed(arg),rect_t(*argp)));
 signed(__cdecl rect_b(signed short(flag),signed(arg),rect_t(*argp)));
 signed(__cdecl clear_rows_r(signed(arg)));
 signed(__cdecl clear_rows(signed(arg)));
-signed(__cdecl caret_b(signed(x),signed(y)));
 
 signed(__cdecl cli_output_b(signed short(arg/* align */),signed char(*argp)));
 signed(__cdecl cli_outs_b(signed short(arg/* align */),signed char(*argp)));
