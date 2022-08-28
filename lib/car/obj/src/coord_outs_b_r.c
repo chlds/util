@@ -11,6 +11,7 @@ signed(__cdecl coord_outs_b_r(signed(colm),signed(arg/* align */),signed char(*a
 auto signed col;
 auto signed r;
 if(!argp) return(0x00);
+if(!(*argp)) return(0x00);
 col = coord_x_b();
 if(!col) return(0x00);
 col = (colm+(0x01+(~col)));
