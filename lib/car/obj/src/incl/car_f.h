@@ -12,7 +12,7 @@ signed(__cdecl init_flh(signed(arg),flh_t(*argp))); // deprecated..
 
 signed(__cdecl io_b_r(signed(colm),signed(arg),signed char(*sy),signed char(**argp)));
 signed(__cdecl io_b(signed(colm),signed(arg),signed char(*sy),signed char(*argp)));
-signed(__cdecl io_o_b_r(signed(colm),signed(arg),signed(offs),signed char(*sy),signed char(**argp)));
+signed(__cdecl io_o_b_r(signed(colm),signed(y),signed(offs),signed(arg),signed char(*sy),signed char(**argp)));
 signed(__cdecl io_o_b(signed(colm),signed(arg),signed char(*sy),signed char(*argp)));
 signed(__cdecl out_o_pa(signed(colm),signed(arg/* align */),signed(*offs),signed char(*sym),signed char(*argp)));
 signed(__cdecl out_o_pg(signed(colm),signed(arg/* align */),signed(*offs),signed char(*sym),pg_t(*argp)));
