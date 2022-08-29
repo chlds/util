@@ -36,7 +36,15 @@ embed(0x00,b);
 rl(b);
 b = (0x00);
 if(CLIH_QUIT&(flag)) return(0x01);
+r = ctrl_fn_key(r,argp);
 // return(ctrl_fn_key(r,argp));
+if(!r) return(0x00);
+/*
+if(EQ(CTRL_J,r)) {
+AND(y,0x00);
+AND(offs,0x00);
+}
+//*/
 return(0x01+(io_o_b_r(colm,y,offs,arg,sy,argp)));
 }
 // Output

@@ -3,6 +3,7 @@
 Unmap all the pages implemented in a doubly linked list
 
 Remarks:
+Refer at fn. cumul_pg
 Refer at fn. cat_pg and fn. bind_pg
 Based on a doubly linked list (i.e., not a circular linked list)
 */

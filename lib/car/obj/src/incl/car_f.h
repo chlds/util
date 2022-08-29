@@ -10,6 +10,42 @@ Along with C library
 
 signed(__cdecl init_flh(signed(arg),flh_t(*argp))); // deprecated..
 
+signed(__cdecl ctrl_at_b(void(*argp)));
+signed(__cdecl ctrl_a_b(void(*argp)));
+signed(__cdecl ctrl_b_b(void(*argp)));
+signed(__cdecl ctrl_c_b(void(*argp)));
+signed(__cdecl ctrl_d_b(void(*argp)));
+signed(__cdecl ctrl_e_b(void(*argp)));
+signed(__cdecl ctrl_f_b(void(*argp)));
+signed(__cdecl ctrl_g_b(void(*argp)));
+signed(__cdecl ctrl_h_b(void(*argp)));
+signed(__cdecl ctrl_i_b(void(*argp)));
+signed(__cdecl ctrl_j_b(void(*argp)));
+signed(__cdecl ctrl_k_b(void(*argp)));
+signed(__cdecl ctrl_l_b(void(*argp)));
+signed(__cdecl ctrl_m_b(void(*argp)));
+signed(__cdecl ctrl_n_b(void(*argp)));
+signed(__cdecl ctrl_o_b(void(*argp)));
+signed(__cdecl ctrl_p_b(void(*argp)));
+signed(__cdecl ctrl_q_b(void(*argp)));
+signed(__cdecl ctrl_r_b(void(*argp)));
+signed(__cdecl ctrl_s_b(void(*argp)));
+signed(__cdecl ctrl_t_b(void(*argp)));
+signed(__cdecl ctrl_u_b(void(*argp)));
+signed(__cdecl ctrl_v_b(void(*argp)));
+signed(__cdecl ctrl_w_b(void(*argp)));
+signed(__cdecl ctrl_x_b(void(*argp)));
+signed(__cdecl ctrl_y_b(void(*argp)));
+signed(__cdecl ctrl_z_b(void(*argp)));
+signed(__cdecl ctrl_lsb_b(void(*argp)));
+signed(__cdecl ctrl_rs_b(void(*argp)));
+signed(__cdecl ctrl_rsb_b(void(*argp)));
+signed(__cdecl ctrl_ca_b(void(*argp)));
+signed(__cdecl ctrl_ll_b(void(*argp)));
+signed(__cdecl ctrl_none_b(void(*argp)));
+signed(__cdecl ctrl_lf_b(void(*argp)));
+/* Ctrl keys */
+
 signed(__cdecl io_b_r(signed(colm),signed(arg),signed char(*sy),signed char(**argp)));
 signed(__cdecl io_b(signed(colm),signed(arg),signed char(*sy),signed char(*argp)));
 signed(__cdecl io_o_b_r(signed(colm),signed(y),signed(offs),signed(arg),signed char(*sy),signed char(**argp)));
@@ -32,6 +68,8 @@ signed(__cdecl align_va(signed char(**argp)));
 signed(__cdecl ct_pg_rows(signed(colm),pg_t(*argp)));
 signed(__cdecl ct_rows_r(signed(arg),signed char(*argp)));
 signed(__cdecl ct_rows(signed(colm),signed char(*argp)));
+signed(__cdecl ct_pgs_r(pg_t(*argp)));
+signed(__cdecl ct_pgs(pg_t(*argp)));
 /* I/O */
 
 signed(__cdecl cv_pa_rrr(signed(n),pg_t(*di),signed char(*si)));
