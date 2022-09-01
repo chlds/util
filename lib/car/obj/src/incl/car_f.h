@@ -117,6 +117,7 @@ signed(__cdecl ct_b_up_to_pg(signed(arg),pg_t(*argp)));
 
 signed(__cdecl init_v_w(signed(cached),signed(arg),signed short(**argp)));
 signed(__cdecl init_v_b(signed(cached),signed(arg),signed char(**argp)));
+signed(__cdecl init_a_d(signed(arg),signed(*argp)));
 /* Initialise */
 
 signed(__cdecl trunc_w_r(signed short(*path)));
