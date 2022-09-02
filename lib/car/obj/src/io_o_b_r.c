@@ -11,13 +11,15 @@ Based on UTF-8
 # define STDIO_H
 # include "./../../../config.h"
 
-signed(__cdecl io_o_b_r(signed(colm),signed(y),signed(arg),signed(*offs),signed char(*sy),signed char(**argp))) {
+signed(__cdecl io_o_b_r(signed(colm),signed(arg),signed(*y),signed(*offs),signed char(*sy),signed char(**argp))) {
 auto signed char *b;
 auto pg_t *p;
 auto signed r;
 auto signed oldoffs;
 auto signed short flag;
 auto signed enable = (0x01);
+if(!y) return(0x00);
+if(!offs) return(0x00);
 if(!argp) return(0x00);
 b = cli_in_b();
 if(!b) {
@@ -55,8 +57,8 @@ return(0x00);
 }
 if(!flag) {
 r = ct(*argp);
-if(!y) y = coord_y_b();
-if(!(caret_b(1,y))) OR(flag,CLIH_ERROR);
+if(!(*y)) *y = coord_y_b();
+if(!(caret_b(1,*y))) OR(flag,CLIH_ERROR);
 if(!flag) {
 if(!(mon_b(enable,0x00,argp))) OR(flag,CLIH_ERROR);
 if(!flag) {
@@ -67,6 +69,6 @@ printf("%s \n","<< Error at fn. out_o_pa()");
 OR(flag,CLIH_ERROR);
 }}}}
 if(CLIH_ERROR&(flag)) return(0x00);
-if(!(EQ(oldoffs,*offs))) AND(y,0x00);
-return(io_o_b_r(colm,y,arg,offs,sy,argp));
+if(!(EQ(oldoffs,*offs))) AND(*y,0x00);
+return(io_o_b_r(colm,arg,y,offs,sy,argp));
 }

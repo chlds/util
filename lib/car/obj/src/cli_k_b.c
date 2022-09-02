@@ -34,7 +34,7 @@ printf("%s \n","<< Error at fn. init_va()");
 return(0x00);
 }
 AND(y,0x00);
-r = io_o_b(colm,y,arg,offs,sy,b);
+r = io_o_b(colm,arg,&y,offs,sy,b);
 if(!r) printf("%s \n","<< Error at fn. io_o_b()");
 if(!(EQ(OBJS,init_va(OBJS,OBJS,b)))) {
 printf("%s \n","<< Error at fn. init_va()");
