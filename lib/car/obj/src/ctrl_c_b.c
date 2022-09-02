@@ -14,5 +14,6 @@ Refer at fn. ctrl_fn_key
 signed(__cdecl ctrl_c_b(void(*argp))) {
 // if(!argp) return(0x00);
 if(DBG) printf("%s ","<Ctrl-C>");
-return(ctrl_none_b(argp));
+if(!(ctrl_none_b(argp))) return(0x00);
+return(CTRL_C);
 }
