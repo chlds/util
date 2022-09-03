@@ -26,5 +26,8 @@ if(!r) {
 printf("%s \n","<< Error at fn. io_o_b_r()");
 return(0x00);
 }
+//*
+if(EQ(CTRL_Z,r)) return(CLIH_UNDO);
+//*/
 return(io_o_b(colm,arg,y,offs,sy,argp));
 }

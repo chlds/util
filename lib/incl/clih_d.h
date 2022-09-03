@@ -3,6 +3,12 @@
 # define CLIH_INIT (0x04)
 # define CLIH_ERROR (0x08)
 
+# define CLIH_UNDO (0x21)
+# define CLIH_REDO (0x22)
+# define CLIH_PIN (0x23)
+# define CLIH_PASTE (0x24)
+// CTRL_KEYS (0x20) <
+
 # define COLM (0x50)
 # define OCTET (0x08)
 # define ALIGN (OCTET)

@@ -23,13 +23,3 @@ CLIH_IN,
 CLIH_OUT,
 CLIH_ERR,
 };
-
-enum {
-CLIH_UNDO,
-CLIH_REDO,
-};
-
-enum {
-CLIH_PIN,
-CLIH_PASTE,
-};

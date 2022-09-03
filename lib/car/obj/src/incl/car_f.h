@@ -46,9 +46,11 @@ signed(__cdecl ctrl_none_b(void(*argp)));
 signed(__cdecl ctrl_lf_b(void(*argp)));
 /* Ctrl keys */
 
+signed(__cdecl cli_k_b_r(signed(colm),signed(arg),signed(*y),signed(*offs),signed char(*sy),signed char(**argp)));
 signed(__cdecl cli_k_b(signed(colm),signed(arg),signed char(*sy),signed char(**argp)));
 signed(__cdecl io_b_r(signed(colm),signed(arg),signed char(*sy),signed char(**argp)));
 signed(__cdecl io_b(signed(colm),signed(arg),signed char(*sy),signed char(*argp)));
+signed(__cdecl io_o_b_rr(signed(colm),signed(arg),signed(*y),signed(*offs),signed char(*sy),signed char(**argp)));
 signed(__cdecl io_o_b_r(signed(colm),signed(arg),signed(*y),signed(*offs),signed char(*sy),signed char(**argp)));
 signed(__cdecl io_o_b(signed(colm),signed(arg),signed(*y),signed(*offs),signed char(*sy),signed char(**argp)));
 signed(__cdecl out_o_pa(signed(colm),signed(arg/* align */),signed(*offs),signed char(*sym),signed char(*argp)));

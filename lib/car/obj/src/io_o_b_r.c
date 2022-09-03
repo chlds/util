@@ -15,60 +15,42 @@ signed(__cdecl io_o_b_r(signed(colm),signed(arg),signed(*y),signed(*offs),signed
 auto signed char *b;
 auto pg_t *p;
 auto signed r;
-auto signed oldoffs;
+auto signed curr_y;
+auto signed curr_offs;
 auto signed short flag;
 auto signed enable = (0x01);
 if(!y) return(0x00);
 if(!offs) return(0x00);
 if(!argp) return(0x00);
-b = cli_in_b();
-if(!b) {
-printf("%s \n","<< Error at fn. cli_in_b()");
-return(0x00);
+curr_y = (*y);
+curr_offs = (*(CLIH_BASE+(offs)));
+b = (0x00);
+if(!(cat_b(&b,*(CLIH_BASE+(argp)),(void*)0x00))) {
+rl(b);
+b = (0x00);
+AND(r,0x00);
+INC(r);
+r = (r*(sizeof(*b)));
+b = (signed char(*)) alloc(r);
+if(!b) return(0x00);
+*b = (0x00);
 }
-// CTRL & ESC
-r = (signed) (0xFF&(*b));
-if(EQ(DEL,r)) r = (CTRL_D);
-if(r<(CTRL_KEYS)) {
-if(EQ(ESC,r)) {
-if(EQ(0x01,ct(b))) r = (CTRL_Q);
-}
+r = io_o_b_rr(colm,arg,y,offs,sy,argp);
+//*
+if(EQ(CLIH_UNDO,r)) {
+*y = (curr_y);
+*offs = (curr_offs);
+embed(0x00,*(CLIH_BASE+(argp)));
+rl(*(CLIH_BASE+(argp)));
+*(CLIH_BASE+(argp)) = (0x00);
+if(b) {
+if(*b) {
+r = cat_b(CLIH_BASE+(argp),b,(void*)0x00);
+if(!r) printf("%s \n","<< Error at fn. cat_b()");
+}}}
+//*/
 embed(0x00,b);
 rl(b);
 b = (0x00);
-return(ctrl_fn_key(r,argp));
-}
-// Output
-AND(flag,0x00);
-if(*(CLIH_BASE+(argp))) {
-if(**(CLIH_BASE+(argp))) {
-embed(0x00,*(CLIH_OFFSET+(argp)));
-rl(*(CLIH_OFFSET+(argp)));
-*(CLIH_OFFSET+(argp)) = (0x00);
-if(!(cat_b(CLIH_OFFSET+(argp),*(CLIH_BASE+(argp)),(void*)0x00))) OR(flag,CLIH_ERROR);
-}}
-r = cat_b(argp,b,(void*)0x00);
-embed(0x00,b);
-rl(b);
-b = (0x00);
-if(!r) {
-printf("%s \n","<< Error at fn. cat_b()");
-return(0x00);
-}
-if(!flag) {
-r = ct(*argp);
-if(!(*y)) *y = coord_y_b();
-if(!(caret_b(1,*y))) OR(flag,CLIH_ERROR);
-if(!flag) {
-if(!(mon_b(enable,0x00,argp))) OR(flag,CLIH_ERROR);
-if(!flag) {
-oldoffs = (*offs);
-r = out_o_pa(colm,arg,offs,sy,*argp);
-if(!r) {
-printf("%s \n","<< Error at fn. out_o_pa()");
-OR(flag,CLIH_ERROR);
-}}}}
-if(CLIH_ERROR&(flag)) return(0x00);
-if(!(EQ(oldoffs,*offs))) AND(*y,0x00);
-return(io_o_b_r(colm,arg,y,offs,sy,argp));
+return(r);
 }
