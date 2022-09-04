@@ -37,7 +37,9 @@ if(!b) return(0x00);
 }
 r = io_o_b_rr(colm,arg,y,offs,sy,argp);
 //*
-if(EQ(CLIH_UNDO,r)) {
+AND(flag,0x00);
+if(EQ(CLIH_UNDO,r)) OR(flag,0x01);
+if(flag) {
 *y = (curr_y);
 *offs = (curr_offs);
 embed(0x00,*(CLIH_BASE+(argp)));

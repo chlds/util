@@ -48,8 +48,6 @@ signed(__cdecl ctrl_lf_b(void(*argp)));
 
 signed(__cdecl cli_k_b_r(signed(colm),signed(arg),signed(*y),signed(*offs),signed char(*sy),signed char(**argp)));
 signed(__cdecl cli_k_b(signed(colm),signed(arg),signed char(*sy),signed char(**argp)));
-signed(__cdecl io_b_r(signed(colm),signed(arg),signed char(*sy),signed char(**argp)));
-signed(__cdecl io_b(signed(colm),signed(arg),signed char(*sy),signed char(*argp)));
 signed(__cdecl io_o_b_rr(signed(colm),signed(arg),signed(*y),signed(*offs),signed char(*sy),signed char(**argp)));
 signed(__cdecl io_o_b_r(signed(colm),signed(arg),signed(*y),signed(*offs),signed char(*sy),signed char(**argp)));
 signed(__cdecl io_o_b(signed(colm),signed(arg),signed(*y),signed(*offs),signed char(*sy),signed char(**argp)));
@@ -87,16 +85,10 @@ signed(__cdecl coord_outs_b_r(signed(colm),signed(arg/* align */),signed char(*a
 signed(__cdecl coord_outs_b(signed(colm),signed(arg/* align */),signed char(*argp)));
 signed(__cdecl spool_pg_r(signed(arg),pg_t(**di),pg_t(*si)));
 pg_t *(__cdecl spool_pg(signed(arg),pg_t(*argp)));
-signed(__cdecl coord_out_pg_overline(signed(colm),signed(arg/* align */),signed char(*sym),pg_t(*argp)));
-signed(__cdecl coord_out_pg_r(signed(colm),signed(arg/* align */),signed char(*sym),pg_t(*argp)));
-signed(__cdecl coord_out_pg(signed(colm),signed(arg/* align */),signed char(*sym),pg_t(*argp)));
 signed(__cdecl cv_pg_rrr(signed(n),signed(arg),pg_t(*di),pg_t(*si)));
 signed(__cdecl cv_pg_rr(signed(arg),signed char(*sym),pg_t(*di),pg_t(*si)));
 signed(__cdecl cv_pg_r(signed(arg),signed char(*sym),pg_t(*di),pg_t(*si)));
 pg_t *(__cdecl cv_pg(signed(arg),signed char(*sym),pg_t(*argp)));
-signed(__cdecl output_pg_r(signed(colm),signed(arg/* align */),signed char(*sym),pg_t(*argp)));
-signed(__cdecl output_pg(signed(colm),signed(arg/* align */),signed char(*sym),pg_t(*argp)));
-signed(__cdecl output_pa(signed(colm),signed(arg/* align */),signed char(*sym),signed char(*argp)));
 signed(__cdecl cue_out_pg_r(signed(n),signed(arg/* align */),pg_t(*argp)));
 signed(__cdecl cue_out_pg(signed(arg/* align */),signed char(*sym),pg_t(*argp)));
 signed(__cdecl out_pg(signed(arg/* align */),pg_t(*argp)));

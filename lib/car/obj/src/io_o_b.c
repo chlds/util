@@ -21,13 +21,12 @@ if(!argp) return(0x00);
 // if(!(*argp)) return(0x00);
 r = io_o_b_r(colm,arg,y,offs,sy,argp);
 if(EQ(CTRL_Q,r)) return(r);
+if(EQ(CTRL_H,r)) return(CLIH_UNDO);
+if(EQ(CTRL_Z,r)) return(CLIH_UNDO);
 if(!r) {
 // CTRL_AT or..
 printf("%s \n","<< Error at fn. io_o_b_r()");
 return(0x00);
 }
-//*
-if(EQ(CTRL_Z,r)) return(CLIH_UNDO);
-//*/
 return(io_o_b(colm,arg,y,offs,sy,argp));
 }
