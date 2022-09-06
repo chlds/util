@@ -15,7 +15,7 @@ signed(__cdecl io_o_b_rr(signed(colm),signed(arg),signed(*y),signed(*offs),signe
 auto signed char *b;
 auto pg_t *p;
 auto signed r;
-auto signed oldoffs;
+auto signed old;
 auto signed short flag;
 auto signed enable = (0x01);
 if(!y) return(0x00);
@@ -27,7 +27,7 @@ r = ct(*argp);
 if(!(*y)) *y = coord_y_b();
 if(!(caret_b(1,*y))) OR(flag,CLIH_ERROR);
 if(!flag) {
-oldoffs = (*offs);
+old = (*offs);
 if(*argp) {
 if(**argp) {
 r = out_o_pa(colm,arg,offs,sy,*argp);
@@ -36,7 +36,7 @@ printf("%s \n","<< Error at fn. out_o_pa()");
 OR(flag,CLIH_ERROR);
 }}}}
 if(CLIH_ERROR&(flag)) return(0x00);
-if(!(EQ(oldoffs,*offs))) AND(*y,0x00);
+if(!(EQ(old,*offs))) AND(*y,0x00);
 if(!(clear_rows(~0x00))) return(0x00);
 if(!(mon_b(enable,0x00,argp))) return(0x00);
 // input

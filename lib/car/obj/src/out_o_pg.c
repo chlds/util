@@ -19,7 +19,7 @@ if(!offs) return(0x00);
 if(!argp) return(0x00);
 if(!(align_pg(argp))) return(0x00);
 if(!(cumul_pg(*offs,CLIH_OFFSET,argp))) return(0x00);
-r = coord_out_o_pg(colm,arg,sym,argp);
+r = coord_out_o_pg(colm,arg,offs,sym,argp);
 p = (*(CLIH_OFFSET+(R(p,*argp))));
 if(!p) return(0x00);
 *offs = ct_to_pg(p,*(CLIH_BASE+(R(p,*argp))));

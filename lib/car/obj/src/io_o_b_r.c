@@ -16,14 +16,14 @@ auto signed char *b;
 auto pg_t *p;
 auto signed r;
 auto signed curr_y;
-auto signed curr_offs;
 auto signed short flag;
+auto signed curr_offs[OBJS];
 auto signed enable = (0x01);
 if(!y) return(0x00);
 if(!offs) return(0x00);
 if(!argp) return(0x00);
 curr_y = (*y);
-curr_offs = (*(CLIH_BASE+(offs)));
+if(!(EQ(OBJS,cpy_a_d(OBJS,curr_offs,offs)))) return(0x00);
 b = (0x00);
 if(!(cat_b(&b,*(CLIH_BASE+(argp)),(void*)0x00))) {
 rl(b);
@@ -41,7 +41,7 @@ AND(flag,0x00);
 if(EQ(CLIH_UNDO,r)) OR(flag,0x01);
 if(flag) {
 *y = (curr_y);
-*offs = (curr_offs);
+if(!(EQ(OBJS,cpy_a_d(OBJS,offs,curr_offs)))) return(0x00);
 embed(0x00,*(CLIH_BASE+(argp)));
 rl(*(CLIH_BASE+(argp)));
 *(CLIH_BASE+(argp)) = (0x00);

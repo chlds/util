@@ -51,15 +51,18 @@ signed(__cdecl cli_k_b(signed(colm),signed(arg),signed char(*sy),signed char(**a
 signed(__cdecl io_o_b_rr(signed(colm),signed(arg),signed(*y),signed(*offs),signed char(*sy),signed char(**argp)));
 signed(__cdecl io_o_b_r(signed(colm),signed(arg),signed(*y),signed(*offs),signed char(*sy),signed char(**argp)));
 signed(__cdecl io_o_b(signed(colm),signed(arg),signed(*y),signed(*offs),signed char(*sy),signed char(**argp)));
+signed(__cdecl coord_out_pg_r(signed(colm),signed(arg/* align */),signed(*offs),pg_t(*argp)));
+signed(__cdecl coord_out_pg(signed(colm),signed(arg/* align */),signed(*offs),pg_t(*argp)));
+signed(__cdecl coord_out_pa(signed(colm),signed(arg/* align */),signed(*offs),signed char(*sym),signed char(*argp)));
 signed(__cdecl out_o_pa(signed(colm),signed(arg/* align */),signed(*offs),signed char(*sym),signed char(*argp)));
 signed(__cdecl out_o_pg(signed(colm),signed(arg/* align */),signed(*offs),signed char(*sym),pg_t(*argp)));
 signed(__cdecl cv_o_pg_rrr(signed(arg),pg_t(*di),signed char(*si)));
 signed(__cdecl cv_o_pg_rr(signed(arg),pg_t(*di),signed char(*si)));
 signed(__cdecl cv_o_pg_r(signed(arg),pg_t(*di),pg_t(*si)));
 pg_t *(__cdecl cv_o_pg(signed(arg/* colm */),pg_t(*argp)));
-signed(__cdecl coord_out_o_pg_overline(signed(colm),signed(arg/* align */),signed char(*sym),pg_t(*argp)));
-signed(__cdecl coord_out_o_pg_r(signed(colm),signed(arg/* align */),signed char(*sym),pg_t(*argp)));
-signed(__cdecl coord_out_o_pg(signed(colm),signed(arg/* align */),signed char(*sym),pg_t(*argp)));
+signed(__cdecl coord_out_o_pg_overline(signed(colm),signed(arg/* align */),signed(*offs),signed char(*sym),pg_t(*argp)));
+signed(__cdecl coord_out_o_pg_r(signed(colm),signed(arg/* align */),signed(*offs),signed char(*sym),pg_t(*argp)));
+signed(__cdecl coord_out_o_pg(signed(colm),signed(arg/* align */),signed(*offs),signed char(*sym),pg_t(*argp)));
 signed(__cdecl cumul_pg(signed(dif),signed(arg),pg_t(*argp)));
 signed(__cdecl cumul_va(signed(dif),signed(arg),signed char(**argp)));
 signed(__cdecl rule_pg(signed(dif),signed(arg),pg_t(*argp)));
@@ -369,6 +372,7 @@ signed(__cdecl quot_b(signed(arg/* size */),signed char(*di/* buff */),signed ch
 signed(__cdecl append_b(signed char(*di),signed char(*si)));
 /* Append */
 
+signed(__cdecl cpy_a_d(signed(arg),signed(*di),signed(*si)));
 signed(__cdecl cpy2p(signed char(*di),signed char(*deadline),signed char(*si)));
 signed(__cdecl cpy2(signed char(cache),signed char(*di),signed char(*si)));
 signed(__cdecl ncpy(signed(arg),signed char(*di),signed char(*si)));
