@@ -19,16 +19,11 @@ if(!argp) return(0x00);
 // if(!(*argp)) return(0x00);
 r = io_o_b(colm,arg,y,offs,sy,argp);
 if(EQ(CTRL_Q,r)) return(r);
+if(EQ(CTRL_X,r)) return(r);
 if(!r) {
 // CTRL_AT or..
 printf("%s \n","<< Error at fn. io_o_b()");
 return(0x00);
 }
-if(EQ(CTRL_X,r)) {
-if(!(es(CTRL_L))) return(0x00);
-if(!(EQ(OBJS,clear_k_b(OBJS,y,offs,argp)))) {
-printf("%s \n","<< Error at fn. clear_k_b()");
-return(0x00);
-}}
 return(cli_k_b_r(colm,arg,y,offs,sy,argp));
 }
