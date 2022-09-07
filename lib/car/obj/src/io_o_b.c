@@ -21,6 +21,7 @@ if(!argp) return(0x00);
 // if(!(*argp)) return(0x00);
 r = io_o_b_r(colm,arg,y,offs,sy,argp);
 if(EQ(CTRL_Q,r)) return(r);
+if(EQ(CTRL_W,r)) return(r);
 if(EQ(CTRL_X,r)) return(r);
 if(EQ(CTRL_H,r)) return(CLIH_UNDO);
 if(EQ(CTRL_Z,r)) return(CLIH_UNDO);

@@ -36,6 +36,7 @@ if(!b) return(0x00);
 *b = (0x00);
 }
 r = io_o_b_rr(colm,arg,y,offs,sy,argp);
+if(EQ(CTRL_W,r)) r = backward_del(sy,b);
 //*
 AND(flag,0x00);
 if(EQ(CLIH_UNDO,r)) OR(flag,0x01);
