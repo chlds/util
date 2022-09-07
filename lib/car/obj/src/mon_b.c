@@ -17,7 +17,7 @@ auto signed short flag;
 auto signed short x,y;
 auto signed char c;
 auto signed short algn = (0x08);
-auto signed short row = (0x10);
+auto signed short row = (0x14);
 auto signed char *m = "No pg..";
 auto signed char *(a[]) = {
 "B","O","I","D",0x00,
@@ -62,9 +62,10 @@ if(argpp) {
 r = (OBJS);
 while(r) {
 b = (*(--r+(argpp)));
-if(!b) b = ("<Empty>");
-printf("%s: [%p] ",*(r+(a)),b);
+if(!b) b = ("Empty");
+printf("%s: [%p] <",*(r+(a)),b);
 cli_outs_b(algn,b);
+printf("> ");
 co_br(0x01);
 }}
 /* come back */
