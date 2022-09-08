@@ -46,6 +46,9 @@ signed(__cdecl ctrl_none_b(void(*argp)));
 signed(__cdecl ctrl_lf_b(void(*argp)));
 /* Ctrl keys */
 
+signed(__cdecl cue_backward_b_rr(signed(arg),signed char(*sym),signed char(*argp)));
+signed(__cdecl cue_backward_b_r(signed char(*sym),signed char(*argp)));
+signed(__cdecl cue_backward_b(signed char(*sym),signed char(*argp)));
 signed(__cdecl backward_del(signed char(*sym),signed char(*argp)));
 signed(__cdecl k_b_r(signed(colm),signed(arg),signed char(*sy),signed char(**argp)));
 signed(__cdecl k_b(signed(colm),signed(arg),signed char(*sy),signed char(**argp)));
