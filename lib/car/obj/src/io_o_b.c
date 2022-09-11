@@ -25,6 +25,9 @@ if(EQ(CTRL_W,r)) return(r);
 if(EQ(CTRL_X,r)) return(r);
 if(EQ(CTRL_H,r)) return(CLIH_UNDO);
 if(EQ(CTRL_Z,r)) return(CLIH_UNDO);
+if(EQ(CTRL_P,r)) {
+if(!(clih_pin(*argp))) return(0x00);
+}
 if(!r) {
 // CTRL_AT or..
 printf("%s \n","<< Error at fn. io_o_b_r()");
