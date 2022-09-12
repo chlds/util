@@ -23,12 +23,6 @@ if(!argp) return(0x00);
 if(!(align_pg(argp))) return(0x00);
 r = (*(CLI_D+(offs)));
 if(!(cumul_pg(r,CLIH_OFFSET,argp))) return(0x00);
-//*
-r = (*(CLI_Q+(offs)));
-y = coord_y_b();
-y = (r+(y));
-if(!(caret_b(1,y))) return(0x00);
-//*/
 r = coord_out_pg_r(colm,arg,offs,argp);
 p = (*(CLIH_OFFSET+(R(p,*argp))));
 if(!p) return(0x00);

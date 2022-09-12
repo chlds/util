@@ -30,7 +30,6 @@ if(col<(r)) {
 co_br(0x01);
 *(CLIH_OFFSET+(R(p,*argp))) = (p);
 if(!(cumul_pg(0x00,CLIH_OFFSET,argp))) return(0x00);
-INC(*(CLI_Q+(offs)));
 }
 if(!(o_pg(arg,p))) return(0x00);
 p = (*(CLIH_DI+(R(p,*p))));

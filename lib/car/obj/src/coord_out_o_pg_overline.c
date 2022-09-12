@@ -13,6 +13,7 @@ auto signed char *b;
 auto pg_t *p;
 auto signed col;
 auto signed r;
+auto signed y;
 if(COLM<(colm)) colm = (COLM);
 if(colm<(0x01)) colm = (COLM);
 if(!offs) return(0x00);
@@ -25,8 +26,9 @@ if(!(EQ(0x01,col))) {
 co_br(0x01);
 *(CLIH_OFFSET+(R(p,*argp))) = (p);
 if(!(cumul_pg(0x00,CLIH_OFFSET,argp))) return(0x00);
-INC(*(CLI_Q+(offs)));
 }
+y = coord_y_b();
+if(!(caret_b(1,y))) return(0x00);
 b = (*(CLI_B+(R(b,*p))));
 r = coord_out_pa(colm,arg,offs,sym,b);
 if(!r) {

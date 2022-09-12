@@ -32,7 +32,6 @@ if(colm<(r)) return(coord_out_o_pg_overline(colm,arg,offs,sym,argp));
 co_br(0x01);
 *(CLIH_OFFSET+(R(p,*argp))) = (p);
 if(!(cumul_pg(0x00,CLIH_OFFSET,argp))) return(0x00);
-AND(*(CLI_Q+(offs)),0x00);
 AND(*(CLI_D+(offs)),0x00);
 }
 r = cli_outs_b(arg,b);
