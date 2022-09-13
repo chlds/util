@@ -19,6 +19,8 @@ if(!argp) return(0x00);
 r = io_o_b(colm,arg,offs,sy,argp);
 if(EQ(CTRL_Q,r)) return(r);
 if(EQ(CTRL_X,r)) return(r);
+if(EQ(CTRL_J,r)) return(r);
+if(EQ(CTRL_M,r)) return(r);
 if(!r) {
 // CTRL_AT or..
 printf("%s \n","<< Error at fn. io_o_b()");

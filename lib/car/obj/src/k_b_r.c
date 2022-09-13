@@ -26,10 +26,12 @@ auto signed ctrlkey[] = {
 CTRL_X,
 0x00,
 };
-// if(!argp) return(0x00);
+if(!argp) return(0x00);
 // if(!(*argp)) return(0x00);
 r = cli_k_b(colm,arg,sy,argp);
 if(EQ(CTRL_Q,r)) return(r);
+if(EQ(CTRL_J,r)) return(r);
+if(EQ(CTRL_M,r)) return(r);
 // if(EQ(CTRL_Q,r)) return(0x01);
 if(!r) {
 // CTRL_AT or..
