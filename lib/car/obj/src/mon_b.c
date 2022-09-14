@@ -55,7 +55,7 @@ printf("%s: [%p] ",*(r+(a)),p);
 cli_outs_b(algn,b);
 co_br(0x01);
 }}
-/* also
+//* also
 co_br(0x01);
 printf("[%s] \n","VA");
 if(argpp) {
@@ -68,17 +68,6 @@ cli_outs_b(algn,b);
 printf("> ");
 co_br(0x01);
 }}
-//*/
-//* No VA
-co_br(0x01);
-printf("[%s] \n","No VA");
-b = (*argpp);
-if(!b) b = ("Empty");
-printf("[%p] <",b);
-cli_outs_b(algn,b);
-printf("> ");
-co_br(0x01);
-//*/
 /* come back */
 r = coord_b(CLIH_OUT,CLIH_DIFF,&coord);
 if(!r) r = cli_message(r,"<< Error at fn. coord_b() \n");
