@@ -44,7 +44,7 @@ printf("%s %d %s %Xh \n","<< Error at fn. GetThreadPriority() with no.",r,"or",r
 return(0x00);
 }
 
-r = ord_vd(priors,r);
+r = ord_d_v(priors,r);
 if(r<(ct_v_d(priors))) {
 if(arg<(0x00)) --r;
 else r++;

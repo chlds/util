@@ -32,7 +32,7 @@ auto signed *(ctrlkeys[]) = {
 if(arg<(0x00)) return(0x00);
 if(!(arg<(CTRL_KEYS))) return(0x00);
 // if(!argp) return(0x00);
-r = ord_vd(ctrlkeys,arg);
+r = ord_d_v(ctrlkeys,arg);
 if(r<(ct_v_d(ctrlkeys))) {
 f = (*(r+(fn)));
 return(f(argp));

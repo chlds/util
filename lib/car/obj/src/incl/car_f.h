@@ -463,7 +463,7 @@ signed(__cdecl ords_partially(signed char(**di),signed char(*si)));
 signed(__cdecl ords_part(signed char(**di),signed char(*si)));
 signed(__cdecl ords(signed char(**di),signed char(*si)));
 signed(__cdecl ord(signed char(*di),signed char(si)));
-signed(__cdecl ord_vd(signed(**di),signed(si)));
+signed(__cdecl ord_d_v(signed(**di),signed(si)));
 signed(__cdecl ord_d(signed(*di),signed(si)));
 /* Check the ordinal number. */
 
