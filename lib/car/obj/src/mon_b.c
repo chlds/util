@@ -42,6 +42,9 @@ if(!(clear_rows(0x01))) return(0x00);
 r = (0x50);
 while(--r) _putch('*');
 co_br(~0x00);
+/* description */
+printf("%s ","Please press <Ctrl-Q> or <ESC> to quit.");
+co_br(0x00);
 /* monitor */
 co_br(0x01);
 printf("[%s] \n","PG");

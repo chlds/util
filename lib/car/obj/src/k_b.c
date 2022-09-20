@@ -18,6 +18,7 @@ auto signed char *b;
 auto signed r;
 auto signed short flag;
 auto signed char *(a[OBJS]);
+if(!argp) return(0x00);
 if(COLM<(colm)) colm = (COLM);
 if(colm<(0x01)) colm = (COLM);
 AND(*argp,0x00);
