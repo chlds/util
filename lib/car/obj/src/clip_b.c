@@ -1,10 +1,10 @@
 /* **** Notes
 
-Clip.
+Clip
 
 Remarks:
 Return an offset number on success.
-//*/
+*/
 
 
 # define CAR_H
@@ -27,7 +27,7 @@ b = (signed char(*)) alloc(r);
 if(!b) return(0x00);
 if(!(cpy(b,arg+(*argp)))) *b = (0x00);
 embed(0x00,*argp);
-if(*argp) rl(*argp);
+rl(*argp);
 *argp = (b);
 b = (0x00);
 // return(r);

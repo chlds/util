@@ -96,7 +96,7 @@ signed(__cdecl cv_pa_r(signed(arg),signed char(*sym),pg_t(*di),signed char(*si))
 pg_t *(__cdecl cv_pa(signed(arg),signed char(*sym),signed char(*argp)));
 signed(__cdecl cv_ap_r(signed(arg),signed char(**di),pg_t(*si)));
 signed char *(__cdecl cv_ap(signed(arg),pg_t(*argp)));
-signed(__cdecl mon_b(signed(arg),pg_t(*argp),signed char(**argpp)));
+signed(__cdecl mon_b(signed(arg),pg_t(*argp),signed(*offs),signed char(**argpp)));
 signed(__cdecl co_br(signed(arg)));
 signed(__cdecl coord_outs_b_r(signed(colm),signed(arg/* align */),signed char(*argp)));
 signed(__cdecl coord_outs_b(signed(colm),signed(arg/* align */),signed char(*argp)));
@@ -334,8 +334,14 @@ signed(__cdecl cv_mn(signed short(*mn),signed char(*si)));
 signed(__cdecl cv_at(signed short(*hr),signed short(*mn),signed char(*argp)));
 /* Convert into time */
 
+signed char *(__cdecl cut_b(signed(arg),signed char(**argp)));
+/* Cut */
+
 signed(__cdecl clip_b(signed(arg),signed char(**argp)));
 /* Clip */
+
+signed char *(__cdecl dupl_b(signed(arg),signed char(*argp)));
+/* Duplicate */
 
 signed char *(__cdecl cx_rr(signed char(*di),signed char(*et),signed char(*si)));
 signed char *(__cdecl cx_r(signed(digit),signed(arg),signed char(*et),signed char(*argp)));

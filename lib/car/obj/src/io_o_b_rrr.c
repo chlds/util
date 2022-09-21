@@ -35,7 +35,7 @@ OR(flag,CLIH_ERROR);
 }}}}
 if(CLIH_ERROR&(flag)) return(0x00);
 if(!(clear_rows(~0x00))) return(0x00);
-if(!(mon_b(enable,0x00,argp))) return(0x00);
+if(!(mon_b(enable,0x00,offs,argp))) return(0x00);
 // input
 b = cli_in_b();
 if(!b) {

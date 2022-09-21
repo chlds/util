@@ -8,7 +8,7 @@ monitor
 # define STDIO_H
 # include "./../../../config.h"
 
-signed(__cdecl mon_b(signed(arg),pg_t(*argp),signed char(**argpp))) {
+signed(__cdecl mon_b(signed(arg),pg_t(*argp),signed(*offs),signed char(**argpp))) {
 auto signed char *b;
 auto pg_t *p;
 auto coord_t coord;
@@ -24,6 +24,7 @@ auto signed char *(a[]) = {
 };
 if(!arg) return(0x01);
 // if(!argp) return(0x00);
+// if(!offs) return(0x00);
 // if(!argpp) return(0x00);
 if(!(coord_b(CLIH_IN,OBJS,&coord))) {
 r = cli_message(0x00,"<< Error at fn. coord_b() \n");
@@ -56,6 +57,16 @@ if(!p) b = m;
 else b = (*(CLI_B+(R(b,*p))));
 printf("%s: [%p] ",*(r+(a)),p);
 cli_outs_b(algn,b);
+co_br(0x01);
+}}
+//* offset
+co_br(0x01);
+printf("[%s] \n","OFFS");
+if(offs) {
+r = (OBJS);
+while(r) {
+--r;
+printf("%s: [%d] ",*(r+(a)),*(r+(offs)));
 co_br(0x01);
 }}
 //* also
