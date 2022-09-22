@@ -334,8 +334,8 @@ signed(__cdecl cv_mn(signed short(*mn),signed char(*si)));
 signed(__cdecl cv_at(signed short(*hr),signed short(*mn),signed char(*argp)));
 /* Convert into time */
 
-signed char *(__cdecl cut_b(signed(arg),signed char(**argp)));
-/* Cut */
+signed char *(__cdecl queue_b(signed(arg),signed char(**argp)));
+/* Queue */
 
 signed(__cdecl clip_b(signed(arg),signed char(**argp)));
 signed char *(__cdecl clip_rl(signed(arg),signed char(*argp)));
