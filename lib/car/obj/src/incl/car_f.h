@@ -338,6 +338,7 @@ signed char *(__cdecl cut_b(signed(arg),signed char(**argp)));
 /* Cut */
 
 signed(__cdecl clip_b(signed(arg),signed char(**argp)));
+signed char *(__cdecl clip_rl(signed(arg),signed char(*argp)));
 /* Clip */
 
 signed char *(__cdecl dupl_b(signed(arg),signed char(*argp)));
