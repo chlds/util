@@ -17,7 +17,8 @@ auto signed char *b;
 auto signed r;
 b = ci_b();
 if(!b) return(b);
-if(EQ(0xE0,*b)) {
+r = (signed) (0xFF&(*b));
+if(EQ(0xE0,r)) {
 if(!(EQ(0x03,ct(b)))) b = cat_ahead(b,"\033");
 // add an ESC character to the first byte of the meta key starting from (0xE0)
 }
