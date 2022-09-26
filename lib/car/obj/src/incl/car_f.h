@@ -353,6 +353,7 @@ signed char *(__cdecl cx(signed(digit),signed(arg),signed char(*et),signed char(
 signed char *(__cdecl cv_r(signed(arg/* n-digit */),signed char(*argp)));
 signed char *(__cdecl cv(signed(digit),signed(arg)));
 signed char *(__cdecl cat_ahead(signed char(*di),signed char(*si)));
+signed char *(__cdecl cat_anterior(signed char(*di),signed char(*si)));
 /* convert, concatenate and release */
 
 signed(__cdecl ct_av_b_r(signed(*di),signed char(**si)));
