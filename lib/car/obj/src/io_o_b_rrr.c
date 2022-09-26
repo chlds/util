@@ -54,6 +54,11 @@ rl(b);
 b = (0x00);
 return(ctrl_fn_key(r,argp));
 }
+//*
+embed(0x00,*(CLIH_DIFF+(argp)));
+rl(*(CLIH_DIFF+(argp)));
+*(CLIH_DIFF+(argp)) = (0x00);
+//*/
 r = cat_b(argp,b,(void*)0x00);
 embed(0x00,b);
 rl(b);

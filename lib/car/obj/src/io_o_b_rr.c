@@ -33,6 +33,12 @@ if(!b) return(0x00);
 *b = (0x00);
 }
 r = io_o_b_rrr(colm,arg,offs,sy,argp);
+//*
+if(!(*(CLIH_DIFF+(argp)))) {
+if(*b) {
+if(!(cat_b(CLIH_DIFF+(argp),b,(void*)0x00))) return(0x00);
+}}
+//*/
 if(EQ(CTRL_W,r)) r = backward_del(sy,b);
 if(EQ(CLIH_UNDO,r)) {
 if(!(EQ(OBJS,cpy_a_d(OBJS,offs,curr_offs)))) return(0x00);

@@ -12,6 +12,7 @@ Based on UTF-8
 # include "./../../../config.h"
 
 signed(__cdecl io_o_b(signed(colm),signed(arg),signed(*offs),signed char(*sy),signed char(**argp))) {
+auto signed char *b;
 auto pg_t *p;
 auto signed r;
 auto signed short flag;
@@ -34,5 +35,13 @@ if(!r) {
 printf("%s \n","<< Error at fn. io_o_b_r()");
 return(0x00);
 }
+//*
+b = dupl_offset(ct(*argp),*(CLIH_DIFF+(argp)));
+if(b) {
+embed(0x00,*(CLIH_INDEX+(argp)));
+rl(*(CLIH_INDEX+(argp)));
+*(CLIH_INDEX+(argp)) = (b);
+}
+//*/
 return(io_o_b(colm,arg,offs,sy,argp));
 }
