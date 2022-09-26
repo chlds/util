@@ -344,6 +344,8 @@ signed char *(__cdecl clip_rl(signed(arg),signed char(*argp)));
 
 signed char *(__cdecl dupl_backward_r(signed(arg),signed char(*argp)));
 signed char *(__cdecl dupl_backward(signed char(*argp)));
+signed char *(__cdecl dupl_offset_r(signed(arg),signed char(*argp)));
+signed char *(__cdecl dupl_offset(signed(arg),signed char(*argp)));
 signed char *(__cdecl dupl_b(signed(arg),signed char(*argp)));
 /* Duplicate */
 
