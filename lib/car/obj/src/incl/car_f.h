@@ -61,6 +61,7 @@ signed(__cdecl kb_r(signed(colm),signed(arg),signed char(*sy)));
 signed(__cdecl kb(signed(colm),signed(arg),signed char(*sy)));
 signed(__cdecl cli_k_b_r(signed(colm),signed(arg),signed(*offs),signed char(*sy),signed char(**argp)));
 signed(__cdecl cli_k_b(signed(colm),signed(arg),signed char(*sy),signed char(**argp)));
+signed(__cdecl io_o_b_rrrr(signed(colm),signed(arg),signed(*offs),signed char(*sy),signed char(**argp)));
 signed(__cdecl io_o_b_rrr(signed(colm),signed(arg),signed(*offs),signed char(*sy),signed char(**argp)));
 signed(__cdecl io_o_b_rr(signed(colm),signed(arg),signed(*offs),signed char(*sy),signed char(**argp)));
 signed(__cdecl io_o_b_r(signed(colm),signed(arg),signed(*offs),signed char(*sy),signed char(**argp)));
