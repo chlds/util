@@ -147,7 +147,7 @@ Remarks:
 # endif
 
 # ifdef CK_RES_H
-# include "./ck/res/resource.h"
+# include "./ck/obj/src/res/resource.h"
 # endif
 
 # ifdef PIN_H
