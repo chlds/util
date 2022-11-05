@@ -5,6 +5,7 @@ Based on UTF-8
 
 
 enum {
+CALENDAR_BR,
 CALENDAR_CN,
 CALENDAR_DE,
 CALENDAR_DK,
