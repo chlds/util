@@ -391,6 +391,12 @@ signed(__cdecl cat_aw(signed short(**di),signed short(si)));
 signed(__cdecl cat_ab(signed char(**di),signed char(si)));
 /* Call fn. rl later */
 
+signed(__cdecl cv_l_r(signed short(radix),signed char(*di_tbl),signed char(*si_tbl),signed char(*di),signed char(*si)));
+signed(__cdecl cv_l(signed char(*di_tbl),signed char(*si_tbl),signed char(*di),signed char(*si)));
+signed(__cdecl cv_a_r(signed(arg),signed char(*di),signed char(*si)));
+signed char*(__cdecl cv_a(signed(arg),signed char(*argp)));
+/* Call fn. rl later */
+
 signed(__cdecl arr_dir(signed char(**di),signed char(*si)));
 /* Arrange */
 
