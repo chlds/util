@@ -7,8 +7,14 @@ Based on UTF-8
 */
 
 
+/*
 static signed char *(CALENDAR_WK_IN_BR[]) = {
 "disul","dilun","dimeurzh","dimerc'her","diriaou","digwener","disadorn",0x00,
+};
+//*/
+
+static signed char *(CALENDAR_WK_IN_BR[]) = {
+"Su.","Lu.","Meur.","Merc.","Ya.","Gw.","Sa.",0x00,
 };
 
 static signed char *(CALENDAR_WEEK_IN_BR[]) = {
