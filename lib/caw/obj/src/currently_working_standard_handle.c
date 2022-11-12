@@ -9,6 +9,7 @@ It is not required to CloseHandle when done with the handle retrieved from GetSt
 
 
 # define CAW_H
+# define CAR_H
 # define STDIO_H
 # define WIN32_H
 # include "./../../../config.h"
