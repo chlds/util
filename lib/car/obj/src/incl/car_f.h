@@ -380,6 +380,9 @@ signed(__cdecl /* __attribute__((ms_abi)) */ cat_w(signed short(**argp),...));
 signed(__cdecl cat_b_rl(signed char(**di),signed char(*si)));
 signed(__cdecl cat_b_r(signed char(**di),signed char(**si)));
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_b(signed char(**argp),...));
+signed(__cdecl cat_ahead_b_rl(signed char(**di),signed char(*si)));
+signed(__cdecl cat_ahead_b_r(signed char(**di),signed char(**si)));
+signed(__cdecl /* __attribute__((ms_abi)) */ cat_ahead_b(signed char(**argp),...));
 /* Concatenate to the terminating null pointer */
 
 signed(__cdecl concatenate_d(signed(arg),signed(**di),signed(*si)));
