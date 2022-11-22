@@ -202,6 +202,9 @@ signed(__cdecl flag_b_r(signed char(**v),signed char(*a),signed short(*di),signe
 signed(__cdecl flag_b(signed char(**v),signed char(*a),signed short(*di),signed short(*si)));
 /* Flag */
 
+signed(__cdecl commandlet(signed(arg/* stack size */),void(*argp),void(__cdecl*f)(void(*argp))));
+/* run in a subroutine */
+
 void*(__cdecl alloc(signed(arg)));
 /* Allocate i.e., fn. malloc */
 
