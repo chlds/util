@@ -8,7 +8,7 @@ Return the calendar week
 # define TIME_H
 # include "./../../../config.h"
 
-signed(__cdecl ct_wk_sun_r(time_t(arg))) {
+signed(__cdecl ct_wk_sat_r(time_t(arg))) {
 auto struct tm *tp;
 auto time_t t;
 auto signed r;
