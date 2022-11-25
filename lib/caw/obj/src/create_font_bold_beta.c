@@ -1,6 +1,6 @@
 /* **** Notes
 
-Wrap.
+Wrap
 */
 
 
@@ -27,7 +27,7 @@ auto unsigned pitch_and_family = (0x00);
 // auto signed char facename[] = ("Tahoma");
 
 if(!argp) return(0x00);
-
+// quality = (ANTIALIASED_QUALITY);
 return(
 CreateFont(
 height,width,\

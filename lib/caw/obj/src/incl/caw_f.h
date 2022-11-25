@@ -76,6 +76,7 @@ signed(__cdecl set_layered_window_attributes_beta(void(*hdl),signed(trans),signe
 signed(__cdecl show_window_beta(void(*hdl),signed(arg)));
 signed(__cdecl destroy_window_beta(void(*hdl)));
 
+void *(__cdecl create_solid_pen_beta(signed(width),signed(color)));
 void *(__cdecl create_solid_brush_beta(signed(arg)));
 void *(__cdecl create_rect_rgn_beta(signed(xul),signed(yul),signed(xlr),signed(ylr)));
 void *(__cdecl create_font_bold_beta(signed(height),signed(width),signed char(*argp)));
