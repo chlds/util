@@ -1,5 +1,9 @@
 void(__cdecl sleep_beta(signed(arg)));
 
+double(__cdecl get_dpi_desktop_b(signed(arg)));
+double(__cdecl get_dpi_sqrt_b(void(*argp/* whdl */)));
+double(__cdecl get_dpi_b(signed(arg),void(*argp/* whdl */)));
+
 signed(__cdecl currently_occurring_error(void));
 
 signed(__cdecl count_clipboard_formats(void));

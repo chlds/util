@@ -44,6 +44,10 @@ Remarks:
 # include <time.h>
 # endif
 
+# ifdef MATH_H
+# include <math.h>
+# endif
+
 # ifdef ERRNO_H
 # include <errno.h>
 # endif
