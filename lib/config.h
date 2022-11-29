@@ -94,6 +94,11 @@ Remarks:
 # include "./incl/calendar_intl.h"
 # endif
 
+# ifdef MERIDIEM_H
+// # include <time.h>
+# include "./incl/meridiem.h"
+# endif
+
 # ifdef CALEND_H
 # include <time.h>
 # include "./incl/calend.h"
