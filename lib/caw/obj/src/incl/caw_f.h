@@ -1,5 +1,6 @@
 void(__cdecl sleep_beta(signed(arg)));
 
+signed(__cdecl cv_pix_pt(signed(arg/* pt i.e., points of typeface */)));
 double(__cdecl get_dpi_desktop_b(signed(arg)));
 double(__cdecl get_dpi_sqrt_b(void(*argp/* whdl */)));
 double(__cdecl get_dpi_b(signed(arg),void(*argp/* whdl */)));
