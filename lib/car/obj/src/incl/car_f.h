@@ -560,6 +560,7 @@ signed(__cdecl ct_to(signed char(*cache),signed char(*argp)));
 signed(__cdecl ct2(signed char(di), signed char(*base)));
 /* Count to */
 
+signed(__cdecl ct_f_v(void*(__cdecl**f)(void(*argp))));
 signed(__cdecl ct_f(signed(__cdecl**f)(void(*argp))));
 /* Count function pointers */
 
