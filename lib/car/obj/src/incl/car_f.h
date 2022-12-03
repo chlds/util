@@ -215,6 +215,8 @@ signed(__cdecl rl_v(signed char(***argp)));
 signed(__cdecl rl(void(*argp)));
 /* Release i.e., fn. free */
 
+signed(__cdecl unmap_v_w(signed(arg),signed short(**argp)));
+signed(__cdecl unmap_v_b(signed(arg),signed char(**argp)));
 signed(__cdecl unmap_w(signed short(**argp)));
 signed(__cdecl unmap_b(signed char(**argp)));
 /* Unmap */
@@ -579,6 +581,11 @@ signed(__cdecl ct_b(signed char(*argp)));
 signed(__cdecl ct_l(signed char(*argp)));
 signed(__cdecl ct(signed char(*argp)));
 /* Count */
+
+signed(__cdecl calc_1_5x(signed(arg)));
+signed(__cdecl calc_2x(signed(arg)));
+signed(__cdecl calc_3x(signed(arg)));
+/* Calculate */
 
 signed(__cdecl es(signed(arg)));
 signed(__cdecl es_at(void));
