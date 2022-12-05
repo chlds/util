@@ -429,6 +429,10 @@ signed(__cdecl cpy_l(signed char(*di),signed char(*si)));
 signed(__cdecl cpy(signed char(*di),signed char(*si)));
 /* Copy to the di out of the si */
 
+signed(__cdecl delayed_fetch_r(signed(arg),signed(*argp)));
+signed(__cdecl delayed_fetch(signed(arg),signed(*argp)));
+/* Cue */
+
 signed(__cdecl cue_va_r(signed short(flag),signed char(*sym),signed char(*argp)));
 signed(__cdecl cue_va(signed char(*sym),signed char(*argp)));
 signed(__cdecl cue_r(signed short(flag),signed char(*sym),signed char(*argp)));
