@@ -4,18 +4,24 @@ Based on UTF-8
 */
 
 
-static signed char ante_meridiem_capital[] = {
+static signed char lm_capital_am[] = {
+0xE1,0xB4,0xAC,0xE1,0xB4,0xB9,0x00,
+};
+static signed char lm_small_am[] = {
+0xE1,0xB5,0x83,0xE1,0xB5,0x90,0x00,
+};
+static signed char llsc_am[] = {
 0xE1,0xB4,0x80,0xE1,0xB4,0x8D,0x00,
 };
-static signed char ante_meridiem_capital_dot[] = {
+static signed char llsc_am_with_dots[] = {
 0xE1,0xB4,0x80,'.',0xE1,0xB4,0x8D,'.',0x00,
 };
 
-static signed char *(llsc_ante_meridiem[]) = {
-ante_meridiem_capital,\
-ante_meridiem_capital_dot,\
-"a.m.",\
-"am",\
+static signed char *(decor_ante_meridiem[]) = {
+lm_capital_am,\
+"AM",\
+llsc_am_with_dots,\
+llsc_am,\
 "",\
 0x00,
 };
@@ -28,18 +34,24 @@ static signed char *(ante_meridiem[]) = {
 0x00,
 };
 
-static signed char post_meridiem_capital[] = {
+static signed char lm_capital_pm[] = {
+0xE1,0xB4,0xBE,0xE1,0xB4,0xB9,0x00,
+};
+static signed char lm_small_pm[] = {
+0xE1,0xB5,0x96,0xE1,0xB5,0x90,0x00,
+};
+static signed char llsc_pm[] = {
 0xE1,0xB4,0x98,0xE1,0xB4,0x8D,0x00,
 };
-static signed char post_meridiem_capital_dot[] = {
+static signed char llsc_pm_with_dots[] = {
 0xE1,0xB4,0x98,'.',0xE1,0xB4,0x8D,'.',0x00,
 };
 
-static signed char *(llsc_post_meridiem[]) = {
-post_meridiem_capital,\
-post_meridiem_capital_dot,\
-"p.m.",\
-"pm",\
+static signed char *(decor_post_meridiem[]) = {
+lm_capital_pm,\
+"PM",\
+llsc_pm_with_dots,\
+llsc_pm,\
 "",\
 0x00,
 };
