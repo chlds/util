@@ -7,22 +7,22 @@ Based on UTF-8
 */
 
 
-static signed char *(SUN_CS_CZ[]) = {
+static signed char SUN_CS_CZ[] = {
 'N','e',0x00,
 };
-static signed char *(MON_CS_CZ[]) = {
+static signed char MON_CS_CZ[] = {
 'P','o',0x00,
 };
-static signed char *(TUE_CS_CZ[]) = {
+static signed char TUE_CS_CZ[] = {
 0xC3,0x9A,'t',0x00,
 };
-static signed char *(WED_CS_CZ[]) = {
+static signed char WED_CS_CZ[] = {
 'S','t',0x00,
 };
-static signed char *(THU_CS_CZ[]) = {
+static signed char THU_CS_CZ[] = {
 0xC4,0x8C,'t',0x00,
 };
-static signed char *(FRI_CS_CZ[]) = {
+static signed char FRI_CS_CZ[] = {
 'P',0xC3,0xA1,0x00,
 };
 static signed char *(CALENDAR_WK_IN_CS_CZ[]) = {
@@ -36,22 +36,22 @@ FRI_CS_CZ,\
 0x00,
 };
 
-static signed char *(SUNDAY_CS_CZ[]) = {
+static signed char SUNDAY_CS_CZ[] = {
 'n','e','d',0xC4,0x9B,'l','e',0x00,
 };
-static signed char *(MONDAY_CS_CZ[]) = {
+static signed char MONDAY_CS_CZ[] = {
 'p','o','n','d',0xC4,0x9B,'l',0xC3,0xAD,0x00,
 };
-static signed char *(TUESDAY_CS_CZ[]) = {
+static signed char TUESDAY_CS_CZ[] = {
 0xC3,0xBA,'t','e','r',0xC3,0xBD,0x00,
 };
-static signed char *(WEDNESDAY_CS_CZ[]) = {
+static signed char WEDNESDAY_CS_CZ[] = {
 's','t',0xC5,0x99,'e','d','a',0x00,
 };
-static signed char *(THURSDAY_CS_CZ[]) = {
+static signed char THURSDAY_CS_CZ[] = {
 0xC4,0x8D,'t','v','r','t','e','k',0x00,
 };
-static signed char *(FRIDAY_CS_CZ[]) = {
+static signed char FRIDAY_CS_CZ[] = {
 'p',0xC3,0xA1,'t','e','k',0x00,
 };
 static signed char *(CALENDAR_WEEK_IN_CS_CZ[]) = {
