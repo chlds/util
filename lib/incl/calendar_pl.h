@@ -1,7 +1,10 @@
 /* Notes
 
+Polish
+
+Remarks:
 Based on UTF-8
-//*/
+*/
 
 
 static signed char wed_pl[] = {
@@ -24,6 +27,7 @@ static signed char *(CALENDAR_WEEK_IN_PL[]) = {
 "niedziela",poniedzialek,"wtorek",sroda,"czwartek",piatek,"sobota",0x00,
 };
 
+/*
 static signed char styczen[] = {
 's','t','y','c','z','e',0xC5,0x84,0x00,
 };
@@ -43,5 +47,43 @@ static signed char grudzien[] = {
 'g','r','u','d','z','i','e',0xC5,0x84,0x00,
 };
 static signed char *(CALENDAR_MONTH_IN_PL[]) = {
-"",styczen,"luty","marzec",kwiecien,"maj","czerwiec","lipiec",sierpien,wrzesien,pazdziernik,"listopad",grudzien,0x00,
+"",
+styczen,
+"luty",
+"marzec",
+kwiecien,
+"maj",
+"czerwiec",
+"lipiec",
+sierpien,
+wrzesien,
+pazdziernik,
+"listopad",
+grudzien,
+0x00,
+};
+//*/
+
+// genitives
+static signed char wrzesnia[] = {
+'w','r','z','e',0xC5,0x9B,'n','i','a',0x00,
+};
+static signed char pazdziernika[] = {
+'p','a',0xC5,0xBA,'d','z','i','e','r','n','i','k','a',0x00,
+};
+static signed char *(CALENDAR_MONTH_IN_PL[]) = {
+"",
+"stycznia",
+"lutego",
+"marca",
+"kwietnia",
+"maja",
+"czerwca",
+"lipca",
+"sierpnia",
+wrzesnia,
+pazdziernika,
+"listopada",
+"grudnia",
+0x00,
 };

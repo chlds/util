@@ -4,7 +4,7 @@ lingua latina
 
 Remarks:
 Based on UTF-8
-//*/
+*/
 
 
 static signed char *(CALENDAR_WK_IN_LL[]) = {
