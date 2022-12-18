@@ -429,7 +429,6 @@ signed(__cdecl cpy_l(signed char(*di),signed char(*si)));
 signed(__cdecl cpy(signed char(*di),signed char(*si)));
 /* Copy to the di out of the si */
 
-signed(__cdecl delayed_fetch_r(signed(arg),signed(*argp)));
 signed(__cdecl delayed_fetch(signed(arg),signed(*argp)));
 /* Cue */
 

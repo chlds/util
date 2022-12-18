@@ -9,10 +9,11 @@ Cue
 
 signed(__cdecl delayed_fetch(signed(arg),signed(*argp))) {
 auto signed r;
+if(arg<(0x01)) return(0x00);
 if(!argp) return(0x00);
-if(arg<(0x02)) return(0x01);
-r = delayed_fetch_r(arg,argp);
-INC(*argp);
+r = (*argp);
+r = (r%(arg));
+*argp = (r);
 if(r) return(0x00);
 return(0x01);
 }
