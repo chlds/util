@@ -327,6 +327,17 @@ signed(__cdecl ct_a_back(signed char(*argp)));
 signed(__cdecl ct_a(signed char(*argp)));
 /* Based on UTF-8 */
 
+signed(__cdecl cv_in_roman_numeral_r(signed char(**di),signed char(***si),signed(*base),signed(arg)));
+signed char *(__cdecl cv_in_small_roman_numeral(signed(arg)));
+signed char *(__cdecl cv_in_roman_numeral(signed(arg)));
+signed char *(__cdecl cv_in_roman_numerals(signed short(flag),signed(arg)));
+signed(__cdecl cv_in_roman_rrrr(signed(arg),signed char(**argp)));
+signed(__cdecl cv_in_roman_rrr(signed(arg),signed char(**argp)));
+signed(__cdecl cv_in_roman_rr(signed(arg),signed char(**argp)));
+signed(__cdecl cv_in_roman_r(signed(arg),signed char(**argp)));
+signed char *(__cdecl cv_in_roman(signed(arg)));
+/* Convert into roman numerals */
+
 signed(__cdecl alert_b_r(signed(arg),signed short(hr),signed short(mn)));
 signed(__cdecl alert_b(signed(arg),signed char(*argp)));
 signed(__cdecl cv_hr_noon_r(signed short(*hr),signed char(*argp)));
