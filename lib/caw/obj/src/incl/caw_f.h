@@ -84,6 +84,8 @@ signed(__cdecl destroy_window_beta(void(*hdl)));
 void *(__cdecl create_solid_pen_beta(signed(width),signed(color)));
 void *(__cdecl create_solid_brush_beta(signed(arg)));
 void *(__cdecl create_rect_rgn_beta(signed(xul),signed(yul),signed(xlr),signed(ylr)));
+void *(__cdecl create_font_italic_bold_beta(signed(height),signed(width),signed char(*argp)));
+void *(__cdecl create_font_italic_beta(signed(height),signed(width),signed char(*argp)));
 void *(__cdecl create_font_bold_beta(signed(height),signed(width),signed char(*argp)));
 void *(__cdecl create_font_beta(signed(height),signed(width),signed char(*argp)));
 void *(__cdecl select_object_beta(void(*di/* dc */),void(*si/* obj */)));
