@@ -580,6 +580,9 @@ signed(__cdecl ct_f_v(void*(__cdecl**f)(void(*argp))));
 signed(__cdecl ct_f(signed(__cdecl**f)(void(*argp))));
 /* Count function pointers */
 
+signed(__cdecl ct_vv(void(***argp)));
+/* Count pointers */
+
 signed(__cdecl ct_v_q(signed long long(**argp)));
 signed(__cdecl ct_v_d(signed(**argp)));
 signed(__cdecl ct_v_w(signed short(**argp)));
