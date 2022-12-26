@@ -605,7 +605,10 @@ signed(__cdecl calc_0_25x(signed(arg)));
 signed(__cdecl calc_0_5x(signed(arg)));
 signed(__cdecl calc_1_5x(signed(arg)));
 signed(__cdecl calc_2x(signed(arg)));
+signed(__cdecl calc_2_5x(signed(arg)));
 signed(__cdecl calc_3x(signed(arg)));
+signed(__cdecl calc_4x(signed(arg)));
+signed(__cdecl calc_8x(signed(arg)));
 /* Calculate */
 
 signed(__cdecl es(signed(arg)));
