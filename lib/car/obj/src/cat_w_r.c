@@ -12,7 +12,7 @@ auto signed r;
 if(!di) return(0x00);
 if(!si) return(0x00);
 if(!(*si)) return(0x00);
-r = cat_w_rl(di,*si);
+r = cat_rl_w(di,*si);
 si++;
 if(!(~r)) return(0x00);
 return(0x01+(cat_w_r(di,si)));

@@ -11,7 +11,7 @@ Return (~0x00) on failure
 # define CAR_H
 # include "./../../../config.h"
 
-signed(__cdecl cat_w_rl(signed short(**di),signed short(*si))) {
+signed(__cdecl cat_rl_w(signed short(**di),signed short(*si))) {
 auto signed short *w;
 auto signed r;
 if(!di) return(~0x00);
