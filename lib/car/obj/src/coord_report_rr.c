@@ -21,11 +21,11 @@ AND(flag,0x00);
 // if(!(_kbhit())) return(0x00);
 r = _getch();
 r = (0xFF&(r));
-if(!(cat_ab(argp,r))) OR(flag,0x01);
+if(!(cat_bb(argp,r))) OR(flag,0x01);
 if(guard<(ct(*argp))) OR(flag,0x02);
 if(flag) {
 if(EQ(0x02,flag)) printf("%s \n","<< Over..");
-if(EQ(0x01,flag)) printf("%s \n","<< Error at fn. cat_ab()");
+if(EQ(0x01,flag)) printf("%s \n","<< Error at fn. cat_bb()");
 rl(*argp);
 *argp = (0x00);
 return(0x00);

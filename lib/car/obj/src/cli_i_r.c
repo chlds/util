@@ -25,8 +25,8 @@ printf("%s\n","<< Error at fn. c_getch()");
 return(0x00);
 }
 
-if(!(cat_ab(argp,r))) {
-printf("%s \n","<< Error at fn. cat_ab()");
+if(!(cat_bb(argp,r))) {
+printf("%s \n","<< Error at fn. cat_bb()");
 return(0x00);
 }
 

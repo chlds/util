@@ -10,12 +10,10 @@ Call fn. rl later
 # define CAR_H
 # include "./../../../config.h"
 
-signed(__cdecl cat_ab(signed char(**di),signed char(si))) {
+signed(__cdecl cat_bb(signed char(**di),signed char(si))) {
 auto signed char *b;
 auto signed r;
 if(!di) return(0x00);
-// if(!si) return(0x00);
-// if(!(*di)) return(0x00);
 r = ct(*di);
 r++;
 r++;

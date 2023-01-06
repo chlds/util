@@ -20,8 +20,8 @@ i.e., the first call returns (0x00)
 signed char *(__cdecl ci_b_except(void)) {
 auto signed char *b;
 b = (0x00);
-if(!(cat_ab(&b,0x00))) {
-printf("%s \n","<< Error at fn. cat_ab()");
+if(!(cat_bb(&b,0x00))) {
+printf("%s \n","<< Error at fn. cat_bb()");
 return(0x00);
 }
 if(ci_b_except_r(&b)) b = cat_ahead(b,"\033");

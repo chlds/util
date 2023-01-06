@@ -23,8 +23,8 @@ auto signed r;
 if(!argp) return(0x00);
 if(*argp) return(0x00);
 r = _getch();
-if(!(cat_ab(argp,r))) {
-printf("%s \n","<< Error at fn. cat_ab()");
+if(!(cat_bb(argp,r))) {
+printf("%s \n","<< Error at fn. cat_bb()");
 return(0x00);
 }
 if(!(**argp)) return(cli_i_except(argp));

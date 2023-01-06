@@ -15,7 +15,7 @@ if(*di) return(0x00);
 if(!si) return(0x00);
 AND(w,0x00);
 if(!(*si)) {
-if(!(cat_aw(di,w))) printf("%s \n","<< Error at fn. cat_aw()");
+if(!(cat_ww(di,w))) printf("%s \n","<< Error at fn. cat_ww()");
 return(0x00);
 }
 return(decode_wb_r(di,si));

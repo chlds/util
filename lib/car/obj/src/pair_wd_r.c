@@ -22,7 +22,7 @@ AND(r,0x3FF);
 // in 10b
 OR(r,second);
 w = (signed short) (r);
-r = cat_aw(di,w);
+r = cat_ww(di,w);
 if(!r) return(0x00);
 return(0x02);
 }

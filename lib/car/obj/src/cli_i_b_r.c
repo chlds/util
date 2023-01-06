@@ -16,8 +16,8 @@ if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 if(!(_kbhit())) return(0x00);
 r = _getch();
-if(!(cat_ab(argp,r))) {
-printf("%s \n","<< Error at fn. cat_ab()");
+if(!(cat_bb(argp,r))) {
+printf("%s \n","<< Error at fn. cat_bb()");
 return(0x00);
 }
 return(0x01+(cli_i_b_r(--arg,argp)));

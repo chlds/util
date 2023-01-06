@@ -14,8 +14,8 @@ auto signed char *b;
 auto signed r;
 b = (0x00);
 r = (0xFF&(arg));
-if(!(cat_ab(&b,r))) {
-printf("%s \n","<< Error at fn. cat_ab()");
+if(!(cat_bb(&b,r))) {
+printf("%s \n","<< Error at fn. cat_bb()");
 return(0x00);
 }
 if(!(ci_b_rr(&b))) {
