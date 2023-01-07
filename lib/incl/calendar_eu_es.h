@@ -8,40 +8,60 @@ Based on UTF-8
 
 
 static signed char *(CALENDAR_WK_IN_EU_ES[]) = {
-"Igandea",\
-"Astelehena",\
-"Asteartea",\
-"Asteazkena",\
-"Osteguna",\
-"Ostirala",\
-"Larunbata",\
+"ig.",
+"al.",
+"ar.",
+"az.",
+"og.",
+"or.",
+"lr.",
 0x00,
 };
 
 static signed char *(CALENDAR_WEEK_IN_EU_ES[]) = {
-"Igandea",\
-"Astelehena",\
-"Asteartea",\
-"Asteazkena",\
-"Osteguna",\
-"Ostirala",\
-"Larunbata",\
+"igandea",
+"astelehena",
+"asteartea",
+"asteazkena",
+"osteguna",
+"ostirala",
+"larunbata",
 0x00,
 };
 
+/*
 static signed char *(CALENDAR_MONTH_IN_EU_ES[]) = {
-"",\
-"Urtarrila",\
-"Otsaila",\
-"Martxoa",\
-"Apirila",\
-"Maiatza",\
-"Ekaina",\
-"Uztaila",\
-"Agorrila",\
-"Iraila",\
-"Urria",\
-"Azaroa",\
-"Abendua",\
+"",
+"urtarrila",
+"otsaila",
+"martxoa",
+"apirila",
+"maiatza",
+"ekaina",
+"uztaila",
+"abuztua",
+"iraila",
+"urria",
+"azaroa",
+"abendua",
+0x00,
+};
+//*/
+
+// genitives
+static signed char *(CALENDAR_MONTH_IN_EU_ES[]) = {
+"",
+"urtarrilak",
+"otsailak",
+"martxoak",
+"apirilak",
+"maiatzak",
+"ekainak",
+"uztailak",
+"abuztuak",
+"irailak",
+"urriak",
+"azaroak",
+"abenduak",
 0x00,
 };
