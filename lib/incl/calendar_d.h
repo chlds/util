@@ -30,7 +30,7 @@ Based on UTF-8
 # include "./calendar_nl.h"
 # include "./calendar_no.h"
 # include "./calendar_pl.h"
-# include "./calendar_pt.h"
+# include "./calendar_pt_pt.h"
 # include "./calendar_rl.h"
 # include "./calendar_ru_ru.h"
 # include "./calendar_se.h"
