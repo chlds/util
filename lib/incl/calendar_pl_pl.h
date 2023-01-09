@@ -7,11 +7,18 @@ Based on UTF-8
 */
 
 
-static signed char wed_pl[] = {
-0xC5,0x9A,'r',0x00,
+static signed char WED_PL_PL[] = {
+0xC5,0x9B,'r','.',0x00,
 };
-static signed char *(CALENDAR_WK_IN_PL[]) = {
-"Ni","Pn","Wt",wed_pl,"Cz","Pi","So",0x00,
+static signed char *(CALENDAR_WK_IN_PL_PL[]) = {
+"niedz.",
+"pon.",
+"wt.",
+WED_PL_PL,
+"czw.",
+"pt.",
+"sob.",
+0x00,
 };
 
 static signed char poniedzialek[] = {
@@ -23,8 +30,15 @@ static signed char sroda[] = {
 static signed char piatek[] = {
 'p','i',0xC4,0x85,'t','e','k',0x00,
 };
-static signed char *(CALENDAR_WEEK_IN_PL[]) = {
-"niedziela",poniedzialek,"wtorek",sroda,"czwartek",piatek,"sobota",0x00,
+static signed char *(CALENDAR_WEEK_IN_PL_PL[]) = {
+"niedziela",
+poniedzialek,
+"wtorek",
+sroda,
+"czwartek",
+piatek,
+"sobota",
+0x00,
 };
 
 /*
@@ -46,7 +60,7 @@ static signed char pazdziernik[] = {
 static signed char grudzien[] = {
 'g','r','u','d','z','i','e',0xC5,0x84,0x00,
 };
-static signed char *(CALENDAR_MONTH_IN_PL[]) = {
+static signed char *(CALENDAR_MONTH_IN_PL_PL[]) = {
 "",
 styczen,
 "luty",
@@ -71,7 +85,7 @@ static signed char wrzesnia[] = {
 static signed char pazdziernika[] = {
 'p','a',0xC5,0xBA,'d','z','i','e','r','n','i','k','a',0x00,
 };
-static signed char *(CALENDAR_MONTH_IN_PL[]) = {
+static signed char *(CALENDAR_MONTH_IN_PL_PL[]) = {
 "",
 "stycznia",
 "lutego",
