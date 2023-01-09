@@ -9,7 +9,7 @@ Based on UTF-8
 # include "./calendar_cn.h"
 # include "./calendar_cs_cz.h"
 # include "./calendar_cy_gb.h"
-# include "./calendar_de.h"
+# include "./calendar_de_de.h"
 # include "./calendar_dk.h"
 # include "./calendar_ee.h"
 # include "./calendar_en.h"
