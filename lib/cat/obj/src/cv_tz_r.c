@@ -4,6 +4,7 @@ Convert
 */
 
 
+# define CAR_H
 # define CAT_H
 # define TIME_H
 # include "./../../../config.h"
@@ -24,11 +25,11 @@ return(b);
 }
 t = (*argp);
 t = (t/(hr));
-r = (t%(hrs));
+r = (signed) (t%(hrs));
 cat_b(&b,sign,*(r+(CAT_DIGIT)),(void*)0x00);
 t = (*argp);
 t = (t%(hr));
-r = (t/(mn));
+r = (signed) (t/(mn));
 cat_b(&b,sepr,*(r+(CAT_DIGIT)),(void*)0x00);
 return(b);
 }
