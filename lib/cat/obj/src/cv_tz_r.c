@@ -19,7 +19,7 @@ auto signed char *sepr = (":");
 if(!argp) return(0x00);
 b = (0x00);
 if(!sign) {
-cat_b(&b,"00:00",(void*)0x00);
+cat_b(&b,"+00:00",(void*)0x00);
 return(b);
 }
 t = (*argp);
