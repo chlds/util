@@ -8,7 +8,7 @@ Based on UTF-8
 
 
 static signed char *(CALENDAR_WK_IN_CY_GB[]) = {
-"Sul","Llun","Mawrth","Mercher","Iau","Gwener","Sadwrn",0x00,
+"Sul","Llun","Maw","Mer","Iau","Gwen","Sad",0x00,
 };
 
 static signed char *(CALENDAR_WEEK_IN_CY_GB[]) = {
