@@ -1,0 +1,1 @@
+rem nmake T=ck RES=./lib/ck/obj/src/res/ck.res
