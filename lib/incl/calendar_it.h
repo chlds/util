@@ -1,11 +1,21 @@
 /* Notes
 
+Italian
+
+Remarks:
 Based on UTF-8
-//*/
+*/
 
 
 static signed char *(CALENDAR_WK_IN_IT[]) = {
-"d.","l.","ma.","me.","g.","v.","s.",0x00,
+"dom",
+"lun",
+"mar",
+"mer",
+"gio",
+"ven",
+"sab",
+0x00,
 };
 
 static signed char lunedi[] = {
