@@ -29,7 +29,7 @@ static signed char *(CALENDAR_WEEK_IN_EU_ES[]) = {
 0x00,
 };
 
-/*
+//*
 static signed char *(CALENDAR_MONTH_IN_EU_ES[]) = {
 "",
 "urtarrila",
@@ -48,7 +48,7 @@ static signed char *(CALENDAR_MONTH_IN_EU_ES[]) = {
 };
 //*/
 
-// genitives
+/* genitives
 static signed char *(CALENDAR_MONTH_IN_EU_ES[]) = {
 "",
 "urtarrilak",
@@ -65,3 +65,4 @@ static signed char *(CALENDAR_MONTH_IN_EU_ES[]) = {
 "abenduak",
 0x00,
 };
+//*/
