@@ -18,6 +18,7 @@ Based on UTF-8
 # include "./calendar_et_ee.h"
 # include "./calendar_eu_es.h"
 # include "./calendar_fi_fi.h"
+# include "./calendar_fil_ph.h"
 # include "./calendar_fr_fr.h"
 # include "./calendar_ga_ie.h"
 # include "./calendar_gd_gb.h"
