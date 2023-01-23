@@ -35,6 +35,7 @@ Based on UTF-8
 # include "./calendar_pl_pl.h"
 # include "./calendar_pt_pt.h"
 # include "./calendar_rl.h"
+# include "./calendar_ro_ro.h"
 # include "./calendar_ru_ru.h"
 # include "./calendar_sq_al.h"
 # include "./calendar_sv_se.h"
