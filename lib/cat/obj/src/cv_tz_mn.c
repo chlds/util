@@ -24,7 +24,9 @@ tp = gmtime(&t);
 if(!tp) return(0x00);
 mn = (R(tm_min,*tp));
 sm = (R(tm_sec,*tp));
-tp = localtime(&t);
+e = (t);
+if(arg) e = (e+(30*(60*(arg))));
+tp = localtime(&e);
 if(DBG) {
 t = (t+(CAT_DEBUG_MN+(CAT_DEBUG_HR)));
 tp = gmtime(&t);
