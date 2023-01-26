@@ -36,6 +36,7 @@ sat,
 if(arg<(0x00)) return(0x00);
 if(!argp) return(0x00);
 if(!(arg<(ct_v_b(start)))) return(0x00);
+if(!(0x00<(*argp))) AND(*argp,0x00);
 b = (*(arg+(start)));
 return(map_week_number_r(arg,b,argp));
 }

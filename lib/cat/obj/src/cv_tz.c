@@ -14,6 +14,7 @@ Ahead or back in half-hourly steps
 signed char *(__cdecl cv_tz(signed(arg),time_t(*argp))) {
 auto signed r;
 if(!argp) return(0x00);
+if(!(0x00<(*argp))) AND(*argp,0x00);
 r = (arg);
 if(r<(0x00)) r = (0x01+(~r));
 if(!(r<(2*(24)))) AND(arg,0x00);
