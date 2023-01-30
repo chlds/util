@@ -19,7 +19,6 @@ auto time_t day = (24*(60*(60)));
 if(!di) return(0x00);
 if(!si) return(0x00);
 if(!(0x00<(*si))) AND(*si,0x00);
-*di = (0x00);
 r = ct_tz(di,si);
 if(!r) return(0x00);
 arg = (arg%(2*(24)));

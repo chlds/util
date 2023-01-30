@@ -15,6 +15,7 @@ auto signed mn;
 auto signed sm;
 auto time_t t;
 auto time_t e;
+auto time_t noon = (12*(60*(60)));
 if(!di) return(0x00);
 if(!si) return(0x00);
 // time(&t);
@@ -27,7 +28,10 @@ sm = (R(tm_sec,*tp));
 e = (t);
 tp = localtime(&e);
 if(DBG) {
-t = (t+(CAT_DEBUG_MN+(CAT_DEBUG_HR)));
+e = (CAT_DEBUG_MN+(CAT_DEBUG_HR));
+e = (e%(noon));
+if(!e) e = (noon);
+t = (e+(t));
 tp = gmtime(&t);
 }
 if(!tp) return(0x00);
