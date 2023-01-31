@@ -1,3 +1,6 @@
+# define DBG_HR (0*(60*(60)))
+# define DBG_MN (0*(60))
+
 # define DBG_O (0x10)
 # define DBG_Q (0x08)
 # define DBG_D (0x04)

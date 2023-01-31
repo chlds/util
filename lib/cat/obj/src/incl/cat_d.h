@@ -1,10 +1,10 @@
+# define CAT_DEBUG_HR (DBG_HR)
+# define CAT_DEBUG_MN (DBG_MN)
+// debug (signed or time_t)
+
 # include "./cat_prime.h"
 # include "./cat_subscripts.h"
 # include "./cat_superscripts.h"
-
-static signed CAT_DEBUG_HR = (0*(60*(60)));
-static signed CAT_DEBUG_MN = (0*(60));
-// debug
 
 static signed char *(CAT_DIGIT[]) = {
 "00","01","02","03","04","05","06","07","08","09",
