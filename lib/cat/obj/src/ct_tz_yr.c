@@ -17,8 +17,8 @@ auto signed sm;
 auto time_t t;
 auto time_t e;
 auto signed epoch = (1900);
-auto time_t noon = (12*(60*(60)));
 auto time_t day = (24*(60*(60)));
+// auto time_t noon = (12*(60*(60)));
 if(!di) return(0x00);
 if(!si) return(0x00);
 // time(&t);
@@ -33,8 +33,7 @@ e = (t);
 tp = localtime(&e);
 if(DBG) {
 e = (CAT_DEBUG_MN+(CAT_DEBUG_HR));
-e = (e%(noon));
-if(!e) e = (noon);
+e = (e%(day));
 t = (e+(t));
 tp = gmtime(&t);
 }
