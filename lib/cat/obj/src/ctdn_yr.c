@@ -22,6 +22,7 @@ r = ord_di_wk(arg);
 if(!r) return(~0x00);
 t = (arg);
 tp = localtime(&t);
+if(DBG) tp = gmtime(&t);
 if(!tp) return(~0x00);
 mo = (R(tm_mon,*tp));
 if(!mo) return(--r);

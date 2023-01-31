@@ -21,6 +21,7 @@ if(0x06<(wk)) return(~0x00);
 if(arg<(0x00)) return(~0x00);
 t = (arg);
 tp = localtime(&t);
+if(DBG) tp = gmtime(&t);
 if(!tp) return(~0x00);
 r = (days+(0x01+(~wk)));
 r = (r+(R(tm_wday,*tp)));

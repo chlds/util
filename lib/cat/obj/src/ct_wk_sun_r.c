@@ -20,6 +20,7 @@ if(EQ(r,~0x00)) return(0x00);
 t = (r*(days*(24*(60*(60)))));
 t = (arg+(0x01+(~t)));
 tp = localtime(&t);
+if(DBG) tp = gmtime(&t);
 if(!tp) return(0x00);
 di = (R(tm_mday,*tp));
 if(!(0x01<(di))) return(0x01+(r));

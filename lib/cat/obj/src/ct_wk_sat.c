@@ -25,6 +25,7 @@ if(EQ(r,~0x00)) return(0x00);
 t = (0x01+(~(r*(24*(60*(60))))));
 t = (t+(*argp));
 tp = localtime(&t);
+if(DBG) tp = gmtime(&t);
 if(!tp) return(0x00);
 di = (R(tm_mday,*tp));
 mo = (R(tm_mon,*tp));

@@ -13,6 +13,7 @@ Refer at <corecrt_wtime.h>
 # include "./../../../config.h"
 
 signed(__cdecl ct_wk(signed short(wk),time_t(*argp))) {
+auto time_t t;
 auto signed(__cdecl*f)(time_t(*argp));
 auto signed(__cdecl*(fn[]))(time_t(*argp)) = {
 ct_wk_mon,
@@ -21,7 +22,9 @@ ct_wk_sat,
 0x00,
 };
 if(!argp) return(0x00);
+t = (*argp);
+if(DBG) t = (t+(CAT_DEBUG_MN+(CAT_DEBUG_HR)));
 wk = (wk%(ct_f(fn)));
 f = (*(wk+(fn)));
-return(f(argp));
+return(f(&t));
 }

@@ -18,6 +18,7 @@ if(!arg) return(0x00);
 // time(&t);
 t = (arg);
 tp = localtime(&t);
+if(DBG) tp = gmtime(&t);
 if(!tp) return(0x00);
 AND(flag,0x00);
 r = (R(tm_mday,*tp));
