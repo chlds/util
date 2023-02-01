@@ -16,5 +16,4 @@ signed(__cdecl ct_tz_di(time_t(*di),time_t(*si)));
 signed(__cdecl ct_tz_mo(time_t(*di),time_t(*si)));
 signed(__cdecl ct_tz_yr(time_t(*di),time_t(*si)));
 signed(__cdecl ct_tz(time_t(*di),time_t(*si)));
-signed(__cdecl add_tz(signed(arg),time_t(*di),time_t(*si)));
 signed char *(__cdecl cv_tz(time_t(*argp)));
