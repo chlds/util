@@ -29,6 +29,7 @@ Based on UTF-8
 # include "./calendar_is_is.h"
 # include "./calendar_it_it.h"
 # include "./calendar_ja_jp.h"
+# include "./calendar_jv.h"
 # include "./calendar_ll.h"
 # include "./calendar_lv_lv.h"
 # include "./calendar_nb_no.h"
