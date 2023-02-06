@@ -390,6 +390,10 @@ signed(__cdecl cat_v(signed(arg/* code of line break */),signed char(*argp/* sep
 signed(__cdecl append_va_b(signed char(***di),signed char(*si)));
 /* Append */
 
+signed(__cdecl cat_va_b_r(signed char(***di),signed char(**si)));
+signed(__cdecl /* __attribute__((ms_abi)) */ cat_va_b(signed char ***argp,...));
+/* Concatenate to the terminating null pointer */
+
 signed(__cdecl cat_rl_w(signed short(**di),signed short(*si)));
 signed(__cdecl cat_w_r(signed short(**di),signed short(**si)));
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_w(signed short(**argp),...));
