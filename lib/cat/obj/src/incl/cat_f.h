@@ -8,6 +8,8 @@ signed(__cdecl ct_wk(signed short(wk),time_t(*argp)));
 signed(__cdecl ctdn_wk(signed short(wk),time_t(arg)));
 signed(__cdecl ctdn_yr(time_t(arg)));
 signed(__cdecl ord_di_wk(time_t(arg)));
+signed(__cdecl ct_wk_mo(time_t(*argp)));
+signed(__cdecl cf_last_wk_mo(time_t(*argp)));
 signed char *(__cdecl map_week_number_rr(signed char(*cw),signed char(*argp),time_t(*criterion)));
 signed char *(__cdecl map_week_number_r(signed(arg),signed char(*argp),time_t(*criterion)));
 signed char *(__cdecl map_week_number(signed(arg),time_t(*argp)));
