@@ -390,7 +390,13 @@ signed(__cdecl cat_v(signed(arg/* code of line break */),signed char(*argp/* sep
 signed(__cdecl append_va_b(signed char(***di),signed char(*si)));
 /* Append */
 
+signed(__cdecl cat_va_ahead_hold_b_r(signed char(***di),signed char(**si)));
+signed(__cdecl cat_va_ahead_b_r(signed char(***di),signed char(**si)));
+signed(__cdecl cat_va_hold_b_r(signed char(***di),signed char(**si)));
 signed(__cdecl cat_va_b_r(signed char(***di),signed char(**si)));
+signed(__cdecl /* __attribute__((ms_abi)) */ cat_va_ahead_hold_b(signed char ***argp,...));
+signed(__cdecl /* __attribute__((ms_abi)) */ cat_va_ahead_b(signed char ***argp,...));
+signed(__cdecl /* __attribute__((ms_abi)) */ cat_va_hold_b(signed char ***argp,...));
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_va_b(signed char ***argp,...));
 /* Concatenate to the terminating null pointer */
 
@@ -435,6 +441,8 @@ signed(__cdecl cpy_a_d(signed(arg),signed(*di),signed(*si)));
 signed(__cdecl cpy2p(signed char(*di),signed char(*deadline),signed char(*si)));
 signed(__cdecl cpy2(signed char(cache),signed char(*di),signed char(*si)));
 signed(__cdecl ncpy(signed(arg),signed char(*di),signed char(*si)));
+signed(__cdecl cpy_va_ahead_b(signed char(**di),signed char(**si)));
+signed(__cdecl cpy_va_b(signed char(**di),signed char(**si)));
 signed(__cdecl cpy_v_b(signed char(**di),signed char(**si)));
 signed(__cdecl cpy_q(signed long long(*di),signed long long(*si)));
 signed(__cdecl cpy_d(signed(*di),signed(*si)));
