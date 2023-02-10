@@ -15,7 +15,7 @@ auto signed r;
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 r = rl_v_r(*argp);
-if(!r) return(0x00);
+// if(!r) return(0x00);
 rl(*argp);
 *argp = (0x00);
 // r++;

@@ -390,13 +390,18 @@ signed(__cdecl cat_v(signed(arg/* code of line break */),signed char(*argp/* sep
 signed(__cdecl append_va_b(signed char(***di),signed char(*si)));
 /* Append */
 
+signed(__cdecl cas_b_r(signed char **argp));
+signed(__cdecl cas_b(signed char **argp));
+signed(__cdecl cas_rl_b(signed char **argp));
+/* Cascade */
+
 signed(__cdecl cat_va_ahead_hold_b_r(signed char(***di),signed char(**si)));
-signed(__cdecl cat_va_ahead_b_r(signed char(***di),signed char(**si)));
-signed(__cdecl cat_va_hold_b_r(signed char(***di),signed char(**si)));
-signed(__cdecl cat_va_b_r(signed char(***di),signed char(**si)));
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_va_ahead_hold_b(signed char ***argp,...));
+signed(__cdecl cat_va_ahead_b_r(signed char(***di),signed char(**si)));
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_va_ahead_b(signed char ***argp,...));
+signed(__cdecl cat_va_hold_b_r(signed char(***di),signed char(**si)));
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_va_hold_b(signed char ***argp,...));
+signed(__cdecl cat_va_b_r(signed char(***di),signed char(**si)));
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_va_b(signed char ***argp,...));
 /* Concatenate to the terminating null pointer */
 
