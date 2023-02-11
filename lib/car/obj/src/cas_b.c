@@ -11,9 +11,9 @@ Based on UTF-8
 # include "./../../../config.h"
 
 signed(__cdecl cas_b(signed char **argp)) {
-if(!argp) return(0x00);
-if(!(*argp)) return(0x00);
-*argp = (*(0x01+(argp)));
-argp++;
-return(0x01+(cas_b_r(argp)));
+auto signed r;
+r = cas_b_r(argp);
+if(!r) return(0x00);
+r = (r+(~0x00));
+return(r);
 }
