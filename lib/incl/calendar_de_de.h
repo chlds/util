@@ -7,6 +7,13 @@ Based on UTF-8
 */
 
 
+static signed char FIFTH_DE_DE[] = {
+'F',0xC3,0xBC,'n','f','t','e','r',0x00,
+};
+static signed char *(CALENDAR_ORDER_IN_DE_DE[]) = {
+"","Erster","Zweiter","Dritter","Vierter",FIFTH_DE_DE,"und letzter","im",0x00,
+};
+
 static signed char *(CALENDAR_WK_IN_DE_DE[]) = {
 "So.","Mo.","Di.","Mi.","Do.","Fr.","Sa.",0x00,
 };
