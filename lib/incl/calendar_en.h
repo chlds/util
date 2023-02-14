@@ -7,6 +7,10 @@ Based on UTF-8
 */
 
 
+static signed char *(CALENDAR_ORDER_OLD_IN_EN[]) = {
+"","First","Second","Third","Fourth","Fifth","and last","of",0x00,
+};
+
 static signed char *(CALENDAR_WK_OLD_IN_EN[]) = {
 "Sun.","Mon.","Tue.","Wed.","Thu.","Fri.","Sat.",0x00,
 };
