@@ -7,6 +7,18 @@ Based on UTF-8
 */
 
 
+static signed char *(CALENDAR_ORDER_IN_IT_IT[]) = {
+"",
+"primo",
+"secondo",
+"terzo",
+"quarto",
+"quinto",
+"e ultimo",
+"di",
+0x00,
+};
+
 static signed char *(CALENDAR_WK_IN_IT_IT[]) = {
 "dom",
 "lun",
