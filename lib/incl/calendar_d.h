@@ -8,7 +8,6 @@ Based on UTF-8
 # include "./calendar_bg_bg.h"
 # include "./calendar_br_fr.h"
 # include "./calendar_ca_es.h"
-# include "./calendar_cn.h"
 # include "./calendar_cs_cz.h"
 # include "./calendar_cy_gb.h"
 # include "./calendar_da_dk.h"
@@ -43,3 +42,4 @@ Based on UTF-8
 # include "./calendar_ru_ru.h"
 # include "./calendar_sq_al.h"
 # include "./calendar_sv_se.h"
+# include "./calendar_zh_hans_cn.h"
