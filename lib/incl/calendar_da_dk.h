@@ -7,6 +7,21 @@ Based on UTF-8
 */
 
 
+static signed char FIRST_DA_DK[] = {
+'f',0xC3,0xB8,'r','s','t','e',0x00,
+};
+static signed char *(CALENDAR_ORDER_IN_DA_DK[]) = {
+"",
+FIRST_DA_DK,
+"anden",
+"tredje",
+"fjerde",
+"femte",
+"og sidste",
+"i",
+0x00,
+};
+
 static signed char SUN_DA_DK[] = {
 's',0xC3,0xB8,'n','.',0x00,
 };

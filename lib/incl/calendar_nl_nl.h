@@ -7,6 +7,18 @@ Based on UTF-8
 */
 
 
+static signed char *(CALENDAR_ORDER_IN_NL_NL[]) = {
+"",
+"eerste",
+"tweede",
+"derde",
+"vierde",
+"vijfde",
+"en laatste",
+"van",
+0x00,
+};
+
 static signed char *(CALENDAR_WK_IN_NL_NL[]) = {
 "zo","ma","di","wo","do","vr","za",0x00,
 };
