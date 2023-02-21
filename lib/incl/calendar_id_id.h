@@ -7,6 +7,18 @@ Based on UTF-8
 */
 
 
+static signed char *(CALENDAR_ORDER_IN_ID_ID[]) = {
+"",
+"pertama",
+"kedua",
+"ketiga",
+"keempat",
+"kelima",
+"dan terakhir",
+"di bulan",
+0x00,
+};
+
 static signed char *(CALENDAR_WK_IN_ID_ID[]) = {
 "Min",
 "Sen",
