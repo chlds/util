@@ -51,3 +51,43 @@ JULY_FI_FI,
 "joulukuuta",
 0x00,
 };
+
+static signed char FIRST_FI_FI[] = {
+'e','n','s','i','m','m',0xC3,0xA4,'i','n','e','n',0x00,
+};
+static signed char FOURTH_FI_FI[] = {
+'n','e','l','j',0xC3,0xA4,'s',0x00,
+};
+static signed char *(CALENDAR_ORDER_IN_FI_FI[]) = {
+"",
+FIRST_FI_FI,
+"toinen",
+"kolmas",
+FOURTH_FI_FI,
+"viides",
+"ja viimeinen",
+0x00,
+};
+
+static signed char ORDER_JUNE_FI_FI[] = {
+'k','e','s',0xC3,0xA4,'k','u','u','n',0x00,
+};
+static signed char ORDER_JULY_FI_FI[] = {
+'h','e','i','n',0xC3,0xA4,'k','u','u','n',0x00,
+};
+static signed char *(CALENDAR_ORDER_MONTH_IN_FI_FI[]) = {
+"",
+"tammikuun",
+"helmikuun",
+"maaliskuun",
+"huhtikuun",
+"toukokuun",
+ORDER_JUNE_FI_FI,
+ORDER_JULY_FI_FI,
+"elokuun",
+"syyskuun",
+"lokakuun",
+"marraskuun",
+"joulukuun",
+0x00,
+};
