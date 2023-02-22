@@ -7,6 +7,36 @@ Based on UTF-8
 */
 
 
+static signed char AND_LAST_FEM_PT_PT[] = {
+'e',' ',0xC3,0xBA,'l','t','i','m','a',0x00,
+};
+static signed char *(CALENDAR_ORDER_FEMININE_IN_PT_PT[]) = {
+"",
+"primeira",
+"segunda",
+"terceira",
+"quarta",
+"quinta",
+AND_LAST_FEM_PT_PT,
+"de",
+0x00,
+};
+
+static signed char AND_LAST_MASC_PT_PT[] = {
+'e',' ',0xC3,0xBA,'l','t','i','m','o',0x00,
+};
+static signed char *(CALENDAR_ORDER_MASCULINE_IN_PT_PT[]) = {
+"",
+"primeiro",
+"segundo",
+"terceiro",
+"quarto",
+"quinto",
+AND_LAST_MASC_PT_PT,
+"de",
+0x00,
+};
+
 static signed char SAT_PT_PT[] = {
 's',0xC3,0xA1,'b','.',0x00,
 };
