@@ -7,6 +7,34 @@ Based on UTF-8
 */
 
 
+static signed char FIFTH_FEM_PL_PL[] = {
+'p','i',0xC4,0x85,'t','a',0x00,
+};
+static signed char *(CALENDAR_ORDER_FEMININE_IN_PL_PL[]) = {
+"",
+"pierwsza",
+"druga",
+"trzecia",
+"czwarta",
+FIFTH_FEM_PL_PL,
+"i ostatnia",
+0x00,
+};
+
+static signed char FIFTH_MASC_PL_PL[] = {
+'p','i',0xC4,0x85,'t','y',0x00,
+};
+static signed char *(CALENDAR_ORDER_MASCULINE_IN_PL_PL[]) = {
+"",
+"pierwszy",
+"drugi",
+"trzeci",
+"czwarty",
+FIFTH_MASC_PL_PL,
+"i ostatni",
+0x00,
+};
+
 static signed char WED_PL_PL[] = {
 0xC5,0x9B,'r','.',0x00,
 };
@@ -21,22 +49,22 @@ WED_PL_PL,
 0x00,
 };
 
-static signed char poniedzialek[] = {
+static signed char MONDAY_PL_PL[] = {
 'p','o','n','i','e','d','z','i','a',0xC5,0x82,'e','k',0x00,
 };
-static signed char sroda[] = {
+static signed char WEDNESDAY_PL_PL[] = {
 0xC5,0x9B,'r','o','d','a',0x00,
 };
-static signed char piatek[] = {
+static signed char FRIDAY_PL_PL[] = {
 'p','i',0xC4,0x85,'t','e','k',0x00,
 };
 static signed char *(CALENDAR_WEEK_IN_PL_PL[]) = {
 "niedziela",
-poniedzialek,
+MONDAY_PL_PL,
 "wtorek",
-sroda,
+WEDNESDAY_PL_PL,
 "czwartek",
-piatek,
+FRIDAY_PL_PL,
 "sobota",
 0x00,
 };
@@ -79,10 +107,10 @@ grudzien,
 //*/
 
 // genitives
-static signed char wrzesnia[] = {
+static signed char SEPTEMBER_PL_PL[] = {
 'w','r','z','e',0xC5,0x9B,'n','i','a',0x00,
 };
-static signed char pazdziernika[] = {
+static signed char OCTOBER_PL_PL[] = {
 'p','a',0xC5,0xBA,'d','z','i','e','r','n','i','k','a',0x00,
 };
 static signed char *(CALENDAR_MONTH_IN_PL_PL[]) = {
@@ -95,8 +123,8 @@ static signed char *(CALENDAR_MONTH_IN_PL_PL[]) = {
 "czerwca",
 "lipca",
 "sierpnia",
-wrzesnia,
-pazdziernika,
+SEPTEMBER_PL_PL,
+OCTOBER_PL_PL,
 "listopada",
 "grudnia",
 0x00,
