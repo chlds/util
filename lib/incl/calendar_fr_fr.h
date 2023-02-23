@@ -27,7 +27,7 @@ THIRD_FR_FR,
 FOURTH_FR_FR,
 FIFTH_FR_FR,
 "et dernier",
-"de",
+// "de",
 0x00,
 };
 
@@ -43,15 +43,54 @@ static signed char *(CALENDAR_DAY_IN_FR[]) = {
 "","1er",0x00,
 };
 
-static signed char fevrier[] = {
+static signed char FEBRUARY_FR_FR[] = {
 'f',0xC3,0xA9,'v','r','i','e','r',0x00,
 };
-static signed char aout[] = {
+static signed char AUGUST_FR_FR[] = {
 'a','o',0xC3,0xBB,'t',0x00,
 };
-static signed char decembre[] = {
+static signed char DECEMBER_FR_FR[] = {
 'd',0xC3,0xA9,'c','e','m','b','r','e',0x00,
 };
 static signed char *(CALENDAR_MONTH_IN_FR_FR[]) = {
-"","janvier",fevrier,"mars","avril","mai","juin","juillet",aout,"septembre","octobre","novembre",decembre,0x00,
+"",
+"janvier",
+FEBRUARY_FR_FR,
+"mars",
+"avril",
+"mai",
+"juin",
+"juillet",
+AUGUST_FR_FR,
+"septembre",
+"octobre",
+"novembre",
+DECEMBER_FR_FR,
+0x00,
+};
+
+static signed char FEBRUARY_ORDER_FR_FR[] = {
+'d','e',' ','f',0xC3,0xA9,'v','r','i','e','r',0x00,
+};
+static signed char AUGUST_ORDER_FR_FR[] = {
+'d','\'','a','o',0xC3,0xBB,'t',0x00,
+};
+static signed char DECEMBER_ORDER_FR_FR[] = {
+'d','e',' ','d',0xC3,0xA9,'c','e','m','b','r','e',0x00,
+};
+static signed char *(CALENDAR_MONTH_ORDER_IN_FR_FR[]) = {
+"",
+"de janvier",
+FEBRUARY_ORDER_FR_FR,
+"de mars",
+"d'avril",
+"de mai",
+"de juin",
+"de juillet",
+AUGUST_ORDER_FR_FR,
+"de septembre",
+"d'octobre",
+"de novembre",
+DECEMBER_ORDER_FR_FR,
+0x00,
 };
