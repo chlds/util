@@ -7,32 +7,33 @@ Based on UTF-8
 */
 
 
-static signed char SUN_CS_CZ[] = {
-'n','e',0x00,
+static signed char FIRST_CS_CZ[] = {
+'p','r','v','n',0xC3,0xAD,0x00,
 };
-static signed char MON_CS_CZ[] = {
-'p','o',0x00,
+static signed char SECOND_CS_CZ[] = {
+'d','r','u','h',0xC3,0xBD,0x00,
 };
-static signed char TUE_CS_CZ[] = {
-0xC3,0xBA,'t',0x00,
+static signed char THIRD_CS_CZ[] = {
+'t',0xC5,0x99,'e','t',0xC3,0xAD,0x00,
 };
-static signed char WED_CS_CZ[] = {
-'s','t',0x00,
+static signed char FOURTH_CS_CZ[] = {
+0xC4,0x8D,'t','v','r','t',0xC3,0xBD,0x00,
 };
-static signed char THU_CS_CZ[] = {
-0xC4,0x8D,'t',0x00,
+static signed char FIFTH_CS_CZ[] = {
+'p',0xC3,0xA1,'t',0xC3,0xBD,0x00,
 };
-static signed char FRI_CS_CZ[] = {
-'p',0xC3,0xA1,0x00,
+static signed char AND_LAST_CS_CZ[] = {
+'a',' ','p','o','s','l','e','d','n',0xC3,0xAD,0x00,
 };
-static signed char *(CALENDAR_WK_IN_CS_CZ[]) = {
-SUN_CS_CZ,
-MON_CS_CZ,
-TUE_CS_CZ,
-WED_CS_CZ,
-THU_CS_CZ,
-FRI_CS_CZ,
-"so",
+static signed char *(CALENDAR_ORDER_IN_CS_CZ[]) = {
+"",
+FIRST_CS_CZ,
+SECOND_CS_CZ,
+THIRD_CS_CZ,
+FOURTH_CS_CZ,
+FIFTH_CS_CZ,
+AND_LAST_CS_CZ,
+"v",
 0x00,
 };
 
@@ -62,6 +63,35 @@ WEDNESDAY_CS_CZ,
 THURSDAY_CS_CZ,
 FRIDAY_CS_CZ,
 "sobota",
+0x00,
+};
+
+static signed char SUN_CS_CZ[] = {
+'n','e',0x00,
+};
+static signed char MON_CS_CZ[] = {
+'p','o',0x00,
+};
+static signed char TUE_CS_CZ[] = {
+0xC3,0xBA,'t',0x00,
+};
+static signed char WED_CS_CZ[] = {
+'s','t',0x00,
+};
+static signed char THU_CS_CZ[] = {
+0xC4,0x8D,'t',0x00,
+};
+static signed char FRI_CS_CZ[] = {
+'p',0xC3,0xA1,0x00,
+};
+static signed char *(CALENDAR_WK_IN_CS_CZ[]) = {
+SUN_CS_CZ,
+MON_CS_CZ,
+TUE_CS_CZ,
+WED_CS_CZ,
+THU_CS_CZ,
+FRI_CS_CZ,
+"so",
 0x00,
 };
 
@@ -141,5 +171,43 @@ SEPTEMBER_CS_CZ,
 OCTOBER_CS_CZ,
 "listopadu",
 "prosince",
+0x00,
+};
+
+static signed char FEBRUARY_ORDER_CS_CZ[] = {
+0xC3,0xBA,'n','o','r','u',0x00,
+};
+static signed char MARCH_ORDER_CS_CZ[] = {
+'b',0xC5,0x99,'e','z','n','u',0x00,
+};
+static signed char MAY_ORDER_CS_CZ[] = {
+'k','v',0xC4,0x9B,'t','n','u',0x00,
+};
+static signed char JUNE_ORDER_CS_CZ[] = {
+0xC4,0x8D,'e','r','v','n','u',0x00,
+};
+static signed char JULY_ORDER_CS_CZ[] = {
+0xC4,0x8D,'e','r','v','e','n','c','i',0x00,
+};
+static signed char SEPTEMBER_ORDER_CS_CZ[] = {
+'z',0xC3,0xA1,0xC5,0x99,0xC3,0xAD,0x00,
+};
+static signed char OCTOBER_ORDER_CS_CZ[] = {
+0xC5,0x99,0xC3,0xAD,'j','n','u',0x00,
+};
+static signed char *(CALENDAR_MONTH_ORDER_IN_CS_CZ[]) = {
+"",
+"lednu",
+FEBRUARY_ORDER_CS_CZ,
+MARCH_ORDER_CS_CZ,
+"dubnu",
+MAY_ORDER_CS_CZ,
+JUNE_ORDER_CS_CZ,
+JULY_ORDER_CS_CZ,
+"srpnu",
+SEPTEMBER_ORDER_CS_CZ,
+OCTOBER_ORDER_CS_CZ,
+"listopadu",
+"prosinci",
 0x00,
 };
