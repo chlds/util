@@ -1,3 +1,4 @@
+signed(__cdecl control_key_state_beta(signed(arg)));
 void(__cdecl sleep_beta(signed(arg)));
 
 signed(__cdecl cv_pix_pt(signed(arg/* pt i.e., points of typeface */)));
