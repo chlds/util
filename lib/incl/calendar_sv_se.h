@@ -7,23 +7,21 @@ Based on UTF-8
 */
 
 
-static signed char SUN_SV_SE[] = {
-'s',0xC3,0xB6,'n',0x00,
+static signed char FIRST_SV_SE[] = {
+'f',0xC3,0xB6,'r','s','t','a',0x00,
 };
-static signed char MON_SV_SE[] = {
-'m',0xC3,0xA5,'n',0x00,
+static signed char FOURTH_SV_SE[] = {
+'f','j',0xC3,0xA4,'r','d','e',0x00,
 };
-static signed char SAT_SV_SE[] = {
-'l',0xC3,0xB6,'r',0x00,
-};
-static signed char *(CALENDAR_WK_IN_SV_SE[]) = {
-SUN_SV_SE,
-MON_SV_SE,
-"tis",
-"ons",
-"tors",
-"fre",
-SAT_SV_SE,
+static signed char *(CALENDAR_ORDER_IN_SV_SE[]) = {
+"",
+FIRST_SV_SE,
+"andra",
+"tredje",
+FOURTH_SV_SE,
+"femte",
+"och sista",
+"i",
 0x00,
 };
 
@@ -44,6 +42,26 @@ MONDAY_SV_SE,
 "torsdag",
 "fredag",
 SATURDAY_SV_SE,
+0x00,
+};
+
+static signed char SUN_SV_SE[] = {
+'s',0xC3,0xB6,'n',0x00,
+};
+static signed char MON_SV_SE[] = {
+'m',0xC3,0xA5,'n',0x00,
+};
+static signed char SAT_SV_SE[] = {
+'l',0xC3,0xB6,'r',0x00,
+};
+static signed char *(CALENDAR_WK_IN_SV_SE[]) = {
+SUN_SV_SE,
+MON_SV_SE,
+"tis",
+"ons",
+"tors",
+"fre",
+SAT_SV_SE,
 0x00,
 };
 
