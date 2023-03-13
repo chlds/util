@@ -25,6 +25,26 @@ FOURTH_SV_SE,
 0x00,
 };
 
+static signed char SUNDAY_ORDER_SV_SE[] = {
+'s',0xC3,0xB6,'n','d','a','g','e','n',0x00,
+};
+static signed char MONDAY_ORDER_SV_SE[] = {
+'m',0xC3,0xA5,'n','d','a','g','e','n',0x00,
+};
+static signed char SATURDAY_ORDER_SV_SE[] = {
+'l',0xC3,0xB6,'r','d','a','g','e','n',0x00,
+};
+static signed char *(CALENDAR_WEEK_ORDER_IN_SV_SE[]) = {
+SUNDAY_ORDER_SV_SE,
+MONDAY_ORDER_SV_SE,
+"tisdagen",
+"onsdagen",
+"torsdagen",
+"fredagen",
+SATURDAY_ORDER_SV_SE,
+0x00,
+};
+
 static signed char SUNDAY_SV_SE[] = {
 's',0xC3,0xB6,'n','d','a','g',0x00,
 };
