@@ -45,5 +45,6 @@ Based on UTF-8
 # include "./calendar_ru_ru.h"
 # include "./calendar_sq_al.h"
 # include "./calendar_sv_se.h"
+# include "./calendar_tk_tm.h"
 # include "./calendar_tr_tr.h"
 # include "./calendar_zh_hans_cn.h"
