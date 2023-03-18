@@ -1,12 +1,10 @@
 /* Notes
 
 Turkish
-0xC4 0x9E : Latin Capital Letter G with Breve
-0xC4 0x9F : Latin Small Letter G with Breve
-0xC4 0xB0 : Latin Capital Letter I with Dot above
-0xC4 0xB1 : Latin Small Letter Dotless I
-0xC5 0x9E : Latin Capital Letter S with Cedilla
-0xC5 0x9F : Latin Small Letter S with Cedilla
+C4.9E/C4.9F : Latin Capital/Small Letter G with Breve
+C4.B0 : Latin Capital Letter I with Dot above
+C4.B1 : Latin Small Letter Dotless I
+C5.9E/C5.9F : Latin Capital/Small Letter S with Cedilla
 
 Remarks:
 Based on UTF-8

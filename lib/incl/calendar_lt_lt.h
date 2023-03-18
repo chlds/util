@@ -1,24 +1,15 @@
 /* Notes
 
 Lithuanian
-0xC4 0x84 : Latin Capital Letter A with Ogonek
-0xC4 0x85 : Latin Small Letter A with Ogonek
-0xC4 0x8C : Latin Capital Letter C with Caron
-0xC4 0x8D : Latin Small Letter C with Caron
-0xC4 0x96 : Latin Capital Letter E with Dot above
-0xC4 0x97 : Latin Small Letter E with Dot above
-0xC4 0x98 : Latin Capital Letter E with Ogonek
-0xC4 0x99 : Latin Small Letter E with Ogonek
-0xC4 0xAE : Latin Capital Letter I with Ogonek
-0xC4 0xAF : Latin Small Letter I with Ogonek
-0xC5 0xA0 : Latin Capital Letter S with Caron
-0xC5 0xA1 : Latin Small Letter S with Caron
-0xC5 0xAA : Latin Capital Letter U with Macron
-0xC5 0xAB : Latin Small Letter U with Macron
-0xC5 0xB2 : Latin Capital Letter U with Ogonek
-0xC5 0xB3 : Latin Small Letter U with Ogonek
-0xC5 0xBD : Latin Capital Letter Z with Caron
-0xC5 0xBE : Latin Small Letter Z with Caron
+C4.84/C4.85 : Latin Capital/Small Letter A with Ogonek
+C4.8C/C4.8D : Latin Capital/Small Letter C with Caron
+C4.96/C4.97 : Latin Capital/Small Letter E with Dot above
+C4.98/C4.99 : Latin Capital/Small Letter E with Ogonek
+C4.AE/C4.AF : Latin Capital/Small Letter I with Ogonek
+C5.A0/C5.A1 : Latin Capital/Small Letter S with Caron
+C5.AA/C5.AB : Latin Capital/Small Letter U with Macron
+C5.B2/C5.B3 : Latin Capital/Small Letter U with Ogonek
+C5.BD/C5.BE : Latin Capital/Small Letter Z with Caron
 
 Remarks:
 Based on UTF-8

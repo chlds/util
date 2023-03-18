@@ -1,38 +1,142 @@
 /* Notes
 
 Czech
+C4.84/C4.85 : Latin Capital/Small Letter A with Ogonek
+C4.8C/C4.8D : Latin Capital/Small Letter C with Caron
+C4.96/C4.97 : Latin Capital/Small Letter E with Dot above
+C4.98/C4.99 : Latin Capital/Small Letter E with Ogonek
+C4.9A/C4.9B : Latin Capital/Small Letter E with Caron
+C4.AE/C4.AF : Latin Capital/Small Letter I with Ogonek
+C5.87/C5.88 : Latin Capital/Small Letter N with Caron
+C5.98/C5.99 : Latin Capital/Small Letter R with Caron
+C5.9E/C5.9F : Latin Capital/Small Letter S with Cedilla
+C5.A0/C5.A1 : Latin Capital/Small Letter S with Caron
+C5.AA/C5.AB : Latin Capital/Small Letter U with Macron
+C5.B2/C5.B3 : Latin Capital/Small Letter U with Ogonek
+C5.BD/C5.BE : Latin Capital/Small Letter Z with Caron
 
 Remarks:
+Feminine, masculine life, masculine non-life and neuter
 Based on UTF-8
 */
 
 
-static signed char FIRST_CS_CZ[] = {
+static signed char FIRST_FEM_CS_CZ[] = {
 'p','r','v','n',0xC3,0xAD,0x00,
 };
-static signed char SECOND_CS_CZ[] = {
-'d','r','u','h',0xC3,0xBD,0x00,
+static signed char SECOND_FEM_CS_CZ[] = {
+'d','r','u','h',0xC3,0xA1,0x00,
 };
-static signed char THIRD_CS_CZ[] = {
+static signed char THIRD_FEM_CS_CZ[] = {
 't',0xC5,0x99,'e','t',0xC3,0xAD,0x00,
 };
-static signed char FOURTH_CS_CZ[] = {
-0xC4,0x8D,'t','v','r','t',0xC3,0xBD,0x00,
+static signed char FOURTH_FEM_CS_CZ[] = {
+0xC4,0x8D,'t','v','r','t',0xC3,0xA1,0x00,
 };
-static signed char FIFTH_CS_CZ[] = {
-'p',0xC3,0xA1,'t',0xC3,0xBD,0x00,
+static signed char FIFTH_FEM_CS_CZ[] = {
+'p',0xC3,0xA1,'t',0xC3,0xA1,0x00,
 };
-static signed char AND_LAST_CS_CZ[] = {
+static signed char AND_LAST_FEM_CS_CZ[] = {
 'a',' ','p','o','s','l','e','d','n',0xC3,0xAD,0x00,
 };
-static signed char *(CALENDAR_ORDER_IN_CS_CZ[]) = {
+static signed char *(CALENDAR_ORDER_FEMININE_IN_CS_CZ[]) = {
 "",
-FIRST_CS_CZ,
-SECOND_CS_CZ,
-THIRD_CS_CZ,
-FOURTH_CS_CZ,
-FIFTH_CS_CZ,
-AND_LAST_CS_CZ,
+FIRST_FEM_CS_CZ,
+SECOND_FEM_CS_CZ,
+THIRD_FEM_CS_CZ,
+FOURTH_FEM_CS_CZ,
+FIFTH_FEM_CS_CZ,
+AND_LAST_FEM_CS_CZ,
+"v",
+0x00,
+};
+
+static signed char FIRST_MASC_LIFE_CS_CZ[] = {
+'p','r','v','n',0xC3,0xAD,0x00,
+};
+static signed char SECOND_MASC_LIFE_CS_CZ[] = {
+'d','r','u','h',0xC3,0xBD,0x00,
+};
+static signed char THIRD_MASC_LIFE_CS_CZ[] = {
+'t',0xC5,0x99,'e','t',0xC3,0xAD,0x00,
+};
+static signed char FOURTH_MASC_LIFE_CS_CZ[] = {
+0xC4,0x8D,'t','v','r','t',0xC3,0xBD,0x00,
+};
+static signed char FIFTH_MASC_LIFE_CS_CZ[] = {
+'p',0xC3,0xA1,'t',0xC3,0xBD,0x00,
+};
+static signed char AND_LAST_MASC_LIFE_CS_CZ[] = {
+'a',' ','p','o','s','l','e','d','n',0xC3,0xAD,0x00,
+};
+static signed char *(CALENDAR_ORDER_MASCULINE_LIFE_IN_CS_CZ[]) = {
+"",
+FIRST_MASC_LIFE_CS_CZ,
+SECOND_MASC_LIFE_CS_CZ,
+THIRD_MASC_LIFE_CS_CZ,
+FOURTH_MASC_LIFE_CS_CZ,
+FIFTH_MASC_LIFE_CS_CZ,
+AND_LAST_MASC_LIFE_CS_CZ,
+"v",
+0x00,
+};
+
+static signed char FIRST_MASC_NONLIFE_CS_CZ[] = {
+'p','r','v','n',0xC3,0xAD,0x00,
+};
+static signed char SECOND_MASC_NONLIFE_CS_CZ[] = {
+'d','r','u','h',0xC3,0xBD,0x00,
+};
+static signed char THIRD_MASC_NONLIFE_CS_CZ[] = {
+'t',0xC5,0x99,'e','t',0xC3,0xAD,0x00,
+};
+static signed char FOURTH_MASC_NONLIFE_CS_CZ[] = {
+0xC4,0x8D,'t','v','r','t',0xC3,0xBD,0x00,
+};
+static signed char FIFTH_MASC_NONLIFE_CS_CZ[] = {
+'p',0xC3,0xA1,'t',0xC3,0xBD,0x00,
+};
+static signed char AND_LAST_MASC_NONLIFE_CS_CZ[] = {
+'a',' ','p','o','s','l','e','d','n',0xC3,0xAD,0x00,
+};
+static signed char *(CALENDAR_ORDER_MASCULINE_NONLIFE_IN_CS_CZ[]) = {
+"",
+FIRST_MASC_NONLIFE_CS_CZ,
+SECOND_MASC_NONLIFE_CS_CZ,
+THIRD_MASC_NONLIFE_CS_CZ,
+FOURTH_MASC_NONLIFE_CS_CZ,
+FIFTH_MASC_NONLIFE_CS_CZ,
+AND_LAST_MASC_NONLIFE_CS_CZ,
+"v",
+0x00,
+};
+
+static signed char FIRST_NEUT_CS_CZ[] = {
+'p','r','v','n',0xC3,0xAD,0x00,
+};
+static signed char SECOND_NEUT_CS_CZ[] = {
+'d','r','u','h',0xC3,0xA9,0x00,
+};
+static signed char THIRD_NEUT_CS_CZ[] = {
+'t',0xC5,0x99,'e','t',0xC3,0xAD,0x00,
+};
+static signed char FOURTH_NEUT_CS_CZ[] = {
+0xC4,0x8D,'t','v','r','t',0xC3,0xA9,0x00,
+};
+static signed char FIFTH_NEUT_CS_CZ[] = {
+'p',0xC3,0xA1,'t',0xC3,0xA9,0x00,
+};
+static signed char AND_LAST_NEUT_CS_CZ[] = {
+'a',' ','p','o','s','l','e','d','n',0xC3,0xAD,0x00,
+};
+static signed char *(CALENDAR_ORDER_NEUTER_IN_CS_CZ[]) = {
+"",
+FIRST_NEUT_CS_CZ,
+SECOND_NEUT_CS_CZ,
+THIRD_NEUT_CS_CZ,
+FOURTH_NEUT_CS_CZ,
+FIFTH_NEUT_CS_CZ,
+AND_LAST_NEUT_CS_CZ,
 "v",
 0x00,
 };
