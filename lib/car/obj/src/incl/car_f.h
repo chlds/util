@@ -338,10 +338,10 @@ signed(__cdecl cv_in_roman_r(signed(arg),signed char(**argp)));
 signed char *(__cdecl cv_in_roman(signed(arg)));
 /* Convert into roman numerals */
 
-signed(__cdecl cv_in_arabic_fig_rrr(signed char(**di),signed char(**table),signed short(radix),signed(si)));
-signed char *(__cdecl cv_in_arabic_fig_rr(signed short(radix),signed(arg)));
-signed char *(__cdecl cv_in_arabic_fig_r(signed short(radix),signed(arg)));
-signed char *(__cdecl cv_in_arabic_fig(signed short(radix),signed(arg)));
+signed char *(__cdecl cv_in_marathi_fig(signed(arg)));
+/* Convert into marathi figures */
+
+signed char *(__cdecl cv_in_arabic_fig(signed(arg)));
 /* Convert into arabic figures */
 
 signed(__cdecl alert_b_r(signed(arg),signed short(hr),signed short(mn)));
@@ -380,6 +380,11 @@ signed char *(__cdecl cv(signed(digit),signed(arg)));
 signed char *(__cdecl cat_ahead(signed char(*di),signed char(*si)));
 signed char *(__cdecl cat_anterior(signed char(*di),signed char(*si)));
 /* convert, concatenate and release */
+
+signed(__cdecl cv_b_rr(signed char(**di),signed char(**table),signed(radix),signed(si)));
+signed char *(__cdecl cv_b_r(signed char(**argp),signed(radix),signed(arg)));
+signed char *(__cdecl cv_b(signed char(**argp),signed(arg)));
+/* convert */
 
 signed(__cdecl ct_av_b_r(signed(*di),signed char(**si)));
 signed(__cdecl ct_av_b(signed(*di),signed char(**si)));
