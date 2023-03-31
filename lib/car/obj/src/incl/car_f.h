@@ -341,6 +341,9 @@ signed char *(__cdecl cv_in_roman(signed(arg)));
 signed char *(__cdecl cv_in_marathi_fig(signed(arg)));
 /* Convert into marathi figures */
 
+signed char *(__cdecl cv_in_persian_fig(signed(arg)));
+/* Convert into persian figures */
+
 signed char *(__cdecl cv_in_arabic_fig(signed(arg)));
 /* Convert into arabic figures */
 
