@@ -43,6 +43,12 @@ void *(__cdecl map_td_token(signed(arg/* open as self */),void(*argp)));
 void *(__cdecl map_td(signed(tid)));
 /* Operate threads and processes. */
 
+signed long(__cdecl currently_working_window_left(void(*argp)));
+signed long(__cdecl currently_working_window_top(void(*argp)));
+signed long(__cdecl currently_working_window_right(void(*argp)));
+signed long(__cdecl currently_working_window_bottom(void(*argp)));
+signed long(__cdecl currently_working_window_width(void(*argp)));
+signed long(__cdecl currently_working_window_height(void(*argp)));
 void *(__cdecl currently_working_clipboard_window(void));
 void *(__cdecl currently_working_clipboard_owner(void));
 void *(__cdecl currently_working_process_token(void));
