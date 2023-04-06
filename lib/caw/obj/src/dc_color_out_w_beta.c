@@ -5,6 +5,7 @@ Paint
 
 
 # define CAW_H
+# define CAR_H
 # define STDIO_H
 # define WIN32_H
 # include "./../../../config.h"
