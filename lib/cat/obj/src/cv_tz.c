@@ -27,12 +27,9 @@ auto signed char *neg = ("-");
 auto signed char *pos = ("+");
 if(!argp) return(0x00);
 b = (0x00);
-tt = (*argp);
-if(!tt) {
-cat_b(&b,"+00:00",(void*)0x00);
-return(b);
-}
 p = (pos);
+tt = (*argp);
+// if(!tt) p = (pos);
 if(tt<(0x00)) {
 tt = (0x01+(~tt));
 p = (neg);
