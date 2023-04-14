@@ -6,6 +6,7 @@ Based on UTF-8
 
 # include "./calendar_af_za.h"
 # include "./calendar_ar.h"
+# include "./calendar_az_latn_az.h"
 # include "./calendar_bg_bg.h"
 # include "./calendar_br_fr.h"
 # include "./calendar_bs_latn_ba.h"
