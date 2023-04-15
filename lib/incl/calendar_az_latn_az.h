@@ -8,7 +8,8 @@ Based on UTF-8
 
 
 static signed char FIRST_AZ_LATN_AZ[] = {
-'b','i','r','i','n','c','i',0x00,
+'i','l','k',0x00,
+// 'b','i','r','i','n','c','i',0x00,
 };
 static signed char SECOND_AZ_LATN_AZ[] = {
 'i','k','i','n','c','i',0x00,
