@@ -67,5 +67,6 @@ Based on UTF-8
 # include "./calendar_tr_tr.h"
 # include "./calendar_uk_ua.h"
 # include "./calendar_ur.h"
+# include "./calendar_uz_latn_uz.h"
 # include "./calendar_vi_vn.h"
 # include "./calendar_zh_hans_cn.h"
