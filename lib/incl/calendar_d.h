@@ -45,6 +45,7 @@ Based on UTF-8
 # include "./calendar_ll.h"
 # include "./calendar_lt_lt.h"
 # include "./calendar_lv_lv.h"
+# include "./calendar_ml_in.h"
 # include "./calendar_mr_in.h"
 # include "./calendar_ms_my.h"
 # include "./calendar_nb_no.h"
