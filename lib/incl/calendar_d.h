@@ -63,6 +63,7 @@ Based on UTF-8
 # include "./calendar_sq_al.h"
 # include "./calendar_sr_cyrl_rs.h"
 # include "./calendar_sv_se.h"
+# include "./calendar_ta_in.h"
 # include "./calendar_th_th.h"
 # include "./calendar_tk_tm.h"
 # include "./calendar_to_to.h"
