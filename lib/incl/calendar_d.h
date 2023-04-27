@@ -42,6 +42,7 @@ Based on UTF-8
 # include "./calendar_jv.h"
 # include "./calendar_ka_ge.h"
 # include "./calendar_kk_kz.h"
+# include "./calendar_kn_in.h"
 # include "./calendar_ky_kg.h"
 # include "./calendar_ll.h"
 # include "./calendar_lt_lt.h"
