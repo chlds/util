@@ -16,6 +16,7 @@ Based on UTF-8
 # include "./calendar_cy_gb.h"
 # include "./calendar_da_dk.h"
 # include "./calendar_de_de.h"
+# include "./calendar_dsb_de.h"
 # include "./calendar_el_gr.h"
 # include "./calendar_en.h"
 # include "./calendar_es_es.h"
