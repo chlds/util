@@ -338,8 +338,8 @@ signed(__cdecl cv_in_roman_r(signed(arg),signed char(**argp)));
 signed char *(__cdecl cv_in_roman(signed(arg)));
 /* Convert into roman numerals */
 
-signed char *(__cdecl cv_in_marathi_fig(signed(arg)));
-/* Convert into marathi figures */
+signed char *(__cdecl cv_in_devanagari_fig(signed(arg)));
+/* Convert into devanagari figures */
 
 signed char *(__cdecl cv_in_persian_fig(signed(arg)));
 /* Convert into persian figures */

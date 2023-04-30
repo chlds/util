@@ -1,7 +1,7 @@
 # define CAR_H
 # include "./../../../config.h"
 
-signed char *(__cdecl cv_in_marathi_fig(signed(arg))) {
+signed char *(__cdecl cv_in_devanagari_fig(signed(arg))) {
 auto signed char fig_0[] = {
 0xE0,0xA5,0xA6,0x00,
 };
