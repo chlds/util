@@ -55,6 +55,7 @@ Based on UTF-8
 # include "./calendar_nl_nl.h"
 # include "./calendar_nn_no.h"
 # include "./calendar_or_in.h"
+# include "./calendar_pa_guru_in.h"
 # include "./calendar_pl_pl.h"
 # include "./calendar_ps_af.h"
 # include "./calendar_pt_pt.h"
