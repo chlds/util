@@ -7,6 +7,11 @@ Based on UTF-8
 */
 
 
+static signed char CALENDAR_MALAY_IN_MS_MY[] = ("Malay");
+static signed char CALENDAR_LLSC_MALAY_IN_MS_MY[] = {
+'M',0xE1,0xB4,0x80,0xCA,0x9F,0xE1,0xB4,0x80,0xCA,0x8F,0x00,
+};
+
 static signed char *(CALENDAR_WK_IN_MS_MY[]) = {
 "Ahd",
 "Isn",

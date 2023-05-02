@@ -7,6 +7,11 @@ Based on UTF-8
 */
 
 
+static signed char CALENDAR_MANX_IN_GV_GB[] = ("Manx");
+static signed char CALENDAR_LLSC_MANX_IN_GV_GB[] = {
+'M',0xE1,0xB4,0x80,0xC9,0xB4,'x',0x00,
+};
+
 static signed char *(CALENDAR_WK_IN_GV_GB[]) = {
 "Jed.",\
 "Jel.",\

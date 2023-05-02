@@ -7,6 +7,11 @@ Based on UTF-8
 */
 
 
+static signed char CALENDAR_UZBEK_IN_UZ_LATN_UZ[] = ("Uzbek");
+static signed char CALENDAR_LLSC_UZBEK_IN_UZ_LATN_UZ[] = {
+'U',0xE1,0xB4,0xA2,0xCA,0x99,0xE1,0xB4,0x87,0xE1,0xB4,0x8B,0x00,
+};
+
 static signed char *(CALENDAR_ORDER_IN_UZ_LATN_UZ[]) = {
 "",
 "birinchi",

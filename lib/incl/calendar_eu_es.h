@@ -7,6 +7,11 @@ Based on UTF-8
 */
 
 
+static signed char CALENDAR_BASQUE_IN_EU_ES[] = ("Basque");
+static signed char CALENDAR_LLSC_BASQUE_IN_EU_ES[] = {
+'B',0xE1,0xB4,0x80,0xEA,0x9C,0xB1,'q',0xE1,0xB4,0x9C,0xE1,0xB4,0x87,0x00,
+};
+
 static signed char *(CALENDAR_WK_IN_EU_ES[]) = {
 "ig.",
 "al.",

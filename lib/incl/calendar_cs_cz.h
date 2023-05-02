@@ -21,6 +21,11 @@ Based on UTF-8
 */
 
 
+static signed char CALENDAR_CZECH_IN_CS_CZ[] = ("Czech");
+static signed char CALENDAR_LLSC_CZECH_IN_CS_CZ[] = {
+'C',0xE1,0xB4,0xA2,0xE1,0xB4,0x87,0xE1,0xB4,0x84,0xCA,0x9C,0x00,
+};
+
 static signed char FIRST_FEM_CS_CZ[] = {
 'p','r','v','n',0xC3,0xAD,0x00,
 };

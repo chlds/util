@@ -7,6 +7,11 @@ Based on UTF-8
 */
 
 
+static signed char CALENDAR_BRETON_IN_BR_FR[] = ("Breton");
+static signed char CALENDAR_LLSC_BRETON_IN_BR_FR[] = {
+'B',0xCA,0x80,0xE1,0xB4,0x87,0xE1,0xB4,0x9B,0xE1,0xB4,0x8F,0xC9,0xB4,0x00,
+};
+
 /*
 static signed char *(CALENDAR_WK_IN_BR_FR[]) = {
 "disul","dilun","dimeurzh","dimerc'her","diriaou","digwener","disadorn",0x00,

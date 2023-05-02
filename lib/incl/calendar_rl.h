@@ -7,6 +7,11 @@ Based on UTF-8
 */
 
 
+static signed char CALENDAR_ROMAN_IN_RL[] = ("Roman");
+static signed char CALENDAR_LLSC_ROMAN_IN_RL[] = {
+'R',0xE1,0xB4,0x8F,0xE1,0xB4,0x8D,0xE1,0xB4,0x80,0xC9,0xB4,0x00,
+};
+
 static signed char *(CALENDAR_WK_IN_RL[]) = {
 "So.","L.","Ma.","Me.","J.","V.","Sa.",0x00,
 };

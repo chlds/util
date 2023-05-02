@@ -7,6 +7,11 @@ Based on UTF-8
 */
 
 
+static signed char CALENDAR_DUTCH_IN_NL_NL[] = ("Dutch");
+static signed char CALENDAR_LLSC_DUTCH_IN_NL_NL[] = {
+'D',0xE1,0xB4,0x9C,0xE1,0xB4,0x9B,0xE1,0xB4,0x84,0xCA,0x9C,0x00,
+};
+
 static signed char *(CALENDAR_ORDER_IN_NL_NL[]) = {
 "",
 "eerste",

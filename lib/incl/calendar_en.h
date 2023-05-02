@@ -7,6 +7,11 @@ Based on UTF-8
 */
 
 
+static signed char CALENDAR_ENGLISH_IN_EN[] = ("English");
+static signed char CALENDAR_LLSC_ENGLISH_IN_EN[] = {
+'E',0xC9,0xB4,0xC9,0xA2,0xCA,0x9F,0xC9,0xAA,0xEA,0x9C,0xB1,0xCA,0x9C,0x00,
+};
+
 static signed char *(CALENDAR_ORDER_OLD_IN_EN[]) = {
 "","First","Second","Third","Fourth","Fifth","and last",/* "of", */"in",0x00,
 };

@@ -7,6 +7,11 @@ Based on UTF-8
 */
 
 
+static signed char CALENDAR_FINNISH_IN_FI_FI[] = ("Finnish");
+static signed char CALENDAR_LLSC_FINNISH_IN_FI_FI[] = {
+'F',0xC9,0xAA,0xC9,0xB4,0xC9,0xB4,0xC9,0xAA,0xEA,0x9C,0xB1,0xCA,0x9C,0x00,
+};
+
 static signed char *(CALENDAR_WK_IN_FI_FI[]) = {
 "su",
 "ma",
