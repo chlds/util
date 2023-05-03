@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_FILIPINO_IN_FIL_PH[] = ("Filipino");
-static signed char CALENDAR_LLSC_FILIPINO_IN_FIL_PH[] = {
+static signed char CALENDAR_IN_FIL_PH[] = ("Filipino");
+static signed char CALENDAR_LLSC_IN_FIL_PH[] = {
 'F',0xC9,0xAA,0xCA,0x9F,0xC9,0xAA,0xE1,0xB4,0x98,0xC9,0xAA,0xC9,0xB4,0xE1,0xB4,0x8F,0x00,
 };
 

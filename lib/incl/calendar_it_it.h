@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_ITALIAN_IN_IT_IT[] = ("Italian");
-static signed char CALENDAR_LLSC_ITALIAN_IN_IT_IT[] = {
+static signed char CALENDAR_IN_IT_IT[] = ("Italian");
+static signed char CALENDAR_LLSC_IN_IT_IT[] = {
 'I',0xE1,0xB4,0x9B,0xE1,0xB4,0x80,0xCA,0x9F,0xC9,0xAA,0xE1,0xB4,0x80,0xC9,0xB4,0x00,
 };
 

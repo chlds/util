@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_HEBREW_IN_HE_IL[] = ("Hebrew");
-static signed char CALENDAR_LLSC_HEBREW_IN_HE_IL[] = {
+static signed char CALENDAR_IN_HE_IL[] = ("Hebrew");
+static signed char CALENDAR_LLSC_IN_HE_IL[] = {
 'H',0xE1,0xB4,0x87,0xCA,0x99,0xCA,0x80,0xE1,0xB4,0x87,0xE1,0xB4,0xA1,0x00,
 };
 

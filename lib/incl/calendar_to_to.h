@@ -14,8 +14,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_TONGAN_IN_TO_TO[] = ("Tongan");
-static signed char CALENDAR_LLSC_TONGAN_IN_TO_TO[] = {
+static signed char CALENDAR_IN_TO_TO[] = ("Tongan");
+static signed char CALENDAR_LLSC_IN_TO_TO[] = {
 'T',0xE1,0xB4,0x8F,0xC9,0xB4,0xC9,0xA2,0xE1,0xB4,0x80,0xC9,0xB4,0x00,
 };
 

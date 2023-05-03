@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_SPANISH_IN_ES_ES[] = ("Spanish");
-static signed char CALENDAR_LLSC_SPANISH_IN_ES_ES[] = {
+static signed char CALENDAR_IN_ES_ES[] = ("Spanish");
+static signed char CALENDAR_LLSC_IN_ES_ES[] = {
 'S',0xE1,0xB4,0x98,0xE1,0xB4,0x80,0xC9,0xB4,0xC9,0xAA,0xEA,0x9C,0xB1,0xCA,0x9C,0x00,
 };
 

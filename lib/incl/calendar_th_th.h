@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_THAI_IN_TH_TH[] = ("Thai");
-static signed char CALENDAR_LLSC_THAI_IN_TH_TH[] = {
+static signed char CALENDAR_IN_TH_TH[] = ("Thai");
+static signed char CALENDAR_LLSC_IN_TH_TH[] = {
 'T',0xCA,0x9C,0xE1,0xB4,0x80,0xC9,0xAA,0x00,
 };
 

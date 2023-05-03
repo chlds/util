@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_GERMAN_IN_DE_DE[] = ("German");
-static signed char CALENDAR_LLSC_GERMAN_IN_DE_DE[] = {
+static signed char CALENDAR_IN_DE_DE[] = ("German");
+static signed char CALENDAR_LLSC_IN_DE_DE[] = {
 'G',0xE1,0xB4,0x87,0xCA,0x80,0xE1,0xB4,0x8D,0xE1,0xB4,0x80,0xC9,0xB4,0x00,
 };
 

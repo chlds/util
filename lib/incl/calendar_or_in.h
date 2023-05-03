@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_ODIA_IN_OR_IN[] = ("Odia");
-static signed char CALENDAR_LLSC_ODIA_IN_OR_IN[] = {
+static signed char CALENDAR_IN_OR_IN[] = ("Odia");
+static signed char CALENDAR_LLSC_IN_OR_IN[] = {
 'O',0xE1,0xB4,0x85,0xC9,0xAA,0xE1,0xB4,0x80,0x00,
 };
 

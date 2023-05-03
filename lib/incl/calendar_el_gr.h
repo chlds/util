@@ -32,8 +32,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_GREEK_IN_EL_GR[] = ("Greek");
-static signed char CALENDAR_LLSC_GREEK_IN_EL_GR[] = {
+static signed char CALENDAR_IN_EL_GR[] = ("Greek");
+static signed char CALENDAR_LLSC_IN_EL_GR[] = {
 'G',0xCA,0x80,0xE1,0xB4,0x87,0xE1,0xB4,0x87,0xE1,0xB4,0x8B,0x00,
 };
 

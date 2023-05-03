@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_SWEDISH_IN_SV_SE[] = ("Swedish");
-static signed char CALENDAR_LLSC_SWEDISH_IN_SV_SE[] = {
+static signed char CALENDAR_IN_SV_SE[] = ("Swedish");
+static signed char CALENDAR_LLSC_IN_SV_SE[] = {
 'S',0xE1,0xB4,0xA1,0xE1,0xB4,0x87,0xE1,0xB4,0x85,0xC9,0xAA,0xEA,0x9C,0xB1,0xCA,0x9C,0x00,
 };
 

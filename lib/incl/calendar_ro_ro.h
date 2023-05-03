@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_ROMANIAN_IN_RO_RO[] = ("Romanian");
-static signed char CALENDAR_LLSC_ROMANIAN_IN_RO_RO[] = {
+static signed char CALENDAR_IN_RO_RO[] = ("Romanian");
+static signed char CALENDAR_LLSC_IN_RO_RO[] = {
 'R',0xE1,0xB4,0x8F,0xE1,0xB4,0x8D,0xE1,0xB4,0x80,0xC9,0xB4,0xE1,0xB4,0x80,0xC9,0xB4,0x00,
 };
 

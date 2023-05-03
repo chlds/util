@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_IRISH_IN_GA_IE[] = ("Irish");
-static signed char CALENDAR_LLSC_IRISH_IN_GA_IE[] = {
+static signed char CALENDAR_IN_GA_IE[] = ("Irish");
+static signed char CALENDAR_LLSC_IN_GA_IE[] = {
 'I',0xCA,0x80,0xC9,0xAA,0xEA,0x9C,0xB1,0xCA,0x9C,0x00,
 };
 

@@ -9,8 +9,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_TURKMEN_IN_TK_TM[] = ("Turkmen");
-static signed char CALENDAR_LLSC_TURKMEN_IN_TK_TM[] = {
+static signed char CALENDAR_IN_TK_TM[] = ("Turkmen");
+static signed char CALENDAR_LLSC_IN_TK_TM[] = {
 'T',0xE1,0xB4,0x9C,0xCA,0x80,0xE1,0xB4,0x8B,0xE1,0xB4,0x8D,0xE1,0xB4,0x87,0xC9,0xB4,0x00,
 };
 

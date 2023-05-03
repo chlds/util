@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_KYRGYZ_IN_KY_KG[] = ("Kyrgyz");
-static signed char CALENDAR_LLSC_KYRGYZ_IN_KY_KG[] = {
+static signed char CALENDAR_IN_KY_KG[] = ("Kyrgyz");
+static signed char CALENDAR_LLSC_IN_KY_KG[] = {
 'K',0xCA,0x8F,0xCA,0x80,0xC9,0xA2,0xCA,0x8F,0xE1,0xB4,0xA2,0x00,
 };
 

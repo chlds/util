@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_KANNADA_IN_KN_IN[] = ("Kannada");
-static signed char CALENDAR_LLSC_KANNADA_IN_KN_IN[] = {
+static signed char CALENDAR_IN_KN_IN[] = ("Kannada");
+static signed char CALENDAR_LLSC_IN_KN_IN[] = {
 'K',0xE1,0xB4,0x80,0xC9,0xB4,0xC9,0xB4,0xE1,0xB4,0x80,0xE1,0xB4,0x85,0xE1,0xB4,0x80,0x00,
 };
 

@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_SWAHILI_IN_SW_TZ[] = ("Swahili");
-static signed char CALENDAR_LLSC_SWAHILI_IN_SW_TZ[] = {
+static signed char CALENDAR_IN_SW_TZ[] = ("Swahili");
+static signed char CALENDAR_LLSC_IN_SW_TZ[] = {
 'S',0xE1,0xB4,0xA1,0xE1,0xB4,0x80,0xCA,0x9C,0xC9,0xAA,0xCA,0x9F,0xC9,0xAA,0x00,
 };
 

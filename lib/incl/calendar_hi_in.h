@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_HINDI_IN_HI_IN[] = ("Hindi");
-static signed char CALENDAR_LLSC_HINDI_IN_HI_IN[] = {
+static signed char CALENDAR_IN_HI_IN[] = ("Hindi");
+static signed char CALENDAR_LLSC_IN_HI_IN[] = {
 'H',0xC9,0xAA,0xC9,0xB4,0xE1,0xB4,0x85,0xC9,0xAA,0x00,
 };
 

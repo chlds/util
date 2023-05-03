@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_POLISH_IN_PL_PL[] = ("Polish");
-static signed char CALENDAR_LLSC_POLISH_IN_PL_PL[] = {
+static signed char CALENDAR_IN_PL_PL[] = ("Polish");
+static signed char CALENDAR_LLSC_IN_PL_PL[] = {
 'P',0xE1,0xB4,0x8F,0xCA,0x9F,0xC9,0xAA,0xEA,0x9C,0xB1,0xCA,0x9C,0x00,
 };
 

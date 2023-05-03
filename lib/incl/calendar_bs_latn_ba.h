@@ -21,8 +21,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_BOSNIAN_IN_BS_LATN_BA[] = ("Bosnian");
-static signed char CALENDAR_LLSC_BOSNIAN_IN_BS_LATN_BA[] = {
+static signed char CALENDAR_IN_BS_LATN_BA[] = ("Bosnian");
+static signed char CALENDAR_LLSC_IN_BS_LATN_BA[] = {
 'B',0xE1,0xB4,0x8F,0xEA,0x9C,0xB1,0xC9,0xB4,0xC9,0xAA,0xE1,0xB4,0x80,0xC9,0xB4,0x00,
 };
 

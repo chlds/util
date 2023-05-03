@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_URDU_IN_UR[] = ("Urdu");
-static signed char CALENDAR_LLSC_URDU_IN_UR[] = {
+static signed char CALENDAR_IN_UR[] = ("Urdu");
+static signed char CALENDAR_LLSC_IN_UR[] = {
 'U',0xCA,0x80,0xE1,0xB4,0x85,0xE1,0xB4,0x9C,0x00,
 };
 

@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_ARABIC_IN_AR[] = ("Arabic");
-static signed char CALENDAR_LLSC_ARABIC_IN_AR[] = {
+static signed char CALENDAR_IN_AR[] = ("Arabic");
+static signed char CALENDAR_LLSC_IN_AR[] = {
 'A',0xCA,0x80,0xE1,0xB4,0x80,0xCA,0x99,0xC9,0xAA,0xE1,0xB4,0x84,0x00,
 };
 

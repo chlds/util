@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_PASHTO_IN_PS_AF[] = ("Pashto");
-static signed char CALENDAR_LLSC_PASHTO_IN_PS_AF[] = {
+static signed char CALENDAR_IN_PS_AF[] = ("Pashto");
+static signed char CALENDAR_LLSC_IN_PS_AF[] = {
 'P',0xE1,0xB4,0x80,0xEA,0x9C,0xB1,0xCA,0x9C,0xE1,0xB4,0x9B,0xE1,0xB4,0x8F,0x00,
 };
 

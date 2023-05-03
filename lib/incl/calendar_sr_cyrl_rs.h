@@ -37,8 +37,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_SERBIAN_IN_SR_CYRL_RS[] = ("Serbian");
-static signed char CALENDAR_LLSC_SERBIAN_IN_SR_CYRL_RS[] = {
+static signed char CALENDAR_IN_SR_CYRL_RS[] = ("Serbian");
+static signed char CALENDAR_LLSC_IN_SR_CYRL_RS[] = {
 'S',0xE1,0xB4,0x87,0xCA,0x80,0xCA,0x99,0xC9,0xAA,0xE1,0xB4,0x80,0xC9,0xB4,0x00,
 };
 

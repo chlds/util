@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_LATVIAN_IN_LV_LV[] = ("Latvian");
-static signed char CALENDAR_LLSC_LATVIAN_IN_LV_LV[] = {
+static signed char CALENDAR_IN_LV_LV[] = ("Latvian");
+static signed char CALENDAR_LLSC_IN_LV_LV[] = {
 'L',0xE1,0xB4,0x80,0xE1,0xB4,0x9B,0xE1,0xB4,0xA0,0xC9,0xAA,0xE1,0xB4,0x80,0xC9,0xB4,0x00,
 };
 

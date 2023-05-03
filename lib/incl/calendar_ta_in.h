@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_TAMIL_IN_TA_IN[] = ("Tamil");
-static signed char CALENDAR_LLSC_TAMIL_IN_TA_IN[] = {
+static signed char CALENDAR_IN_TA_IN[] = ("Tamil");
+static signed char CALENDAR_LLSC_IN_TA_IN[] = {
 'T',0xE1,0xB4,0x80,0xE1,0xB4,0x8D,0xC9,0xAA,0xCA,0x9F,0x00,
 };
 

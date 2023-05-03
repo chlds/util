@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_KAZAKH_IN_KK_KZ[] = ("Kazakh");
-static signed char CALENDAR_LLSC_KAZAKH_IN_KK_KZ[] = {
+static signed char CALENDAR_IN_KK_KZ[] = ("Kazakh");
+static signed char CALENDAR_LLSC_IN_KK_KZ[] = {
 'K',0xE1,0xB4,0x80,0xE1,0xB4,0xA2,0xE1,0xB4,0x80,0xE1,0xB4,0x8B,0xCA,0x9C,0x00,
 };
 

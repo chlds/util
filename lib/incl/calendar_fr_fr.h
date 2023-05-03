@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_FRENCH_IN_FR_FR[] = ("French");
-static signed char CALENDAR_LLSC_FRENCH_IN_FR_FR[] = {
+static signed char CALENDAR_IN_FR_FR[] = ("French");
+static signed char CALENDAR_LLSC_IN_FR_FR[] = {
 'F',0xCA,0x80,0xE1,0xB4,0x87,0xC9,0xB4,0xE1,0xB4,0x84,0xCA,0x9C,0x00,
 };
 

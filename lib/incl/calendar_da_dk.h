@@ -7,8 +7,8 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_DANISH_IN_DA_DK[] = ("Danish");
-static signed char CALENDAR_LLSC_DANISH_IN_DA_DK[] = {
+static signed char CALENDAR_IN_DA_DK[] = ("Danish");
+static signed char CALENDAR_LLSC_IN_DA_DK[] = {
 'D',0xE1,0xB4,0x80,0xC9,0xB4,0xC9,0xAA,0xEA,0x9C,0xB1,0xCA,0x9C,0x00,
 };
 
