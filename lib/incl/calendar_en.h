@@ -13,7 +13,7 @@ static signed char CALENDAR_LLSC_ENGLISH_IN_EN[] = {
 };
 
 static signed char *(CALENDAR_ORDER_OLD_IN_EN[]) = {
-"","First","Second","Third","Fourth","Fifth","and last",/* "of", */"in",0x00,
+"","first","second","third","fourth","fifth","and last",0x00,
 };
 
 static signed char *(CALENDAR_WEEK_OLD_IN_EN[]) = {
