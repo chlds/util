@@ -71,6 +71,7 @@ Based on UTF-8
 # include "./calendar_sv_se.h"
 # include "./calendar_sw_tz.h"
 # include "./calendar_ta_in.h"
+# include "./calendar_te_in.h"
 # include "./calendar_th_th.h"
 # include "./calendar_tk_tm.h"
 # include "./calendar_to_to.h"
