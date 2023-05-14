@@ -607,6 +607,7 @@ signed(__cdecl ct_to(signed char(*cache),signed char(*argp)));
 signed(__cdecl ct2(signed char(di), signed char(*base)));
 /* Count to */
 
+signed(__cdecl ct_f_d(signed(__cdecl**f)(signed(arg))));
 signed(__cdecl ct_f_v(void*(__cdecl**f)(void(*argp))));
 signed(__cdecl ct_f(signed(__cdecl**f)(void(*argp))));
 /* Count function pointers */
@@ -634,6 +635,7 @@ signed(__cdecl calc_0_0625x(signed(arg)));
 signed(__cdecl calc_0_125x(signed(arg)));
 signed(__cdecl calc_0_25x(signed(arg)));
 signed(__cdecl calc_0_5x(signed(arg)));
+signed(__cdecl calc_1x(signed(arg)));
 signed(__cdecl calc_1_5x(signed(arg)));
 signed(__cdecl calc_2x(signed(arg)));
 signed(__cdecl calc_2_5x(signed(arg)));
@@ -642,10 +644,16 @@ signed(__cdecl calc_3_5x(signed(arg)));
 signed(__cdecl calc_4x(signed(arg)));
 signed(__cdecl calc_4_5x(signed(arg)));
 signed(__cdecl calc_5x(signed(arg)));
+signed(__cdecl calc_5_5x(signed(arg)));
 signed(__cdecl calc_6x(signed(arg)));
+signed(__cdecl calc_6_5x(signed(arg)));
 signed(__cdecl calc_7x(signed(arg)));
+signed(__cdecl calc_7_5x(signed(arg)));
 signed(__cdecl calc_8x(signed(arg)));
+signed(__cdecl calc_8_5x(signed(arg)));
 signed(__cdecl calc_9x(signed(arg)));
+signed(__cdecl calc_9_5x(signed(arg)));
+signed(__cdecl calc_10x(signed(arg)));
 /* Calculate */
 
 signed(__cdecl es(signed(arg)));
