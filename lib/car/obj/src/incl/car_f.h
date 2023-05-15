@@ -221,6 +221,9 @@ signed(__cdecl unmap_w(signed short(**argp)));
 signed(__cdecl unmap_b(signed char(**argp)));
 /* Unmap */
 
+signed char *(__cdecl map_bb(signed char *argp));
+/* Map */
+
 signed(__cdecl cv_va_r(signed char(**di),signed short(*flag),signed char(*sym),signed char(*si)));
 signed(__cdecl cv_va(signed char(***di),signed char(*sym),signed char(*si)));
 signed(__cdecl cv_wo_r(signed char(**di),signed short(*flag),signed char(*sym),signed char(*si)));
