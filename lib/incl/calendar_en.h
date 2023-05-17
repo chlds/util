@@ -7,13 +7,13 @@ Based on UTF-8
 */
 
 
-static signed char CALENDAR_ENGLISH_IN_EN[] = ("English");
-static signed char CALENDAR_LLSC_ENGLISH_IN_EN[] = {
+static signed char CALENDAR_IN_EN_GB[] = ("English");
+static signed char CALENDAR_LLSC_IN_EN_GB[] = {
 'E',0xC9,0xB4,0xC9,0xA2,0xCA,0x9F,0xC9,0xAA,0xEA,0x9C,0xB1,0xCA,0x9C,0x00,
 };
 
-static signed char CALENDAR_ENGLISH_IN_EN_US[] = ("English (US)");
-static signed char CALENDAR_LLSC_ENGLISH_IN_EN_US[] = {
+static signed char CALENDAR_IN_EN_US[] = ("English (US)");
+static signed char CALENDAR_LLSC_IN_EN_US[] = {
 'E',0xC9,0xB4,0xC9,0xA2,0xCA,0x9F,0xC9,0xAA,0xEA,0x9C,0xB1,0xCA,0x9C,\
 ' ','(','U','S',')',\
 0x00,
