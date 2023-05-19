@@ -31,6 +31,10 @@ static signed char *(CALENDAR_WK_OLD_IN_EN[]) = {
 "Sun","Mon","Tue","Wed","Thu","Fri","Sat",0x00,
 };
 
+static signed char *(CALENDAR_W_OLD_IN_EN[]) = {
+"Su","Mo","Tu","We","Th","Fr","Sa",0x00,
+};
+
 static signed char *(CALENDAR_DAY_OLD_IN_EN[]) = {
 "","1st","2nd","3rd","4th","5th","6th","7th","8th","9th",
 "10th","11th","12th","13th","14th","15th","16th","17th","18th","19th",
