@@ -23,7 +23,6 @@ ct_wk_sat,
 };
 if(!argp) return(0x00);
 t = (*argp);
-if(DBG) t = (t+(CAT_DEBUG_MN+(CAT_DEBUG_HR)));
 wk = (wk%(ct_f(fn)));
 f = (*(wk+(fn)));
 return(f(&t));
