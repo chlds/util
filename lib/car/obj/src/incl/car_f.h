@@ -662,6 +662,7 @@ signed(__cdecl calc_12x(signed(arg)));
 signed(__cdecl calc_13x(signed(arg)));
 signed(__cdecl calc_14x(signed(arg)));
 signed(__cdecl calc_15x(signed(arg)));
+signed(__cdecl calc_16x(signed(arg)));
 /* Calculate */
 
 signed(__cdecl es(signed(arg)));
