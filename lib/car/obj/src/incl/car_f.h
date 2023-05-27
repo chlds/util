@@ -661,6 +661,7 @@ signed(__cdecl calc_10_5x(signed(arg)));
 signed(__cdecl calc_11x(signed(arg)));
 signed(__cdecl calc_11_5x(signed(arg)));
 signed(__cdecl calc_12x(signed(arg)));
+signed(__cdecl calc_12_5x(signed(arg)));
 signed(__cdecl calc_13x(signed(arg)));
 signed(__cdecl calc_14x(signed(arg)));
 signed(__cdecl calc_15x(signed(arg)));
