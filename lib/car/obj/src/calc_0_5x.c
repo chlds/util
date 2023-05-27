@@ -1,12 +1,3 @@
-/* **** Notes
-
-Calculate
-
-Remarks:
-One and a half
-*/
-
-
 # define CAR_H
 # include "./../../../config.h"
 

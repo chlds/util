@@ -657,12 +657,22 @@ signed(__cdecl calc_8_5x(signed(arg)));
 signed(__cdecl calc_9x(signed(arg)));
 signed(__cdecl calc_9_5x(signed(arg)));
 signed(__cdecl calc_10x(signed(arg)));
+signed(__cdecl calc_10_5x(signed(arg)));
 signed(__cdecl calc_11x(signed(arg)));
+signed(__cdecl calc_11_5x(signed(arg)));
 signed(__cdecl calc_12x(signed(arg)));
 signed(__cdecl calc_13x(signed(arg)));
 signed(__cdecl calc_14x(signed(arg)));
 signed(__cdecl calc_15x(signed(arg)));
 signed(__cdecl calc_16x(signed(arg)));
+signed(__cdecl calc_17x(signed(arg)));
+signed(__cdecl calc_18x(signed(arg)));
+signed(__cdecl calc_19x(signed(arg)));
+signed(__cdecl calc_20x(signed(arg)));
+signed(__cdecl calc_21x(signed(arg)));
+signed(__cdecl calc_22x(signed(arg)));
+signed(__cdecl calc_23x(signed(arg)));
+signed(__cdecl calc_24x(signed(arg)));
 /* Calculate */
 
 signed(__cdecl es(signed(arg)));

@@ -2,5 +2,5 @@
 # include "./../../../config.h"
 
 signed(__cdecl calc_15x(signed(arg))) {
-return(0x03*(calc_5x(arg)));
+return(arg+(calc_14x(arg)));
 }
