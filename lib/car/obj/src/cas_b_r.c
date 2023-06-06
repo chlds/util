@@ -1,9 +1,3 @@
-/* **** Notes
-
-Cascade
-*/
-
-
 # define CAR_H
 # include "./../../../config.h"
 
