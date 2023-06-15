@@ -19,6 +19,11 @@ static signed char CALENDAR_LLSC_IN_EN_US[] = {
 0x00,
 };
 
+static signed char CALENDAR_WEEK_LATN_IN_EN[] = ("Week");
+static signed char CALENDAR_WEEK_LATN_LSC_IN_EN[] = {
+'W',0xE1,0xB4,0x87,0xE1,0xB4,0x87,0xE1,0xB4,0x8B,0x00,
+};
+
 static signed char *(CALENDAR_ORDER_OLD_IN_EN[]) = {
 "","first","second","third","fourth","fifth","and last",0x00,
 };
