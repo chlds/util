@@ -433,6 +433,11 @@ signed(__cdecl cat_ahead_b_r(signed char(**di),signed char(**si)));
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_ahead_b(signed char(**argp),...));
 /* Concatenate to the terminating null pointer */
 
+signed(__cdecl cat_xe_rr(signed char(**di),signed char(**si)));
+signed char *(__cdecl cat_xe_r(signed char **argp));
+signed char *(__cdecl /* __attribute__((ms_abi)) */ cat_xe(signed char *argp,...));
+/* Concatenate to the terminating null pointer */
+
 signed(__cdecl concatenate_d(signed(arg),signed(**di),signed(*si)));
 signed(__cdecl concatenate_w(signed(arg),signed short(**di),signed short(*si)));
 signed(__cdecl concatenate(signed(arg),signed char(**di),signed char(*si)));
