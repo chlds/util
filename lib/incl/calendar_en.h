@@ -44,6 +44,11 @@ static signed char OF_LATN_S_LSC_IN_EN[] = {
 0xE1,0xB4,0x8F,0xEA,0x9C,0xB0,0x00,
 };
 
+static signed char THE_LATN_S_IN_EN[] = ("the");
+static signed char THE_LATN_S_LSC_IN_EN[] = {
+0xE1,0xB4,0x9B,0xCA,0x9C,0xE1,0xB4,0x87,0x00,
+};
+
 static signed char *(CALENDAR_ORDER_OLD_IN_EN[]) = {
 "","first","second","third","fourth","fifth","and last",0x00,
 };
