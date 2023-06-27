@@ -12,6 +12,10 @@ static signed char CALENDAR_LLSC_IN_BR_FR[] = {
 'B',0xCA,0x80,0xE1,0xB4,0x87,0xE1,0xB4,0x9B,0xE1,0xB4,0x8F,0xC9,0xB4,0x00,
 };
 
+static signed char CALENDAR_DAY_THE_FIRST_IN_BR_FR[] = {
+'1','a',0xC3,0xB1,0x00,
+};
+
 /*
 static signed char *(CALENDAR_WK_IN_BR_FR[]) = {
 "disul","dilun","dimeurzh","dimerc'her","diriaou","digwener","disadorn",0x00,
@@ -27,7 +31,9 @@ static signed char *(CALENDAR_WEEK_IN_BR_FR[]) = {
 };
 
 static signed char *(CALENDAR_DAY_IN_BR_FR[]) = {
-"","1er",0x00,
+"",
+CALENDAR_DAY_THE_FIRST_IN_BR_FR,
+0x00,
 };
 
 static signed char *(CALENDAR_MONTH_IN_BR_FR[]) = {
