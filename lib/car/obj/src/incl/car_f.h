@@ -363,6 +363,11 @@ signed(__cdecl cv_mn(signed short(*mn),signed char(*si)));
 signed(__cdecl cv_at(signed short(*hr),signed short(*mn),signed char(*argp)));
 /* Convert into time */
 
+signed(__cdecl cv_at_b_rr(signed short(*hr),signed char(*argp)));
+signed(__cdecl cv_at_b_r(signed short(*hr),signed char(*argp)));
+signed(__cdecl cv_at_b(signed short(*hr),signed short(*mn),signed char(*argp)));
+/* Convert into time */
+
 signed(__cdecl cv_hr_b_rrrrrr(signed char(*di),signed char(*si)));
 signed(__cdecl cv_hr_b_rrrrr(signed char(*di),signed char(*si)));
 signed(__cdecl cv_hr_b_rrrr(signed char(**di),signed char(*si)));
