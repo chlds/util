@@ -17,7 +17,7 @@ signed(__cdecl sched_siesta(signed(arg/* minutes */),sched_t(*argp))) {
 auto signed r;
 auto time_t tt,t;
 auto signed seconds = (60);
-auto signed delay = (3*(1000)); // based on 3 second minutes
+auto signed delay = (1*(1000)); // for one second minute
 if(arg<(0x01)) return(0x00);
 if(!argp) return(0x00);
 arg = (seconds*(arg));

@@ -1,25 +1,20 @@
-/* **** Notes
-
-Schedule
-*/
-
-
 # define SCHED_H
 # define CAR_H
 # include "./../../../config.h"
 
 signed(__cdecl agent_sched_r(sched_t(*di),signed char(*si))) {
+auto signed char **v;
 auto signed char *b;
-auto sched_t *sched;
 auto signed r;
-auto signed short hr;
-auto signed short mn;
 if(!di) return(0x00);
 if(!si) return(0x00);
-sched = (di);
+v = (0x00);
 b = (si);
-r = cv_at(&hr,&mn,b);
-*(SCHED_HR+(R(time,*sched))) = (hr);
-*(SCHED_MN+(R(time,*sched))) = (mn);
+r = cv_argt(&v,b);
+if(!r) return(0x00);
+b = (*(--r+(v)));
+r = agent_sched_rr(di,b);
+rl_v(&v);
+b = (0x00);
 return(r);
 }
