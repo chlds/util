@@ -364,13 +364,19 @@ signed(__cdecl cv_at(signed short(*hr),signed short(*mn),signed char(*argp)));
 /* Convert into time */
 
 signed(__cdecl cv_hr_b_rrrrrr(signed char(*di),signed char(*si)));
-signed(__cdecl cv_hr_b_rrrrr_r(signed char(*argp)));
 signed(__cdecl cv_hr_b_rrrrr(signed char(*di),signed char(*si)));
 signed(__cdecl cv_hr_b_rrrr(signed char(**di),signed char(*si)));
 signed(__cdecl cv_hr_b_rrr(signed char(**di),signed char(*si)));
 signed(__cdecl cv_hr_b_rr(signed char(**di),signed char(*si)));
 signed(__cdecl cv_hr_b_r(signed char(*argp)));
 signed(__cdecl cv_hr_b(signed char(*argp)));
+signed(__cdecl cv_mn_b_rrrrrr(signed char(*di),signed char(*si)));
+signed(__cdecl cv_mn_b_rrrrr(signed char(*di),signed char(*si)));
+signed(__cdecl cv_mn_b_rrrr(signed char(**di),signed char(*si)));
+signed(__cdecl cv_mn_b_rrr(signed char(**di),signed char(*si)));
+signed(__cdecl cv_mn_b_rr(signed char(**di),signed char(*si)));
+signed(__cdecl cv_mn_b_r(signed char(*argp)));
+signed(__cdecl cv_mn_b(signed char(*argp)));
 /* Convert */
 
 signed char *(__cdecl queue_backward(signed char(**argp)));
@@ -556,7 +562,16 @@ signed(__cdecl cmpr_r(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr(signed(*cache),signed char(*di),signed char(*si)));
 /* Compare ones in case sensitive character strings */
 
-signed(__cdecl ord_b_part(signed char(**di),signed char(*si)));
+signed(__cdecl cf_meridiem_rr(signed char(*argp)));
+signed(__cdecl cf_meridiem_r(signed char(*argp)));
+signed(__cdecl cf_meridiem(signed char(*argp)));
+signed(__cdecl cf_am(signed char(*argp)));
+signed(__cdecl cf_pm(signed char(*argp)));
+signed(__cdecl cf_ord_b_r(signed char(**di),signed char(*si)));
+signed(__cdecl cf_ord_b(signed char(**di),signed char(*si)));
+/* Confirm */
+
+signed(__cdecl ord_part_b(signed char(**di),signed char(*si)));
 signed(__cdecl reords_partially(signed char(**di),signed char(*si)));
 signed(__cdecl reords_part(signed char(**di),signed char(*si)));
 signed(__cdecl ords_partially(signed char(**di),signed char(*si)));
