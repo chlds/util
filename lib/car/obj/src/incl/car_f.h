@@ -8,6 +8,15 @@ Along with C library
 */
 
 
+signed(__cdecl clih_utf_8_i_r(void(*argp),signed(__cdecl*f)(void(*argp))));
+signed(__cdecl clih_utf_8_i(void(*argp),signed(__cdecl*f)(void(*argp))));
+signed(__cdecl clih_utf_8_o_r(void(*argp),signed(__cdecl*f)(void(*argp))));
+signed(__cdecl clih_utf_8_o(void(*argp),signed(__cdecl*f)(void(*argp))));
+signed(__cdecl clih_utf_8_rrr(void(*argp),signed(__cdecl*f)(void(*argp))));
+signed(__cdecl clih_utf_8_rr(void(*argp),signed(__cdecl*f)(void(*argp))));
+signed(__cdecl clih_utf_8_r(void(*argp),signed(__cdecl*f)(void(*argp))));
+signed(__cdecl clih_utf_8(void(*argp),signed(__cdecl*f)(void(*argp))));
+
 signed(__cdecl init_flh(signed(arg),flh_t(*argp))); // deprecated..
 
 signed(__cdecl ctrl_at_b(void(*argp)));
@@ -473,6 +482,20 @@ signed(__cdecl cat_a_b(signed char(**di),signed char(*si)));
 signed(__cdecl cat_dd(signed(**di),signed(si)));
 signed(__cdecl cat_ww(signed short(**di),signed short(si)));
 signed(__cdecl cat_bb(signed char(**di),signed char(si)));
+/* Call fn. rl later */
+
+signed(__cdecl clih_o_rrr_r(signed short(*argp)));
+signed(__cdecl clih_o_rrr(signed(arg)));
+signed(__cdecl clih_o_rr(signed(arg)));
+signed(__cdecl clih_o_r(signed(arg),signed char(*argp)));
+signed(__cdecl clih_o(signed(arg),signed char(*argp)));
+
+signed char *(__cdecl clih_i_rrr(signed(arg),signed char(*argp)));
+signed char *(__cdecl clih_i_rr(signed char *argp));
+signed char *(__cdecl clih_i_r(void));
+signed char *(__cdecl clih_i(void));
+signed char *(__cdecl catt_bb_r(signed arg));
+signed char *(__cdecl catt_bb(signed arg));
 /* Call fn. rl later */
 
 signed(__cdecl cv_l_r(signed short(radix),signed char(*di_tbl),signed char(*si_tbl),signed char(*di),signed char(*si)));
