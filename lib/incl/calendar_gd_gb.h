@@ -81,42 +81,40 @@ static signed char *(CALENDAR_DAY_IN_GD_GB[]) = {
 0x00,
 };
 
-/*
-static signed char MARCH_GD_GB[] = {
+static signed char MARCH_NOM_GD_GB[] = {
 'A','m',' ','M',0xC3,0xA0,'r','t',0x00,
 };
-static signed char MAY_GD_GB[] = {
+static signed char MAY_NOM_GD_GB[] = {
 'A','n',' ','C',0xC3,0xA8,'i','t','e','a','n',0x00,
 };
-static signed char JUNE_GD_GB[] = {
+static signed char JUNE_NOM_GD_GB[] = {
 'A','n',' ','t','-',0xC3,0x92,'g','-','m','h',0xC3,0xAC,'o','s',0x00,
 };
-static signed char AUGUST_GD_GB[] = {
+static signed char AUGUST_NOM_GD_GB[] = {
 'A','n',' ','L',0xC3,0xB9,'n','a','s','t','a','l',0x00,
 };
-static signed char OCTOBER_GD_GB[] = {
+static signed char OCTOBER_NOM_GD_GB[] = {
 'A','n',' ','D',0xC3,0xA0,'m','h','a','i','r',0x00,
 };
-static signed char DECEMBER_GD_GB[] = {
+static signed char DECEMBER_NOM_GD_GB[] = {
 'A','n',' ','D',0xC3,0xB9,'b','h','l','a','c','h','d',0x00,
 };
-static signed char *(CALENDAR_MONTH_IN_GD_GB[]) = {
+static signed char *(CALENDAR_MONTH_NOMINATIVE_IN_GD_GB[]) = {
 "",
 "Am Faoilteach",
 "An Gearran",
-MARCH_GD_GB,
+MARCH_NOM_GD_GB,
 "An Giblean",
-MAY_GD_GB,
-JUNE_GD_GB,
+MAY_NOM_GD_GB,
+JUNE_NOM_GD_GB,
 "An t-Iuchar",
-AUGUST_GD_GB,
+AUGUST_NOM_GD_GB,
 "An t-Sultain",
-OCTOBER_GD_GB,
+OCTOBER_NOM_GD_GB,
 "An t-Samhain",
-DECEMBER_GD_GB,
+DECEMBER_NOM_GD_GB,
 0x00,
 };
-//*/
 
 static signed char MARCH_GD_GB[] = {
 'd','h','e','n',' ','M','h',0xC3,0xA0,'r','t',0x00,
