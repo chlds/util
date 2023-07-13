@@ -64,6 +64,26 @@ FRI_DSB_DE,
 0x00,
 };
 
+static signed char MARCH_NOM_DSB_DE[] = {
+'m',0xC4,0x9B,'r','c',0x00,
+};
+static signed char *(CALENDAR_MONTH_NOMINATIVE_IN_DSB_DE[]) = {
+"",
+"januar",
+"februar",
+MARCH_NOM_DSB_DE,
+"apryl",
+"maj",
+"junij",
+"julij",
+"awgust",
+"september",
+"oktober",
+"nowember",
+"december",
+0x00,
+};
+
 static signed char MARCH_DSB_DE[] = {
 'm',0xC4,0x9B,'r','c','a',0x00,
 };

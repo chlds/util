@@ -52,6 +52,26 @@ THU_HSB_DE,
 0x00,
 };
 
+static signed char MARCH_NOM_HSB_DE[] = {
+'m',0xC4,0x9B,'r','c',0x00,
+};
+static signed char *(CALENDAR_MONTH_NOMINATIVE_IN_HSB_DE[]) = {
+"",
+"januar",
+"februar",
+MARCH_NOM_HSB_DE,
+"apryl",
+"meja",
+"junij",
+"julij",
+"awgust",
+"september",
+"oktober",
+"nowember",
+"december",
+0x00,
+};
+
 static signed char MARCH_HSB_DE[] = {
 'm',0xC4,0x9B,'r','c','a',0x00,
 };
