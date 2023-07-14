@@ -199,40 +199,40 @@ OCTOBER_SK_SK,
 0x00,
 };
 
-static signed char JANUARY_ORDER_SK_SK[] = {
-'j','a','n','u',0xC3,0xA1,'r','i',0x00,
+static signed char JANUARY_NOM_SK_SK[] = {
+'j','a','n','u',0xC3,0xA1,'r',0x00,
 };
-static signed char FEBRUARY_ORDER_SK_SK[] = {
-'f','e','b','r','u',0xC3,0xA1,'r','i',0x00,
+static signed char FEBRUARY_NOM_SK_SK[] = {
+'f','e','b','r','u',0xC3,0xA1,'r',0x00,
 };
-static signed char APRIL_ORDER_SK_SK[] = {
-'a','p','r',0xC3,0xAD,'l','i',0x00,
+static signed char APRIL_NOM_SK_SK[] = {
+'a','p','r',0xC3,0xAD,'l',0x00,
 };
-static signed char MAY_ORDER_SK_SK[] = {
-'m',0xC3,0xA1,'j','i',0x00,
+static signed char MAY_NOM_SK_SK[] = {
+'m',0xC3,0xA1,'j',0x00,
 };
-static signed char JUNE_ORDER_SK_SK[] = {
-'j',0xC3,0xBA,'n','i',0x00,
+static signed char JUNE_NOM_SK_SK[] = {
+'j',0xC3,0xBA,'n',0x00,
 };
-static signed char JULY_ORDER_SK_SK[] = {
-'j',0xC3,0xBA,'l','i',0x00,
+static signed char JULY_NOM_SK_SK[] = {
+'j',0xC3,0xBA,'l',0x00,
 };
-static signed char OCTOBER_ORDER_SK_SK[] = {
-'o','k','t',0xC3,0xB3,'b','r','i',0x00,
+static signed char OCTOBER_NOM_SK_SK[] = {
+'o','k','t',0xC3,0xB3,'b','e','r',0x00,
 };
-static signed char *(CALENDAR_MONTH_ORDER_IN_SK_SK[]) = {
+static signed char *(CALENDAR_MONTH_NOMINATIVE_IN_SK_SK[]) = {
 "",
-JANUARY_ORDER_SK_SK,
-FEBRUARY_ORDER_SK_SK,
-"marci",
-APRIL_ORDER_SK_SK,
-MAY_ORDER_SK_SK,
-JUNE_ORDER_SK_SK,
-JULY_ORDER_SK_SK,
-"auguste",
-"septembri",
-OCTOBER_ORDER_SK_SK,
-"novembri",
-"decembri",
+JANUARY_NOM_SK_SK,
+FEBRUARY_NOM_SK_SK,
+"marec",
+APRIL_NOM_SK_SK,
+MAY_NOM_SK_SK,
+JUNE_NOM_SK_SK,
+JULY_NOM_SK_SK,
+"august",
+"september",
+OCTOBER_NOM_SK_SK,
+"november",
+"december",
 0x00,
 };
