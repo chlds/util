@@ -104,3 +104,41 @@ NOVEMBER_LT_LT,
 DECEMBER_LT_LT,
 0x00,
 };
+
+static signed char APRIL_NOM_LT_LT[] = {
+'b','a','l','a','n','d','i','s',0x00,
+};
+static signed char MAY_NOM_LT_LT[] = {
+'g','e','g','u',0xC5,0xBE,0xC4,0x97,0x00,
+};
+static signed char JUNE_NOM_LT_LT[] = {
+'b','i','r',0xC5,0xBE,'e','l','i','s',0x00,
+};
+static signed char AUGUST_NOM_LT_LT[] = {
+'r','u','g','p','j',0xC5,0xAB,'t','i','s',0x00,
+};
+static signed char SEPTEMBER_NOM_LT_LT[] = {
+'r','u','g','s',0xC4,0x97,'j','i','s',0x00,
+};
+static signed char NOVEMBER_NOM_LT_LT[] = {
+'l','a','p','k','r','i','t','i','s',0x00,
+};
+static signed char DECEMBER_NOM_LT_LT[] = {
+'g','r','u','o','d','i','s',0x00,
+};
+static signed char *(CALENDAR_MONTH_NOMINATIVE_IN_LT_LT[]) = {
+"",
+"sausis",
+"vasaris",
+"kovas",
+APRIL_NOM_LT_LT,
+MAY_NOM_LT_LT,
+JUNE_NOM_LT_LT,
+"liepa",
+AUGUST_NOM_LT_LT,
+SEPTEMBER_NOM_LT_LT,
+"spalis",
+NOVEMBER_NOM_LT_LT,
+DECEMBER_NOM_LT_LT,
+0x00,
+};
