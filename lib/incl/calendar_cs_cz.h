@@ -204,45 +204,43 @@ FRI_CS_CZ,
 0x00,
 };
 
-/*
-static signed char FEBRUARY_CS_CZ[] = {
+static signed char FEBRUARY_NOM_CS_CZ[] = {
 0xC3,0xBA,'n','o','r',0x00,
 };
-static signed char MARCH_CS_CZ[] = {
+static signed char MARCH_NOM_CS_CZ[] = {
 'b',0xC5,0x99,'e','z','e','n',0x00,
 };
-static signed char MAY_CS_CZ[] = {
+static signed char MAY_NOM_CS_CZ[] = {
 'k','v',0xC4,0x9B,'t','e','n',0x00,
 };
-static signed char JUNE_CS_CZ[] = {
+static signed char JUNE_NOM_CS_CZ[] = {
 0xC4,0x8D,'e','r','v','e','n',0x00,
 };
-static signed char JULY_CS_CZ[] = {
+static signed char JULY_NOM_CS_CZ[] = {
 0xC4,0x8D,'e','r','v','e','n','e','c',0x00,
 };
-static signed char SEPTEMBER_CS_CZ[] = {
+static signed char SEPTEMBER_NOM_CS_CZ[] = {
 'z',0xC3,0xA1,0xC5,0x99,0xC3,0xAD,0x00,
 };
-static signed char OCTOBER_CS_CZ[] = {
+static signed char OCTOBER_NOM_CS_CZ[] = {
 0xC5,0x99,0xC3,0xAD,'j','e','n',0x00,
 };
-static signed char *(CALENDAR_MONTH_IN_CS_CZ[]) = {
+static signed char *(CALENDAR_MONTH_NOMINATIVE_IN_CS_CZ[]) = {
 "",
 "leden",
-FEBRUARY_CS_CZ,
-MARCH_CS_CZ,
+FEBRUARY_NOM_CS_CZ,
+MARCH_NOM_CS_CZ,
 "duben",
-MAY_CS_CZ,
-JUNE_CS_CZ,
-JULY_CS_CZ,
+MAY_NOM_CS_CZ,
+JUNE_NOM_CS_CZ,
+JULY_NOM_CS_CZ,
 "srpen",
-SEPTEMBER_CS_CZ,
-OCTOBER_CS_CZ,
+SEPTEMBER_NOM_CS_CZ,
+OCTOBER_NOM_CS_CZ,
 "listopad",
 "prosinec",
 0x00,
 };
-//*/
 
 // genitives
 static signed char FEBRUARY_CS_CZ[] = {
