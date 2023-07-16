@@ -74,42 +74,40 @@ FRIDAY_PL_PL,
 0x00,
 };
 
-/*
-static signed char styczen[] = {
+static signed char JANUARY_NOM_PL_PL[] = {
 's','t','y','c','z','e',0xC5,0x84,0x00,
 };
-static signed char kwiecien[] = {
+static signed char APRIL_NOM_PL_PL[] = {
 'k','w','i','e','c','i','e',0xC5,0x84,0x00,
 };
-static signed char sierpien[] = {
+static signed char AUGUST_NOM_PL_PL[] = {
 's','i','e','r','p','i','e',0xC5,0x84,0x00,
 };
-static signed char wrzesien[] = {
+static signed char SEPTEMBER_NOM_PL_PL[] = {
 'w','r','z','e','s','i','e',0xC5,0x84,0x00,
 };
-static signed char pazdziernik[] = {
+static signed char OCTOBER_NOM_PL_PL[] = {
 'p','a',0xC5,0xBA,'d','z','i','e','r','n','i','k',0x00,
 };
-static signed char grudzien[] = {
+static signed char DECEMBER_NOM_PL_PL[] = {
 'g','r','u','d','z','i','e',0xC5,0x84,0x00,
 };
-static signed char *(CALENDAR_MONTH_IN_PL_PL[]) = {
+static signed char *(CALENDAR_MONTH_NOMINATIVE_IN_PL_PL[]) = {
 "",
-styczen,
+JANUARY_NOM_PL_PL,
 "luty",
 "marzec",
-kwiecien,
+APRIL_NOM_PL_PL,
 "maj",
 "czerwiec",
 "lipiec",
-sierpien,
-wrzesien,
-pazdziernik,
+AUGUST_NOM_PL_PL,
+SEPTEMBER_NOM_PL_PL,
+OCTOBER_NOM_PL_PL,
 "listopad",
-grudzien,
+DECEMBER_NOM_PL_PL,
 0x00,
 };
-//*/
 
 // genitives
 static signed char SEPTEMBER_PL_PL[] = {
