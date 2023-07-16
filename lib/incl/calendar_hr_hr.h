@@ -69,3 +69,29 @@ MARCH_HR_HR,
 "prosinca",
 0x00,
 };
+
+static signed char JANUARY_NOM_HR_HR[] = {
+'s','i','j','e',0xC4,0x8D,'a','n','j',0x00,
+};
+static signed char FEBRUARY_NOM_HR_HR[] = {
+'v','e','l','j','a',0xC4,0x8D,'a',0x00,
+};
+static signed char MARCH_NOM_HR_HR[] = {
+'o',0xC5,0xBE,'u','j','a','k',0x00,
+};
+static signed char *(CALENDAR_MONTH_NOMINATIVE_IN_HR_HR[]) = {
+"",
+JANUARY_NOM_HR_HR,
+FEBRUARY_NOM_HR_HR,
+MARCH_NOM_HR_HR,
+"travanj",
+"svibanj",
+"lipanj",
+"srpanj",
+"kolovoz",
+"rujan",
+"listopad",
+"studeni",
+"prosinac",
+0x00,
+};
