@@ -53,3 +53,23 @@ MARCH_CA_ES,
 "de desembre",
 0x00,
 };
+
+static signed char MARCH_NOM_CA_ES[] = {
+'m','a','r',0xC3,0xA7,0x00,
+};
+static signed char *(CALENDAR_MONTH_NOMINATIVE_IN_CA_ES[]) = {
+"",
+"gener",
+"febrer",
+MARCH_NOM_CA_ES,
+"abril",
+"maig",
+"juny",
+"juliol",
+"agost",
+"setembre",
+"octubre",
+"novembre",
+"desembre",
+0x00,
+};
