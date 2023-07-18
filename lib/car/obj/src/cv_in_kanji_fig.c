@@ -1,0 +1,49 @@
+# define CAR_H
+# include "./../../../config.h"
+
+signed char *(__cdecl cv_in_kanji_fig(signed(arg))) {
+auto signed char fig_0[] = {
+0xE3,0x80,0x87,0x00,
+};
+auto signed char fig_1[] = {
+0xE4,0xB8,0x80,0x00,
+};
+auto signed char fig_2[] = {
+0xE4,0xBA,0x8C,0x00,
+};
+auto signed char fig_3[] = {
+0xE4,0xB8,0x89,0x00,
+};
+auto signed char fig_4[] = {
+0xE5,0x9B,0x9B,0x00,
+};
+auto signed char fig_5[] = {
+0xE4,0xBA,0x94,0x00,
+};
+auto signed char fig_6[] = {
+0xE5,0x85,0xAD,0x00,
+};
+auto signed char fig_7[] = {
+0xE4,0xB8,0x83,0x00,
+};
+auto signed char fig_8[] = {
+0xE5,0x85,0xAB,0x00,
+};
+auto signed char fig_9[] = {
+0xE4,0xB9,0x9D,0x00,
+};
+auto signed char *(fig[]) = {
+fig_0,
+fig_1,
+fig_2,
+fig_3,
+fig_4,
+fig_5,
+fig_6,
+fig_7,
+fig_8,
+fig_9,
+0x00,
+};
+return(cv_b(fig,arg));
+}

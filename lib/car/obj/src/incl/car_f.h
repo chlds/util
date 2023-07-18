@@ -350,6 +350,9 @@ signed(__cdecl cv_in_roman_r(signed(arg),signed char(**argp)));
 signed char *(__cdecl cv_in_roman(signed(arg)));
 /* Convert into roman numerals */
 
+signed char *(__cdecl cv_in_kanji_fig(signed(arg)));
+/* Convert into kanji figures */
+
 signed char *(__cdecl cv_in_devanagari_fig(signed(arg)));
 /* Convert into devanagari figures */
 
