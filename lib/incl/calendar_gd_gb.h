@@ -88,7 +88,7 @@ static signed char MAY_NOM_GD_GB[] = {
 'A','n',' ','C',0xC3,0xA8,'i','t','e','a','n',0x00,
 };
 static signed char JUNE_NOM_GD_GB[] = {
-'A','n',' ','t','-',0xC3,0x92,'g','-','m','h',0xC3,0xAC,'o','s',0x00,
+'A','n',' ','t','-',0xC3,0x92,'g','m','h','i','o','s',0x00,
 };
 static signed char AUGUST_NOM_GD_GB[] = {
 'A','n',' ','L',0xC3,0xB9,'n','a','s','t','a','l',0x00,
@@ -101,7 +101,7 @@ static signed char DECEMBER_NOM_GD_GB[] = {
 };
 static signed char *(CALENDAR_MONTH_NOMINATIVE_IN_GD_GB[]) = {
 "",
-"Am Faoilteach",
+"Am Faoilleach",
 "An Gearran",
 MARCH_NOM_GD_GB,
 "An Giblean",
