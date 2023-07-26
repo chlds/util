@@ -493,8 +493,11 @@ signed(__cdecl clih_o_16b(signed(arg)));
 signed(__cdecl clih_o_r(signed(arg),signed char(*argp)));
 signed(__cdecl clih_o(signed(arg),signed char(*argp)));
 
-signed char *(__cdecl clih_i_rrr(signed(arg),signed char(*argp)));
-signed char *(__cdecl clih_i_rr(signed char *argp));
+signed char *(__cdecl clih_i_except_r(signed char *argp));
+signed char *(__cdecl clih_i_except(void));
+signed char *(__cdecl clih_i_rrrr(signed(arg),signed char(*argp)));
+signed char *(__cdecl clih_i_rrr(signed char *argp));
+signed char *(__cdecl clih_i_rr(void));
 signed char *(__cdecl clih_i_r(void));
 signed char *(__cdecl clih_i(void));
 signed char *(__cdecl catt_bb_r(signed arg));

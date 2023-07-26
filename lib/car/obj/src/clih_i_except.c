@@ -3,13 +3,12 @@
 # include <conio.h>
 # include "./../../../config.h"
 
-signed char *(__cdecl clih_i_rr(void)) {
+signed char *(__cdecl clih_i_except(void)) {
 auto signed char *b;
 auto signed r;
-b = (0x00);
-r = _getch();
-if(!r) return(clih_i_except());
+AND(r,0x00);
+OR(r,ESC);
 b = catt_bb(r);
 if(!b) return(b);
-return(clih_i_rrr(b));
+return(clih_i_except_r(b));
 }

@@ -6,10 +6,14 @@
 signed char *(__cdecl clih_i_r(void)) {
 auto signed char *b;
 auto signed r;
-b = (0x00);
-r = _getch();
-if(!r) OR(r,ESC);
-b = catt_bb(r);
+auto signed byte = (0x03);
+auto signed meta = (0xE0);
+auto signed mask = (0xFF);
+b = clih_i_rr();
 if(!b) return(b);
-return(clih_i_rr(b));
+r = (signed) (mask&(*b));
+if(EQ(meta,r)) {
+if(!(EQ(byte,ct(b)))) b = cat_xe(catt_bb(ESC),b,(void*)0x00);
+}
+return(b);
 }

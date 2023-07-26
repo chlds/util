@@ -1,16 +1,17 @@
 # define CAR_H
-# define STDIO_H
-# include <conio.h>
 # include "./../../../config.h"
 
-signed char *(__cdecl clih_i_rrr(signed(arg),signed char *argp)) {
+signed char *(__cdecl clih_i_rrr(signed char(*argp))) {
 auto signed char *b;
-if(!arg) return(argp);
-if(!argp) return(argp);
+auto signed r;
 b = (argp);
-if(!(*b)) return(b);
-if(!(_kbhit())) return(b);
-b = cat_xe(b,catt_bb(_getch()),(void*)0x00);
---arg;
-return(clih_i_rrr(arg,b));
+r = ct_a(b);
+if(!r) {
+embed(0x00,b);
+rl(b);
+b = (0x00);
+return(b);
+}
+--r;
+return(clih_i_rrrr(r,b));
 }
