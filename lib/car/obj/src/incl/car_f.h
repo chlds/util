@@ -8,6 +8,10 @@ Along with C library
 */
 
 
+signed(__cdecl tw_b_r(signed char(**argp)));
+signed(__cdecl tw_b(signed(arg),signed char(**argp),signed char(**envp)));
+/* Debug */
+
 signed(__cdecl clih_utf_8_i_r(void(*argp),signed(__cdecl*f)(void(*argp))));
 signed(__cdecl clih_utf_8_i(void(*argp),signed(__cdecl*f)(void(*argp))));
 signed(__cdecl clih_utf_8_o_r(void(*argp),signed(__cdecl*f)(void(*argp))));
