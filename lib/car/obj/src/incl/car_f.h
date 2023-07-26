@@ -487,9 +487,9 @@ signed(__cdecl cat_ww(signed short(**di),signed short(si)));
 signed(__cdecl cat_bb(signed char(**di),signed char(si)));
 /* Call fn. rl later */
 
-signed(__cdecl clih_o_rrr_r(signed short(*argp)));
-signed(__cdecl clih_o_rrr(signed(arg)));
-signed(__cdecl clih_o_rr(signed(arg)));
+signed(__cdecl clih_o_21b_r(signed short(*argp)));
+signed(__cdecl clih_o_21b(signed(arg)));
+signed(__cdecl clih_o_16b(signed(arg)));
 signed(__cdecl clih_o_r(signed(arg),signed char(*argp)));
 signed(__cdecl clih_o(signed(arg),signed char(*argp)));
 

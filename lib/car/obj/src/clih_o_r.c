@@ -7,8 +7,8 @@ auto signed i,r;
 auto signed(__cdecl**ff)(signed(arg));
 auto signed(__cdecl*f)(signed(arg));
 auto signed(__cdecl*(fn[]))(signed(arg)) = {
-clih_o_rrr,
-clih_o_rr,
+clih_o_21b,
+clih_o_16b,
 0x00,
 };
 if(arg<(0x01)) return(0x00);
