@@ -490,6 +490,11 @@ signed(__cdecl cat_bb(signed char(**di),signed char(si)));
 signed(__cdecl clih_o_21b_r(signed short(*argp)));
 signed(__cdecl clih_o_21b(signed(arg)));
 signed(__cdecl clih_o_16b(signed(arg)));
+signed(__cdecl clih_o_ctrl_key(signed(arg),signed char(*argp)));
+signed(__cdecl clih_o_meta_key(signed(arg),signed char(*argp)));
+signed(__cdecl clih_o_internal(signed(arg),signed char(*argp)));
+signed(__cdecl clih_o_rrr(signed(arg),signed char(*argp)));
+signed(__cdecl clih_o_rr(signed(arg),signed char(*argp)));
 signed(__cdecl clih_o_r(signed(arg),signed char(*argp)));
 signed(__cdecl clih_o(signed(arg),signed char(*argp)));
 
