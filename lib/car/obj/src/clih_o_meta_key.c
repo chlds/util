@@ -15,10 +15,13 @@ printf("%s \n","<< Error at fn. clih_o_meta_key()");
 return(0x00);
 }
 if(DBG) {
+printf("[");
 printf("%s: ","Meta");
 while(*b) {
 printf("%Xh ",0xFF&(*b));
 b++;
-}}
+}
+printf("] ");
+}
 return(r);
 }

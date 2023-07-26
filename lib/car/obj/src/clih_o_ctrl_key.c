@@ -14,6 +14,10 @@ if(!(EQ(0x01,r))) {
 printf("%s \n","<< Error at fn. clih_o_ctrl_key()");
 return(0x00);
 }
-if(DBG) printf("%s: %Xh ","Ctrl",0xFF&(*b));
+if(DBG) {
+printf("[");
+printf("%s: %Xh ","Ctrl",0xFF&(*b));
+printf("] ");
+}
 return(r);
 }
