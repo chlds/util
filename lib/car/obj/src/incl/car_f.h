@@ -23,6 +23,44 @@ signed(__cdecl clih_utf_8(void(*argp),signed(__cdecl*f)(void(*argp))));
 
 signed(__cdecl init_flh(signed(arg),flh_t(*argp))); // deprecated..
 
+signed(__cdecl clih_internal(signed char(*argp)));
+signed(__cdecl clih_ctrl_meta_key(signed(arg),signed char(*argp)));
+signed(__cdecl clih_ctrl_key(signed(arg),signed char(*argp)));
+signed(__cdecl clih_meta_key(signed(arg),signed char(*argp)));
+signed(__cdecl ctrl_key(signed(arg),void(*argp)));
+signed(__cdecl ctrl_key_at(void(*argp)));
+signed(__cdecl ctrl_key_a(void(*argp)));
+signed(__cdecl ctrl_key_b(void(*argp)));
+signed(__cdecl ctrl_key_c(void(*argp)));
+signed(__cdecl ctrl_key_d(void(*argp)));
+signed(__cdecl ctrl_key_e(void(*argp)));
+signed(__cdecl ctrl_key_f(void(*argp)));
+signed(__cdecl ctrl_key_g(void(*argp)));
+signed(__cdecl ctrl_key_h(void(*argp)));
+signed(__cdecl ctrl_key_i(void(*argp)));
+signed(__cdecl ctrl_key_j(void(*argp)));
+signed(__cdecl ctrl_key_k(void(*argp)));
+signed(__cdecl ctrl_key_l(void(*argp)));
+signed(__cdecl ctrl_key_m(void(*argp)));
+signed(__cdecl ctrl_key_n(void(*argp)));
+signed(__cdecl ctrl_key_o(void(*argp)));
+signed(__cdecl ctrl_key_p(void(*argp)));
+signed(__cdecl ctrl_key_q(void(*argp)));
+signed(__cdecl ctrl_key_r(void(*argp)));
+signed(__cdecl ctrl_key_s(void(*argp)));
+signed(__cdecl ctrl_key_t(void(*argp)));
+signed(__cdecl ctrl_key_u(void(*argp)));
+signed(__cdecl ctrl_key_v(void(*argp)));
+signed(__cdecl ctrl_key_w(void(*argp)));
+signed(__cdecl ctrl_key_x(void(*argp)));
+signed(__cdecl ctrl_key_y(void(*argp)));
+signed(__cdecl ctrl_key_z(void(*argp)));
+signed(__cdecl ctrl_key_lsb(void(*argp)));
+signed(__cdecl ctrl_key_rs(void(*argp)));
+signed(__cdecl ctrl_key_rsb(void(*argp)));
+signed(__cdecl ctrl_key_ca(void(*argp)));
+signed(__cdecl ctrl_key_ll(void(*argp)));
+
 signed(__cdecl ctrl_at_b(void(*argp)));
 signed(__cdecl ctrl_a_b(void(*argp)));
 signed(__cdecl ctrl_b_b(void(*argp)));
