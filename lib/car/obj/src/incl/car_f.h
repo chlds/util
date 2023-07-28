@@ -23,10 +23,16 @@ signed(__cdecl clih_utf_8(void(*argp),signed(__cdecl*f)(void(*argp))));
 
 signed(__cdecl init_flh(signed(arg),flh_t(*argp))); // deprecated..
 
+signed(__cdecl clih_undo(signed char(*argp)));
+signed(__cdecl clih_io_rrr(signed(arg),void(**argp)));
+signed(__cdecl clih_io_rr(signed(arg),void(**argp)));
+signed(__cdecl clih_io_r(signed(arg),void(**argp)));
+signed(__cdecl clih_io(signed(arg),void(**argp)));
+signed(__cdecl clih_rl(void(*argp),signed(__cdecl*f)(void(*argp))));
 signed(__cdecl clih_internal(signed char(*argp)));
-signed(__cdecl clih_ctrl_meta_key(signed(arg),signed char(*argp)));
-signed(__cdecl clih_ctrl_key(signed(arg),signed char(*argp)));
-signed(__cdecl clih_meta_key(signed(arg),signed char(*argp)));
+signed(__cdecl clih_ctrl_meta_key(signed char(*argp)));
+signed(__cdecl clih_ctrl_key(signed char(*argp)));
+signed(__cdecl clih_meta_key(signed char(*argp)));
 signed(__cdecl ctrl_key(signed(arg),void(*argp)));
 signed(__cdecl ctrl_key_at(void(*argp)));
 signed(__cdecl ctrl_key_a(void(*argp)));

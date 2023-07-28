@@ -13,5 +13,6 @@ Refer at fn. ctrl_key
 
 signed(__cdecl ctrl_key_z(void(*argp))) {
 if(DBG) printf("%s ","<Ctrl-Z>");
+if(!(clih_undo(argp))) return(0x00);
 return(CTRL_Z);
 }

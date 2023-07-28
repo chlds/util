@@ -2,10 +2,9 @@
 # define STDIO_H
 # include "./../../../config.h"
 
-signed(__cdecl clih_meta_key(signed(arg),signed char(*argp))) {
+signed(__cdecl clih_meta_key(signed char(*argp))) {
 auto signed char *b;
 auto signed r;
-if(!arg) return(0x00);
 if(!argp) return(0x00);
 b = (argp);
 if(!(*b)) return(0x00);
