@@ -78,6 +78,7 @@ signed(__cdecl currently_occurring_error_mb_ok(signed(arg),void(*hdl),signed cha
 signed(__cdecl message_box_mb_ok(void(*hdl),signed char(*text),signed char(*caption)));
 signed(__cdecl message_box_beta(void(*hdl),signed char(*text),signed char(*caption),signed(type)));
 
+signed(__cdecl currently_operating_workarea(signed(arg)));
 signed(__cdecl currently_operating_pixels(signed(arg)));
 void *(__cdecl create_window_beta(
 signed char(*cn),signed char(*wn),signed(styl),
