@@ -8,15 +8,14 @@ Return (0x00) on failure
 
 
 # define CAW_H
-# define STDIO_H
 # define WIN32_H
 # include "./../../../config.h"
 
-signed(__cdecl currently_operating_workarea(signed(arg))) {
-auto signed r;
+signed long(__cdecl currently_working_nonclient_window_area(signed(arg),void(*argp/* hdl */))) {
+auto signed long r;
 auto RECT rc;
-r = (SPI_GETWORKAREA);
-if(!(SystemParametersInfo(r,0x00,&rc,0x00))) return(0x00);
+if(!argp) return(0x00);
+if(!(GetWindowRect(argp,&rc))) return(0x00);
 r = (R(bottom,rc));
 if(EQ(0x02,arg)) r = (R(right,rc));
 if(EQ(0x01,arg)) r = (R(top,rc));

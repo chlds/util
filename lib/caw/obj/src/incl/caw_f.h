@@ -51,10 +51,6 @@ void *(__cdecl map_td_token(signed(arg/* open as self */),void(*argp)));
 void *(__cdecl map_td(signed(tid)));
 /* Operate threads and processes. */
 
-signed long(__cdecl currently_working_window_left(void(*argp)));
-signed long(__cdecl currently_working_window_top(void(*argp)));
-signed long(__cdecl currently_working_window_right(void(*argp)));
-signed long(__cdecl currently_working_window_bottom(void(*argp)));
 signed long(__cdecl currently_working_window_width(void(*argp)));
 signed long(__cdecl currently_working_window_height(void(*argp)));
 void *(__cdecl currently_working_clipboard_window(void));
@@ -78,7 +74,8 @@ signed(__cdecl currently_occurring_error_mb_ok(signed(arg),void(*hdl),signed cha
 signed(__cdecl message_box_mb_ok(void(*hdl),signed char(*text),signed char(*caption)));
 signed(__cdecl message_box_beta(void(*hdl),signed char(*text),signed char(*caption),signed(type)));
 
-signed(__cdecl currently_operating_workarea(signed(arg)));
+signed long(__cdecl currently_working_nonclient_window_area(signed(arg),void(*argp/* hdl */)));
+signed(__cdecl currently_working_area(signed(arg)));
 signed(__cdecl currently_operating_pixels(signed(arg)));
 void *(__cdecl create_window_beta(
 signed char(*cn),signed char(*wn),signed(styl),
