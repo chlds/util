@@ -47,7 +47,7 @@ static signed char *(CALENDAR_WK_IN_GD_GB[]) = {
 
 static signed char *(CALENDAR_DAY_IN_GD_GB[]) = {
 "",
-"a' chiad",
+"a' chiad latha",
 "2na",
 "3s",
 "4mh",
