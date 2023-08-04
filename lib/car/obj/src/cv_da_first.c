@@ -1,6 +1,6 @@
-/* **** Notes
+/* Notes
 
-Convert into a signed double word out of characters.
+Convert into a signed double word out of characters
 */
 
 
@@ -8,7 +8,7 @@ Convert into a signed double word out of characters.
 # include "./../../../config.h"
 
 signed(__cdecl cv_da_first(signed short(radix),signed(*di),signed char(*si))) {
-auto signed i,r;
+auto signed r;
 auto signed short t;
 auto signed short flag;
 auto signed char *table = ("0123456789ABCDEF");
