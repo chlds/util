@@ -55,6 +55,7 @@ Based on UTF-8
 # include "./calendar_mr_in.h"
 # include "./calendar_ms_my.h"
 # include "./calendar_nb_no.h"
+# include "./calendar_nj.h"
 # include "./calendar_nl_nl.h"
 # include "./calendar_nn_no.h"
 # include "./calendar_or_in.h"
