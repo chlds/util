@@ -1,15 +1,8 @@
-/* **** Notes
-
-Convert into a signed double word out of characters.
-*/
-
-
 # define CAR_H
 # include "./../../../config.h"
 
 signed(__cdecl cv_da_r(signed short(radix),signed char(*table),signed(*di),signed char(*si))) {
-auto signed i,r;
-auto signed short flag;
+auto signed r;
 auto signed char c;
 if(!table) return(0x00);
 if(!di) return(0x00);

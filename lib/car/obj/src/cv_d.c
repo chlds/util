@@ -1,9 +1,9 @@
-/* **** Notes
+/* Notes
 
-Convert a signed double word into letters.
+Convert a signed double word into letters
 
 Remarks:
-Release.
+Call fn. rl later
 //*/
 
 
@@ -12,7 +12,7 @@ Release.
 
 signed(__cdecl cv_d(signed short(radix),signed char(**di),signed(si))) {
 auto signed char *b;
-auto signed i,r;
+auto signed r;
 auto signed short flag;
 auto signed char *table = ("0123456789ABCDEF");
 auto signed char minus = ('-');
