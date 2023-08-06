@@ -12,6 +12,11 @@ static signed char CALENDAR_LLSC_IN_FR_FR[] = {
 'F',0xCA,0x80,0xE1,0xB4,0x87,0xC9,0xB4,0xE1,0xB4,0x84,0xCA,0x9C,0x00,
 };
 
+static signed char CALENDAR_NATIVE_IN_FR_FR[] = {
+'F','r','a','n',0xC3,0xA7,'a','i','s',0x00,
+};
+static signed char *CALENDAR_LLSC_NATIVE_IN_FR_FR = (CALENDAR_NATIVE_IN_FR_FR);
+
 static signed char SECOND_FR_FR[] = {
 'd','e','u','x','i',0xC3,0xA8,'m','e',0x00,
 };

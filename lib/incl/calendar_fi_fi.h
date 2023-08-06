@@ -12,6 +12,9 @@ static signed char CALENDAR_LLSC_IN_FI_FI[] = {
 'F',0xC9,0xAA,0xC9,0xB4,0xC9,0xB4,0xC9,0xAA,0xEA,0x9C,0xB1,0xCA,0x9C,0x00,
 };
 
+static signed char CALENDAR_NATIVE_IN_FI_FI[] = ("suomi");
+static signed char *CALENDAR_LLSC_NATIVE_IN_FI_FI = (CALENDAR_NATIVE_IN_FI_FI);
+
 static signed char FIRST_FI_FI[] = {
 'e','n','s','i','m','m',0xC3,0xA4,'i','n','e','n',0x00,
 };
