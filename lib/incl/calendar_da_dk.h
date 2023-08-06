@@ -12,6 +12,9 @@ static signed char CALENDAR_LLSC_IN_DA_DK[] = {
 'D',0xE1,0xB4,0x80,0xC9,0xB4,0xC9,0xAA,0xEA,0x9C,0xB1,0xCA,0x9C,0x00,
 };
 
+static signed char CALENDAR_NATIVE_IN_DA_DK[] = ("dansk");
+static signed char *CALENDAR_LLSC_NATIVE_IN_DA_DK = (CALENDAR_NATIVE_IN_DA_DK);
+
 static signed char FIRST_DA_DK[] = {
 'f',0xC3,0xB8,'r','s','t','e',0x00,
 };
