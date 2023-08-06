@@ -26,6 +26,9 @@ static signed char CALENDAR_LLSC_IN_BS_LATN_BA[] = {
 'B',0xE1,0xB4,0x8F,0xEA,0x9C,0xB1,0xC9,0xB4,0xC9,0xAA,0xE1,0xB4,0x80,0xC9,0xB4,0x00,
 };
 
+static signed char CALENDAR_NATIVE_IN_BS_LATN_BA[] = ("bosanski");
+static signed char *CALENDAR_LLSC_NATIVE_IN_BS_LATN_BA = (CALENDAR_NATIVE_IN_BS_LATN_BA);
+
 static signed char THURSDAY_BS_LATN_BA[] = {
 0xC4,0x8D,'e','t','v','r','t','a','k',0x00,
 };
