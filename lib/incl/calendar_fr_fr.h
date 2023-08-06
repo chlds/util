@@ -13,7 +13,7 @@ static signed char CALENDAR_LLSC_IN_FR_FR[] = {
 };
 
 static signed char CALENDAR_NATIVE_IN_FR_FR[] = {
-'F','r','a','n',0xC3,0xA7,'a','i','s',0x00,
+'f','r','a','n',0xC3,0xA7,'a','i','s',0x00,
 };
 static signed char *CALENDAR_LLSC_NATIVE_IN_FR_FR = (CALENDAR_NATIVE_IN_FR_FR);
 
