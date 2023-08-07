@@ -12,6 +12,9 @@ static signed char CALENDAR_LLSC_IN_ET_EE[] = {
 'E',0xEA,0x9C,0xB1,0xE1,0xB4,0x9B,0xE1,0xB4,0x8F,0xC9,0xB4,0xC9,0xAA,0xE1,0xB4,0x80,0xC9,0xB4,0x00,
 };
 
+static signed char CALENDAR_NATIVE_IN_ET_EE[] = ("eesti keel");
+static signed char *CALENDAR_LLSC_NATIVE_IN_ET_EE = (CALENDAR_NATIVE_IN_ET_EE);
+
 static signed char *(CALENDAR_WK_IN_ET_EE[]) = {
 "P",
 "E",
