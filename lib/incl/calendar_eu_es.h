@@ -12,6 +12,9 @@ static signed char CALENDAR_LLSC_IN_EU_ES[] = {
 'B',0xE1,0xB4,0x80,0xEA,0x9C,0xB1,'q',0xE1,0xB4,0x9C,0xE1,0xB4,0x87,0x00,
 };
 
+static signed char CALENDAR_NATIVE_IN_EU_ES[] = ("euskara");
+static signed char *CALENDAR_LLSC_NATIVE_IN_EU_ES = (CALENDAR_NATIVE_IN_EU_ES);
+
 static signed char *(CALENDAR_WK_IN_EU_ES[]) = {
 "ig.",
 "al.",

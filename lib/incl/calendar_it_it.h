@@ -12,6 +12,9 @@ static signed char CALENDAR_LLSC_IN_IT_IT[] = {
 'I',0xE1,0xB4,0x9B,0xE1,0xB4,0x80,0xCA,0x9F,0xC9,0xAA,0xE1,0xB4,0x80,0xC9,0xB4,0x00,
 };
 
+static signed char CALENDAR_NATIVE_IN_IT_IT[] = ("italiano");
+static signed char *CALENDAR_LLSC_NATIVE_IN_IT_IT = (CALENDAR_NATIVE_IN_IT_IT);
+
 static signed char *(CALENDAR_ORDER_IN_IT_IT[]) = {
 "",
 "primo",
