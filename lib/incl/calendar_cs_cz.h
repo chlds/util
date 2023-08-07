@@ -26,6 +26,11 @@ static signed char CALENDAR_LLSC_IN_CS_CZ[] = {
 'C',0xE1,0xB4,0xA2,0xE1,0xB4,0x87,0xE1,0xB4,0x84,0xCA,0x9C,0x00,
 };
 
+static signed char CALENDAR_NATIVE_IN_CS_CZ[] = {
+0xC4,0x8D,'e',0xC5,0xA1,'t','i','n','a',0x00,
+};
+static signed char *CALENDAR_LLSC_NATIVE_IN_CS_CZ = (CALENDAR_NATIVE_IN_CS_CZ);
+
 static signed char FIRST_FEM_CS_CZ[] = {
 'p','r','v','n',0xC3,0xAD,0x00,
 };
