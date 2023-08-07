@@ -16,6 +16,11 @@ static signed char CALENDAR_LLSC_IN_ZH_HANS_CN[] = {
 0x00,
 };
 
+static signed char CALENDAR_NATIVE_IN_ZH_HANS_CN[] = {
+0xE4,0xB8,0xAD,0xE6,0x96,0x87,0x00,
+};
+static signed char *CALENDAR_LLSC_NATIVE_IN_ZH_HANS_CN = (CALENDAR_NATIVE_IN_ZH_HANS_CN);
+
 static signed char FIRST_ZH_HANS_CN[] = {
 0xE7,0xAC,0xAC,0xE4,0xB8,0x80,0xE4,0xB8,0xAA,0x00,
 };
