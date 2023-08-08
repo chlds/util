@@ -12,6 +12,9 @@ static signed char CALENDAR_LLSC_IN_PL_PL[] = {
 'P',0xE1,0xB4,0x8F,0xCA,0x9F,0xC9,0xAA,0xEA,0x9C,0xB1,0xCA,0x9C,0x00,
 };
 
+static signed char CALENDAR_NATIVE_IN_PL_PL[] = ("polski");
+static signed char *CALENDAR_LLSC_NATIVE_IN_PL_PL = (CALENDAR_NATIVE_IN_PL_PL);
+
 static signed char FIFTH_FEM_PL_PL[] = {
 'p','i',0xC4,0x85,'t','a',0x00,
 };
