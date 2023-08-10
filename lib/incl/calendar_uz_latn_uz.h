@@ -12,6 +12,14 @@ static signed char CALENDAR_LLSC_IN_UZ_LATN_UZ[] = {
 'U',0xE1,0xB4,0xA2,0xCA,0x99,0xE1,0xB4,0x87,0xE1,0xB4,0x8B,0x00,
 };
 
+static signed char CALENDAR_NATIVE_IN_UZ_LATN_UZ[] = {
+'O',0xCA,0xBB,'z','b','e','k','c','h','a',\
+' ','/',' ',\
+'O',0xCA,0xBB,'z','b','e','k',' ','t','i','l','i',\
+0x00,
+};
+static signed char *CALENDAR_LLSC_NATIVE_IN_UZ_LATN_UZ = (CALENDAR_NATIVE_IN_UZ_LATN_UZ);
+
 static signed char *(CALENDAR_ORDER_IN_UZ_LATN_UZ[]) = {
 "",
 "birinchi",
