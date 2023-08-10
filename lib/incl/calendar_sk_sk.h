@@ -13,6 +13,14 @@ static signed char CALENDAR_LLSC_IN_SK_SK[] = {
 'S',0xCA,0x9F,0xE1,0xB4,0x8F,0xE1,0xB4,0xA0,0xE1,0xB4,0x80,0xE1,0xB4,0x8B,0x00,
 };
 
+static signed char CALENDAR_NATIVE_IN_SK_SK[] = {
+'s','l','o','v','e','n','s','k',0xC3,0xBD,' ','j','a','z','y','k',\
+' ','/',' ',\
+'s','l','o','v','e','n',0xC4,0x8D,'i','n','a',\
+0x00,
+};
+static signed char *CALENDAR_LLSC_NATIVE_IN_SK_SK = (CALENDAR_NATIVE_IN_SK_SK);
+
 static signed char FIRST_FEM_SK_SK[] = {
 'p','r','v',0xC3,0xA1,0x00,
 };

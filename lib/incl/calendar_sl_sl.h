@@ -18,6 +18,14 @@ static signed char CALENDAR_LLSC_IN_SL_SL[] = {
 0x00,
 };
 
+static signed char CALENDAR_NATIVE_IN_SL_SL[] = {
+'s','l','o','v','e','n','s','k','i',' ','j','e','z','i','k',\
+' ','/',' ',\
+'s','l','o','v','e','n',0xC5,0xA1,0xC4,0x8D,'i','n','a',\
+0x00,
+};
+static signed char *CALENDAR_LLSC_NATIVE_IN_SL_SL = (CALENDAR_NATIVE_IN_SL_SL);
+
 static signed char FOURTH_FEM_SL_SL[] = {
 0xC4,0x8D,'e','t','r','t','a',0x00,
 };
