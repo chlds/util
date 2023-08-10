@@ -19,6 +19,9 @@ static signed char CALENDAR_LLSC_IN_TO_TO[] = {
 'T',0xE1,0xB4,0x8F,0xC9,0xB4,0xC9,0xA2,0xE1,0xB4,0x80,0xC9,0xB4,0x00,
 };
 
+static signed char CALENDAR_NATIVE_IN_TO_TO[] = ("lea fakatonga");
+static signed char *CALENDAR_LLSC_NATIVE_IN_TO_TO = (CALENDAR_NATIVE_IN_TO_TO);
+
 static signed char SUNDAY_TO_TO[] = {
 'S',0xC4,0x81,'p','a','t','e',0x00,
 };
