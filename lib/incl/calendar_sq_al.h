@@ -12,6 +12,9 @@ static signed char CALENDAR_LLSC_IN_SQ_AL[] = {
 'A',0xCA,0x9F,0xCA,0x99,0xE1,0xB4,0x80,0xC9,0xB4,0xC9,0xAA,0xE1,0xB4,0x80,0xC9,0xB4,0x00,
 };
 
+static signed char CALENDAR_NATIVE_IN_SQ_AL[] = ("gjuha shqipe / shqipja");
+static signed char *CALENDAR_LLSC_NATIVE_IN_SQ_AL = (CALENDAR_NATIVE_IN_SQ_AL);
+
 static signed char FIRST_SQ_AL[] = {
 'e',' ','p','a','r',0xC3,0xAB,0x00,
 };
