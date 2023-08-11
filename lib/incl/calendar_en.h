@@ -75,3 +75,7 @@ static signed char *(CALENDAR_DAY_OLD_IN_EN[]) = {
 static signed char *(CALENDAR_MONTH_OLD_IN_EN[]) = {
 "","January","February","March","April","May","June","July","August","September","October","November","December",0x00,
 };
+
+static signed char *(CALENDAR_MON_OLD_IN_EN[]) = {
+"","Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec",0x00,
+};

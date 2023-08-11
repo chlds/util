@@ -43,20 +43,63 @@ static signed char LLSC_NOVEMBER_IN_EN[] = {
 static signed char LLSC_DECEMBER_IN_EN[] = {
 'D',0xE1,0xB4,0x87,0xE1,0xB4,0x84,0xE1,0xB4,0x87,0xE1,0xB4,0x8D,0xCA,0x99,0xE1,0xB4,0x87,0xCA,0x80,0x00,
 };
-
 static signed char *(CALENDAR_MONTH_IN_EN[]) = {
-"",\
-LLSC_JANUARY_IN_EN,\
-LLSC_FEBRUARY_IN_EN,\
-LLSC_MARCH_IN_EN,\
-LLSC_APRIL_IN_EN,\
-LLSC_MAY_IN_EN,\
-LLSC_JUNE_IN_EN,\
-LLSC_JULY_IN_EN,\
-LLSC_AUGUST_IN_EN,\
-LLSC_SEPTEMBER_IN_EN,\
-LLSC_OCTOBER_IN_EN,\
-LLSC_NOVEMBER_IN_EN,\
-LLSC_DECEMBER_IN_EN,\
+"",
+LLSC_JANUARY_IN_EN,
+LLSC_FEBRUARY_IN_EN,
+LLSC_MARCH_IN_EN,
+LLSC_APRIL_IN_EN,
+LLSC_MAY_IN_EN,
+LLSC_JUNE_IN_EN,
+LLSC_JULY_IN_EN,
+LLSC_AUGUST_IN_EN,
+LLSC_SEPTEMBER_IN_EN,
+LLSC_OCTOBER_IN_EN,
+LLSC_NOVEMBER_IN_EN,
+LLSC_DECEMBER_IN_EN,
+0x00,
+};
+
+static signed char LLSC_JAN_IN_EN[] = {
+'J',0xE1,0xB4,0x80,0xC9,0xB4,0x00,
+};
+static signed char LLSC_FEB_IN_EN[] = {
+'F',0xE1,0xB4,0x87,0xCA,0x99,0x00,
+};
+static signed char LLSC_MAR_IN_EN[] = {
+'M',0xE1,0xB4,0x80,0xCA,0x80,0x00,
+};
+static signed char LLSC_APR_IN_EN[] = {
+'A',0xE1,0xB4,0x98,0xCA,0x80,0x00,
+};
+static signed char LLSC_AUG_IN_EN[] = {
+'A',0xE1,0xB4,0x9C,0xC9,0xA2,0x00,
+};
+static signed char LLSC_SEPT_IN_EN[] = {
+'S',0xE1,0xB4,0x87,0xE1,0xB4,0x98,0xE1,0xB4,0x9B,0x00,
+};
+static signed char LLSC_OCT_IN_EN[] = {
+'O',0xE1,0xB4,0x84,0xE1,0xB4,0x9B,0x00,
+};
+static signed char LLSC_NOV_IN_EN[] = {
+'N',0xE1,0xB4,0x8F,0xE1,0xB4,0xA0,0x00,
+};
+static signed char LLSC_DEC_IN_EN[] = {
+'D',0xE1,0xB4,0x87,0xE1,0xB4,0x84,0x00,
+};
+static signed char *(CALENDAR_MON_IN_EN[]) = {
+"",
+LLSC_JAN_IN_EN,
+LLSC_FEB_IN_EN,
+LLSC_MAR_IN_EN,
+LLSC_APR_IN_EN,
+LLSC_MAY_IN_EN,
+LLSC_JUNE_IN_EN,
+LLSC_JULY_IN_EN,
+LLSC_AUG_IN_EN,
+LLSC_SEPT_IN_EN,
+LLSC_OCT_IN_EN,
+LLSC_NOV_IN_EN,
+LLSC_DEC_IN_EN,
 0x00,
 };
