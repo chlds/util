@@ -74,3 +74,20 @@ MARCH_ET_EE,
 "detsember",
 0x00,
 };
+
+static signed char *(CALENDAR_MON_IN_ET_EE[]) = {
+"",
+"jaan",
+"veebr",
+MARCH_ET_EE,
+"apr",
+"mai",
+"juuni",
+"juuli",
+"aug",
+"sept",
+"okt",
+"nov",
+"dets",
+0x00,
+};

@@ -38,17 +38,6 @@ AND_LAST_ES_ES,
 0x00,
 };
 
-static signed char *(CALENDAR_WK_IN_ES_ES[]) = {
-"D",
-"L",
-"M",
-"X",
-"J",
-"V",
-"S",
-0x00,
-};
-
 static signed char WEDNESDAY_ES_ES[] = {
 'm','i',0xC3,0xA9,'r','c','o','l','e','s',0x00,
 };
@@ -63,6 +52,34 @@ WEDNESDAY_ES_ES,
 "jueves",
 "viernes",
 SATURDAY_ES_ES,
+0x00,
+};
+
+static signed char WED_ES_ES[] = {
+'m','i',0xC3,0xA9,0x00,
+};
+static signed char SAT_ES_ES[] = {
+'s',0xC3,0xA1,'b',0x00,
+};
+static signed char *(CALENDAR_WK_IN_ES_ES[]) = {
+"dom",
+"lun",
+"mar",
+WED_ES_ES,
+"jue",
+"vie",
+SAT_ES_ES,
+0x00,
+};
+
+static signed char *(CALENDAR_W_IN_ES_ES[]) = {
+"D",
+"L",
+"M",
+"X",
+"J",
+"V",
+"S",
 0x00,
 };
 
@@ -86,5 +103,22 @@ static signed char *(CALENDAR_MONTH_IN_ES_ES[]) = {
 "octubre",
 "noviembre",
 "diciembre",
+0x00,
+};
+
+static signed char *(CALENDAR_MON_IN_ES_ES[]) = {
+"",
+"ene",
+"feb",
+"mar",
+"abr",
+"may",
+"jun",
+"jul",
+"ago",
+"sept",
+"oct",
+"nov",
+"dic",
 0x00,
 };
