@@ -14,6 +14,9 @@ static signed char CALENDAR_LLSC_IN_NN_NO[] = {
 0x00,
 };
 
+static signed char CALENDAR_NATIVE_IN_NN_NO[] = ("nynorsk");
+static signed char *CALENDAR_LLSC_NATIVE_IN_NN_NO = (CALENDAR_NATIVE_IN_NN_NO);
+
 static signed char FIRST_NN_NO[] = {
 'f',0xC3,0xB8,'r','s','t','e',0x00,
 };

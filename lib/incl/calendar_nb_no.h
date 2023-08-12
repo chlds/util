@@ -13,6 +13,9 @@ static signed char CALENDAR_LLSC_IN_NB_NO[] = {
 0x00,
 };
 
+static signed char CALENDAR_NATIVE_IN_NB_NO[] = ("norsk");
+static signed char *CALENDAR_LLSC_NATIVE_IN_NB_NO = (CALENDAR_NATIVE_IN_NB_NO);
+
 static signed char FIRST_NB_NO[] = {
 'f',0xC3,0xB8,'r','s','t','e',0x00,
 };
