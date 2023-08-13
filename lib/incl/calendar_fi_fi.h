@@ -122,3 +122,26 @@ JULY_NOM_FI_FI,
 "joulukuu",
 0x00,
 };
+
+static signed char JUN_PAR_FI_FI[] = {
+'k','e','s',0xC3,0xA4,'k','.',0x00,
+};
+static signed char JUL_PAR_FI_FI[] = {
+'h','e','i','n',0xC3,0xA4,'k','.',0x00,
+};
+static signed char *(CALENDAR_MON_PARTITIVE_IN_FI_FI[]) = {
+"",
+"tammik.",
+"helmik.",
+"maalisk.",
+"huhtik.",
+"toukok.",
+JUN_PAR_FI_FI,
+JUL_PAR_FI_FI,
+"elok.",
+"syysk.",
+"lokak.",
+"marrask.",
+"jouluk.",
+0x00,
+};

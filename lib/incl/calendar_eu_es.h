@@ -74,3 +74,20 @@ static signed char *(CALENDAR_MONTH_IN_EU_ES[]) = {
 0x00,
 };
 //*/
+
+static signed char *(CALENDAR_MON_IN_EU_ES[]) = {
+"",
+"urt.",
+"ots.",
+"mar.",
+"api.",
+"mai.",
+"eka.",
+"uzt.",
+"abu.",
+"ira.",
+"urr.",
+"aza.",
+"abe.",
+0x00,
+};
