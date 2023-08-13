@@ -106,3 +106,29 @@ OCTOBER_GA_IE,
 "Nollaig",
 0x00,
 };
+
+static signed char AUG_GA_IE[] = {
+'L',0xC3,0xBA,'n',0x00,
+};
+static signed char SEP_GA_IE[] = {
+'M','F',0xC3,0xB3,'m','h',0x00,
+};
+static signed char OCT_GA_IE[] = {
+'D','F',0xC3,0xB3,'m','h',0x00,
+};
+static signed char *(CALENDAR_MON_IN_GA_IE[]) = {
+"",
+"Ean",
+"Feabh",
+MARCH_GA_IE,
+"Aib",
+"Beal",
+"Meith",
+JULY_GA_IE,
+AUG_GA_IE,
+SEP_GA_IE,
+OCT_GA_IE,
+"Samh",
+"Noll",
+0x00,
+};

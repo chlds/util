@@ -157,3 +157,38 @@ OCTOBER_GD_GB,
 DECEMBER_GD_GB,
 0x00,
 };
+
+static signed char MAR_GD_GB[] = {
+'M',0xC3,0xA0,'r','t',0x00,
+};
+static signed char MAY_ABBREV_GD_GB[] = {
+'C',0xC3,0xA8,'i','t',0x00,
+};
+static signed char JUN_GD_GB[] = {
+0xC3,0x92,'g','m','h',0x00,
+};
+static signed char AUG_GD_GB[] = {
+'L',0xC3,0xB9,'n','a',0x00,
+};
+static signed char OCT_GD_GB[] = {
+'D',0xC3,0xA0,'m','h',0x00,
+};
+static signed char DEC_GD_GB[] = {
+'D',0xC3,0xB9,'b','h',0x00,
+};
+static signed char *(CALENDAR_MON_IN_GD_GB[]) = {
+"",
+"Faoi",
+"Gearr",
+MAR_GD_GB,
+"Gibl",
+MAY_ABBREV_GD_GB,
+JUN_GD_GB,
+"Iuch",
+AUG_GD_GB,
+"Sult",
+OCT_GD_GB,
+"Samh",
+DEC_GD_GB,
+0x00,
+};
