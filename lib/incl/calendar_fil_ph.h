@@ -58,3 +58,20 @@ static signed char *(CALENDAR_MONTH_IN_FIL_PH[]) = {
 "Disyembre",
 0x00,
 };
+
+static signed char *(CALENDAR_MON_IN_FIL_PH[]) = {
+"",
+"Ene",
+"Peb",
+"Mar",
+"Abr",
+"May",
+"Hun",
+"Hul",
+"Ago",
+"Set",
+"Okt",
+"Nob",
+"Dis",
+0x00,
+};

@@ -90,6 +90,29 @@ DECEMBER_FR_FR,
 0x00,
 };
 
+static signed char FEB_FR_FR[] = {
+'f',0xC3,0xA9,'v','r','.',0x00,
+};
+static signed char DEC_FR_FR[] = {
+'d',0xC3,0xA9,'c','.',0x00,
+};
+static signed char *(CALENDAR_MON_IN_FR_FR[]) = {
+"",
+"janv.",
+FEB_FR_FR,
+"mars",
+"avr.",
+"mai",
+"juin",
+"juil.",
+AUGUST_FR_FR,
+"sept.",
+"oct.",
+"nov.",
+DEC_FR_FR,
+0x00,
+};
+
 static signed char FEBRUARY_ORDER_FR_FR[] = {
 'd','e',' ','f',0xC3,0xA9,'v','r','i','e','r',0x00,
 };
