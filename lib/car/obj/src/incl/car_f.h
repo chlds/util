@@ -509,11 +509,14 @@ signed(__cdecl /* __attribute__((ms_abi)) */ cat_w(signed short(**argp),...));
 signed(__cdecl cat_rl_b(signed char(**di),signed char(*si)));
 signed(__cdecl cat_b_r(signed char(**di),signed char(**si)));
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_b(signed char(**argp),...));
-signed(__cdecl cat_ahead_b_rl(signed char(**di),signed char(*si)));
+signed(__cdecl cat_ahead_rl_b(signed char(**di),signed char(*si)));
 signed(__cdecl cat_ahead_b_r(signed char(**di),signed char(**si)));
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_ahead_b(signed char(**argp),...));
 /* Concatenate to the terminating null pointer */
 
+signed(__cdecl cat_xe_ahead_rr(signed char(**di),signed char(**si)));
+signed char *(__cdecl cat_xe_ahead_r(signed char **argp));
+signed char *(__cdecl /* __attribute__((ms_abi)) */ cat_xe_ahead(signed char *argp,...));
 signed(__cdecl cat_xe_rr(signed char(**di),signed char(**si)));
 signed char *(__cdecl cat_xe_r(signed char **argp));
 signed char *(__cdecl /* __attribute__((ms_abi)) */ cat_xe(signed char *argp,...));

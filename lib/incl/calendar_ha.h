@@ -58,3 +58,20 @@ static signed char *(CALENDAR_MONTH_IN_HA[]) = {
 "Disamba",
 0x00,
 };
+
+static signed char *(CALENDAR_MON_IN_HA[]) = {
+"",
+"Jan",
+"Fab",
+"Mar",
+"Afi",
+"May",
+"Yun",
+"Yul",
+"Agu",
+"Sat",
+"Okt",
+"Nuw",
+"Dis",
+0x00,
+};
