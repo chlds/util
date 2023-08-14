@@ -99,3 +99,23 @@ MARCH_HSB_DE,
 "decembra",
 0x00,
 };
+
+static signed char MAR_HSB_DE[] = {
+'m',0xC4,0x9B,'r','.',0x00,
+};
+static signed char *(CALENDAR_MON_IN_HSB_DE[]) = {
+"",
+"jan.",
+"feb.",
+MAR_HSB_DE,
+"apr.",
+"mej.",
+"jun.",
+"jul.",
+"awg.",
+"sep.",
+"okt.",
+"now.",
+"dec.",
+0x00,
+};

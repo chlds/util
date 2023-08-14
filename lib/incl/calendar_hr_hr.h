@@ -98,3 +98,23 @@ MARCH_NOM_HR_HR,
 "prosinac",
 0x00,
 };
+
+static signed char MAR_HR_HR[] = {
+'o',0xC5,0xBE,'u',0x00,
+};
+static signed char *(CALENDAR_MON_IN_HR_HR[]) = {
+"",
+"sij",
+"velj",
+MAR_HR_HR,
+"tra",
+"svi",
+"lip",
+"srp",
+"kol",
+"ruj",
+"lis",
+"stu",
+"pro",
+0x00,
+};

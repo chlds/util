@@ -89,3 +89,35 @@ OCTOBER_HU_HU,
 "december",
 0x00,
 };
+
+static signed char MAR_HU_HU[] = {
+'m',0xC3,0xA1,'r','c','.',0x00,
+};
+static signed char APR_HU_HU[] = {
+0xC3,0xA1,'p','r','.',0x00,
+};
+static signed char MAY_ABBREV_HU_HU[] = {
+'m',0xC3,0xA1,'j','.',0x00,
+};
+static signed char JUN_HU_HU[] = {
+'j',0xC3,0xBA,'n','.',0x00,
+};
+static signed char JUL_HU_HU[] = {
+'j',0xC3,0xBA,'l','.',0x00,
+};
+static signed char *(CALENDAR_MON_IN_HU_HU[]) = {
+"",
+"jan.",
+"febr.",
+MAR_HU_HU,
+APR_HU_HU,
+MAY_ABBREV_HU_HU,
+JUN_HU_HU,
+JUL_HU_HU,
+"aug.",
+"szept.",
+"okt.",
+"nov.",
+"dec.",
+0x00,
+};
