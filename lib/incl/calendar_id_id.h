@@ -70,3 +70,20 @@ static signed char *(CALENDAR_MONTH_IN_ID_ID[]) = {
 "Desember",
 0x00,
 };
+
+static signed char *(CALENDAR_MON_IN_ID_ID[]) = {
+"",
+"Jan",
+"Feb",
+"Mar",
+"Apr",
+"Mei",
+"Jun",
+"Jul",
+"Agu",
+"Sep",
+"Okt",
+"Nov",
+"Des",
+0x00,
+};

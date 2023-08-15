@@ -89,3 +89,20 @@ static signed char *(CALENDAR_MONTH_IN_IT_IT[]) = {
 "dicembre",
 0x00,
 };
+
+static signed char *(CALENDAR_MON_IN_IT_IT[]) = {
+"",
+"gen",
+"feb",
+"mar",
+"apr",
+"mag",
+"giu",
+"lug",
+"ago",
+"set",
+"ott",
+"nov",
+"dic",
+0x00,
+};

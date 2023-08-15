@@ -153,3 +153,32 @@ NOVEMBER_IS_IS,
 "desember",
 0x00,
 };
+
+static signed char JUN_IS_IS[] = {
+'j',0xC3,0xBA,'n','.',0x00,
+};
+static signed char JUL_IS_IS[] = {
+'j',0xC3,0xBA,'l','.',0x00,
+};
+static signed char AUG_IS_IS[] = {
+0xC3,0xA1,'g',0xC3,0xBA,'.',0x00,
+};
+static signed char NOV_IS_IS[] = {
+'n',0xC3,0xB3,'v','.',0x00,
+};
+static signed char *(CALENDAR_MON_IN_IS_IS[]) = {
+"",
+"jan.",
+"feb.",
+"mar.",
+"apr.",
+MAY_IS_IS,
+JUN_IS_IS,
+JUL_IS_IS,
+AUG_IS_IS,
+"sep.",
+"okt.",
+NOV_IS_IS,
+"des.",
+0x00,
+};
