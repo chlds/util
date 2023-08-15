@@ -85,3 +85,26 @@ JULY_LV_LV,
 "decembris",
 0x00,
 };
+
+static signed char JUN_LV_LV[] = {
+'j',0xC5,0xAB,'n','.',0x00,
+};
+static signed char JUL_LV_LV[] = {
+'j',0xC5,0xAB,'l','.',0x00,
+};
+static signed char *(CALENDAR_MON_IN_LV_LV[]) = {
+"",
+"janv.",
+"febr.",
+"marts",
+"apr.",
+"maijs",
+JUN_LV_LV,
+JUL_LV_LV,
+"aug.",
+"sept.",
+"okt.",
+"nov.",
+"dec.",
+0x00,
+};
