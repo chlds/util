@@ -58,3 +58,20 @@ static signed char *(CALENDAR_MONTH_IN_JV[]) = {
 "Desember",
 0x00,
 };
+
+static signed char *(CALENDAR_MON_IN_JV[]) = {
+"",
+"Jan",
+"Feb",
+"Mar",
+"Apr",
+"Mei",
+"Jun",
+"Jul",
+"Agu",
+"Sep",
+"Okt",
+"Nov",
+"Des",
+0x00,
+};
