@@ -58,3 +58,20 @@ static signed char *(CALENDAR_MONTH_IN_MS_MY[]) = {
 "Disember",
 0x00,
 };
+
+static signed char *(CALENDAR_MON_IN_MS_MY[]) = {
+"",
+"Jan",
+"Feb",
+"Mac",
+"Apr",
+"Mei",
+"Jun",
+"Jul",
+"Ogo",
+"Sep",
+"Okt",
+"Nov",
+"Dis",
+0x00,
+};
