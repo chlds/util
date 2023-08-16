@@ -126,3 +126,41 @@ NOVEMBER_NJ,
 DECEMBER_NJ,
 0x00,
 };
+
+static signed char JAN_NJ[] = {
+'J',0xC3,0xA9,'n',0x00,
+};
+static signed char FEB_NJ[] = {
+'F',0xE1,0xBA,0xB9,0xCC,0x81,'b',0x00,
+};
+static signed char APR_NJ[] = {
+0xC3,0x89,'p','r',0x00,
+};
+static signed char AUG_NJ[] = {
+0xE1,0xBB,0x8C,'g',0xE1,0xBB,0x8D,0x00,
+};
+static signed char SEP_NJ[] = {
+'S',0xE1,0xBA,0xB9,'p',0x00,
+};
+static signed char OCT_NJ[] = {
+0xE1,0xBB,0x8C,'k','t',0x00,
+};
+static signed char NOV_NJ[] = {
+'N',0xE1,0xBB,0x8D,'v',0x00,
+};
+static signed char *(CALENDAR_MON_IN_NJ[]) = {
+"",
+JAN_NJ,
+FEB_NJ,
+"Mach",
+APR_NJ,
+"Mee",
+"Jun",
+"Jul",
+AUG_NJ,
+SEP_NJ,
+OCT_NJ,
+NOV_NJ,
+"Dis",
+0x00,
+};

@@ -81,3 +81,20 @@ static signed char *(CALENDAR_MONTH_IN_NB_NO[]) = {
 "desember",
 0x00,
 };
+
+static signed char *(CALENDAR_MON_IN_NB_NO[]) = {
+"",
+"jan.",
+"feb.",
+"mars",
+"apr.",
+"mai",
+"juni",
+"juli",
+"aug.",
+"sep.",
+"okt.",
+"nov.",
+"des.",
+0x00,
+};
