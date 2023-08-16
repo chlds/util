@@ -31,14 +31,58 @@ static signed char *(CALENDAR_ORDER_IN_NL_NL[]) = {
 0x00,
 };
 
-static signed char *(CALENDAR_WK_IN_NL_NL[]) = {
-"zo","ma","di","wo","do","vr","za",0x00,
+static signed char *(CALENDAR_WEEK_IN_NL_NL[]) = {
+"zondag",
+"maandag",
+"dinsdag",
+"woensdag",
+"donderdag",
+"vrijdag",
+"zaterdag",
+0x00,
 };
 
-static signed char *(CALENDAR_WEEK_IN_NL_NL[]) = {
-"zondag","maandag","dinsdag","woensdag","donderdag","vrijdag","zaterdag",0x00,
+static signed char *(CALENDAR_WK_IN_NL_NL[]) = {
+"zo",
+"ma",
+"di",
+"wo",
+"do",
+"vr",
+"za",
+0x00,
 };
 
 static signed char *(CALENDAR_MONTH_IN_NL_NL[]) = {
-"","januari","februari","maart","april","mei","juni","juli","augustus","september","oktober","november","december",0x00,
+"",
+"januari",
+"februari",
+"maart",
+"april",
+"mei",
+"juni",
+"juli",
+"augustus",
+"september",
+"oktober",
+"november",
+"december",
+0x00,
+};
+
+static signed char *(CALENDAR_MON_IN_NL_NL[]) = {
+"",
+"jan",
+"feb",
+"mrt",
+"apr",
+"mei",
+"jun",
+"jul",
+"aug",
+"sep",
+"okt",
+"nov",
+"dec",
+0x00,
 };
