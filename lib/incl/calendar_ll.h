@@ -34,6 +34,60 @@ static signed char *(CALENDAR_WK_IN_LL[]) = {
 0x00,
 };
 
+// more correctly written as Romans did not have a 'J' or a 'U' in their alphabet..
+static signed char *(CALENDAR_MONTH_JU_NOMINATIVE_IN_LL[]) = {
+"",
+"IANVARIVS",
+"FEBRVARIVS",
+"MARTIVS",
+"APRILIS",
+"MAIVS",
+"IVNIVS",
+"IVLIVS",
+"AVGVSTVS",
+"SEPTEMBER",
+"OCTOBER",
+"NOVEMBER",
+"DECEMBER",
+0x00,
+};
+
+// more correctly written as Romans did not have a 'J' or a 'U' in their alphabet..
+static signed char *(CALENDAR_MONTH_JU_GENITIVE_SINGULAR_MASCULINE_IN_LL[]) = {
+"",
+"IANVARII",
+"FEBRVARII",
+"MARTII",
+"APRILIS",
+"MAII",
+"IVNII",
+"IVLII",
+"AVGVSTI",
+"SEPTEMBRIS",
+"OCTOBRIS",
+"NOVEMBRIS",
+"DECEMBRIS",
+0x00,
+};
+
+// more correctly written as Romans did not have a 'J' or a 'U' in their alphabet..
+static signed char *(CALENDAR_MON_JU_IN_LL[]) = {
+"",
+"IAN.",
+"FEB.",
+"MART.",
+"APR.",
+"MAI.",
+"IVN.",
+"IVL.",
+"AVG.",
+"SEPT.",
+"OCT.",
+"NOV.",
+"DEC.",
+0x00,
+};
+
 static signed char *(CALENDAR_MONTH_NOMINATIVE_IN_LL[]) = {
 "",
 "Ianuarius",

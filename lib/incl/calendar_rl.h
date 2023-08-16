@@ -20,7 +20,6 @@ static signed char *(CALENDAR_WEEK_IN_RL[]) = {
 "dies Solis","dies Lunae","dies Martis","dies Mercurii","dies Jovis","dies Veneris","dies Saturni",0x00,
 };
 
-/*
 static signed char *(CALENDAR_DAY_IN_RL[]) = {
 "","I","II","III","IV","V","VI","VII","VIII","IX",\
 "X","XI","XII","XIII","XIV","XV","XVI","XVII","XVIII","XIX",\
@@ -28,9 +27,8 @@ static signed char *(CALENDAR_DAY_IN_RL[]) = {
 "XXX","XXXI",\
 0x00,
 };
-//*/
 
-static signed char *(CALENDAR_DAY_IN_RL[]) = {
+static signed char *(CALENDAR_DAY_S_IN_RL[]) = {
 "","i","ii","iii","iv","v","vi","vii","viii","ix",\
 "x","xi","xii","xiii","xiv","xv","xvi","xvii","xviii","xix",\
 "xx","xxi","xxii","xxiii","xxiv","xxv","xxvi","xxvii","xxviii","xxix",\
