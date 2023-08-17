@@ -175,3 +175,26 @@ NOVEMBER_TK_TM,
 "dekabr",
 0x00,
 };
+
+static signed char JAN_TK_TM[] = {
+0xC3,0xBD,'a','n',0x00,
+};
+static signed char NOV_TK_TM[] = {
+'n','o',0xC3,0xBD,0x00,
+};
+static signed char *(CALENDAR_MON_IN_TK_TM[]) = {
+"",
+JAN_TK_TM,
+"few",
+"mart",
+"apr",
+MAY_TK_TM,
+JUNE_TK_TM,
+JULY_TK_TM,
+"awg",
+"sen",
+"okt",
+NOV_TK_TM,
+"dek",
+0x00,
+};

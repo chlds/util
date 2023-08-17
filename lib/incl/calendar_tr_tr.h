@@ -119,3 +119,26 @@ NOVEMBER_TR_TR,
 DECEMBER_TR_TR,
 0x00,
 };
+
+static signed char FEB_TR_TR[] = {
+0xC5,0x9E,'u','b',0x00,
+};
+static signed char AUG_TR_TR[] = {
+'A',0xC4,0x9F,'u',0x00,
+};
+static signed char *(CALENDAR_MON_IN_TR_TR[]) = {
+"",
+"Oca",
+FEB_TR_TR,
+"Mar",
+"Nis",
+"May",
+"Haz",
+"Tem",
+AUG_TR_TR,
+"Eyl",
+"Eki",
+"Kas",
+"Ara",
+0x00,
+};
