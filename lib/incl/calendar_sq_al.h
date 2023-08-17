@@ -105,19 +105,19 @@ SATURDAY_SQ_AL,
 };
 
 static signed char MON_SQ_AL[] = {
-'H',0xC3,0xAB,'n',0x00,
+'h',0xC3,0xAB,'n',0x00,
 };
 static signed char WED_SQ_AL[] = {
-'M',0xC3,0xAB,'r',0x00,
+'m',0xC3,0xAB,'r',0x00,
 };
 static signed char *(CALENDAR_WK_IN_SQ_AL[]) = {
-"Die",
+"die",
 MON_SQ_AL,
-"Mar",
+"mar",
 WED_SQ_AL,
-"Enj",
-"Pre",
-"Sht",
+"enj",
+"pre",
+"sht",
 0x00,
 };
 
@@ -138,5 +138,25 @@ static signed char *(CALENDAR_MONTH_IN_SQ_AL[]) = {
 "tetor",
 NOVEMBER_SQ_AL,
 "dhjetor",
+0x00,
+};
+
+static signed char NOV_SQ_AL[] = {
+'n',0xC3,0xAB,'n',0x00,
+};
+static signed char *(CALENDAR_MON_IN_SQ_AL[]) = {
+"",
+"jan",
+"shk",
+"mar",
+"pri",
+"maj",
+"qer",
+"korr",
+"gush",
+"sht",
+"tet",
+NOV_SQ_AL,
+"dhj",
 0x00,
 };

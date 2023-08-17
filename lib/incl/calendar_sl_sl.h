@@ -6,6 +6,7 @@ C5.A0/C5.A1 : Latin Capital/Small Letter S with Caron
 C5.BD/C5.BE : Latin Capital/Small Letter Z with Caron
 
 Remarks:
+Slovene declension
 Based on UTF-8
 */
 
@@ -130,5 +131,22 @@ static signed char *(CALENDAR_MONTH_IN_SL_SL[]) = {
 "oktober",
 "november",
 "december",
+0x00,
+};
+
+static signed char *(CALENDAR_MON_IN_SL_SL[]) = {
+"",
+"jan.",
+"feb.",
+"mar.",
+"apr.",
+"maj",
+"jun.",
+"jul.",
+"avg.",
+"sep.",
+"okt.",
+"nov.",
+"dec.",
 0x00,
 };
