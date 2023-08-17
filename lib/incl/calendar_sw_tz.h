@@ -28,7 +28,9 @@ static signed char *(CALENDAR_WEEK_IN_SW_TZ[]) = {
 0x00,
 };
 
-static signed char *(CALENDAR_WK_IN_SW_TZ[]) = {
+static signed char **CALENDAR_WK_IN_SW_TZ = (CALENDAR_WEEK_IN_SW_TZ);
+
+static signed char *(CALENDAR_W_IN_SW_TZ[]) = {
 "S",
 "M",
 "T",
@@ -53,5 +55,22 @@ static signed char *(CALENDAR_MONTH_IN_SW_TZ[]) = {
 "Oktoba",
 "Novemba",
 "Desemba",
+0x00,
+};
+
+static signed char *(CALENDAR_MON_IN_SW_TZ[]) = {
+"",
+"Jan",
+"Feb",
+"Mac",
+"Apr",
+"Mei",
+"Jun",
+"Jul",
+"Ago",
+"Sep",
+"Okt",
+"Nov",
+"Des",
 0x00,
 };

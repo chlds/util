@@ -109,3 +109,20 @@ static signed char *(CALENDAR_MONTH_IN_SV_SE[]) = {
 "december",
 0x00,
 };
+
+static signed char *(CALENDAR_MON_IN_SV_SE[]) = {
+"",
+"jan.",
+"feb.",
+"mars",
+"apr.",
+"maj",
+"juni",
+"juli",
+"aug.",
+"sep.",
+"okt.",
+"nov.",
+"dec.",
+0x00,
+};
