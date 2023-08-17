@@ -20,20 +20,6 @@ static signed char CALENDAR_NATIVE_IN_RO_RO[] = {
 };
 static signed char *CALENDAR_LLSC_NATIVE_IN_RO_RO = (CALENDAR_NATIVE_IN_RO_RO);
 
-static signed char SAT_RO_RO[] = {
-'s',0xC3,0xA2,'m','.',0x00,
-};
-static signed char *(CALENDAR_WK_IN_RO_RO[]) = {
-"dum.",
-"lun.",
-"mar.",
-"mie.",
-"joi",
-"vin.",
-SAT_RO_RO,
-0x00,
-};
-
 static signed char SUNDAY_RO_RO[] = {
 'd','u','m','i','n','i','c',0xC4,0x83,0x00,
 };
@@ -54,6 +40,20 @@ SATURDAY_RO_RO,
 0x00,
 };
 
+static signed char SAT_RO_RO[] = {
+'s',0xC3,0xA2,'m','.',0x00,
+};
+static signed char *(CALENDAR_WK_IN_RO_RO[]) = {
+"dum.",
+"lun.",
+"mar.",
+"mie.",
+"joi",
+"vin.",
+SAT_RO_RO,
+0x00,
+};
+
 static signed char *(CALENDAR_MONTH_IN_RO_RO[]) = {
 "",
 "ianuarie",
@@ -68,5 +68,22 @@ static signed char *(CALENDAR_MONTH_IN_RO_RO[]) = {
 "octombrie",
 "noiembrie",
 "decembrie",
+0x00,
+};
+
+static signed char *(CALENDAR_MON_IN_RO_RO[]) = {
+"",
+"ian.",
+"feb.",
+"mar.",
+"apr.",
+"mai",
+"iun.",
+"iul.",
+"aug.",
+"sept.",
+"oct.",
+"nov.",
+"dec.",
 0x00,
 };

@@ -47,20 +47,6 @@ AND_LAST_MASC_PT_PT,
 0x00,
 };
 
-static signed char SAT_PT_PT[] = {
-'s',0xC3,0xA1,'b','.',0x00,
-};
-static signed char *(CALENDAR_WK_IN_PT_PT[]) = {
-"dom.",
-"2a.",
-"3a.",
-"4a.",
-"5a.",
-"6a.",
-SAT_PT_PT,
-0x00,
-};
-
 static signed char TUESDAY_PT_PT[] = {
 't','e','r',0xC3,0xA7,'a','-','f','e','i','r','a',0x00,
 };
@@ -75,6 +61,31 @@ TUESDAY_PT_PT,
 "quinta-feira",
 "sexta-feira",
 SATURDAY_PT_PT,
+0x00,
+};
+
+static signed char SAT_PT_PT[] = {
+'s',0xC3,0xA1,'b','.',0x00,
+};
+static signed char *(CALENDAR_WK_IN_PT_PT[]) = {
+"dom.",
+"seg.",
+"ter.",
+"qua.",
+"qui.",
+"sex.",
+SAT_PT_PT,
+0x00,
+};
+
+static signed char *(CALENDAR_W_IN_PT_PT[]) = {
+"dom.",
+"2a.",
+"3a.",
+"4a.",
+"5a.",
+"6a.",
+SAT_PT_PT,
 0x00,
 };
 
@@ -95,5 +106,22 @@ MARCH_PT_PT,
 "outubro",
 "novembro",
 "dezembro",
+0x00,
+};
+
+static signed char *(CALENDAR_MON_IN_PT_PT[]) = {
+"",
+"jan.",
+"fev.",
+"mar.",
+"abr.",
+"mai.",
+"jun.",
+"jul.",
+"ago.",
+"set.",
+"out.",
+"nov.",
+"dez.",
 0x00,
 };

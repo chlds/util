@@ -135,3 +135,23 @@ OCTOBER_PL_PL,
 "grudnia",
 0x00,
 };
+
+static signed char OCT_PL_PL[] = {
+'p','a',0xC5,0xBA,0x00,
+};
+static signed char *(CALENDAR_MON_IN_PL_PL[]) = {
+"",
+"sty",
+"lut",
+"mar",
+"kwi",
+"maj",
+"cze",
+"lip",
+"sie",
+"wrz",
+OCT_PL_PL,
+"lis",
+"gru",
+0x00,
+};
