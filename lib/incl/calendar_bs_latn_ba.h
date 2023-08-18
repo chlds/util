@@ -73,3 +73,20 @@ static signed char *(CALENDAR_MONTH_IN_BS_LATN_BA[]) = {
 "decembar",
 0x00,
 };
+
+static signed char *(CALENDAR_MON_IN_BS_LATN_BA[]) = {
+"",
+"jan",
+"feb",
+"mar",
+"apr",
+"maj",
+"jun",
+"jul",
+"aug",
+"sep",
+"okt",
+"nov",
+"dec",
+0x00,
+};
