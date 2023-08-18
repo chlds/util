@@ -23,17 +23,6 @@ static signed char CALENDAR_NATIVE_IN_CA_ES[] = {
 };
 static signed char *CALENDAR_LLSC_NATIVE_IN_CA_ES = (CALENDAR_NATIVE_IN_CA_ES);
 
-static signed char *(CALENDAR_WK_IN_CA_ES[]) = {
-"dg.",
-"dl.",
-"dt.",
-"dc.",
-"dj.",
-"dv.",
-"ds.",
-0x00,
-};
-
 static signed char *(CALENDAR_WEEK_IN_CA_ES[]) = {
 "diumenge",
 "dilluns",
@@ -45,14 +34,26 @@ static signed char *(CALENDAR_WEEK_IN_CA_ES[]) = {
 0x00,
 };
 
-static signed char MARCH_CA_ES[] = {
+static signed char *(CALENDAR_WK_IN_CA_ES[]) = {
+"dg.",
+"dl.",
+"dt.",
+"dc.",
+"dj.",
+"dv.",
+"ds.",
+0x00,
+};
+
+static signed char MARCH_GEN_CA_ES[] = {
 'd','e',' ','m','a','r',0xC3,0xA7,0x00,
 };
-static signed char *(CALENDAR_MONTH_IN_CA_ES[]) = {
+
+static signed char *(CALENDAR_MONTH_GENITIVE_IN_CA_ES[]) = {
 "",
 "de gener",
 "de febrer",
-MARCH_CA_ES,
+MARCH_GEN_CA_ES,
 "d'abril",
 "de maig",
 "de juny",
@@ -65,9 +66,27 @@ MARCH_CA_ES,
 0x00,
 };
 
+static signed char *(CALENDAR_MON_GENITIVE_IN_CA_ES[]) = {
+"",
+"de gen.",
+"de febr.",
+MARCH_GEN_CA_ES,
+"d'abr.",
+"de maig",
+"de juny",
+"de jul.",
+"d'ag.",
+"de set.",
+"d'oct.",
+"de nov.",
+"de des.",
+0x00,
+};
+
 static signed char MARCH_NOM_CA_ES[] = {
 'm','a','r',0xC3,0xA7,0x00,
 };
+
 static signed char *(CALENDAR_MONTH_NOMINATIVE_IN_CA_ES[]) = {
 "",
 "gener",
@@ -82,5 +101,22 @@ MARCH_NOM_CA_ES,
 "octubre",
 "novembre",
 "desembre",
+0x00,
+};
+
+static signed char *(CALENDAR_MON_NOMINATIVE_IN_CA_ES[]) = {
+"",
+"gen.",
+"febr.",
+MARCH_NOM_CA_ES,
+"abr.",
+"maig",
+"juny",
+"jul.",
+"ag.",
+"set.",
+"oct.",
+"nov.",
+"des.",
 0x00,
 };
