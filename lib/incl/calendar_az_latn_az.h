@@ -175,3 +175,20 @@ static signed char *(CALENDAR_MONTH_IN_AZ_LATN_AZ[]) = {
 "dekabr",
 0x00,
 };
+
+static signed char *(CALENDAR_MON_IN_AZ_LATN_AZ[]) = {
+"",
+"yan",
+"fev",
+"mar",
+"apr",
+"may",
+"iyn",
+"iyl",
+"avq",
+"sen",
+"okt",
+"noy",
+"dek",
+0x00,
+};

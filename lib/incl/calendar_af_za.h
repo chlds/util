@@ -12,17 +12,6 @@ static signed char CALENDAR_LLSC_IN_AF_ZA[] = {
 'A',0xEA,0x9C,0xB0,0xCA,0x80,0xC9,0xAA,0xE1,0xB4,0x8B,0xE1,0xB4,0x80,0xE1,0xB4,0x80,0xC9,0xB4,0xEA,0x9C,0xB1,0x00,
 };
 
-static signed char *(CALENDAR_WK_IN_AF_ZA[]) = {
-"So.",
-"Ma.",
-"Di.",
-"Wo.",
-"Do.",
-"Vr.",
-"Sa.",
-0x00,
-};
-
 static signed char *(CALENDAR_WEEK_IN_AF_ZA[]) = {
 "Sondag",
 "Maandag",
@@ -31,6 +20,17 @@ static signed char *(CALENDAR_WEEK_IN_AF_ZA[]) = {
 "Donderdag",
 "Vrydag",
 "Saterdag",
+0x00,
+};
+
+static signed char *(CALENDAR_WK_IN_AF_ZA[]) = {
+"So.",
+"Ma.",
+"Di.",
+"Wo.",
+"Do.",
+"Vr.",
+"Sa.",
 0x00,
 };
 
@@ -48,5 +48,22 @@ static signed char *(CALENDAR_MONTH_IN_AF_ZA[]) = {
 "Oktober",
 "November",
 "Desember",
+0x00,
+};
+
+static signed char *(CALENDAR_MON_IN_AF_ZA[]) = {
+"",
+"Jan.",
+"Feb.",
+"Mrt.",
+"Apr.",
+"Mei",
+"Jun.",
+"Jul.",
+"Aug.",
+"Sep.",
+"Okt.",
+"Nov.",
+"Des.",
 0x00,
 };
