@@ -51,6 +51,17 @@ SATURDAY_VI_VN,
 
 static signed char *(CALENDAR_WK_IN_VI_VN[]) = {
 "CN",
+"Th 2",
+"Th 3",
+"Th 4",
+"Th 5",
+"Th 6",
+"Th 7",
+0x00,
+};
+
+static signed char *(CALENDAR_W_IN_VI_VN[]) = {
+"CN",
 "T2",
 "T3",
 "T4",
@@ -96,6 +107,7 @@ static signed char NOVEMBER_VI_VN[] = {
 static signed char DECEMBER_VI_VN[] = {
 't','h',0xC3,0xA1,'n','g',' ','1','2',0x00,
 };
+
 static signed char *(CALENDAR_MONTH_IN_VI_VN[]) = {
 "",
 JANUARY_VI_VN,
@@ -110,5 +122,22 @@ SEPTEMBER_VI_VN,
 OCTOBER_VI_VN,
 NOVEMBER_VI_VN,
 DECEMBER_VI_VN,
+0x00,
+};
+
+static signed char *(CALENDAR_MON_IN_VI_VN[]) = {
+"",
+"thg 1",
+"thg 2",
+"thg 3",
+"thg 4",
+"thg 5",
+"thg 6",
+"thg 7",
+"thg 8",
+"thg 9",
+"thg 10",
+"thg 11",
+"thg 12",
 0x00,
 };
