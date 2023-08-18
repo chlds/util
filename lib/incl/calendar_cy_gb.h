@@ -18,17 +18,6 @@ static signed char CALENDAR_LLSC_NATIVE_IN_CY_GB[] = {
 0xE1,0xB4,0x80,0xE1,0xB4,0x87,0xC9,0xA2,0x00,
 };
 
-static signed char *(CALENDAR_WK_IN_CY_GB[]) = {
-"Sul",
-"Llun",
-"Maw",
-"Mer",
-"Iau",
-"Gwen",
-"Sad",
-0x00,
-};
-
 static signed char *(CALENDAR_WEEK_IN_CY_GB[]) = {
 "Dydd Sul",
 "Dydd Llun",
@@ -37,6 +26,17 @@ static signed char *(CALENDAR_WEEK_IN_CY_GB[]) = {
 "Dydd Iau",
 "Dydd Gwener",
 "Dydd Sadwrn",
+0x00,
+};
+
+static signed char *(CALENDAR_WK_IN_CY_GB[]) = {
+"Sul",
+"Llun",
+"Maw",
+"Mer",
+"Iau",
+"Gwen",
+"Sad",
 0x00,
 };
 
@@ -90,5 +90,22 @@ static signed char *(CALENDAR_MONTH_IN_CY_GB[]) = {
 "Hydref",
 "Tachwedd",
 "Rhagfyr",
+0x00,
+};
+
+static signed char *(CALENDAR_MON_IN_CY_GB[]) = {
+"",
+"Ion",
+"Chwef",
+"Maw",
+"Ebr",
+"Mai",
+"Meh",
+"Gorff",
+"Awst",
+"Medi",
+"Hyd",
+"Tach",
+"Rhag",
 0x00,
 };
