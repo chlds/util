@@ -30,23 +30,6 @@ FIRST_DA_DK,
 0x00,
 };
 
-static signed char SUN_DA_DK[] = {
-'s',0xC3,0xB8,'n','.',0x00,
-};
-static signed char SAT_DA_DK[] = {
-'l',0xC3,0xB8,'r','.',0x00,
-};
-static signed char *(CALENDAR_WK_IN_DA_DK[]) = {
-SUN_DA_DK,
-"man.",
-"tirs.",
-"ons.",
-"tors.",
-"fre.",
-SAT_DA_DK,
-0x00,
-};
-
 static signed char SUNDAY_DA_DK[] = {
 's',0xC3,0xB8,'n','d','a','g',0x00,
 };
@@ -64,6 +47,23 @@ SATURDAY_DA_DK,
 0x00,
 };
 
+static signed char SUN_DA_DK[] = {
+'s',0xC3,0xB8,'n','.',0x00,
+};
+static signed char SAT_DA_DK[] = {
+'l',0xC3,0xB8,'r','.',0x00,
+};
+static signed char *(CALENDAR_WK_IN_DA_DK[]) = {
+SUN_DA_DK,
+"man.",
+"tirs.",
+"ons.",
+"tors.",
+"fre.",
+SAT_DA_DK,
+0x00,
+};
+
 static signed char *(CALENDAR_MONTH_IN_DA_DK[]) = {
 "",
 "januar",
@@ -78,5 +78,22 @@ static signed char *(CALENDAR_MONTH_IN_DA_DK[]) = {
 "oktober",
 "november",
 "december",
+0x00,
+};
+
+static signed char *(CALENDAR_MON_IN_DA_DK[]) = {
+"",
+"jan.",
+"feb.",
+"mar.",
+"apr.",
+"maj",
+"jun.",
+"jul.",
+"aug.",
+"sep.",
+"okt.",
+"nov.",
+"dec.",
 0x00,
 };
