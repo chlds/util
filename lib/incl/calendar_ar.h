@@ -42,6 +42,7 @@ static signed char FRIDAY_AR[] = {
 static signed char SATURDAY_AR[] = {
 0xD8,0xA7,0xD9,0x84,0xD8,0xB3,0xD8,0xA8,0xD8,0xAA,0x00,
 };
+
 static signed char *(CALENDAR_WEEK_IN_AR[]) = {
 SUNDAY_AR,
 MONDAY_AR,
@@ -53,35 +54,47 @@ SATURDAY_AR,
 0x00,
 };
 
-static signed char SUN_AR[] = {
+static signed char *(CALENDAR_WK_IN_AR[]) = {
+SUNDAY_AR,
+MONDAY_AR,
+TUESDAY_AR,
+WEDNESDAY_AR,
+THURSDAY_AR,
+FRIDAY_AR,
+SATURDAY_AR,
+0x00,
+};
+
+static signed char SU_AR[] = {
 0xD8,0xAD,0x00,
 };
-static signed char MON_AR[] = {
+static signed char MO_AR[] = {
 0xD9,0x86,0x00,
 };
-static signed char TUE_AR[] = {
+static signed char TU_AR[] = {
 0xD8,0xAB,0x00,
 };
-static signed char WED_AR[] = {
+static signed char WE_AR[] = {
 0xD8,0xB1,0x00,
 };
-static signed char THU_AR[] = {
+static signed char TH_AR[] = {
 0xD8,0xAE,0x00,
 };
-static signed char FRI_AR[] = {
+static signed char FR_AR[] = {
 0xD8,0xAC,0x00,
 };
-static signed char SAT_AR[] = {
+static signed char SA_AR[] = {
 0xD8,0xB3,0x00,
 };
-static signed char *(CALENDAR_WK_IN_AR[]) = {
-SUN_AR,
-MON_AR,
-TUE_AR,
-WED_AR,
-THU_AR,
-FRI_AR,
-SAT_AR,
+
+static signed char *(CALENDAR_W_IN_AR[]) = {
+SU_AR,
+MO_AR,
+TU_AR,
+WE_AR,
+TH_AR,
+FR_AR,
+SA_AR,
 0x00,
 };
 
@@ -121,7 +134,25 @@ static signed char NOVEMBER_AR[] = {
 static signed char DECEMBER_AR[] = {
 0xD8,0xAF,0xD9,0x8A,0xD8,0xB3,0xD9,0x85,0xD8,0xA8,0xD8,0xB1,0x00,
 };
+
 static signed char *(CALENDAR_MONTH_IN_AR[]) = {
+"",
+JANUARY_AR,
+FEBRUARY_AR,
+MARCH_AR,
+APRIL_AR,
+MAY_AR,
+JUNE_AR,
+JULY_AR,
+AUGUST_AR,
+SEPTEMBER_AR,
+OCTOBER_AR,
+NOVEMBER_AR,
+DECEMBER_AR,
+0x00,
+};
+
+static signed char *(CALENDAR_MON_IN_AR[]) = {
 "",
 JANUARY_AR,
 FEBRUARY_AR,
