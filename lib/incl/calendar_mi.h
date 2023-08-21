@@ -13,7 +13,7 @@ static signed char CALENDAR_LLSC_IN_MI[] = {
 };
 
 static signed char CALENDAR_NATIVE_IN_MI[] = {
-'M',0xE1,0xB4,0x80,0xCC,0x84,0xE1,0xB4,0x8F,0xCA,0x80,0xC9,0xAA,0x00,
+'t','e',' ','r','e','o',' ','M',0xC4,0x81,'o','r','i',0x00,
 };
 static signed char *CALENDAR_LLSC_NATIVE_IN_MI = (CALENDAR_NATIVE_IN_MI);
 
