@@ -12,6 +12,38 @@ signed(__cdecl tw_b_r(signed char(**argp)));
 signed(__cdecl tw_b(signed(arg),signed char(**argp),signed char(**envp)));
 /* Debug */
 
+signed(__cdecl relw_r(signed char(**argp)));
+signed(__cdecl relw(signed char(**argp)));
+/* Release */
+
+signed(__cdecl convv_r(signed char(**di),signed char(**sym),signed char(*si)));
+signed char **(__cdecl convv(signed char(**sym),signed char(*argp)));
+/* Convert */
+
+signed(__cdecl cntv_r(signed char(**sym),signed char(*argp)));
+signed(__cdecl cntv(signed char(**sym),signed char(*argp)));
+/* Count */
+
+signed(__cdecl cuev_rrrr(signed char(**sym),signed char(*argp)));
+signed(__cdecl cuev_rrr(signed char(**sym),signed char(*argp)));
+signed(__cdecl cuev_rr(signed char(**sym),signed char(*argp)));
+signed(__cdecl cuev_r(signed char(**sym),signed char(*argp)));
+signed(__cdecl cuev(signed char(**sym),signed char(*argp)));
+signed(__cdecl cuemb_r(signed char(**sym),signed char(*argp)));
+signed(__cdecl cuemb(signed char(**sym),signed char(*argp)));
+signed(__cdecl cuell_r(signed char(**sym),signed char(*argp)));
+signed(__cdecl cuell(signed char(**sym),signed char(*argp)));
+signed(__cdecl cuesy(signed char(**sym),signed char(*argp)));
+signed(__cdecl cuesp(signed char *argp));
+signed(__cdecl cuecr(signed char *argp));
+signed(__cdecl cuelf(signed char *argp));
+signed(__cdecl cueht(signed char *argp));
+/* Cue */
+
+signed char *(__cdecl casca_r(signed char *argp));
+signed char *(__cdecl casca(signed char *argp));
+/* Cascade */
+
 signed(__cdecl clih_utf_8_i_r(void(*argp),signed(__cdecl*f)(void(*argp))));
 signed(__cdecl clih_utf_8_i(void(*argp),signed(__cdecl*f)(void(*argp))));
 signed(__cdecl clih_utf_8_o_r(void(*argp),signed(__cdecl*f)(void(*argp))));
