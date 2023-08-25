@@ -16,16 +16,23 @@ signed(__cdecl relw_r(signed char(**argp)));
 signed(__cdecl relw(signed char(**argp)));
 /* Release */
 
+signed(__cdecl convt_r(signed char(**di),signed char(**sym),signed char(*si)));
+signed char **(__cdecl convt(signed char(**sym),signed char(*argp)));
 signed(__cdecl convv_r(signed char(**di),signed char(**sym),signed char(*si)));
 signed char **(__cdecl convv(signed char(**sym),signed char(*argp)));
 /* Convert */
 
+signed(__cdecl cntt_r(signed char(**sym),signed char(*argp)));
+signed(__cdecl cntt(signed char(**sym),signed char(*argp)));
 signed(__cdecl cntv_r(signed char(**sym),signed char(*argp)));
 signed(__cdecl cntv(signed char(**sym),signed char(*argp)));
 /* Count */
 
 signed(__cdecl cue_rrrr(signed char(**sym),signed char(*argp)));
 signed(__cdecl cue_rrr(signed char(**sym),signed char(*argp)));
+signed(__cdecl cuet_rr(signed char(**sym),signed char(*argp)));
+signed(__cdecl cuet_r(signed char(**sym),signed char(*argp)));
+signed(__cdecl cuet(signed char(**sym),signed char(*argp)));
 signed(__cdecl cuev_rr(signed char(**sym),signed char(*argp)));
 signed(__cdecl cuev_r(signed char(**sym),signed char(*argp)));
 signed(__cdecl cuev(signed char(**sym),signed char(*argp)));
