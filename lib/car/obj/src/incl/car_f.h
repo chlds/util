@@ -24,8 +24,8 @@ signed(__cdecl cntv_r(signed char(**sym),signed char(*argp)));
 signed(__cdecl cntv(signed char(**sym),signed char(*argp)));
 /* Count */
 
-signed(__cdecl cuev_rrrr(signed char(**sym),signed char(*argp)));
-signed(__cdecl cuev_rrr(signed char(**sym),signed char(*argp)));
+signed(__cdecl cue_rrrr(signed char(**sym),signed char(*argp)));
+signed(__cdecl cue_rrr(signed char(**sym),signed char(*argp)));
 signed(__cdecl cuev_rr(signed char(**sym),signed char(*argp)));
 signed(__cdecl cuev_r(signed char(**sym),signed char(*argp)));
 signed(__cdecl cuev(signed char(**sym),signed char(*argp)));
