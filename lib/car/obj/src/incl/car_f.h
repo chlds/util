@@ -12,6 +12,9 @@ signed(__cdecl tw_b_r(signed char(**argp)));
 signed(__cdecl tw_b(signed(arg),signed char(**argp),signed char(**envp)));
 /* Debug */
 
+pg_t *(__cdecl catlxe_rr(pg_t(*di),signed char(**si),signed short(flag)));
+pg_t *(__cdecl catlxe_r(signed char(**argp),signed short(flag)));
+pg_t *(__cdecl catlxe(signed short(flag/* CIRC or DBLY */),signed char(**argp)));
 signed(__cdecl cntpg_r(pg_t(*di),pg_t(*si)));
 signed(__cdecl cntpg(pg_t(*argp)));
 signed(__cdecl catpg_rr(signed short(flag),pg_t(*di),pg_t(*si)));
