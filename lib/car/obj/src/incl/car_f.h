@@ -12,6 +12,20 @@ signed(__cdecl tw_b_r(signed char(**argp)));
 signed(__cdecl tw_b(signed(arg),signed char(**argp),signed char(**envp)));
 /* Debug */
 
+signed(__cdecl cntpg_r(pg_t(*di),pg_t(*si)));
+signed(__cdecl cntpg(pg_t(*argp)));
+signed(__cdecl catpg_rr(signed short(flag),pg_t(*di),pg_t(*si)));
+signed(__cdecl catpg_r(signed short(flag),pg_t(*di),pg_t(*si)));
+signed(__cdecl catpg(signed short(flag),pg_t(*di),pg_t(*si)));
+signed(__cdecl bindpg_r(signed short(flag),pg_t(*di),pg_t(*si)));
+signed(__cdecl bindpg(signed short(flag),pg_t(*argp)));
+signed(__cdecl initpg(signed(arg),pg_t(*argp)));
+signed(__cdecl cfmppg(pg_t(*argp)));
+signed(__cdecl relppg(pg_t(*argp)));
+signed(__cdecl unbindpg(pg_t(*argp)));
+signed(__cdecl relpg(pg_t(*argp)));
+/* Build a linked list */
+
 signed(__cdecl relw_r(signed char(**argp)));
 signed(__cdecl relw(signed char(**argp)));
 /* Release */
