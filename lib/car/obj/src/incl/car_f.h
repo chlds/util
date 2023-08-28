@@ -302,6 +302,7 @@ signed(__cdecl op_w(signed short(*path),signed(*argp),...));
 signed(__cdecl op_b(signed char(*path),signed(*argp),...));
 /* Operation */
 
+signed char *(__cdecl rdf_b(signed char(*argp),signed(arg)));
 signed char *(__cdecl readt_r(signed char(*argp),signed(args/* fd */),signed(argt/* letters */)));
 signed char *(__cdecl readt(signed(args/* fd */),signed(argt/* letters */)));
 signed char *(__cdecl readl_r(signed char(*argp),signed(args/* fd */),signed(argt/* times */)));
