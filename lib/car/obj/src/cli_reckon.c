@@ -15,7 +15,7 @@ signed(__cdecl cli_reckon(signed short(arg/* align */))) {
 auto signed r;
 auto signed short x;
 auto coord_t coord;
-if(arg<(0x01)) arg = (0x08);
+if(!(0x00<(arg))) arg = (0x08);
 if(0x08<(arg)) arg = (0x08);
 r = coord_report(OBJS,&coord);
 if(!r) return(0x00);

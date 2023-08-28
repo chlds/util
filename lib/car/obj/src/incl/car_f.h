@@ -12,6 +12,15 @@ signed(__cdecl tw_b_r(signed char(**argp)));
 signed(__cdecl tw_b(signed(arg),signed char(**argp),signed char(**envp)));
 /* Debug */
 
+signed(__cdecl opg(pg_t *argp));
+signed(__cdecl wrtxt(signed char(*argp),signed(arg)));
+signed(__cdecl wrtt_r(signed char *argp));
+signed(__cdecl wrtt(signed char *argp));
+signed(__cdecl wrt_r(signed char(*argp),signed(arg)));
+signed(__cdecl wrt(signed char(*argp),signed(arg)));
+signed(__cdecl ctt(signed char *argp));
+/* Write to the console screen */
+
 pg_t *(__cdecl catlxe_rr(pg_t(*di),signed char(**si),signed short(flag)));
 pg_t *(__cdecl catlxe_r(signed char(**argp),signed short(flag)));
 pg_t *(__cdecl catlxe(signed short(flag/* CIRC or DBLY */),signed char(**argp)));
