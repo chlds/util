@@ -293,6 +293,7 @@ signed(__cdecl xt_parse_permission(signed(*retv),signed(*cache),signed char(*arg
 signed(__cdecl xt_parse_access(signed(*retv),signed char(*argp)));
 signed(__cdecl xt_parse(signed(*permission),signed(*access),signed char(*argp)));
 signed(__cdecl xt(signed char(*param),signed char(*path),void(*argp),signed(__cdecl*f)(signed(arg),void(*argp))));
+signed char *(__cdecl xtt_w(signed char(*param),signed short(*path),signed(argt),signed char *(__cdecl*f)(signed(args/* fd */),signed(argt))));
 signed char *(__cdecl xtt(signed char(*param),signed char(*path),signed(argt),signed char *(__cdecl*f)(signed(args/* fd */),signed(argt))));
 signed(__cdecl cl_w(signed(arg)));
 signed(__cdecl cl_b(signed(arg)));
@@ -302,6 +303,7 @@ signed(__cdecl op_w(signed short(*path),signed(*argp),...));
 signed(__cdecl op_b(signed char(*path),signed(*argp),...));
 /* Operation */
 
+signed char *(__cdecl rdf_w(signed short(*argp),signed(arg)));
 signed char *(__cdecl rdf_b(signed char(*argp),signed(arg)));
 signed char *(__cdecl readt_r(signed char(*argp),signed(args/* fd */),signed(argt/* letters */)));
 signed char *(__cdecl readt(signed(args/* fd */),signed(argt/* letters */)));
