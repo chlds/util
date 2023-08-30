@@ -12,6 +12,14 @@ signed(__cdecl tw_b_r(signed char(**argp)));
 signed(__cdecl tw_b(signed(arg),signed char(**argp),signed char(**envp)));
 /* Debug */
 
+signed(__cdecl cmpy_b_rr(signed char(*di),signed char(*si)));
+signed(__cdecl cmpy_b_r(signed char(*di),signed char(*si)));
+signed(__cdecl cmpy_b(signed char(*di),signed char(*si)));
+signed(__cdecl cmpa_b_r(signed char(*di),signed char(*si)));
+signed(__cdecl cmpa_b(signed char(*di),signed char(*si)));
+signed(__cdecl cmp_b(signed char(*di),signed char(*si)));
+/* Compare */
+
 signed(__cdecl opg(pg_t *argp));
 signed(__cdecl wrtxt(signed char(*argp),signed(arg)));
 signed(__cdecl wrtt_r(signed char *argp));
