@@ -12,6 +12,27 @@ signed(__cdecl tw_b_r(signed char(**argp)));
 signed(__cdecl tw_b(signed(arg),signed char(**argp),signed char(**envp)));
 /* Debug */
 
+signed(__cdecl cvat_mn_rrrrr(signed char **argp));
+signed(__cdecl cvat_mn_rrrr(signed char **argp));
+signed(__cdecl cvat_mn_rrr(signed char **argp));
+signed(__cdecl cvat_mn_rr(signed char **argp));
+signed(__cdecl cvat_mn_r(signed char **argp));
+signed(__cdecl cvat_mn(signed char **argp));
+signed(__cdecl cvat_hr_rrr(signed char **argp));
+signed(__cdecl cvat_hr_rr(signed char **argp));
+signed(__cdecl cvat_hr_r(signed char **argp));
+signed(__cdecl cvat_hr(signed char **argp));
+signed(__cdecl cfmmer_r(signed char **argp));
+signed(__cdecl cfmmer(signed char **argp));
+signed(__cdecl cvatt_rrr(signed char(**sym),signed char(*argp),signed(__cdecl*f)(signed char(**argv))));
+signed(__cdecl cvatt_rr(signed char(*argp),signed(__cdecl*f)(signed char(**argv))));
+signed(__cdecl cvatt_r(signed(arg),signed char(*argp),signed(__cdecl*f)(signed char(**argv))));
+signed(__cdecl cvatt(signed(arg),signed char(*argp),signed(__cdecl*f)(signed char(**argv))));
+signed(__cdecl cvat_rr(signed(arg),signed char(*argp)));
+signed(__cdecl cvat_r(signed(arg),signed char(*argp)));
+signed(__cdecl cvat(signed(arg),signed char(*argp)));
+/* Retrieve time */
+
 signed char *(__cdecl cata_b_r(signed char(*di),signed char(*si),signed(arg)));
 signed char *(__cdecl cata_b(signed char(*di),signed char(*si),signed(arg)));
 signed char *(__cdecl cata(signed char(*di),signed char(*si)));
