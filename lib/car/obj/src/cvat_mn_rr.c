@@ -1,14 +1,10 @@
 # define CAR_H
 # include "./../../../config.h"
 
-signed(__cdecl cvat_mn_rr(signed char **argp)) {
+signed(__cdecl cvat_mn_rr(signed(arg),signed char(**argp))) {
 auto signed char *b;
-auto signed r;
-auto signed char sym[] = ("at");
-if(!argp) return(~0x00);
+if(!argp) return(arg);
 b = (*argp);
-if(!b) return(~0x00);
-if(!(cmpa_b(sym,b))) return(cvat_mn_rrr(++argp));
-argp++;
-return(cvat_mn_rr(argp));
+if(cf_meridiem(b)) return(convhm_mer(arg,b));
+return(arg);
 }
