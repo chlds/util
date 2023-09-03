@@ -8,7 +8,7 @@ if(!argp) return(~0x00);
 if(!(*argp)) return(~0x00);
 AND(r,0x00);
 NOT(r);
-w = convv(sym,argp);
+w = convt(sym,argp);
 if(!w) return(~0x00);
 if(f) r = f(w);
 relw(w);

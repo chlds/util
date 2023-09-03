@@ -10,6 +10,7 @@ if(cueht(argp)) return(0x00);
 if(cuelf(argp)) return(0x00);
 if(cuecr(argp)) return(0x00);
 if(cuesp(argp)) return(0x00);
+if(cuenb(argp)) return(0x00);
 if(cuesy(sym,argp)) return(0x00);
 r = ct_a(argp);
 if(!r) return(0x00);

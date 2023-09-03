@@ -83,28 +83,19 @@ signed(__cdecl relw_r(signed char(**argp)));
 signed(__cdecl relw(signed char(**argp)));
 /* Release */
 
-signed(__cdecl convt_xe_r(signed char(**di),signed char(**sym),signed char(*si)));
-signed char **(__cdecl convt_xe(signed char(**sym),signed char(*argp)));
 signed(__cdecl convt_r(signed char(**di),signed char(**sym),signed char(*si)));
 signed char **(__cdecl convt(signed char(**sym),signed char(*argp)));
-signed(__cdecl convv_xe_r(signed char(**di),signed char(**sym),signed char(*si)));
-signed char **(__cdecl convv_xe(signed char(**sym),signed char(*argp)));
 signed(__cdecl convv_r(signed char(**di),signed char(**sym),signed char(*si)));
 signed char **(__cdecl convv(signed char(**sym),signed char(*argp)));
 /* Convert */
 
-signed(__cdecl cntt_xe_r(signed char(**sym),signed char(*argp)));
-signed(__cdecl cntt_xe(signed char(**sym),signed char(*argp)));
 signed(__cdecl cntt_r(signed char(**sym),signed char(*argp)));
 signed(__cdecl cntt(signed char(**sym),signed char(*argp)));
-signed(__cdecl cntv_xe_r(signed char(**sym),signed char(*argp)));
-signed(__cdecl cntv_xe(signed char(**sym),signed char(*argp)));
 signed(__cdecl cntv_r(signed char(**sym),signed char(*argp)));
 signed(__cdecl cntv(signed char(**sym),signed char(*argp)));
 /* Count */
 
-signed(__cdecl cuex_r(signed char(**sym),signed char(*argp),signed(__cdecl*f)(signed char(**sym),signed char(*argp))));
-signed(__cdecl cuex(signed char(**sym),signed char(*argp),signed(__cdecl*f)(signed char(**sym),signed char(*argp))));
+signed(__cdecl cue_rrrrr(signed char(**sym),signed char(*argp)));
 signed(__cdecl cue_rrrr(signed char(**sym),signed char(*argp)));
 signed(__cdecl cue_rrr(signed char(**sym),signed char(*argp)));
 signed(__cdecl cuet_rr(signed char(**sym),signed char(*argp)));
