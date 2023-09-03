@@ -8,7 +8,7 @@ auto signed char sym[] = ("at");
 if(!argp) return(~0x00);
 b = (*argp);
 if(!b) return(~0x00);
-if(!(cmpa_b(sym,b))) return(cvat_hr_rrr(++argp));
+if(!(cmpa_b(sym,b))) return(cvat_hr_extra(++argp,cvat_hr_rrr));
 argp++;
 return(cvat_hr_rr(argp));
 }

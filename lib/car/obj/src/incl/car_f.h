@@ -12,9 +12,12 @@ signed(__cdecl tw_b_r(signed char(**argp)));
 signed(__cdecl tw_b(signed(arg),signed char(**argp),signed char(**envp)));
 /* Debug */
 
-signed(__cdecl cvat_mn_rr(signed(arg),signed char(**argp)));
+signed(__cdecl cvat_mn_r_rr(signed(arg),signed char(**argp)));
+signed(__cdecl cvat_mn_r_r(signed(arg),signed char(**argp)));
 signed(__cdecl cvat_mn_r(signed(arg),signed char(**argp)));
 signed(__cdecl cvat_mn(signed(arg),signed char(**argp)));
+signed(__cdecl cvat_hr_extra(signed char(**argp),signed(__cdecl*f)(signed char(**argp))));
+signed(__cdecl cvat_hr_rrr_rr(signed(arg),signed char(**argp)));
 signed(__cdecl cvat_hr_rrr_r(signed(arg),signed char(**argp)));
 signed(__cdecl cvat_hr_rrr(signed char **argp));
 signed(__cdecl cvat_hr_rr(signed char **argp));

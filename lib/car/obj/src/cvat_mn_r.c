@@ -15,7 +15,6 @@ if(!(cv_da_first(0x0A,&r,b))) return(~0x00);
 if(r<(0x00)) r = (0x01+(~r));
 if(!(r<(min))) r = (r%(min));
 OR(arg,r);
-if(cf_meridiem(b)) return(convhm_mer(arg,b));
 argp++;
-return(cvat_mn_rr(arg,argp));
+return(cvat_mn_r_r(arg,argp));
 }
