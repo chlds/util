@@ -9,6 +9,5 @@ b = (*argp);
 if(!b) return(0x00);
 r = cf_meridiem(b);
 if(r) return(r);
-argp++;
-return(cfmmer_r(argp));
+return(cfmmer_rr(argp));
 }

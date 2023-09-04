@@ -1,7 +1,7 @@
 # define CAR_H
 # include "./../../../config.h"
 
-signed(__cdecl convhm_mer_r(signed(arg),signed char(*argp))) {
+signed(__cdecl convhm_mer_r(signed(arg),signed char(**argp))) {
 auto signed r;
 auto signed bit = (0x10);
 auto signed mask = (0xFFFF);
