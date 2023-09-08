@@ -12,6 +12,40 @@ signed(__cdecl tw_b_r(signed char(**argp)));
 signed(__cdecl tw_b(signed(arg),signed char(**argp),signed char(**envp)));
 /* Debug */
 
+signed(__cdecl cvyr_txt_r(signed char *argp));
+signed(__cdecl cvyr_txt(signed char *argp));
+signed(__cdecl cvyr(signed char *argp));
+signed(__cdecl cvmo_txt_rr(signed char(***di),signed char(*si)));
+signed(__cdecl cvmo_txt_r(signed char *argp));
+signed(__cdecl cvmo_txt(signed char *argp));
+signed(__cdecl cvmo(signed char *argp));
+signed(__cdecl cvdi_txt_r(signed char *argp));
+signed(__cdecl cvdi_txt(signed char *argp));
+signed(__cdecl cvdi(signed char *argp));
+signed(__cdecl convyr(signed arg));
+signed(__cdecl convmo(signed arg));
+signed(__cdecl convdi(signed arg));
+signed(__cdecl cvdt_vec_extras_r(signed(arg),signed char(**argp),signed(__cdecl*f)(signed(arg),signed char(**argp))));
+signed(__cdecl cvdt_vec_extras(signed(arg),signed char(**argp),signed(__cdecl*f)(signed(arg),signed char(**argp))));
+signed(__cdecl cvdt_vec_extra_r(signed(arg),signed char(**argp),signed(__cdecl*f)(signed(arg),signed char(**argp))));
+signed(__cdecl cvdt_vec_extra(signed(arg),signed char(**argp),signed(__cdecl*f)(signed(arg),signed char(**argp))));
+signed(__cdecl cvdt_vec_rrrr_r(signed(arg),signed char(**argp)));
+signed(__cdecl cvdt_vec_rrrr(signed(arg),signed char(**argp)));
+signed(__cdecl cvdt_vec_rrr_rr(signed(arg),signed char(**argp)));
+signed(__cdecl cvdt_vec_rrr_r(signed(arg),signed char(**argp)));
+signed(__cdecl cvdt_vec_rrr(signed(arg),signed char(**argp)));
+signed(__cdecl cvdt_vec_rr(signed char **argp));
+signed(__cdecl cvdt_vec_r(signed char **argp));
+signed(__cdecl cvdt_vec(signed char **argp));
+signed(__cdecl cvdt_txt_rrr(signed char(**sym),signed char(*argp),signed(__cdecl*f)(signed char(**argv))));
+signed(__cdecl cvdt_txt_rr(signed char(*argp),signed(__cdecl*f)(signed char(**argv))));
+signed(__cdecl cvdt_txt_r(signed(arg),signed char(*argp),signed(__cdecl*f)(signed char(**argv))));
+signed(__cdecl cvdt_txt(signed(arg),signed char(*argp),signed(__cdecl*f)(signed char(**argv))));
+signed(__cdecl cvdt_rr(signed(arg),signed char(*argp)));
+signed(__cdecl cvdt_r(signed(arg),signed char(*argp)));
+signed(__cdecl cvdt(signed(arg/* from the nth On */),signed char(*argp)));
+/* Retrieve date */
+
 signed(__cdecl cvhr_noon(signed char *argp));
 signed(__cdecl cvhr_midday(signed char *argp));
 signed(__cdecl cvhr_midnight(signed char *argp));
