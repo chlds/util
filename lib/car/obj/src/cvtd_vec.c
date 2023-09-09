@@ -10,6 +10,6 @@ Return (~0x00) on failure
 # define CAR_H
 # include "./../../../config.h"
 
-signed(__cdecl cvat_hr(signed char **argp)) {
-return(cvat_hr_r(argp));
+signed(__cdecl cvtd_vec(signed char **argp)) {
+return(cvtd_vec_r(argp));
 }

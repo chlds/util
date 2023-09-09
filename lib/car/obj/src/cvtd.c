@@ -4,6 +4,8 @@ Convert into time of the day
 
 Remarks:
 Return (~0x00) on failure
+A minute of minutes (0 - 59) is in LSB 16
+A hour of hours (0 - 23) is in MSB 16
 */
 
 

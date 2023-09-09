@@ -11,7 +11,9 @@ OR(r,arg);
 arg = convmn(r);
 SHR(r,bit);
 r = (mask&(r));
-r = convhr(convmer(r,argp));
+r = convmer(r,argp);
+if(!(0x01+(r))) return(r);
+r = convhr(r);
 OR(r,arg);
 return(r);
 }
