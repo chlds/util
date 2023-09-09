@@ -76,14 +76,14 @@ signed(__cdecl cfmmer_rr_r(signed char **argp));
 signed(__cdecl cfmmer_rr(signed char **argp));
 signed(__cdecl cfmmer_r(signed char **argp));
 signed(__cdecl cfmmer(signed char **argp));
-signed(__cdecl cvatt_rrr(signed char(**sym),signed char(*argp),signed(__cdecl*f)(signed char(**argv))));
-signed(__cdecl cvatt_rr(signed char(*argp),signed(__cdecl*f)(signed char(**argv))));
-signed(__cdecl cvatt_r(signed(arg),signed char(*argp),signed(__cdecl*f)(signed char(**argv))));
-signed(__cdecl cvatt(signed(arg),signed char(*argp),signed(__cdecl*f)(signed char(**argv))));
-signed(__cdecl cvat_rr(signed(arg),signed char(*argp)));
-signed(__cdecl cvat_r(signed(arg),signed char(*argp)));
-signed(__cdecl cvat(signed(arg),signed char(*argp)));
-/* Retrieve time */
+signed(__cdecl cvtd_txt_rrr(signed char(**sym),signed char(*argp),signed(__cdecl*f)(signed char(**argv))));
+signed(__cdecl cvtd_txt_rr(signed char(*argp),signed(__cdecl*f)(signed char(**argv))));
+signed(__cdecl cvtd_txt_r(signed(arg),signed char(*argp),signed(__cdecl*f)(signed char(**argv))));
+signed(__cdecl cvtd_txt(signed(arg),signed char(*argp),signed(__cdecl*f)(signed char(**argv))));
+signed(__cdecl cvtd_rr(signed(arg),signed char(*argp)));
+signed(__cdecl cvtd_r(signed(arg),signed char(*argp)));
+signed(__cdecl cvtd(signed(arg),signed char(*argp)));
+/* Retrieve time of the day */
 
 signed char *(__cdecl cata_b_r(signed char(*di),signed char(*si),signed(arg)));
 signed char *(__cdecl cata_b(signed char(*di),signed char(*si),signed(arg)));
