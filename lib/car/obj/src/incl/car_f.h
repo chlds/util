@@ -397,12 +397,20 @@ signed(__cdecl op_b(signed char(*path),signed(*argp),...));
 
 signed char *(__cdecl rdf_w(signed short(*argp),signed(arg)));
 signed char *(__cdecl rdf_b(signed char(*argp),signed(arg)));
+signed char *(__cdecl readtxt(signed(args/* fd */),signed(argt/* letters */)));
 signed char *(__cdecl readt_r(signed char(*argp),signed(args/* fd */),signed(argt/* letters */)));
 signed char *(__cdecl readt(signed(args/* fd */),signed(argt/* letters */)));
 signed char *(__cdecl readl_r(signed char(*argp),signed(args/* fd */),signed(argt/* times */)));
 signed char *(__cdecl readl(signed arg/* fd */));
 signed char *(__cdecl readb(signed arg/* fd */));
 /* Read */
+
+signed(__cdecl seektxt(signed(args/* fd */),signed(argt/* letters */)));
+signed(__cdecl seekt(signed(args/* fd */),signed(argt/* letters */)));
+signed(__cdecl seekl_r(signed(args/* fd */),signed(argt/* times */)));
+signed(__cdecl seekl(signed arg/* fd */));
+signed(__cdecl seekb(signed arg/* fd */));
+/* Seek */
 
 signed(__cdecl catppp(signed char(***argp)));
 signed(__cdecl catpp(signed char(**argp)));
@@ -519,6 +527,8 @@ signed(__cdecl decode_b(signed(*di),signed char(*si)));
 signed(__cdecl decode_surrogate_second(signed short(*di),signed(si)));
 signed(__cdecl decode_surrogate_first(signed short(*di),signed(si)));
 signed(__cdecl nbytechar(signed char(arg)));
+signed(__cdecl caract(signed arg));
+signed(__cdecl cara(signed arg));
 /* Output UTF-16 characters decoded out of UTF-8 bytes */
 
 signed(__cdecl cv_bw_v_r(signed char(**di),signed short(**si)));
