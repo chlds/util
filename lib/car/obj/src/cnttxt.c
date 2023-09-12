@@ -8,6 +8,7 @@ Count letters to the terminating null character
 # include "./../../../config.h"
 
 signed(__cdecl cnttxt(signed char *argp)) {
+auto signed r;
 if(!argp) return(0x00);
 r = caract(cara(cara_b(argp)));
 if(!r) return(r);
