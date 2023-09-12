@@ -538,6 +538,8 @@ signed(__cdecl decode_surrogate_first(signed short(*di),signed(si)));
 signed(__cdecl nbytechar(signed char(arg)));
 signed(__cdecl caract(signed arg));
 signed(__cdecl cara(signed arg));
+signed(__cdecl cara_b(signed char *argp));
+signed(__cdecl cnttxt(signed char *argp));
 /* Output UTF-16 characters decoded out of UTF-8 bytes */
 
 signed(__cdecl cv_bw_v_r(signed char(**di),signed short(**si)));

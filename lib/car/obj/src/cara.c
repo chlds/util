@@ -25,6 +25,7 @@ auto signed const AL_C0 = (0xC0); // the leading (.iio*.****) byte for a 2-byte 
 auto signed const AL_E0 = (0xE0); // the leading (.iiio.****) byte for a 3-byte character expressed in 16 (4+6+6) bits
 auto signed const AL_F0 = (0xF0); // the leading (.iiii.o***) byte for a 4-byte character expressed in 21 (3+6+6+6) bits
 arg = (mask&(arg));
+if(!arg) return(arg);
 r = (arg);
 r = (r&(AL_80));
 if(!r) return(0x01);
