@@ -111,6 +111,8 @@ signed(__cdecl wrt(signed char(*argp),signed(arg)));
 signed(__cdecl ctt(signed char *argp));
 /* Write to the console screen */
 
+pg_t *(__cdecl catcirc_xe(signed char **argp));
+pg_t *(__cdecl catdby_xe(signed char **argp));
 pg_t *(__cdecl catlxe_rr(pg_t(*di),signed char(**si),signed short(flag)));
 pg_t *(__cdecl catlxe_r(signed char(**argp),signed short(flag)));
 pg_t *(__cdecl catlxe(signed short(flag/* CIRC or DBLY */),signed char(**argp)));
@@ -123,7 +125,9 @@ signed(__cdecl bindpg_r(signed short(flag),pg_t(*di),pg_t(*si)));
 signed(__cdecl bindpg(signed short(flag),pg_t(*argp)));
 signed(__cdecl initpg(signed(arg),pg_t(*argp)));
 signed(__cdecl cfmppg(pg_t(*argp)));
+signed(__cdecl relbk(pg_t *argp));
 signed(__cdecl relppg(pg_t(*argp)));
+signed(__cdecl unbindpg_r(pg_t(*argp)));
 signed(__cdecl unbindpg(pg_t(*argp)));
 signed(__cdecl relpg(pg_t(*argp)));
 /* Build a linked list */

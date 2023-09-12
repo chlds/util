@@ -1,6 +1,6 @@
-/* **** Notes
+/* Notes
 
-Release a parent page
+Release a parent page and all its contents
 
 Remarks:
 Refer at fn. relpg

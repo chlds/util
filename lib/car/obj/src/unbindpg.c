@@ -14,9 +14,10 @@ signed(__cdecl unbindpg(pg_t(*argp))) {
 auto pg_t *p;
 auto signed r;
 if(!argp) return(0x00);
-r = relpg(argp);
-p = (*(CLIH_DIFF+(R(p,*argp))));
-if(p) return(0x00);
-if(!(initpg(0x00,argp))) return(0x00);
+p = (argp);
+if(!(cfmppg(p))) return(0x00);
+r = unbindpg_r(p);
+if(!r) return(0x00);
+if(!(initpg(0x00,p))) return(0x00);
 return(r);
 }
