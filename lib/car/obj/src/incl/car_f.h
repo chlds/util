@@ -137,8 +137,10 @@ signed(__cdecl relw(signed char(**argp)));
 /* Release */
 
 signed(__cdecl convt_r(signed char(**di),signed char(**sym),signed char(*si)));
+signed char **(__cdecl convt_xe(signed char(**sym),signed char(*argp)));
 signed char **(__cdecl convt(signed char(**sym),signed char(*argp)));
 signed(__cdecl convv_r(signed char(**di),signed char(**sym),signed char(*si)));
+signed char **(__cdecl convv_xe(signed char(**sym),signed char(*argp)));
 signed char **(__cdecl convv(signed char(**sym),signed char(*argp)));
 /* Convert */
 
