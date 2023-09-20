@@ -102,6 +102,14 @@ signed(__cdecl cmpa_b(signed char(*di),signed char(*si)));
 signed(__cdecl cmp_b(signed char(*di),signed char(*si)));
 /* Compare */
 
+pg_t *(__cdecl cvpgv_xe(signed char(**sym),signed char(*argp)));
+pg_t *(__cdecl cvpgv(signed char(**sym),signed char(*argp)));
+pg_t *(__cdecl cvpgt_xe(signed char(**sym),signed char(*argp)));
+pg_t *(__cdecl cvpgt(signed char(**sym),signed char(*argp)));
+pg_t *(__cdecl cvpg_xe(signed char(**sym),signed char(*argp)));
+pg_t *(__cdecl cvpg(signed char(**sym),signed char(*argp)));
+/* Convert */
+
 signed(__cdecl opg(pg_t *argp));
 signed(__cdecl wrtxt(signed char(*argp),signed(arg)));
 signed(__cdecl wrtt_r(signed char *argp));
