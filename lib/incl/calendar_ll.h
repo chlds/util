@@ -39,8 +39,24 @@ static signed char *(CALENDAR_WK_IN_LL[]) = {
 0x00,
 };
 
+static signed char *(CALENDAR_DAY_IN_LL[]) = {
+"","I","II","III","IV","V","VI","VII","VIII","IX",\
+"X","XI","XII","XIII","XIV","XV","XVI","XVII","XVIII","XIX",\
+"XX","XXI","XXII","XXIII","XXIV","XXV","XXVI","XXVII","XXVIII","XXIX",\
+"XXX","XXXI",\
+0x00,
+};
+
+static signed char *(CALENDAR_DAY_S_IN_LL[]) = {
+"","i","ii","iii","iv","v","vi","vii","viii","ix",\
+"x","xi","xii","xiii","xiv","xv","xvi","xvii","xviii","xix",\
+"xx","xxi","xxii","xxiii","xxiv","xxv","xxvi","xxvii","xxviii","xxix",\
+"xxx","xxxi",\
+0x00,
+};
+
 // more correctly written as Romans did not have a 'J' or a 'U' in their alphabet..
-static signed char *(CALENDAR_MONTH_JU_NOMINATIVE_IN_LL[]) = {
+static signed char *(CALENDAR_MONTH_NOMINATIVE_IN_LL[]) = {
 "",
 "IANVARIVS",
 "FEBRVARIVS",
@@ -57,8 +73,7 @@ static signed char *(CALENDAR_MONTH_JU_NOMINATIVE_IN_LL[]) = {
 0x00,
 };
 
-// more correctly written as Romans did not have a 'J' or a 'U' in their alphabet..
-static signed char *(CALENDAR_MONTH_JU_GENITIVE_SINGULAR_MASCULINE_IN_LL[]) = {
+static signed char *(CALENDAR_MONTH_GENITIVE_SINGULAR_MASCULINE_IN_LL[]) = {
 "",
 "IANVARII",
 "FEBRVARII",
@@ -75,8 +90,7 @@ static signed char *(CALENDAR_MONTH_JU_GENITIVE_SINGULAR_MASCULINE_IN_LL[]) = {
 0x00,
 };
 
-// more correctly written as Romans did not have a 'J' or a 'U' in their alphabet..
-static signed char *(CALENDAR_MON_JU_IN_LL[]) = {
+static signed char *(CALENDAR_MON_IN_LL[]) = {
 "",
 "IAN.",
 "FEB.",
@@ -93,7 +107,7 @@ static signed char *(CALENDAR_MON_JU_IN_LL[]) = {
 0x00,
 };
 
-static signed char *(CALENDAR_MONTH_NOMINATIVE_IN_LL[]) = {
+static signed char *(CALENDAR_MONTH_NOMINATIVE_SS_IN_LL[]) = {
 "",
 "Ianuarius",
 "Februarius",
@@ -110,7 +124,7 @@ static signed char *(CALENDAR_MONTH_NOMINATIVE_IN_LL[]) = {
 0x00,
 };
 
-static signed char *(CALENDAR_MONTH_GENITIVE_SINGULAR_MASCULINE_IN_LL[]) = {
+static signed char *(CALENDAR_MONTH_GENITIVE_SINGULAR_MASCULINE_SS_IN_LL[]) = {
 "",
 "Ianuarii",
 "Februarii",
@@ -127,7 +141,7 @@ static signed char *(CALENDAR_MONTH_GENITIVE_SINGULAR_MASCULINE_IN_LL[]) = {
 0x00,
 };
 
-static signed char *(CALENDAR_MONTH_GENITIVE_PLURAL_MASCULINE_IN_LL[]) = {
+static signed char *(CALENDAR_MONTH_GENITIVE_PLURAL_MASCULINE_SS_IN_LL[]) = {
 "",
 "Ianuariorum",
 "Februariorum",
@@ -144,7 +158,7 @@ static signed char *(CALENDAR_MONTH_GENITIVE_PLURAL_MASCULINE_IN_LL[]) = {
 0x00,
 };
 
-static signed char *(CALENDAR_MON_IN_LL[]) = {
+static signed char *(CALENDAR_MON_SS_IN_LL[]) = {
 "",
 "Ian.",
 "Feb.",
