@@ -12,6 +12,34 @@ signed(__cdecl tw_b_r(signed char(**argp)));
 signed(__cdecl tw_b(signed(arg),signed char(**argp),signed char(**envp)));
 /* Debug */
 
+signed char *(__cdecl cvtxt_month_in_ll(signed(mo),signed(di)));
+signed char *(__cdecl cvtxt_january_in_ll(signed arg/* di */));
+signed char *(__cdecl cvtxt_february_in_ll(signed arg/* di */));
+signed char *(__cdecl cvtxt_march_in_ll(signed arg/* di */));
+signed char *(__cdecl cvtxt_april_in_ll(signed arg/* di */));
+signed char *(__cdecl cvtxt_may_in_ll(signed arg/* di */));
+signed char *(__cdecl cvtxt_june_in_ll(signed arg/* di */));
+signed char *(__cdecl cvtxt_july_in_ll(signed arg/* di */));
+signed char *(__cdecl cvtxt_august_in_ll(signed arg/* di */));
+signed char *(__cdecl cvtxt_september_in_ll(signed arg/* di */));
+signed char *(__cdecl cvtxt_october_in_ll(signed arg/* di */));
+signed char *(__cdecl cvtxt_november_in_ll(signed arg/* di */));
+signed char *(__cdecl cvtxt_december_in_ll(signed arg/* di */));
+signed char *(__cdecl cvtxt_mon_in_ll(signed(mo),signed(arg)));
+signed char *(__cdecl cvtxt_jan_in_ll(signed arg));
+signed char *(__cdecl cvtxt_feb_in_ll(signed arg));
+signed char *(__cdecl cvtxt_mar_in_ll(signed arg));
+signed char *(__cdecl cvtxt_apr_in_ll(signed arg));
+signed char *(__cdecl cvtxt_may_abbrev_in_ll(signed arg));
+signed char *(__cdecl cvtxt_jun_in_ll(signed arg));
+signed char *(__cdecl cvtxt_jul_in_ll(signed arg));
+signed char *(__cdecl cvtxt_aug_in_ll(signed arg));
+signed char *(__cdecl cvtxt_sep_in_ll(signed arg));
+signed char *(__cdecl cvtxt_oct_in_ll(signed arg));
+signed char *(__cdecl cvtxt_nov_in_ll(signed arg));
+signed char *(__cdecl cvtxt_dec_in_ll(signed arg));
+/* lingua latina */
+
 signed(__cdecl cvyr_txt_r(signed char *argp));
 signed(__cdecl cvyr_txt(signed char *argp));
 signed(__cdecl cvyr(signed char *argp));
