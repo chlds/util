@@ -1,11 +1,11 @@
-signed char *(__cdecl cvtxtofmonths_t_in_ll_r(time_t(*argp)));
-signed char *(__cdecl cvtxtofmonths_t_in_ll(signed char(*di),time_t(*argp)));
-signed char *(__cdecl cvtxtofhollowmonths_t_in_ll(signed(arg),time_t(*argp)));
-signed char *(__cdecl cvtxtoffullmonths_t_in_ll(signed(arg),time_t(*argp)));
-signed char *(__cdecl cvtxt_t_in_ll_rrr(time_t(*argp),signed char *(__cdecl*f)(signed(arg),time_t(*argp))));
-signed char *(__cdecl cvtxt_t_in_ll_rr(signed(arg),time_t(*argp)));
-signed char *(__cdecl cvtxt_t_in_ll_r(time_t *argp));
-signed char *(__cdecl cvtxt_t_in_ll(time_t *argp));
+signed char *(__cdecl cvtxtofmonths_in_ll_te_r(time_t(*argp)));
+signed char *(__cdecl cvtxtofmonths_in_ll_te(signed char(*di),time_t(*argp)));
+signed char *(__cdecl cvtxtofhollowmonths_in_ll_te(signed(arg),time_t(*argp)));
+signed char *(__cdecl cvtxtoffullmonths_in_ll_te(signed(arg),time_t(*argp)));
+signed char *(__cdecl cvtxt_in_ll_te_rrr(time_t(*argp),signed char *(__cdecl*f)(signed(arg),time_t(*argp))));
+signed char *(__cdecl cvtxt_in_ll_te_rr(signed(arg),time_t(*argp)));
+signed char *(__cdecl cvtxt_in_ll_te_r(time_t *argp));
+signed char *(__cdecl cvtxt_in_ll_te(time_t *argp));
 /* lingua latina */
 
 signed(__cdecl current_sm_b(signed(arg),time_t(*argp)));

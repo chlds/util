@@ -3,14 +3,14 @@
 # define TIME_H
 # include "./../../../config.h"
 
-signed char *(__cdecl cvtxt_t_in_ll_rr(signed(arg),time_t(*argp))) {
+signed char *(__cdecl cvtxt_in_ll_te_rr(signed(arg),time_t(*argp))) {
 auto signed char *b;
 auto signed short flag;
 auto signed char *(__cdecl*f)(signed(arg),time_t(*argp));
 auto signed char *(__cdecl**ff)(signed(arg),time_t(*argp));
 auto signed char *(__cdecl*(fn[]))(signed(arg),time_t(*argp)) = {
-cvtxtoffullmonths_t_in_ll,
-cvtxtofhollowmonths_t_in_ll,
+cvtxtoffullmonths_in_ll_te,
+cvtxtofhollowmonths_in_ll_te,
 0x00,
 };
 if(!(0x00<(arg))) return(0x00);
@@ -25,5 +25,5 @@ if(EQ(0x0A,arg)) OR(flag,0x01);
 if(!flag) ff++;
 f = (*ff);
 if(!f) return(b);
-return(cvtxt_t_in_ll_rrr(argp,f));
+return(cvtxt_in_ll_te_rrr(argp,f));
 }

@@ -3,14 +3,14 @@
 # define TIME_H
 # include "./../../../config.h"
 
-signed char *(__cdecl cvtxtofmonths_t_in_ll(signed char(*di),time_t(*argp))) {
+signed char *(__cdecl cvtxtofmonths_in_ll_te(signed char(*di),time_t(*argp))) {
 auto signed char *b;
 auto signed r;
 auto signed compatible = (0x00);
 auto signed debug = (DBG);
 auto signed char sp[] = (" ");
 if(!argp) return(di);
-if(!di) return(cvtxtofmonths_t_in_ll_r(argp));
+if(!di) return(cvtxtofmonths_in_ll_te_r(argp));
 r = (compatible+(current_mo_b(debug,argp)));
 if(!(0x01+(r))) return(di);
 b = cvtxt_month_in_ll(r,current_di_b(debug,argp));

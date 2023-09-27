@@ -3,7 +3,7 @@
 # define TIME_H
 # include "./../../../config.h"
 
-signed char *(__cdecl cvtxt_t_in_ll_rrr(time_t(*argp),signed char *(__cdecl*f)(signed(arg),time_t(*argp)))) {
+signed char *(__cdecl cvtxt_in_ll_te_rrr(time_t(*argp),signed char *(__cdecl*f)(signed(arg),time_t(*argp)))) {
 auto signed r;
 auto signed debug = (DBG);
 if(!argp) return(0x00);
