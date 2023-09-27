@@ -7,7 +7,7 @@ signed char *(__cdecl cvtxtofmonths_abbrev_in_ll_te(signed char(*di),time_t(*arg
 auto signed char *b;
 auto signed r;
 auto signed compatible = (0x00);
-// auto signed debug = (DBG);
+auto signed debug = (DBG);
 auto signed char sp[] = (" ");
 if(!argp) return(di);
 if(!di) return(cvtxtofmonths_abbrev_in_ll_te_r(argp));
