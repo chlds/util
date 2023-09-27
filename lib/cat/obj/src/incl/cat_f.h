@@ -1,3 +1,5 @@
+signed char *(__cdecl cvtxtofyears_in_ll_te_r(time_t *argp));
+signed char *(__cdecl cvtxtofyears_in_ll_te(time_t *argp));
 signed char *(__cdecl cvtxtofmonths_in_ll_te_r(time_t(*argp)));
 signed char *(__cdecl cvtxtofmonths_in_ll_te(signed char(*di),time_t(*argp)));
 signed char *(__cdecl cvtxtofhollowmonths_in_ll_te(signed(arg),time_t(*argp)));
