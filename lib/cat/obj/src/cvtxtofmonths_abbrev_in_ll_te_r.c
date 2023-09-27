@@ -51,6 +51,6 @@ b = (*(r+(w)));
 b = catt(b,(void*)0x00);
 r = current_mo_b(debug,&t);
 if(!(0x01+(r))) return(0x00);
-b = cat_xe(b,catt(sp,(void*)0x00),cvtxt_month_in_ll(r,di),(void*)0x00);
+b = cat_xe(b,catt(sp,(void*)0x00),cvtxt_mon_in_ll(r,0x01),(void*)0x00);
 return(b);
 }
