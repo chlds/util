@@ -15,7 +15,7 @@ auto signed char *(full[]) = {
 "ante diem quintum Nonas",
 "ante diem quartum Nonas",
 "ante diem tertium Nonas",
-"ante diem pridie Nonas",
+"pridie Nonas",
 "Nonis",
 "ante diem octavum Idus",
 "ante diem septimum Idus",
