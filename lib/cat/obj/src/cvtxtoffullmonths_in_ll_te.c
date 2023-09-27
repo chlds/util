@@ -10,6 +10,22 @@ auto signed nonae = (7);
 auto signed idus = (15);
 auto signed char *(full[]) = {
 "",
+"KALENDIS",
+"ANTE DIEM SEXTVM NONAS",
+"ANTE DIEM QVINTVM NONAS",
+"ANTE DIEM QVARTVM NONAS",
+"ANTE DIEM TERTIVM NONAS",
+"PRIDIE NONAS",
+"NONIS",
+"ANTE DIEM OCTAVVM IDVS",
+"ANTE DIEM SEPTIMVM IDVS",
+"ANTE DIEM SEXTVM IDVS",
+"ANTE DIEM QVINTVM IDVS",
+"ANTE DIEM QVARTVM IDVS",
+"ANTE DIEM TERTIVM IDVS",
+"PRIDIE IDVS",
+"IDIBVS",
+/*
 "Kalendis",
 "ante diem sextum Nonas",
 "ante diem quintum Nonas",
@@ -25,6 +41,7 @@ auto signed char *(full[]) = {
 "ante diem tertium Idus",
 "pridie Idus",
 "Idibus",
+//*/
 0x00,
 };
 if(!(0x00<(arg))) return(0x00);

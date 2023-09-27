@@ -10,6 +10,22 @@ auto signed nonae = (7);
 auto signed idus = (15);
 auto signed char *(full[]) = {
 "",
+"KAL.",
+"A. D. VI NON.",
+"A. D. V NON.",
+"A. D. IV NON.",
+"A. D. III NON.",
+"PRID. NON.",
+"NON.",
+"A. D. VIII EID.",
+"A. D. VII EID.",
+"A. D. VI EID.",
+"A. D. V EID.",
+"A. D. IV EID.",
+"A. D. III EID.",
+"PRID. EID.",
+"EID.",
+/*
 "Kal.",
 "a. d. VI Non.",
 "a. d. V Non.",
@@ -25,6 +41,7 @@ auto signed char *(full[]) = {
 "a. d. III Eid.",
 "prid. Eid.",
 "Eid.",
+//*/
 0x00,
 };
 if(!(0x00<(arg))) return(0x00);

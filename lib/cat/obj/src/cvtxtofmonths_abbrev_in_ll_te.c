@@ -13,7 +13,7 @@ if(!argp) return(di);
 if(!di) return(cvtxtofmonths_abbrev_in_ll_te_r(argp));
 r = (compatible+(current_mo_b(debug,argp)));
 if(!(0x01+(r))) return(di);
-b = cvtxt_mon_in_ll(r,0x01);
+b = cvtxt_mon_in_ll(r,0x00);
 if(!b) return(di);
 b = cat_xe(di,catt(sp,(void*)0x00),b,(void*)0x00);
 return(b);

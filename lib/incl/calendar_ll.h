@@ -18,6 +18,28 @@ static signed char CALENDAR_LLSC_NATIVE_IN_LL[] = {
 };
 
 static signed char *(CALENDAR_WEEK_IN_LL[]) = {
+"DIES SOLIS",
+"DIES LVNAE",
+"DIES MARTIS",
+"DIES MERCVRII",
+"DIES IOVIS",
+"DIES VENERIS",
+"DIES SATVRNI",
+0x00,
+};
+
+static signed char *(CALENDAR_WK_IN_LL[]) = {
+"SO.",
+"L.",
+"MA.",
+"ME.",
+"I.",
+"V.",
+"SA.",
+0x00,
+};
+
+static signed char *(CALENDAR_WEEK_SS_IN_LL[]) = {
 "dies Solis",
 "dies Lunae",
 "dies Martis",
@@ -28,7 +50,7 @@ static signed char *(CALENDAR_WEEK_IN_LL[]) = {
 0x00,
 };
 
-static signed char *(CALENDAR_WK_IN_LL[]) = {
+static signed char *(CALENDAR_WK_SS_IN_LL[]) = {
 "So.",
 "L.",
 "Ma.",

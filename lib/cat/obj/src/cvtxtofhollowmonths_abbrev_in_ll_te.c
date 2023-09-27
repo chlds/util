@@ -10,6 +10,20 @@ auto signed nonae = (5);
 auto signed idus = (13);
 auto signed char *(hollow[]) = {
 "",
+"KAL.",
+"A. D. IV NON.",
+"A. D. III NON.",
+"PRID. NON.",
+"NON.",
+"A. D. VIII EID.",
+"A. D. VII EID.",
+"A. D. VI EID.",
+"A. D. V EID.",
+"A. D. IV EID.",
+"A. D. III EID.",
+"PRID. EID.",
+"EID.",
+/*
 "Kal.",
 "a. d. IV Non.",
 "a. d. III Non.",
@@ -23,6 +37,7 @@ auto signed char *(hollow[]) = {
 "a. d. III Eid.",
 "prid. Eid.",
 "Eid.",
+//*/
 0x00,
 };
 if(!(0x00<(arg))) return(0x00);

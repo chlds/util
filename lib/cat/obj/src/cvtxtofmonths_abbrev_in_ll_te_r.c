@@ -12,26 +12,47 @@ auto time_t t;
 auto time_t day = (24*(60*(60)));
 auto signed debug = (DBG);
 auto signed char sp[] = (" ");
+auto signed char kal[] = ("KAL.");
 auto signed char *(mon[]) = {
 "",
-"a. d. XIX Kal.",
-"a. d. XVIII Kal.",
-"a. d. XVII Kal.",
-"a. d. XVI Kal.",
-"a. d. XV Kal.",
-"a. d. XIV Kal.",
-"a. d. XIII Kal.",
-"a. d. XII Kal.",
-"a. d. XI Kal.",
-"a. d. X Kal.",
-"a. d. IX Kal.",
-"a. d. VIII Kal.",
-"a. d. VII Kal.",
-"a. d. VI Kal.",
-"a. d. V Kal.",
-"a. d. IV Kal.",
-"a. d. III Kal.",
-"prid. Kal.",
+"A. D. XIX",
+"A. D. XVIII",
+"A. D. XVII",
+"A. D. XVI",
+"A. D. XV",
+"A. D. XIV",
+"A. D. XIII",
+"A. D. XII",
+"A. D. XI",
+"A. D. X",
+"A. D. IX",
+"A. D. VIII",
+"A. D. VII",
+"A. D. VI",
+"A. D. V",
+"A. D. IV",
+"A. D. III",
+"PRID.",
+/*
+"a. d. XIX",
+"a. d. XVIII",
+"a. d. XVII",
+"a. d. XVI",
+"a. d. XV",
+"a. d. XIV",
+"a. d. XIII",
+"a. d. XII",
+"a. d. XI",
+"a. d. X",
+"a. d. IX",
+"a. d. VIII",
+"a. d. VII",
+"a. d. VI",
+"a. d. V",
+"a. d. IV",
+"a. d. III",
+"prid.",
+//*/
 0x00,
 };
 if(!argp) return(0x00);
@@ -48,9 +69,9 @@ if(!(r<(ct_v(w)))) return(0x00);
 r = (0x01+(~r));
 r = (r+(ct_v(w)));
 b = (*(r+(w)));
-b = catt(b,(void*)0x00);
+b = catt(b,sp,kal,(void*)0x00);
 r = current_mo_b(debug,&t);
 if(!(0x01+(r))) return(0x00);
-b = cat_xe(b,catt(sp,(void*)0x00),cvtxt_mon_in_ll(r,0x01),(void*)0x00);
+b = cat_xe(b,catt(sp,(void*)0x00),cvtxt_mon_in_ll(r,0x00),(void*)0x00);
 return(b);
 }

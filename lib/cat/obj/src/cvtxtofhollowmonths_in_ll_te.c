@@ -10,6 +10,20 @@ auto signed nonae = (5);
 auto signed idus = (13);
 auto signed char *(hollow[]) = {
 "",
+"KALENDIS",
+"ANTE DIEM QVARTVM NONAS",
+"ANTE DIEM TERTIVM NONAS",
+"PRIDIE NONAS",
+"NONIS",
+"ANTE DIEM OCTAVVM IDVS",
+"ANTE DIEM SEPTIMVM IDVS",
+"ANTE DIEM SEXTVM IDVS",
+"ANTE DIEM QVINTVM IDVS",
+"ANTE DIEM QVARTVM IDVS",
+"ANTE DIEM TERTIVM IDVS",
+"PRIDIE IDVS",
+"IDIBVS",
+/*
 "Kalendis",
 "ante diem quartum Nonas",
 "ante diem tertium Nonas",
@@ -23,6 +37,7 @@ auto signed char *(hollow[]) = {
 "ante diem tertium Idus",
 "pridie Idus",
 "Idibus",
+//*/
 0x00,
 };
 if(!(0x00<(arg))) return(0x00);
