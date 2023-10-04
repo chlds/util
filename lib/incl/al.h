@@ -25,6 +25,7 @@ Refer at ./config.h
 // Data
 
 # define ADD(A,B) A = (B+(A))
+# define MUL(A,B) A = (B*(A))
 // Expression
 
 # define NOT(A) A = (~(A))
