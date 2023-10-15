@@ -24,25 +24,27 @@ if(!path) return(0x00);
 // if(!f) return(0x00);
 if(!(0x01+(_wstati64(path,&stats)))) {
 if(!(EQ(ENOENT,errno))) {
-printf("%s %Xh \n","<< Error at fn. _wstati64() with errno.",errno);
+if(DBG) printf("%s %Xh \n","<< Error at fn. _wstati64() with errno.",errno);
 return(0x00);
 }}
 if(!(xt_parse_w(&pm,&ac,param))) {
-printf("%s \n","<< Error at fn. xt_parse_w()");
+if(DBG) printf("%s \n","<< Error at fn. xt_parse_w()");
 return(0x00);
 }
 if(pm) fd = op_w(path,&ac,&pm,(void*)0x00);
 else fd = op_w(path,&ac,(void*)0x00);
-if(EQ(fd,~0x00)) {
+if(!(0x01+(fd))) {
+if(DBG) {
 printf("%s %Xh \n","<< Error at fn. op_w() with errno.",errno);
 if(EQ(EEXIST,errno)) printf("%s \n","Error: Already in existence");
+}
 return(0x00);
 }
 AND(r,0x00);
+OR(r,0x01);
 if(f) r = f(fd,argp);
-else OR(r,0x01);
 if(!(0x01+(cl_w(fd)))) {
-printf("%s %Xh \n","<< Error at fn. cl_w() with errno.",errno);
+if(DBG) printf("%s %Xh \n","<< Error at fn. cl_w() with errno.",errno);
 return(0x00);
 }
 return(r);
