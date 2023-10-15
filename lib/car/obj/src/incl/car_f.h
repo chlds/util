@@ -12,6 +12,15 @@ signed(__cdecl tw_b_r(signed char(**argp)));
 signed(__cdecl tw_b(signed(arg),signed char(**argp),signed char(**envp)));
 /* Debug */
 
+signed(__cdecl cfmtxt_utf_8_rrr_rr_r(signed char(*argt),signed(args),signed(argp)));
+signed(__cdecl cfmtxt_utf_8_rrr_rr(signed char(*argt),signed(args),signed(argp)));
+signed(__cdecl cfmtxt_utf_8_rrr_r(signed(args),signed(argp)));
+signed(__cdecl cfmtxt_utf_8_rrr(signed(args/* fd */),void(*argp/* size to be checked */)));
+signed(__cdecl cfmtxt_utf_8_rr(signed(args),signed char(*argp)));
+signed(__cdecl cfmtxt_utf_8_r(signed(args),signed char(*argp)));
+signed(__cdecl cfmtxt_utf_8(signed(args/* size to be checked */),signed char(*argp/* path */)));
+/* Inspect the byte order */
+
 signed char *(__cdecl cvtxt_month_in_ll(signed(mo),signed(di)));
 signed char *(__cdecl cvtxt_january_in_ll(signed arg/* di */));
 signed char *(__cdecl cvtxt_february_in_ll(signed arg/* di */));
