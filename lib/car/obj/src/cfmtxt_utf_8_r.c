@@ -22,7 +22,7 @@ z = (size_t)(R(st_size,stats));
 if(!z) return(0x00);
 if(z<(size_t)(args)) args = (signed)(mask&(z));
 r = cfmtxt_utf_8_rr(args,argp);
-if(!(EQ(args,r))) return(0x00);
+if(r<(args)) return(0x00);
 b = (0x00);
 return(r);
 }
