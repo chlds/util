@@ -19,6 +19,9 @@ signed(__cdecl cfmtxt_utf_8_rrr(signed(args/* fd */),void(*argp/* size to be che
 signed(__cdecl cfmtxt_utf_8_rr(signed(args),signed char(*argp)));
 signed(__cdecl cfmtxt_utf_8_r(signed(args),signed char(*argp)));
 signed(__cdecl cfmtxt_utf_8(signed(args/* size to be checked */),signed char(*argp/* path */)));
+signed(__cdecl code_utf_8_rr(signed(arg),signed char(*argp)));
+signed(__cdecl code_utf_8_r(signed char(*argp)));
+signed(__cdecl code_utf_8(signed char(*argp)));
 /* Inspect the byte order */
 
 signed char *(__cdecl cvtxt_month_in_ll(signed(mo),signed(di)));
