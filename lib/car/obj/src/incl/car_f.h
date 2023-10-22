@@ -219,6 +219,8 @@ signed(__cdecl cuelf(signed char *argp));
 signed(__cdecl cueht(signed char *argp));
 /* Cue */
 
+signed char *(__cdecl casca_back_r(signed char *argp));
+signed char *(__cdecl casca_back(signed char *argp));
 signed(__cdecl casca_b_rr(signed(arg),signed char(*argp)));
 signed char *(__cdecl casca_b_r(signed(arg),signed char(*argp)));
 signed char *(__cdecl casca_b(signed(arg),signed char(*argp)));
