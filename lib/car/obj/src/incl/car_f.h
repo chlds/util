@@ -597,6 +597,7 @@ signed(__cdecl caract_back(signed char *argp));
 signed(__cdecl caract(signed arg));
 signed(__cdecl cara(signed arg));
 signed(__cdecl cara_b(signed char *argp));
+signed(__cdecl cnttxt_xe(signed(arg),signed char(*argp)));
 signed(__cdecl cnttxt(signed char *argp));
 /* Output UTF-16 characters decoded out of UTF-8 bytes */
 
