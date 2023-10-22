@@ -590,6 +590,8 @@ signed(__cdecl decode_b(signed(*di),signed char(*si)));
 signed(__cdecl decode_surrogate_second(signed short(*di),signed(si)));
 signed(__cdecl decode_surrogate_first(signed short(*di),signed(si)));
 signed(__cdecl nbytechar(signed char(arg)));
+signed(__cdecl caract_back_r(signed char *argp));
+signed(__cdecl caract_back(signed char *argp));
 signed(__cdecl caract(signed arg));
 signed(__cdecl cara(signed arg));
 signed(__cdecl cara_b(signed char *argp));
