@@ -26,9 +26,9 @@ return(0x00);
 b = (*(argv+(argc+(~0x00))));
 printf("file: [%s] \n",b);
 r = cfmtxt_utf_8(byte,b);
-if(!r) printf("It is a size-zero file or not a text file in UTF-8.. \n");
+if(!r) printf("It has a size of zero, is missing or is not a text file encoded in UTF-8 format.. \n");
 else {
-printf("It is a text file in UTF-8! \n");
+printf("It is probably a text file encoded in UTF-8 format! \n");
 printf("Checked bytes: %dB \n",r);
 }
 printf("\n");
