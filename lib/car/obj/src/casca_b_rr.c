@@ -2,7 +2,6 @@
 # include "./../../../config.h"
 
 signed(__cdecl casca_b_rr(signed(arg),signed char(*argp))) {
-auto signed char *b;
 auto signed r;
 if(!(0x00<(arg))) return(0x00);
 if(!argp) return(0x00);
