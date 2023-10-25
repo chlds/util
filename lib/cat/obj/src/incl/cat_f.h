@@ -1,3 +1,11 @@
+time_t(__cdecl cvte_year(void));
+time_t(__cdecl cvte_month_r(time_t(args),signed(argp)));
+time_t(__cdecl cvte_month(time_t(arg)));
+time_t(__cdecl cvte_day(time_t(arg)));
+time_t(__cdecl cvte_wk(signed(args),time_t(argp)));
+time_t(__cdecl cvte_midnight(time_t(arg)));
+/* convert */
+
 signed char *(__cdecl cvtxtofyears_in_ll_te_r(time_t *argp));
 signed char *(__cdecl cvtxtofyears_in_ll_te(time_t *argp));
 signed char *(__cdecl cvtxtofmonths_in_ll_te_r(time_t(*argp)));
