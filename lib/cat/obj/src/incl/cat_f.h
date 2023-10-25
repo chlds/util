@@ -1,7 +1,7 @@
-time_t(__cdecl cvte_year(void));
-time_t(__cdecl cvte_month_r(time_t(args),signed(argp)));
-time_t(__cdecl cvte_month(time_t(arg)));
-time_t(__cdecl cvte_day(time_t(arg)));
+time_t(__cdecl cvte_yr(void));
+time_t(__cdecl cvte_mo_r(time_t(args),signed(argp)));
+time_t(__cdecl cvte_mo(time_t(arg)));
+time_t(__cdecl cvte_di(time_t(arg)));
 time_t(__cdecl cvte_wk(signed(args),time_t(argp)));
 time_t(__cdecl cvte_midnight(time_t(arg)));
 /* convert */

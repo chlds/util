@@ -2,7 +2,7 @@
 # define TIME_H
 # include "./../../../config.h"
 
-time_t(__cdecl cvte_day(time_t(arg))) {
+time_t(__cdecl cvte_di(time_t(arg))) {
 auto struct tm *t;
 auto time_t te;
 auto time_t di;
