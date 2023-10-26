@@ -1,9 +1,3 @@
-/* **** Notes
-
-Clock
-*/
-
-
 # define CAR_H
 # define CAT_H
 # define TIME_H
@@ -15,6 +9,7 @@ auto signed char *w;
 auto signed r;
 auto time_t t;
 auto signed days = (0x07);
+auto signed digit = (0x02);
 if(arg<(0x00)) return(0x00);
 if(!argp) return(0x00);
 if(!criterion) return(0x00);
@@ -22,7 +17,7 @@ if(!criterion) return(0x00);
 t = (*criterion);
 r = ct_wk(arg,&t);
 if(!r) return(0x00);
-w = cv(0x02,r);
+w = cv(digit,r);
 if(EQ(0x01,r)) t = (t+(days*(24*(60*(60)))));
 if(!(r<(51))) t = (t+(0x01+(~(days*(24*(60*(60)))))));
 *criterion = (t);
