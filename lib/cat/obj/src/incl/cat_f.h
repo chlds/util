@@ -1,3 +1,9 @@
+signed(__cdecl ctwk_rr(time_t(args),time_t(argp)));
+signed(__cdecl ctwk_r(signed(args),time_t(argp)));
+signed(__cdecl ctwk(signed(args),time_t(argp)));
+time_t(__cdecl cvwk_one(signed(args),time_t(argp)));
+signed(__cdecl cvwk(signed arg));
+signed(__cdecl arrwk(signed arg));
 time_t(__cdecl cvte_yr(void));
 time_t(__cdecl cvte_mo_r(time_t(args),signed(argp)));
 time_t(__cdecl cvte_mo(time_t(arg)));
