@@ -1,3 +1,6 @@
+signed(__cdecl weekly_schedule(time_t(args),time_t(argp)));
+/* scheduling */
+
 signed(__cdecl ctwk_rr(time_t(args),time_t(argp)));
 signed(__cdecl ctwk_r(signed(args),time_t(argp)));
 signed(__cdecl ctwk(signed(args),time_t(argp)));
