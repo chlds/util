@@ -741,6 +741,7 @@ signed(__cdecl cas_b(signed char **argp));
 signed(__cdecl cas_rl_b(signed char **argp));
 /* Cascade */
 
+signed(__cdecl cat_va_append_hold_b(signed char(***args),signed char(**argp)));
 signed(__cdecl cat_va_ahead_hold_b_r(signed char(***di),signed char(**si)));
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_va_ahead_hold_b(signed char ***argp,...));
 signed(__cdecl cat_va_ahead_b_r(signed char(***di),signed char(**si)));
