@@ -7,7 +7,7 @@ auto struct tm *t;
 auto time_t te;
 auto signed day;
 auto signed di;
-auto THDR_T f;
+auto thdr_t f;
 auto signed monday = (0x01);
 auto time_t days = (60*(60*(24*(7))));
 if(!(0x00<(argp))) return(0x00);

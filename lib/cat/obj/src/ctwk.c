@@ -8,7 +8,7 @@ auto time_t te;
 auto signed day;
 auto signed di;
 auto signed mo;
-auto THDR_T f;
+auto thdr_t f;
 auto signed monday = (0x01);
 auto signed december = (0x0B);
 if(!(0x00<(argp))) return(0x00);

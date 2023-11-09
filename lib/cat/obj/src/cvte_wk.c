@@ -8,7 +8,7 @@ auto time_t te;
 auto time_t wk;
 auto time_t day = (60*(60*(24)));
 auto time_t days = (0x07);
-auto THDR_T f;
+auto thdr_t f;
 if(!(args<(days))) return(0x00);
 if(args<(0x00)) return(0x00);
 if(argp<(0x00)) return(0x00);

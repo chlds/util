@@ -6,7 +6,7 @@ time_t(__cdecl cvte_mo(time_t(arg))) {
 auto struct tm *t;
 auto time_t te;
 auto signed mo;
-auto THDR_T f;
+auto thdr_t f;
 if(arg<(0x00)) return(0x00);
 te = (arg);
 f = cvte_time();

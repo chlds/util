@@ -8,7 +8,7 @@ auto time_t te;
 auto time_t hr;
 auto time_t mn;
 auto time_t sm;
-auto THDR_T f;
+auto thdr_t f;
 if(arg<(0x00)) return(0x00);
 te = (arg);
 f = cvte_time();

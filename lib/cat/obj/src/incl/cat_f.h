@@ -14,7 +14,7 @@ time_t(__cdecl cvte_di(time_t(arg)));
 time_t(__cdecl cvte_wk(signed(args),time_t(argp)));
 time_t(__cdecl cvte_midnight(time_t(arg)));
 time_t(__cdecl cvte_ad(time_t(arg)));
-THDR_T(__cdecl cvte_time(void));
+thdr_t(__cdecl cvte_time(void));
 /* convert */
 
 signed char *(__cdecl cvtxtofyears_in_ll_te_r(time_t *argp));
