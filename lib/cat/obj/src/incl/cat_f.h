@@ -7,6 +7,8 @@ signed(__cdecl ctwk(signed(args),time_t(argp)));
 time_t(__cdecl cvwk_one(signed(args),time_t(argp)));
 signed(__cdecl cvwk(signed arg));
 signed(__cdecl arrwk(signed arg));
+time_t(__cdecl cvte_one_wk_later(time_t(arg)));
+time_t(__cdecl cvte_one_wk_ago(time_t(arg)));
 time_t(__cdecl cvte_yr(void));
 time_t(__cdecl cvte_mo_r(time_t(args),signed(argp)));
 time_t(__cdecl cvte_mo(time_t(arg)));
