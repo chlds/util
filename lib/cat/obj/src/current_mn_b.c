@@ -1,4 +1,4 @@
-/* **** Notes
+/* Notes
 
 Convert
 
@@ -12,15 +12,15 @@ Return (~0x00) on failure
 # include "./../../../config.h"
 
 signed(__cdecl current_mn_b(signed(arg),time_t(*argp))) {
-auto struct tm *tp;
-auto time_t t;
+auto struct tm *t;
+auto time_t te;
 auto signed r;
 if(!argp) return(~0x00);
-// time(&t);
-t = (*argp);
-tp = localtime(&t);
-if(arg) tp = gmtime(&t);
-if(!tp) return(~0x00);
-r = (R(tm_min,*tp));
+// time(&te);
+te = (*argp);
+t = localtime(&te);
+if(arg) t = gmtime(&te);
+if(!t) return(~0x00);
+r = (R(tm_min,*t));
 return(r);
 }
