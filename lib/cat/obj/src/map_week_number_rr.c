@@ -10,7 +10,10 @@ auto signed r;
 auto time_t t;
 auto signed digit = (0x00);
 auto signed epoch = (1900);
-auto signed char *sepr = ("-W");
+auto signed char sepr[] = {
+// '-','W',0x00,
+0xE2,0x82,0x8B,0xE1,0xB4,0xA1,0x00,
+};
 if(!cw) return(0x00);
 if(!argp) return(0x00);
 if(!criterion) return(0x00);
