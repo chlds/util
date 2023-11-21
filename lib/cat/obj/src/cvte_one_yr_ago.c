@@ -7,5 +7,5 @@ auto signed mo;
 if(arg<(0x00)) return(0x00);
 AND(mo,0x00);
 OR(mo,0x0C);
-return(cvte_one_yr_ago_r(mo,arg));
+return(cvte_one_yr_ago_r(arg,mo));
 }
