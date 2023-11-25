@@ -74,7 +74,7 @@ signed(__cdecl ct_wk_sun(time_t(*argp)));
 signed(__cdecl ct_wk_sat_r(time_t(arg)));
 signed(__cdecl ct_wk_sat(time_t(*argp)));
 signed(__cdecl ct_wk(signed short(wk),time_t(*argp)));
-signed(__cdecl ctdn_wk(signed short(wk),time_t(arg)));
+signed(__cdecl ctdn_wk(signed(args),time_t(arg)));
 signed(__cdecl ctdn_yr(time_t(arg)));
 signed(__cdecl ord_di_wk(time_t(arg)));
 signed(__cdecl ct_wk_mo(time_t(*argp)));

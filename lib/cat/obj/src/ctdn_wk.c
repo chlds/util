@@ -1,4 +1,4 @@
-/* **** Notes
+/* Notes
 
 Return days elapsed since a first day of the week
 
@@ -11,20 +11,17 @@ Return (~0x00) on failure
 # define TIME_H
 # include "./../../../config.h"
 
-signed(__cdecl ctdn_wk(signed short(wk),time_t(arg))) {
-auto struct tm *tp;
-auto time_t t;
+signed(__cdecl ctdn_wk(signed(args),time_t(arg))) {
+auto time_t te;
 auto signed r;
 auto signed days = (0x07);
-if(wk<(0x00)) return(~0x00);
-if(0x06<(wk)) return(~0x00);
+if(args<(0x00)) return(~0x00);
+if(0x06<(args)) return(~0x00);
 if(arg<(0x00)) return(~0x00);
-t = (arg);
-tp = localtime(&t);
-if(DBG) tp = gmtime(&t);
-if(!tp) return(~0x00);
-r = (days+(0x01+(~wk)));
-r = (r+(R(tm_wday,*tp)));
+te = (arg);
+r = current_wk_b(DBG,&te);
+if(!(0x01+(r))) return(r);
+r = (r+(days+(0x01+(~args))));
 r = (r%(days));
 return(r);
 }
