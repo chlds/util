@@ -3,6 +3,8 @@ time_t(__cdecl cvte_downrange_accuracy_r(time_t(args),signed(arg)));
 time_t(__cdecl cvte_downrange_accuracy(time_t(argt),signed(args),signed(arg)));
 signed(__cdecl downrange_accuracy_r(time_t(arg)));
 signed(__cdecl downrange_accuracy(signed(args),time_t(arg)));
+signed(__cdecl downrange_coverage_r(time_t(*argt),time_t(*args),time_t(*argp)));
+signed(__cdecl downrange_coverage(time_t(*argt),time_t(*args),time_t(*argp)));
 signed(__cdecl weekly_schedule(signed(argt),time_t(*args),time_t(*argp)));
 /* scheduling */
 
