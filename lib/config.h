@@ -89,6 +89,10 @@ Remarks:
 # include <tlhelp32.h>
 # endif
 
+# ifdef DECOR_H
+# include "./incl/decor.h"
+# endif
+
 # ifdef CALENDAR_INTL_H
 // # include <time.h>
 # include "./incl/calendar_intl.h"
