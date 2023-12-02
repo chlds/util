@@ -12,6 +12,7 @@ te = (*args);
 te = (0x01+(~te));
 te = (te+(*argt));
 if(te<(0x00)) return(0x00);
-if(te/(days)) return(0x00);
+te = (te+(0x01+(~days)));
+if(0x00<(te)) return(0x00);
 return(downrange_coverage_r(argt,args,argp));
 }
