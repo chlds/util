@@ -12,6 +12,10 @@ signed(__cdecl tw_b_r(signed char(**argp)));
 signed(__cdecl tw_b(signed(arg),signed char(**argp),signed char(**envp)));
 /* Debug */
 
+signed(__cdecl eq_r(signed char(*di),signed char(**si)));
+signed(__cdecl eq(signed char(*di),signed char(**si)));
+/* equal */
+
 signed(__cdecl cfmtxt_utf_8_rrr_rr_r(signed char(*argt),signed(args),signed(argp)));
 signed(__cdecl cfmtxt_utf_8_rrr_rr(signed char(*argt),signed(args),signed(argp)));
 signed(__cdecl cfmtxt_utf_8_rrr_r(signed(args),signed(argp)));
