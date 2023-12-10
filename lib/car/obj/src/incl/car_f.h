@@ -16,6 +16,12 @@ signed(__cdecl eq_r(signed char(*di),signed char(**si)));
 signed(__cdecl eq(signed char(*di),signed char(**si)));
 /* equal */
 
+signed(__cdecl storing_r(signed(fd),signed char(**argp)));
+signed(__cdecl storing(signed(fd),void(*argp)));
+signed(__cdecl store(signed char(*di/* path */),signed char(*si/* contents */)));
+signed(__cdecl trunca(signed char *argp));
+/* store */
+
 signed(__cdecl cfmtxt_utf_8_rrr_rr_r(signed char(*argt),signed(args),signed(argp)));
 signed(__cdecl cfmtxt_utf_8_rrr_rr(signed char(*argt),signed(args),signed(argp)));
 signed(__cdecl cfmtxt_utf_8_rrr_r(signed(args),signed(argp)));
