@@ -19,6 +19,7 @@ signed(__cdecl eq(signed char(*di),signed char(**si)));
 signed(__cdecl storing_r(signed(fd),signed char(**argp)));
 signed(__cdecl storing(signed(fd),void(*argp)));
 signed(__cdecl store(signed char(*di/* path */),signed char(*si/* contents */)));
+signed(__cdecl append(signed char(*di/* path */),signed char(*si/* contents */)));
 signed(__cdecl trunca(signed char *argp));
 /* store */
 
