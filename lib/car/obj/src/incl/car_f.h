@@ -194,6 +194,9 @@ signed(__cdecl relw_r(signed char(**argp)));
 signed(__cdecl relw(signed char(**argp)));
 /* Release */
 
+signed(__cdecl conva_r(signed char(**di),signed char(**sym),signed char(*si)));
+signed char **(__cdecl conva_xe(signed char(**sym),signed char(*argp)));
+signed char **(__cdecl conva(signed char(**sym),signed char(*argp)));
 signed(__cdecl convt_r(signed char(**di),signed char(**sym),signed char(*si)));
 signed char **(__cdecl convt_xe(signed char(**sym),signed char(*argp)));
 signed char **(__cdecl convt(signed char(**sym),signed char(*argp)));
@@ -202,6 +205,8 @@ signed char **(__cdecl convv_xe(signed char(**sym),signed char(*argp)));
 signed char **(__cdecl convv(signed char(**sym),signed char(*argp)));
 /* Convert */
 
+signed(__cdecl cnta_r(signed char(**sym),signed char(*argp)));
+signed(__cdecl cnta(signed char(**sym),signed char(*argp)));
 signed(__cdecl cntt_r(signed char(**sym),signed char(*argp)));
 signed(__cdecl cntt(signed char(**sym),signed char(*argp)));
 signed(__cdecl cntv_r(signed char(**sym),signed char(*argp)));
@@ -210,7 +215,10 @@ signed(__cdecl cntv(signed char(**sym),signed char(*argp)));
 
 signed(__cdecl cue_rrrrr(signed char(**sym),signed char(*argp)));
 signed(__cdecl cue_rrrr(signed char(**sym),signed char(*argp)));
-signed(__cdecl cue_rrr(signed char(**sym),signed char(*argp)));
+signed(__cdecl cue_rrr(signed char(**sym),signed char(*argp),signed(__cdecl*f)(signed char(*argp))));
+signed(__cdecl cuea_rr(signed char(**sym),signed char(*argp)));
+signed(__cdecl cuea_r(signed char(**sym),signed char(*argp)));
+signed(__cdecl cuea(signed char(**sym),signed char(*argp)));
 signed(__cdecl cuet_rr(signed char(**sym),signed char(*argp)));
 signed(__cdecl cuet_r(signed char(**sym),signed char(*argp)));
 signed(__cdecl cuet(signed char(**sym),signed char(*argp)));
@@ -222,6 +230,7 @@ signed(__cdecl cuemb(signed char(**sym),signed char(*argp)));
 signed(__cdecl cuell_r(signed char(**sym),signed char(*argp)));
 signed(__cdecl cuell(signed char(**sym),signed char(*argp)));
 signed(__cdecl cuesy(signed char(**sym),signed char(*argp)));
+signed(__cdecl cueno(signed char *argp));
 signed(__cdecl cuenb(signed char *argp));
 signed(__cdecl cuesp(signed char *argp));
 signed(__cdecl cuecr(signed char *argp));

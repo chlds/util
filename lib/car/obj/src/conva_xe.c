@@ -11,9 +11,9 @@ Based on UTF-8
 # define CAR_H
 # include "./../../../config.h"
 
-signed char **(__cdecl convv_xe(signed char(**sym),signed char(*argp))) {
+signed char **(__cdecl conva_xe(signed char(**sym),signed char(*argp))) {
 auto signed char **w;
-w = convv(sym,argp);
+w = conva(sym,argp);
 embed(0x00,argp);
 rl(argp);
 argp = (0x00);
