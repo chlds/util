@@ -12,6 +12,10 @@ signed(__cdecl tw_b_r(signed char(**argp)));
 signed(__cdecl tw_b(signed(arg),signed char(**argp),signed char(**envp)));
 /* Debug */
 
+signed(__cdecl ldw_w(signed arg));
+signed(__cdecl ldw_b(signed arg));
+/* load */
+
 signed(__cdecl eq_r(signed char(*di),signed char(**si)));
 signed(__cdecl eq(signed char(*di),signed char(**si)));
 /* equal */
