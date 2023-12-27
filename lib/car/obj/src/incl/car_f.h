@@ -26,6 +26,7 @@ signed(__cdecl store(signed char(*di/* path */),signed char(*si/* contents */)))
 signed(__cdecl append(signed char(*di/* path */),signed char(*si/* contents */)));
 signed(__cdecl trunca(signed char *argp));
 signed(__cdecl cre_rw(signed char *argp));
+signed(__cdecl mkdir_b(signed char(*args),void(*argp)));
 /* store */
 
 signed(__cdecl cfmtxt_utf_8_rrr_rr_r(signed char(*argt),signed(args),signed(argp)));
