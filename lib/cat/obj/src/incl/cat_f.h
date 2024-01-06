@@ -76,6 +76,7 @@ signed(__cdecl current_wk_b(signed(arg),time_t(*argp)));
 signed(__cdecl current_di_b(signed(arg),time_t(*argp)));
 signed(__cdecl current_mo_b(signed(arg),time_t(*argp)));
 signed(__cdecl current_yr_b(signed(arg),time_t(*argp)));
+time_t(__cdecl cvyr_wknum(time_t(args),signed(arg)));
 signed(__cdecl ct_wk_mon_r(time_t(arg)));
 signed(__cdecl ct_wk_mon(time_t(*argp)));
 signed(__cdecl ct_wk_sun_r(time_t(arg)));
