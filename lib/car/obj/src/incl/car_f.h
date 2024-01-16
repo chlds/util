@@ -520,6 +520,8 @@ signed(__cdecl already_w(size_t(*size),signed short(*argp)));
 signed(__cdecl already_b(size_t(*size),signed char(*argp)));
 signed(__cdecl already_in_w(signed short(*argp)));
 signed(__cdecl already_in_b(signed char(*argp)));
+signed(__cdecl size_w(signed short *argp));
+signed(__cdecl size_b(signed char *argp));
 /* Confirm */
 
 signed(__cdecl flag_b_r(signed char(**v),signed char(*a),signed short(*di),signed short(*si)));
