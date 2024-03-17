@@ -12,6 +12,14 @@ signed(__cdecl tw_b_r(signed char(**argp)));
 signed(__cdecl tw_b(signed(arg),signed char(**argp),signed char(**envp)));
 /* Debug */
 
+signed(__cdecl dech(signed(*argp)));
+signed(__cdecl decl(signed(*argp)));
+/* decrease */
+
+signed(__cdecl inch(signed(*argp)));
+signed(__cdecl incl(signed(*argp)));
+/* increase */
+
 signed(__cdecl ldw_w(signed arg));
 signed(__cdecl ldw_b(signed arg));
 /* load */
