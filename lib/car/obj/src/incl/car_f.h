@@ -20,8 +20,8 @@ signed(__cdecl inch(signed(*argp)));
 signed(__cdecl incl(signed(*argp)));
 /* increase */
 
-signed(__cdecl ldw_w(signed arg));
-signed(__cdecl ldw_b(signed arg));
+signed(__cdecl ldh(signed arg));
+signed(__cdecl ldl(signed arg));
 /* load */
 
 signed(__cdecl eq_r(signed char(*di),signed char(**si)));
