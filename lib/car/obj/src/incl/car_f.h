@@ -8,9 +8,20 @@ Along with C library
 */
 
 
+# define ANDH(A,B) A = andh(A,B)
+# define ANDL(A,B) A = andl(A,B)
+# define ORH(A,B) A = orh(A,B)
+# define ORL(A,B) A = orl(A,B)
+
 signed(__cdecl tw_b_r(signed char(**argp)));
 signed(__cdecl tw_b(signed(arg),signed char(**argp),signed char(**envp)));
 /* Debug */
+
+signed(__cdecl andh(signed(args),signed(argp)));
+signed(__cdecl andl(signed(args),signed(argp)));
+signed(__cdecl orh(signed(args),signed(argp)));
+signed(__cdecl orl(signed(args),signed(argp)));
+/* logical op. */
 
 signed(__cdecl dech(signed(*argp)));
 signed(__cdecl decl(signed(*argp)));
