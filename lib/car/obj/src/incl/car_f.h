@@ -12,6 +12,10 @@ Along with C library
 # define ANDL(A,B) A = andl(A,B)
 # define ORH(A,B) A = orh(A,B)
 # define ORL(A,B) A = orl(A,B)
+# define INCH(A) A = inch(A)
+# define INCL(A) A = incl(A)
+# define DECH(A) A = dech(A)
+# define DECL(A) A = decl(A)
 
 signed(__cdecl tw_b_r(signed char(**argp)));
 signed(__cdecl tw_b(signed(arg),signed char(**argp),signed char(**envp)));
@@ -23,12 +27,12 @@ signed(__cdecl orh(signed(args),signed(argp)));
 signed(__cdecl orl(signed(args),signed(argp)));
 /* logical op. */
 
-signed(__cdecl dech(signed(*argp)));
-signed(__cdecl decl(signed(*argp)));
+signed(__cdecl dech(signed(arg)));
+signed(__cdecl decl(signed(arg)));
 /* decrease */
 
-signed(__cdecl inch(signed(*argp)));
-signed(__cdecl incl(signed(*argp)));
+signed(__cdecl inch(signed(arg)));
+signed(__cdecl incl(signed(arg)));
 /* increase */
 
 signed(__cdecl ldh(signed arg));
