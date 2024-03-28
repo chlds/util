@@ -12,10 +12,16 @@ Along with C library
 # define ANDL(A,B) A = andl(A,B)
 # define ORH(A,B) A = orh(A,B)
 # define ORL(A,B) A = orl(A,B)
+# define INCLLH(A) A = incllh(A)
+# define INCLLL(A) A = inclll(A)
+# define DECLLH(A) A = decllh(A)
+# define DECLLL(A) A = declll(A)
 # define INCH(A) A = inch(A)
 # define INCL(A) A = incl(A)
 # define DECH(A) A = dech(A)
 # define DECL(A) A = decl(A)
+# define LDLLH(A,B) A = ldllh(A,B)
+# define LDLLL(A,B) A = ldlll(A,B)
 
 signed(__cdecl tw_b_r(signed char(**argp)));
 signed(__cdecl tw_b(signed(arg),signed char(**argp),signed char(**envp)));
@@ -27,14 +33,20 @@ signed(__cdecl orh(signed(args),signed(argp)));
 signed(__cdecl orl(signed(args),signed(argp)));
 /* logical op. */
 
+signed long long(__cdecl decllh(signed long long(arg)));
+signed long long(__cdecl declll(signed long long(arg)));
 signed(__cdecl dech(signed(arg)));
 signed(__cdecl decl(signed(arg)));
 /* decrease */
 
+signed long long(__cdecl incllh(signed long long(arg)));
+signed long long(__cdecl inclll(signed long long(arg)));
 signed(__cdecl inch(signed(arg)));
 signed(__cdecl incl(signed(arg)));
 /* increase */
 
+signed long long(__cdecl ldllh(signed long long(args),signed long long(argp)));
+signed long long(__cdecl ldlll(signed long long(args),signed long long(argp)));
 signed(__cdecl ldh(signed arg));
 signed(__cdecl ldl(signed arg));
 /* load */
