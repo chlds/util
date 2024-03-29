@@ -12,16 +12,22 @@ Along with C library
 # define ANDL(A,B) A = andl(A,B)
 # define ORH(A,B) A = orh(A,B)
 # define ORL(A,B) A = orl(A,B)
-# define INCLLH(A) A = incllh(A)
-# define INCLLL(A) A = inclll(A)
-# define DECLLH(A) A = decllh(A)
-# define DECLLL(A) A = declll(A)
-# define INCH(A) A = inch(A)
-# define INCL(A) A = incl(A)
-# define DECH(A) A = dech(A)
-# define DECL(A) A = decl(A)
 # define LDLLH(A,B) A = ldllh(A,B)
 # define LDLLL(A,B) A = ldlll(A,B)
+# define LDH(A,B) A = ldh(A,B)
+# define LDL(A,B) A = ldl(A,B)
+# define DECLLH(A) A = decllh(A)
+# define DECLLL(A) A = declll(A)
+# define DECH(A) A = dech(A)
+# define DECL(A) A = decl(A)
+# define INCLLH(A) A = incllh(A)
+# define INCLLL(A) A = inclll(A)
+# define INCH(A) A = inch(A)
+# define INCL(A) A = incl(A)
+# define CARLLH(A) carllh(A)
+# define CARLLL(A) carlll(A)
+# define CARH(A) carh(A)
+# define CARL(A) carl(A)
 
 signed(__cdecl tw_b_r(signed char(**argp)));
 signed(__cdecl tw_b(signed(arg),signed char(**argp),signed char(**envp)));
@@ -47,9 +53,15 @@ signed(__cdecl incl(signed(arg)));
 
 signed long long(__cdecl ldllh(signed long long(args),signed long long(argp)));
 signed long long(__cdecl ldlll(signed long long(args),signed long long(argp)));
-signed(__cdecl ldh(signed arg));
-signed(__cdecl ldl(signed arg));
+signed(__cdecl ldh(signed(args),signed(argp)));
+signed(__cdecl ldl(signed(args),signed(argp)));
 /* load */
+
+signed long long(__cdecl carllh(signed long long(arg)));
+signed long long(__cdecl carlll(signed long long(arg)));
+signed(__cdecl carh(signed arg));
+signed(__cdecl carl(signed arg));
+/* carry */
 
 signed(__cdecl eq_r(signed char(*di),signed char(**si)));
 signed(__cdecl eq(signed char(*di),signed char(**si)));
