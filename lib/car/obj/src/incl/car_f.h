@@ -863,6 +863,20 @@ signed(__cdecl cat_ww(signed short(**di),signed short(si)));
 signed(__cdecl cat_bb(signed char(**di),signed char(si)));
 /* Call fn. rl later */
 
+signed char *(__cdecl catmm_rr(signed char(*args),signed char(**argp)));
+signed char *(__cdecl catmm_r(signed char **argp));
+signed char *(__cdecl /* __attribute__((ms_abi)) */ catmm(signed char *argp,...));
+signed char *(__cdecl catm_rr(signed char(*args),signed char(**argp)));
+signed char *(__cdecl catm_r(signed char **argp));
+signed char *(__cdecl /* __attribute__((ms_abi)) */ catm(signed char *argp,...));
+/* call fn. rl later */
+signed char *(__cdecl cy(signed char(*args),signed char(*argp)));
+signed(__cdecl cym(signed char(*args),signed char(*argp)));
+/* copy */
+signed(__cdecl cnt_r(signed char(**argp)));
+signed(__cdecl cnt(signed char *argp,...));
+/* count */
+
 signed(__cdecl clih_o_21b_r(signed short(*argp)));
 signed(__cdecl clih_o_21b(signed(arg)));
 signed(__cdecl clih_o_16b(signed(arg)));
