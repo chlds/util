@@ -1186,6 +1186,10 @@ signed(__cdecl es_ca(void));
 signed(__cdecl es_ll(void));
 /* Escape sequences */
 
+signed(__cdecl pn_r(signed arg));
+signed(__cdecl pn(signed arg));
+/* Prime numbers */
+
 signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
