@@ -4,7 +4,7 @@
 signed(__cdecl pn_r(signed arg)) {
 auto signed dividend;
 auto signed divisor;
-if(!(0x00<(argp))) return(0x00);
+if(!(0x00<(arg))) return(0x00);
 AND(divisor,0x00);
 AND(dividend,0x00);
 OR(dividend,arg);
