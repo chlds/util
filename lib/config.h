@@ -41,7 +41,10 @@ Remarks:
 # endif
 
 # ifdef TIME_H
+# ifndef READY_FOR_TIME_H
+# define READY_FOR_TIME_H
 # include <time.h>
+# endif
 # endif
 
 # ifdef MATH_H
@@ -83,10 +86,13 @@ Remarks:
 # endif
 
 # ifdef WIN32_H
+# ifndef READY_FOR_WIN32_H
+# define READY_FOR_WIN32_H
 # include <windows.h>
 # include <shellapi.h>
 # include <psapi.h>
 # include <tlhelp32.h>
+# endif
 # endif
 
 # ifdef DECOR_H
@@ -136,17 +142,26 @@ Remarks:
 //*/
 
 # ifdef CAR_H
+# ifndef READY_FOR_CAR_H
+# define READY_FOR_CAR_H
 # include "./car/obj/src/incl/car.h"
+# endif
 # endif
 // C, A and Essentials
 
 # ifdef CAT_H
+# ifndef READY_FOR_CAT_H
+# define READY_FOR_CAT_H
 # include "./cat/obj/src/incl/cat.h"
+# endif
 # endif
 // C, A and Time
 
 # ifdef CAW_H
+# ifndef READY_FOR_CAW_H
+# define READY_FOR_CAW_H
 # include "./caw/obj/src/incl/caw.h"
+# endif
 # endif
 // C, A and Win32
 
@@ -159,11 +174,17 @@ Remarks:
 # endif
 
 # ifdef CK_H
+# ifndef READY_FOR_CK_H
+# define READY_FOR_CK_H
 # include "./ck/obj/src/incl/ck.h"
+# endif
 # endif
 
 # ifdef CK_RES_H
+# ifndef READY_FOR_CK_RES_H
+# define READY_FOR_CK_RES_H
 # include "./ck/obj/src/res/resource.h"
+# endif
 # endif
 
 # ifdef PIN_H
