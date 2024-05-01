@@ -1190,6 +1190,10 @@ signed(__cdecl pn_r(signed arg));
 signed(__cdecl pn(signed arg));
 /* Prime numbers */
 
+signed(__cdecl coph_r(signed char **argp));
+signed(__cdecl coph(signed char *argp,...));
+/* Calc. of push */
+
 signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
