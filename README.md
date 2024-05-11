@@ -4,7 +4,7 @@
 ## Please verify the code and use it if you'd like.
 
 
-### I have created these files on Windows 10 64-bit OS using Windows Kit.
+### I have created these files on Windows 10 64-bit OS using Windows Kit (i.e., CL.EXE, LINK.EXE and NMAKE.EXE).
 
 The executable file here will run on the (CMD.exe) console in Windows 10 64-bit OS.
 
