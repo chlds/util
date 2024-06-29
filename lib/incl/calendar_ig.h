@@ -144,7 +144,9 @@ static signed char MAR_IG[] = {
 static signed char APR_IG[] = {
 'E','p','r',0x00,
 };
-static signed char *MAY_ABBREV_IG = (MAY_IG);
+static signed char MAY_ABBREV_IG = {
+0x00,
+};
 static signed char JUN_IG[] = {
 'J','u','u',0x00,
 };
@@ -172,7 +174,7 @@ JAN_IG,
 FEB_IG,
 MAR_IG,
 APR_IG,
-MAY_ABBREV_IG,
+MAY_IG,
 JUN_IG,
 JUL_IG,
 AUG_IG,
