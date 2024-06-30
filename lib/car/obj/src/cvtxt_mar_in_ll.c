@@ -4,7 +4,7 @@
 signed char *(__cdecl cvtxt_mar_in_ll(signed arg)) {
 auto signed char *b;
 auto signed char c[] = ("Mart.");
-auto signed char a[] = ("MART.");
+auto signed char a[] = ("MART");
 b = (a);
 if(arg) b = (c);
 return(catt(b,(void*)0x00));

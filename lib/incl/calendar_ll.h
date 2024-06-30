@@ -29,13 +29,13 @@ static signed char *(CALENDAR_WEEK_IN_LL[]) = {
 };
 
 static signed char *(CALENDAR_WK_IN_LL[]) = {
-"SO.",
-"L.",
-"MA.",
-"ME.",
-"I.",
-"V.",
-"SA.",
+"SO",
+"L",
+"MA",
+"ME",
+"I",
+"V",
+"SA",
 0x00,
 };
 
@@ -50,6 +50,7 @@ static signed char *(CALENDAR_WEEK_SS_IN_LL[]) = {
 0x00,
 };
 
+// in Carolingian minuscule
 static signed char *(CALENDAR_WK_SS_IN_LL[]) = {
 "So.",
 "L.",
@@ -114,18 +115,18 @@ static signed char *(CALENDAR_MONTH_GENITIVE_SINGULAR_MASCULINE_IN_LL[]) = {
 
 static signed char *(CALENDAR_MON_IN_LL[]) = {
 "",
-"IAN.",
-"FEB.",
-"MART.",
-"APR.",
-"MAI.",
-"IVN.",
-"IVL.",
-"AVG.",
-"SEPT.",
-"OCT.",
-"NOV.",
-"DEC.",
+"IAN",
+"FEB",
+"MART",
+"APR",
+"MAI",
+"IVN",
+"IVL",
+"AVG",
+"SEPT",
+"OCT",
+"NOV",
+"DEC",
 0x00,
 };
 
@@ -180,6 +181,7 @@ static signed char *(CALENDAR_MONTH_GENITIVE_PLURAL_MASCULINE_SS_IN_LL[]) = {
 0x00,
 };
 
+// in Carolingian minuscule
 static signed char *(CALENDAR_MON_SS_IN_LL[]) = {
 "",
 "Ian.",
