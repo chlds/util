@@ -90,3 +90,4 @@ Based on UTF-8
 # include "./calendar_vi_vn.h"
 # include "./calendar_yo.h"
 # include "./calendar_zh_hans_cn.h"
+# include "./calendar_zu.h"
