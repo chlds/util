@@ -6,7 +6,7 @@
 signed char *(__cdecl cvyrwknum_te_r(signed char(**args),signed(argp))) {
 auto signed char *b;
 auto signed digit = (0x02);
-auto signed char sepr[] = ("-W");
+auto signed char sepr[] = ("-w");
 if(!args) return(0x00);
 if(!(*args)) return(*args);
 b = cv(digit,argp);
