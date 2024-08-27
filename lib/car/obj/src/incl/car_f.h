@@ -300,6 +300,8 @@ signed char *(__cdecl casca_b(signed(arg),signed char(*argp)));
 signed char *(__cdecl casca_xe(signed(arg),signed char(*argp)));
 signed char *(__cdecl casca_r(signed char *argp));
 signed char *(__cdecl casca(signed char *argp));
+signed char *(__cdecl cas_xe(signed char(*argp)));
+signed char *(__cdecl cas(signed char(*argp)));
 /* Cascade */
 
 signed(__cdecl clih_utf_8_i_r(void(*argp),signed(__cdecl*f)(void(*argp))));
@@ -839,6 +841,9 @@ signed(__cdecl cat_ahead_b_r(signed char(**di),signed char(**si)));
 signed(__cdecl /* __attribute__((ms_abi)) */ cat_ahead_b(signed char(**argp),...));
 /* Concatenate to the terminating null pointer */
 
+signed char *(__cdecl catindx_pars_xe(signed(args),signed char(*argp)));
+signed char *(__cdecl catindx_xe(signed(args),signed char(*argp)));
+
 signed(__cdecl cat_xe_ahead_rr(signed char(**di),signed char(**si)));
 signed char *(__cdecl cat_xe_ahead_r(signed char **argp));
 signed char *(__cdecl /* __attribute__((ms_abi)) */ cat_xe_ahead(signed char *argp,...));
@@ -990,6 +995,7 @@ signed(__cdecl cmpr_w_r(signed(*cache),signed short(*di),signed short(*si)));
 signed(__cdecl cmpr_w(signed(*cache),signed short(*di),signed short(*si)));
 signed(__cdecl cmpr_r(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr(signed(*cache),signed char(*di),signed char(*si)));
+signed(__cdecl come(signed char(*args),signed char(*argp)));
 /* Compare ones in case sensitive character strings */
 
 signed(__cdecl cf_meridiem_rr(signed char(*argp)));
