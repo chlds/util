@@ -15,7 +15,7 @@ of variadic functions to compile C source files with GCC on WSL (Ubuntu 64-bit)
 # include <stdarg.h>
 # include "./../../../config.h"
 
-signed char *(__cdecl /* __attribute__((ms_abi)) */ catmm(signed char *argp,...)) {
+signed char *(__cdecl /* __attribute__((ms_abi)) */ catn(signed char *argp,...)) {
 if(!argp) return(argp);
-return(catmm_r(&argp));
+return(catn_r(&argp));
 }
