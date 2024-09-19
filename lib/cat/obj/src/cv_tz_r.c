@@ -4,27 +4,21 @@
 # include "./../../../config.h"
 
 signed char *(__cdecl cv_tz_r(time_t(*argp))) {
+auto signed char **w;
 auto signed char *b;
-auto signed char *p;
 auto signed r;
 auto time_t te;
-auto time_t hr = (60*(60));
-auto time_t hrs = (24);
-auto time_t scale = (2);
 auto signed char *neg = ("-");
 auto signed char *pos = ("+");
-if(!argp) return(0x00);
+auto signed char *(sgn[]) = {
+neg,pos,0x00,
+};
 b = (0x00);
-p = (pos);
+if(!argp) return(b);
+w = (sgn);
 te = (*argp);
-// if(!te) p = (pos);
-if(te<(0x00)) {
-te = (0x01+(~te));
-p = (neg);
-}
+if(!(te<(0x00))) w++;
 b = cv_tz_rr(&te);
-te = (te/(hr));
-r = (signed)(te%(scale*(hrs)));
-cat_ahead_b(&b,*(r+(CAT_DIGIT)),p,(void*)0x00);
-return(b);
+if(!b) return(b);
+return(cat_xe_ahead(b,cath(*w,(void*)(0x00)),(void*)(0x00)));
 }
