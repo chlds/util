@@ -868,6 +868,13 @@ signed(__cdecl cat_ww(signed short(**di),signed short(si)));
 signed(__cdecl cat_bb(signed char(**di),signed char(si)));
 /* Call fn. rl later */
 
+signed char *(__cdecl card_rr(signed(argt),signed(args),signed char(*argp)));
+signed char *(__cdecl card_r(signed(args),signed(argp)));
+signed char *(__cdecl card(signed(args),signed(argp/* radix */)));
+signed char *(__cdecl catha_rr(signed char(*args),signed(argp)));
+signed char *(__cdecl catha_r(signed(arg)));
+signed char *(__cdecl catha(signed(arg)));
+
 signed char *(__cdecl catn_rr(signed char(*args),signed char(**argp)));
 signed char *(__cdecl catn_r(signed char **argp));
 signed char *(__cdecl /* __attribute__((ms_abi)) */ catn(signed char *argp,...));

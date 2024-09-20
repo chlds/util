@@ -1,4 +1,4 @@
-/* **** Notes
+/* Synopsis
 
 Convert
 
@@ -13,10 +13,10 @@ Based on UTF-8
 # define CAR_H
 # include "./../../../config.h"
 
-signed char *(__cdecl cv(signed(digit),signed(arg))) {
+signed char *(__cdecl cv(signed(args),signed(argp))) {
 auto signed char *b;
 auto signed radix = (0x0A);
 b = (0x00);
-if(!(cv_d(radix,&b,arg))) return(0x00);
-return(cv_r(digit,b));
+if(!(cv_d(radix,&b,argp))) return(0x00);
+return(cv_r(args,b));
 }

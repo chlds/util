@@ -1,4 +1,4 @@
-/* **** Notes
+/* Synopsis
 
 Count column digits for a double word.
 */
