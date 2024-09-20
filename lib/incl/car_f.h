@@ -31,8 +31,12 @@ signed char *(__cdecl cat_ahead(signed char(*di),signed char(*si)));
 signed char *(__cdecl cx_rr(signed char(*di),signed char(*et),signed char(*si)));
 signed char *(__cdecl cx_r(signed(digit),signed(arg),signed char(*et),signed char(*argp)));
 signed char *(__cdecl cx(signed(digit),signed(arg),signed char(*et),signed char(*argp)));
-signed char *(__cdecl cv_r(signed(arg/* n-digit */),signed char(*argp)));
-signed char *(__cdecl cv(signed(digit),signed(arg)));
+/*
+signed char *(__cdecl cv_rrr(signed(args),signed char(*argp)));
+signed char *(__cdecl cv_rr(signed(args),signed(argp)));
+signed char *(__cdecl cv_r(signed(args),signed(argp)));
+signed char *(__cdecl cv(signed(args),signed(argp)));
+//*/
 /* convert, concatenate and release */
 
 signed(__cdecl agent_alpha(signed(argc),signed char(**argv),signed char(**envp)));
