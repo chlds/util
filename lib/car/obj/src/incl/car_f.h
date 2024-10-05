@@ -1117,6 +1117,9 @@ signed(__cdecl ct_l(signed char(*argp)));
 signed(__cdecl ct(signed char(*argp)));
 /* Count */
 
+signed(__cdecl cntt_tertiary(signed char(***arg)));
+signed(__cdecl ct_t(signed char(***arg)));
+
 signed(__cdecl calc_0_0625x(signed(arg)));
 signed(__cdecl calc_0_125x(signed(arg)));
 signed(__cdecl calc_0_25x(signed(arg)));
