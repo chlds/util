@@ -787,7 +787,7 @@ signed char *(__cdecl dupl_b(signed(arg),signed char(*argp)));
 signed char *(__cdecl cx_rr(signed char(*di),signed char(*et),signed char(*si)));
 signed char *(__cdecl cx_r(signed(digit),signed(arg),signed char(*et),signed char(*argp)));
 signed char *(__cdecl cx(signed(digit),signed(arg),signed char(*et),signed char(*argp)));
-signed char *(__cdecl cv_rrr(signed(args),signed char(*argp)));
+signed char *(__cdecl dgt(signed(args),signed char(*argp)));
 signed char *(__cdecl cv_rr(signed(args),signed(argp)));
 signed char *(__cdecl cv_r(signed(args),signed(argp)));
 signed char *(__cdecl cv(signed(args),signed(argp)));
@@ -870,6 +870,9 @@ signed(__cdecl cat_ww(signed short(**di),signed short(si)));
 signed(__cdecl cat_bb(signed char(**di),signed char(si)));
 /* Call fn. rl later */
 
+signed char *(__cdecl ceyl_rr(signed(args),signed char(*argp)));
+signed char *(__cdecl ceyl_r(signed(arg)));
+signed char *(__cdecl ceyl(signed(arg)));
 signed char *(__cdecl card_rr(signed(argt),signed(args),signed char(*argp)));
 signed char *(__cdecl card_r(signed(args),signed(argp)));
 signed char *(__cdecl card(signed(args),signed(argp/* radix */)));
