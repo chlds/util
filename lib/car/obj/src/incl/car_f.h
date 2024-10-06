@@ -870,6 +870,10 @@ signed(__cdecl cat_ww(signed short(**di),signed short(si)));
 signed(__cdecl cat_bb(signed char(**di),signed char(si)));
 /* Call fn. rl later */
 
+signed(__cdecl seylle_r(signed(argt),signed char(*args),signed char(*argp)));
+signed(__cdecl seylle(signed(argt),signed char(*argps),signed char(*argp)));
+signed(__cdecl ceylle_r(signed char(*args),signed(argp)));
+signed(__cdecl ceylle(signed char(*arg)));
 signed char *(__cdecl seyl_r(signed(argt),signed char(*args),signed char(*argp)));
 signed char *(__cdecl seyl(signed(args),signed char(*argp)));
 signed char *(__cdecl ceyl_rr(signed(args),signed char(*argp)));
@@ -891,6 +895,7 @@ signed char *(__cdecl /* __attribute__((ms_abi)) */ cath(signed char *argp,...))
 /* call fn. rl later */
 signed char *(__cdecl cy(signed char(*args),signed char(*argp)));
 signed(__cdecl cym(signed char(*args),signed char(*argp)));
+signed(__cdecl cymm(signed(argt),signed char(*args),signed char(*argp)));
 /* copy */
 signed(__cdecl cnt_r(signed char(**argp)));
 signed(__cdecl cnt(signed char *argp,...));
