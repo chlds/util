@@ -870,6 +870,8 @@ signed(__cdecl cat_ww(signed short(**di),signed short(si)));
 signed(__cdecl cat_bb(signed char(**di),signed char(si)));
 /* Call fn. rl later */
 
+signed char *(__cdecl seyl_r(signed(argt),signed char(*args),signed char(*argp)));
+signed char *(__cdecl seyl(signed(args),signed char(*argp)));
 signed char *(__cdecl ceyl_rr(signed(args),signed char(*argp)));
 signed char *(__cdecl ceyl_r(signed(arg)));
 signed char *(__cdecl ceyl(signed(arg)));
