@@ -259,6 +259,8 @@ signed char **(__cdecl convv_xe(signed char(**sym),signed char(*argp)));
 signed char **(__cdecl convv(signed char(**sym),signed char(*argp)));
 /* Convert */
 
+signed(__cdecl cnttpl(signed char(*arg)));
+
 signed(__cdecl cnta_r(signed char(**sym),signed char(*argp)));
 signed(__cdecl cnta(signed char(**sym),signed char(*argp)));
 signed(__cdecl cntt_r(signed char(**sym),signed char(*argp)));
@@ -870,6 +872,8 @@ signed(__cdecl cat_ww(signed short(**di),signed short(si)));
 signed(__cdecl cat_bb(signed char(**di),signed char(si)));
 /* Call fn. rl later */
 
+signed char *(__cdecl ser_r(signed char(**args),signed char(*argp)));
+signed char *(__cdecl ser(signed char(**arg)));
 signed(__cdecl seylle_r(signed(argt),signed char(*args),signed char(*argp)));
 signed(__cdecl seylle(signed(argt),signed char(*argps),signed char(*argp)));
 signed(__cdecl ceylle_r(signed char(*args),signed(argp)));
