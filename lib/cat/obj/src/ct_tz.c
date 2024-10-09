@@ -1,6 +1,6 @@
-/* **** Notes
+/* Synopsis
 
-Count
+Retrieve time difference
 
 Remarks:
 Advanced or delayed in increments of half an hour
