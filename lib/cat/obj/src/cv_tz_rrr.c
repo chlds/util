@@ -5,7 +5,6 @@
 
 signed char *(__cdecl cv_tz_rrr(time_t(*args),signed char(*argp))) {
 auto signed char *b;
-auto signed r;
 auto time_t te;
 if(!args) return(argp);
 te = (*args);

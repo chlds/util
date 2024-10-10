@@ -6,7 +6,6 @@
 signed char *(__cdecl cv_tz_r(time_t(*argp))) {
 auto signed char **w;
 auto signed char *b;
-auto signed r;
 auto time_t te;
 auto signed char *neg = ("-");
 auto signed char *pos = ("+");
