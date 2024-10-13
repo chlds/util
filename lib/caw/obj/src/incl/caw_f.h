@@ -1,4 +1,5 @@
 signed(__cdecl control_key_state_beta(signed(arg)));
+signed(__cdecl shift_key_state_beta(signed(arg)));
 void(__cdecl sleep_beta(signed(arg)));
 
 signed char *(__cdecl get_env_beta(signed char *argp));
