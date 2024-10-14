@@ -264,6 +264,9 @@ signed char *(__cdecl cvwknum_te_in_mk_mk(time_t(*argt),signed(args),signed(argp
 signed char *(__cdecl cvwknum_te_in_ml_in_rr(time_t(*args),signed(argp)));
 signed char *(__cdecl cvwknum_te_in_ml_in_r(time_t(*args),signed(argp)));
 signed char *(__cdecl cvwknum_te_in_ml_in(time_t(*argt),signed(args),signed(argp)));
+signed char *(__cdecl cvwknum_te_in_mn_mn_rr(time_t(*args),signed(argp)));
+signed char *(__cdecl cvwknum_te_in_mn_mn_r(time_t(*args),signed(argp)));
+signed char *(__cdecl cvwknum_te_in_mn_mn(time_t(*argt),signed(args),signed(argp)));
 signed char *(__cdecl cvwknum_te_in_mr_in_rr(time_t(*args),signed(argp)));
 signed char *(__cdecl cvwknum_te_in_mr_in_r(time_t(*args),signed(argp)));
 signed char *(__cdecl cvwknum_te_in_mr_in(time_t(*argt),signed(args),signed(argp)));
