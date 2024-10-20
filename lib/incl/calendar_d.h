@@ -75,6 +75,7 @@ Based on UTF-8
 # include "./calendar_si_lk.h"
 # include "./calendar_sk_sk.h"
 # include "./calendar_sl_sl.h"
+# include "./calendar_so_so.h"
 # include "./calendar_sq_al.h"
 # include "./calendar_sr_cyrl_rs.h"
 # include "./calendar_sv_se.h"
