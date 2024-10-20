@@ -39,7 +39,8 @@ static signed char *(CALENDAR_WK_IN_SO_SO[]) = {
 0x00,
 };
 
-static signed char MONTH_SO_SO[] = ("Bisha ");
+static signed char MONTH_SO_SO[] = ("Bisha");
+static signed char WEEK_SO_SO[] = ("toddobaadka");
 
 static signed char *(CALENDAR_MONTH_IN_SO_SO[]) = {
 "",
