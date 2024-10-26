@@ -69,6 +69,7 @@ Based on UTF-8
 # include "./calendar_pl_pl.h"
 # include "./calendar_ps_af.h"
 # include "./calendar_pt_pt.h"
+# include "./calendar_qu.h"
 # include "./calendar_ro_ro.h"
 # include "./calendar_ru_ru.h"
 # include "./calendar_sd.h"
