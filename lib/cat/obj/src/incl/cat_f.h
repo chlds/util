@@ -300,6 +300,9 @@ signed char *(__cdecl cvwknum_te_in_ps_af(time_t(*argt),signed(args),signed(argp
 signed char *(__cdecl cvwknum_te_in_pt_pt_rr(time_t(*args),signed(argp)));
 signed char *(__cdecl cvwknum_te_in_pt_pt_r(time_t(*args),signed(argp)));
 signed char *(__cdecl cvwknum_te_in_pt_pt(time_t(*argt),signed(args),signed(argp)));
+signed char *(__cdecl cvwknum_te_in_qu_rr(time_t(*args),signed(argp)));
+signed char *(__cdecl cvwknum_te_in_qu_r(time_t(*args),signed(argp)));
+signed char *(__cdecl cvwknum_te_in_qu(time_t(*argt),signed(args),signed(argp)));
 signed char *(__cdecl cvwknum_te_in_ro_ro_rr(time_t(*args),signed(argp)));
 signed char *(__cdecl cvwknum_te_in_ro_ro_r(time_t(*args),signed(argp)));
 signed char *(__cdecl cvwknum_te_in_ro_ro(time_t(*argt),signed(args),signed(argp)));
