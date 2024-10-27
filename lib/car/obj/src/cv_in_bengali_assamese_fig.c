@@ -1,0 +1,49 @@
+# define CAR_H
+# include "./../../../config.h"
+
+signed char *(__cdecl cv_in_bengali_assamese_fig(signed(arg))) {
+auto signed char fig_0[] = {
+0xE0,0xA7,0xA6,0x00,
+};
+auto signed char fig_1[] = {
+0xE0,0xA7,0xA7,0x00,
+};
+auto signed char fig_2[] = {
+0xE0,0xA7,0xA8,0x00,
+};
+auto signed char fig_3[] = {
+0xE0,0xA7,0xA9,0x00,
+};
+auto signed char fig_4[] = {
+0xE0,0xA7,0xAA,0x00,
+};
+auto signed char fig_5[] = {
+0xE0,0xA7,0xAB,0x00,
+};
+auto signed char fig_6[] = {
+0xE0,0xA7,0xAC,0x00,
+};
+auto signed char fig_7[] = {
+0xE0,0xA7,0xAD,0x00,
+};
+auto signed char fig_8[] = {
+0xE0,0xA7,0xAE,0x00,
+};
+auto signed char fig_9[] = {
+0xE0,0xA7,0xAF,0x00,
+};
+auto signed char *(fig[]) = {
+fig_0,
+fig_1,
+fig_2,
+fig_3,
+fig_4,
+fig_5,
+fig_6,
+fig_7,
+fig_8,
+fig_9,
+0x00,
+};
+return(cv_b(fig,arg));
+}

@@ -728,6 +728,9 @@ signed char *(__cdecl cv_in_roman(signed(arg)));
 signed char *(__cdecl cv_in_kanji_fig(signed(arg)));
 /* Convert into kanji figures */
 
+signed char *(__cdecl cv_in_bengali_assamese_fig(signed(arg)));
+/* Convert into bengali-assamese figures */
+
 signed char *(__cdecl cv_in_devanagari_fig(signed(arg)));
 /* Convert into devanagari figures */
 
