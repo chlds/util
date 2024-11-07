@@ -102,6 +102,9 @@ signed char *(__cdecl cvwknum_te_in_af_za(time_t(*argt),signed(args),signed(argp
 signed char *(__cdecl cvwknum_te_in_ar_rr(time_t(*args),signed(argp)));
 signed char *(__cdecl cvwknum_te_in_ar_r(time_t(*args),signed(argp)));
 signed char *(__cdecl cvwknum_te_in_ar(time_t(*argt),signed(args),signed(argp)));
+signed char *(__cdecl cvwknum_te_in_as_in_rr(time_t(*args),signed(argp)));
+signed char *(__cdecl cvwknum_te_in_as_in_r(time_t(*args),signed(argp)));
+signed char *(__cdecl cvwknum_te_in_as_in(time_t(*argt),signed(args),signed(argp)));
 signed char *(__cdecl cvwknum_te_in_az_latn_az_rr(time_t(*args),signed(argp)));
 signed char *(__cdecl cvwknum_te_in_az_latn_az_r(time_t(*args),signed(argp)));
 signed char *(__cdecl cvwknum_te_in_az_latn_az(time_t(*argt),signed(args),signed(argp)));
