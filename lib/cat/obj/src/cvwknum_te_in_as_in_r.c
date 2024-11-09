@@ -18,7 +18,7 @@ te = (*args);
 if(te<(0x00)) return(b);
 if(argp<(0x00)) return(b);
 argp = (argp%(wedd));
-b = cvwknum_te(&te,argp);
+b = cv_in_bengali_assamese_fig(ct_wk(argp,&te));
 if(!b) return(b);
 if(!('0'^(*b))) b = cas_xe(b);
 return(cat_xe(cath(week,sp,(void*)(0x00)),b,(void*)(0x00)));
