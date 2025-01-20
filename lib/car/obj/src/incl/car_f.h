@@ -1112,6 +1112,7 @@ signed(__cdecl ct2(signed char(di), signed char(*base)));
 
 signed(__cdecl ct_f_d(signed(__cdecl**f)(signed(arg))));
 signed(__cdecl ct_f_v(void*(__cdecl**f)(void(*argp))));
+signed(__cdecl ct_fv(signed char *(__cdecl**f)(void)));
 signed(__cdecl ct_f(signed(__cdecl**f)(void(*argp))));
 /* Count function pointers */
 
