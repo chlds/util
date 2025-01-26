@@ -18,7 +18,7 @@ static signed char *CALENDAR_LLSC_NATIVE_IN_FR_FR = (CALENDAR_NATIVE_IN_FR_FR);
 
 static signed char DVE_MID_IN_FR_FR[] = ("mi");
 static signed char DVE_NIGHT_IN_FR_FR[] = ("nuit");
-static signed char DVE_LATE_NIGHT_IN_FR_FR[] = ("nocturne");
+static signed char DVE_SMALL_HOURS_IN_FR_FR[] = ("nocturne");
 static signed char DVE_EARLY_IN_FR_FR[] = {
 'd',0xC3,0xA9,'b','u','t',0x00,
 };

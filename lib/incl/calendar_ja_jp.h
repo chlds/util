@@ -19,7 +19,7 @@ static signed char *CALENDAR_LLSC_NATIVE_IN_JA_JP = (CALENDAR_NATIVE_IN_JA_JP);
 static signed char DVE_MIDNIGHT_IN_JA_JP[] = {
 0xE7,0x9C,0x9F,0xE5,0xA4,0x9C,0xE4,0xB8,0xAD,0x00,
 };
-static signed char DVE_LATE_NIGHT_IN_JA_JP[] = {
+static signed char DVE_SMALL_HOURS_IN_JA_JP[] = {
 0xE6,0xB7,0xB1,0xE5,0xA4,0x9C,0x00,
 };
 static signed char DVE_EARLY_MORNING_IN_JA_JP[] = {
