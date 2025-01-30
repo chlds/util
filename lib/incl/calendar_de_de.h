@@ -11,16 +11,29 @@ static signed char CALENDAR_IN_DE_DE[] = ("German");
 static signed char CALENDAR_LLSC_IN_DE_DE[] = {
 'G',0xE1,0xB4,0x87,0xCA,0x80,0xE1,0xB4,0x8D,0xE1,0xB4,0x80,0xC9,0xB4,0x00,
 };
-
 static signed char CALENDAR_NATIVE_IN_DE_DE[] = ("Deutsch");
 static signed char CALENDAR_LLSC_NATIVE_IN_DE_DE[] = {
 'D',0xE1,0xB4,0x87,0xE1,0xB4,0x9C,0xE1,0xB4,0x9B,0xEA,0x9C,0xB1,0xE1,0xB4,0x84,0xCA,0x9C,0x00,
 };
 
+static signed char CALENDAR_MIDNIGHT_IN_DE_DE[] = ("Mitternacht");
+static signed char CALENDAR_AUX_SMALL_HOURS_IN_DE_DE[] = ("Nachmitternacht"); // (12am-4am)
+static signed char CALENDAR_SMALL_HOURS_IN_DE_DE[] = ("Nacht"); // (12am-4am)
+static signed char CALENDAR_MORNING_IN_DE_DE[] = ("Morgen"); // (4am-9am)
+static signed char CALENDAR_LATE_MORNING_IN_DE_DE[] = ("Vormittag"); // Before noon (10am-12pm)
+static signed char CALENDAR_NOON_IN_DE_DE[] = ("Mittag");
+static signed char CALENDAR_AFTERNOON_IN_DE_DE[] = ("Nachmittag"); // (3pm-6pm)
+static signed char CALENDAR_EVENING_IN_DE_DE[] = ("Abend"); // Evening / Night (6pm-11pm/12am)
+static signed char CALENDAR_EARLY_IN_DE_DE[] = {
+'F','r',0xC3,0xBC,'h','e','r',0x00,
+};
+static signed char CALENDAR_LATE_IN_DE_DE[] = {
+'S','p',0xC3,0xA4,'t','e','r',0x00,
+};
+
 static signed char FIFTH_DE_DE[] = {
 'F',0xC3,0xBC,'n','f','t','e','r',0x00,
 };
-
 static signed char *(CALENDAR_ORDER_IN_DE_DE[]) = {
 "",
 "Erster",
