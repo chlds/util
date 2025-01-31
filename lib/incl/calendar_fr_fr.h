@@ -66,18 +66,21 @@ static signed char *(CALENDAR_WEEK_IN_FR_FR[]) = {
 "dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi",0x00,
 };
 
+static signed char CALENDAR_NAY_FIRST_DAY_MODIF_IN_FR_FR[] = {
+0xE1,0xB5,0x89,0x00,
+};
 static signed char CALENDAR_FIRST_DAY_MODIF_IN_FR_FR[] = {
-'1',0xE1,0xB5,0x89,0xCA,0xB3,0x00,
+0xE1,0xB5,0x89,0xCA,0xB3,0x00,
 };
 static signed char *(CALENDAR_DAY_MODIF_IN_FR_FR[]) = {
-"",
+CALENDAR_NAY_FIRST_DAY_MODIF_IN_FR_FR,
 CALENDAR_FIRST_DAY_MODIF_IN_FR_FR,
 0x00,
 };
 
 static signed char *(CALENDAR_DAY_IN_FR_FR[]) = {
-"",
-"1er",
+"e",
+"er",
 0x00,
 };
 
