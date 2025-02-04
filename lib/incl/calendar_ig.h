@@ -9,9 +9,8 @@ Based on UTF-8
 
 static signed char CALENDAR_IN_IG[] = ("Igbo");
 static signed char CALENDAR_LLSC_IN_IG[] = {
-'I',0xC9,0xA2,0xCA,0x99,0xE1,0xB4,0x8F,0x00,
+0xC9,0xAA,0xC9,0xA2,0xCA,0x99,0xE1,0xB4,0x8F,0x00,
 };
-
 static signed char *CALENDAR_NATIVE_IN_IG = (CALENDAR_IN_IG);
 static signed char *CALENDAR_LLSC_NATIVE_IN_IG = (CALENDAR_LLSC_IN_IG);
 
