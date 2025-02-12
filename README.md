@@ -15,3 +15,7 @@ The executable file here will run on the (CMD.exe) console in Windows 10 64-bit 
 
 e.g.,
 > nmake T=cals
+
+## Remarks
+
+### When you build the code as it is, use the x64 native tools command prompt (e.g., for Visual Studio 2022).
