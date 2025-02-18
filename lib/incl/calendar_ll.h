@@ -20,13 +20,13 @@ static signed char CALENDAR_LLSC_NATIVE_IN_LL[] = {
 };
 
 static signed char *(CALENDAR_WEEK_IN_LL[]) = {
-"DIES SOLIS",
-"DIES LVNAE",
-"DIES MARTIS",
-"DIES MERCVRII",
-"DIES IOVIS",
-"DIES VENERIS",
-"DIES SATVRNI",
+"SOLIS",
+"LVNAE",
+"MARTIS",
+"MERCVRII",
+"IOVIS",
+"VENERIS",
+"SATVRNI",
 0x00,
 };
 
@@ -42,13 +42,13 @@ static signed char *(CALENDAR_WK_IN_LL[]) = {
 };
 
 static signed char *(CALENDAR_WEEK_SS_IN_LL[]) = {
-"dies Solis",
-"dies Lunae",
-"dies Martis",
-"dies Mercurii",
-"dies Iovis",
-"dies Veneris",
-"dies Saturni",
+"Solis",
+"Lunae",
+"Martis",
+"Mercurii",
+"Iovis",
+"Veneris",
+"Saturni",
 0x00,
 };
 
