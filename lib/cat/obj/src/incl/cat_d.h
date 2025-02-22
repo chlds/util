@@ -9,6 +9,14 @@
 
 typedef struct tm *(__cdecl*thdr_t)(time_t const *argp);
 
+static signed char WORD_SEPARATOR_MIDDLE_DOT[] = {
+0xE2,0xB8,0xB1,0x00,
+};
+static signed char MIDDLE_DOT[] = {
+0xC2,0xB7,0x00,
+};
+static signed char *MDOT = (WORD_SEPARATOR_MIDDLE_DOT);
+
 static signed char *(CAT_DIGIT[]) = {
 "00","1","2","3","4","5","6","7","8","9",
 "10","11","12","13","14","15","16","17","18","19",

@@ -16,9 +16,7 @@ auto signed char diem[] = ("DIEM");
 auto signed char nonas[] = ("NONAS");
 auto signed char idvs[] = ("IDVS");
 auto signed char sp[] = (" ");
-auto signed char mdot[] = {
-0xC2,0xB7,0x00,
-};
+auto signed char *mdot = (MDOT);
 auto signed char *(a[]) = {
 "",
 "KALENDIS",
