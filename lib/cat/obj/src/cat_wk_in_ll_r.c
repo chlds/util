@@ -6,6 +6,7 @@
 signed char *(__cdecl cat_wk_in_ll_r(signed(args),time_t(*argp))) {
 auto signed char *b;
 auto signed r;
+auto signed decorative = (0x00);
 auto signed char *(__cdecl*f)(void(*argp));
 auto signed char *(__cdecl**d)(void(*argp));
 auto signed char *(__cdecl*(a[]))(void(*argp)) = {
@@ -21,5 +22,5 @@ if(!d) return(b);
 f = (*d);
 if(!f) return(b);
 if(args) return(f(argp));
-return(cat_wk_day_in_ll(f(argp)));
+return(cat_dies_xe(decorative,f(argp)));
 }
