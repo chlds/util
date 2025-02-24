@@ -4,38 +4,32 @@
 # include "./../../../config.h"
 
 signed char *(__cdecl cat_di_abbrev_in_ll_on_new_moon(time_t(*argp))) {
-auto signed char **w;
 auto signed char *b;
 auto signed r;
 auto signed debug = (DBG);
-auto signed tertivm_decimvm = (13+(~0x00)); // 12th
-auto signed septimvm_decimvm = (17+(~0x00)); // 16th
-auto signed char ante[] = ("A");
-auto signed char diem[] = ("D");
-// auto signed char decimvm[] = ("DECIMVM");
-auto signed char kalendas[] = ("KAL");
-auto signed char sp[] = (" ");
-auto signed char *mdot = (MDOT);
-auto signed char *(a[]) = {
-"",
-"XIX",
-"XVIII",
-"XVII",
-"XVI",
-"XV",
-"XIV",
-"XIII",
-"XII",
-"XI",
-"X",
-"IX",
-"VIII",
-"VII",
-"VI",
-"V",
-"IV",
-"III",
-"PRID",
+auto signed deco = (0x00);
+auto signed char *(__cdecl*f)(signed(arg));
+auto signed char *(__cdecl**d)(signed(arg));
+auto signed char *(__cdecl*(a[]))(signed(arg)) = {
+cat_null,
+cat_xix_in_ll,
+cat_xviii_in_ll,
+cat_xvii_in_ll,
+cat_xvi_in_ll,
+cat_xv_in_ll,
+cat_xiv_in_ll,
+cat_xiii_in_ll,
+cat_xii_in_ll,
+cat_xi_in_ll,
+cat_x_in_ll,
+cat_ix_in_ll,
+cat_viii_in_ll,
+cat_vii_in_ll,
+cat_vi_in_ll,
+cat_v_in_ll,
+cat_iv_in_ll,
+cat_iii_in_ll,
+cat_prid,
 0x00,
 };
 b = (0x00);
@@ -44,22 +38,19 @@ r = current_di_b(debug,argp);
 if(!(0x01+(r))) return(b);
 r = cat_di_in_ll_on_new_moon_r(r,argp);
 if(!r) return(b);
-b = cath(kalendas,(void*)(0x00));
-w = (a);
-w = (w+(ct_v(w)));
---w;
-if(EQ(0x01,r)) return(cat_xe(cath(*w,sp,mdot,sp,(void*)(0x00)),b,(void*)(0x00)));
-/*
-if(!(r<(tertivm_decimvm))) {
-if(!(septimvm_decimvm<(r))) b = cat_xe(cath(decimvm,sp,mdot,sp,(void*)(0x00)),b,(void*)(0x00));
-}
-//*/
-w = (a);
+b = cat_kal(deco);
+d = (a);
+d = (d+(ct_f_v((void*(__cdecl**)(void*))(d))));
+--d;
+f = (*d);
+if(EQ(0x01,r)) return(cat_xe(f(deco),cat_word_separator(0x01),b,(void*)(0x00)));
+d = (a);
 r = (0x01+(~r));
-r = (r+(ct_v(w)));
+r = (r+(ct_f_v((void*(__cdecl**)(void*))(d))));
 if(!(0x00<(r))) return(b);
-r = (r%(ct_v(w)));
-w = (r+(w));
-b = cat_xe(cath(ante,sp,mdot,sp,diem,sp,mdot,sp,*w,sp,mdot,sp,(void*)(0x00)),b,(void*)(0x00));
+r = (r%(ct_f_v((void*(__cdecl**)(void*))(d))));
+d = (r+(d));
+f = (*d);
+b = cat_xe(cat_ante_abbrev(deco),cat_word_separator(0x01),cat_diem_abbrev(deco),cat_word_separator(0x01),f(deco),cat_word_separator(0x01),b,(void*)(0x00));
 return(b);
 }
