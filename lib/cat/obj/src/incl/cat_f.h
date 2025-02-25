@@ -66,6 +66,10 @@ signed char *(__cdecl cvtxt_abbrev_in_ll_te_rrr(time_t(*argp),signed char *(__cd
 signed char *(__cdecl cvtxt_abbrev_in_ll_te_rr(signed(arg),time_t(*argp)));
 signed char *(__cdecl cvtxt_abbrev_in_ll_te_r(time_t *argp));
 signed char *(__cdecl cvtxt_abbrev_in_ll_te(time_t *argp));
+signed char *(__cdecl cat_mo_decor_in_ll_r_rr(time_t(*argp)));
+signed char *(__cdecl cat_mo_decor_in_ll_r_r(time_t(*argp)));
+signed char *(__cdecl cat_mo_decor_in_ll_r(signed(args),time_t(*argp)));
+signed char *(__cdecl cat_mo_decor_in_ll(signed(args/* abbrev */),time_t(*argp)));
 signed(__cdecl cat_mo_in_ll_on_carryover(signed(args/* di */),signed(argp/* mo */)));
 signed(__cdecl cat_mo_in_ll_on_moon(signed(arg/* mo */)));
 signed char *(__cdecl cat_mo_in_ll_r_rr(time_t(*argp)));

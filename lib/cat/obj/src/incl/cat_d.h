@@ -12,6 +12,9 @@ typedef struct tm *(__cdecl*thdr_t)(time_t const *argp);
 static signed char WORD_SEPARATOR_MIDDLE_DOT[] = {
 0xE2,0xB8,0xB1,0x00,
 };
+static signed char BULLET[] = {
+0xE2,0x80,0xA2,0x00,
+};
 static signed char MIDDLE_DOT[] = {
 0xC2,0xB7,0x00,
 };
