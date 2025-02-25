@@ -3,11 +3,11 @@
 # define TIME_H
 # include "./../../../config.h"
 
-signed char *(__cdecl cat_di_abbrev_in_ll_on_new_moon(time_t(*argp))) {
+signed char *(__cdecl cat_di_decor_abbrev_in_ll_on_new_moon(time_t(*argp))) {
 auto signed char *b;
 auto signed r;
 auto signed debug = (DBG);
-auto signed deco = (0x00);
+auto signed deco = (0x01);
 auto signed char *(__cdecl*f)(signed(arg));
 auto signed char *(__cdecl**d)(signed(arg));
 auto signed char *(__cdecl*(a[]))(signed(arg)) = {

@@ -38,7 +38,7 @@ b = (0x00);
 if(!argp) return(b);
 r = current_di_b(debug,argp);
 if(!(0x01+(r))) return(b);
-r = cat_di_in_ll_on_new_moon_r(r,argp);
+r = cat_di_in_ll_to_new_moon(r,argp);
 if(!r) return(b);
 b = cat_kalendas(deco);
 d = (a);
