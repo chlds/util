@@ -66,6 +66,12 @@ signed char *(__cdecl cvtxt_abbrev_in_ll_te_rrr(time_t(*argp),signed char *(__cd
 signed char *(__cdecl cvtxt_abbrev_in_ll_te_rr(signed(arg),time_t(*argp)));
 signed char *(__cdecl cvtxt_abbrev_in_ll_te_r(time_t *argp));
 signed char *(__cdecl cvtxt_abbrev_in_ll_te(time_t *argp));
+signed char *(__cdecl cat_yr_in_ll_r_rrrr(signed char(*args),signed char(*argp)));
+signed char *(__cdecl cat_yr_in_ll_r_rrr(signed char(*args),signed char(*argp)));
+signed char *(__cdecl cat_yr_in_ll_r_rr(signed char(*args),signed char(*argp)));
+signed char *(__cdecl cat_yr_in_ll_r_r(signed char(*args),signed char(*argp)));
+signed char *(__cdecl cat_yr_in_ll_r(signed char(*argp)));
+signed char *(__cdecl cat_yr_in_ll(signed(arg)));
 signed char *(__cdecl cat_mo_decor_in_ll_r_rr(time_t(*argp)));
 signed char *(__cdecl cat_mo_decor_in_ll_r_r(time_t(*argp)));
 signed char *(__cdecl cat_mo_decor_in_ll_r(signed(args),time_t(*argp)));
