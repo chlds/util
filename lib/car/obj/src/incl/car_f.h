@@ -1013,6 +1013,20 @@ signed(__cdecl nsort(signed(count),signed(*base)));
 signed(__cdecl bsort(signed(count),signed(*base)));
 /* Switch */
 
+signed(__cdecl ordr_apart_xe(signed char(**args),signed char(*argp)));
+signed(__cdecl ordr_apart(signed char(**args),signed char(*argp)));
+signed(__cdecl ordr_part_xe(signed char(**args),signed char(*argp)));
+signed(__cdecl ordr_part(signed char(**args),signed char(*argp)));
+signed(__cdecl ordr(signed char(**args),signed char(*argp)));
+/* Check the ordinal number */
+
+signed(__cdecl cmpe_apart_xe(signed char(*args),signed char(*argp)));
+signed(__cdecl cmpe_apart(signed char(*args),signed char(*argp)));
+signed(__cdecl cmpe_part_xe(signed char(*args),signed char(*argp)));
+signed(__cdecl cmpe_part(signed char(*args),signed char(*argp)));
+signed(__cdecl cmpe(signed char(*args),signed char(*argp)));
+/* Compare ones in case sensitive character strings */
+
 signed(__cdecl cmpr_part_r(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr_part(signed(*cache),signed char(*di),signed char(*si)));
 signed(__cdecl cmpr_partially_r(signed(*cache),signed char(*di),signed char(*si)));
