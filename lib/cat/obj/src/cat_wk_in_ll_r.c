@@ -5,7 +5,6 @@
 
 signed char *(__cdecl cat_wk_in_ll_r(signed(args),time_t(*argp))) {
 auto signed char *b;
-auto signed r;
 auto signed decorative = (0x00);
 auto signed char *(__cdecl*f)(void(*argp));
 auto signed char *(__cdecl**d)(void(*argp));
