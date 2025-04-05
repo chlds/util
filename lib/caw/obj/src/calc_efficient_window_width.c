@@ -10,16 +10,20 @@ Return (0x00) on failure
 # define CAW_H
 # include "./../../../config.h"
 
-signed(__cdecl calc_efficient_window_width(void(*argp/* hdl */))) {
+signed(__cdecl calc_efficient_window_width(signed(args/* direction */),void(*argp/* hdl */))) {
 auto signed r;
-auto signed right = (0x02);
-auto signed left = (0x00);
-auto signed mask = (0xFFFFFFFF);
+auto signed(__cdecl*f)(void(*argp));
+auto signed(__cdecl**d)(void(*argp));
+auto signed(__cdecl*(a[]))(void(*argp)) = {
+calc_efficient_window_width_on_rtl,
+calc_efficient_window_width_on_ltr,
+0x00,
+};
 if(!argp) return(0x00);
-r = (signed)(mask&(currently_working_nonclient_window_area(left,argp)));
-if(r<(0x00)) return(0x00);
-r = (0x01+(~r));
-r = (r+(currently_working_area(right)));
+d = (a);
+if(!args) d++;
+f = (*d);
+r = f(argp);
 if(r<(0x00)) return(0x00);
 return(r);
 }

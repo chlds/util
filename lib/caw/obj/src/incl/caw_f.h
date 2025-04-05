@@ -79,7 +79,9 @@ signed(__cdecl currently_occurring_error_mb_ok(signed(arg),void(*hdl),signed cha
 signed(__cdecl message_box_mb_ok(void(*hdl),signed char(*text),signed char(*caption)));
 signed(__cdecl message_box_beta(void(*hdl),signed char(*text),signed char(*caption),signed(type)));
 
-signed(__cdecl calc_efficient_window_width(void(*argp/* hdl */)));
+signed(__cdecl calc_efficient_window_width_on_rtl(void(*argp/* hdl */)));
+signed(__cdecl calc_efficient_window_width_on_ltr(void(*argp/* hdl */)));
+signed(__cdecl calc_efficient_window_width(signed(args/* direction */),void(*argp/* hdl */)));
 signed long(__cdecl currently_working_nonclient_window_area(signed(arg),void(*argp/* hdl */)));
 signed(__cdecl currently_working_area(signed(arg)));
 signed(__cdecl currently_operating_pixels(signed(arg)));
