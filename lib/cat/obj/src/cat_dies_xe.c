@@ -8,5 +8,5 @@ auto signed char *b;
 if(!argp) return(argp);
 b = cat_dies(args);
 if(!b) return(argp);
-return(cat_xe(b,cat_word_separator(0x01),argp,(void*)(0x00)));
+return(cat_xe(b,cat_word_separator(),argp,(void*)(0x00)));
 }

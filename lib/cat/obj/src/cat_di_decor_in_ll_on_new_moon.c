@@ -45,9 +45,9 @@ d = (a);
 d = (d+(ct_f_v((void*(__cdecl**)(void*))(d))));
 --d;
 f = (*d);
-if(EQ(0x01,r)) return(cat_xe(f(deco),cat_word_separator(0x01),b,(void*)(0x00)));
+if(EQ(0x01,r)) return(cat_xe(f(deco),cat_word_separator(),b,(void*)(0x00)));
 if(!(r<(tertivm_decimvm))) {
-if(!(septimvm_decimvm<(r))) b = cat_xe(cat_decimvm(deco),cat_word_separator(0x01),b,(void*)(0x00));
+if(!(septimvm_decimvm<(r))) b = cat_xe(cat_decimvm(deco),cat_word_separator(),b,(void*)(0x00));
 }
 d = (a);
 r = (0x01+(~r));
@@ -56,6 +56,6 @@ if(!(0x00<(r))) return(b);
 r = (r%(ct_f_v((void*(__cdecl**)(void*))(d))));
 d = (r+(d));
 f = (*d);
-b = cat_xe(cat_ante(deco),cat_word_separator(0x01),cat_diem(deco),cat_word_separator(0x01),f(deco),cat_word_separator(0x01),b,(void*)(0x00));
+b = cat_xe(cat_ante(deco),cat_word_separator(),cat_diem(deco),cat_word_separator(),f(deco),cat_word_separator(),b,(void*)(0x00));
 return(b);
 }

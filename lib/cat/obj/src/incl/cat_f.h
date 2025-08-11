@@ -199,7 +199,7 @@ signed char *(__cdecl cat_wk_in_ll_r_rr(time_t(*argp)));
 signed char *(__cdecl cat_wk_in_ll_r_r(time_t(*argp)));
 signed char *(__cdecl cat_wk_in_ll_r(signed(args),time_t(*argp)));
 signed char *(__cdecl cat_wk_in_ll(signed(args/* abbrev */),time_t(*argp)));
-signed char *(__cdecl cat_word_separator(signed(arg)));
+signed char *(__cdecl cat_word_separator(void));
 signed char *(__cdecl cat_vndevicesimvm(signed(argp)));
 signed char *(__cdecl cat_dvodevicesimvm(signed(argp)));
 signed char *(__cdecl cat_eid(signed(argp)));
