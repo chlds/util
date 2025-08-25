@@ -17,26 +17,13 @@ Calendar week
 # include "./../../../config.h"
 
 signed char *(__cdecl map_week_number(signed(arg),time_t(*argp))) {
+auto signed char **w;
 auto signed char *b;
-auto signed char sat[] = {
-0xC2,0xB3,0x00,
-};
-auto signed char sun[] = {
-0xC2,0xB2,0x00,
-};
-auto signed char mon[] = {
-0xC2,0xB9,0x00,
-};
-auto signed char *(start[]) = {
-mon,
-sun,
-sat,
-0x00,
-};
 if(arg<(0x00)) return(0x00);
 if(!argp) return(0x00);
-if(!(arg<(ct_v_b(start)))) return(0x00);
 if(!(0x00<(*argp))) AND(*argp,0x00);
-b = (*(arg+(start)));
+w = (CALENDAR_DAYS_FOR_MEASURING_WEEK_NUMBERS_IN_EN);
+if(!(arg<(ct_v_b(w)))) return(0x00);
+b = (*(arg+(w)));
 return(map_week_number_r(arg,b,argp));
 }
