@@ -1247,3 +1247,6 @@ signed(__cdecl coph(signed char *argp,...));
 signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
+
+signed(__cdecl cyb(signed char(*args),signed char(*argp))); // modified for the util repository
+/* from abbey the library */
