@@ -9,7 +9,7 @@ auto signed char *table = ("0123456789ABCDEF");
 if(!argp) return(argp);
 b = (0x00);
 args = (mask&(args));
-argp = cat_xe_ahead(argp,catha(mask&(*(table+(args%(radix))))),b);
+argp = cat_xe_ahead(argp,cathay(mask&(*(table+(args%(radix))))),b);
 args = (args/(radix));
 if(!args) return(argp);
 return(ceyl_rr(args,argp));
