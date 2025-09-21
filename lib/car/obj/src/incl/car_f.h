@@ -1259,6 +1259,7 @@ signed char *(__cdecl casse_xe(signed char(*args),signed char(*argp)));
 signed char *(__cdecl casse_rr(signed char(*args),signed char(*argp)));
 signed char *(__cdecl casse_r(signed char(*args),signed char(*argp)));
 signed char *(__cdecl casse(signed char(*args),signed char(*argp)));
+signed char *(__cdecl cathy(signed char(*argp)));
 signed(__cdecl cyb(signed char(*args),signed char(*argp))); // modified for the util repository
 signed(__cdecl rlse(signed char(*argp)));
 signed(__cdecl bury(signed char(*argp)));
