@@ -789,9 +789,7 @@ signed char *(__cdecl dupl_offset(signed(arg),signed char(*argp)));
 signed char *(__cdecl dupl_b(signed(arg),signed char(*argp)));
 /* Duplicate */
 
-signed char *(__cdecl cx_rr(signed char(*di),signed char(*et),signed char(*si)));
-signed char *(__cdecl cx_r(signed(digit),signed(arg),signed char(*et),signed char(*argp)));
-signed char *(__cdecl cx(signed(digit),signed(arg),signed char(*et),signed char(*argp)));
+signed char *(__cdecl cx(signed(argq/*digit*/),signed(argt),signed char(*args/*et*/),signed char(*argp)));
 signed char *(__cdecl dgt(signed(args),signed char(*argp)));
 signed char *(__cdecl cv_rr(signed(args),signed(argp)));
 signed char *(__cdecl cv_r(signed(args),signed(argp)));
