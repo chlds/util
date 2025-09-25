@@ -16,14 +16,15 @@ Calendar week
 # define TIME_H
 # include "./../../../config.h"
 
-signed char *(__cdecl map_week_number(signed(arg),time_t(*argp))) {
+signed char *(__cdecl map_week_number(signed(args),time_t(*argp))) {
 auto signed char **w;
 auto signed char *b;
-if(arg<(0x00)) return(0x00);
+auto signed char a[] = (" ");
+if(args<(0x00)) return(0x00);
 if(!argp) return(0x00);
 if(!(0x00<(*argp))) AND(*argp,0x00);
 w = (CALENDAR_DAYS_FOR_MEASURING_WEEK_NUMBERS_IN_EN);
-if(!(arg<(ct_v_b(w)))) return(0x00);
-b = (*(arg+(w)));
-return(map_week_number_r(arg,b,argp));
+if(!(args<(ct_v_b(w)))) return(0x00);
+b = (*(args+(w)));
+return(catna(b,catna(a,map_week_number_r(args,argp))));
 }

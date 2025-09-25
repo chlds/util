@@ -3,21 +3,15 @@
 # define TIME_H
 # include "./../../../config.h"
 
-signed char *(__cdecl map_week_number_rr(signed char(*cw),signed char(*argp),time_t(*criterion))) {
-auto signed char *b;
+signed char *(__cdecl map_week_number_rr(signed(args),time_t(*argp))) {
 auto signed r;
-auto signed digit = (0x00);
-auto signed epoch = (1900);
-auto signed char sp[] = (" ");
-auto signed char sepr[] = ("-w");
-if(!cw) return(0x00);
+auto time_t t;
+auto signed d = (0x00);
+auto signed e = (1900);
 if(!argp) return(0x00);
-if(!criterion) return(0x00);
-b = (0x00);
-r = (epoch+(current_yr_b(DBG,criterion)));
-if(r<(epoch)) return(b);
-b = cv(digit,r);
-if(!b) return(b);
-cat_b(&b,sepr,cw,sp,argp,(void*)(0x00));
-return(b);
+t = (*argp);
+t = cvyr_wknum(t,args);
+r = (e+(current_yr_b(DBG,&t)));
+if(r<(e)) return(0x00);
+return(cv(d,r));
 }

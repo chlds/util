@@ -3,23 +3,19 @@
 # define TIME_H
 # include "./../../../config.h"
 
-signed char *(__cdecl map_week_number_xe_r(signed(arg),signed char(*argp),time_t(*criterion))) {
+signed char *(__cdecl map_week_number_xe_r(signed(args),time_t(*argp))) {
 auto signed char *b;
-auto signed char *w;
 auto signed r;
-auto time_t e;
-auto signed digit = (0x02);
-if(arg<(0x00)) return(0x00);
-if(!argp) return(0x00);
-if(!criterion) return(0x00);
-e = (*criterion);
-r = ct_wk(arg,&e);
+auto signed d = (0x02);
+auto signed char h[] = {
+0xE2,0x82,0x8B,0x00,
+};
+auto signed char w[] = {
+0xE1,0xB4,0xA1,0x00,
+};
+if(args<(0x00)) return(0x00);
+r = ct_wk(args,argp);
 if(!r) return(0x00);
-w = cv(digit,r);
-e = cvyr_wknum(e,r);
-*criterion = (e);
-b = map_week_number_xe_rr(w,argp,criterion);
-rl(w);
-w = (0x00);
-return(b);
+b = cv(d,r);
+return(catne(b,catna(w,catna(h,map_week_number_xe_rr(r,argp)))));
 }
