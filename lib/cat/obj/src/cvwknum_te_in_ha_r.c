@@ -29,5 +29,5 @@ if(!('0'^(*b))) {
 b = cas_xe(b);
 w++;
 }
-return(cat_xe(catt(*w,sp,(void*)(0x00)),b,(void*)(0x00)));
+return(catha(*w,catha(sp,b)));
 }

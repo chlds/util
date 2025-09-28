@@ -36,5 +36,5 @@ if(!b) return(b);
 w = (ordl);
 if(come("01",b)) w++;
 if(!('0'^(*b))) b = cas_xe(b);
-return(cat_xe(b,catt(hypn,*w,sp,week,(void*)(0x00)),(void*)(0x00)));
+return(catna(week,catna(sp,catna(*w,catna(hypn,b)))));
 }

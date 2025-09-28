@@ -21,5 +21,5 @@ argp = (argp%(wedd));
 b = cv_in_devanagari_fig(ct_wk(argp,&te));
 if(!b) return(b);
 if(!('0'^(*b))) b = cas_xe(b);
-return(cat_xe(catt(week,sp,(void*)(0x00)),b,(void*)(0x00)));
+return(catha(week,catha(sp,b)));
 }

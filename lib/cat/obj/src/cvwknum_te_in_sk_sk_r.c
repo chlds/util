@@ -20,5 +20,5 @@ argp = (argp%(wedd));
 b = cvwknum_te(&te,argp);
 if(!b) return(b);
 if(!('0'^(*b))) b = cas_xe(b);
-return(cat_xe(b,catt(sepr,week,(void*)(0x00)),(void*)(0x00)));
+return(catna(week,catna(sepr,b)));
 }

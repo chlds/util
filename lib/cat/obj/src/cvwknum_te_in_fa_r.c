@@ -21,5 +21,5 @@ if(argp<(0x00)) return(b);
 argp = (argp%(wedd));
 b = cv_in_persian_fig(ct_wk(argp,&te));
 if(!b) return(b);
-return(cat_xe(catt(week,sp,(void*)(0x00)),b,(void*)(0x00)));
+return(catha(week,catha(sp,b)));
 }

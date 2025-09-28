@@ -22,5 +22,5 @@ argp = (argp%(wedd));
 b = cvwknum_te(&te,argp);
 if(!b) return(b);
 if(!('0'^(*b))) b = cas_xe(b);
-return(cat_xe(catt(pre,(void*)(0x00)),b,catt(sub,(void*)(0x00)),(void*)(0x00)));
+return(catha(pre,catna(sub,b)));
 }
