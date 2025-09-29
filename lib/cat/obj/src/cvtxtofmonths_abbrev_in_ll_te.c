@@ -15,6 +15,6 @@ r = (compatible+(current_mo_b(debug,argp)));
 if(!(0x01+(r))) return(di);
 b = cvtxt_mon_in_ll(r,0x00);
 if(!b) return(di);
-b = cat_xe(di,catt(sp,(void*)0x00),b,(void*)0x00);
+b = catne(b,catna(sp,di));
 return(b);
 }

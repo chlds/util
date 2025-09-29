@@ -69,9 +69,9 @@ if(!(r<(ct_v(w)))) return(0x00);
 r = (0x01+(~r));
 r = (r+(ct_v(w)));
 b = (*(r+(w)));
-b = catt(b,sp,kal,(void*)0x00);
+b = catha(b,catta(sp,kal));
 r = current_mo_b(debug,&t);
 if(!(0x01+(r))) return(0x00);
-b = cat_xe(b,catt(sp,(void*)0x00),cvtxt_mon_in_ll(r,0x00),(void*)0x00);
+b = cathe(b,catha(sp,cvtxt_mon_in_ll(r,0x00)));
 return(b);
 }

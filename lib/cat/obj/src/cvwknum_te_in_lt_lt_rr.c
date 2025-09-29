@@ -4,5 +4,20 @@
 # include "./../../../config.h"
 
 signed char *(__cdecl cvwknum_te_in_lt_lt_rr(time_t(*args),signed(argp))) {
-return(cvwknum_te_in_lt_lt_r(args,argp));
+auto signed char *b;
+auto time_t te;
+auto signed wedd = (0x03);
+auto signed char sp[] = (" ");
+auto signed char week[] = ("sav.");
+b = (0x00);
+if(!args) return(b);
+te = (*args);
+if(te<(0x00)) return(b);
+if(argp<(0x00)) return(b);
+argp = (argp%(wedd));
+b = cvwknum_te(&te,argp);
+if(!b) return(b);
+if(!('0'^(*b))) b = cas_xe(b);
+b = catindx_xe(argp,b);
+return(catna(week,catna(sp,b)));
 }

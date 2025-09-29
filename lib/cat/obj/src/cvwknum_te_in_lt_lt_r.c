@@ -7,8 +7,10 @@ signed char *(__cdecl cvwknum_te_in_lt_lt_r(time_t(*args),signed(argp))) {
 auto signed char *b;
 auto time_t te;
 auto signed wedd = (0x03);
-auto signed char sp[] = (" ");
-auto signed char week[] = ("sav.");
+auto signed char sepr[] = ("-oji ");
+auto signed char week[] = {
+'s','a','v','a','i','t',0xC4,0x97,0x00,
+};
 b = (0x00);
 if(!args) return(b);
 te = (*args);
@@ -18,6 +20,5 @@ argp = (argp%(wedd));
 b = cvwknum_te(&te,argp);
 if(!b) return(b);
 if(!('0'^(*b))) b = cas_xe(b);
-b = catindx_xe(argp,b);
-return(catna(week,catna(sp,b)));
+return(catindx_xe(argp,catna(week,catna(sepr,b))));
 }
