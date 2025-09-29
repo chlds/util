@@ -19,5 +19,5 @@ te = (*argp);
 if(!(te<(0x00))) w++;
 b = cv_tz_rr(&te);
 if(!b) return(b);
-return(cat_xe_ahead(b,cath(*w,(void*)(0x00)),(void*)(0x00)));
+return(catha(*w,b));
 }
