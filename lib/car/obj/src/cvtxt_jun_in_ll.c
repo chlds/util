@@ -7,5 +7,5 @@ auto signed char c[] = ("Iun."); // in Carolingian minuscule
 auto signed char a[] = ("IVN");
 b = (a);
 if(arg) b = (c);
-return(catt(b,(void*)0x00));
+return(cathy(b));
 }

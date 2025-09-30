@@ -7,5 +7,5 @@ auto signed char c[] = ("Ian.");
 auto signed char a[] = ("IAN");
 b = (a);
 if(arg) b = (c);
-return(catt(b,(void*)0x00));
+return(cathy(b));
 }
