@@ -1250,6 +1250,7 @@ signed char *(__cdecl catna(signed char(*args),signed char(*argp)));
 signed char *(__cdecl catha(signed char(*args),signed char(*argp)));
 signed char *(__cdecl catne(signed char(*args),signed char(*argp)));
 signed char *(__cdecl cathe(signed char(*args),signed char(*argp)));
+signed char *(__cdecl catta_xe(signed char(*args),signed char(*argp)));
 signed char *(__cdecl catta(signed char(*args),signed char(*argp)));
 signed char *(__cdecl casse_xe_rr(signed char(*args),signed char(*argp)));
 signed char *(__cdecl casse_xe_r(signed char(*args),signed char(*argp)));
