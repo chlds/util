@@ -1246,7 +1246,9 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed char *(__cdecl catna_xe(signed char(*args),signed char(*argp)));
 signed char *(__cdecl catna(signed char(*args),signed char(*argp)));
+signed char *(__cdecl catha_xe(signed char(*args),signed char(*argp)));
 signed char *(__cdecl catha(signed char(*args),signed char(*argp)));
 signed char *(__cdecl catne(signed char(*args),signed char(*argp)));
 signed char *(__cdecl cathe(signed char(*args),signed char(*argp)));
