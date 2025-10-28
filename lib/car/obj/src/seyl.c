@@ -11,7 +11,6 @@ Call fn. rl later
 # include "./../../../config.h"
 
 signed char *(__cdecl seyl(signed(args),signed char(*argp))) {
-auto signed char *b;
-b = (0x00);
-return(seyl_r(args,argp,cath("",b)));
+auto signed char a[] = ("");
+return(seyl_r(args,argp,cathy(a)));
 }
