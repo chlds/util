@@ -12,9 +12,9 @@ auto time_t t;
 auto time_t day = (24*(60*(60)));
 auto signed carryover = (0x01);
 auto signed debug = (DBG);
-auto signed char sp[] = (" ");
-auto signed char kal[] = ("KALENDAS");
-auto signed char *(mon[]) = {
+auto signed char a[] = (" ");
+auto signed char k[] = ("KALENDAS");
+auto signed char *(e[]) = {
 "",
 "ANTE DIEM VNDEVICESIMVM",
 "ANTE DIEM DVODEVICESIMVM",
@@ -65,14 +65,12 @@ t = (day+(t));
 r++;
 if(!(di<(current_di_b(debug,&t)))) break;
 }
-w = (mon);
+w = (e);
 if(!(r<(ct_v(w)))) return(0x00);
 r = (0x01+(~r));
 r = (r+(ct_v(w)));
 b = (*(r+(w)));
-b = cath(b,sp,kal,(void*)(0x00));
 r = current_mo_b(debug,&t);
 if(!(0x01+(r))) return(0x00);
-b = cat_xe(b,cath(sp,(void*)(0x00)),cvtxt_month_in_ll(carryover,r,di),(void*)(0x00));
-return(b);
+return(catha(b,catha(a,catha(k,catha(a,cvtxt_month_in_ll(carryover,r,di))))));
 }

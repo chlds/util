@@ -20,7 +20,7 @@ b = (b+(ct(b)));
 b = (b+(0x01+(~r)));
 r = ordr(c,b);
 if(!(r<(ct_v(c)))) return(args);
-args = cat_xe(cath(*(r+(a)),(void*)(0x00)),args,(void*)(0x00));
+args = catha_xe(args,*(r+(a)));
 embed(0x00,b);
 return(cat_yr_in_ll_r_rrrr(args,argp));
 }

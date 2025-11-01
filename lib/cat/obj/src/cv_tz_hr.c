@@ -19,5 +19,5 @@ if(te<(0x00)) te = (0x01+(~te));
 te = (te/(hr));
 r = (signed)(te%(args*(hrs)));
 if(!r) return(b);
-return(cath(*(r+(CAT_DIGIT)),(void*)(0x00)));
+return(cathy(*(r+(CAT_DIGIT))));
 }
