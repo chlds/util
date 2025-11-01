@@ -6,7 +6,7 @@ auto signed char *b;
 if(!argp) return(argp);
 if(args<(0x00)) return(argp);
 if(!(--argt)) return(argp);
-b = cat_xe(argp,readb(args),(void*)0x00);
+b = cathe(argp,readb(args));
 if(!b) return(b);
 return(readl_r(b,args,argt));
 }

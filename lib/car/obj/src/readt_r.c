@@ -8,7 +8,7 @@ if(args<(0x00)) return(argp);
 if(!(--argt)) return(argp);
 b = readl(args);
 if(!b) return(argp);
-b = cat_xe(argp,b,(void*)0x00);
+b = cathe(argp,b);
 if(!b) return(b);
 return(readt_r(b,args,argt));
 }

@@ -12,8 +12,9 @@ Call fn. rl later
 
 signed char *(__cdecl ser(signed char(**arg))) {
 auto signed char *b;
+auto signed char a[] = ("");
 b = (0x00);
 if(!arg) return(b);
 if(!(*arg)) return(b);
-return(ser_r(arg,cath("",b)));
+return(ser_r(arg,cathy(a)));
 }
