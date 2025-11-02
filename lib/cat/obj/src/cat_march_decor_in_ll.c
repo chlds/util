@@ -42,5 +42,5 @@ if(EQ(idus,args)) --r;
 }
 if(--r<(0x00)) return(b);
 b = (*(r+(w)));
-return(cath(t,b,(void*)(0x00)));
+return(catta(t,b));
 }

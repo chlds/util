@@ -5,7 +5,6 @@
 
 signed char *(__cdecl cat_septimvm(signed(argp))) {
 auto signed char **w;
-auto signed char *b;
 auto signed char l[] = ("SEPTIMVM");
 auto signed char l_decor[] = {
 0xEA,0x9C,0xB1,0xE1,0xB4,0x87,0xE1,0xB4,0x98,0xE1,0xB4,0x9B,\
@@ -18,8 +17,7 @@ l_decor,
 l,
 0x00,
 };
-b = (0x00);
 w = (a);
 if(!argp) w++;
-return(cath(*w,b));
+return(cathy(*w));
 }

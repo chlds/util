@@ -9,5 +9,5 @@ auto signed char c[] = ("Dec.");
 auto signed char a[] = ("DEC");
 b = (a);
 if(arg) b = (c);
-return(cath(b,(void*)(0x00)));
+return(cathy(b));
 }
