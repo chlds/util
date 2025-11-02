@@ -5,7 +5,6 @@
 
 signed char *(__cdecl cat_v_in_ll(signed(argp))) {
 auto signed char **w;
-auto signed char *b;
 auto signed char l[] = ("V");
 auto signed char l_decor[] = {
 0xE1,0xB4,0xA0,\
@@ -16,8 +15,7 @@ l_decor,
 l,
 0x00,
 };
-b = (0x00);
 w = (a);
 if(!argp) w++;
-return(cath(*w,b));
+return(cathy(*w));
 }

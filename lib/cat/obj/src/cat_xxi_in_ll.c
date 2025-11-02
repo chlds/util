@@ -4,7 +4,5 @@
 # include "./../../../config.h"
 
 signed char *(__cdecl cat_xxi_in_ll(signed(argp))) {
-auto signed char *b;
-b = (0x00);
-return(cat_xe(cat_x_in_ll(argp),cat_xi_in_ll(argp),b));
+return(cathe(cat_x_in_ll(argp),cat_xi_in_ll(argp)));
 }
