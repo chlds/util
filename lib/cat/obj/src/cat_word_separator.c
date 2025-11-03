@@ -4,8 +4,7 @@
 # include "./../../../config.h"
 
 signed char *(__cdecl cat_word_separator(void)) {
-auto signed char *b;
-auto signed char sp[] = (" ");
+auto signed char a[] = (" ");
 /*
 auto signed char *mdot = (MDOT);
 auto signed char en[] = {
@@ -24,7 +23,6 @@ auto signed char six_per_em[] = {
 0xE2,0x80,0x86,0x00,
 };
 //*/
-b = (0x00);
-// return(cath(sp,mdot,sp,b));
-return(cath(sp,b));
+// return(catha(a,catta(mdot,a)));
+return(cathy(a));
 }

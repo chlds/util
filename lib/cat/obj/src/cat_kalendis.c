@@ -5,7 +5,6 @@
 
 signed char *(__cdecl cat_kalendis(signed(argp))) {
 auto signed char **w;
-auto signed char *b;
 auto signed char l[] = ("KALENDIS");
 auto signed char l_decor[] = {
 0xE1,0xB4,0x8B,0xE1,0xB4,0x80,0xCA,0x9F,\
@@ -13,13 +12,12 @@ auto signed char l_decor[] = {
 0xC9,0xAA,0xEA,0x9C,0xB1,\
 0x00,
 };
-auto signed char *(a[]) = {
+auto signed char *(e[]) = {
 l_decor,
 l,
 0x00,
 };
-b = (0x00);
-w = (a);
+w = (e);
 if(!argp) w++;
-return(cath(*w,b));
+return(cathy(*w));
 }

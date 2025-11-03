@@ -5,7 +5,6 @@
 
 signed char *(__cdecl cat_dvodecimvm(signed(argp))) {
 auto signed char **w;
-auto signed char *b;
 auto signed char l[] = ("DVODECIMVM");
 auto signed char l_decor[] = {
 0xE1,0xB4,0x85,0xE1,0xB4,0xA0,0xE1,0xB4,0x8F,\
@@ -14,13 +13,12 @@ auto signed char l_decor[] = {
 0xE1,0xB4,0xA0,0xE1,0xB4,0x8D,\
 0x00,
 };
-auto signed char *(a[]) = {
+auto signed char *(e[]) = {
 l_decor,
 l,
 0x00,
 };
-b = (0x00);
-w = (a);
+w = (e);
 if(!argp) w++;
-return(cath(*w,b));
+return(cathy(*w));
 }
