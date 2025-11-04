@@ -20,7 +20,5 @@ r = ct(b);
 if(r<(ct(si))) b = (si);
 r = cmpy_b(di,si);
 if(!r) return(0x00);
-b = (r+(b));
-b = catt(b,(void*)0x00);
-return(b);
+return(cathy(r+(b)));
 }

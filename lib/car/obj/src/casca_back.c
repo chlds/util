@@ -6,6 +6,6 @@ auto signed char *b;
 if(!argp) return(0x00);
 if(!(*argp)) return(0x00);
 b = (argp);
-// b = catt(b,(void*)0x00);
+// b = cathy(b);
 return(casca_back_r(b));
 }

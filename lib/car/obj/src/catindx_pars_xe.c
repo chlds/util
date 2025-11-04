@@ -28,5 +28,5 @@ if(args<(0x00)) return(argp);
 if(!argp) return(argp);
 args = (args%(ct_v_b(indx)));
 b = (*(args+(indx)));
-return(cat_xe(argp,catt(lpar,b,rpar,(void*)(0x00)),(void*)(0x00)));
+return(catna(rpar,catna(b,catna(lpar,argp))));
 }

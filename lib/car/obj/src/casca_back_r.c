@@ -12,6 +12,5 @@ r = ct(b);
 if(!r) return(0x00);
 r = (r+(0x01+(~(caract_back(b)))));
 if(r<(0x00)) return(0x00);
-b = (r+(b));
-return(catt(b,(void*)0x00));
+return(cathy(r+(b)));
 }
