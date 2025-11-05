@@ -13,5 +13,5 @@ b = (argp);
 b = (r+(b));
 embed(0x00,b);
 b = (0x00);
-return(cat_xe(argp,(void*)0x00));
+return(cathy_xe(argp));
 }
