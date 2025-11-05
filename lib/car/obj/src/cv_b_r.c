@@ -16,6 +16,6 @@ rl(b);
 b = (0x00);
 }
 if(!b) return(b);
-if(p) cat_ahead_b(&b,p,(void*)0x00);
+if(p) b = catha(p,b);
 return(b);
 }

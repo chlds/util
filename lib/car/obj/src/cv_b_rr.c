@@ -15,7 +15,7 @@ b = (0x00);
 *di = (b);
 return(0x00);
 }
-cat_ahead_b(di,b,(void*)0x00);
+*di = catha(b,*di);
 b = (0x00);
 si = (si/(radix));
 if(!si) return(0x01);
