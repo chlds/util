@@ -44,10 +44,10 @@ b = f(deco);
 if(EQ(kalendae,r)) return(b);
 if(EQ(nonae,r)) return(b);
 if(EQ(idus,r)) return(b);
-if(r<(nonae)) b = cat_xe(b,cat_word_separator(),cat_nonas(deco),(void*)(0x00));
+if(r<(nonae)) b = cathe(b,cathe(cat_word_separator(),cat_nonas(deco)));
 if(EQ(r,nonae+(~0x00))) return(b);
-if(r<(nonae)) return(cat_xe(cat_ante(deco),cat_word_separator(),cat_diem(deco),cat_word_separator(),b,(void*)(0x00)));
-b = cat_xe(b,cat_word_separator(),cat_idvs(deco),(void*)(0x00));
+if(r<(nonae)) return(catne(b,catne(cat_word_separator(),catne(cat_diem(deco),catne(cat_word_separator(),cat_ante(deco))))));
+b = cathe(b,cathe(cat_word_separator(),cat_idvs(deco)));
 if(EQ(r,idus+(~0x00))) return(b);
-return(cat_xe(cat_ante(deco),cat_word_separator(),cat_diem(deco),cat_word_separator(),b,(void*)(0x00)));
+return(catne(b,catne(cat_word_separator(),catne(cat_diem(deco),catne(cat_word_separator(),cat_ante(deco))))));
 }
