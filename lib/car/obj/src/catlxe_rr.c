@@ -10,7 +10,7 @@ if(!(*si)) return(di);
 if(!(bindpg(flag,di))) return(di);
 b = (*si);
 p = (*(CLIH_INDEX+(R(p,*di))));
-cat_b(CLIH_BASE+(R(b,*p)),b,(void*)0x00);
+*(CLIH_BASE+(R(b,*p))) = catna(b,*(CLIH_BASE+(R(b,*p))));
 si++;
 return(catlxe_rr(di,si,flag));
 }
