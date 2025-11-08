@@ -1,9 +1,3 @@
-/* **** Notes
-
-Convert
-*/
-
-
 # define CAR_H
 # include "./../../../config.h"
 
@@ -22,7 +16,7 @@ if(arg<(0x00)) break;
 i++;
 }
 if(!(i<(ct_v_b(*si)))) return(0x00);
-if(i) cat_b(di,*(i+(*si)),(void*)0x00);
+if(i) *di = catna_xe(*di,*(i+(*si)));
 arg = (arg+(*base));
 base++;
 si++;
