@@ -44,6 +44,6 @@ if(!(0x00<(arg))) return(0x00);
 if(!argp) return(0x00);
 b = (0x00);
 w = (hollow);
-if(arg<(ct_v(w))) cat_b(&b,*(arg+(w)),(void*)0x00);
+if(arg<(ct_v(w))) b = cathy(*(arg+(w)));
 return(cvtxtofmonths_in_ll_te(b,argp));
 }
