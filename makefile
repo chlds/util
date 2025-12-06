@@ -67,7 +67,7 @@ LIBR2 = ./lib/cbr/cbr.lib
 LIBR1 = ./lib/car/car.lib
 LIBRS = $(LIBR99) $(LIBR15) $(LIBR14) $(LIBR13) $(LIBR12) $(LIBR11) $(LIBR10) $(LIBR9) $(LIBR8) $(LIBR7) $(LIBR6) $(LIBR5) $(LIBR4) $(LIBR3) $(LIBR2) $(LIBR1)
 LIBR = ./lib/$(L).lib
-OS_LIBRS = user32.lib gdi32.lib psapi.lib advapi32.lib
+OS_LIBRS = user32.lib gdi32.lib psapi.lib advapi32.lib winmm.lib
 
 UTF_8 = -source-charset:utf-8
 # compiler option for unicode:
