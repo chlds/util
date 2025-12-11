@@ -84,7 +84,7 @@ LIL = link.exe
 # e.g.,
 # > nmake T=calend
 
-$(EXE): $(OBJ) $(LIBR) $(LIBRS) $(HDRS) # $(OS_LIBRS)
+$(EXE): $(OBJ) $(LIBR) $(LIBRS) $(HDRS) # $(RES) # $(OS_LIBRS)
 	@echo $(MSG)
 	$(LIL) $(LILFLAGS) $(OBJ) $(LIBR) $(OS_LIBRS) $(RES)
 
