@@ -10,6 +10,8 @@ double(__cdecl get_dpi_desktop_b(signed(arg)));
 double(__cdecl get_dpi_sqrt_b(void(*argp/* whdl */)));
 double(__cdecl get_dpi_b(signed(arg),void(*argp/* whdl */)));
 
+signed(__cdecl renames_beta(signed char(*args),signed char(*argp)));
+
 signed(__cdecl dc_color_out_w_beta(signed(x),signed(y),signed(clr),void(*dc),signed short(*argp)));
 signed(__cdecl dc_color_out_beta(signed(x),signed(y),signed(clr),void(*dc),signed char(*argp)));
 signed(__cdecl dc_out_w_beta(signed(x),signed(y),void(*dc),signed short(*argp)));
