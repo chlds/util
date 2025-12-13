@@ -1246,6 +1246,7 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed(__cdecl removes(signed char(*argp)));
 signed(__cdecl renames(signed char(*args),signed char(*argp)));
 signed(__cdecl fsyncs(signed(arg)));
 signed char *(__cdecl catna_xe(signed char(*args),signed char(*argp)));
