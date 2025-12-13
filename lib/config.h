@@ -28,6 +28,10 @@ Remarks:
 # include "./incl/cli_codepage.h"
 # endif
 
+# ifdef IO_H
+# include <io.h>
+# endif
+
 # ifdef STDDEF_H
 # include <stddef.h>
 # endif
