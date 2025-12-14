@@ -67,6 +67,9 @@ signed(__cdecl eq_r(signed char(*di),signed char(**si)));
 signed(__cdecl eq(signed char(*di),signed char(**si)));
 /* equal */
 
+signed(__cdecl flush(signed char(*argp/*path*/)));
+/* directly flush data to a disk storage */
+
 signed(__cdecl storing_r(signed(fd),signed char(**argp)));
 signed(__cdecl storing(signed(fd),void(*argp)));
 signed(__cdecl store(signed char(*di/* path */),signed char(*si/* contents */)));
