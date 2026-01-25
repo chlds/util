@@ -28,6 +28,11 @@ Refer at ./config.h
 # define MUL(A,B) A = (B*(A))
 // Expression
 
+# define CII(A) A = (0x01+(~(A)))
+// CII (NEG) computes the two's complement of the operand by bitwise inversion followed by increment.
+// If the operand equals the minimum representable value, the result remains unchanged.
+// In standard C, signed integer overflow is undefined behavior and no signal is raised.
+
 # define NOT(A) A = (~(A))
 # define AND(A,B) A = (B&(A))
 # define OR(A,B) A = (B|(A))
