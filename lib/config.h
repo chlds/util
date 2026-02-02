@@ -17,6 +17,7 @@ Remarks:
 # include "./incl/cli.h"
 # include "./incl/dbg.h"
 # include "./incl/al.h"
+# include "./incl/symbol.h"
 // # include "./incl/typ.h"
 # endif
 
