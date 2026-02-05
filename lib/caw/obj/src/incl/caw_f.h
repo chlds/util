@@ -88,6 +88,7 @@ signed(__cdecl calc_efficient_window_width(signed(args/* direction */),void(*arg
 signed long(__cdecl currently_working_nonclient_window_area(signed(arg),void(*argp/* hdl */)));
 signed(__cdecl currently_working_area(signed(arg)));
 signed(__cdecl currently_operating_pixels(signed(arg)));
+signed(__cdecl currently_hidden_taskbar(void));
 void *(__cdecl create_window_beta(
 signed char(*cn),signed char(*wn),signed(styl),
 signed(x),signed(y),signed(w),signed(h),
