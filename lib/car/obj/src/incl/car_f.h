@@ -892,9 +892,9 @@ signed char *(__cdecl ceyl(signed(arg)));
 signed char *(__cdecl card_rr(signed(argt),signed(args),signed char(*argp)));
 signed char *(__cdecl card_r(signed(args),signed(argp)));
 signed char *(__cdecl card(signed(args),signed(argp/* radix */)));
-signed char *(__cdecl cathay_rr(signed(args),signed char(*argp)));
-signed char *(__cdecl cathay_r(signed(arg)));
-signed char *(__cdecl cathay(signed(arg)));
+signed char *(__cdecl cathi_rr(signed(args),signed char(*argp)));
+signed char *(__cdecl cathi_r(signed(arg)));
+signed char *(__cdecl cathi(signed(arg)));
 
 signed char *(__cdecl catn_rr(signed char(*args),signed char(**argp)));
 signed char *(__cdecl catn_r(signed char **argp));
