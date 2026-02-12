@@ -15,6 +15,6 @@ if(!argp) return(0x00);
 *a = (0x00);
 GetClassName(argp,a,CCLVI);
 if(!(cmpe(p,a))) return(0x00);
-if(!(cmpe(s,a))) return(0x00);
+// if(!(cmpe(s,a))) return(0x00);
 return(0x01);
 }
