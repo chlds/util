@@ -2,6 +2,11 @@
 # define CAT_DEBUG_MN (DBG_MN)
 // debug (signed or time_t)
 
+# define CXXVIII (128)
+# define CCLVI (256)
+# define DXII (512)
+# define MXXIV (1024)
+
 # define CAT_SCALE (0x02)
 # include "./cat_prime.h"
 # include "./cat_subscripts.h"
