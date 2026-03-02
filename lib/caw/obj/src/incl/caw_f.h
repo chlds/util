@@ -1,3 +1,13 @@
+signed(__cdecl currently_occurring_error_xe(signed(argq),void(*argt/*hdl*/),signed char(*args),signed char(*argp/*caption*/)));
+signed(__cdecl currently_occurring_error(void));
+// for debugging
+signed(__stdcall currently_operating_window_handle_r(void(*args/*whdl*/),signed long long(argp/*LPARAM*/)));
+void *(__cdecl currently_operating_window_handle(void));
+// retrieve the handle to the top-level window of its own process
+signed(__cdecl deregister_shell_hook(void(*argp)));
+signed(__cdecl register_shell_hook(void(*argp)));
+// shell hook
+
 signed(__cdecl control_key_state_beta(signed(arg)));
 signed(__cdecl shift_key_state_beta(signed(arg)));
 signed(__cdecl tab_key_state_beta(signed(arg)));
@@ -21,8 +31,6 @@ signed(__cdecl dc_out_beta(signed(x),signed(y),void(*dc),signed char(*argp)));
 signed(__cdecl armlength(void(*args),signed char(*argp)));
 signed(__cdecl dc_width_of_text(void(*dc),signed char(*argp)));
 signed(__cdecl dc_height_of_text(void(*dc),signed char(*argp)));
-
-signed(__cdecl currently_occurring_error(void));
 
 signed(__cdecl count_clipboard_formats(void));
 void *(__cdecl alloc_g(signed(arg)));
