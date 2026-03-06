@@ -1251,6 +1251,10 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed(__cdecl deburr_r(signed char(*args),signed(argp)));
+signed(__cdecl deburr(void(*args),signed(argp)));
+signed(__cdecl deburr_xe(void(*args),signed(argp)));
+signed(__cdecl rl_xxe(void(*argp)));
 signed(__cdecl removes(signed char(*argp)));
 signed(__cdecl renames(signed char(*args),signed char(*argp)));
 signed(__cdecl fsyncs(signed(arg)));
