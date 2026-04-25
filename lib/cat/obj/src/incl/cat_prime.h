@@ -1,7 +1,2 @@
-static signed char PRIME[] = {
-0xE2,0x80,0xB2,0x00,
-};
-
-static signed char DOUBLE_PRIME[] = {
-0xE2,0x80,0xB3,0x00,
-};
+extern signed char PRIME[];
+extern signed char DOUBLE_PRIME[];

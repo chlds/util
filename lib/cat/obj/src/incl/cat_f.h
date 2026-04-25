@@ -1,3 +1,6 @@
+void*(__cdecl describe_time(void(*args),signed(argp)));
+void*(__cdecl choose_time(signed(arg)));
+
 time_t(__cdecl cvte_downrange_accuracy_xe_r(time_t(argq),signed(argt),signed(args),signed(arg)));
 time_t(__cdecl cvte_downrange_accuracy_xe(time_t(argt),signed(args),signed(arg)));
 time_t(__cdecl cvte_downrange_accuracy_rr(time_t(args),signed(arg)));

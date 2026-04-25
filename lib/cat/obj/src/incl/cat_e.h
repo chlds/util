@@ -1,3 +1,5 @@
+typedef struct tm *(__cdecl*thdr_t)(time_t const *argp);
+
 enum {
 N,I,II,III,IV,V,VI,VII,VIII,IX,
 X,XI,XII,XIII,XIV,XV,XVI,XVII,XVIII,XIX,
