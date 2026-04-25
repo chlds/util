@@ -264,6 +264,16 @@ signed char *(__cdecl cat_ii_in_ll(signed(argp)));
 signed char *(__cdecl cat_i_in_ll(signed(argp)));
 /* lingua latina */
 
+signed char *(__cdecl current_mo_xe(signed(arg)));
+signed(__cdecl current_yr_xe(signed(arg)));
+signed(__cdecl current_yr(void(*args),signed(argp)));
+signed(__cdecl current_mo(void(*args),signed(argp)));
+signed(__cdecl current_dm(void(*args),signed(argp)));
+signed(__cdecl current_dw(void(*args),signed(argp)));
+signed(__cdecl current_hr(void(*args),signed(argp)));
+signed(__cdecl current_mn(void(*args),signed(argp)));
+signed(__cdecl current_sm(void(*args),signed(argp)));
+//
 signed(__cdecl current_sm_b(signed(arg),time_t(*argp)));
 signed(__cdecl current_mn_b(signed(arg),time_t(*argp)));
 signed(__cdecl current_hr_b(signed(arg),time_t(*argp)));
