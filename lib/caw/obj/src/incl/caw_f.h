@@ -8,6 +8,8 @@ signed(__cdecl deregister_shell_hook(void(*argp)));
 signed(__cdecl register_shell_hook(void(*argp)));
 // shell hook
 
+signed(__cdecl click_through_attribute(void(*args),signed(argp)));
+
 signed(__cdecl control_key_state_beta(signed(arg)));
 signed(__cdecl shift_key_state_beta(signed(arg)));
 signed(__cdecl tab_key_state_beta(signed(arg)));
