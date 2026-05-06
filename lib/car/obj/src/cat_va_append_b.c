@@ -1,4 +1,3 @@
-# define CK_H
 # define CAR_H
 # include "./../../../config.h"
 

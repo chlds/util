@@ -85,5 +85,8 @@ Remarks:
 # endif
 
 # ifdef CAW_H
+# ifndef READY_FOR_CAW_H
+# define READY_FOR_CAW_H
 # include "./../caw/obj/src/incl/caw.h"
+# endif
 # endif
