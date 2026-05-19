@@ -1251,6 +1251,24 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed char *(__cdecl largo(signed char(*args),signed char(**argp)));
+signed char **(__cdecl larg(signed char(*args),signed char(**argp)));
+signed char **(__cdecl lar(signed char(*args),signed char(**argp)));
+signed char **(__cdecl lar_xe(signed char(*args),signed char(**argp)));
+signed char **(__cdecl anda_xe(signed char(*args),signed char(**argp)));
+signed char **(__cdecl anda(signed char(*args),signed char(**argp)));
+signed char **(__cdecl andant(signed char(*args),signed char(**argp)));
+signed char *(__cdecl andante(signed char(*args),signed char(**argp)));
+signed char *(__cdecl allegro(signed char(**args),signed char(**argp)));
+signed char **(__cdecl alleg(signed char(**args),signed char(**argp)));
+signed char **(__cdecl alle(signed char(**args),signed char(**argp)));
+signed char **(__cdecl alle_xe(signed char(**args),signed char(**argp)));
+signed char **(__cdecl adag_xe(signed char(**args),signed char(**argp)));
+signed char **(__cdecl adag(signed char(**args),signed char(**argp)));
+signed char **(__cdecl adagi(signed char(**args),signed char(**argp)));
+signed char *(__cdecl adagio(signed char(**args),signed char(**argp)));
+signed(__cdecl counci(signed char(**argp)));
+signed(__cdecl counci_xe(signed char(**args),signed(argp)));
 signed char *(__cdecl annih(signed char(*argp)));
 signed(__cdecl nih(signed char(*argp)));
 signed(__cdecl ceal(signed char(*argp)));
