@@ -1251,6 +1251,18 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed char *(__cdecl annih(signed char(*argp)));
+signed(__cdecl nih(signed char(*argp)));
+signed(__cdecl ceal(signed char(*argp)));
+signed(__cdecl ceal_xe(signed char(*args),signed(argp)));
+signed char *(__cdecl deref_xe(signed char(**argp)));
+signed(__cdecl deref(signed char(*argp)));
+signed char **(__cdecl rlci(signed char(**argp)));
+signed char **(__cdecl rlci_r(signed char(**argp)));
+signed char **(__cdecl rlci_rr(signed char(**argp)));
+signed char **(__cdecl rlcie_rr(signed char(**argp)));
+signed char **(__cdecl rlcie_r(signed char(**argp)));
+signed char **(__cdecl rlcie(signed char(**argp)));
 signed(__cdecl deburr_r(signed char(*args),signed(argp)));
 signed(__cdecl deburr(void(*args),signed(argp)));
 signed(__cdecl deburr_xe(void(*args),signed(argp)));
