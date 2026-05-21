@@ -1,8 +1,8 @@
 # define CAR_H
 # include "./../../../config.h"
 
-signed(__cdecl lash(signed char(***args),signed char(*argp))) {
-if(!args) return(0x00);
-*args = cathol_xe(argp,*args);
-return(0x01);
+signed char ***(__cdecl lash(signed char(*args),signed char(***argp))) {
+if(!argp) return(argp);
+*argp = cathol_xe(args,*argp);
+return(argp);
 }

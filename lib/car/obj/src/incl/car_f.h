@@ -1251,8 +1251,8 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
-signed(__cdecl lash(signed char(***args),signed char(*argp)));
-signed(__cdecl hitch(signed char(***args),signed char(*argp)));
+signed char ***(__cdecl lash(signed char(*args),signed char(***argp)));
+signed char ***(__cdecl hitch(signed char(*args),signed char(***argp)));
 signed char *(__cdecl cara_v(signed char(**argp)));
 signed char *(__cdecl largo(signed char(*args),signed char(**argp)));
 signed char **(__cdecl larg(signed char(*args),signed char(**argp)));
