@@ -96,6 +96,8 @@ signed(__cdecl calc_efficient_window_width_on_rtl(void(*argp/* hdl */)));
 signed(__cdecl calc_efficient_window_width_on_ltr(void(*argp/* hdl */)));
 signed(__cdecl calc_efficient_window_width(signed(args/* direction */),void(*argp/* hdl */)));
 signed long(__cdecl currently_working_nonclient_window_area(signed(arg),void(*argp/* hdl */)));
+signed(__cdecl currently_working_area_height(void));
+signed(__cdecl currently_working_area_width(void));
 signed(__cdecl currently_working_area(signed(arg)));
 signed(__cdecl currently_operating_pixels(signed(arg)));
 signed(__cdecl currently_hidden_taskbar_r(void(*argp)));
