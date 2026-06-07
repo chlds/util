@@ -11,7 +11,7 @@ Refer at ./config.h
 
 # define external extern
 # define global
-
+# define PRINCIPLE (0x08)
 # define SHL(A,B) A = (A<<(B))
 # define SHR(A,B) A = (A>>(B))
 # define DEC(A) --(A)
