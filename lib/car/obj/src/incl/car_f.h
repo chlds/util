@@ -1299,6 +1299,7 @@ signed char *(__cdecl annih(signed char(*argp)));
 signed(__cdecl nih(signed char(*argp)));
 signed(__cdecl ceal(signed char(*argp)));
 signed(__cdecl ceal_xe(signed char(*args),signed(argp)));
+signed char **(__cdecl deref_xxe(signed char(***argp)));
 signed char *(__cdecl deref_xe(signed char(**argp)));
 signed(__cdecl deref(signed char(*argp)));
 signed char **(__cdecl rlci(signed char(**argp)));
