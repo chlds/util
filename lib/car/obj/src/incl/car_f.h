@@ -584,7 +584,8 @@ signed(__cdecl flag_b_r(signed char(**v),signed char(*a),signed short(*di),signe
 signed(__cdecl flag_b(signed char(**v),signed char(*a),signed short(*di),signed short(*si)));
 /* Flag */
 
-signed(__cdecl commandlet(signed(arg/* stack size */),void(*argp),void(__cdecl*f)(void(*argp))));
+void *(__cdecl commandlet_xe(signed(argt/*stacksize*/),void(*args),void(__cdecl*argp)(void(*args))));
+signed(__cdecl commandlet(signed(argt/*stacksize*/),void(*args),void(__cdecl*argp)(void(*args))));
 /* run in a subroutine */
 
 void*(__cdecl alloc(signed(arg)));
@@ -1251,6 +1252,7 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed long long(__cdecl cii_xe(signed long long(arg)));
 signed(__cdecl cii(signed(arg)));
 signed char ***(__cdecl lash(signed char(*args),signed char(***argp)));
 signed char ***(__cdecl hitch(signed char(*args),signed char(***argp)));
