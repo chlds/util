@@ -1252,6 +1252,17 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed char *(__cdecl convey_xe(signed(argt),signed char(*args),signed char(*argp)));
+signed char *(__cdecl convey(signed char(*args),signed(argp)));
+signed char *(__cdecl cnvy(signed char(*args),signed char(*argp)));
+signed(__cdecl cvy(signed char(*args),signed char(*argp)));
+/*  convey  */
+signed char *(__cdecl ante(signed char(*argp)));
+signed char *(__cdecl post(signed char(*argp)));
+/*  anterior and posterior  */
+signed char *(__cdecl nil(signed char(*argp)));
+/*  nihil  */
+
 signed long long(__cdecl cii_xe(signed long long(arg)));
 signed(__cdecl cii(signed(arg)));
 signed char ***(__cdecl lash(signed char(*args),signed char(***argp)));
