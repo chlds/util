@@ -21,15 +21,12 @@ auto signed char *(num[]) = {
 "9",
 0x00,
 };
-if(!argp) return(0x00);
-if(!(*argp)) return(0x00);
+if(!deref(argp)) return(0x00);
 b = casca(argp);
 r = ords(num,b);
-rl(b);
-b = (0x00);
+b = annih(b);
 if(!(r<(ct_v(num)))) return(0x00);
 r = caract(cara(cara_b(argp)));
-if(!r) return(0x00);
-argp = (r+(argp));
-return(r+(cueno(argp)));
+if(!r) return(r);
+return(r+(cueno(argp+(r))));
 }

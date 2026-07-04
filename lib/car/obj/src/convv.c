@@ -1,13 +1,3 @@
-/*
-
-Convert
-
-Remarks:
-Call fn. relw later
-Based on UTF-8
-*/
-
-
 # define CAR_H
 # include "./../../../config.h"
 
@@ -24,9 +14,6 @@ w = (signed char**)(alloc(++r*(sizeof(*w))));
 if(!w) return(w);
 *w = (b);
 r = convv_r(w,sym,argp);
-if(!r) {
-relw(w);
-w = (0x00);
-}
+if(!r) w = rlci(w);
 return(w);
 }

@@ -6,6 +6,5 @@ auto signed r;
 r = cuesp(argp);
 if(r) return(r);
 r = cue_rrr(sym,argp,cuenb);
-argp = (r+(argp));
-return(r+(cuesp(argp)));
+return(r+(cuesp(argp+(r))));
 }
