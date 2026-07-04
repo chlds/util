@@ -305,7 +305,6 @@ signed(__cdecl casca_b_rr(signed(arg),signed char(*argp)));
 signed char *(__cdecl casca_b_r(signed(arg),signed char(*argp)));
 signed char *(__cdecl casca_b(signed(arg),signed char(*argp)));
 signed char *(__cdecl casca_xe(signed(arg),signed char(*argp)));
-signed char *(__cdecl casca_r(signed char *argp));
 signed char *(__cdecl casca(signed char *argp));
 signed char *(__cdecl cas_xe(signed char(*argp)));
 signed char *(__cdecl cas(signed char(*argp)));
