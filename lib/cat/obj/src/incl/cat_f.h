@@ -1,3 +1,22 @@
+time_t(__cdecl cii_te(time_t(arg)));
+time_t(__cdecl oneweekago(time_t(arg)));
+time_t(__cdecl oneweeklater(time_t(arg)));
+time_t(__cdecl onedaylater(time_t(arg)));
+time_t(__cdecl onedayago(time_t(arg)));
+time_t(__cdecl onehourago(time_t(arg)));
+time_t(__cdecl onehourlater(time_t(arg)));
+time_t(__cdecl oneminutelater(time_t(arg)));
+time_t(__cdecl oneminuteago(time_t(arg)));
+time_t(__cdecl spm(void));
+time_t(__cdecl sph(void));
+time_t(__cdecl spd(void));
+time_t(__cdecl spw(void));
+signed long long(__cdecl secondsperweek(void));
+signed long long(__cdecl secondsperday(void));
+signed long long(__cdecl secondsperhour(void));
+signed long long(__cdecl secondsperminute(void));
+/*  re-build  */
+
 void*(__cdecl describe_time(void(*args),signed(argp)));
 void*(__cdecl choose_time(signed(arg)));
 
