@@ -1,3 +1,16 @@
+# define CAT_DEBUG_HR (DBG_HR)
+# define CAT_DEBUG_MN (DBG_MN)
+// debug (signed or time_t)
+# define CAT_CANONICAL (0x01)
+# define CAT_SCALE (0x02)
+# define CXXVIII (128)
+# define CCLVI (256)
+# define DXII (512)
+# define MXXIV (1024)
+# include "./cat_prime.h"
+# include "./cat_subscripts.h"
+# include "./cat_superscripts.h"
+
 typedef struct tm *(__cdecl*thdr_t)(time_t const *argp);
 
 enum {

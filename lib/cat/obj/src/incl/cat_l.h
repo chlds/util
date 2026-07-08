@@ -1,15 +1,3 @@
-# define CAT_DEBUG_HR (DBG_HR)
-# define CAT_DEBUG_MN (DBG_MN)
-// debug (signed or time_t)
-# define CAT_SCALE (0x02)
-# define CXXVIII (128)
-# define CCLVI (256)
-# define DXII (512)
-# define MXXIV (1024)
-# include "./cat_prime.h"
-# include "./cat_subscripts.h"
-# include "./cat_superscripts.h"
-
 extern signed char *(cat_month[]);
 extern signed char *MDOT;
 extern signed char WORD_SEPARATOR_MIDDLE_DOT[];
