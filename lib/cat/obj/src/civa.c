@@ -2,6 +2,6 @@
 # define TIME_H
 # include "./../../../config.h"
 
-signed(__cdecl civa(signed(args),time_t(*argp))) {
+signed(__cdecl civa(signed(args),time_t(argp))) {
 return(civildayoftheyear(args,argp));
 }

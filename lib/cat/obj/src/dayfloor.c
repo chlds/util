@@ -3,5 +3,5 @@
 # include "./../../../config.h"
 
 time_t(__cdecl dayfloor(signed(args),time_t(argp))) {
-return(hourfloor(args,argp+(cii_te(sph(civh(args,&argp))))));
+return(hourfloor(args,argp+(cii_te(sph(civh(args,argp))))));
 }
