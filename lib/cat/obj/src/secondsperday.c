@@ -3,5 +3,5 @@
 # include "./../../../config.h"
 
 signed long long(__cdecl secondsperday(void)) {
-return(24*(secondsperhour()));
+return(SECONDSPERMINUTE*(MINUTESPERHOUR*(HOURSPERDAY)));
 }

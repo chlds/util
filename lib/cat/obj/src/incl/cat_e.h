@@ -1,12 +1,23 @@
-# define CAT_DEBUG_HR (DBG_HR)
-# define CAT_DEBUG_MN (DBG_MN)
+# define CAT_DEBUG_HR DBG_HR
+# define CAT_DEBUG_MN DBG_MN
 // debug (signed or time_t)
-# define CAT_CANONICAL (0x01)
-# define CAT_SCALE (0x02)
-# define CXXVIII (128)
-# define CCLVI (256)
-# define DXII (512)
-# define MXXIV (1024)
+# define CAT_CANONICAL 0x01
+# define CAT_SCALE 0x02
+# define CXXVIII 128
+# define CCLVI 256
+# define DXII 512
+# define MXXIV 1024
+# define NANOSECONDSPERMICROSECOND 1000
+# define MICROSECONDSPERMILLISECOND 1000
+# define MILLISECONDSPERSECOND 1000
+# define SECONDSPERMINUTE 60
+# define MINUTESPERHOUR 60
+# define HOURSPERDAY 24
+# define DAYSPERWEEK 7
+# define MONTHSPERYEAR 12
+# define DAYSPERYEAR 365
+# define DAYSPERLEAPYEAR 366
+/*  calendar  */
 # include "./cat_prime.h"
 # include "./cat_subscripts.h"
 # include "./cat_superscripts.h"

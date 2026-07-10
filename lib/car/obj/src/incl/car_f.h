@@ -43,12 +43,14 @@ signed long long(__cdecl decllh(signed long long(arg)));
 signed long long(__cdecl declll(signed long long(arg)));
 signed(__cdecl dech(signed(arg)));
 signed(__cdecl decl(signed(arg)));
+signed(__cdecl dec(signed(arg)));
 /* decrease */
 
 signed long long(__cdecl incllh(signed long long(arg)));
 signed long long(__cdecl inclll(signed long long(arg)));
 signed(__cdecl inch(signed(arg)));
 signed(__cdecl incl(signed(arg)));
+signed(__cdecl inc(signed(arg)));
 /* increase */
 
 signed long long(__cdecl ldllh(signed long long(args),signed long long(argp)));

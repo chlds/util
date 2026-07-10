@@ -4,7 +4,7 @@
 
 time_t(__cdecl oneminuteago(time_t(arg))) {
 if(arg<(0x00)) return(0x00);
-arg = (arg+(cii_te(spm())));
+arg = (arg+(cii_te(spm(1))));
 if(arg<(0x00)) return(0x00);
 return(arg);
 }

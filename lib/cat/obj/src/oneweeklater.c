@@ -4,7 +4,7 @@
 
 time_t(__cdecl oneweeklater(time_t(arg))) {
 if(arg<(0x00)) return(0x00);
-arg = (arg+(spw()));
+arg = (arg+(spw(1)));
 if(arg<(0x00)) return(0x00);
 return(arg);
 }
