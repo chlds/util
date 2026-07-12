@@ -1,3 +1,12 @@
+signed(__cdecl countleapyears_xe(signed(args/*from*/),signed(argp/*to*/)));
+signed(__cdecl countleapyears(signed(args/*from*/),signed(argp/*to*/)));
+signed(__cdecl countleapyearsuntil_xe(signed(arg)));
+signed(__cdecl countleapyearsuntil(signed(arg)));
+signed(__cdecl centuryyear(signed(arg)));
+signed(__cdecl century(signed(arg)));
+signed(__cdecl leapyear(signed(arg)));
+signed(__cdecl divfloor(signed(args),signed(argp)));
+/*  annees bissextiles / leap years  */
 time_t(__cdecl yearfloor(signed(args),time_t(argp)));
 signed(__cdecl yearboundary(signed(args),time_t(argp)));
 time_t(__cdecl monthfloor(signed(args),time_t(argp)));
@@ -15,7 +24,7 @@ signed(__cdecl hourboundary(signed(args),time_t(argp)));
 time_t(__cdecl minuteceil(signed(args),time_t(argp)));
 time_t(__cdecl minutefloor(signed(args),time_t(argp)));
 signed(__cdecl minuteboundary(signed(args),time_t(argp)));
-/*  floor and ceiling  */
+/*  ceiling and floor  */
 signed(__cdecl civs(signed(args),time_t(argp)));
 signed(__cdecl civm(signed(args),time_t(argp)));
 signed(__cdecl civh(signed(args),time_t(argp)));
