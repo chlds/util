@@ -63,8 +63,14 @@ time_t(__cdecl lastweekwhosestartingdayfallswithinthemonth(signed(argt),signed(a
 time_t(__cdecl firstweekwhosestartingdayfallswithinthemonth(signed(argt),signed(args),time_t(argp)));
 time_t(__cdecl firstweek(signed(argt),signed(args),time_t(argp)));
 time_t(__cdecl attheendoflastmonth(signed(args),time_t(argp)));
-time_t(__cdecl onemonthlater_r(time_t(argt),signed(args),signed(argp)));
+time_t(__cdecl afewdayslater(signed(argt),signed(args),time_t(argp)));
+time_t(__cdecl afewdaysago(signed(argt),signed(args),time_t(argp)));
+time_t(__cdecl oneyearago(signed(args),time_t(argp)));
+time_t(__cdecl oneyearago_r(signed(args),time_t(argp)));
+time_t(__cdecl oneyearlater_r(signed(args),time_t(argp)));
+time_t(__cdecl oneyearlater(signed(args),time_t(argp)));
 time_t(__cdecl onemonthlater(signed(args),time_t(argp)));
+time_t(__cdecl onemonthlater_r(time_t(argt),signed(args),signed(argp)));
 time_t(__cdecl onemonthago_r(time_t(argt),signed(args),signed(argp)));
 time_t(__cdecl onemonthago(signed(args),time_t(argp)));
 time_t(__cdecl oneweekago(time_t(arg)));
