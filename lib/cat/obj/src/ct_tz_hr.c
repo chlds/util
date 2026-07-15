@@ -9,7 +9,6 @@ auto signed mn;
 auto signed sm;
 auto time_t t;
 auto time_t e;
-auto time_t day = (24*(60*(60)));
 // auto time_t noon = (12*(60*(60)));
 if(!di) return(0x00);
 if(!si) return(0x00);
@@ -24,7 +23,7 @@ e = (t);
 tp = localtime(&e);
 if(DBG) {
 e = (CAT_DEBUG_MN+(CAT_DEBUG_HR));
-e = (e%(day));
+e = (e%(spd(1)));
 t = (e+(t));
 tp = gmtime(&t);
 }
@@ -33,6 +32,6 @@ t = (sm+(60*(mn+(60*(hr)))));
 e = (60*(R(tm_hour,*tp)));
 e = (60*(e+(R(tm_min,*tp))));
 e = (e+(R(tm_sec,*tp)));
-*di = (e+(0x01+(~t)));
+*di = (e+(cii_te(t)));
 return(0x01);
 }

@@ -3,6 +3,7 @@
 /*  debug  */
 # define CAT_CANONICAL 0x01
 # define CAT_SCALE 0x02
+# define ANCHORYEAR 1900
 /*  core  */
 # define C 100
 # define CC 200
@@ -24,6 +25,7 @@
 # define SECONDSPERMINUTE 60
 # define MINUTESPERHOUR 60
 # define HOURSPERDAY 24
+# define HOURSPERHALFDAY 12
 # define DAYSPERWEEK 7
 # define MONTHSPERYEAR 12
 # define DAYSPERYEAR 365
