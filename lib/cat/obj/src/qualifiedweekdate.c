@@ -3,7 +3,7 @@
 # define TIME_H
 # include "./../../../config.h"
 
-signed char *(__cdecl weekdate_r(time_t(argt),signed(args),signed(argp))) {
+signed char *(__cdecl qualifiedweekdate(time_t(argt),signed(args),signed(argp))) {
 auto signed char *b;
 auto signed r;
 auto signed e = (1900);

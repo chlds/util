@@ -13,5 +13,5 @@ r = civw(args,argp);
 ++r;
 // if(!r) ADD(r,WEEKS);
 b = cv(e,r);
-return(catne(b,catna(a,weekdate_r(argp,args,sundayweeknumber(args,argp)))));
+return(catne(b,catna(a,qualifiedweekdate(argp,args,sundayweeknumber(args,argp)))));
 }
