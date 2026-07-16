@@ -1281,6 +1281,8 @@ signed char **(__cdecl catnoc_xe(signed char(*args),signed char(**argp)));
 signed char **(__cdecl catnoc(signed char(*args),signed char(**argp)));
 signed char **(__cdecl catnol(signed char(*args),signed char(**argp)));
 signed char **(__cdecl catnol_xe(signed char(*args),signed char(**argp)));
+signed char **(__cdecl catnol_xxe(signed char(**args),signed char(*argp)));
+signed char **(__cdecl cathol_xxe(signed char(**args),signed char(*argp)));
 signed char **(__cdecl cathol_xe(signed char(*args),signed char(**argp)));
 signed char **(__cdecl cathol(signed char(*args),signed char(**argp)));
 signed char **(__cdecl anda_xe(signed char(*args),signed char(**argp)));
