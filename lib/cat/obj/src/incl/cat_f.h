@@ -7,6 +7,8 @@ signed(__cdecl century(signed(arg)));
 signed(__cdecl leapyear(signed(arg)));
 signed(__cdecl divfloor(signed(args),signed(argp)));
 /*  annees bissextiles / leap years  */
+time_t(__cdecl derefc(time_t(*argp)));
+/*  dereference  */
 time_t(__cdecl yearfloor(signed(args),time_t(argp)));
 signed(__cdecl yearboundary(signed(args),time_t(argp)));
 time_t(__cdecl monthfloor(signed(args),time_t(argp)));
@@ -96,6 +98,7 @@ time_t(__cdecl oneminutelater(time_t(arg)));
 time_t(__cdecl oneminuteago(time_t(arg)));
 time_t(__cdecl spm(time_t(arg)));
 time_t(__cdecl sph(time_t(arg)));
+time_t(__cdecl sphd(time_t(arg)));
 time_t(__cdecl spd(time_t(arg)));
 time_t(__cdecl spw(time_t(arg)));
 time_t(__cdecl spa(time_t(arg)));
@@ -104,6 +107,7 @@ signed long long(__cdecl secondsperleapyear(void));
 signed long long(__cdecl secondsperyear(void));
 signed long long(__cdecl secondsperweek(void));
 signed long long(__cdecl secondsperday(void));
+signed long long(__cdecl secondsperhalfday(void));
 signed long long(__cdecl secondsperhour(void));
 signed long long(__cdecl secondsperminute(void));
 /*  re-build  */
