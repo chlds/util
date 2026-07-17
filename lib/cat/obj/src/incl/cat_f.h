@@ -1,3 +1,7 @@
+time_t(__cdecl correctionofciviltime_xe(time_t(arg)));
+time_t(__cdecl correctionofciviltime(time_t(arg)));
+time_t(__cdecl corct(time_t(arg)));
+/*  correction of civil time  */
 signed(__cdecl countleapyears_xe(signed(args/*from*/),signed(argp/*to*/)));
 signed(__cdecl countleapyears(signed(args/*from*/),signed(argp/*to*/)));
 signed(__cdecl countleapyearsuntil_xe(signed(arg)));

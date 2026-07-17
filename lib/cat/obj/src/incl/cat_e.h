@@ -40,6 +40,16 @@
 typedef struct tm *(__cdecl*thdr_t)(time_t const *argp);
 
 enum {
+COMMON,
+UNIQUE,
+};
+
+enum {
+UNIVERSAL,
+LOCAL,
+};
+
+enum {
 N,I,II,III,IV,V,VI,VII,VIII,IX,
 X,XI,XII,XIII,XIV,XV,XVI,XVII,XVIII,XIX,
 XX,XXI,XXII,XXIII,XXIV,XXV,XXVI,XXVII,XXVIII,XXIX,
