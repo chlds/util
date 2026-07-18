@@ -1,3 +1,12 @@
+time_t(__cdecl crownfourthwheel_xe(time_t(args),signed(argp)));
+time_t(__cdecl crownminutewheel_xe(time_t(args),signed(argp)));
+time_t(__cdecl crownhourwheel_xe(time_t(args),signed(argp)));
+time_t(__cdecl crownhandsetting_xe(time_t(args),signed(argp)));
+time_t(__cdecl crownhandsetting(signed(args),time_t(argp)));
+time_t(__cdecl crownhourwheel(signed(args),time_t(argp)));
+time_t(__cdecl crownminutewheel(signed(args),time_t(argp)));
+time_t(__cdecl crownfourthwheel(signed(args),time_t(argp)));
+/*  crown operation  */
 time_t(__cdecl correctionofciviltime_xe(time_t(arg)));
 time_t(__cdecl correctionofciviltime(time_t(arg)));
 time_t(__cdecl corct(time_t(arg)));
