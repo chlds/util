@@ -1253,6 +1253,17 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed(__cdecl ra(signed char(*args),signed(argp)));
+/*  radix  */
+signed char *(__cdecl sigil(signed(args),signed char(*argp)));
+signed char *(__cdecl canonicalize(signed(args),signed(argp)));
+signed char *(__cdecl canonical(signed(args),signed(argp)));
+signed char *(__cdecl canon_xe(signed(args),signed(argp)));
+signed char *(__cdecl canon(signed(args),signed(argp)));
+/*  canonical  */
+signed char *(__cdecl plz(signed(args),signed char(*argp)));
+signed char *(__cdecl padwithleadingzeros(signed(args),signed char(*argp)));
+/*  pad with leading zeros  */
 signed char *(__cdecl convey_xe(signed(argt),signed char(*args),signed char(*argp)));
 signed char *(__cdecl convey(signed char(*args),signed(argp)));
 signed char *(__cdecl cnvy(signed char(*args),signed char(*argp)));
@@ -1261,6 +1272,24 @@ signed(__cdecl cvy(signed char(*args),signed char(*argp)));
 signed char *(__cdecl ante(signed char(*argp)));
 signed char *(__cdecl post(signed char(*argp)));
 /*  anterior and posterior  */
+signed(__cdecl pluck(signed char(*argp)));
+signed char *(__cdecl conceal(signed char(*argp)));
+void *(__cdecl dealloc(void(*argp)));
+signed char *(__cdecl annihil(signed char(*argp)));
+/*  annihilate  */
+signed char *(__cdecl etch_r(signed(args),signed char(*argp)));
+signed char *(__cdecl etch(signed(arg)));
+signed(__cdecl db(signed(arg)));
+/*  byte  */
+signed(__cdecl gnm(signed(arg)));
+signed(__cdecl gnb(signed(arg)));
+/*  generate  */
+signed(__cdecl inv(signed(arg)));
+/*  invert  */
+signed(__cdecl counc_xe(signed char(*args),signed(argp)));
+signed(__cdecl counc(signed char(*argp)));
+/*  count  */
+
 signed char *(__cdecl nil(signed char(*argp)));
 /*  nihil  */
 

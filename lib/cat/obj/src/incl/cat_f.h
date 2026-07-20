@@ -1,3 +1,19 @@
+signed char *(__cdecl chronicledate_xxe(time_t(argt),signed(args),signed(argp)));
+signed char *(__cdecl chronicledate_xe(signed(argt),signed(args),time_t(argp)));
+signed char *(__cdecl chronicledate(signed(args),time_t(argp)));
+/*  chronicle date  */
+signed char *(__cdecl evciva(signed(args),time_t(argp)));
+signed char *(__cdecl evcivy(signed(args),time_t(argp)));
+signed char *(__cdecl evcivl(signed(args),time_t(argp)));
+signed char *(__cdecl evcivi(signed(args),time_t(argp)));
+signed char *(__cdecl evcivi_xe(signed(args),time_t(argp)));
+signed char *(__cdecl evcivw(signed(args),time_t(argp)));
+signed char *(__cdecl evcivh_xe(signed(args),time_t(argp)));
+signed char *(__cdecl evcivh(signed(args),time_t(argp)));
+signed char *(__cdecl evcivm(signed(args),time_t(argp)));
+signed char *(__cdecl evcivs(signed(args),time_t(argp)));
+signed char *(__cdecl evcivt(signed(args),time_t(argp)));
+/*  evoke  */
 time_t(__cdecl crownfourthwheel_xe(time_t(args),signed(argp)));
 time_t(__cdecl crownminutewheel_xe(time_t(args),signed(argp)));
 time_t(__cdecl crownhourwheel_xe(time_t(args),signed(argp)));

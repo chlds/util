@@ -1,3 +1,4 @@
+extern signed char *(cat_week[]);
 extern signed char *(cat_month[]);
 extern signed char *MDOT;
 extern signed char WORD_SEPARATOR_MIDDLE_DOT[];

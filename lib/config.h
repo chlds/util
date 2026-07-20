@@ -33,6 +33,10 @@ Remarks:
 # include <io.h>
 # endif
 
+# ifdef LIMITS_H
+# include <limits.h>
+# endif
+
 # ifdef STDDEF_H
 # include <stddef.h>
 # endif

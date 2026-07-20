@@ -194,3 +194,14 @@ signed char *(cat_month[]) = {
 "December",
 0x00,
 };
+
+signed char *(cat_week[]) = {
+"Sunday",
+"Monday",
+"Tuesday",
+"Wednesday",
+"Thursday",
+"Friday",
+"Saturday",
+0x00,
+};
