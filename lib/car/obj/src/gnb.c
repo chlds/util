@@ -1,12 +1,11 @@
 # define CAR_H
-# define LIMITS_H
 # include "./../../../config.h"
 
 signed(__cdecl gnb(signed(arg))) {
-auto unsigned r;
+auto signed r;
 AND(r,0x00);
+if(!(0x00<(arg))) return(r);
 NOT(r);
-if(!(0x00<(arg))) return(0x00);
-if(!(arg<(CHAR_BIT*(sizeof(r))))) return(r);
+if(!(arg<(gne(sizeof(arg))))) return(r);
 return(inv(r<<(arg)));
 }

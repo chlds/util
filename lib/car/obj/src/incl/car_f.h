@@ -1253,6 +1253,22 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed(__cdecl peel(signed(arg)));
+signed(__cdecl onehot(signed(arg)));
+/*  one hot  */
+signed(__cdecl clearlsb(signed(arg)));
+signed(__cdecl clearmsb(signed(arg)));
+/*  clear least / most significant bit  */
+signed(__cdecl shl(signed(args),signed(argp)));
+signed(__cdecl shr(signed(args),signed(argp)));
+/*  shift  */
+signed(__cdecl rol(signed(argp)));
+signed(__cdecl rol_xe(signed(args),signed(argp)));
+signed(__cdecl rol_xxe(signed(args),signed(argp)));
+signed(__cdecl ror_xxe(signed(args),signed(argp)));
+signed(__cdecl ror_xe(signed(args),signed(argp)));
+signed(__cdecl ror(signed(argp)));
+/*  rotate  */
 signed(__cdecl ra(signed char(*args),signed(argp)));
 /*  radix  */
 signed char *(__cdecl sigil(signed(args),signed char(*argp)));
@@ -1283,6 +1299,8 @@ signed(__cdecl db(signed(arg)));
 /*  byte  */
 signed(__cdecl gnm(signed(arg)));
 signed(__cdecl gnb(signed(arg)));
+signed(__cdecl gne(signed(arg)));
+signed(__cdecl charbit(void));
 /*  generate  */
 signed(__cdecl inv(signed(arg)));
 /*  invert  */
