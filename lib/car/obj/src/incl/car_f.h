@@ -1253,21 +1253,33 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed(__cdecl deb(signed(arg)));
+/*  2 to the power  */
+signed(__cdecl ctz(signed(arg)));
+signed(__cdecl counttrailingzeros(signed(arg)));
+/*  count trailing zeros  */
+signed(__cdecl shortset(signed(args),signed(argp)));
+signed(__cdecl extract(signed(args),signed(argp)));
+/*  short set and extract  */
 signed(__cdecl peel(signed(arg)));
 signed(__cdecl onehot(signed(arg)));
 /*  one hot  */
 signed(__cdecl clearlsb(signed(arg)));
 signed(__cdecl clearmsb(signed(arg)));
 /*  clear least / most significant bit  */
-signed(__cdecl shl(signed(args),signed(argp)));
-signed(__cdecl shr(signed(args),signed(argp)));
+signed(__cdecl shl(signed(arg)));
+signed(__cdecl shl_xe(signed(args),signed(argp)));
+signed(__cdecl shl_xxe(signed(args),signed(argp)));
+signed(__cdecl shr_xxe(signed(args),signed(argp)));
+signed(__cdecl shr_xe(signed(args),signed(argp)));
+signed(__cdecl shr(signed(arg)));
 /*  shift  */
-signed(__cdecl rol(signed(argp)));
+signed(__cdecl rol(signed(arg)));
 signed(__cdecl rol_xe(signed(args),signed(argp)));
 signed(__cdecl rol_xxe(signed(args),signed(argp)));
 signed(__cdecl ror_xxe(signed(args),signed(argp)));
 signed(__cdecl ror_xe(signed(args),signed(argp)));
-signed(__cdecl ror(signed(argp)));
+signed(__cdecl ror(signed(arg)));
 /*  rotate  */
 signed(__cdecl ra(signed char(*args),signed(argp)));
 /*  radix  */
@@ -1293,6 +1305,8 @@ signed char *(__cdecl conceal(signed char(*argp)));
 void *(__cdecl dealloc(void(*argp)));
 signed char *(__cdecl annihil(signed char(*argp)));
 /*  annihilate  */
+signed(__cdecl dw(signed(arg)));
+/*  word  */
 signed char *(__cdecl etch_r(signed(args),signed char(*argp)));
 signed char *(__cdecl etch(signed(arg)));
 signed(__cdecl db(signed(arg)));

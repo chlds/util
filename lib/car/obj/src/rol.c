@@ -1,8 +1,8 @@
 # define CAR_H
 # include "./../../../config.h"
 
-signed(__cdecl rol(signed(argp))) {
+signed(__cdecl rol(signed(arg))) {
 auto signed r;
-r = shr(argp,dec(gne(sizeof(argp))));
-return(r|(shl(argp,0x01)));
+r = shr_xxe(arg,dec(gne(sizeof(arg))));
+return(r|(shl(arg)));
 }
