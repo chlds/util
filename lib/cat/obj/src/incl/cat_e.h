@@ -5,6 +5,8 @@
 # define CAT_SCALE 0x02
 # define ANCHORYEAR 1900
 /*  core  */
+# define SUIT 13
+/*  playing cards  */
 # define C 100
 # define CC 200
 # define CCC 300

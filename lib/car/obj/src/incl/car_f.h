@@ -1321,6 +1321,9 @@ signed(__cdecl inv(signed(arg)));
 signed(__cdecl counc_xe(signed char(*args),signed(argp)));
 signed(__cdecl counc(signed char(*argp)));
 /*  count  */
+signed char *(__cdecl emdash_xe(signed char(*arg)));
+signed char *(__cdecl emdash(signed char(*arg)));
+/*  em dash  */
 
 signed char *(__cdecl nil(signed char(*argp)));
 /*  nihil  */
