@@ -2,6 +2,7 @@ signed char **(__cdecl daterangequarterly_xxe(signed(argt),time_t(args),signed c
 signed char **(__cdecl daterangequarterly_xe(signed(argt),time_t(args),signed char(**argp)));
 signed char **(__cdecl daterangequarterly_r(signed char(**argt),signed(args),time_t(argp)));
 signed char **(__cdecl daterangequarterly(signed(args),time_t(argp)));
+signed char **(__cdecl anchoreddaterange(signed(args),time_t(argp)));
 signed char *(__cdecl collapseddaterange(signed(args),time_t(argp)));
 signed char *(__cdecl expandeddaterange(signed(args),time_t(argp)));
 signed char *(__cdecl daterange(signed(args),time_t(argp)));

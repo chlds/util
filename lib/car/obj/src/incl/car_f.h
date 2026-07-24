@@ -1373,6 +1373,8 @@ signed char **(__cdecl adag_xe(signed char(**args),signed char(**argp)));
 signed char **(__cdecl adag(signed char(**args),signed char(**argp)));
 signed char **(__cdecl adagi(signed char(**args),signed char(**argp)));
 signed char *(__cdecl adagio(signed char(**args),signed char(**argp)));
+signed(__cdecl councif_xe(signed char(*argt),signed char(**args),signed(argp)));
+signed(__cdecl councif(signed char(*args),signed char(**argp)));
 signed(__cdecl counci(signed char(**argp)));
 signed(__cdecl counci_xe(signed char(**args),signed(argp)));
 signed char *(__cdecl annih(signed char(*argp)));
