@@ -47,6 +47,11 @@ signed(__cdecl divfloor(signed(args),signed(argp)));
 /*  annees bissextiles / leap years  */
 time_t(__cdecl derefc(time_t(*argp)));
 /*  dereference  */
+signed(__cdecl phasewc_xe(time_t(argt),signed(args),signed(argp)));
+signed(__cdecl phasewc(signed(argt),signed(args),time_t(argp)));
+time_t(__cdecl leadwc_xe(time_t(argt),signed(args),signed(argp)));
+time_t(__cdecl leadwc(signed(argt),signed(args),time_t(argp)));
+/*  the first occurrence of the week commencing day in the month  */
 time_t(__cdecl yearfloor(signed(args),time_t(argp)));
 signed(__cdecl yearboundary(signed(args),time_t(argp)));
 time_t(__cdecl monthfloor(signed(args),time_t(argp)));
@@ -98,7 +103,9 @@ void*(__cdecl chronos(signed(args),time_t(*argp)));
 void*(__cdecl choosetime_xe(signed(arg)));
 void*(__cdecl choosetime(signed(arg)));
 time_t(__cdecl cii_te(time_t(arg)));
-signed char *(__cdecl weekdate(time_t(argt),signed(args),signed(argp)));
+signed char *(__cdecl cw_xe(time_t(argt),signed(args),signed(argp)));
+signed char *(__cdecl cw(signed(argt),signed(args),time_t(argp)));
+signed char *(__cdecl weekdate(signed(argt),signed(args),time_t(argp)));
 signed char *(__cdecl saturdayweekdate(signed(args),time_t(argp)));
 signed char *(__cdecl sundayweekdate(signed(args),time_t(argp)));
 signed char *(__cdecl mondayweekdate(signed(args),time_t(argp)));
