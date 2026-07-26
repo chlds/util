@@ -1,10 +1,20 @@
+# define CAR_H
 # define CAT_H
 # define TIME_H
 # include "./../../../config.h"
 
 signed char **(__cdecl daterangequarterly(signed(args),time_t(argp))) {
 auto signed char **b;
+/*
+auto signed char a[] = {
+0xE2,0x80,0x94,0x00,
+};
+//*/
 b = (0x00);
 if(argp<(0x00)) return(b);
-return(daterangequarterly_r(b,args,argp));
+b = cathl_xe(b,anchoreddaterange(args,argp));
+// if(!(0x00<(SUIT+(cii(councif(a,b)))))) return(b);
+INCH(args);
+if(!(0x00<(SUIT+(cii(carh(args)))))) return(b);
+return(cathl_xxe(b,daterangequarterly(args,oneweeklater(argp))));
 }

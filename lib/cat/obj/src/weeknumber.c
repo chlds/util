@@ -2,8 +2,7 @@
 # define TIME_H
 # include "./../../../config.h"
 
-signed(__cdecl weeknumber(time_t(argt),signed(args),signed(argp))) {
-if(argt<(0x00)) return(0x00);
+signed(__cdecl weeknumber(signed(argt),signed(args),time_t(argp))) {
 auto signed(__cdecl*c)(signed(args),time_t(argp));
 auto signed(__cdecl*(e[]))(signed(args),time_t(argp)) = {
 sundayweeknumber,
@@ -17,6 +16,7 @@ fridayweeknumber,
 saturdayweeknumber,
 0x00,
 };
-c = (*(e+(argp%(counci((signed char**)(e))))));
-return(c(args,argt));
+if(argp<(0x00)) return(0x00);
+c = (*(e+(argt%(counci((signed char**)(e))))));
+return(c(args,argp));
 }

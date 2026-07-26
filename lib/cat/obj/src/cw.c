@@ -3,5 +3,5 @@
 # include "./../../../config.h"
 
 signed char *(__cdecl cw(signed(argt),signed(args),time_t(argp))) {
-return(weekdate(argt,args,argp));
+return(wc(argt,args,argp));
 }

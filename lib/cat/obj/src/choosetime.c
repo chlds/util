@@ -11,7 +11,7 @@ gmtime,
 0x00,
 };
 d = (e);
-if(!arg) d++;
+if(!carl(arg)) d++;
 c = (*d);
 return(c);
 }
