@@ -8,12 +8,10 @@ auto signed char *(__cdecl*c)(signed(args),time_t(argp));
 auto signed char *(__cdecl*(e[]))(signed(args),time_t(argp)) = {
 sundayweekdate,
 mondayweekdate,
-/*
 tuesdayweekdate,
 wednesdayweekdate,
 thursdayweekdate,
 fridayweekdate,
-//*/
 saturdayweekdate,
 0x00,
 };

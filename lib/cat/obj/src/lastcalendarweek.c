@@ -7,12 +7,10 @@ auto time_t(__cdecl*c)(signed(args),time_t(argp));
 auto time_t(__cdecl*(e[]))(signed(args),time_t(argp)) = {
 lastcalendarweeksunday,
 lastcalendarweekmonday,
-/*
 lastcalendarweektuesday,
 lastcalendarweekwednesday,
 lastcalendarweekthursday,
 lastcalendarweekfriday,
-//*/
 lastcalendarweeksaturday,
 0x00,
 };

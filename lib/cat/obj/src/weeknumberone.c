@@ -7,12 +7,10 @@ auto time_t(__cdecl*c)(signed(args),time_t(argp));
 auto time_t(__cdecl*(e[]))(signed(args),time_t(argp)) = {
 sundayweeknumberone,
 mondayweeknumberone,
-/*
 tuesdayweeknumberone,
 wednesdayweeknumberone,
 thursdayweeknumberone,
 fridayweeknumberone,
-//*/
 saturdayweeknumberone,
 0x00,
 };

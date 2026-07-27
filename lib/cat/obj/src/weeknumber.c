@@ -7,12 +7,10 @@ auto signed(__cdecl*c)(signed(args),time_t(argp));
 auto signed(__cdecl*(e[]))(signed(args),time_t(argp)) = {
 sundayweeknumber,
 mondayweeknumber,
-/*
 tuesdayweeknumber,
 wednesdayweeknumber,
 thursdayweeknumber,
 fridayweeknumber,
-//*/
 saturdayweeknumber,
 0x00,
 };
