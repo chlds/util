@@ -179,7 +179,23 @@ signed char MIDDLE_DOT[] = {
 
 signed char *MDOT = (WORD_SEPARATOR_MIDDLE_DOT);
 
-signed char *(cat_month[]) = {
+signed char *(monthinlowercase[]) = {
+"january",
+"february",
+"march",
+"april",
+"may",
+"june",
+"july",
+"august",
+"september",
+"october",
+"november",
+"december",
+0x00,
+};
+
+signed char *(monthintitlecase[]) = {
 "January",
 "February",
 "March",
@@ -195,7 +211,34 @@ signed char *(cat_month[]) = {
 0x00,
 };
 
-signed char *(cat_week[]) = {
+signed char *(monthinuppercase[]) = {
+"JANUARY",
+"FEBRUARY",
+"MARCH",
+"APRIL",
+"MAY",
+"JUNE",
+"JULY",
+"AUGUST",
+"SEPTEMBER",
+"OCTOBER",
+"NOVEMBER",
+"DECEMBER",
+0x00,
+};
+
+signed char *(dayoftheweekinlowercase[]) = {
+"sunday",
+"monday",
+"tuesday",
+"wednesday",
+"thursday",
+"friday",
+"saturday",
+0x00,
+};
+
+signed char *(dayoftheweekintitlecase[]) = {
 "Sunday",
 "Monday",
 "Tuesday",
@@ -203,5 +246,16 @@ signed char *(cat_week[]) = {
 "Thursday",
 "Friday",
 "Saturday",
+0x00,
+};
+
+signed char *(dayoftheweekinuppercase[]) = {
+"SUNDAY",
+"MONDAY",
+"TUESDAY",
+"WEDNESDAY",
+"THURSDAY",
+"FRIDAY",
+"SATURDAY",
 0x00,
 };

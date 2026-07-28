@@ -5,5 +5,5 @@
 
 signed char *(__cdecl evcivw(signed(args),time_t(argp))) {
 if(argp<(0x00)) return(0x00);
-return(cathy(*(cat_week+(civw(args,argp)))));
+return(cathy(*(dayoftheweekintitlecase+(civw(args,argp)))));
 }

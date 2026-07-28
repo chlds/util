@@ -14,18 +14,25 @@ signed char *(__cdecl lunette(signed(args),time_t(argp)));
 signed char *(__cdecl chronicledate_xxe(time_t(argt),signed(args),signed(argp)));
 signed char *(__cdecl chronicledate_xe(signed(argt),signed(args),time_t(argp)));
 signed char *(__cdecl chronicledate(signed(args),time_t(argp)));
+signed char *(__cdecl dayrange(signed(arg)));
 /*  chronicle date  */
 signed char *(__cdecl evciva(signed(args),time_t(argp)));
 signed char *(__cdecl evcivy(signed(args),time_t(argp)));
 signed char *(__cdecl evcivl(signed(args),time_t(argp)));
-signed char *(__cdecl evcivi(signed(args),time_t(argp)));
+signed char *(__cdecl evcivl_xe(signed(args),time_t(argp)));
 signed char *(__cdecl evcivi_xe(signed(args),time_t(argp)));
+signed char *(__cdecl evcivi(signed(args),time_t(argp)));
 signed char *(__cdecl evcivw(signed(args),time_t(argp)));
+signed char *(__cdecl evcivw_xe(signed(args),time_t(argp)));
 signed char *(__cdecl evcivh_xe(signed(args),time_t(argp)));
 signed char *(__cdecl evcivh(signed(args),time_t(argp)));
 signed char *(__cdecl evcivm(signed(args),time_t(argp)));
 signed char *(__cdecl evcivs(signed(args),time_t(argp)));
 signed char *(__cdecl evcivt(signed(args),time_t(argp)));
+signed char *(__cdecl evciv(signed(args),time_t(argp)));
+signed char *(__cdecl evciv_xe(signed(args),time_t(argp)));
+signed char *(__cdecl dateline_xe(signed(args),time_t(argp)));
+signed char *(__cdecl dateline(signed(args),time_t(argp)));
 /*  evoke  */
 time_t(__cdecl crownfourthwheel_xe(time_t(args),signed(argp)));
 time_t(__cdecl crownminutewheel_xe(time_t(args),signed(argp)));

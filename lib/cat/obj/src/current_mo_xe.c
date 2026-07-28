@@ -7,7 +7,7 @@ signed char *(__cdecl current_mo_xe(signed(arg))) {
 auto signed char **e;
 auto signed r;
 if(arg<(0x00)) return(0x00);
-e = (cat_month);
+e = (monthintitlecase);
 r = counci(e);
 if(!r) return(0x00);
 return(cathy(*(e+(arg%(r)))));
