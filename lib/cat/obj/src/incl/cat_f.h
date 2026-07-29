@@ -29,8 +29,10 @@ signed char *(__cdecl evcivh(signed(args),time_t(argp)));
 signed char *(__cdecl evcivm(signed(args),time_t(argp)));
 signed char *(__cdecl evcivs(signed(args),time_t(argp)));
 signed char *(__cdecl evcivt(signed(args),time_t(argp)));
-signed char *(__cdecl evciv(signed(args),time_t(argp)));
 signed char *(__cdecl evciv_xe(signed(args),time_t(argp)));
+signed char *(__cdecl evciv(signed(args),time_t(argp)));
+signed char *(__cdecl dateline_in_en_us(signed(args),time_t(argp)));
+signed char *(__cdecl dateline_in_en_us_xe(signed(args),time_t(argp)));
 signed char *(__cdecl dateline_xe(signed(args),time_t(argp)));
 signed char *(__cdecl dateline(signed(args),time_t(argp)));
 /*  evoke  */

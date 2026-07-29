@@ -5,16 +5,7 @@
 
 signed char *(__cdecl dayrange(signed(arg))) {
 auto signed char *b;
-auto signed char *(a[]) = {
-"Sunday",
-"Monday",
-"Tuesday",
-"Wednesday",
-"Thursday",
-"Friday",
-"Saturday",
-0x00,
-};
+auto signed char **a = (dayoftheweekintitlecase);
 if(arg<(0x00)) return(0x00);
 b = (*(a+(arg%(counci(a)))));
 arg = (arg+(counci(a)));
