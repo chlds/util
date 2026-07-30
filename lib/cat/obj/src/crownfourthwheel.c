@@ -2,7 +2,7 @@
 # define TIME_H
 # include "./../../../config.h"
 
-time_t(__cdecl crownfourthwheel(signed(args),time_t(argp))) {
+time_t(__cdecl crownfourthwheel(signed long long(args),time_t(argp))) {
 auto time_t e;
 auto time_t scale = (CAT_SCALE);
 if(!args) return(0x00);
