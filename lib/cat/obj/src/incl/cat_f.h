@@ -10,10 +10,10 @@ signed char *(__cdecl expandeddaterange_xe(signed(argt),signed(args),time_t(argp
 signed char *(__cdecl daterange_xe(signed(argt),signed(args),time_t(argp)));
 signed char *(__cdecl daterange(signed(args),time_t(argp)));
 signed char *(__cdecl anchor(signed(args),time_t(argp)));
+signed char *(__cdecl lunette_xe(signed(args),time_t(argp)));
 signed char *(__cdecl lunette(signed(args),time_t(argp)));
-signed char *(__cdecl chronicledate_xxe(time_t(argt),signed(args),signed(argp)));
-signed char *(__cdecl chronicledate_xe(signed(argt),signed(args),time_t(argp)));
-signed char *(__cdecl chronicledate(signed(args),time_t(argp)));
+signed char *(__cdecl chronicledate_xe(time_t(argt),signed(args),signed(argp)));
+signed char *(__cdecl chronicledate(signed(argt),signed(args),time_t(argp)));
 signed char *(__cdecl dayrange(signed(arg)));
 /*  chronicle date  */
 signed char *(__cdecl evciva(signed(args),time_t(argp)));
