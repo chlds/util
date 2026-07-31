@@ -111,6 +111,18 @@ signed(__cdecl civilminute(signed(args),time_t(argp)));
 signed(__cdecl civilsecond_xe(signed(args),time_t(argp)));
 signed(__cdecl civilsecond(signed(args),time_t(argp)));
 /*  civil time  */
+signed(__cdecl aethersecond(void(*argp)));
+signed(__cdecl aetherminute(void(*argp)));
+signed(__cdecl aetherhour(void(*argp)));
+signed(__cdecl aetherdayofthemonth(void(*argp)));
+signed(__cdecl aethermonth(void(*argp)));
+signed(__cdecl aetheryear(void(*argp)));
+signed(__cdecl aetherdayoftheweek(void(*argp)));
+signed(__cdecl aetherdayoftheyear(void(*argp)));
+signed(__cdecl aetherdaylightsavingtime(void(*argp)));
+signed(__cdecl aether(signed(args),void(*argp)));
+signed(__cdecl chaos(signed(argt),signed(args),time_t(argp)));
+void*(__cdecl ananke(signed(argt),time_t(*args),void(*argp)));
 void*(__cdecl chronos_xe(signed(argt),time_t(*args),void(*argp)));
 void*(__cdecl chronos(signed(args),time_t(*argp)));
 void*(__cdecl choosetime_xe(signed(arg)));
