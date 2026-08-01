@@ -1,5 +1,3 @@
-# define CRT_MSVC 0
-/*  crt msvc  */
 # define CAT_DEBUG_HR DBG_HR
 # define CAT_DEBUG_MN DBG_MN
 /*  debug  */
@@ -37,9 +35,11 @@
 # define DAYSPERLEAPYEAR 366
 # define CENTURYYEAR 100
 /*  calendar  */
+# include "./cat_crt.h"
 # include "./cat_prime.h"
 # include "./cat_subscripts.h"
 # include "./cat_superscripts.h"
+/*  supplementary  */
 
 typedef struct tm *(__cdecl*thdr_t)(time_t const *argp);
 
