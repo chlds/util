@@ -3,5 +3,6 @@
 # include "./../../../config.h"
 
 time_t(__cdecl corct(time_t(arg))) {
+if(CRT_MSVC) return(correctionofciviltime_xe(arg));
 return(correctionofciviltime(arg));
 }
