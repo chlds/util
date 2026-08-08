@@ -7,11 +7,11 @@ auto signed r;
 if(argp<(0x00)) return(0x00);
 r = civl(args,argp);
 if(FEBRUARY<(r)) {
-if(leapyear(civy(args,argp))) argp = onedayago(argp);
+if(leapyear(ANCHORYEAR+(civy(args,argp)))) argp = onedayago(argp);
 }
 argp = (argp+(cii_te(spa(1))));
 if(!(FEBRUARY<(r))) {
-if(leapyear(civy(args,argp))) argp = onedayago(argp);
+if(leapyear(ANCHORYEAR+(civy(args,argp)))) argp = onedayago(argp);
 }
 return(argp);
 }

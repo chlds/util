@@ -65,8 +65,10 @@ signed(__cdecl phasewc(signed(argt),signed(args),time_t(argp)));
 time_t(__cdecl leadwc_xe(time_t(argt),signed(args),signed(argp)));
 time_t(__cdecl leadwc(signed(argt),signed(args),time_t(argp)));
 /*  the first occurrence of the week commencing day in the month  */
+time_t(__cdecl yearceil(signed(args),time_t(argp)));
 time_t(__cdecl yearfloor(signed(args),time_t(argp)));
 signed(__cdecl yearboundary(signed(args),time_t(argp)));
+time_t(__cdecl monthceil(signed(args),time_t(argp)));
 time_t(__cdecl monthfloor(signed(args),time_t(argp)));
 signed(__cdecl monthboundary(signed(args),time_t(argp)));
 time_t(__cdecl dayceil(signed(args),time_t(argp)));
