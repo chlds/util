@@ -60,11 +60,6 @@ signed(__cdecl divfloor(signed(args),signed(argp)));
 /*  annees bissextiles / leap years  */
 time_t(__cdecl derefc(time_t(*argp)));
 /*  dereference  */
-signed(__cdecl phasewc_xe(time_t(argt),signed(args),signed(argp)));
-signed(__cdecl phasewc(signed(argt),signed(args),time_t(argp)));
-time_t(__cdecl leadwc_xe(time_t(argt),signed(args),signed(argp)));
-time_t(__cdecl leadwc(signed(argt),signed(args),time_t(argp)));
-/*  the first occurrence of the week commencing day in the month  */
 time_t(__cdecl yearceil(signed(args),time_t(argp)));
 time_t(__cdecl yearfloor(signed(args),time_t(argp)));
 signed(__cdecl yearboundary(signed(args),time_t(argp)));
@@ -77,7 +72,8 @@ signed(__cdecl dayboundary(signed(args),time_t(argp)));
 time_t(__cdecl weekceil(signed(argt),signed(args),time_t(argp)));
 time_t(__cdecl weekfloor(signed(argt),signed(args),time_t(argp)));
 signed(__cdecl weekboundary(signed(argt),signed(args),time_t(argp)));
-signed(__cdecl weekphase(time_t(argt),signed(args),signed(argp)));
+signed(__cdecl weekphase_xe(time_t(argt),signed(args),signed(argp)));
+signed(__cdecl weekphase(signed(argt),signed(args),time_t(argp)));
 time_t(__cdecl hourceil(signed(args),time_t(argp)));
 time_t(__cdecl hourfloor(signed(args),time_t(argp)));
 signed(__cdecl hourboundary(signed(args),time_t(argp)));

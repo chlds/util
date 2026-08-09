@@ -6,6 +6,6 @@
 time_t(__cdecl firstweekwhosestartingdayfallswithinthemonth(signed(argt),signed(args),time_t(argp))) {
 if(argp<(0x00)) return(0x00);
 argp = monthfloor(args,argp);
-argt = (DAYSPERWEEK+(cii(weekphase(argp,args,argt))));
+argt = (DAYSPERWEEK+(cii(weekphase(argt,args,argp))));
 return(argp+(spd(argt%(DAYSPERWEEK))));
 }
