@@ -30,7 +30,10 @@ signed(__cdecl dc_color_out_beta(signed(x),signed(y),signed(clr),void(*dc),signe
 signed(__cdecl dc_out_w_beta(signed(x),signed(y),void(*dc),signed short(*argp)));
 signed(__cdecl dc_out_beta(signed(x),signed(y),void(*dc),signed char(*argp)));
 
+signed(__cdecl armlength_xe_r(void(*args),signed short(*argp)));
+signed(__cdecl armlength_xe(void(*args),signed char(*argp)));
 signed(__cdecl armlength(void(*args),signed char(*argp)));
+signed(__cdecl dc_width_of_text_xe(void(*args),signed char(*argp)));
 signed(__cdecl dc_width_of_text(void(*dc),signed char(*argp)));
 signed(__cdecl dc_height_of_text(void(*dc),signed char(*argp)));
 
