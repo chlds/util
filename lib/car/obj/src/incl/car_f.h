@@ -1300,10 +1300,11 @@ signed(__cdecl cvy(signed char(*args),signed char(*argp)));
 signed char *(__cdecl ante(signed char(*argp)));
 signed char *(__cdecl post(signed char(*argp)));
 /*  anterior and posterior  */
+void *(__cdecl dealloc(void(*argp)));
 signed(__cdecl pluck(signed char(*argp)));
 signed char *(__cdecl conceal(signed char(*argp)));
-void *(__cdecl dealloc(void(*argp)));
 signed char *(__cdecl annihil(signed char(*argp)));
+signed char *(__cdecl lethe(signed char(*argp)));
 /*  annihilate  */
 signed(__cdecl dw(signed(arg)));
 /*  word  */
