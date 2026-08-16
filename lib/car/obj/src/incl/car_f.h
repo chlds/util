@@ -1297,13 +1297,25 @@ signed char *(__cdecl convey(signed char(*args),signed(argp)));
 signed char *(__cdecl cnvy(signed char(*args),signed char(*argp)));
 signed(__cdecl cvy(signed char(*args),signed char(*argp)));
 /*  convey  */
+signed *(__cdecl ahead(signed(*argp)));
+signed *(__cdecl behind(signed(*argp)));
+signed short *(__cdecl pro(signed short(*argp)));
+signed short *(__cdecl retro(signed short(*argp)));
 signed char *(__cdecl ante(signed char(*argp)));
 signed char *(__cdecl post(signed char(*argp)));
 /*  anterior and posterior  */
 void *(__cdecl dealloc(void(*argp)));
+signed(__cdecl pluckr(signed(*argp)));
+signed(__cdecl plucks(signed short(*argp)));
 signed(__cdecl pluck(signed char(*argp)));
+signed *(__cdecl concealr(signed(*argp)));
+signed short *(__cdecl conceals(signed short(*argp)));
 signed char *(__cdecl conceal(signed char(*argp)));
+signed *(__cdecl annihilr(signed(*argp)));
+signed short *(__cdecl annihils(signed short(*argp)));
 signed char *(__cdecl annihil(signed char(*argp)));
+signed *(__cdecl thanatos(signed(*argp)));
+signed short *(__cdecl hypnos(signed short(*argp)));
 signed char *(__cdecl lethe(signed char(*argp)));
 /*  annihilate  */
 signed(__cdecl dw(signed(arg)));
@@ -1382,9 +1394,16 @@ signed char *(__cdecl annih(signed char(*argp)));
 signed(__cdecl nih(signed char(*argp)));
 signed(__cdecl ceal(signed char(*argp)));
 signed(__cdecl ceal_xe(signed char(*args),signed(argp)));
+signed **(__cdecl derefr_xxe(signed(***argp)));
+signed *(__cdecl derefr_xe(signed(**argp)));
+signed(__cdecl derefr(signed(*argp)));
+signed short **(__cdecl derefs_xxe(signed short(***argp)));
+signed short *(__cdecl derefs_xe(signed short(**argp)));
+signed(__cdecl derefs(signed short(*argp)));
 signed char **(__cdecl deref_xxe(signed char(***argp)));
 signed char *(__cdecl deref_xe(signed char(**argp)));
 signed(__cdecl deref(signed char(*argp)));
+/*  dereference  */
 signed char **(__cdecl rlci(signed char(**argp)));
 signed char **(__cdecl rlci_r(signed char(**argp)));
 signed char **(__cdecl rlci_rr(signed char(**argp)));
