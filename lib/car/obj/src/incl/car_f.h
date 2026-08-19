@@ -1318,6 +1318,11 @@ signed *(__cdecl thanatos(signed(*argp)));
 signed short *(__cdecl hypnos(signed short(*argp)));
 signed char *(__cdecl lethe(signed char(*argp)));
 /*  annihilate  */
+signed *(__cdecl etchr_r(signed(args),signed(*argp)));
+signed *(__cdecl etchr(signed(arg)));
+/*  double word  */
+signed short *(__cdecl etchs_r(signed(args),signed short(*argp)));
+signed short *(__cdecl etchs(signed(arg)));
 signed(__cdecl dw(signed(arg)));
 /*  word  */
 signed char *(__cdecl etch_r(signed(args),signed char(*argp)));
