@@ -1318,13 +1318,25 @@ signed *(__cdecl thanatos(signed(*argp)));
 signed short *(__cdecl hypnos(signed short(*argp)));
 signed char *(__cdecl lethe(signed char(*argp)));
 /*  annihilate  */
+signed(__cdecl sootr(signed(*args),signed(*argp)));
+signed *(__cdecl propagr(signed(*args),signed(*argp)));
+signed *(__cdecl coopr_xe(signed(*args),signed(*argp)));
+signed *(__cdecl coopr(signed(*args),signed(*argp)));
 signed *(__cdecl etchr_r(signed(args),signed(*argp)));
 signed *(__cdecl etchr(signed(arg)));
 /*  double word  */
+signed(__cdecl soots(signed short(*args),signed short(*argp)));
+signed short *(__cdecl propags(signed short(*args),signed short(*argp)));
+signed short *(__cdecl coops_xe(signed short(*args),signed short(*argp)));
+signed short *(__cdecl coops(signed short(*args),signed short(*argp)));
 signed short *(__cdecl etchs_r(signed(args),signed short(*argp)));
 signed short *(__cdecl etchs(signed(arg)));
 signed(__cdecl dw(signed(arg)));
 /*  word  */
+signed(__cdecl soot(signed char(*args),signed char(*argp)));
+signed char *(__cdecl propag(signed char(*args),signed char(*argp)));
+signed char *(__cdecl coop_xe(signed char(*args),signed char(*argp)));
+signed char *(__cdecl coop(signed char(*args),signed char(*argp)));
 signed char *(__cdecl etch_r(signed(args),signed char(*argp)));
 signed char *(__cdecl etch(signed(arg)));
 signed(__cdecl db(signed(arg)));
@@ -1336,9 +1348,6 @@ signed(__cdecl charbit(void));
 /*  generate  */
 signed(__cdecl inv(signed(arg)));
 /*  invert  */
-signed(__cdecl counc_xe(signed char(*args),signed(argp)));
-signed(__cdecl counc(signed char(*argp)));
-/*  count  */
 signed char *(__cdecl emdash_xe(signed char(*arg)));
 signed char *(__cdecl emdash(signed char(*arg)));
 /*  em dash  */
@@ -1391,10 +1400,22 @@ signed char **(__cdecl adag_xe(signed char(**args),signed char(**argp)));
 signed char **(__cdecl adag(signed char(**args),signed char(**argp)));
 signed char **(__cdecl adagi(signed char(**args),signed char(**argp)));
 signed char *(__cdecl adagio(signed char(**args),signed char(**argp)));
+/*  allegro, andante, adagio and largo  */
+signed(__cdecl counii(signed(**argp)));
+signed(__cdecl counii_xe(signed(**args),signed(argp)));
+signed(__cdecl couni_xe(signed(*args),signed(argp)));
+signed(__cdecl couni(signed(*argp)));
+signed(__cdecl counsi(signed short(**argp)));
+signed(__cdecl counsi_xe(signed short(**args),signed(argp)));
+signed(__cdecl couns_xe(signed short(*args),signed(argp)));
+signed(__cdecl couns(signed short(*argp)));
 signed(__cdecl councif_xe(signed char(*argt),signed char(**args),signed(argp)));
 signed(__cdecl councif(signed char(*args),signed char(**argp)));
 signed(__cdecl counci(signed char(**argp)));
 signed(__cdecl counci_xe(signed char(**args),signed(argp)));
+signed(__cdecl counc_xe(signed char(*args),signed(argp)));
+signed(__cdecl counc(signed char(*argp)));
+/*  count  */
 signed char *(__cdecl annih(signed char(*argp)));
 signed(__cdecl nih(signed char(*argp)));
 signed(__cdecl ceal(signed char(*argp)));
