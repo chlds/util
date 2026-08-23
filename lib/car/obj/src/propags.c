@@ -3,6 +3,5 @@
 
 signed short *(__cdecl propags(signed short(*args),signed short(*argp))) {
 if(!soots(args,argp)) return(argp);
-// return(pro(propags(++args,++argp)));
 return(propags(++args,++argp));
 }

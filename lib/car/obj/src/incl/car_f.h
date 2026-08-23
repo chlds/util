@@ -895,6 +895,8 @@ signed char *(__cdecl card_rr(signed(argt),signed(args),signed char(*argp)));
 signed char *(__cdecl card_r(signed(args),signed(argp)));
 signed char *(__cdecl card(signed(args),signed(argp/* radix */)));
 signed char *(__cdecl catni(signed char(*args),signed(argp)));
+signed char *(__cdecl catni_xe(signed(args),signed char(*argp)));
+signed char *(__cdecl cathi_xe(signed(args),signed char(*argp)));
 signed char *(__cdecl cathi(signed char(*args),signed(argp)));
 
 signed char *(__cdecl catn_rr(signed char(*args),signed char(**argp)));
@@ -1317,6 +1319,25 @@ signed *(__cdecl thanatos(signed(*argp)));
 signed short *(__cdecl hypnos(signed short(*argp)));
 signed char *(__cdecl lethe(signed char(*argp)));
 /*  annihilate  */
+signed char *(__cdecl catalysis(signed char(*args),signed char(*argp)));
+signed char *(__cdecl catalysis_xe(signed char(*args),signed char(*argp)));
+signed char *(__cdecl catalysis_xxe(signed char(*args),signed char(*argp)));
+signed short *(__cdecl catalysiss_xxe(signed short(*args),signed short(*argp)));
+signed short *(__cdecl catalysiss_xe(signed short(*args),signed short(*argp)));
+signed short *(__cdecl catalysiss(signed short(*args),signed short(*argp)));
+signed *(__cdecl catalysisr(signed(*args),signed(*argp)));
+signed *(__cdecl catalysisr_xe(signed(*args),signed(*argp)));
+signed *(__cdecl catalysisr_xxe(signed(*args),signed(*argp)));
+signed *(__cdecl catalystr_xxe(signed(*args),signed(*argp)));
+signed *(__cdecl catalystr_xe(signed(*args),signed(*argp)));
+signed *(__cdecl catalystr(signed(*args),signed(*argp)));
+signed short *(__cdecl catalysts(signed short(*args),signed short(*argp)));
+signed short *(__cdecl catalysts_xe(signed short(*args),signed short(*argp)));
+signed short *(__cdecl catalysts_xxe(signed short(*args),signed short(*argp)));
+signed char *(__cdecl catalyst_xxe(signed char(*args),signed char(*argp)));
+signed char *(__cdecl catalyst_xe(signed char(*args),signed char(*argp)));
+signed char *(__cdecl catalyst(signed char(*args),signed char(*argp)));
+/*  catalyst  */
 signed(__cdecl sootr(signed(*args),signed(*argp)));
 signed *(__cdecl propagr(signed(*args),signed(*argp)));
 signed *(__cdecl coopr_xe(signed(*args),signed(*argp)));
@@ -1340,6 +1361,11 @@ signed char *(__cdecl etch_r(signed(args),signed char(*argp)));
 signed char *(__cdecl etch(signed(arg)));
 signed(__cdecl db(signed(arg)));
 /*  byte  */
+signed(__cdecl clbr(signed(arg)));
+signed(__cdecl clbs(signed(arg)));
+signed(__cdecl clb(signed(arg)));
+signed(__cdecl clb_xe(signed(arg)));
+/*  calibrate  */
 signed(__cdecl gnm(signed(arg)));
 signed(__cdecl gnb(signed(arg)));
 signed(__cdecl gne(signed(arg)));
