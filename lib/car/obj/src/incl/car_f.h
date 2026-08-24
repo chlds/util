@@ -1254,6 +1254,21 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed(__cdecl countleadingones_r(signed(args),signed(argp)));
+signed(__cdecl countleadingones(signed(args),signed(argp)));
+signed(__cdecl cloi(signed(arg)));
+signed(__cdecl clos(signed(arg)));
+signed(__cdecl clo(signed(arg)));
+/*  count leading ones  */
+signed(__cdecl countleadingzeros_r(signed(args),signed(argp)));
+signed(__cdecl countleadingzeros(signed(args),signed(argp)));
+signed(__cdecl clzi(signed(arg)));
+signed(__cdecl clzs(signed(arg)));
+signed(__cdecl clz(signed(arg)));
+/*  count leading zeros  */
+signed(__cdecl counterpart_xe(signed(arg)));
+signed(__cdecl counterpart(signed(arg)));
+/*  counterpart  */
 signed(__cdecl deb(signed(arg)));
 /*  2 to the power  */
 signed(__cdecl ctz(signed(arg)));

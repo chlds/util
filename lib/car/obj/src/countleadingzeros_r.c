@@ -1,0 +1,8 @@
+# define CAR_H
+# include "./../../../config.h"
+
+signed(__cdecl countleadingzeros_r(signed(args),signed(argp))) {
+if(!(0x00<(args))) return(args);
+if(argp<(0x00)) return(args);
+return(countleadingzeros_r(--args,shl(argp)));
+}
