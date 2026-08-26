@@ -1262,6 +1262,21 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed(__cdecl contentextent(signed(arg)));
+signed(__cdecl mastering(signed char(*args),signed(argp)));
+signed(__cdecl combinewithlow6bits(signed(args),signed(argp)));
+signed(__cdecl combinewithlowvibits(signed(args),signed(argp)));
+signed(__cdecl reordervibyvi(signed(args),signed(argp)));
+signed(__cdecl ordervibyvi(signed(args),signed(argp)));
+signed(__cdecl extractlow6bits(signed(arg)));
+signed(__cdecl extractlowvibits(signed(arg)));
+signed(__cdecl continuationbyte(signed char(*arg)));
+signed(__cdecl leadingbyte(signed char(*arg)));
+signed(__cdecl trailingbyte(signed char(*arg)));
+signed(__cdecl decodebytes_rr(signed char(*arg)));
+signed(__cdecl decodebytes_r(signed char(*arg)));
+signed(__cdecl decodebytes(signed char(*arg)));
+/*  decode a leading byte and the continuation / following / trailing bytes  */
 signed(__cdecl countleadingones_r(signed(args),signed(argp)));
 signed(__cdecl countleadingones(signed(args),signed(argp)));
 signed(__cdecl cloi(signed(arg)));
