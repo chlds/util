@@ -1262,6 +1262,15 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed short *(__cdecl gargoyle_xe(signed(args),signed short(*argp)));
+signed short *(__cdecl gargoyle_r(signed(args),signed short(*argp)));
+signed short *(__cdecl gargoyle(signed(args),signed(argp)));
+signed short *(__cdecl wordweave(signed(arg)));
+signed short *(__cdecl wordsmith(signed(arg)));
+signed short *(__cdecl gnw(signed(arg)));
+signed short *(__cdecl wordexpress(signed char(*arg)));
+signed short *(__cdecl hermes(signed char(*arg)));
+/*  code point conversion  */
 signed(__cdecl contentextent(signed(arg)));
 signed(__cdecl mastering(signed char(*args),signed(argp)));
 signed(__cdecl combinewithlow6bits(signed(args),signed(argp)));
@@ -1276,7 +1285,9 @@ signed(__cdecl trailingbyte(signed char(*arg)));
 signed(__cdecl decodebytes_rr(signed char(*arg)));
 signed(__cdecl decodebytes_r(signed char(*arg)));
 signed(__cdecl decodebytes(signed char(*arg)));
-/*  decode a leading byte and the continuation / following / trailing bytes  */
+signed(__cdecl codepoint(signed char(*arg)));
+signed(__cdecl gnc(signed char(*arg)));
+/*  decode a leading byte and the following bytes to generate the corresponding code point  */
 signed(__cdecl countleadingones_r(signed(args),signed(argp)));
 signed(__cdecl countleadingones(signed(args),signed(argp)));
 signed(__cdecl cloi(signed(arg)));
