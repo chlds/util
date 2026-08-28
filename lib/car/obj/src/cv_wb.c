@@ -11,5 +11,11 @@ Call fn. rl later
 # include "./../../../config.h"
 
 signed(__cdecl cv_wb(signed short(**di),signed char(*si))) {
+/*
+if(!di) return(0x00);
+if(*di) return(0x00);
+*di = hermes(si);
+return(leadingbyte(si));
+//*/
 return(decode_wb(di,si));
 }

@@ -1262,6 +1262,8 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed(__cdecl codepointvalid(signed(arg)));
+/*  code point validation  */
 signed short *(__cdecl gargoyle_xe(signed(args),signed short(*argp)));
 signed short *(__cdecl gargoyle_r(signed(args),signed short(*argp)));
 signed short *(__cdecl gargoyle(signed(args),signed(argp)));

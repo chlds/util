@@ -2,5 +2,5 @@
 # include "./../../../config.h"
 
 signed(__cdecl codepoint(signed char(*arg))) {
-return(decodebytes(arg));
+return(codepointvalid(decodebytes(arg)));
 }
