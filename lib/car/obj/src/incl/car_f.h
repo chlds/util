@@ -1262,6 +1262,14 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed(__cdecl charles_xe(signed char(*args),signed(argp)));
+signed(__cdecl charles(signed char(*arg)));
+/*  count and return the number of bytes in the longest valid utf-viii sequence  */
+signed(__cdecl charle_rr(signed char(*args),signed(argp)));
+signed(__cdecl charle_r(signed char(*args),signed(argp)));
+signed(__cdecl charle(signed char(*arg)));
+signed(__cdecl charvalid(signed char(*arg)));
+/*  character validation  */
 signed(__cdecl codepointvalid(signed(arg)));
 /*  code point validation  */
 signed short *(__cdecl gargoyle_xe(signed(args),signed short(*argp)));
@@ -1282,8 +1290,9 @@ signed(__cdecl ordervibyvi(signed(args),signed(argp)));
 signed(__cdecl extractlow6bits(signed(arg)));
 signed(__cdecl extractlowvibits(signed(arg)));
 signed(__cdecl continuationbyte(signed char(*arg)));
-signed(__cdecl leadingbyte(signed char(*arg)));
+signed(__cdecl followingbyte(signed char(*arg)));
 signed(__cdecl trailingbyte(signed char(*arg)));
+signed(__cdecl leadingbyte(signed char(*arg)));
 signed(__cdecl decodebytes_rr(signed char(*arg)));
 signed(__cdecl decodebytes_r(signed char(*arg)));
 signed(__cdecl decodebytes(signed char(*arg)));
@@ -1395,6 +1404,7 @@ signed *(__cdecl coopr_xe(signed(*args),signed(*argp)));
 signed *(__cdecl coopr(signed(*args),signed(*argp)));
 signed *(__cdecl etchr_r(signed(args),signed(*argp)));
 signed *(__cdecl etchr(signed(arg)));
+signed *(__cdecl etchr_xe(signed(arg)));
 /*  double word  */
 signed(__cdecl soots(signed short(*args),signed short(*argp)));
 signed short *(__cdecl propags(signed short(*args),signed short(*argp)));
@@ -1402,6 +1412,7 @@ signed short *(__cdecl coops_xe(signed short(*args),signed short(*argp)));
 signed short *(__cdecl coops(signed short(*args),signed short(*argp)));
 signed short *(__cdecl etchs_r(signed(args),signed short(*argp)));
 signed short *(__cdecl etchs(signed(arg)));
+signed short *(__cdecl etchs_xe(signed(arg)));
 signed(__cdecl dw(signed(arg)));
 /*  word  */
 signed(__cdecl soot(signed char(*args),signed char(*argp)));
@@ -1410,6 +1421,7 @@ signed char *(__cdecl coop_xe(signed char(*args),signed char(*argp)));
 signed char *(__cdecl coop(signed char(*args),signed char(*argp)));
 signed char *(__cdecl etch_r(signed(args),signed char(*argp)));
 signed char *(__cdecl etch(signed(arg)));
+signed char *(__cdecl etch_xe(signed(arg)));
 signed(__cdecl db(signed(arg)));
 /*  byte  */
 signed(__cdecl clbr(signed(arg)));
