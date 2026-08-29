@@ -1262,11 +1262,14 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed char *(__cdecl readletters(signed(args),signed(argp)));
+signed char *(__cdecl readlet(signed char(*args),signed(argp)));
+/*  read  */
 signed(__cdecl charles_xe(signed char(*args),signed(argp)));
 signed(__cdecl charles(signed char(*arg)));
 /*  count and return the number of bytes in the longest valid utf-viii sequence  */
-signed(__cdecl charle_rr(signed char(*args),signed(argp)));
-signed(__cdecl charle_r(signed char(*args),signed(argp)));
+signed(__cdecl cohe(signed char(*args),signed(argp)));
+signed(__cdecl coh(signed char(*arg)));
 signed(__cdecl charle(signed char(*arg)));
 signed(__cdecl charvalid(signed char(*arg)));
 /*  character validation  */
