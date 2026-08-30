@@ -1262,6 +1262,16 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed(__cdecl dedibytes(signed char(*arg)));
+signed(__cdecl dedibyte(signed char(*arg)));
+signed(__cdecl ribbon_xe(signed(args),signed(*argp)));
+signed(__cdecl ribbon(signed(*args),signed(argp)));
+signed *(__cdecl burn(signed(*arg)));
+signed *(__cdecl accrete(signed(*args),signed(argp)));
+signed *(__cdecl inscribe(signed char(**args),signed(*argp)));
+signed *(__cdecl ledger(signed char(**arg)));
+signed(__cdecl bookmark(signed char(**args),signed(argp)));
+/*  bookmark  */
 signed char *(__cdecl readletters(signed(args),signed(argp)));
 signed char *(__cdecl readlet(signed char(*args),signed(argp)));
 /*  read  */
