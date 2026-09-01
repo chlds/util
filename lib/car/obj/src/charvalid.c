@@ -2,5 +2,5 @@
 # include "./../../../config.h"
 
 signed(__cdecl charvalid(signed char(*arg))) {
-return(charle(arg));
+return(coh(arg));
 }

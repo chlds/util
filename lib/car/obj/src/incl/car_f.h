@@ -1262,25 +1262,32 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed char *(__cdecl ctds_r(signed(argt/*desc*/),signed(args/*arg*/),signed char *(__cdecl*argp)(signed(args/*desc*/),signed(argt/*arg*/))));
+signed char *(__cdecl ctds(signed char(*argq/*path*/),signed char(*argt/*perm*/),signed(args/*arg*/),signed char *(__cdecl*argp)(signed(args/*desc*/),signed(argt/*arg*/))));
+/*  accessing devices  */
 signed(__cdecl dedibytes(signed char(*arg)));
 signed(__cdecl dedibyte(signed char(*arg)));
+signed(__cdecl bookmark(signed char(**args),signed(argp)));
 signed(__cdecl ribbon_xe(signed(args),signed(*argp)));
 signed(__cdecl ribbon(signed(*args),signed(argp)));
-signed *(__cdecl burn(signed(*arg)));
 signed *(__cdecl accrete(signed(*args),signed(argp)));
 signed *(__cdecl inscribe(signed char(**args),signed(*argp)));
 signed *(__cdecl ledger(signed char(**arg)));
-signed(__cdecl bookmark(signed char(**args),signed(argp)));
-/*  bookmark  */
+signed *(__cdecl ledgerburning(signed(*arg)));
+signed *(__cdecl burn(signed(*arg)));
+/*  ledger  */
+signed char *(__cdecl readkb(signed(args),signed(argp)));
 signed char *(__cdecl readletters(signed(args),signed(argp)));
+signed char *(__cdecl readlet_xe(signed char(*argt/*path*/),signed(args/*times*/),signed(argp/*offset*/)));
 signed char *(__cdecl readlet(signed char(*args),signed(argp)));
 /*  read  */
 signed(__cdecl charles_xe(signed char(*args),signed(argp)));
 signed(__cdecl charles(signed char(*arg)));
-/*  count and return the number of bytes in the longest valid utf-viii sequence  */
+signed(__cdecl charle_xe(signed char(*args),signed(argp)));
+signed(__cdecl charle(signed char(*arg)));
+/*  count and return the number of code points and bytes in the longest valid utf-viii sequence  */
 signed(__cdecl cohe(signed char(*args),signed(argp)));
 signed(__cdecl coh(signed char(*arg)));
-signed(__cdecl charle(signed char(*arg)));
 signed(__cdecl charvalid(signed char(*arg)));
 /*  character validation  */
 signed(__cdecl codepointvalid(signed(arg)));
