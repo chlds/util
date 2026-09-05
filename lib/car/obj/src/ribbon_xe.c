@@ -2,5 +2,8 @@
 # include "./../../../config.h"
 
 signed(__cdecl ribbon_xe(signed(args),signed(*argp))) {
-return(ribbon(argp,args));
+auto signed r;
+r = ribbon(argp,args);
+argp = burn(argp);
+return(r);
 }

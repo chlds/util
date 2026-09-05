@@ -1267,29 +1267,56 @@ signed char *(__cdecl ctds(signed char(*argq/*path*/),signed char(*argt/*perm*/)
 /*  accessing devices  */
 signed(__cdecl dedibytes(signed char(*arg)));
 signed(__cdecl dedibyte(signed char(*arg)));
-signed(__cdecl bookmark(signed char(**args),signed(argp)));
+signed(__cdecl amount_xe(signed(args),signed(*argp)));
+signed(__cdecl amount(signed(*args),signed(argp)));
+signed(__cdecl cumulative(signed(*args),signed(argp)));
+signed(__cdecl cumulative_xe(signed(args),signed(*argp)));
 signed(__cdecl ribbon_xe(signed(args),signed(*argp)));
 signed(__cdecl ribbon(signed(*args),signed(argp)));
+signed(__cdecl bookmark(signed char(**args),signed(argp)));
 signed *(__cdecl accrete(signed(*args),signed(argp)));
 signed *(__cdecl inscribe(signed char(**args),signed(*argp)));
+signed *(__cdecl runt(signed(*arg)));
 signed *(__cdecl ledger(signed char(**arg)));
 signed *(__cdecl ledgerburning(signed(*arg)));
+signed *(__cdecl journalling(signed char(**args),signed(*argp)));
+signed *(__cdecl journal(signed char(**args),signed(*argp)));
 signed *(__cdecl burn(signed(*arg)));
 /*  ledger  */
 signed char *(__cdecl readkb(signed(args),signed(argp)));
 signed char *(__cdecl readletters(signed(args),signed(argp)));
-signed char *(__cdecl readlet_xe(signed char(*argt/*path*/),signed(args/*times*/),signed(argp/*offset*/)));
+signed char *(__cdecl readlet_xe(signed char(*args/*path*/),signed(argp/*offset/times*/)));
 signed char *(__cdecl readlet(signed char(*args),signed(argp)));
 /*  read  */
+signed(__cdecl charle(signed char(*arg)));
+signed(__cdecl charle_xe(signed char(*args),signed(argp)));
 signed(__cdecl charles_xe(signed char(*args),signed(argp)));
 signed(__cdecl charles(signed char(*arg)));
-signed(__cdecl charle_xe(signed char(*args),signed(argp)));
-signed(__cdecl charle(signed char(*arg)));
 /*  count and return the number of code points and bytes in the longest valid utf-viii sequence  */
 signed(__cdecl cohe(signed char(*args),signed(argp)));
 signed(__cdecl coh(signed char(*arg)));
+signed(__cdecl continuationbyte(signed char(*arg)));
+signed(__cdecl followingbyte(signed char(*arg)));
+signed(__cdecl trailingbyte(signed char(*arg)));
+signed(__cdecl leadingbyte(signed char(*arg)));
 signed(__cdecl charvalid(signed char(*arg)));
 /*  character validation  */
+signed(__cdecl cohes(signed short(*args),signed(argp)));
+signed(__cdecl cohs(signed short(*arg)));
+signed(__cdecl continuationshort(signed short(*arg)));
+signed(__cdecl followingshort(signed short(*arg)));
+signed(__cdecl trailingshort(signed short(*arg)));
+signed(__cdecl leadingshort(signed short(*arg)));
+signed(__cdecl wcharvalid(signed short(*arg)));
+/*  wide character validation  */
+signed(__cdecl wcharles(signed short(*arg)));
+signed(__cdecl wcharles_xe(signed short(*args),signed(argp)));
+signed(__cdecl wcharle_xe(signed short(*args),signed(argp)));
+signed(__cdecl wcharle(signed short(*arg)));
+/*  count and return the number of code points and words in the longest valid utf-xvi sequence  */
+signed(__cdecl surrogates(signed(arg)));
+signed(__cdecl lowsurrogates(signed(arg)));
+signed(__cdecl highsurrogates(signed(arg)));
 signed(__cdecl codepointvalid(signed(arg)));
 /*  code point validation  */
 signed short *(__cdecl gargoyle_xe(signed(args),signed short(*argp)));
@@ -1309,10 +1336,6 @@ signed(__cdecl reordervibyvi(signed(args),signed(argp)));
 signed(__cdecl ordervibyvi(signed(args),signed(argp)));
 signed(__cdecl extractlow6bits(signed(arg)));
 signed(__cdecl extractlowvibits(signed(arg)));
-signed(__cdecl continuationbyte(signed char(*arg)));
-signed(__cdecl followingbyte(signed char(*arg)));
-signed(__cdecl trailingbyte(signed char(*arg)));
-signed(__cdecl leadingbyte(signed char(*arg)));
 signed(__cdecl decodebytes_rr(signed char(*arg)));
 signed(__cdecl decodebytes_r(signed char(*arg)));
 signed(__cdecl decodebytes(signed char(*arg)));
