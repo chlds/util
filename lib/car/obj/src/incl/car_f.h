@@ -43,6 +43,7 @@ signed long long(__cdecl decllh(signed long long(arg)));
 signed long long(__cdecl declll(signed long long(arg)));
 signed(__cdecl dech(signed(arg)));
 signed(__cdecl decl(signed(arg)));
+signed(__cdecl dec_xe(signed(arg)));
 signed(__cdecl dec(signed(arg)));
 /* decrease */
 
@@ -1314,11 +1315,25 @@ signed(__cdecl wcharles_xe(signed short(*args),signed(argp)));
 signed(__cdecl wcharle_xe(signed short(*args),signed(argp)));
 signed(__cdecl wcharle(signed short(*arg)));
 /*  count and return the number of code points and words in the longest valid utf-xvi sequence  */
+signed(__cdecl decodewords_rr(signed short(*arg)));
+signed(__cdecl decodewords_r(signed short(*arg)));
+signed(__cdecl decodewords(signed short(*arg)));
+signed(__cdecl codepoint_xe(signed short(*arg)));
+signed(__cdecl gns(signed short(*arg)));
+/*  decode words to generate the corresponding code point  */
 signed(__cdecl surrogates(signed(arg)));
 signed(__cdecl lowsurrogates(signed(arg)));
 signed(__cdecl highsurrogates(signed(arg)));
 signed(__cdecl codepointvalid(signed(arg)));
 /*  code point validation  */
+signed char *(__cdecl apollo(signed short(*arg)));
+signed char *(__cdecl byteexpress(signed short(*arg)));
+signed char *(__cdecl gnu(signed(arg)));
+signed char *(__cdecl bytesmith(signed(arg)));
+signed char *(__cdecl byteweave(signed(arg)));
+signed char *(__cdecl byteweave_r(signed(args),signed(argp)));
+signed(__cdecl cbc(signed(arg)));
+signed(__cdecl continuationbytecount(signed(arg)));
 signed short *(__cdecl gargoyle_xe(signed(args),signed short(*argp)));
 signed short *(__cdecl gargoyle_r(signed(args),signed short(*argp)));
 signed short *(__cdecl gargoyle(signed(args),signed(argp)));
@@ -1479,6 +1494,8 @@ signed(__cdecl charbit(void));
 /*  generate  */
 signed(__cdecl inv(signed(arg)));
 /*  invert  */
+signed(__cdecl alte(signed(args),signed(argp)));
+/*  alternative  */
 signed char *(__cdecl emdash_xe(signed char(*arg)));
 signed char *(__cdecl emdash(signed char(*arg)));
 /*  em dash  */
