@@ -1263,6 +1263,10 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed(__cdecl river_xe(signed char(*args),signed(argp)));
+signed(__cdecl river(signed char(*arg)));
+signed(__cdecl whiteriver(signed char(*arg)));
+/*  a word wrap engine that hops, steps and jumps  */
 signed char *(__cdecl ctds_r(signed(argt/*desc*/),signed(args/*arg*/),signed char *(__cdecl*argp)(signed(args/*desc*/),signed(argt/*arg*/))));
 signed char *(__cdecl ctds(signed char(*argq/*path*/),signed char(*argt/*perm*/),signed(args/*arg*/),signed char *(__cdecl*argp)(signed(args/*desc*/),signed(argt/*arg*/))));
 /*  accessing devices  */
