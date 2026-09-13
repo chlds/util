@@ -1263,6 +1263,12 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed(__cdecl hop(signed char(*arg)));
+signed(__cdecl step(signed char(*arg)));
+signed(__cdecl jump(signed char(*arg)));
+signed(__cdecl island_xe(signed char(*args),signed(argp)));
+signed(__cdecl island(signed char(*arg)));
+signed(__cdecl isle(signed char(*arg)));
 signed(__cdecl river_xe(signed char(*args),signed(argp)));
 signed(__cdecl river(signed char(*arg)));
 signed(__cdecl whiteriver(signed char(*arg)));
