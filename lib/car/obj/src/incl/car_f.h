@@ -1263,6 +1263,11 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed(__cdecl coex(signed char(*args),signed char(*argp)));
+signed(__cdecl coextensive(signed char(*args),signed char(*argp)));
+signed(__cdecl coincide(signed char(*args),signed char(*argp)));
+signed(__cdecl detectnull(signed char(*args),signed char(*argp)));
+/*  compare  */
 signed(__cdecl hop(signed char(*arg)));
 signed(__cdecl step(signed char(*arg)));
 signed(__cdecl jump(signed char(*arg)));
