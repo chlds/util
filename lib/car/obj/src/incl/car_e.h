@@ -1,6 +1,11 @@
 # define KIB 1024
 # define KB 1000
 /*  kilo - binary - bytes  */
+# define CHARACTERSPERLINE 36
+# define CODEPOINTSPERLINE 36
+# define CPL CODEPOINTSPERLINE
+# define CHANNELWIDTH CPL
+/*  characters or code points per line  */
 # define QUATTUORSEXAGESIMALNUMERALSYSTEM 64
 # define DUOTRIGESIMALNUMERALSYSTEM 32
 # define HEXADECIMALNUMERALSYSTEM 16

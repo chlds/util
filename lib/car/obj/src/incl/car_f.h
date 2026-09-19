@@ -1263,6 +1263,36 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed(__cdecl dd(signed long long(arg)));
+signed(__cdecl addressderivedalignment(void));
+signed(__cdecl ada(void));
+/*  address-derived pointer alignment e.g., for pointer tagging on LSB  */
+signed(__cdecl channelwidth(void));
+signed(__cdecl crosschannel(signed char(*arg)));
+signed char *(__cdecl crosschannel_xe(signed char(*args),signed char(*argp)));
+signed char *(__cdecl crossstream_xe(signed char(*args),signed char(*argp)));
+signed(__cdecl crossstream(signed char(*arg)));
+signed(__cdecl measure(signed char(*arg)));
+signed *(__cdecl chainage(signed char(*arg)));
+/*  chainage  */
+signed char *(__cdecl cascade(signed(args),signed char(*argp)));
+signed char *(__cdecl cascade_xe(signed(args),signed char(*argp)));
+signed char *(__cdecl casc_xe(signed char(*arg)));
+signed char *(__cdecl casc(signed char(*arg)));
+/*  cascade  */
+signed char *(__cdecl rmwbyw_xe(signed char(*arg)));
+signed char *(__cdecl rmwbyw(signed char(*arg)));
+signed char *(__cdecl rmlbyl(signed char(*arg)));
+signed char *(__cdecl rmlbyl_xe(signed char(*arg)));
+signed char *(__cdecl dele_xe(signed char(*arg)));
+signed char *(__cdecl dele(signed char(*arg)));
+/*  delete  */
+signed(__cdecl endingbyte(signed char(*arg)));
+signed char *(__cdecl reverse(signed char(*arg)));
+signed char *(__cdecl reverse_xe(signed char(*arg)));
+signed char *(__cdecl reve_xe(signed char(*arg)));
+signed char *(__cdecl reve(signed char(*arg)));
+/*  reverse  */
 signed(__cdecl coex(signed char(*args),signed char(*argp)));
 signed(__cdecl coextensive(signed char(*args),signed char(*argp)));
 signed(__cdecl coincide(signed char(*args),signed char(*argp)));

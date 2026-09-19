@@ -2,5 +2,5 @@
 # include "./../../../config.h"
 
 signed(__cdecl leadingbyte(signed char(*arg))) {
-return(caract(cara(deref(arg))));
+return(caract(cara(db(deref(arg)))));
 }

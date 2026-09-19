@@ -1,9 +1,9 @@
 # define CAR_H
 # include "./../../../config.h"
 
-signed char *(__cdecl catha(signed char(*args),signed char(*argp))) {
+signed char *(__cdecl cascade_xe(signed(args),signed char(*argp))) {
 auto signed char *b;
-b = catta(args,argp);
+b = cascade(args,argp);
 argp = lethe(argp);
 return(b);
 }
