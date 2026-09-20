@@ -1280,6 +1280,9 @@ signed char *(__cdecl cascade_xe(signed(args),signed char(*argp)));
 signed char *(__cdecl casc_xe(signed char(*arg)));
 signed char *(__cdecl casc(signed char(*arg)));
 /*  cascade  */
+signed char *(__cdecl trim_xe(signed char(*arg)));
+signed char *(__cdecl trim(signed char(*arg)));
+/*  trim  */
 signed char *(__cdecl rmwbyw_xe(signed char(*arg)));
 signed char *(__cdecl rmwbyw(signed char(*arg)));
 signed char *(__cdecl rmlbyl(signed char(*arg)));
