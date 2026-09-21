@@ -1267,6 +1267,16 @@ signed(__cdecl dd(signed long long(arg)));
 signed(__cdecl addressderivedalignment(void));
 signed(__cdecl ada(void));
 /*  address-derived pointer alignment e.g., for pointer tagging on LSB  */
+signed long long(__cdecl startpointseek(signed(args),signed long long(argp)));
+signed long long(__cdecl currentpointseek(signed(args),signed long long(argp)));
+signed long long(__cdecl endpointseek(signed(args),signed long long(argp)));
+signed long long(__cdecl eseek(signed(args),signed long long(argp)));
+signed long long(__cdecl cseek(signed(args),signed long long(argp)));
+signed long long(__cdecl sseek(signed(args),signed long long(argp)));
+/*  seek  */
+signed *(__cdecl recording(signed char(*args),signed(*argp)));
+signed *(__cdecl record(signed char(*args),signed(*argp)));
+/*  record  */
 signed(__cdecl channelwidth(void));
 signed(__cdecl crosschannel(signed char(*arg)));
 signed char *(__cdecl crosschannel_xe(signed char(*args),signed char(*argp)));
