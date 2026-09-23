@@ -1349,6 +1349,9 @@ signed char *(__cdecl readkb(signed(args),signed(argp)));
 signed char *(__cdecl readletters(signed(args),signed(argp)));
 signed char *(__cdecl readlet_xe(signed char(*args/*path*/),signed(argp/*offset/times*/)));
 signed char *(__cdecl readlet(signed char(*args),signed(argp)));
+signed char *(__cdecl rdkbyk(signed(args),signed(argp)));
+signed char *(__cdecl readk(signed(arg)));
+signed char *(__cdecl readkib(signed(arg)));
 /*  read  */
 signed(__cdecl charle(signed char(*arg)));
 signed(__cdecl charle_xe(signed char(*args),signed(argp)));
@@ -1675,5 +1678,5 @@ void *(__cdecl rl_xe(void(*argp)));
 signed(__cdecl rlse_v_r(signed char(**argp)));
 signed(__cdecl rlse_v(signed char(**argp)));
 signed(__cdecl rlse(signed char(*argp)));
-signed(__cdecl bury(signed char(*argp)));
+signed(__cdecl bury(signed char(*arg)));
 /* from abbey the library */
