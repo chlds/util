@@ -2,5 +2,5 @@
 # include "./../../../config.h"
 
 signed *(__cdecl ledger(signed char(**arg))) {
-return(runt(inscribe(arg,0x00)));
+return(inscribe(arg,0x00));
 }

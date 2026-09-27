@@ -1263,10 +1263,22 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed(__cdecl addl(signed(args),signed(argp)));
+signed(__cdecl addl_xe(signed(args),signed(argp)));
+signed(__cdecl addh_xe(signed(args),signed(argp)));
+signed(__cdecl addh(signed(args),signed(argp)));
+/*  add  */
 signed(__cdecl dd(signed long long(arg)));
 signed(__cdecl addressderivedalignment(void));
 signed(__cdecl ada(void));
 /*  address-derived pointer alignment e.g., for pointer tagging on LSB  */
+signed char *(__cdecl clerical(signed char(*argt/*path*/),signed(args/*offset*/),signed(argp/*times*/)));
+signed *(__cdecl clerk(signed char(*argt/*path*/),signed(args/*offset*/),signed(argp/*line*/)));
+signed *(__cdecl compositor(signed(args/*desc*/),signed(argp/*line*/)));
+signed *(__cdecl readline(signed(args/*desc*/),signed(argp/*line*/)));
+/*  the composition of text  */
+signed long long(__cdecl runt(signed(*arg)));
+/*  runt  */
 signed long long(__cdecl startpointseek(signed(args),signed long long(argp)));
 signed long long(__cdecl currentpointseek(signed(args),signed long long(argp)));
 signed long long(__cdecl endpointseek(signed(args),signed long long(argp)));
@@ -1283,6 +1295,7 @@ signed char *(__cdecl crosschannel_xe(signed char(*args),signed char(*argp)));
 signed char *(__cdecl crossstream_xe(signed char(*args),signed char(*argp)));
 signed(__cdecl crossstream(signed char(*arg)));
 signed(__cdecl measure(signed char(*arg)));
+signed *(__cdecl chainage_xe(signed char(*arg)));
 signed *(__cdecl chainage(signed char(*arg)));
 /*  chainage  */
 signed char *(__cdecl cascade(signed(args),signed char(*argp)));
@@ -1321,6 +1334,8 @@ signed(__cdecl river_xe(signed char(*args),signed(argp)));
 signed(__cdecl river(signed char(*arg)));
 signed(__cdecl whiteriver(signed char(*arg)));
 /*  a word wrap engine that hops, steps and jumps  */
+signed *(__cdecl cxtydz(signed char(*argq/*path*/),signed char(*argt/*perm*/),signed(args/*arg*/),signed *(__cdecl*argp)(signed(args/*desc*/),signed(argt/*arg*/))));
+signed *(__cdecl cxtydz_r(signed(argt/*desc*/),signed(args/*arg*/),signed *(__cdecl*argp)(signed(args/*desc*/),signed(argt/*arg*/))));
 signed char *(__cdecl ctds_r(signed(argt/*desc*/),signed(args/*arg*/),signed char *(__cdecl*argp)(signed(args/*desc*/),signed(argt/*arg*/))));
 signed char *(__cdecl ctds(signed char(*argq/*path*/),signed char(*argt/*perm*/),signed(args/*arg*/),signed char *(__cdecl*argp)(signed(args/*desc*/),signed(argt/*arg*/))));
 /*  accessing devices  */
@@ -1338,7 +1353,6 @@ signed *(__cdecl crescere_xe(signed(*args),signed(argp)));
 signed *(__cdecl accrete_xe(signed(*args),signed(argp)));
 signed *(__cdecl accrete(signed(args),signed(*argp)));
 signed *(__cdecl inscribe(signed char(**args),signed(*argp)));
-signed *(__cdecl runt(signed(*arg)));
 signed *(__cdecl ledger(signed char(**arg)));
 signed *(__cdecl ledgerburning(signed(*arg)));
 signed *(__cdecl journalling(signed char(**args),signed(*argp)));
