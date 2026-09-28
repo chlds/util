@@ -1303,6 +1303,8 @@ signed char *(__cdecl cascade_xe(signed(args),signed char(*argp)));
 signed char *(__cdecl casc_xe(signed char(*arg)));
 signed char *(__cdecl casc(signed char(*arg)));
 /*  cascade  */
+signed char *(__cdecl collapsespaces(signed char(*arg)));
+signed char *(__cdecl shed(signed char(*arg)));
 signed char *(__cdecl denoise(signed char(*arg)));
 signed char *(__cdecl trim_xe(signed char(*arg)));
 signed char *(__cdecl trim(signed char(*arg)));
@@ -1335,6 +1337,8 @@ signed(__cdecl river_xe(signed char(*args),signed(argp)));
 signed(__cdecl river(signed char(*arg)));
 signed(__cdecl whiteriver(signed char(*arg)));
 /*  a word wrap engine that hops, steps and jumps  */
+signed *(__cdecl cxtydzsn_r(signed long long(argq/*offset*/),signed(argt/*desc*/),void(*args/*arg*/),signed *(__cdecl*argp)(signed(args/*desc*/),void(*argt/*arg*/))));
+signed *(__cdecl cxtydzsn(signed long long(argc/*offset*/),signed char(*argq/*path*/),signed char(*argt/*perm*/),void(*args/*arg*/),signed *(__cdecl*argp)(signed(args/*desc*/),void(*argt/*arg*/))));
 signed *(__cdecl cxtydz(signed char(*argq/*path*/),signed char(*argt/*perm*/),signed(args/*arg*/),signed *(__cdecl*argp)(signed(args/*desc*/),signed(argt/*arg*/))));
 signed *(__cdecl cxtydz_r(signed(argt/*desc*/),signed(args/*arg*/),signed *(__cdecl*argp)(signed(args/*desc*/),signed(argt/*arg*/))));
 signed char *(__cdecl ctds_r(signed(argt/*desc*/),signed(args/*arg*/),signed char *(__cdecl*argp)(signed(args/*desc*/),signed(argt/*arg*/))));
