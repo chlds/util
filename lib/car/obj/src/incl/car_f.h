@@ -1263,6 +1263,13 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
+signed(__cdecl read_beta(signed(argt),signed char(*args),signed(argp)));
+signed long long(__cdecl endpointseek_beta(signed(args),signed long long(argp)));
+signed long long(__cdecl currentpointseek_beta(signed(args),signed long long(argp)));
+signed long long(__cdecl startpointseek_beta(signed(args),signed long long(argp)));
+/*  for visual studio builds  */
+signed(__cdecl linebreak(signed char(*arg)));
+/*  line break  */
 signed(__cdecl addl(signed(args),signed(argp)));
 signed(__cdecl addl_xe(signed(args),signed(argp)));
 signed(__cdecl addh_xe(signed(args),signed(argp)));
