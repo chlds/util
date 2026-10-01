@@ -1,6 +1,7 @@
 # define CAR_H
 # define IO_H
 # define STDIO_H
+# define COMPAT_H
 # include "./../../../config.h"
 
 signed long long(__cdecl endpointseek(signed(args),signed long long(argp))) {

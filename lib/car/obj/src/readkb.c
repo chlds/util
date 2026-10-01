@@ -1,6 +1,7 @@
 # define CAR_H
 # define IO_H
 # define STDIO_H
+# define COMPAT_H
 # include "./../../../config.h"
 
 signed char *(__cdecl readkb(signed(args),signed(argp))) {

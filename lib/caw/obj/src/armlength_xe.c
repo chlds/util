@@ -5,11 +5,8 @@
 signed(__cdecl armlength_xe(void(*args),signed char(*argp))) {
 auto signed short *w;
 auto signed r;
-w = (0x00);
-cv_wb(&w,argp);
+w = hermes(argp);
 r = armlength_xe_r(args,w);
-embed_w_l(0x00,w);
-rl(w);
-w = (0x00);
+w = hypnos(w);
 return(r);
 }
