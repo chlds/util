@@ -5,5 +5,5 @@
 
 signed long long(__cdecl startpointseek_beta(signed(args),signed long long(argp))) {
 auto signed r = (SEEK_SET);
-return(_lseeki64(args,argp,r));
+return(lseek_beta(args,argp,r));
 }
