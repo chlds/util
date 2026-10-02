@@ -12,16 +12,6 @@ Remarks:
 # define __cdecl __attribute__((ms_abi))
 # endif
 
-# ifdef COMPAT_H
-# ifndef READY_FOR_COMPAT_H
-# define READY_FOR_COMPAT_H
-# ifdef _MSC_VER
-# define read _read
-# define lseek _lseeki64
-# endif
-# endif
-# endif
-
 # ifndef DUAL_CONFIG_H
 # include "./incl/ctrl.h"
 # include "./incl/cli.h"
@@ -240,4 +230,14 @@ Remarks:
 
 # ifdef PRIV_H
 # include "./priv/obj/src/incl/priv.h"
+# endif
+
+# ifdef COMPAT_H
+# ifndef READY_FOR_COMPAT_H
+# define READY_FOR_COMPAT_H
+# ifdef _MSC_VER
+# define read _read
+# define lseek _lseeki64
+# endif
+# endif
 # endif
