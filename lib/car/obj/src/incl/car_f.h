@@ -1320,6 +1320,10 @@ signed char *(__cdecl dele_xe(signed char(*arg)));
 signed char *(__cdecl dele(signed char(*arg)));
 /*  delete  */
 signed(__cdecl endingbyte(signed char(*arg)));
+signed char *(__cdecl revw(signed char(*arg)));
+signed char *(__cdecl revw_xe(signed char(*arg)));
+signed char *(__cdecl reversewords_xe(signed char(*arg)));
+signed char *(__cdecl reversewords(signed char(*arg)));
 signed char *(__cdecl reverse(signed char(*arg)));
 signed char *(__cdecl reverse_xe(signed char(*arg)));
 signed char *(__cdecl reve_xe(signed char(*arg)));
