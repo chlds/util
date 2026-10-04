@@ -1275,6 +1275,8 @@ signed(__cdecl dd(signed long long(arg)));
 signed(__cdecl addressderivedalignment(void));
 signed(__cdecl ada(void));
 /*  address-derived pointer alignment e.g., for pointer tagging on LSB  */
+signed *(__cdecl desk(signed long long(argt/*offset*/),signed char(*args/*path*/),signed(*argp/*ldg*/)));
+/*  desk  */
 signed char *(__cdecl clerical(signed char(*argt/*path*/),signed(args/*offset*/),signed(argp/*times*/)));
 signed *(__cdecl clerk(signed char(*argt/*path*/),signed(args/*offset*/),signed(argp/*line*/)));
 signed *(__cdecl compositor(signed(args/*desc*/),signed(argp/*line*/)));
