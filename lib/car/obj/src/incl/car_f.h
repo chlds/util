@@ -1276,8 +1276,12 @@ signed(__cdecl addressderivedalignment(void));
 signed(__cdecl ada(void));
 /*  address-derived pointer alignment e.g., for pointer tagging on LSB  */
 signed *(__cdecl desk(signed long long(argt/*offset*/),signed char(*args/*path*/),signed(*argp/*ldg*/)));
+signed *(__cdecl subdesk(signed long long(argt/*offset*/),signed char(*args/*path*/),signed(*argp/*ldg*/)));
 /*  desk  */
 signed char *(__cdecl clerical(signed char(*argt/*path*/),signed(args/*offset*/),signed(argp/*times*/)));
+signed char *(__cdecl reporter(signed long long(argt/*offset*/),signed char(*args/*path*/),signed(argp/*times*/)));
+signed char *(__cdecl lu(signed long long(argt/*offset*/),signed char(*args/*path*/),signed(argp/*times*/)));
+signed *(__cdecl clericalwork(signed long long(argt/*offset*/),signed char(*args/*path*/),signed(argp/*line*/)));
 signed *(__cdecl clerk(signed char(*argt/*path*/),signed(args/*offset*/),signed(argp/*line*/)));
 signed *(__cdecl compositor(signed(args/*desc*/),signed(argp/*line*/)));
 signed *(__cdecl readline(signed(args/*desc*/),signed(argp/*line*/)));
@@ -1346,8 +1350,12 @@ signed(__cdecl river_xe(signed char(*args),signed(argp)));
 signed(__cdecl river(signed char(*arg)));
 signed(__cdecl whiteriver(signed char(*arg)));
 /*  a word wrap engine that hops, steps and jumps  */
-signed *(__cdecl cxtydzsn_r(signed long long(argq/*offset*/),signed(argt/*desc*/),void(*args/*arg*/),signed *(__cdecl*argp)(signed(args/*desc*/),void(*argt/*arg*/))));
+signed char *(__cdecl cxtydzsnpm_r(signed long long(argq/*offset*/),signed(argt/*desc*/),void(*args/*arg*/),signed char *(__cdecl*argp)(signed(args/*desc*/),void(*argt/*arg*/))));
+signed char *(__cdecl cxtydzsnpm(signed long long(argc/*offset*/),signed char(*argq/*path*/),signed char(*argt/*perm*/),void(*args/*arg*/),signed char *(__cdecl*argp)(signed(args/*desc*/),void(*argt/*arg*/))));
 signed *(__cdecl cxtydzsn(signed long long(argc/*offset*/),signed char(*argq/*path*/),signed char(*argt/*perm*/),void(*args/*arg*/),signed *(__cdecl*argp)(signed(args/*desc*/),void(*argt/*arg*/))));
+signed *(__cdecl cxtydzsn_r(signed long long(argq/*offset*/),signed(argt/*desc*/),void(*args/*arg*/),signed *(__cdecl*argp)(signed(args/*desc*/),void(*argt/*arg*/))));
+signed *(__cdecl cxtydzpm_r(signed long long(argq/*offset*/),signed(argt/*desc*/),signed(args/*arg*/),signed *(__cdecl*argp)(signed(args/*desc*/),signed(argt/*arg*/))));
+signed *(__cdecl cxtydzpm(signed long long(argc/*offset*/),signed char(*argq/*path*/),signed char(*argt/*perm*/),signed(args/*arg*/),signed *(__cdecl*argp)(signed(args/*desc*/),signed(argt/*arg*/))));
 signed *(__cdecl cxtydz(signed char(*argq/*path*/),signed char(*argt/*perm*/),signed(args/*arg*/),signed *(__cdecl*argp)(signed(args/*desc*/),signed(argt/*arg*/))));
 signed *(__cdecl cxtydz_r(signed(argt/*desc*/),signed(args/*arg*/),signed *(__cdecl*argp)(signed(args/*desc*/),signed(argt/*arg*/))));
 signed char *(__cdecl ctds_r(signed(argt/*desc*/),signed(args/*arg*/),signed char *(__cdecl*argp)(signed(args/*desc*/),signed(argt/*arg*/))));
@@ -1377,6 +1385,7 @@ signed char *(__cdecl readkb(signed(args),signed(argp)));
 signed char *(__cdecl readletters(signed(args),signed(argp)));
 signed char *(__cdecl readlet_xe(signed char(*args/*path*/),signed(argp/*offset/times*/)));
 signed char *(__cdecl readlet(signed char(*args),signed(argp)));
+signed char *(__cdecl readlett(signed(args),void(*argp)));
 signed char *(__cdecl rdkbyk(signed(args),signed(argp)));
 signed char *(__cdecl readk(signed(arg)));
 signed char *(__cdecl readkib(signed(arg)));

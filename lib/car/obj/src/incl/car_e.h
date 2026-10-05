@@ -43,3 +43,9 @@
 # define TERNARY TERNARYNUMERALSYSTEM
 # define BINARY BINARYNUMERALSYSTEM
 # define UNARY UNARYNUMERALSYSTEM
+
+struct compositor {
+void *ctx;
+signed wth;
+signed lne;
+} typedef compositor_t;
