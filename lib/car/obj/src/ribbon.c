@@ -1,7 +1,7 @@
 # define CAR_H
 # include "./../../../config.h"
 
-signed(__cdecl ribbon(signed(*args),signed(argp))) {
+signed long long(__cdecl ribbon(signed(*args),signed(argp))) {
 auto signed r;
 if(!(0x00<(argp--))) return(0x00);
 r = derefr(args++);

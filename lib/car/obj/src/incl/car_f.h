@@ -1279,7 +1279,8 @@ signed *(__cdecl desk(signed long long(argt/*offset*/),signed char(*args/*path*/
 signed *(__cdecl subdesk(signed long long(argt/*offset*/),signed char(*args/*path*/),signed(*argp/*ldg*/)));
 /*  desk  */
 signed char *(__cdecl clerical(signed char(*argt/*path*/),signed(args/*offset*/),signed(argp/*times*/)));
-signed char *(__cdecl reporter(signed long long(argt/*offset*/),signed char(*args/*path*/),signed(argp/*times*/)));
+signed char *(__cdecl reporter_xe(signed long long(argt/*offset*/),signed(args/*times*/),signed char(*argp/*path*/)));
+signed char *(__cdecl reporter(signed long long(argt/*offset*/),signed(args/*times*/),signed char(*argp/*path*/)));
 signed char *(__cdecl lu(signed long long(argt/*offset*/),signed char(*args/*path*/),signed(argp/*times*/)));
 signed *(__cdecl clericalwork(signed long long(argt/*offset*/),signed char(*args/*path*/),signed(argp/*line*/)));
 signed *(__cdecl clerk(signed char(*argt/*path*/),signed(args/*offset*/),signed(argp/*line*/)));
@@ -1365,11 +1366,11 @@ signed(__cdecl dedibytes(signed char(*arg)));
 signed(__cdecl dedibyte(signed char(*arg)));
 signed(__cdecl amount_xe(signed(args),signed(*argp)));
 signed(__cdecl amount(signed(*args),signed(argp)));
-signed(__cdecl cumulative(signed(*args),signed(argp)));
-signed(__cdecl cumulative_xe(signed(args),signed(*argp)));
-signed(__cdecl ribbon_xe(signed(args),signed(*argp)));
-signed(__cdecl ribbon(signed(*args),signed(argp)));
-signed(__cdecl bookmark(signed char(**args),signed(argp)));
+signed long long(__cdecl cumulative(signed(*args),signed(argp)));
+signed long long(__cdecl cumulative_xe(signed(args),signed(*argp)));
+signed long long(__cdecl ribbon_xe(signed(args),signed(*argp)));
+signed long long(__cdecl ribbon(signed(*args),signed(argp)));
+signed long long(__cdecl bookmark(signed char(**args),signed(argp)));
 signed *(__cdecl crescere(signed(args),signed(*argp)));
 signed *(__cdecl crescere_xe(signed(*args),signed(argp)));
 signed *(__cdecl accrete_xe(signed(*args),signed(argp)));

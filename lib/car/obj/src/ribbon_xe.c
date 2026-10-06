@@ -1,8 +1,8 @@
 # define CAR_H
 # include "./../../../config.h"
 
-signed(__cdecl ribbon_xe(signed(args),signed(*argp))) {
-auto signed r;
+signed long long(__cdecl ribbon_xe(signed(args),signed(*argp))) {
+auto signed long long r;
 r = ribbon(argp,args);
 argp = burn(argp);
 return(r);
