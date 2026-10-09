@@ -1513,7 +1513,7 @@ signed char *(__cdecl canon(signed(args),signed(argp)));
 signed char *(__cdecl plz(signed(args),signed char(*argp)));
 signed char *(__cdecl padwithleadingzeros(signed(args),signed char(*argp)));
 /*  pad with leading zeros  */
-signed char *(__cdecl convey_xe(signed(argt),signed char(*args),signed char(*argp)));
+signed char *(__cdecl conveyance(signed(argt),signed char(*args),signed char(*argp)));
 signed char *(__cdecl convey(signed char(*args),signed(argp)));
 signed char *(__cdecl cnvy(signed char(*args),signed char(*argp)));
 signed(__cdecl cvy(signed char(*args),signed char(*argp)));
