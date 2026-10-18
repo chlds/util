@@ -1,3 +1,14 @@
+signed(__cdecl daysleftintheyear(time_t(arg)));
+signed char *(__cdecl countdowndaybyday(time_t(arg)));
+/*  countdown, day by day  */
+signed char *(__cdecl tlne_in_en_gb(signed(args),time_t(argp)));
+signed char *(__cdecl dlne_in_en_gb(signed(args),time_t(argp)));
+signed char *(__cdecl dlne_in_en_us(signed(args),time_t(argp)));
+signed char *(__cdecl dateline_in_en_us(signed(args),time_t(argp)));
+signed char *(__cdecl dateline_in_en_us_xe(signed(args),time_t(argp)));
+signed char *(__cdecl dateline_xe(signed(args),time_t(argp)));
+signed char *(__cdecl dateline(signed(args),time_t(argp)));
+/*  dateline  */
 signed char **(__cdecl daterangequarterly_xxe(time_t(argt),signed(args),signed(argp)));
 signed char **(__cdecl daterangequarterly_xe(signed(argt),signed(args),time_t(argp)));
 signed char **(__cdecl daterangequarterly(signed(args),time_t(argp)));
@@ -31,10 +42,6 @@ signed char *(__cdecl evcivs(signed(args),time_t(argp)));
 signed char *(__cdecl evcivt(signed(args),time_t(argp)));
 signed char *(__cdecl evciv_xe(signed(args),time_t(argp)));
 signed char *(__cdecl evciv(signed(args),time_t(argp)));
-signed char *(__cdecl dateline_in_en_us(signed(args),time_t(argp)));
-signed char *(__cdecl dateline_in_en_us_xe(signed(args),time_t(argp)));
-signed char *(__cdecl dateline_xe(signed(args),time_t(argp)));
-signed char *(__cdecl dateline(signed(args),time_t(argp)));
 /*  evoke  */
 time_t(__cdecl crownhandsetting(signed(args),time_t(argp)));
 time_t(__cdecl crownhandsetting_xe(time_t(args),signed(argp)));
