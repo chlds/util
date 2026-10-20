@@ -1,3 +1,18 @@
+signed char *(__cdecl dusk(signed(args),time_t(argp)));
+signed char *(__cdecl afternoon(signed(args),time_t(argp)));
+signed char *(__cdecl latenight(signed(args),time_t(argp)));
+signed char *(__cdecl night(signed(args),time_t(argp)));
+signed char *(__cdecl evening(signed(args),time_t(argp)));
+signed char *(__cdecl lateafternoon(signed(args),time_t(argp)));
+signed char *(__cdecl midafternoon(signed(args),time_t(argp)));
+signed char *(__cdecl earlyafternoon(signed(args),time_t(argp)));
+signed char *(__cdecl latemorning(signed(args),time_t(argp)));
+signed char *(__cdecl morning(signed(args),time_t(argp)));
+signed char *(__cdecl earlymorning(signed(args),time_t(argp)));
+signed char *(__cdecl smallhours(signed(args),time_t(argp)));
+signed char *(__cdecl dawn(signed(args),time_t(argp)));
+signed char *(__cdecl period(signed(args),time_t(argp)));
+/*  period  */
 signed(__cdecl daysleftintheyear(time_t(arg)));
 signed char *(__cdecl countdowndaybyday(time_t(arg)));
 /*  countdown, day by day  */

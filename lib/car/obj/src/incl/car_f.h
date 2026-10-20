@@ -1263,10 +1263,6 @@ signed(__cdecl bpb_r(signed char(arg)));
 signed(__cdecl bpb(void));
 /* Bits par byte */
 
-signed char *(__cdecl afternoon(signed(arg)));
-signed char *(__cdecl morning(signed(arg)));
-signed char *(__cdecl hours(signed(arg)));
-/*  hours  */
 signed(__cdecl linebreak(signed char(*arg)));
 signed(__cdecl br(signed char(*arg)));
 /*  line break  */
