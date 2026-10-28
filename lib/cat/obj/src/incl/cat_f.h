@@ -19,8 +19,10 @@ signed char *(__cdecl countdowndaybyday(time_t(arg)));
 signed char *(__cdecl tlne_in_en_gb(signed(args),time_t(argp)));
 signed char *(__cdecl dlne_in_en_gb(signed(args),time_t(argp)));
 signed char *(__cdecl dlne_in_en_us(signed(args),time_t(argp)));
-signed char *(__cdecl dateline_in_en_us(signed(args),time_t(argp)));
 signed char *(__cdecl dateline_in_en_us_xe(signed(args),time_t(argp)));
+signed char *(__cdecl dateline_in_en_us(signed(args),time_t(argp)));
+signed char *(__cdecl dateline_in_en_gb(signed(args),time_t(argp)));
+signed char *(__cdecl dateline_in_en_gb_xe(signed(args),time_t(argp)));
 signed char *(__cdecl dateline_xe(signed(args),time_t(argp)));
 signed char *(__cdecl dateline(signed(args),time_t(argp)));
 /*  dateline  */
