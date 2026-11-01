@@ -17,7 +17,7 @@ auto signed char v[] = ("Christmas Eve");
 auto signed char s[] = (" ");
 if(arg<(0x00)) return(0x00);
 r = civa(CANONICAL,arg);
-//*
+/*
 if(EQ(0x05,r)) return(cathy(p));
 if(EQ(0x04,r)) return(cathy(t));
 //*/
@@ -26,7 +26,7 @@ r = daysleftintheyear(arg);
 if(!(0x01+(r))) return(0x00);
 if(!r) return(cathy(e));
 if(EQ(0x01,r)) return(cx(c,r,s,catha(f,catha(s,evcivy(CANONICAL,arg)))));
-//*
+/*
 if(EQ(0x06,r)) return(cathy(x));
 if(EQ(0x07,r)) return(cathy(v));
 //*/
